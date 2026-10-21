@@ -1,0 +1,2325 @@
+{
+  "coordinate_system": "shelf X left-to-right viewed from rack front, Y front-to-rear, Z above deck; millimetres",
+  "status": "provisional drill plan; survey actual shelf before drilling; do not drill component bodies",
+  "CAD_files": [
+    "kenshin-berserk-6u-shelf-envelope.step",
+    "adjshelfhdv-approx-vented-deck.step",
+    "adjshelfhdv-drill-plan-deck.step",
+    "individual printed bracket STEP files"
+  ],
+  "component_holes": [
+    {
+      "component": "Berserk ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        153.51,
+        304.04,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Berserk ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        277.97,
+        304.04,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Berserk ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        435.45,
+        281.18,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Berserk ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        153.51,
+        149.1,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Berserk ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        277.97,
+        149.1,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Berserk ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        153.51,
+        76.71,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Berserk ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        277.97,
+        76.71,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Berserk ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        435.45,
+        76.71,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "V100 pressure fan",
+      "interface": "pressure fan factory clearance",
+      "center_mm": [
+        140.29,
+        376.08846494072804,
+        113.05367068300289
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "V100 pressure fan",
+      "interface": "pressure fan factory clearance",
+      "center_mm": [
+        140.29,
+        288.0536706830029,
+        201.08846494072804
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "V100 pressure fan",
+      "interface": "pressure fan factory clearance",
+      "center_mm": [
+        264.78999999999996,
+        376.08846494072804,
+        113.05367068300289
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "V100 pressure fan",
+      "interface": "pressure fan factory clearance",
+      "center_mm": [
+        264.78999999999996,
+        288.0536706830029,
+        201.08846494072804
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        22.51,
+        614.34,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        101.25,
+        614.34,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        146.97,
+        614.34,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        304.45,
+        591.48,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        22.51,
+        459.4,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        146.97,
+        459.4,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        304.45,
+        459.4,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        22.51,
+        387.01,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        146.97,
+        387.01,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Kenshin ATX board",
+      "interface": "board-to-standoff",
+      "center_mm": [
+        304.45,
+        387.01,
+        15.525
+      ],
+      "diameter_mm": 3.7,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i sandwich factory thread",
+      "center_mm": [
+        145.75,
+        -8.0,
+        27.75
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i unused rear factory thread",
+      "center_mm": [
+        145.75,
+        18.0,
+        27.75
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i sandwich factory thread",
+      "center_mm": [
+        145.75,
+        -8.0,
+        152.25
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i unused rear factory thread",
+      "center_mm": [
+        145.75,
+        18.0,
+        152.25
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i sandwich factory thread",
+      "center_mm": [
+        270.25,
+        -8.0,
+        27.75
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i unused rear factory thread",
+      "center_mm": [
+        270.25,
+        18.0,
+        27.75
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i sandwich factory thread",
+      "center_mm": [
+        270.25,
+        -8.0,
+        152.25
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i unused rear factory thread",
+      "center_mm": [
+        270.25,
+        18.0,
+        152.25
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i sandwich factory thread",
+      "center_mm": [
+        285.75,
+        -8.0,
+        27.75
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i unused rear factory thread",
+      "center_mm": [
+        285.75,
+        18.0,
+        27.75
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i sandwich factory thread",
+      "center_mm": [
+        285.75,
+        -8.0,
+        152.25
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i unused rear factory thread",
+      "center_mm": [
+        285.75,
+        18.0,
+        152.25
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i sandwich factory thread",
+      "center_mm": [
+        410.25,
+        -8.0,
+        27.75
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i hose brace rear factory thread",
+      "center_mm": [
+        410.25,
+        18.0,
+        27.75
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i sandwich factory thread",
+      "center_mm": [
+        410.25,
+        -8.0,
+        152.25
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk H115i radiator",
+      "interface": "H115i hose brace rear factory thread",
+      "center_mm": [
+        410.25,
+        18.0,
+        152.25
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "H115i intake fans",
+      "interface": "fan-to-radiator",
+      "center_mm": [
+        145.75,
+        -38.0,
+        27.75
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "H115i intake fans",
+      "interface": "fan-to-radiator",
+      "center_mm": [
+        145.75,
+        -38.0,
+        152.25
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "H115i intake fans",
+      "interface": "fan-to-radiator",
+      "center_mm": [
+        270.25,
+        -38.0,
+        27.75
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "H115i intake fans",
+      "interface": "fan-to-radiator",
+      "center_mm": [
+        270.25,
+        -38.0,
+        152.25
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "H115i intake fans",
+      "interface": "fan-to-radiator",
+      "center_mm": [
+        285.75,
+        -38.0,
+        27.75
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "H115i intake fans",
+      "interface": "fan-to-radiator",
+      "center_mm": [
+        285.75,
+        -38.0,
+        152.25
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "H115i intake fans",
+      "interface": "fan-to-radiator",
+      "center_mm": [
+        410.25,
+        -38.0,
+        27.75
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "H115i intake fans",
+      "interface": "fan-to-radiator",
+      "center_mm": [
+        410.25,
+        -38.0,
+        152.25
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Berserk owned Hercules 1600W PSU",
+      "interface": "PSU rear factory thread-to-frame",
+      "center_mm": [
+        80.0,
+        202.5,
+        144
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Berserk owned Hercules 1600W PSU",
+      "interface": "PSU rear factory thread-to-frame",
+      "center_mm": [
+        6.0,
+        202.5,
+        120
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin owned HX1200i PSU",
+      "interface": "PSU rear factory thread-to-frame",
+      "center_mm": [
+        415,
+        545.5,
+        144
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin owned HX1200i PSU",
+      "interface": "PSU rear factory thread-to-frame",
+      "center_mm": [
+        341,
+        545.5,
+        120
+      ],
+      "diameter_mm": 5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        50.5,
+        673.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        50.5,
+        700.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        50.5,
+        673.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        50.5,
+        700.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        155.5,
+        673.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        155.5,
+        700.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        155.5,
+        673.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        155.5,
+        700.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        170.5,
+        673.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        170.5,
+        700.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        170.5,
+        673.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        170.5,
+        700.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        275.5,
+        673.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        275.5,
+        700.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        275.5,
+        673.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        275.5,
+        700.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        290.5,
+        673.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        290.5,
+        700.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        290.5,
+        673.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        290.5,
+        700.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO brace inward factory thread",
+      "center_mm": [
+        395.5,
+        673.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        395.5,
+        700.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO brace inward factory thread",
+      "center_mm": [
+        395.5,
+        673.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        395.5,
+        700.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 1",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        50.5,
+        706.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 1",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        50.5,
+        706.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 1",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        155.5,
+        706.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 1",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        155.5,
+        706.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 2",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        170.5,
+        706.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 2",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        170.5,
+        706.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 2",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        275.5,
+        706.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 2",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        275.5,
+        706.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 3",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        290.5,
+        706.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 3",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        290.5,
+        706.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 3",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        395.5,
+        706.5,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin AIO exhaust fan 3",
+      "interface": "Kenshin AIO fan factory clearance",
+      "center_mm": [
+        395.5,
+        706.5,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "V100 PCIE1 tail support",
+      "interface": "surveyed bearing contact, no GPU drilling",
+      "center_mm": [
+        263.5,
+        57.5,
+        24
+      ],
+      "verified": false
+    },
+    {
+      "component": "V100 PCIE2 tail support",
+      "interface": "surveyed bearing contact, no GPU drilling",
+      "center_mm": [
+        222.86,
+        57.5,
+        24
+      ],
+      "verified": false
+    },
+    {
+      "component": "V100 PCIE3 tail support",
+      "interface": "surveyed bearing contact, no GPU drilling",
+      "center_mm": [
+        182.22,
+        57.5,
+        24
+      ],
+      "verified": false
+    },
+    {
+      "component": "V100 PCIE4 tail support",
+      "interface": "surveyed bearing contact, no GPU drilling",
+      "center_mm": [
+        141.57999999999998,
+        57.5,
+        24
+      ],
+      "verified": false
+    },
+    {
+      "component": "V100 integral fan panel",
+      "interface": "fan inlet-flange through-bolt clearance",
+      "center_mm": [
+        140.29,
+        376.08846494072804,
+        113.05367068300289
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "V100 integral fan panel",
+      "interface": "fan inlet-flange through-bolt clearance",
+      "center_mm": [
+        140.29,
+        288.0536706830029,
+        201.08846494072804
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "V100 integral fan panel",
+      "interface": "fan inlet-flange through-bolt clearance",
+      "center_mm": [
+        264.78999999999996,
+        376.08846494072804,
+        113.05367068300289
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "V100 integral fan panel",
+      "interface": "fan inlet-flange through-bolt clearance",
+      "center_mm": [
+        264.78999999999996,
+        288.0536706830029,
+        201.08846494072804
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "diameter_mm": 4.5,
+      "verified": false
+    },
+    {
+      "component": "Berserk PCIE1 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        250.5,
+        320.2,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    },
+    {
+      "component": "Berserk PCIE1 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        270.5,
+        320.2,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    },
+    {
+      "component": "Berserk PCIE2 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        209.86,
+        320.2,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    },
+    {
+      "component": "Berserk PCIE2 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        229.86,
+        320.2,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    },
+    {
+      "component": "Berserk PCIE3 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        169.22,
+        320.2,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    },
+    {
+      "component": "Berserk PCIE3 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        189.22,
+        320.2,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    },
+    {
+      "component": "Berserk PCIE4 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        128.57999999999998,
+        320.2,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    },
+    {
+      "component": "Berserk PCIE4 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        148.57999999999998,
+        320.2,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin RTX5090 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        51.0,
+        634.5,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    },
+    {
+      "component": "Kenshin RTX5090 flange survey",
+      "interface": "card flange-to-metal post",
+      "center_mm": [
+        71.0,
+        634.5,
+        141.0
+      ],
+      "diameter_mm": 6.5,
+      "verified": false
+    }
+  ],
+  "GPU_exhaust_interfaces": {
+    "status": "45-degree adjustable duct-route study; rigid flange interfaces require dry fit",
+    "material": "Polymaker HT-PLA-GF, hardened0.4mm nozzle,230C/50C; recheck after annealing",
+    "ceiling_height_above_shelf_mm": 400.0,
+    "roof_center_xy_mm": [
+      202.54,
+      438.93755415948607
+    ],
+    "route": "existing V100 extraction fan -> short straight flange -> adjustable6in flex bend -> inner-ceiling chamber",
+    "layout": "GPU inlet fixed; fan and outlet tilt upward45 degrees; PC positions retained",
+    "rack_space": "tilted fan topZ233.44 and duct require reserved volume toZ400 above shelf; not a self-contained6U unit",
+    "flex_route": "owner authorizes schematic component overlaps; reshape hose around actual components, do not force rigid parts or obstruct fan inlets. Centerline is a planning curve, not an installation jig.",
+    "bend_radius_mm_schematic": 150.0,
+    "hose_nominal_id_mm": 152.4,
+    "hose_OD_mm_provisional": 154.4,
+    "modeled_centerline_length_mm": 219.7,
+    "purchase_length": "one1m length of6in wire-supported ventilation hose; trim after test fit; seller/pack pending",
+    "fan_flange": {
+      "face_mm": 10.0,
+      "neck_mm": 28.0,
+      "plate_opening": "intersection of centered 138 mm square and diameter 145.5 mm circle; stays inside the 140 mm fan face; seal mating seam",
+      "hole_pitch_mm": 124.5,
+      "clearance_holes_mm": 4.5,
+      "pockets_mm": [
+        12.2,
+        6.4,
+        4.8
+      ],
+      "nut_dimensions_provisional": true,
+      "back_to_neck_end_y_mm": 385.81118318204307,
+      "print": "flat face on bed, neck up, no supports",
+      "hardware": "4 M4x16,4 M4 hammer T-nuts,4 OD9x1washers; bench mount before hose; test job13 coupon first"
+    },
+    "roof_flange": {
+      "face_mm": 6.0,
+      "neck_mm": 40.0,
+      "square_mm": 176.0,
+      "hole_centers_xy_mm": [
+        [
+          124.53999999999999,
+          360.93755415948607
+        ],
+        [
+          124.53999999999999,
+          516.9375541594861
+        ],
+        [
+          280.53999999999996,
+          360.93755415948607
+        ],
+        [
+          280.53999999999996,
+          516.9375541594861
+        ]
+      ],
+      "slots_mm": [
+        8,
+        5.5
+      ],
+      "roof_hole_mm": 154,
+      "gasket_mm": 2,
+      "sheet_thickness_mm_provisional": 1.2,
+      "hardware": "4M4x20,4nuts,8OD12x1washers; resize for actual ceiling stack"
+    },
+    "spigot_od_bore_mm": [
+      151.5,
+      145.5
+    ],
+    "clamps": {
+      "part": "McMaster53185K52",
+      "quantity": 2,
+      "unit_price_usd": 21.92,
+      "price_date": "2026-10-17",
+      "url": "https://www.mcmaster.com/53185K52/",
+      "range_mm": [
+        152,
+        159
+      ],
+      "band_width_mm": 22.225,
+      "geometry": "published band width/thickness; estimated latch; not manufacturerCAD",
+      "fit": "measure installed hoseOD; center band on28mm fan neck with2.89mm margin each end; do not crush3mm HT-PLA-GF wall"
+    },
+    "release": "support hose, open both lever clamps, ease cuffs off necks and flex the loop free. Preserve service slack; no rigid axial-slide clearance claim.",
+    "support": "owned strap to rack near roof carries hose weight; keep tension off fan and PCB",
+    "roof_work": "inner ceiling only, not outer lid; survey factory fans, wiring, ribs, baffles and roof-channel outlet area before drilling/cutting",
+    "known_component_intersections": [],
+    "provisional_cable_reserve_intersections": [],
+    "cable_fit_condition": "tilted rigid fan/flange clear the modeled24-pin reserve; confirm actual header, latch and cable routing during dry fit",
+    "airflow": "not calculated from free-air rating; qualify actual GPU and printed-part temperatures, roof restriction/backflow and seal leakage under load. Roof fanidentity/curve unconfirmed."
+  },
+  "shelf_attachment_holes": [
+    {
+      "part": "berserk_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        355.0,
+        63.7
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": true,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
+      "part": "berserk_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        434.0,
+        63.7
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
+      "part": "kenshin_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        224.0,
+        374.0
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
+      "part": "kenshin_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        303.0,
+        374.0
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
+      "part": "h115i_screw_frame_drill_plan",
+      "center_xy_mm": [
+        162.0,
+        15.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "h115i_screw_frame_drill_plan",
+      "center_xy_mm": [
+        254.0,
+        15.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "h115i_screw_frame_drill_plan",
+      "center_xy_mm": [
+        302.0,
+        15.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "h115i_screw_frame_drill_plan",
+      "center_xy_mm": [
+        394.0,
+        15.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "fan140_aio_hose_brace",
+      "center_xy_mm": [
+        410.25,
+        38.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        8.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "fan140_aio_hose_brace",
+      "center_xy_mm": [
+        410.25,
+        53.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        8.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "fan120_aio_hose_brace",
+      "center_xy_mm": [
+        395.5,
+        653.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        8.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "fan120_aio_hose_brace",
+      "center_xy_mm": [
+        395.5,
+        638.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        8.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "psu_screw_frame_berserk_drill_plan",
+      "center_xy_mm": [
+        31.0,
+        221.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "psu_screw_frame_berserk_drill_plan",
+      "center_xy_mm": [
+        55.0,
+        221.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "psu_screw_frame_kenshin_drill_plan",
+      "center_xy_mm": [
+        366.0,
+        564.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "psu_screw_frame_kenshin_drill_plan",
+      "center_xy_mm": [
+        390.0,
+        564.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "kenshin_aio_screw_frame_drill_plan",
+      "center_xy_mm": [
+        65.0,
+        678.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "kenshin_aio_screw_frame_drill_plan",
+      "center_xy_mm": [
+        141.0,
+        678.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "kenshin_aio_screw_frame_drill_plan",
+      "center_xy_mm": [
+        305.0,
+        678.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "kenshin_aio_screw_frame_drill_plan",
+      "center_xy_mm": [
+        381.0,
+        678.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "gpu_5090_rest_drill_plan",
+      "center_xy_mm": [
+        53.0,
+        344.25
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "gpu_5090_rest_drill_plan",
+      "center_xy_mm": [
+        83.0,
+        344.25
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": true,
+      "fabrication": "survey: reuse vent or relocate hole"
+    },
+    {
+      "part": "v100_gpu_shroud",
+      "center_xy_mm": [
+        147.54,
+        347.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        8.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "v100_gpu_shroud",
+      "center_xy_mm": [
+        257.54,
+        347.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        8.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": true,
+      "fabrication": "survey: reuse vent or relocate hole"
+    },
+    {
+      "part": "v100_gpu_shroud",
+      "center_xy_mm": [
+        202.54,
+        352.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        8.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "PCIE1-metal-tail-support",
+      "center_xy_mm": [
+        263.5,
+        57.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
+      "contact_surface_z_mm": 24,
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "PCIE2-metal-tail-support",
+      "center_xy_mm": [
+        222.86,
+        57.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
+      "contact_surface_z_mm": 24,
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "PCIE3-metal-tail-support",
+      "center_xy_mm": [
+        182.22,
+        57.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
+      "contact_surface_z_mm": 24,
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "PCIE4-metal-tail-support",
+      "center_xy_mm": [
+        141.57999999999998,
+        57.5
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
+      "contact_surface_z_mm": 24,
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Berserk_PCIE1_metal_post_1",
+      "center_xy_mm": [
+        250.5,
+        320.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Berserk_PCIE1_metal_post_2",
+      "center_xy_mm": [
+        270.5,
+        320.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Berserk_PCIE2_metal_post_1",
+      "center_xy_mm": [
+        209.86,
+        320.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Berserk_PCIE2_metal_post_2",
+      "center_xy_mm": [
+        229.86,
+        320.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Berserk_PCIE3_metal_post_1",
+      "center_xy_mm": [
+        169.22,
+        320.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Berserk_PCIE3_metal_post_2",
+      "center_xy_mm": [
+        189.22,
+        320.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Berserk_PCIE4_metal_post_1",
+      "center_xy_mm": [
+        128.57999999999998,
+        320.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Berserk_PCIE4_metal_post_2",
+      "center_xy_mm": [
+        148.57999999999998,
+        320.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Kenshin_RTX5090_metal_post_1",
+      "center_xy_mm": [
+        51.0,
+        634.5
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "kenshin_mobo_adapter_left_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "Kenshin_RTX5090_metal_post_2",
+      "center_xy_mm": [
+        71.0,
+        634.5
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
+      "shared_motherboard_adapter": "kenshin_mobo_adapter_left_drill_plan",
+      "printed_bracket_slot_mm": [
+        10,
+        5.5
+      ],
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    }
+  ],
+  "optional_motherboard_shelf_holes": [
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        191.2,
+        79.71000000000001
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        231.84,
+        79.71000000000001
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        157.01,
+        226.57
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "berserk_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        355.0,
+        278.18
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "berserk_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        397.0,
+        278.18
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "berserk_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        431.95,
+        215.14
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "kenshin_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        60.2,
+        390.01
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "kenshin_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        100.84,
+        390.01
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "kenshin_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        26.009999999999998,
+        536.87
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "kenshin_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        224.0,
+        588.48
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "kenshin_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        266.0,
+        588.48
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    },
+    {
+      "part": "kenshin_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        300.95,
+        525.44
+      ],
+      "printed_bracket_slot_mm": [
+        8,
+        4
+      ],
+      "optional": true,
+      "steel_hole_diameter_mm": 3.5,
+      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
+      "washer_and_head_top_z_mm": 9.5,
+      "PCB_bottom_z_mm": 15.525,
+      "verified": false
+    }
+  ],
+  "selectable_GPU_post_slots_per_board": 8,
+  "selectable_GPU_post_slot_centers_mm": {
+    "berserk_mobo_adapter_right_drill_plan": [
+      [
+        128.57999999999998,
+        321.7
+      ],
+      [
+        148.57999999999998,
+        321.7
+      ],
+      [
+        169.22,
+        321.7
+      ],
+      [
+        189.22,
+        321.7
+      ],
+      [
+        209.86,
+        321.7
+      ],
+      [
+        229.86,
+        321.7
+      ],
+      [
+        250.5,
+        321.7
+      ],
+      [
+        270.5,
+        321.7
+      ]
+    ],
+    "kenshin_mobo_adapter_left_drill_plan": [
+      [
+        29.88,
+        632.0
+      ],
+      [
+        50.44,
+        632.0
+      ],
+      [
+        70.76,
+        632.0
+      ],
+      [
+        90.52,
+        632.0
+      ],
+      [
+        111.16,
+        632.0
+      ],
+      [
+        131.16,
+        632.0
+      ],
+      [
+        151.8,
+        632.0
+      ],
+      [
+        171.8,
+        632.0
+      ]
+    ]
+  },
+  "GPU_post_slot_note": "Eight options per board; only the selected card posts appear in the required steel pattern. Locate real seated-card posts; high-X positions need port clearance checks.",
+  "optional_motherboard_shelf_hole_note": "Twelve optional sites excluded from required drill/count plan; use only as needed, before PCB installation",
+  "hole_count": 39,
+  "M4_printed_mount_hole_count": 21,
+  "M3_motherboard_mount_hole_count": 4,
+  "M3_direct_metal_post_hole_count": 0,
+  "M3_shared_post_adapter_hole_count": 10,
+  "M4_metal_cooling_and_tail_support_hole_count": 4,
+  "estimated_vent_intersection_count": 3,
+  "PSU_rear_face_pattern_local_xz_mm": [
+    [
+      80,
+      144
+    ],
+    [
+      6,
+      120
+    ]
+  ],
+  "radiator_bottom_bearing_ledge_per_frame_mm": [
+    64,
+    26.5,
+    6
+  ],
+  "alignment_checks": {
+    "motherboard_to_adapter_max_nominal_offset_mm": 0.0,
+    "Kenshin_AIO_radiator_to_frame_max_nominal_offset_mm": 0.0,
+    "radiator_to_frame_max_nominal_x_offset_mm": 0.0,
+    "H115i_front_frame_holes": 8,
+    "H115i_front_fan_holes": 8,
+    "H115i_shared_fan_frame_radiator_screw_axes": 8,
+    "H115i_hose_brace_rear_screw_axes": 2,
+    "Kenshin_AIO_brace_inward_screw_axes": 2,
+    "Kenshin_AIO_frame_holes": 8,
+    "motherboard_holes": 18,
+    "GPU_flange_survey_holes": 10,
+    "PSU_rear_thread_marks": 4,
+    "PSU_to_frame_max_nominal_offset_mm": 0.0,
+    "drilled_shelf_hole_alignment_nominal": true,
+    "printed_shelf_slot_size_mm": [
+      10.0,
+      5.5
+    ],
+    "motherboard_shelf_slot_exception_mm": {
+      "front_M3": [
+        8,
+        4
+      ],
+      "shared_GPU_post": [
+        10,
+        5.5
+      ]
+    },
+    "V100_hood_shelf_slot_exception_mm": [
+      8.0,
+      5.5
+    ],
+    "H115i_brace_shelf_slot_exception_mm": [
+      8.0,
+      5.5
+    ],
+    "printed_shelf_slot_axis": "Y (front-to-rear)",
+    "printed_shelf_slot_clearance_checked_in_CAD": true,
+    "physical_shelf_verified": false
+  },
+  "pending_physical_measurement": [
+    "shelf vent centers, lips, sound steel around proposed holes and underside access",
+    "actual populated motherboard holes and standoff hardware",
+    "H115i revision, radiator face-hole pitch, screw thread and safe screw engagement",
+    "GPU flange shape and post-hole coordinates; CAD tabs are survey markers",
+    "both PSU rear screw patterns, orientation, AC-inlet locations and safe screw engagement; CAD marks refer only to existing factory threads",
+    "GA II Lite Performance radiator hole pitch/thread/engagement, P28 connector projections, pump-port orientation, hose path and rear shelf lip"
+  ]
+}

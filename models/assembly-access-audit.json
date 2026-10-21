@@ -1,0 +1,1911 @@
+{
+  "status": "nominal CAD clearance check; hardware dimensions and physical fit unverified",
+  "M4_mount_count": 21,
+  "M3_motherboard_mount_count": 4,
+  "M3_direct_metal_post_count": 0,
+  "M3_shared_post_adapter_count": 10,
+  "shared_post_mounts": [
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        250.5,
+        320.2
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 24.504
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        270.5,
+        320.2
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 24.504
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        209.86,
+        320.2
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 24.504
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        229.86,
+        320.2
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 24.504
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        169.22,
+        320.2
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 24.504
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        189.22,
+        320.2
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 24.504
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        128.57999999999998,
+        320.2
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 24.504
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        148.57999999999998,
+        320.2
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 24.504
+    },
+    {
+      "part": "kenshin_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        51.0,
+        634.5
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 30.249
+    },
+    {
+      "part": "kenshin_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        71.0,
+        634.5
+      ],
+      "screw": "M3x12",
+      "adapter_thickness_mm": 6,
+      "top_washer_mm": [
+        9,
+        3.2,
+        0.5
+      ],
+      "under_shelf_washers_mm": [
+        [
+          12,
+          4.4,
+          1
+        ],
+        [
+          7,
+          3.2,
+          0.5
+        ]
+      ],
+      "base_spacer_mm": 10,
+      "nominal_lower_thread_engagement_mm": 2.8,
+      "opposing_OBT_stud_length_mm": null,
+      "thread_fit_verified": false,
+      "access": "bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
+      "drill_use": "clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing",
+      "top_washer_supported_area_mm2": 30.049
+    }
+  ],
+  "head_and_washer_collisions": 0,
+  "bare_bracket_driver_collisions": 0,
+  "limits": "Checks 35 mm of straight 6 mm driver above the head; no driver handle or hand model. Fit shelf fasteners before covering components. No material-strength or creep simulation.",
+  "mounts": [
+    {
+      "part": "berserk_mobo_adapter_left_drill_plan",
+      "fastener": "M3 with steel backing",
+      "center_xy_mm": [
+        355.0,
+        63.7
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 7.0,
+      "head_envelope_diameter_height_mm": [
+        6,
+        3
+      ],
+      "washer_thickness_mm": 0.5,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.0,
+        2.0
+      ],
+      "nominal_rear_washer_margin_mm": 632.8,
+      "minimum_front_washer_margin_at_checked_travel_mm": 58.2,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 630.8,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "berserk_mobo_adapter_left_drill_plan",
+      "fastener": "M3 with steel backing",
+      "center_xy_mm": [
+        434.0,
+        63.7
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 7.0,
+      "head_envelope_diameter_height_mm": [
+        6,
+        3
+      ],
+      "washer_thickness_mm": 0.5,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.0,
+        2.0
+      ],
+      "nominal_rear_washer_margin_mm": 632.8,
+      "minimum_front_washer_margin_at_checked_travel_mm": 58.2,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 630.8,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "kenshin_mobo_adapter_right_drill_plan",
+      "fastener": "M3 with steel backing",
+      "center_xy_mm": [
+        224.0,
+        374.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 7.0,
+      "head_envelope_diameter_height_mm": [
+        6,
+        3
+      ],
+      "washer_thickness_mm": 0.5,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.0,
+        2.0
+      ],
+      "nominal_rear_washer_margin_mm": 322.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 368.5,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 320.5,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "V100 GPU shroud (fit after motherboard shelf bolts)"
+      ]
+    },
+    {
+      "part": "kenshin_mobo_adapter_right_drill_plan",
+      "fastener": "M3 with steel backing",
+      "center_xy_mm": [
+        303.0,
+        374.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 7.0,
+      "head_envelope_diameter_height_mm": [
+        6,
+        3
+      ],
+      "washer_thickness_mm": 0.5,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.0,
+        2.0
+      ],
+      "nominal_rear_washer_margin_mm": 322.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 368.5,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 320.5,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "h115i_screw_frame_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        162.0,
+        15.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 679.0,
+      "minimum_front_washer_margin_at_checked_travel_mm": 6.5,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 676.5,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Berserk H115i radiator"
+      ]
+    },
+    {
+      "part": "h115i_screw_frame_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        254.0,
+        15.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 679.0,
+      "minimum_front_washer_margin_at_checked_travel_mm": 6.5,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 676.5,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Berserk H115i radiator"
+      ]
+    },
+    {
+      "part": "h115i_screw_frame_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        302.0,
+        15.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 679.0,
+      "minimum_front_washer_margin_at_checked_travel_mm": 6.5,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 676.5,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Berserk H115i radiator"
+      ]
+    },
+    {
+      "part": "h115i_screw_frame_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        394.0,
+        15.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 679.0,
+      "minimum_front_washer_margin_at_checked_travel_mm": 6.5,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 676.5,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Berserk H115i radiator",
+        "H115i hose brace (fit after original frame shelf bolts)"
+      ]
+    },
+    {
+      "part": "fan140_aio_hose_brace",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        410.25,
+        38.0
+      ],
+      "washer_seat_z_mm": 8.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -1.5,
+        1.5
+      ],
+      "nominal_rear_washer_margin_mm": 656.0,
+      "minimum_front_washer_margin_at_checked_travel_mm": 30.5,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 654.5,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "fan140_aio_hose_brace",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        410.25,
+        53.5
+      ],
+      "washer_seat_z_mm": 8.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -1.5,
+        1.5
+      ],
+      "nominal_rear_washer_margin_mm": 640.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 46.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 639.0,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "fan120_aio_hose_brace",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        395.5,
+        653.5
+      ],
+      "washer_seat_z_mm": 8.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -1.5,
+        1.5
+      ],
+      "nominal_rear_washer_margin_mm": 40.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 646.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 39.0,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "fan120_aio_hose_brace",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        395.5,
+        638.0
+      ],
+      "washer_seat_z_mm": 8.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -1.5,
+        1.5
+      ],
+      "nominal_rear_washer_margin_mm": 56.0,
+      "minimum_front_washer_margin_at_checked_travel_mm": 630.5,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 54.5,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "psu_screw_frame_berserk_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        31.0,
+        221.5
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 472.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 213.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 470.0,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "psu_screw_frame_berserk_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        55.0,
+        221.5
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 472.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 213.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 470.0,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "psu_screw_frame_kenshin_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        366.0,
+        564.5
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 129.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 556.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 127.0,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Kenshin low-profile C13 plug + bend"
+      ]
+    },
+    {
+      "part": "psu_screw_frame_kenshin_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        390.0,
+        564.5
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 129.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 556.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 127.0,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Kenshin low-profile C13 plug + bend"
+      ]
+    },
+    {
+      "part": "kenshin_aio_screw_frame_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        65.0,
+        678.5
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 15.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 670.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 13.0,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Kenshin GA II Lite radiator"
+      ]
+    },
+    {
+      "part": "kenshin_aio_screw_frame_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        141.0,
+        678.5
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 15.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 670.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 13.0,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Kenshin GA II Lite radiator"
+      ]
+    },
+    {
+      "part": "kenshin_aio_screw_frame_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        305.0,
+        678.5
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 15.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 670.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 13.0,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Kenshin GA II Lite radiator"
+      ]
+    },
+    {
+      "part": "kenshin_aio_screw_frame_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        381.0,
+        678.5
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 15.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 670.0,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 13.0,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Kenshin AIO hose brace (fit after bearing-frame shelf bolts)",
+        "Kenshin GA II Lite radiator"
+      ]
+    },
+    {
+      "part": "gpu_5090_rest_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        53.0,
+        344.25
+      ],
+      "washer_seat_z_mm": 18.0,
+      "washer_max_od_mm": 9.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 351.25,
+      "minimum_front_washer_margin_at_checked_travel_mm": 337.25,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 348.75,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Kenshin RTX 5090"
+      ]
+    },
+    {
+      "part": "gpu_5090_rest_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        83.0,
+        344.25
+      ],
+      "washer_seat_z_mm": 18.0,
+      "washer_max_od_mm": 9.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 351.25,
+      "minimum_front_washer_margin_at_checked_travel_mm": 337.25,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 348.75,
+      "bare_bracket_tool_access": true,
+      "install_before": [
+        "Kenshin RTX 5090"
+      ]
+    },
+    {
+      "part": "v100_gpu_shroud",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        147.54,
+        347.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -1.25,
+        1.25
+      ],
+      "nominal_rear_washer_margin_mm": 347.0,
+      "minimum_front_washer_margin_at_checked_travel_mm": 339.75,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 345.75,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "v100_gpu_shroud",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        257.54,
+        347.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -1.25,
+        1.25
+      ],
+      "nominal_rear_washer_margin_mm": 347.0,
+      "minimum_front_washer_margin_at_checked_travel_mm": 339.75,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 345.75,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "v100_gpu_shroud",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        202.54,
+        352.5
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "checked_Y_adjustment_mm": [
+        -1.25,
+        1.25
+      ],
+      "nominal_rear_washer_margin_mm": 341.5,
+      "minimum_front_washer_margin_at_checked_travel_mm": 345.25,
+      "minimum_rear_washer_margin_at_checked_travel_mm": 340.25,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    }
+  ],
+  "additional_metal_M4_mount_count": 4,
+  "metal_mounts": [
+    {
+      "part": "PCIE1-metal-tail-support",
+      "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
+      "center_xy_mm": [
+        263.5,
+        57.5
+      ],
+      "driver_side": "below shelf",
+      "washer_max_od_mm": 12,
+      "checked_Y_offsets_mm": [
+        0
+      ],
+      "nominal_tool_clearance": true,
+      "physical_underside_access_verified": false
+    },
+    {
+      "part": "PCIE2-metal-tail-support",
+      "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
+      "center_xy_mm": [
+        222.86,
+        57.5
+      ],
+      "driver_side": "below shelf",
+      "washer_max_od_mm": 12,
+      "checked_Y_offsets_mm": [
+        0
+      ],
+      "nominal_tool_clearance": true,
+      "physical_underside_access_verified": false
+    },
+    {
+      "part": "PCIE3-metal-tail-support",
+      "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
+      "center_xy_mm": [
+        182.22,
+        57.5
+      ],
+      "driver_side": "below shelf",
+      "washer_max_od_mm": 12,
+      "checked_Y_offsets_mm": [
+        0
+      ],
+      "nominal_tool_clearance": true,
+      "physical_underside_access_verified": false
+    },
+    {
+      "part": "PCIE4-metal-tail-support",
+      "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
+      "center_xy_mm": [
+        141.57999999999998,
+        57.5
+      ],
+      "driver_side": "below shelf",
+      "washer_max_od_mm": 12,
+      "checked_Y_offsets_mm": [
+        0
+      ],
+      "nominal_tool_clearance": true,
+      "physical_underside_access_verified": false
+    }
+  ],
+  "cable_segment_checks": [
+    {
+      "route": "Kenshin AIO hose 1",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AIO hose 1",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AIO hose 1",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AIO hose 1",
+      "segment": 4,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AIO hose 2",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AIO hose 2",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AIO hose 2",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AIO hose 2",
+      "segment": 4,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk AC",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk AC",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk AC",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AC",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AC",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Kenshin AC",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk Ethernet",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk Ethernet",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk Ethernet",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE1 power",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE1 power",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE1 power",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE1 power",
+      "segment": 4,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE2 power",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE2 power",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE2 power",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE2 power",
+      "segment": 4,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE3 power",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE3 power",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE3 power",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE3 power",
+      "segment": 4,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE4 power",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE4 power",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE4 power",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "V100 PCIE4 power",
+      "segment": 4,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    }
+  ],
+  "V100_fan_fasteners": [
+    {
+      "center_mm": [
+        140.29,
+        376.08846494072804,
+        113.05367068300289
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "fastener": "M4x14 socket-cap screw, OD9x1 washer, M4 2020 hammer T-nut",
+      "pocket_mm": [
+        12.2,
+        6.4,
+        4.8
+      ],
+      "pocket_backing_mm": 5.2,
+      "nut_dimensions_provisional": true
+    },
+    {
+      "center_mm": [
+        140.29,
+        288.0536706830029,
+        201.08846494072804
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "fastener": "M4x14 socket-cap screw, OD9x1 washer, M4 2020 hammer T-nut",
+      "pocket_mm": [
+        12.2,
+        6.4,
+        4.8
+      ],
+      "pocket_backing_mm": 5.2,
+      "nut_dimensions_provisional": true
+    },
+    {
+      "center_mm": [
+        264.78999999999996,
+        376.08846494072804,
+        113.05367068300289
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "fastener": "M4x14 socket-cap screw, OD9x1 washer, M4 2020 hammer T-nut",
+      "pocket_mm": [
+        12.2,
+        6.4,
+        4.8
+      ],
+      "pocket_backing_mm": 5.2,
+      "nut_dimensions_provisional": true
+    },
+    {
+      "center_mm": [
+        264.78999999999996,
+        288.0536706830029,
+        201.08846494072804
+      ],
+      "axis": [
+        0,
+        0.7071067811865476,
+        0.7071067811865476
+      ],
+      "fastener": "M4x14 socket-cap screw, OD9x1 washer, M4 2020 hammer T-nut",
+      "pocket_mm": [
+        12.2,
+        6.4,
+        4.8
+      ],
+      "pocket_backing_mm": 5.2,
+      "nut_dimensions_provisional": true
+    }
+  ],
+  "GPU_exhaust": {
+    "status": "45-degree adjustable duct-route study; rigid flange interfaces require dry fit",
+    "material": "Polymaker HT-PLA-GF, hardened0.4mm nozzle,230C/50C; recheck after annealing",
+    "ceiling_height_above_shelf_mm": 400.0,
+    "roof_center_xy_mm": [
+      202.54,
+      438.93755415948607
+    ],
+    "route": "existing V100 extraction fan -> short straight flange -> adjustable6in flex bend -> inner-ceiling chamber",
+    "layout": "GPU inlet fixed; fan and outlet tilt upward45 degrees; PC positions retained",
+    "rack_space": "tilted fan topZ233.44 and duct require reserved volume toZ400 above shelf; not a self-contained6U unit",
+    "flex_route": "owner authorizes schematic component overlaps; reshape hose around actual components, do not force rigid parts or obstruct fan inlets. Centerline is a planning curve, not an installation jig.",
+    "bend_radius_mm_schematic": 150.0,
+    "hose_nominal_id_mm": 152.4,
+    "hose_OD_mm_provisional": 154.4,
+    "modeled_centerline_length_mm": 219.7,
+    "purchase_length": "one1m length of6in wire-supported ventilation hose; trim after test fit; seller/pack pending",
+    "fan_flange": {
+      "face_mm": 10.0,
+      "neck_mm": 28.0,
+      "plate_opening": "intersection of centered 138 mm square and diameter 145.5 mm circle; stays inside the 140 mm fan face; seal mating seam",
+      "hole_pitch_mm": 124.5,
+      "clearance_holes_mm": 4.5,
+      "pockets_mm": [
+        12.2,
+        6.4,
+        4.8
+      ],
+      "nut_dimensions_provisional": true,
+      "back_to_neck_end_y_mm": 385.81118318204307,
+      "print": "flat face on bed, neck up, no supports",
+      "hardware": "4 M4x16,4 M4 hammer T-nuts,4 OD9x1washers; bench mount before hose; test job13 coupon first"
+    },
+    "roof_flange": {
+      "face_mm": 6.0,
+      "neck_mm": 40.0,
+      "square_mm": 176.0,
+      "hole_centers_xy_mm": [
+        [
+          124.53999999999999,
+          360.93755415948607
+        ],
+        [
+          124.53999999999999,
+          516.9375541594861
+        ],
+        [
+          280.53999999999996,
+          360.93755415948607
+        ],
+        [
+          280.53999999999996,
+          516.9375541594861
+        ]
+      ],
+      "slots_mm": [
+        8,
+        5.5
+      ],
+      "roof_hole_mm": 154,
+      "gasket_mm": 2,
+      "sheet_thickness_mm_provisional": 1.2,
+      "hardware": "4M4x20,4nuts,8OD12x1washers; resize for actual ceiling stack"
+    },
+    "spigot_od_bore_mm": [
+      151.5,
+      145.5
+    ],
+    "clamps": {
+      "part": "McMaster53185K52",
+      "quantity": 2,
+      "unit_price_usd": 21.92,
+      "price_date": "2026-10-17",
+      "url": "https://www.mcmaster.com/53185K52/",
+      "range_mm": [
+        152,
+        159
+      ],
+      "band_width_mm": 22.225,
+      "geometry": "published band width/thickness; estimated latch; not manufacturerCAD",
+      "fit": "measure installed hoseOD; center band on28mm fan neck with2.89mm margin each end; do not crush3mm HT-PLA-GF wall"
+    },
+    "release": "support hose, open both lever clamps, ease cuffs off necks and flex the loop free. Preserve service slack; no rigid axial-slide clearance claim.",
+    "support": "owned strap to rack near roof carries hose weight; keep tension off fan and PCB",
+    "roof_work": "inner ceiling only, not outer lid; survey factory fans, wiring, ribs, baffles and roof-channel outlet area before drilling/cutting",
+    "known_component_intersections": [],
+    "provisional_cable_reserve_intersections": [],
+    "cable_fit_condition": "tilted rigid fan/flange clear the modeled24-pin reserve; confirm actual header, latch and cable routing during dry fit",
+    "airflow": "not calculated from free-air rating; qualify actual GPU and printed-part temperatures, roof restriction/backflow and seal leakage under load. Roof fanidentity/curve unconfirmed."
+  },
+  "V100_plenum_join_fasteners": [],
+  "Kenshin_AIO_radiator_fasteners": [
+    {
+      "axis_xz_mm": [
+        50.5,
+        27.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 5.25,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        50.5,
+        132.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 5.25,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        155.5,
+        27.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 5.25,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        155.5,
+        132.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 5.25,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        290.5,
+        27.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 5.25,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        290.5,
+        132.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 5.25,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        395.5,
+        27.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 5.25,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        395.5,
+        132.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 5.25,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        170.5,
+        27.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 4.75,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        170.5,
+        132.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 4.75,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        275.5,
+        27.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 4.75,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        275.5,
+        132.5
+      ],
+      "washer_OD_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        3
+      ],
+      "rear_driver_clear_length_mm": 35,
+      "fan_plus_frame_or_spacer_stack_mm": 34,
+      "minimum_side_hole_edge_material_mm": 4.75,
+      "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
+      "factory_thread_and_engagement_verified": false
+    }
+  ],
+  "H115i_shared_fan_radiator_fasteners": [
+    {
+      "axis_xz_mm": [
+        145.75,
+        27.75
+      ],
+      "fan_plus_frame_mm": 30,
+      "front_head_y_mm": -42.0,
+      "front_driver_clear_length_mm": 35,
+      "factory_thread_and_engagement_verified": false,
+      "length_rule": "preserve original safe fan-screw engagement; account for added5mm bracket and actual washer/head seats"
+    },
+    {
+      "axis_xz_mm": [
+        145.75,
+        152.25
+      ],
+      "fan_plus_frame_mm": 30,
+      "front_head_y_mm": -42.0,
+      "front_driver_clear_length_mm": 35,
+      "factory_thread_and_engagement_verified": false,
+      "length_rule": "preserve original safe fan-screw engagement; account for added5mm bracket and actual washer/head seats"
+    },
+    {
+      "axis_xz_mm": [
+        270.25,
+        27.75
+      ],
+      "fan_plus_frame_mm": 30,
+      "front_head_y_mm": -42.0,
+      "front_driver_clear_length_mm": 35,
+      "factory_thread_and_engagement_verified": false,
+      "length_rule": "preserve original safe fan-screw engagement; account for added5mm bracket and actual washer/head seats"
+    },
+    {
+      "axis_xz_mm": [
+        270.25,
+        152.25
+      ],
+      "fan_plus_frame_mm": 30,
+      "front_head_y_mm": -42.0,
+      "front_driver_clear_length_mm": 35,
+      "factory_thread_and_engagement_verified": false,
+      "length_rule": "preserve original safe fan-screw engagement; account for added5mm bracket and actual washer/head seats"
+    },
+    {
+      "axis_xz_mm": [
+        285.75,
+        27.75
+      ],
+      "fan_plus_frame_mm": 30,
+      "front_head_y_mm": -42.0,
+      "front_driver_clear_length_mm": 35,
+      "factory_thread_and_engagement_verified": false,
+      "length_rule": "preserve original safe fan-screw engagement; account for added5mm bracket and actual washer/head seats"
+    },
+    {
+      "axis_xz_mm": [
+        285.75,
+        152.25
+      ],
+      "fan_plus_frame_mm": 30,
+      "front_head_y_mm": -42.0,
+      "front_driver_clear_length_mm": 35,
+      "factory_thread_and_engagement_verified": false,
+      "length_rule": "preserve original safe fan-screw engagement; account for added5mm bracket and actual washer/head seats"
+    },
+    {
+      "axis_xz_mm": [
+        410.25,
+        27.75
+      ],
+      "fan_plus_frame_mm": 30,
+      "front_head_y_mm": -42.0,
+      "front_driver_clear_length_mm": 35,
+      "factory_thread_and_engagement_verified": false,
+      "length_rule": "preserve original safe fan-screw engagement; account for added5mm bracket and actual washer/head seats"
+    },
+    {
+      "axis_xz_mm": [
+        410.25,
+        152.25
+      ],
+      "fan_plus_frame_mm": 30,
+      "front_head_y_mm": -42.0,
+      "front_driver_clear_length_mm": 35,
+      "factory_thread_and_engagement_verified": false,
+      "length_rule": "preserve original safe fan-screw engagement; account for added5mm bracket and actual washer/head seats"
+    }
+  ],
+  "H115i_hose_brace_rear_fasteners": [
+    {
+      "axis_xz_mm": [
+        410.25,
+        27.75
+      ],
+      "rear_face_y_mm": 18.0,
+      "frame_thickness_mm": 6.0,
+      "washer_od_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        4
+      ],
+      "driver_diameter_length_mm": [
+        6,
+        35
+      ],
+      "checked_Z_adjustment_mm": [
+        -2,
+        2
+      ],
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        410.25,
+        152.25
+      ],
+      "rear_face_y_mm": 18.0,
+      "frame_thickness_mm": 6.0,
+      "washer_od_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        4
+      ],
+      "driver_diameter_length_mm": [
+        6,
+        35
+      ],
+      "checked_Z_adjustment_mm": [
+        -2,
+        2
+      ],
+      "factory_thread_and_engagement_verified": false
+    }
+  ],
+  "Kenshin_AIO_brace_inward_fasteners": [
+    {
+      "axis_xz_mm": [
+        395.5,
+        27.5
+      ],
+      "inward_face_y_mm": 673.5,
+      "frame_thickness_mm": 6.0,
+      "washer_od_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        4
+      ],
+      "driver_diameter_length_mm": [
+        6,
+        35
+      ],
+      "checked_Z_adjustment_mm": [
+        -2,
+        2
+      ],
+      "factory_thread_and_engagement_verified": false
+    },
+    {
+      "axis_xz_mm": [
+        395.5,
+        132.5
+      ],
+      "inward_face_y_mm": 673.5,
+      "frame_thickness_mm": 6.0,
+      "washer_od_thickness_mm": [
+        10,
+        1
+      ],
+      "head_diameter_height_mm": [
+        8,
+        4
+      ],
+      "driver_diameter_length_mm": [
+        6,
+        35
+      ],
+      "checked_Z_adjustment_mm": [
+        -2,
+        2
+      ],
+      "factory_thread_and_engagement_verified": false
+    }
+  ],
+  "network": {
+    "QSFP": "deferred; both NICs, risers, DAC and printed supports removed",
+    "Berserk": "onboard 2.5GbE + BMC"
+  },
+  "planned_upgrade_clearance_passed": false,
+  "planned_upgrade_component_conflicts": [
+    {
+      "components": [
+        "Berserk V100 16GB PCIE2",
+        "Berserk BMC module survey"
+      ],
+      "overlap_z_mm": 0.125,
+      "status": "unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
+    },
+    {
+      "components": [
+        "Berserk V100 16GB PCIE3",
+        "Berserk BMC module survey"
+      ],
+      "overlap_z_mm": 0.125,
+      "status": "unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
+    }
+  ],
+  "planned_upgrade_cable_conflicts": [],
+  "V100_plenum_joint": {
+    "type": "none; integral fan panel",
+    "support": "three internalM4 slots on6mm shelf base;mount bare hood through fan opening before fan/duct;seal common inlet with flexible nonconductive skirt;independently support duct",
+    "physical_fit_verified": false
+  }
+}

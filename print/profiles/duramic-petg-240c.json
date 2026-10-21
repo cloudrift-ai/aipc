@@ -1,0 +1,99 @@
+{
+  "type": "filament",
+  "name": "Duramic PETG 240C @Qidi X-Plus Gen1",
+  "inherits": "fdm_filament_pet",
+  "from": "user",
+  "setting_id": "Yk3w834THlnAS3jr",
+  "filament_id": "GFG99",
+  "instantiation": "true",
+  "filament_type": [
+    "PETG"
+  ],
+  "reduce_fan_stop_start_freq": [
+    "1"
+  ],
+  "slow_down_for_layer_cooling": [
+    "1"
+  ],
+  "fan_cooling_layer_time": [
+    "30"
+  ],
+  "overhang_fan_speed": [
+    "90"
+  ],
+  "overhang_fan_threshold": [
+    "10%"
+  ],
+  "fan_max_speed": [
+    "40"
+  ],
+  "fan_min_speed": [
+    "10"
+  ],
+  "slow_down_min_speed": [
+    "10"
+  ],
+  "slow_down_layer_time": [
+    "12"
+  ],
+  "filament_flow_ratio": [
+    "0.95"
+  ],
+  "filament_max_volumetric_speed": [
+    "5"
+  ],
+  "enable_pressure_advance": [
+    "0"
+  ],
+  "pressure_advance": [
+    "0.04"
+  ],
+  "filament_density": [
+    "1.27"
+  ],
+  "filament_vendor": [
+    "Duramic"
+  ],
+  "compatible_printers": [
+    "Qidi X-Plus 0.4 nozzle"
+  ],
+  "nozzle_temperature": [
+    "240"
+  ],
+  "nozzle_temperature_initial_layer": [
+    "240"
+  ],
+  "nozzle_temperature_range_high": [
+    "240"
+  ],
+  "nozzle_temperature_range_low": [
+    "230"
+  ],
+  "cool_plate_temp": [
+    "75"
+  ],
+  "eng_plate_temp": [
+    "75"
+  ],
+  "hot_plate_temp": [
+    "75"
+  ],
+  "textured_plate_temp": [
+    "75"
+  ],
+  "cool_plate_temp_initial_layer": [
+    "75"
+  ],
+  "eng_plate_temp_initial_layer": [
+    "75"
+  ],
+  "hot_plate_temp_initial_layer": [
+    "75"
+  ],
+  "textured_plate_temp_initial_layer": [
+    "75"
+  ],
+  "filament_settings_id": [
+    "Duramic PETG 240C @Qidi X-Plus Gen1"
+  ]
+}

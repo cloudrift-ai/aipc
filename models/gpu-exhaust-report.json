@@ -1,0 +1,90 @@
+{
+  "status": "45-degree adjustable duct-route study; rigid flange interfaces require dry fit",
+  "material": "Polymaker HT-PLA-GF, hardened0.4mm nozzle,230C/50C; recheck after annealing",
+  "ceiling_height_above_shelf_mm": 400.0,
+  "roof_center_xy_mm": [
+    202.54,
+    438.93755415948607
+  ],
+  "route": "existing V100 extraction fan -> short straight flange -> adjustable6in flex bend -> inner-ceiling chamber",
+  "layout": "GPU inlet fixed; fan and outlet tilt upward45 degrees; PC positions retained",
+  "rack_space": "tilted fan topZ233.44 and duct require reserved volume toZ400 above shelf; not a self-contained6U unit",
+  "flex_route": "owner authorizes schematic component overlaps; reshape hose around actual components, do not force rigid parts or obstruct fan inlets. Centerline is a planning curve, not an installation jig.",
+  "bend_radius_mm_schematic": 150.0,
+  "hose_nominal_id_mm": 152.4,
+  "hose_OD_mm_provisional": 154.4,
+  "modeled_centerline_length_mm": 219.7,
+  "purchase_length": "one1m length of6in wire-supported ventilation hose; trim after test fit; seller/pack pending",
+  "fan_flange": {
+    "face_mm": 10.0,
+    "neck_mm": 28.0,
+    "plate_opening": "intersection of centered 138 mm square and diameter 145.5 mm circle; stays inside the 140 mm fan face; seal mating seam",
+    "hole_pitch_mm": 124.5,
+    "clearance_holes_mm": 4.5,
+    "pockets_mm": [
+      12.2,
+      6.4,
+      4.8
+    ],
+    "nut_dimensions_provisional": true,
+    "back_to_neck_end_y_mm": 385.81118318204307,
+    "print": "flat face on bed, neck up, no supports",
+    "hardware": "4 M4x16,4 M4 hammer T-nuts,4 OD9x1washers; bench mount before hose; test job13 coupon first"
+  },
+  "roof_flange": {
+    "face_mm": 6.0,
+    "neck_mm": 40.0,
+    "square_mm": 176.0,
+    "hole_centers_xy_mm": [
+      [
+        124.53999999999999,
+        360.93755415948607
+      ],
+      [
+        124.53999999999999,
+        516.9375541594861
+      ],
+      [
+        280.53999999999996,
+        360.93755415948607
+      ],
+      [
+        280.53999999999996,
+        516.9375541594861
+      ]
+    ],
+    "slots_mm": [
+      8,
+      5.5
+    ],
+    "roof_hole_mm": 154,
+    "gasket_mm": 2,
+    "sheet_thickness_mm_provisional": 1.2,
+    "hardware": "4M4x20,4nuts,8OD12x1washers; resize for actual ceiling stack"
+  },
+  "spigot_od_bore_mm": [
+    151.5,
+    145.5
+  ],
+  "clamps": {
+    "part": "McMaster53185K52",
+    "quantity": 2,
+    "unit_price_usd": 21.92,
+    "price_date": "2026-10-17",
+    "url": "https://www.mcmaster.com/53185K52/",
+    "range_mm": [
+      152,
+      159
+    ],
+    "band_width_mm": 22.225,
+    "geometry": "published band width/thickness; estimated latch; not manufacturerCAD",
+    "fit": "measure installed hoseOD; center band on28mm fan neck with2.89mm margin each end; do not crush3mm HT-PLA-GF wall"
+  },
+  "release": "support hose, open both lever clamps, ease cuffs off necks and flex the loop free. Preserve service slack; no rigid axial-slide clearance claim.",
+  "support": "owned strap to rack near roof carries hose weight; keep tension off fan and PCB",
+  "roof_work": "inner ceiling only, not outer lid; survey factory fans, wiring, ribs, baffles and roof-channel outlet area before drilling/cutting",
+  "known_component_intersections": [],
+  "provisional_cable_reserve_intersections": [],
+  "cable_fit_condition": "tilted rigid fan/flange clear the modeled24-pin reserve; confirm actual header, latch and cable routing during dry fit",
+  "airflow": "not calculated from free-air rating; qualify actual GPU and printed-part temperatures, roof restriction/backflow and seal leakage under load. Roof fanidentity/curve unconfirmed."
+}

@@ -1,0 +1,76 @@
+{
+  "metric": "projected area of elevated mesh faces with normals within 45 degrees of downward vertical; bed contact excluded",
+  "limit": "screening only; bridges and layer paths must also be checked in OrcaSlicer",
+  "parts": {
+    "gpu_exhaust_fan_flange": {
+      "orientation": "flat fan face on bed; straight neck up, no supports",
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "gpu_exhaust_roof_flange": {
+      "orientation": "flat square mating face on bed; neck up, no supports",
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "h12d_mobo_adapter_rail": {
+      "orientation": "flat, rotated 90 degrees; screw-head recesses up",
+      "original_downward_overhang_projected_mm2": 285.1,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "atx_mobo_adapter_front": {
+      "orientation": "flat, rotated 90 degrees; screw-head recesses up",
+      "original_downward_overhang_projected_mm2": 285.1,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "atx_mobo_adapter_rail": {
+      "orientation": "flat, rotated 90 degrees; screw-head recesses up",
+      "original_downward_overhang_projected_mm2": 285.1,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "psu_bracket": {
+      "orientation": "broad rear frame face flat on bed; compact foot and gussets grow upward; HT-PLA-GF with0.4mm hardened nozzle",
+      "original_downward_overhang_projected_mm2": 46.2,
+      "print_downward_overhang_projected_mm2": 46.2
+    },
+    "fan140_aio_frame": {
+      "orientation": "flat, rotated 90 degrees for larger bed-edge clearance",
+      "original_downward_overhang_projected_mm2": 46.2,
+      "print_downward_overhang_projected_mm2": 46.2
+    },
+    "fan140_aio_hose_brace": {
+      "orientation": "mirrored inward web on bed; hose-load plane within layers; broad original-foot clearance; no supports",
+      "original_downward_overhang_projected_mm2": 189.4,
+      "print_downward_overhang_projected_mm2": 189.4
+    },
+    "gpu_rest": {
+      "orientation": "shelf orientation",
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "fan120_aio_frame": {
+      "orientation": "flat, rotated 90 degrees for larger bed-edge clearance",
+      "original_downward_overhang_projected_mm2": 46.2,
+      "print_downward_overhang_projected_mm2": 46.2
+    },
+    "fan120_aio_hose_brace": {
+      "orientation": "mirrored inward web on bed; hose-load plane within layers; broad original-foot clearance; no supports",
+      "original_downward_overhang_projected_mm2": 189.4,
+      "print_downward_overhang_projected_mm2": 189.4
+    },
+    "fan120_aio_center_spacer": {
+      "orientation": "shelf orientation",
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "v100_gpu_shroud": {
+      "orientation": "integral fan face on bed, rotated90deg; continuous exterior and four permanent tapered ribs; no removable supports",
+      "original_downward_overhang_projected_mm2": 1092.69,
+      "print_downward_overhang_projected_mm2": 1092.69
+    },
+    "tnut_fit_coupon": {
+      "orientation": "flat coupon, M4 rectangular T-nut pocket open up",
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
+    }
+  }
+}

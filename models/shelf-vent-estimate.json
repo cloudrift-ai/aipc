@@ -1,0 +1,23 @@
+{
+  "model": "ADJSHELFHDV deck only; approximate vents, not manufacturer CAD",
+  "deck_mm": [
+    446.0,
+    700.0,
+    1.2
+  ],
+  "slot_size_mm": [
+    40.0,
+    6.5
+  ],
+  "slot_column_centers_x_mm_estimate": [
+    88.0,
+    172.0,
+    275.0,
+    358.0
+  ],
+  "first_slot_row_y_mm_estimate": 65.0,
+  "row_pitch_mm_estimate": 17.5,
+  "slot_rows_estimate": 35,
+  "source": "StarTech ADJSHELFHDV_Diagram.pdf, 2025-12-16; DO NOT SCALE; drawing dimensions only establish outer deck and slot size",
+  "limitations": "Vent centers/pitch inferred from drawing proportions; omitted lips, rack rails, fasteners and front-face holes. Measure owned shelf before fitting adapters."
+}

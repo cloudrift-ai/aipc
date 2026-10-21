@@ -1,0 +1,15 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Sliced toolpaths: regenerate with `make gcode`
+print/gcode/
+
+# Scratch output
+tmp/
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
