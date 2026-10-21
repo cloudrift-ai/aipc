@@ -1,6 +1,6 @@
 # Assembly guide
 
-This guide covers fastening order, tool access and load paths for the shelf build. The geometry and the reasons behind it are in [design.md](design.md), parts in [PARTS.md](../PARTS.md), and print settings in [printing.md](printing.md).
+This guide covers fastening order, tool access and load paths for the shelf build. The geometry and the reasons behind it are in [design.md](design.md), parts in [parts.xlsx](../parts.xlsx), and print settings in [printing.md](printing.md).
 
 The build uses 18 printed parts on 14 plates (17 installed plus one T-nut fit coupon) and 39 shelf joints: 25 M4 and 14 M3. Berserk's H12D needs eight standoffs and Kenshin's X870E nine. Before assembly, check three items that are still unverified: the BMC-to-GPU underside clearance, the H115i SP3 fit, and the real projection of the angled EPS extensions.
 

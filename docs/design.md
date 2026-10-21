@@ -7,7 +7,7 @@ This repository describes two PCs, **Berserk** and **Kenshin**, built on a singl
 | Berserk | HUANANZHI H12D-8D + BMC, AMD EPYC 7702P (64 cores / 128 threads, 200 W), 8 × 16 GB DDR4-3200 ECC RDIMM, four NVIDIA V100 PCIe 16 GB, Corsair H115i (front, 140 mm fans), Rosewill Hercules 1600 W PSU |
 | Kenshin | Gigabyte X870E AORUS PRO, AMD Ryzen 9 9950X3D, Zotac RTX 5090, Lian Li GA II LITE Performance 360 (rear, 120 mm fans), Corsair HX1200i |
 
-Networking uses each board's onboard Ethernet (Berserk: dual 2.5GbE plus the dedicated BMC port). The full parts list is in [PARTS.md](../PARTS.md); assembly steps are in [assembly.md](assembly.md); print settings and materials are in [printing.md](printing.md).
+Networking uses each board's onboard Ethernet (Berserk: dual 2.5GbE plus the dedicated BMC port). The full parts list is in [parts.xlsx](../parts.xlsx); assembly steps are in [assembly.md](assembly.md); print settings and materials are in [printing.md](printing.md).
 
 ![Plan and side clearance](../models/kenshin-berserk-6u-shelf-layout.png)
 

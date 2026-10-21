@@ -8,4 +8,4 @@ Notes for coding agents working in this repo.
 - Follow [docs/printing.md](docs/printing.md) for every printable change, including the independent print audit before release.
 - G-code is generated and gitignored. Do not commit `print/gcode/`.
 - Distinguish manufacturer drawings, photo estimates and real measurements; mark unmeasured interfaces as provisional in docs and reports. A CAD check against coordinates from the same code does not validate those coordinates.
-- Keep [PARTS.md](PARTS.md) to parts the build actually uses; update it and the docs when hardware changes.
+- Keep [parts.xlsx](parts.xlsx) to parts the build actually uses; update it and the docs when hardware changes.

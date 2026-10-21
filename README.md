@@ -13,7 +13,7 @@ Everything is generated from Python ([CadQuery](https://cadquery.readthedocs.io/
 
 | Path | Contents |
 | --- | --- |
-| [PARTS.md](PARTS.md) | Parts list: shelf hardware plus each PC's components |
+| [parts.xlsx](parts.xlsx) | Parts spreadsheet with tabs for the shelf hardware, Berserk and Kenshin |
 | [docs/design.md](docs/design.md) | How the layout, mounts and cooling work, with coordinates and open checks |
 | [docs/assembly.md](docs/assembly.md) | Assembly order, fastener stacks and what to tighten before it gets covered |
 | [docs/printing.md](docs/printing.md) | 3D printing guidelines: printer, materials, design and printability rules |
@@ -71,3 +71,7 @@ The generators are parametric but written for this hardware. Common changes:
 - **Different AIOs**: the 140 mm frame is `radiator_screw_frame()` in [cad/shelf_layout.py](cad/shelf_layout.py); the 120 mm frame and braces are in [cad/kenshin_aio_mount.py](cad/kenshin_aio_mount.py) and [cad/berserk_aio_brace.py](cad/berserk_aio_brace.py).
 
 The script asserts on every collision and access check, so a change that breaks the layout fails loudly instead of exporting a bad part.
+
+## License
+
+[MIT](LICENSE): covers the code, models, print files and docs.
