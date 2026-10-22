@@ -4,10 +4,12 @@ This repository describes two PCs, **Berserk** and **Kenshin**, built on a singl
 
 | System | Components |
 | --- | --- |
-| Berserk | HUANANZHI H12D-8D + BMC, AMD EPYC 7702P (64 cores / 128 threads, 200 W), 8 × 16 GB DDR4-3200 ECC RDIMM, four NVIDIA V100 PCIe 16 GB, Corsair H115i (front, 140 mm fans), Rosewill Hercules 1600 W PSU |
+| Berserk | HUANANZHI H12D-8D + BMC, AMD EPYC 7702P (64 cores / 128 threads, 200 W), 8 × 16 GB DDR4-3200 ECC RDIMM, four NVIDIA V100 PCIe 16 GB, 3 × 2 TB SK hynix PC801 NVMe (planned RAID 0), Corsair H115i (front, 140 mm fans), Rosewill Hercules 1600 W PSU |
 | Kenshin | Gigabyte X870E AORUS PRO, AMD Ryzen 9 9950X3D, Zotac RTX 5090, Lian Li GA II LITE Performance 360 (rear, 120 mm fans), Corsair HX1200i |
 
 Networking uses each board's onboard Ethernet (Berserk: dual 2.5GbE plus the dedicated BMC port). The full parts list is in [parts.xlsx](../parts.xlsx); assembly steps are in [assembly.md](assembly.md); print settings and materials are in [printing.md](printing.md).
+
+**Berserk storage.** Selected on 2026-10-22: three used SK hynix PC801 2 TB M.2 2280 NVMe SSDs (HFS002TEJ9X101NFC), from [upwardassets' eBay listing](https://www.ebay.com/itm/880031659135). These replace the two reused Samsung 960 PRO 1 TB drives in the build's parts list. Plan a software RAID 0 array for downloadable model weights, with 6 TB nominal capacity and no redundancy. The [manufacturer specifies three PCIe 4.0 ×4 M.2 slots](https://www.huananzhi.com/en/list_6/177.html); populating all three leaves the boot layout to be decided. Aggregate bandwidth has not been measured. SSD cooling and clearance beneath the V100s remain provisional and require a physical check; they are not validated by the current CAD envelopes. The listing's 100% health is a seller claim; verify the delivered drives' SMART reports.
 
 ![Plan and side clearance](../models/kenshin-berserk-6u-shelf-layout.png)
 

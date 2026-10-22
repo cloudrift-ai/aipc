@@ -2,7 +2,7 @@
 
 An open-shelf build that puts two PCs side by side on a single 1U four-post rack shelf, inside about 6U of rack height, using 3D-printed mounts instead of cases:
 
-- **Berserk**: HUANANZHI H12D-8D with an AMD EPYC 7702P, 128 GB ECC RDIMM and **four NVIDIA V100 PCIe** cards cooled by one 140 mm pressure fan through a printed hood and an overhead exhaust duct. Corsair H115i AIO at the front.
+- **Berserk**: HUANANZHI H12D-8D with an AMD EPYC 7702P, 128 GB ECC RDIMM and **four NVIDIA V100 PCIe** cards cooled by one 140 mm pressure fan through a printed hood and an overhead exhaust duct. Selected model storage: **3 × 2 TB SK hynix PC801 NVMe in RAID 0** (6 TB nominal). Corsair H115i AIO at the front.
 - **Kenshin**: Gigabyte X870E AORUS PRO with a Ryzen 9 9950X3D and an **RTX 5090**. Lian Li GA II LITE 360 AIO at the rear.
 
 ![Shelf layout and side clearance](models/kenshin-berserk-6u-shelf-layout.png)
