@@ -248,10 +248,13 @@ def main(selected: list[str]) -> None:
         ht_pla_gf = "ht-pla-gf" in filament_profile.name
         if ht_pla_gf:
             assert machine_preset["nozzle_type"] == "hardened_steel", "HT-PLA-GF needs a hardened steel nozzle"
-        with tempfile.TemporaryDirectory(prefix=f"slice-{stem}-") as temp_name:
+        # Flatpak has a private /tmp. Keep intermediate files beside the output
+        # so the host Python process and the slicer see the same directory.
+        with tempfile.TemporaryDirectory(prefix=f".slice-{stem}-", dir=GCODE) as temp_name:
             temp = Path(temp_name)
             command = [
                 *orca,
+                "--debug", "3", "--logfile", str(temp / "orca.log"),
                 "--load-settings", f"{machine};{process_profile}",
                 "--load-filaments", str(filament_profile),
                 "--arrange", "0", "--orient", "0", "--slice", "0",
@@ -259,12 +262,29 @@ def main(selected: list[str]) -> None:
             ]
             print(f"Slicing {source.name}...", flush=True)
             run = subprocess.run(command, cwd=temp, text=True, capture_output=True)
+            log_path = GCODE / f"{stem}.log"
+            diagnostics = (
+                f"Command: {shlex.join(command)}\nExit status: {run.returncode}\n"
+                f"\nstdout:\n{run.stdout}\n\nstderr:\n{run.stderr}\n"
+            )
+            for log in sorted(temp.glob("*.log")):
+                diagnostics += f"\n{log.name}:\n{log.read_text(errors='replace')}\n"
+            log_path.write_text(diagnostics)
+            failure_details = f"Full slicer log: {log_path}\n{diagnostics[-4000:]}"
             if run.returncode:
-                raise RuntimeError(f"{stem} failed ({run.returncode}):\n{run.stdout[-4000:]}\n{run.stderr[-4000:]}")
-            result = json.loads((temp / "result.json").read_text())
-            assert result["return_code"] == 0, result
+                raise RuntimeError(f"{stem} failed ({run.returncode}):\n{failure_details}")
+            try:
+                result = json.loads((temp / "result.json").read_text())
+            except (OSError, ValueError) as exc:
+                raise RuntimeError(
+                    f"{stem}: OrcaSlicer exited with status 0 but did not produce a readable "
+                    f"result.json. Check slicer output and directory access.\n{failure_details}"
+                ) from exc
+            if not isinstance(result, dict) or result.get("return_code") != 0:
+                raise RuntimeError(f"{stem}: slicing failed: {result}\n{failure_details}")
             sliced = temp / "plate_1.gcode"
-            assert sliced.exists(), (stem, run.stdout[-1000:])
+            if not sliced.is_file():
+                raise RuntimeError(f"{stem}: OrcaSlicer did not produce plate_1.gcode.\n{failure_details}")
             checked = validate_gcode(sliced, item["highest_part_mm"], item["supports_required"],
                                      nozzle_c=230 if ht_pla_gf else 240, bed_c=50 if ht_pla_gf else 75,
                                      ht_pla_gf=ht_pla_gf)
