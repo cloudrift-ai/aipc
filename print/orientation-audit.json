@@ -15,7 +15,8 @@
     "h12d_mobo_adapter_rail": {
       "orientation": "flat, rotated 90 degrees; screw-head recesses up",
       "original_downward_overhang_projected_mm2": 285.1,
-      "print_downward_overhang_projected_mm2": 0.0
+      "print_downward_overhang_projected_mm2": 187.71,
+      "bridge_review": "Original recesses-up orientation; only the2mm GPU groove at PCB rear+1..3mm bridges at print Z2, between walls rooted on bed. No support; inspect sliced closure and dry-fit."
     },
     "atx_mobo_adapter_front": {
       "orientation": "flat, rotated 90 degrees; screw-head recesses up",
@@ -25,7 +26,8 @@
     "atx_mobo_adapter_rail": {
       "orientation": "flat, rotated 90 degrees; screw-head recesses up",
       "original_downward_overhang_projected_mm2": 285.1,
-      "print_downward_overhang_projected_mm2": 0.0
+      "print_downward_overhang_projected_mm2": 180.51,
+      "bridge_review": "Original recesses-up orientation; only the2mm GPU groove at PCB rear+1..3mm bridges at print Z2, between walls rooted on bed. No support; inspect sliced closure and dry-fit."
     },
     "psu_bracket": {
       "orientation": "broad rear frame face flat on bed; compact foot and gussets grow upward; HT-PLA-GF with0.4mm hardened nozzle",

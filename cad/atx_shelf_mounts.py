@@ -20,6 +20,19 @@ POST_SLOT_LENGTH, POST_SLOT_WIDTH = 10.0, 5.5
 POST_SLOT_X = (23.88, 44.44, 64.76, 84.52, 105.16, 125.16, 145.80, 165.80)
 POST_SLOT_Y = 7.5
 POST_WASHER_OD, POST_WASHER_T = 9.0, .5
+# ATX2.2 Fig3: mounting datum is10.16mm inside PCB rear edge.
+# PCIe CEM2.0 Figs5-1/5-2/6-14: connector key is46.94mm inside that datum.
+# Fig6-2: bracket outside flat face is59.05mm behind key -> PCB rear+1.95.
+# Fig6-4:0.86mm sheet and5deg outward bend over5.07mm -> tip about+1.53..2.39.
+# Use a1..3mm rear-edge groove for nominal fit; tolerance stack needs a dry fit.
+ATX_REAR_MOUNT_DATUM = .4*25.4
+PCIE_KEY_FROM_MOUNT_DATUM = 46.94
+PCIE_BRACKET_FACE_FROM_KEY = 59.05
+PCIE_BRACKET_OUTSIDE_Y = PCIE_BRACKET_FACE_FROM_KEY-PCIE_KEY_FROM_MOUNT_DATUM-ATX_REAR_MOUNT_DATUM
+GPU_TAB_RELIEF_DEPTH = 2.0
+GPU_TAB_GROOVE_WIDTH = 2.0
+GPU_TAB_GROOVE_Y = 2.0  # nominal-fit allowance referenced to PCB edge, not posts
+STANDOFF_EDGE_WEB = 4.0
 # Eight selectable positions on one continuous rear rail, common to both boards.
 # Current card layout populates all eight on Berserk and two on Kenshin.
 # Post coordinates are survey estimates, not a standardized card-flange drawing.
@@ -135,6 +148,70 @@ def build(system):
                                     (optional[group],SHELF_SLOT_LENGTH,SHELF_SLOT_WIDTH)):
             for x,y in points:
                 s = s.cut(cq.Workplane('XY').center(x,y).slot2D(length,width,90).extrude(THICKNESS))
+        relief = None
+        if group == 'front':
+            inner_y = back + GPU_TAB_GROOVE_Y - GPU_TAB_GROOVE_WIDTH/2
+            outer_y = back + GPU_TAB_GROOVE_Y + GPU_TAB_GROOVE_WIDTH/2
+            bb = s.val().BoundingBox()
+            # A narrow rectangular groove keeps the original print orientation:
+            # its walls start on the bed and the roof bridges only 2 mm at Z2.
+            cutter = (cq.Workplane('XY')
+                      .box(bb.xlen+2, GPU_TAB_GROOVE_WIDTH, GPU_TAB_RELIEF_DEPTH+1,
+                           centered=(False, False, False))
+                      .translate((bb.xmin-1, inner_y, THICKNESS-GPU_TAB_RELIEF_DEPTH)))
+            # Keep the full thickness around every selectable board screw,
+            # including optional B. Do not trade a seated GPU for a weak land.
+            lands = []
+            for site in sites:
+                x, y = holes[site]
+                land = (cq.Workplane('XY').center(x, y)
+                        .slot2D(6+2*STANDOFF_EDGE_WEB, 3.7+2*STANDOFF_EDGE_WEB, 90)
+                        .extrude(THICKNESS))
+                lands.append(land)
+            # Offset the post slot by washer radius minus M3 shaft radius.
+            # This covers all physically possible centers, beyond the specified
+            # +/-0.6 X, +/-2.5 Y installation adjustment (not just sampled points).
+            washer_offset = (POST_WASHER_OD-3.0)/2
+            post_lands = []
+            for x, y in post_slots:
+                land = (cq.Workplane('XY').center(x, y)
+                        .slot2D(POST_SLOT_LENGTH+2*washer_offset,
+                                POST_SLOT_WIDTH+2*washer_offset, 90).extrude(THICKNESS))
+                post_lands.append(land)
+                cutter = cutter.cut(land)
+            original = s.val()
+            s = s.cut(cutter)
+            assert original.Volume()-s.val().Volume() > 100, (system, 'missing GPU tab relief')
+            for land in lands + post_lands:
+                assert original.intersect(land.val()).cut(s.val()).Volume() < .01, (system, 'standoff land')
+            assert THICKNESS-GPU_TAB_RELIEF_DEPTH >= 4
+            # Each inter-post gap must actually open down to the requested
+            # floor, including the region beyond the PCB where tongues land.
+            for (lx, _), (rx, _) in zip(post_slots, post_slots[1:]):
+                probe = (cq.Workplane('XY').center((lx+rx)/2, back+GPU_TAB_GROOVE_Y)
+                         .rect(4, GPU_TAB_GROOVE_WIDTH-.02).extrude(GPU_TAB_RELIEF_DEPTH-.02)
+                         .translate((0, 0, THICKNESS-GPU_TAB_RELIEF_DEPTH+.01)))
+                assert s.val().intersect(probe.val()).Volume() < .01, (system, 'GPU tab gap')
+            relief = {'type': 'narrow rectangular groove',
+                      'depth_mm': GPU_TAB_RELIEF_DEPTH, 'width_mm': GPU_TAB_GROOVE_WIDTH,
+                      'remaining_base_thickness_mm': THICKNESS-GPU_TAB_RELIEF_DEPTH,
+                      'installed_y_range_mm': [inner_y, outer_y],
+                      'y_range_relative_to_PCB_rear_mm': [inner_y-back, outer_y-back],
+                      'standard_bracket_outside_face_relative_to_PCB_rear_mm': PCIE_BRACKET_OUTSIDE_Y,
+                      'standard_datum_chain_mm': {'key_to_bracket_outside_face': PCIE_BRACKET_FACE_FROM_KEY,
+                                                  'mount_datum_to_key': PCIE_KEY_FROM_MOUNT_DATUM,
+                                                  'PCB_rear_to_mount_datum': ATX_REAR_MOUNT_DATUM},
+                      'standoff_slot_edge_web_mm': STANDOFF_EDGE_WEB,
+                      'full_height_post_land_mm': [POST_SLOT_LENGTH+2*washer_offset, POST_SLOT_WIDTH+2*washer_offset],
+                      'minimum_gap_between_post_lands_mm': min(b[0]-a[0] for a,b in zip(post_slots, post_slots[1:]))-(POST_SLOT_WIDTH+2*washer_offset),
+                      'standoff_lands_preserved': True, 'post_washer_sweep_preserved': True,
+                      'print_orientation': 'original: installed top on bed, screw-head recesses up',
+                      'print_bridge_span_mm': GPU_TAB_GROOVE_WIDTH, 'supports_required': False,
+                      'basis': 'ATX2.2 Fig3 and PCIe CEM2.0 Figs5-1/5-2/6-2/6-14 give nominal bracket outside face59.05-46.94-10.16=1.95mm behind PCB rear. Fig6-4 specifies0.86mm sheet and5deg+/-2deg outward tongue bend over5.07mm, giving nominal tip about1.53..2.39mm behind PCB. Groove1..3mm is a nominal-fit design allowance, not guaranteed full tolerance coverage; depth2mm requested by owner. Actual hardware fit remains unmeasured',
+                      'sources': ['https://analytika.sk/fileadmin/user_upload/developer_specs_atx2_2.PDF#page=12',
+                                  'https://tecsmith.github.io/homeassistant-pc-switch/specs/pci-express-card-electromechanical-specification-revision-2.pdf#page=85'],
+                      'physical_fit_verified': False,
+                      'fit_check': 'Measure seated tab X/Y/Z and width; check all tongues against full-height post lands and steel deck; print one of each rear rail and dry-fit before use'}
         for x, y in anchors[group]:
             assert (y+SHELF_TRAVEL+washer_od/2 <= y0 if group == 'rear' else y-POST_WASHER_OD/2 >= back)
         assert s.val().isValid() and len(s.solids().vals()) == 1, (system,group)
@@ -147,6 +224,7 @@ def build(system):
                          'shared_post_anchors': anchors[group] if group == 'front' else [],
                          'post_slots': post_slots if group == 'front' else [],
                          'rear_rail_depth_mm': BAR_WIDTH if group == 'front' else None,
+                         'gpu_tab_relief': relief,
                          'post_slots_are_selectable': True,
                          'standalone_anchors': [] if group == 'front' else anchors[group],
                          'post_slot_mm': [POST_SLOT_LENGTH,POST_SLOT_WIDTH],

@@ -807,6 +807,7 @@ for system in ("Berserk", "Kenshin"):
             "backing_washer_OD_mm":12 if frame["shared_post_anchors"] else frame["backing_washer_od_mm"],
             "bar_width_mm":frame["bar_width_mm"],"ear_width_mm":frame["ear_width_mm"],
             "rear_rail_depth_mm":frame["rear_rail_depth_mm"],"post_slots_are_selectable":True,
+            "gpu_tab_relief":frame["gpu_tab_relief"],
             "installed_origin_xy_mm":frame["origin"],"bounds_xy_mm":frame["bounds"],
             "independent_mount":False,"joint_role":"three full-depth drop-in dovetails, including perpendicular C-H key; shelf and board retain Z"})
         for x,y in frame["optional_anchors"]:
@@ -849,8 +850,8 @@ INSTALLED_MODELS = {
 }
 MOBO_PURPOSE = {
     "atx_mobo_adapter_front": "shelf-front motherboard section, common to every ATX board here: two M3 front ears, three optional inner slots, 25mm rails and three drop-in XY keys",
-    "atx_mobo_adapter_rail": "standard ATX rear-rail section: eight selectable GPU-post slots in one continuous 25mm rail at ATX slot positions",
-    "h12d_mobo_adapter_rail": "H12D-8D rear-rail section: same as the ATX rail with the eight GPU-post slots shifted 32.3mm toward low X for four dual-slot cards",
+    "atx_mobo_adapter_rail": "standard ATX rear-rail section: eight selectable GPU-post slots; provisional 2x2mm GPU-tab groove, preserved washer seats; original recesses-up print orientation without supports",
+    "h12d_mobo_adapter_rail": "H12D-8D rear-rail section: eight GPU-post slots shifted 32.3mm toward low X; provisional 2x2mm GPU-tab groove, preserved washer seats; original recesses-up print orientation without supports",
 }
 mobo_models = {}
 for label, shape, _ in adapter_parts:

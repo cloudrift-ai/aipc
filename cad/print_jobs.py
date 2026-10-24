@@ -224,6 +224,7 @@ def main():
     mobo_process=json.loads((OUT/"profiles/process.json").read_text())
     mobo_process.update({"name":"0.20mm PETG ATX ears @Qidi X-Plus Gen1","setting_id":"PETG_ATX_EARS", "skirt_loops":"0"})
     (OUT/"profiles/motherboard-ears.json").write_text(json.dumps(mobo_process,indent=2)+"\n")
+    (OUT/"profiles/motherboard-rails-supported.json").unlink(missing_ok=True)
     # Integral chamber ribs support the shroud; all current cooling jobs use this process.
     cooling_process=json.loads((OUT / "profiles/ht-pla-gf-psu.json").read_text())
     cooling_process.update({"name":"0.20mm HT-PLA-GF cooling @Qidi X-Plus Gen1","setting_id":"HTPLAGF_COOLING_SLOW"})
@@ -241,12 +242,40 @@ def main():
         before = downward_overhang_area(source_meshes[part])
         after = downward_overhang_area(meshes[part])
         assert after <= before + 0.01, (part, before, after)
-        if "_mobo_adapter_" in part:
+        bridge_note = None
+        if part.endswith('_mobo_adapter_rail'):
+            # Only the 2mm-wide GPU groove roofs may face down. All screw
+            # pockets stay open upward in the original print orientation.
+            # Groove is1..3mm behind PCB edge; the forward circular caps of
+            # eight16x11.5mm washer lands interrupt it. Integrate those caps
+            # independently of the exported mesh to check the exact roof area.
+            vertices, triangles, (width, depth, _) = meshes[part]
+            radius = 11.5/2
+            def cap_area(height):
+                return (radius*radius*math.acos((radius-height)/radius)
+                        -(radius-height)*math.sqrt(2*radius*height-height*height))
+            expected = 2*depth-8*(cap_area(3.5)-cap_area(1.5))
+            assert abs(after-expected) < .5, (part, 'unexpected bridge area', after, expected)
+            for indices in triangles:
+                a,b,c = [vertices[i] for i in indices]
+                u = [b[i]-a[i] for i in range(3)]
+                v = [c[i]-a[i] for i in range(3)]
+                normal = (u[1]*v[2]-u[2]*v[1], u[2]*v[0]-u[0]*v[2], u[0]*v[1]-u[1]*v[0])
+                norm = math.sqrt(sum(n*n for n in normal))
+                # Use the same 45-degree criterion as the screening metric;
+                # float STL coordinates give vertical curved walls tiny Z normals.
+                if norm and normal[2]/norm < -math.sqrt(.5) and min(a[2],b[2],c[2]) > .25:
+                    assert all(abs(p[2]-2) < .001 for p in (a,b,c)), (part, 'unexpected roof height')
+                    assert all(width-15.501 <= p[0] <= width-13.499 for p in (a,b,c)), (part, 'roof outside GPU groove')
+                    assert max(p[0] for p in (a,b,c))-min(p[0] for p in (a,b,c)) <= 2.001
+            bridge_note = 'Original recesses-up orientation; only the2mm GPU groove at PCB rear+1..3mm bridges at print Z2, between walls rooted on bed. No support; inspect sliced closure and dry-fit.'
+        elif "_mobo_adapter_" in part:
             assert after == 0, (part, after)
         orientation_audit[part] = {
             "orientation": oriented[part][1],
             "original_downward_overhang_projected_mm2": before,
             "print_downward_overhang_projected_mm2": after,
+            **({'bridge_review': bridge_note} if bridge_note else {}),
         }
     jobs = pack_jobs(meshes)
     # A new plate export invalidates any older toolpaths, even if the names match.

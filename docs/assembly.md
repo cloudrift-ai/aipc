@@ -55,6 +55,8 @@ Berserk uses `01_atx_mobo_adapter_front` + `03_h12d_mobo_adapter_rail`. Kenshin 
 
 The 6 mm rear rail sits 4.5466 mm below a conservative I/O shield edge. Tall high-X posts and real plug bodies still need a dry fit.
 
+Both rear rails have a **2 mm-deep × 2 mm-wide GPU-tab groove spanning 1–3 mm behind the PCB rear edge**, interrupted by the preserved post-washer seats. Its position follows the nominal ATX/PCIe bracket geometry documented in [design.md](design.md#motherboard-adapters); the 2 mm allowance still needs a real fit check. Use the **original print orientation, screw-head recesses up, without supports**. Print one of each changed rail and seat the actual GPUs before setting the post nuts. Check that each lower bracket tongue enters the groove and clears its 4 mm floor, the washer seats and the steel shelf, with the PCIe connector fully seated. If a tongue misses the groove, record its X/Y position, thickness and required depth before revising the CAD. Do not pull a card into its slot with the post nuts.
+
 ### 3. Under-shelf metal supports
 
 1. Fit the four M4 20 mm V100 tail spacers from below with steel washers at Y57.5, X263.5 / 222.86 / 182.22 / 141.58, before the cards go in.

@@ -618,6 +618,44 @@
         "ear_width_mm": 14.0,
         "rear_rail_depth_mm": 25.0,
         "post_slots_are_selectable": true,
+        "gpu_tab_relief": {
+          "type": "narrow rectangular groove",
+          "depth_mm": 2.0,
+          "width_mm": 2.0,
+          "remaining_base_thickness_mm": 4.0,
+          "installed_y_range_mm": [
+            315.2,
+            317.2
+          ],
+          "y_range_relative_to_PCB_rear_mm": [
+            1.0,
+            3.0
+          ],
+          "standard_bracket_outside_face_relative_to_PCB_rear_mm": 1.9499999999999993,
+          "standard_datum_chain_mm": {
+            "key_to_bracket_outside_face": 59.05,
+            "mount_datum_to_key": 46.94,
+            "PCB_rear_to_mount_datum": 10.16
+          },
+          "standoff_slot_edge_web_mm": 4.0,
+          "full_height_post_land_mm": [
+            16.0,
+            11.5
+          ],
+          "minimum_gap_between_post_lands_mm": 8.5,
+          "standoff_lands_preserved": true,
+          "post_washer_sweep_preserved": true,
+          "print_orientation": "original: installed top on bed, screw-head recesses up",
+          "print_bridge_span_mm": 2.0,
+          "supports_required": false,
+          "basis": "ATX2.2 Fig3 and PCIe CEM2.0 Figs5-1/5-2/6-2/6-14 give nominal bracket outside face59.05-46.94-10.16=1.95mm behind PCB rear. Fig6-4 specifies0.86mm sheet and5deg+/-2deg outward tongue bend over5.07mm, giving nominal tip about1.53..2.39mm behind PCB. Groove1..3mm is a nominal-fit design allowance, not guaranteed full tolerance coverage; depth2mm requested by owner. Actual hardware fit remains unmeasured",
+          "sources": [
+            "https://analytika.sk/fileadmin/user_upload/developer_specs_atx2_2.PDF#page=12",
+            "https://tecsmith.github.io/homeassistant-pc-switch/specs/pci-express-card-electromechanical-specification-revision-2.pdf#page=85"
+          ],
+          "physical_fit_verified": false,
+          "fit_check": "Measure seated tab X/Y/Z and width; check all tongues against full-height post lands and steel deck; print one of each rear rail and dry-fit before use"
+        },
         "installed_origin_xy_mm": [
           121.57999999999998,
           67.21000000000001
@@ -692,6 +730,7 @@
         "ear_width_mm": 14.0,
         "rear_rail_depth_mm": null,
         "post_slots_are_selectable": true,
+        "gpu_tab_relief": null,
         "installed_origin_xy_mm": [
           261.3,
           55.69999999999999
@@ -810,6 +849,44 @@
         "ear_width_mm": 14.0,
         "rear_rail_depth_mm": 25.0,
         "post_slots_are_selectable": true,
+        "gpu_tab_relief": {
+          "type": "narrow rectangular groove",
+          "depth_mm": 2.0,
+          "width_mm": 2.0,
+          "remaining_base_thickness_mm": 4.0,
+          "installed_y_range_mm": [
+            625.5,
+            627.5
+          ],
+          "y_range_relative_to_PCB_rear_mm": [
+            1.0,
+            3.0
+          ],
+          "standard_bracket_outside_face_relative_to_PCB_rear_mm": 1.9499999999999993,
+          "standard_datum_chain_mm": {
+            "key_to_bracket_outside_face": 59.05,
+            "mount_datum_to_key": 46.94,
+            "PCB_rear_to_mount_datum": 10.16
+          },
+          "standoff_slot_edge_web_mm": 4.0,
+          "full_height_post_land_mm": [
+            16.0,
+            11.5
+          ],
+          "minimum_gap_between_post_lands_mm": 8.259999999999991,
+          "standoff_lands_preserved": true,
+          "post_washer_sweep_preserved": true,
+          "print_orientation": "original: installed top on bed, screw-head recesses up",
+          "print_bridge_span_mm": 2.0,
+          "supports_required": false,
+          "basis": "ATX2.2 Fig3 and PCIe CEM2.0 Figs5-1/5-2/6-2/6-14 give nominal bracket outside face59.05-46.94-10.16=1.95mm behind PCB rear. Fig6-4 specifies0.86mm sheet and5deg+/-2deg outward tongue bend over5.07mm, giving nominal tip about1.53..2.39mm behind PCB. Groove1..3mm is a nominal-fit design allowance, not guaranteed full tolerance coverage; depth2mm requested by owner. Actual hardware fit remains unmeasured",
+          "sources": [
+            "https://analytika.sk/fileadmin/user_upload/developer_specs_atx2_2.PDF#page=12",
+            "https://tecsmith.github.io/homeassistant-pc-switch/specs/pci-express-card-electromechanical-specification-revision-2.pdf#page=85"
+          ],
+          "physical_fit_verified": false,
+          "fit_check": "Measure seated tab X/Y/Z and width; check all tongues against full-height post lands and steel deck; print one of each rear rail and dry-fit before use"
+        },
         "installed_origin_xy_mm": [
           13.509999999999991,
           377.51
@@ -885,6 +962,7 @@
         "ear_width_mm": 14.0,
         "rear_rail_depth_mm": null,
         "post_slots_are_selectable": true,
+        "gpu_tab_relief": null,
         "installed_origin_xy_mm": [
           130.3,
           366.0
@@ -1391,7 +1469,7 @@
       "z": 107.57359312880715,
       "w": 140.0,
       "d": 125.86500705120545,
-      "h": 125.86500705120548,
+      "h": 125.86500705120545,
       "note": "Sanyo 9GV1412P1S001, 45-degree upward exhaust; bounding box only, shape is rotated; occupies reserved upper duct volume"
     },
     {
@@ -1626,7 +1704,7 @@
         263.49,
         6.0
       ],
-      "purpose": "H12D-8D rear-rail section: same as the ATX rail with the eight GPU-post slots shifted 32.3mm toward low X for four dual-slot cards"
+      "purpose": "H12D-8D rear-rail section: eight GPU-post slots shifted 32.3mm toward low X; provisional 2x2mm GPU-tab groove, preserved washer seats; original recesses-up print orientation without supports"
     },
     {
       "part": "atx_mobo_adapter_front",
@@ -1646,7 +1724,7 @@
         263.49,
         6.0
       ],
-      "purpose": "standard ATX rear-rail section: eight selectable GPU-post slots in one continuous 25mm rail at ATX slot positions"
+      "purpose": "standard ATX rear-rail section: eight selectable GPU-post slots; provisional 2x2mm GPU-tab groove, preserved washer seats; original recesses-up print orientation without supports"
     },
     {
       "part": "psu_bracket",

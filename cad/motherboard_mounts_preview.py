@@ -5,7 +5,100 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.collections import PolyCollection
 from matplotlib.lines import Line2D
-from print_jobs import read_binary_stl
+from print_jobs import read_binary_stl, print_orientation
+
+
+def render_gpu_groove_location(out):
+    """Installed top detail with the actual PCB datum, using exported meshes."""
+    data = json.loads((out / 'fit-report.json').read_text())
+    import atx_shelf_mounts as model
+    fig, axes = plt.subplots(2, 1, figsize=(13, 6.5))
+    for ax, system in zip(axes, ('Kenshin', 'Berserk')):
+        pattern = next(p for p in data['motherboard_adapter_revision']['support_patterns']
+                       if p['part'].startswith(system.lower()) and p['gpu_tab_relief'])
+        part = data['installed_part_models'][pattern['part']]
+        vertices, indices, _ = read_binary_stl(out / f'{part}.stl')
+        x, y, _, d = model.BOARDS[system]
+        dx, dy = pattern['installed_origin_xy_mm']
+        triangles = (np.asarray(vertices)+(dx-x, dy-y-d, 0))[np.asarray(indices)]
+        for z, color in ((6, '#82bfc8'), (4, '#de8a38')):
+            faces = triangles[np.all(np.abs(triangles[:, :, 2]-z) < .001, axis=1)]
+            ax.add_collection(PolyCollection(faces[:, :, :2], facecolors=color,
+                                             edgecolors='none', antialiaseds=False))
+        ax.axhline(0, color='#bb2639', ls='--', lw=1.5)
+        low, high = triangles[:, :, 0].min(), triangles[:, :, 0].max()
+        ax.set(xlim=(low-2, high+2), ylim=(-3, 12),
+               yticks=[0, 1, 3, 7.5], ylabel='Behind PCB edge (mm)')
+        ax.set_title(f'{system}: installed top view, rear rail detail', loc='left', fontsize=12)
+        ax.grid(axis='y', alpha=.12)
+        ax.set_xlabel('Along motherboard edge (mm); depth enlarged for visibility')
+    fig.suptitle('GPU-tab groove: 2 mm deep, spanning 1–3 mm behind the motherboard edge', fontsize=15)
+    fig.legend(handles=[Line2D([], [], color='#bb2639', ls='--', label='Motherboard rear edge'),
+                        Line2D([], [], color='#de8a38', lw=7, label='Groove floor'),
+                        Line2D([], [], color='#82bfc8', lw=7, label='Full-height rail / washer seats')],
+               loc='lower center', bbox_to_anchor=(.5, .065), ncol=3, frameon=False)
+    fig.text(.5, .025, 'ATX / PCIe nominal bracket outer face: +1.95 mm; bent tip about +1.53…+2.39 mm. Physical fit remains provisional.',
+             ha='center', fontsize=10)
+    fig.tight_layout(rect=(0, .13, 1, .94))
+    fig.savefig(out / 'motherboard-gpu-groove-location.png', dpi=170)
+    plt.close(fig)
+
+
+def render_gpu_relief(out):
+    """Review exported meshes in the same orientation as their print plates."""
+    from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+    views = ((90, -90, 'Above'), (-90, -90, 'Below / bed face'),
+             (15, 0, 'Rear edge'), (15, 180, 'Board-facing edge'),
+             (25, 45, 'Oblique'), (-25, 225, 'Bed-face oblique'))
+    for part in ('atx_mobo_adapter_rail', 'h12d_mobo_adapter_rail'):
+        mesh, _ = print_orientation(part, read_binary_stl(out / f'{part}.stl'))
+        vertices, indices, (width, depth, height) = mesh
+        triangles = np.asarray(vertices)[np.asarray(indices)]
+        # Show only the rear 36 mm; full-frame views hide a 2 mm feature.
+        clipped = []
+        for triangle in triangles:
+            polygon = []
+            for a, b in zip(triangle, np.roll(triangle, -1, axis=0)):
+                inside_a, inside_b = a[0] >= width-36, b[0] >= width-36
+                if inside_a:
+                    polygon.append(a)
+                if inside_a != inside_b:
+                    polygon.append(a+(b-a)*((width-36-a[0])/(b[0]-a[0])))
+            for j in range(1, len(polygon)-1):
+                clipped.append([polygon[0], polygon[j], polygon[j+1]])
+        triangles = np.asarray(clipped)
+        normal = np.cross(triangles[:, 1]-triangles[:, 0], triangles[:, 2]-triangles[:, 0])
+        magnitude = np.linalg.norm(normal, axis=1)
+        sloped = (np.abs(normal[:, 0]) > .01*magnitude) & (np.abs(normal[:, 2]) > .01*magnitude)
+        floor = np.all(np.abs(triangles[:, :, 2]-2) < .001, axis=1)
+        colors = np.where(sloped | floor, '#de8a38', '#82bfc8')
+        fig = plt.figure(figsize=(15, 10))
+        for index, (elev, azim, label) in enumerate(views, 1):
+            ax = fig.add_subplot(2, 3, index, projection='3d', computed_zorder=False)
+            # Back-face culling avoids the painter's algorithm drawing long
+            # hidden triangles over the narrow recesses on the visible side.
+            er, ar = np.radians([elev, azim])
+            camera = np.array([np.cos(er)*np.cos(ar), np.cos(er)*np.sin(ar), np.sin(er)])
+            visible = (normal @ camera) > 1e-7
+            ax.add_collection3d(Poly3DCollection(triangles[visible], facecolors=colors[visible],
+                                               linewidths=0, antialiaseds=False,
+                                               shade=True, zorder=2))
+            # Rear rail ends16.5mm behind the PCB edge. Project its datum
+            # onto each visible surface; this is not the +7.5mm post line.
+            datum_x = width-16.5
+            ax.plot([datum_x, datum_x], [0, depth],
+                    [-.05, -.05] if elev < 0 else [height+.05, height+.05],
+                    color='#bb2639', ls='--', lw=1.3, zorder=10)
+            ax.set(xlim=(width-36, width), ylim=(0, depth), zlim=(0, height))
+            ax.set_box_aspect((36, depth, height), zoom=.88)
+            ax.view_init(elev=elev, azim=azim)
+            ax.set_title(label, pad=8)
+            ax.set_axis_off()
+        fig.suptitle(f'{part}: 2 x 2 mm GPU-tab groove (orange roof)\nOriginal plate orientation: screw recesses up, groove toward bed', fontsize=16)
+        fig.text(.5, .03, 'Red dashed line: projected motherboard rear edge. Groove spans 1–3 mm behind this edge.\nOriginal washer seats preserved; 2 mm bridge, no supports. Actual hardware dry-fit required.', ha='center', fontsize=11)
+        fig.subplots_adjust(left=0, right=1, bottom=.08, top=.89, wspace=0, hspace=.05)
+        fig.savefig(out / f'{part}-print-review.png', dpi=170)
+        plt.close(fig)
 
 
 def render(out):
@@ -68,6 +161,8 @@ def render(out):
     fig.subplots_adjust(left=.07,right=.98,top=.88,bottom=.24,wspace=.26)
     fig.savefig(out / "motherboard-independent-mounts.png",dpi=170)
     plt.close(fig)
+    render_gpu_relief(out)
+    render_gpu_groove_location(out)
 
 
 if __name__ == "__main__":
