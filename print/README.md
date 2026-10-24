@@ -13,8 +13,8 @@ or one plate at a time, for example `make print/gcode/05_psu_brackets.gcode`. Th
 | Plate | Contents | Prints | Material | Orca estimate per print |
 | --- | --- | ---: | --- | --- |
 | [01_atx_mobo_adapter_front](01_atx_mobo_adapter_front.3mf) | Shelf-front motherboard section with two M3 ears; common to both boards | 2 | PETG | 14 h 30 m, 94 g |
-| [02_atx_mobo_adapter_rail](02_atx_mobo_adapter_rail.3mf) | ATX rear rail with 2 × 2 mm GPU-tab groove (Kenshin) | 1 | PETG | 14 h 42 m, 94 g |
-| [03_h12d_mobo_adapter_rail](03_h12d_mobo_adapter_rail.3mf) | Shifted rear rail with 2 × 2 mm GPU-tab groove (Berserk) | 1 | PETG | 14 h 46 m, 95 g |
+| [02_atx_mobo_adapter_rail](02_atx_mobo_adapter_rail.3mf) | ATX rear rail with regular hex base holes and 2 × 2 mm groove | 1 | PETG | 14 h 51 m, 95 g |
+| [03_h12d_mobo_adapter_rail](03_h12d_mobo_adapter_rail.3mf) | H12D rear rail with regular hex base holes and 2 × 2 mm groove | 1 | PETG | 14 h 51 m, 95 g |
 | [04_gpu_rest](04_gpu_rest.3mf) | RTX 5090 front-end rest with recessed shelf bolts | 1 | PETG | 9 h 10 m, 51 g |
 | [05_psu_brackets](05_psu_brackets.3mf) | Two identical rear PSU brackets | 1 | HT-PLA-GF | about 13 h 30 m, 95 g |
 | [06_fan140_aio_frame](06_fan140_aio_frame.3mf) | 140 mm fan-flush radiator frame with bearing ledge | 2 | PETG | 11 h 25 m, 76 g |
@@ -27,7 +27,7 @@ or one plate at a time, for example `make print/gcode/05_psu_brackets.gcode`. Th
 | [13_gpu_exhaust_fan_flange](13_gpu_exhaust_fan_flange.3mf) | Fan outlet to 6-inch duct | 1 | HT-PLA-GF | 16 h 15 m, 129 g |
 | [14_gpu_exhaust_roof_flange](14_gpu_exhaust_roof_flange.3mf) | Cabinet inner-ceiling duct flange | 1 | HT-PLA-GF | 16 h 59 m, 149 g |
 
-Estimates are from OrcaSlicer 2.4.2 with the profiles here; your slice will report its own. PETG plates use Duramic PETG at 240 °C / 75 °C. HT-PLA-GF plates use Polymaker HT-PLA-GF at 230 °C / 50 °C and need a **0.4 mm hardened steel nozzle**. All motherboard sections keep their original recesses-up orientation. Plates **02 and 03** bridge only the 2 mm-wide GPU-tab groove facing the bed, positioned 1–3 mm behind the motherboard rear edge. No plate needs supports; the shroud's four internal ribs are permanent and must stay.
+Estimates are from OrcaSlicer 2.4.2 with the profiles here; your slice will report its own. PETG plates use Duramic PETG at 240 °C / 75 °C. HT-PLA-GF plates use Polymaker HT-PLA-GF at 230 °C / 50 °C and need a **0.4 mm hardened steel nozzle**. All motherboard sections keep their original recesses-up orientation. Plates **02 and 03** bridge the 2 mm-wide GPU-tab groove facing the bed, positioned 1–3 mm behind the motherboard rear edge. The regular hex holes are 5.8 mm across flats, giving 0.15 mm clearance per face with no elongated adjustment. Point one standoff corner toward the PCB. H12D tips meet the groove; ATX holes stay separate. Inspect the first roof layer at Z2.2 and check the snug fit on a test print after removing brim/first-layer excess. No plate needs supports; the shroud's four internal ribs are permanent and must stay.
 
 Each `.svg` next to a plate shows its layout. [orientation-audit.json](orientation-audit.json) records each part's print orientation. See [docs/printing.md](../docs/printing.md) for the printer, material and design rules these plates follow, and [docs/assembly.md](../docs/assembly.md) for where each part goes.
 

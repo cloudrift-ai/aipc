@@ -445,19 +445,34 @@
     "approximate_vented_deck_step": "adjshelfhdv-approx-vented-deck.step",
     "drill_plan_deck_step": "adjshelfhdv-drill-plan-deck.step",
     "estimated_slot_count": 140,
-    "proposed_attachment_count": 39,
+    "proposed_attachment_count": 45,
     "candidate_vent_intersections": 3,
     "local_backing_plate_locations_survey": true
   },
   "lateral_support_review": {
     "design_basis": "stationary rack, ordinary handling only; verify holes, backing and loaded fit before powering",
-    "Berserk_and_Kenshin_motherboards": "two interlocking flat sections per board, each with at least four non-collinear motherboard screws; two front shelf anchors plus selected rear GPU-post anchors; eight choices per common rail; eight Berserk and nine Kenshin metal standoffs (Kenshin B optional)",
+    "Berserk_and_Kenshin_motherboards": "two interlocking flat sections per board, each with at least four non-collinear motherboard screws; five independent shelf anchors (two front ears, three under-PCB); eight choices per common rail; eight Berserk and nine Kenshin metal standoffs (Kenshin B optional)",
     "Berserk_and_Kenshin_PSUs": "each PSU rests on steel and uses two upper factory screws for lateral restraint; each open rear frame has a continuous lower rail and a symmetric two-slot shelf foot; PSU patterns and plug clearances remain unmeasured",
     "Berserk_H115i": "trimmed fan-flush replacements preserve the owner-fitted sandwich's ledges,40mm feet and factory axes; ledges bear radiator, feet reach27mm onto shelf; revised slots and loaded fit require checking",
-    "five_GPUs": "All ten selected GPU OBT post joints also clamp the6mm motherboard adapters: eight on Berserk and two on Kenshin. Both common rails provide all eight optional positions; locate real seated-card posts before drilling. All ten have underside backing; shared posts add OD9x0.5 top washers. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
+    "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x6 lower screws through OD12+OD7 underside washers leave1.7mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
     "V100_cooling": "single Sanyo140mm fan on integral45-degree panel; broad3.2mm HT-PLA-GF rear-array hood with6mm base and three internalM4 shelf slots;no fitted collar or individual post cuts;flexible nonconductive inlet seal required;M4 T-nut pockets;physical and thermal qualification pending",
     "Kenshin_AIO": "three coplanar owned fans pull rearward through low 360 radiator at20mm bottom height; two front-style120mm frames with40mm feet bear radiator weight, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; an inward triangular brace adds two factory screws/two shelf bolts; loaded PETG fit unverified",
     "overall": "balanced drilled-hole concept is plausible, but physical holes, PETG stiffness, cooling and GPU post load paths are unverified"
+  },
+  "GPU_post_thread_stack": {
+    "base_part": "970140324",
+    "base_height_mm": 14.0,
+    "base_across_flats_mm": 5.5,
+    "internal_thread_length_mm": 14.0,
+    "manufacturer_drawing": "https://www.we-online.com/components/products/datasheet/970140324.pdf",
+    "purchase_link": "https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/970140324/9488563",
+    "OBT_stud_length_mm": 9.0,
+    "OBT_stud_basis": "owner-reported 2026-10-23; tolerance not measured",
+    "bottom_screw": "M3x6",
+    "shelf_thickness_nominal_mm": 1.2,
+    "nominal_lower_thread_engagement_mm": 3.3,
+    "nominal_tip_clearance_mm": 1.7,
+    "physical_fit_verified": false
   },
   "motherboard_adapter_revision": {
     "interlocking_pair_count": 2,
@@ -478,42 +493,22 @@
         "optional_ATX_sites": [],
         "required_motherboard_screw_count": 4,
         "largest_motherboard_triangle_area_mm2": 14146.746,
-        "shelf_anchor_count": 8,
+        "shelf_anchor_count": 3,
         "shelf_anchor_centers_mm": [
           [
-            128.57999999999998,
-            320.2
+            191.2,
+            301.2
           ],
           [
-            148.57999999999998,
-            320.2
+            247.0,
+            301.2
           ],
           [
-            169.22,
-            320.2
-          ],
-          [
-            189.22,
-            320.2
-          ],
-          [
-            209.86,
-            320.2
-          ],
-          [
-            229.86,
-            320.2
-          ],
-          [
-            250.5,
-            320.2
-          ],
-          [
-            270.5,
-            320.2
+            247.0,
+            79.71000000000001
           ]
         ],
-        "shared_post_anchor_centers_mm": [
+        "through_post_centers_mm": [
           [
             128.57999999999998,
             320.2
@@ -550,50 +545,63 @@
         "common_post_slot_centers_mm": [
           [
             128.57999999999998,
-            321.7
+            320.2
           ],
           [
             148.57999999999998,
-            321.7
+            320.2
           ],
           [
             169.22,
-            321.7
+            320.2
           ],
           [
             189.22,
-            321.7
+            320.2
           ],
           [
             209.86,
-            321.7
+            320.2
           ],
           [
             229.86,
-            321.7
+            320.2
           ],
           [
             250.5,
-            321.7
+            320.2
           ],
           [
             270.5,
-            321.7
+            320.2
           ]
         ],
         "post_slot_mm": [
-          10.0,
-          5.5
+          6.697263122599659,
+          5.8
         ],
         "interchangeable_with": null,
         "shelf_anchor_end": "rear",
+        "post_opening": {
+          "profile": "regular hexagon",
+          "sides": 6,
+          "across_flats_mm": 5.8,
+          "across_corners_mm": 6.697263122599659,
+          "length_Y_mm": 6.697263122599659,
+          "width_X_mm": 5.8,
+          "clearance_per_hex_face_mm": 0.15,
+          "designed_adjustment_mm": {
+            "X": 0,
+            "Y": 0
+          },
+          "fit": "snug design allowance; actual printed fit unverified",
+          "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+          "arbitrary_base_rotation_allowed": false,
+          "physical_fit_verified": false
+        },
         "optional_shelf_anchor_centers_mm": [
           [
             191.2,
-            79.71000000000001
-          ],
-          [
-            231.84,
             79.71000000000001
           ],
           [
@@ -603,17 +611,17 @@
         ],
         "optional_anchor_access": "under PCB; secure before motherboard; optional hardware omitted from required BOM/drill count",
         "shelf_slot_mm": [
-          10.0,
-          5.5
+          8.0,
+          4.0
         ],
         "checked_Y_adjustment_mm": [
-          -2.5,
-          2.5
+          -2,
+          2
         ],
         "adjustment_datum": "printed slot center, not active post center",
         "shelf_fastener": "M3",
-        "top_washer_OD_mm": 9.0,
-        "backing_washer_OD_mm": 12,
+        "top_washer_OD_mm": 7.0,
+        "backing_washer_OD_mm": 7.0,
         "bar_width_mm": 25.0,
         "ear_width_mm": 14.0,
         "rear_rail_depth_mm": 25.0,
@@ -638,13 +646,8 @@
             "PCB_rear_to_mount_datum": 10.16
           },
           "standoff_slot_edge_web_mm": 4.0,
-          "full_height_post_land_mm": [
-            16.0,
-            11.5
-          ],
-          "minimum_gap_between_post_lands_mm": 8.5,
           "standoff_lands_preserved": true,
-          "post_washer_sweep_preserved": true,
+          "intersects_post_clearance_slots": true,
           "print_orientation": "original: installed top on bed, screw-head recesses up",
           "print_bridge_span_mm": 2.0,
           "supports_required": false,
@@ -654,7 +657,7 @@
             "https://tecsmith.github.io/homeassistant-pc-switch/specs/pci-express-card-electromechanical-specification-revision-2.pdf#page=85"
           ],
           "physical_fit_verified": false,
-          "fit_check": "Measure seated tab X/Y/Z and width; check all tongues against full-height post lands and steel deck; print one of each rear rail and dry-fit before use"
+          "fit_check": "Measure seated tab X/Y/Z; check tongues against metal bases and steel deck; print one of each rear rail and dry-fit before use"
         },
         "installed_origin_xy_mm": [
           121.57999999999998,
@@ -666,7 +669,8 @@
           290.47,
           330.7
         ],
-        "independent_mount": false,
+        "independent_shelf_fasteners": true,
+        "anchors_before_PCB": true,
         "joint_role": "three full-depth drop-in dovetails, including perpendicular C-H key; shelf and board retain Z"
       },
       {
@@ -691,14 +695,31 @@
             63.69999999999999
           ]
         ],
-        "shared_post_anchor_centers_mm": [],
+        "through_post_centers_mm": [],
         "common_post_slot_centers_mm": [],
         "post_slot_mm": [
-          10.0,
-          5.5
+          6.697263122599659,
+          5.8
         ],
         "interchangeable_with": "Kenshin",
         "shelf_anchor_end": "front",
+        "post_opening": {
+          "profile": "regular hexagon",
+          "sides": 6,
+          "across_flats_mm": 5.8,
+          "across_corners_mm": 6.697263122599659,
+          "length_Y_mm": 6.697263122599659,
+          "width_X_mm": 5.8,
+          "clearance_per_hex_face_mm": 0.15,
+          "designed_adjustment_mm": {
+            "X": 0,
+            "Y": 0
+          },
+          "fit": "snug design allowance; actual printed fit unverified",
+          "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+          "arbitrary_base_rotation_allowed": false,
+          "physical_fit_verified": false
+        },
         "optional_shelf_anchor_centers_mm": [
           [
             355.0,
@@ -741,7 +762,8 @@
           444.45,
           290.68
         ],
-        "independent_mount": false,
+        "independent_shelf_fasteners": true,
+        "anchors_before_PCB": false,
         "joint_role": "three full-depth drop-in dovetails, including perpendicular C-H key; shelf and board retain Z"
       },
       {
@@ -757,18 +779,22 @@
         ],
         "required_motherboard_screw_count": 4,
         "largest_motherboard_triangle_area_mm2": 14146.746,
-        "shelf_anchor_count": 2,
+        "shelf_anchor_count": 3,
         "shelf_anchor_centers_mm": [
           [
-            51.0,
-            634.5
+            60.2,
+            611.5
           ],
           [
-            71.0,
-            634.5
+            116.0,
+            611.5
+          ],
+          [
+            116.0,
+            390.01
           ]
         ],
-        "shared_post_anchor_centers_mm": [
+        "through_post_centers_mm": [
           [
             51.0,
             634.5
@@ -781,50 +807,63 @@
         "common_post_slot_centers_mm": [
           [
             29.88,
-            632.0
+            634.5
           ],
           [
-            50.44,
-            632.0
+            51.0,
+            634.5
           ],
           [
-            70.76,
-            632.0
+            71.0,
+            634.5
           ],
           [
             90.52,
-            632.0
+            634.5
           ],
           [
             111.16,
-            632.0
+            634.5
           ],
           [
             131.16,
-            632.0
+            634.5
           ],
           [
             151.8,
-            632.0
+            634.5
           ],
           [
             171.8,
-            632.0
+            634.5
           ]
         ],
         "post_slot_mm": [
-          10.0,
-          5.5
+          6.697263122599659,
+          5.8
         ],
         "interchangeable_with": null,
         "shelf_anchor_end": "rear",
+        "post_opening": {
+          "profile": "regular hexagon",
+          "sides": 6,
+          "across_flats_mm": 5.8,
+          "across_corners_mm": 6.697263122599659,
+          "length_Y_mm": 6.697263122599659,
+          "width_X_mm": 5.8,
+          "clearance_per_hex_face_mm": 0.15,
+          "designed_adjustment_mm": {
+            "X": 0,
+            "Y": 0
+          },
+          "fit": "snug design allowance; actual printed fit unverified",
+          "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+          "arbitrary_base_rotation_allowed": false,
+          "physical_fit_verified": false
+        },
         "optional_shelf_anchor_centers_mm": [
           [
             60.2,
-            390.01
-          ],
-          [
-            100.84,
             390.01
           ],
           [
@@ -834,17 +873,17 @@
         ],
         "optional_anchor_access": "under PCB; secure before motherboard; optional hardware omitted from required BOM/drill count",
         "shelf_slot_mm": [
-          10.0,
-          5.5
+          8.0,
+          4.0
         ],
         "checked_Y_adjustment_mm": [
-          -2.5,
-          2.5
+          -2,
+          2
         ],
         "adjustment_datum": "printed slot center, not active post center",
         "shelf_fastener": "M3",
-        "top_washer_OD_mm": 9.0,
-        "backing_washer_OD_mm": 12,
+        "top_washer_OD_mm": 7.0,
+        "backing_washer_OD_mm": 7.0,
         "bar_width_mm": 25.0,
         "ear_width_mm": 14.0,
         "rear_rail_depth_mm": 25.0,
@@ -869,13 +908,8 @@
             "PCB_rear_to_mount_datum": 10.16
           },
           "standoff_slot_edge_web_mm": 4.0,
-          "full_height_post_land_mm": [
-            16.0,
-            11.5
-          ],
-          "minimum_gap_between_post_lands_mm": 8.259999999999991,
           "standoff_lands_preserved": true,
-          "post_washer_sweep_preserved": true,
+          "intersects_post_clearance_slots": false,
           "print_orientation": "original: installed top on bed, screw-head recesses up",
           "print_bridge_span_mm": 2.0,
           "supports_required": false,
@@ -885,7 +919,7 @@
             "https://tecsmith.github.io/homeassistant-pc-switch/specs/pci-express-card-electromechanical-specification-revision-2.pdf#page=85"
           ],
           "physical_fit_verified": false,
-          "fit_check": "Measure seated tab X/Y/Z and width; check all tongues against full-height post lands and steel deck; print one of each rear rail and dry-fit before use"
+          "fit_check": "Measure seated tab X/Y/Z; check tongues against metal bases and steel deck; print one of each rear rail and dry-fit before use"
         },
         "installed_origin_xy_mm": [
           13.509999999999991,
@@ -897,7 +931,8 @@
           178.8,
           641.0
         ],
-        "independent_mount": false,
+        "independent_shelf_fasteners": true,
+        "anchors_before_PCB": true,
         "joint_role": "three full-depth drop-in dovetails, including perpendicular C-H key; shelf and board retain Z"
       },
       {
@@ -923,14 +958,31 @@
             374.0
           ]
         ],
-        "shared_post_anchor_centers_mm": [],
+        "through_post_centers_mm": [],
         "common_post_slot_centers_mm": [],
         "post_slot_mm": [
-          10.0,
-          5.5
+          6.697263122599659,
+          5.8
         ],
         "interchangeable_with": "Berserk",
         "shelf_anchor_end": "front",
+        "post_opening": {
+          "profile": "regular hexagon",
+          "sides": 6,
+          "across_flats_mm": 5.8,
+          "across_corners_mm": 6.697263122599659,
+          "length_Y_mm": 6.697263122599659,
+          "width_X_mm": 5.8,
+          "clearance_per_hex_face_mm": 0.15,
+          "designed_adjustment_mm": {
+            "X": 0,
+            "Y": 0
+          },
+          "fit": "snug design allowance; actual printed fit unverified",
+          "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+          "arbitrary_base_rotation_allowed": false,
+          "physical_fit_verified": false
+        },
         "optional_shelf_anchor_centers_mm": [
           [
             224.0,
@@ -973,7 +1025,8 @@
           313.45,
           600.98
         ],
-        "independent_mount": false,
+        "independent_shelf_fasteners": true,
+        "anchors_before_PCB": false,
         "joint_role": "three full-depth drop-in dovetails, including perpendicular C-H key; shelf and board retain Z"
       }
     ],
@@ -986,8 +1039,10 @@
       8.5,
       3.0
     ],
-    "shared_post_joint_count": 10,
+    "shared_post_joint_count": 0,
+    "through_post_joint_count": 10,
     "standalone_front_anchor_count": 4,
+    "under_PCB_anchor_count": 6,
     "identical_pair_for_both_boards": false,
     "common_front_section": true,
     "rear_rail_exception": "H12D GPU slot positions require shifted rear post rail",
@@ -997,24 +1052,41 @@
     "joint_count": 6,
     "joint_type": "three full-depth drop-in dovetails per board, including one perpendicular key; 0.3mm side clearance; shelf and standoffs retain Z",
     "shelf_slots_mm": {
-      "front_M3": [
+      "M3_adapter_anchors": [
         8,
         4
       ],
-      "shared_GPU_post": [
-        10,
-        5.5
+      "GPU_base_clearance": [
+        6.697263122599659,
+        5.8
       ]
     },
-    "M3_anchor_note": "Four front anchors: M3x16,OD7x0.5 top/back washers. Ten selected rear shared posts: M3x12 below,OD12+OD7 backing,OD9x0.5 top washer,10mm M3 female base. All steel holes3.5mm; confirm actual rod threads and slot center before drilling",
+    "GPU_base_opening": {
+      "profile": "regular hexagon",
+      "sides": 6,
+      "across_flats_mm": 5.8,
+      "across_corners_mm": 6.697263122599659,
+      "length_Y_mm": 6.697263122599659,
+      "width_X_mm": 5.8,
+      "clearance_per_hex_face_mm": 0.15,
+      "designed_adjustment_mm": {
+        "X": 0,
+        "Y": 0
+      },
+      "fit": "snug design allowance; actual printed fit unverified",
+      "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+      "arbitrary_base_rotation_allowed": false,
+      "physical_fit_verified": false
+    },
+    "M3_anchor_note": "Ten adapter anchors: M3x16,OD7x0.5 top/back washers and nuts; six under-PCB anchors go in first. Ten GPU bases: Wurth970140324 14mm M3 SW5.5 on steel, M3x6 below with OD12+OD7 backing. All steel holes3.5mm; confirm fixed OBT nut height and solid steel before drilling",
     "bar_width_mm": 25.0,
     "ear_width_mm": 14.0,
-    "shelf_anchor_access": "front anchors outside PCB; rear rail below nominal I/O shield, high-X posts require actual port/card survey; fit before GPUs/removable shroud; optional inner anchors before PCB",
+    "shelf_anchor_access": "front anchors outside PCB; three mandatory anchors per rear section under PCB, fit before motherboard; high-X post/port clearance remains provisional",
     "printer_bed_mm": [
       270,
       200
     ],
-    "optional_shelf_anchor_count_per_board": 6,
+    "optional_shelf_anchor_count_per_board": 5,
     "rear_io_service_keepouts": [
       {
         "system": "Berserk",
@@ -1262,7 +1334,7 @@
     "PSU rear hole patterns, inlet and modular cable bends require physical measurement; keep each PSU's original modular cables",
     "H115i original brackets are owner-fitted in a fan/frame/radiator sandwich; approximate13mm overhang from owner, ledges touch at Z20; angled EPS plugs are modeled with an unverified 18mm projection target; actual product dimensions, electrical pinout and cable bends must be checked",
     "Whole build moves 52.5 mm forward. Rear fans pull outward. Heads reach Y738.5; AIO frame top Z140 leaves 82.25 mm nominal 6U clearance; brace top Z142 leaves 80.25 mm. Survey front fascia/doors, rear cables and all moved anchors",
-    "ten selected GPU posts need ten10mm M3 female bases and M3x12 lower screws (2.8mm nominal engagement); all clamp the adapter. Eight selectable slots per board do not require populating all16. Verify opposing stud clearance and6.5mm top-nut adjustment; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Six posts/spacers are ordered; four additional rods/spacers are required. Both add-in NICs and risers are deferred",
+    "ten selected GPU posts need ten14mm Wurth970140324 M3 female bases and M3x6 lower screws (3.3mm nominal engagement,1.7mm nominal gap to owner-reported9mm stud); plastic does not carry their clamp load. Eight selectable slots per board do not require populating all16. Verify fixed OBT nut height with seated card; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Ten replacement14mm bases are required; ten rods total (six previously ordered, four additional). Both add-in NICs and risers are deferred",
     "ground each motherboard with a metal lead from a standoff to the steel shelf; printed adapters are insulating",
     "Kenshin's AC plug survey volume assumes a side/upward exit above its PSU foot; verify the actual inlet and bend",
     "Berserk AC routes outside the left shelf edge (about 13 mm); Ethernet routes outside the right edge (about 12 mm); QSFP link is deferred; verify cabinet lanes and smooth cable bends",
@@ -1704,7 +1776,7 @@
         263.49,
         6.0
       ],
-      "purpose": "H12D-8D rear-rail section: eight GPU-post slots shifted 32.3mm toward low X; provisional 2x2mm GPU-tab groove, preserved washer seats; original recesses-up print orientation without supports"
+      "purpose": "H12D-8D rear-rail section: eight regular hex5.8mm-AF holes at PCB rear+6mm,0.15mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports"
     },
     {
       "part": "atx_mobo_adapter_front",
@@ -1724,7 +1796,7 @@
         263.49,
         6.0
       ],
-      "purpose": "standard ATX rear-rail section: eight selectable GPU-post slots; provisional 2x2mm GPU-tab groove, preserved washer seats; original recesses-up print orientation without supports"
+      "purpose": "standard ATX rear-rail section: eight regular hex5.8mm-AF holes at PCB rear+10mm,0.15mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports"
     },
     {
       "part": "psu_bracket",
@@ -2001,31 +2073,6 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        231.84,
-        79.71000000000001
-      ],
-      "printed_bracket_slot_mm": [
-        8,
-        4
-      ],
-      "optional": true,
-      "steel_hole_diameter_mm": 3.5,
-      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
-      "washer_and_head_top_z_mm": 9.5,
-      "PCB_bottom_z_mm": 15.525,
-      "verified": false,
-      "checked_Y_adjustment_mm": [
-        -2,
-        2
-      ],
-      "install_before": [
-        "motherboard PCB"
-      ],
-      "head_to_PCB_clearance_mm": 6.025
-    },
-    {
-      "part": "berserk_mobo_adapter_right_drill_plan",
-      "center_xy_mm": [
         157.01,
         226.57
       ],
@@ -2127,31 +2174,6 @@
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
         60.2,
-        390.01
-      ],
-      "printed_bracket_slot_mm": [
-        8,
-        4
-      ],
-      "optional": true,
-      "steel_hole_diameter_mm": 3.5,
-      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
-      "washer_and_head_top_z_mm": 9.5,
-      "PCB_bottom_z_mm": 15.525,
-      "verified": false,
-      "checked_Y_adjustment_mm": [
-        -2,
-        2
-      ],
-      "install_before": [
-        "motherboard PCB"
-      ],
-      "head_to_PCB_clearance_mm": 6.025
-    },
-    {
-      "part": "kenshin_mobo_adapter_left_drill_plan",
-      "center_xy_mm": [
-        100.84,
         390.01
       ],
       "printed_bracket_slot_mm": [
@@ -2281,12 +2303,12 @@
       "post": 1,
       "x_mm": 250.5,
       "y_mm": 320.2,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "berserk_mobo_adapter_right_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     },
     {
       "system": "Berserk",
@@ -2294,12 +2316,12 @@
       "post": 2,
       "x_mm": 270.5,
       "y_mm": 320.2,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "berserk_mobo_adapter_right_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     },
     {
       "system": "Berserk",
@@ -2307,12 +2329,12 @@
       "post": 1,
       "x_mm": 209.86,
       "y_mm": 320.2,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "berserk_mobo_adapter_right_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     },
     {
       "system": "Berserk",
@@ -2320,12 +2342,12 @@
       "post": 2,
       "x_mm": 229.86,
       "y_mm": 320.2,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "berserk_mobo_adapter_right_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     },
     {
       "system": "Berserk",
@@ -2333,12 +2355,12 @@
       "post": 1,
       "x_mm": 169.22,
       "y_mm": 320.2,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "berserk_mobo_adapter_right_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     },
     {
       "system": "Berserk",
@@ -2346,12 +2368,12 @@
       "post": 2,
       "x_mm": 189.22,
       "y_mm": 320.2,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "berserk_mobo_adapter_right_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     },
     {
       "system": "Berserk",
@@ -2359,12 +2381,12 @@
       "post": 1,
       "x_mm": 128.57999999999998,
       "y_mm": 320.2,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "berserk_mobo_adapter_right_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     },
     {
       "system": "Berserk",
@@ -2372,12 +2394,12 @@
       "post": 2,
       "x_mm": 148.57999999999998,
       "y_mm": 320.2,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "berserk_mobo_adapter_right_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     },
     {
       "system": "Kenshin",
@@ -2385,12 +2407,12 @@
       "post": 1,
       "x_mm": 51.0,
       "y_mm": 634.5,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "kenshin_mobo_adapter_left_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "kenshin_mobo_adapter_left_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     },
     {
       "system": "Kenshin",
@@ -2398,12 +2420,12 @@
       "post": 2,
       "x_mm": 71.0,
       "y_mm": 634.5,
-      "top_z_survey_mm": 147.5,
+      "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
-      "base_z_mm": 6.5,
-      "shared_adapter": "kenshin_mobo_adapter_left_drill_plan",
+      "base_z_mm": 0.0,
+      "clearance_adapter": "kenshin_mobo_adapter_left_drill_plan",
       "rod_length_survey_mm": 131.0,
-      "height_note": "131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."
+      "height_note": "131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."
     }
   ],
   "gpu_post_steel_backers_mm": [
@@ -2783,13 +2805,13 @@
       5.5
     ],
     "motherboard_shelf_slot_exception_mm": {
-      "front_M3": [
+      "adapter_M3": [
         8,
         4
       ],
-      "shared_GPU_post": [
-        10,
-        5.5
+      "GPU_base_clearance": [
+        6.697263122599659,
+        5.8
       ]
     },
     "V100_hood_shelf_slot_exception_mm": [

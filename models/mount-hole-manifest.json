@@ -1325,6 +1325,60 @@
   },
   "shelf_attachment_holes": [
     {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        191.2,
+        301.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "install_before_PCB": true,
+      "intersects_approximate_vent": false,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        247.0,
+        301.2
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "install_before_PCB": true,
+      "intersects_approximate_vent": false,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
+      "part": "berserk_mobo_adapter_right_drill_plan",
+      "center_xy_mm": [
+        247.0,
+        79.71
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "install_before_PCB": true,
+      "intersects_approximate_vent": false,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
       "part": "berserk_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
         355.0,
@@ -1338,6 +1392,7 @@
       ],
       "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
       "verified": false,
+      "install_before_PCB": false,
       "intersects_approximate_vent": true,
       "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
     },
@@ -1355,6 +1410,61 @@
       ],
       "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
       "verified": false,
+      "install_before_PCB": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
+      "part": "kenshin_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        60.2,
+        611.5
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "install_before_PCB": true,
+      "intersects_approximate_vent": false,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
+      "part": "kenshin_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        116.0,
+        611.5
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "install_before_PCB": true,
+      "intersects_approximate_vent": false,
+      "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
+    },
+    {
+      "part": "kenshin_mobo_adapter_left_drill_plan",
+      "center_xy_mm": [
+        116.0,
+        390.01
+      ],
+      "diameter_mm": 3.5,
+      "fastener": "M3 with steel backing",
+      "printed_bracket_slot_mm": [
+        8,
+        4.0
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "install_before_PCB": true,
       "intersects_approximate_vent": false,
       "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
     },
@@ -1372,6 +1482,7 @@
       ],
       "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
       "verified": false,
+      "install_before_PCB": false,
       "intersects_approximate_vent": false,
       "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
     },
@@ -1389,6 +1500,7 @@
       ],
       "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
       "verified": false,
+      "install_before_PCB": false,
       "intersects_approximate_vent": false,
       "fabrication": "survey: drill diameter 3.5 mm in solid steel; do not bridge a broad vent with OD7 backing; usable adjustment on actual steel unverified"
     },
@@ -1808,15 +1920,37 @@
         320.2
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        250.5,
+        320.2
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE1_metal_post_2",
@@ -1825,15 +1959,37 @@
         320.2
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        270.5,
+        320.2
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE2_metal_post_1",
@@ -1842,15 +1998,37 @@
         320.2
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        209.86,
+        320.2
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE2_metal_post_2",
@@ -1859,15 +2037,37 @@
         320.2
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        229.86,
+        320.2
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE3_metal_post_1",
@@ -1876,15 +2076,37 @@
         320.2
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        169.22,
+        320.2
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE3_metal_post_2",
@@ -1893,15 +2115,37 @@
         320.2
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        189.22,
+        320.2
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE4_metal_post_1",
@@ -1910,15 +2154,37 @@
         320.2
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        128.57999999999998,
+        320.2
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE4_metal_post_2",
@@ -1927,15 +2193,37 @@
         320.2
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "berserk_mobo_adapter_right_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        148.57999999999998,
+        320.2
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Kenshin_RTX5090_metal_post_1",
@@ -1944,15 +2232,37 @@
         634.5
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "kenshin_mobo_adapter_left_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "kenshin_mobo_adapter_left_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        51.0,
+        634.5
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Kenshin_RTX5090_metal_post_2",
@@ -1961,15 +2271,37 @@
         634.5
       ],
       "diameter_mm": 3.5,
-      "fastener": "M3x12 from below through backing/shelf/6mm adapter/OD9x0.5 top washer into 10mm female/female standoff; verify engagement",
-      "shared_motherboard_adapter": "kenshin_mobo_adapter_left_drill_plan",
+      "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+      "clearance_through_adapter": "kenshin_mobo_adapter_left_drill_plan",
       "printed_bracket_slot_mm": [
-        10,
-        5.5
+        6.697263122599659,
+        5.8
       ],
+      "printed_base_opening": {
+        "profile": "regular hexagon",
+        "sides": 6,
+        "across_flats_mm": 5.8,
+        "across_corners_mm": 6.697263122599659,
+        "length_Y_mm": 6.697263122599659,
+        "width_X_mm": 5.8,
+        "clearance_per_hex_face_mm": 0.15,
+        "designed_adjustment_mm": {
+          "X": 0,
+          "Y": 0
+        },
+        "fit": "snug design allowance; actual printed fit unverified",
+        "required_base_orientation": "one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic",
+        "arbitrary_base_rotation_allowed": false,
+        "physical_fit_verified": false
+      },
       "verified": false,
       "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
+      "fabrication": "candidate new drill through sound steel; survey first",
+      "fixed_hex_center_xy_mm": [
+        71.0,
+        634.5
+      ],
+      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     }
   ],
   "optional_motherboard_shelf_holes": [
@@ -1977,23 +2309,6 @@
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
         191.2,
-        79.71000000000001
-      ],
-      "printed_bracket_slot_mm": [
-        8,
-        4
-      ],
-      "optional": true,
-      "steel_hole_diameter_mm": 3.5,
-      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
-      "washer_and_head_top_z_mm": 9.5,
-      "PCB_bottom_z_mm": 15.525,
-      "verified": false
-    },
-    {
-      "part": "berserk_mobo_adapter_right_drill_plan",
-      "center_xy_mm": [
-        231.84,
         79.71000000000001
       ],
       "printed_bracket_slot_mm": [
@@ -2095,23 +2410,6 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        100.84,
-        390.01
-      ],
-      "printed_bracket_slot_mm": [
-        8,
-        4
-      ],
-      "optional": true,
-      "steel_hole_diameter_mm": 3.5,
-      "fastener": "M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
-      "washer_and_head_top_z_mm": 9.5,
-      "PCB_bottom_z_mm": 15.525,
-      "verified": false
-    },
-    {
-      "part": "kenshin_mobo_adapter_left_drill_plan",
-      "center_xy_mm": [
         26.009999999999998,
         536.87
       ],
@@ -2183,79 +2481,79 @@
     "berserk_mobo_adapter_right_drill_plan": [
       [
         128.57999999999998,
-        321.7
+        320.2
       ],
       [
         148.57999999999998,
-        321.7
+        320.2
       ],
       [
         169.22,
-        321.7
+        320.2
       ],
       [
         189.22,
-        321.7
+        320.2
       ],
       [
         209.86,
-        321.7
+        320.2
       ],
       [
         229.86,
-        321.7
+        320.2
       ],
       [
         250.5,
-        321.7
+        320.2
       ],
       [
         270.5,
-        321.7
+        320.2
       ]
     ],
     "kenshin_mobo_adapter_left_drill_plan": [
       [
         29.88,
-        632.0
+        634.5
       ],
       [
-        50.44,
-        632.0
+        51.0,
+        634.5
       ],
       [
-        70.76,
-        632.0
+        71.0,
+        634.5
       ],
       [
         90.52,
-        632.0
+        634.5
       ],
       [
         111.16,
-        632.0
+        634.5
       ],
       [
         131.16,
-        632.0
+        634.5
       ],
       [
         151.8,
-        632.0
+        634.5
       ],
       [
         171.8,
-        632.0
+        634.5
       ]
     ]
   },
   "GPU_post_slot_note": "Eight options per board; only the selected card posts appear in the required steel pattern. Locate real seated-card posts; high-X positions need port clearance checks.",
   "optional_motherboard_shelf_hole_note": "Twelve optional sites excluded from required drill/count plan; use only as needed, before PCB installation",
-  "hole_count": 39,
+  "hole_count": 45,
   "M4_printed_mount_hole_count": 21,
-  "M3_motherboard_mount_hole_count": 4,
-  "M3_direct_metal_post_hole_count": 0,
-  "M3_shared_post_adapter_hole_count": 10,
+  "M3_motherboard_mount_hole_count": 10,
+  "M3_direct_metal_post_hole_count": 10,
+  "M3_shared_post_adapter_hole_count": 0,
   "M4_metal_cooling_and_tail_support_hole_count": 4,
   "estimated_vent_intersection_count": 3,
   "PSU_rear_face_pattern_local_xz_mm": [
@@ -2293,13 +2591,13 @@
       5.5
     ],
     "motherboard_shelf_slot_exception_mm": {
-      "front_M3": [
+      "adapter_M3": [
         8,
         4
       ],
-      "shared_GPU_post": [
-        10,
-        5.5
+      "GPU_base_clearance": [
+        6.697263122599659,
+        5.8
       ]
     },
     "V100_hood_shelf_slot_exception_mm": [

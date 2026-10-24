@@ -241,20 +241,21 @@ def main():
     for part in intended:
         before = downward_overhang_area(source_meshes[part])
         after = downward_overhang_area(meshes[part])
-        assert after <= before + 0.01, (part, before, after)
         bridge_note = None
         if part.endswith('_mobo_adapter_rail'):
             # Only the 2mm-wide GPU groove roofs may face down. All screw
             # pockets stay open upward in the original print orientation.
-            # Groove is1..3mm behind PCB edge; the forward circular caps of
-            # eight16x11.5mm washer lands interrupt it. Integrate those caps
-            # independently of the exported mesh to check the exact roof area.
+            # Groove is1..3mm behind PCB edge. Regular5.8mm-AF hexes
+            # point toward it atY+6(H12D) or+10(ATX). Only H12D tips
+            # intersect it. Integrate those triangular caps independently
+            # of the generator's polygon and mesh to check exact roof area.
             vertices, triangles, (width, depth, _) = meshes[part]
-            radius = 11.5/2
-            def cap_area(height):
-                return (radius*radius*math.acos((radius-height)/radius)
-                        -(radius-height)*math.sqrt(2*radius*height-height*height))
-            expected = 2*depth-8*(cap_area(3.5)-cap_area(1.5))
+            radius = 5.8/math.sqrt(3)
+            post_y = 6 if part == 'h12d_mobo_adapter_rail' else 10
+            overlap = max(0, 3-(post_y-radius))
+            assert overlap < radius/2
+            cap_area = math.sqrt(3)*overlap*overlap
+            expected = 2*depth-8*cap_area
             assert abs(after-expected) < .5, (part, 'unexpected bridge area', after, expected)
             for indices in triangles:
                 a,b,c = [vertices[i] for i in indices]
@@ -268,9 +269,16 @@ def main():
                     assert all(abs(p[2]-2) < .001 for p in (a,b,c)), (part, 'unexpected roof height')
                     assert all(width-15.501 <= p[0] <= width-13.499 for p in (a,b,c)), (part, 'roof outside GPU groove')
                     assert max(p[0] for p in (a,b,c))-min(p[0] for p in (a,b,c)) <= 2.001
-            bridge_note = 'Original recesses-up orientation; only the2mm GPU groove at PCB rear+1..3mm bridges at print Z2, between walls rooted on bed. No support; inspect sliced closure and dry-fit.'
-        elif "_mobo_adapter_" in part:
-            assert after == 0, (part, after)
+            bridge_note = 'Original recesses-up orientation; only the2mm GPU groove at PCB rear+1..3mm bridges at print Z2, between walls rooted on bed. H12D regular hex tips intersect the groove; ATX hex holes are separate. Inspect sliced closure and hole fit. No support; dry-fit required.'
+        else:
+            # The rear rails intentionally bridge the narrow GPU groove in
+            # their original orientation. Their exact roof area, position,
+            # height and width are checked above, followed by a layer audit;
+            # comparing that roof with the unrelated screw-pocket area in
+            # shelf orientation is not a printability criterion.
+            assert after <= before + 0.01, (part, before, after)
+            if "_mobo_adapter_" in part:
+                assert after == 0, (part, after)
         orientation_audit[part] = {
             "orientation": oriented[part][1],
             "original_downward_overhang_projected_mm2": before,

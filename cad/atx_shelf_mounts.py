@@ -1,11 +1,12 @@
 """Two braced, interlocking ATX sections with port-safe outer shelf anchors.
 
 Installed shelf coordinates. Full-depth drop-in dovetails locate X/Y, not Z.
-The steel shelf, board standoffs, shared GPU post joints and front bolts retain the pair.
-Optional under-PCB anchors must be installed before fitting the motherboard.
+Five independent shelf bolts retain each pair. GPU bases pass through the rail
+and seat directly on steel. Under-PCB anchors go in before the motherboard.
 """
 import cadquery as cq
 import berserk_platform as bp
+import pcie_post_hardware as post_hw
 
 THICKNESS = 6.0
 CLEARANCE = .3
@@ -16,10 +17,11 @@ EAR_WIDTH = 14.0
 EAR_OFFSET = 6.5
 SHELF_SLOT_WIDTH = 4.0
 WASHER_OD = 7.0
-POST_SLOT_LENGTH, POST_SLOT_WIDTH = 10.0, 5.5
-POST_SLOT_X = (23.88, 44.44, 64.76, 84.52, 105.16, 125.16, 145.80, 165.80)
-POST_SLOT_Y = 7.5
-POST_WASHER_OD, POST_WASHER_T = 9.0, .5
+POST_SLOT_LENGTH, POST_SLOT_WIDTH = post_hw.OPENING_LENGTH, post_hw.OPENING_WIDTH
+# Selected Kenshin openings align with the existing post axes at45/65.
+# Other selectable positions retain their provisional survey coordinates.
+POST_SLOT_X = (23.88, 45., 65., 84.52, 105.16, 125.16, 145.80, 165.80)
+REAR_RAIL_CENTER_Y = 7.5  # keep the outer rail unchanged when locating holes
 # ATX2.2 Fig3: mounting datum is10.16mm inside PCB rear edge.
 # PCIe CEM2.0 Figs5-1/5-2/6-14: connector key is46.94mm inside that datum.
 # Fig6-2: bracket outside flat face is59.05mm behind key -> PCB rear+1.95.
@@ -81,16 +83,17 @@ def build(system):
     holes = {k: (x0 + u*25.4, back - v*25.4) for k, (u, v) in SITES.items()}
     xa, ya = holes['A']; xc, _ = holes['C']; xf, yf = holes['F']
     _, yg = holes['G']; _, yk = holes['K']; split = x0 + 124
-    rear_x = (54.2,94.84)
     # Use the same reference depth and anchor pattern for both 305x244-class boards.
     front_y = back-244.0
     post_x = SHARED_POST_X['Berserk'] if system == 'Berserk' else POST_SLOT_X
-    post_slots = [(x0+u, back+POST_SLOT_Y) for u in post_x]
-    anchors = {'front': shared_post_centers(system),
+    post_slots = [(x0+u, back+SHARED_POST_Y[system]) for u in post_x]
+    assert all(any(abs(px-x)<.001 and abs(py-y)<.001 for x,y in post_slots)
+               for px,py in shared_post_centers(system)), (system,'post must be centered in hex hole')
+    anchors = {'front': [(x0+u, back-13) for u in (54.2,110.0)] + [(x0+110.0, yk+3)],
                'rear': [(x0+218, front_y-EAR_OFFSET),(x0+297, front_y-EAR_OFFSET)]}
     # Optional anchors oppose each section's primary ears; matching side slots
     # provide another simple attachment choice without adding more ears.
-    optional = {'front': [(x0+u, yk+3) for u in rear_x] + [(xa+3.5, (ya+yg)/2)],
+    optional = {'front': [(x0+54.2, yk+3), (xa+3.5, (ya+yg)/2)],
                 'rear': [(x0+218, yf-3), (x0+260, yf-3), (xf-3.5, (yf+yg)/2)]}
     front = box(xa-9, xc+BAR_WIDTH/2, ya+9.5-BAR_WIDTH, ya+9.5)
     front = front.union(box(xa-9, xa-9+BAR_WIDTH, yk-9.5, ya+9.5))
@@ -109,8 +112,8 @@ def build(system):
     # the 6mm rail sits below the modeled PCB, but actual shield clearance
     # and populated-post locations must be checked on the fitted hardware.
     shapes['front'] = shapes['front'].union(box(min(xa-9,post_slots[0][0]-EAR_WIDTH/2), max(xc+BAR_WIDTH/2,post_slots[-1][0]+EAR_WIDTH/2),
-                                               back+POST_SLOT_Y+9-BAR_WIDTH,
-                                               back+POST_SLOT_Y+9))
+                                               back+REAR_RAIL_CENTER_Y+9-BAR_WIDTH,
+                                               back+REAR_RAIL_CENTER_Y+9))
     for x,y in anchors['rear']:
         shapes['rear'] = shapes['rear'].union(box(x-EAR_WIDTH/2,x+EAR_WIDTH/2,
                                                   y-8,yk-9.5+BAR_WIDTH))
@@ -137,14 +140,18 @@ def build(system):
     for group, s in shapes.items():
         sites = GROUPS[group]
         slot_width = SHELF_SLOT_WIDTH
-        washer_od = POST_WASHER_OD if group == 'front' else WASHER_OD
+        washer_od = WASHER_OD
         for site in sites:
             x, y = holes[site]
             for length, width, height in ((6.,3.7,6.), (10.8,8.5,3.)):
                 s = s.cut(cq.Workplane('XY').center(x,y).slot2D(length,width,90).extrude(height))
-        for points,length,width in ((post_slots if group == 'front' else anchors[group],
-                                     POST_SLOT_LENGTH if group == 'front' else SHELF_SLOT_LENGTH,
-                                     POST_SLOT_WIDTH if group == 'front' else slot_width),
+        if group == 'front':
+            for x,y in post_slots:
+                # A true six-sided hole with0.15mm clearance per face.
+                # The user requested a snug fit, removing slot adjustment.
+                s = s.cut(cq.Workplane('XY').polyline(post_hw.opening_points()).close()
+                          .extrude(THICKNESS).translate((x,y,0)))
+        for points,length,width in ((anchors[group],SHELF_SLOT_LENGTH,slot_width),
                                     (optional[group],SHELF_SLOT_LENGTH,SHELF_SLOT_WIDTH)):
             for x,y in points:
                 s = s.cut(cq.Workplane('XY').center(x,y).slot2D(length,width,90).extrude(THICKNESS))
@@ -168,21 +175,14 @@ def build(system):
                         .slot2D(6+2*STANDOFF_EDGE_WEB, 3.7+2*STANDOFF_EDGE_WEB, 90)
                         .extrude(THICKNESS))
                 lands.append(land)
-            # Offset the post slot by washer radius minus M3 shaft radius.
-            # This covers all physically possible centers, beyond the specified
-            # +/-0.6 X, +/-2.5 Y installation adjustment (not just sampled points).
-            washer_offset = (POST_WASHER_OD-3.0)/2
-            post_lands = []
-            for x, y in post_slots:
-                land = (cq.Workplane('XY').center(x, y)
-                        .slot2D(POST_SLOT_LENGTH+2*washer_offset,
-                                POST_SLOT_WIDTH+2*washer_offset, 90).extrude(THICKNESS))
-                post_lands.append(land)
-                cutter = cutter.cut(land)
+            # Through-bases carry no load into plastic, so no washer lands
+            # interrupt the groove. Point the hex tips toward the PCB:
+            # Berserk tips meet the groove without a0.1mm unprintable web;
+            # Kenshin's farther-back holes stay separate from the groove.
             original = s.val()
             s = s.cut(cutter)
             assert original.Volume()-s.val().Volume() > 100, (system, 'missing GPU tab relief')
-            for land in lands + post_lands:
+            for land in lands:
                 assert original.intersect(land.val()).cut(s.val()).Volume() < .01, (system, 'standoff land')
             assert THICKNESS-GPU_TAB_RELIEF_DEPTH >= 4
             # Each inter-post gap must actually open down to the requested
@@ -202,18 +202,25 @@ def build(system):
                                                   'mount_datum_to_key': PCIE_KEY_FROM_MOUNT_DATUM,
                                                   'PCB_rear_to_mount_datum': ATX_REAR_MOUNT_DATUM},
                       'standoff_slot_edge_web_mm': STANDOFF_EDGE_WEB,
-                      'full_height_post_land_mm': [POST_SLOT_LENGTH+2*washer_offset, POST_SLOT_WIDTH+2*washer_offset],
-                      'minimum_gap_between_post_lands_mm': min(b[0]-a[0] for a,b in zip(post_slots, post_slots[1:]))-(POST_SLOT_WIDTH+2*washer_offset),
-                      'standoff_lands_preserved': True, 'post_washer_sweep_preserved': True,
+                      'standoff_lands_preserved': True,
+                      'intersects_post_clearance_slots': back+SHARED_POST_Y[system]-POST_SLOT_LENGTH/2 < outer_y,
                       'print_orientation': 'original: installed top on bed, screw-head recesses up',
                       'print_bridge_span_mm': GPU_TAB_GROOVE_WIDTH, 'supports_required': False,
                       'basis': 'ATX2.2 Fig3 and PCIe CEM2.0 Figs5-1/5-2/6-2/6-14 give nominal bracket outside face59.05-46.94-10.16=1.95mm behind PCB rear. Fig6-4 specifies0.86mm sheet and5deg+/-2deg outward tongue bend over5.07mm, giving nominal tip about1.53..2.39mm behind PCB. Groove1..3mm is a nominal-fit design allowance, not guaranteed full tolerance coverage; depth2mm requested by owner. Actual hardware fit remains unmeasured',
                       'sources': ['https://analytika.sk/fileadmin/user_upload/developer_specs_atx2_2.PDF#page=12',
                                   'https://tecsmith.github.io/homeassistant-pc-switch/specs/pci-express-card-electromechanical-specification-revision-2.pdf#page=85'],
                       'physical_fit_verified': False,
-                      'fit_check': 'Measure seated tab X/Y/Z and width; check all tongues against full-height post lands and steel deck; print one of each rear rail and dry-fit before use'}
+                      'fit_check': 'Measure seated tab X/Y/Z; check tongues against metal bases and steel deck; print one of each rear rail and dry-fit before use'}
         for x, y in anchors[group]:
-            assert (y+SHELF_TRAVEL+washer_od/2 <= y0 if group == 'rear' else y-POST_WASHER_OD/2 >= back)
+            if group == 'rear':
+                assert y+SHELF_TRAVEL+washer_od/2 <= y0
+            else:
+                assert y0 <= y-SHELF_TRAVEL-washer_od/2 and y+SHELF_TRAVEL+washer_od/2 <= back
+                # A complete 4mm web surrounds each independent anchor,
+                # including the underside around board screw counterbores.
+                web=(cq.Workplane('XY').center(x,y).slot2D(16,12,90).extrude(THICKNESS)
+                     .cut(cq.Workplane('XY').center(x,y).slot2D(8,4,90).extrude(THICKNESS)))
+                assert web.val().cut(s.val()).Volume()<.01,(system,'anchor edge web',x,y)
         assert s.val().isValid() and len(s.solids().vals()) == 1, (system,group)
         bb = s.val().BoundingBox()
         label = f'{system.lower()}_mobo_adapter_{LABELS[system][group]}_drill_plan'
@@ -221,13 +228,15 @@ def build(system):
                          'origin': (bb.xmin,bb.ymin), 'sites': sites,
                          'hole_centers': {site: holes[site] for site in sites}, 'anchors': anchors[group],
                          'optional_anchors': optional[group], 'anchor_end': ANCHOR_ENDS[group],
-                         'shared_post_anchors': anchors[group] if group == 'front' else [],
+                         'through_post_centers': shared_post_centers(system) if group == 'front' else [],
                          'post_slots': post_slots if group == 'front' else [],
                          'rear_rail_depth_mm': BAR_WIDTH if group == 'front' else None,
                          'gpu_tab_relief': relief,
                          'post_slots_are_selectable': True,
-                         'standalone_anchors': [] if group == 'front' else anchors[group],
+                         'standalone_anchors': anchors[group],
+                         'install_anchors_before_PCB': group == 'front',
                          'post_slot_mm': [POST_SLOT_LENGTH,POST_SLOT_WIDTH],
+                         'post_opening': post_hw.opening_spec(),
                          'interchangeable_with': ('Kenshin' if system == 'Berserk' else 'Berserk') if group == 'rear' else None,
                          'shelf_slot_mm':[8.,slot_width], 'shelf_fastener':'M3',
                          'top_washer_od_mm':washer_od, 'backing_washer_od_mm':WASHER_OD,

@@ -27,6 +27,7 @@ import kenshin_aio_mount as k_aio
 import rack_gpu_exhaust as gpu_exhaust
 import tilted_gpu_cooling as t_cool
 import atx_shelf_mounts as atx_mount
+import pcie_post_hardware as post_hw
 from pcie_post_mount_preview import render as render_pcie_post_preview
 from rack_shelf_coordinates import BUILD_FORWARD_SHIFT, shelf_y
 
@@ -127,6 +128,13 @@ class Box:
         return cq.Workplane("XY").box(self.w, self.d, self.h,
                                      centered=(False, False, False)).translate(
                                          (self.x, self.y, self.z))
+
+
+class PostBaseEnvelope(Box):
+    """Purchased hex base in the orientation required by its clearance slot."""
+    def shape(self):
+        return (cq.Workplane("XY").polyline(post_hw.base_hex_points()).close()
+                .extrude(self.h).translate((self.x+self.w/2,self.y+self.d/2,self.z)))
 
 
 # Selected upgrade, not installed inventory. NVIDIA's dimensioned product
@@ -643,16 +651,16 @@ for center in fan_holes:
     mount_holes.append({"component": "V100 integral fan panel", "interface": "fan inlet-flange through-bolt clearance",
                         "center_mm": center, "axis": [0,t_cool.S,t_cool.S], "diameter_mm": COOL_FAN_CLEARANCE_D, "verified": False})
 
-# All selected post joints also clamp the common adapter rear rail. Eight
-# selectable positions exist per board; unused slots add no steel holes. The ordered
-# Wurth 970100354 is 10 mm tall, SW5, M3 female/female (manufacturer drawing).
-# OBT rod length and end-thread engagement still need a physical fit check.
+# Metal bases pass through the adapter and bear directly on steel. The
+# manufacturer's base drawing and owner-reported OBT thread are distinct
+# from the unmeasured rod body / fixed GPU seating-nut height.
 PCIE_POST_SURVEY_H, PCIE_POST_SURVEY_D = 141.0, 6.0
-GPU_BACKER_T = 1.0
+GPU_BACKER_T = post_hw.BACKER_T
+post_thread_stack = post_hw.thread_stack(SHELF_T)
 gpu_post_holes = []
 gpu_backer_boxes = []
 gpu_post_base_keepouts = []
-shared_post_access = []
+through_post_access = []
 # Stock M4 DIN9021 washer under a smaller M3 washer: no cut/drilled bar.
 gpu_backer = cq.Workplane("XY").center(6, 6).circle(6).circle(2.2).extrude(GPU_BACKER_T)
 cq.exporters.export(gpu_backer, str(OUT / "pcie-post-backing-washer-reference.step"))
@@ -665,9 +673,9 @@ for system, label, xs, py in (
     post_h = PCIE_POST_SURVEY_H
     for i, px in enumerate(xs, 1):
         shared = atx_mount.is_shared_post(system,px,py)
-        base_z = RAIL_T + atx_mount.POST_WASHER_T if shared else 0.
-        screw_length = 12 if shared else 6
-        rod_top = post_h + base_z  # Preserve survey rod length; adjust top nuts to seated card, never cut from this model.
+        base_z = 0.
+        screw_length = post_hw.BOTTOM_SCREW_LENGTH
+        rod_top = post_h - 10 + post_hw.BASE_HEIGHT  # Survey rod envelope only; fixed nut height unmeasured.
         adapter_name = f"{system.lower()}_mobo_adapter_{atx_mount.LABELS[system]['front']}_drill_plan" if shared else None
         bx, by = px - 6, py - 6
         gpu_backer_boxes.append(Box(f"{system} {label} purchased post backing washer {i}", bx, by,
@@ -677,26 +685,29 @@ for system, label, xs, py in (
                      name=f"{system}_{label}_stock_backing_washer_{i}", color=cq.Color(.5, .5, .55))
         gpu_post_holes.append({"part": f"{system}_{label}_metal_post_{i}",
                                "center_xy_mm": [px, py], "diameter_mm": 3.5,
-                               "fastener": f"M3x{screw_length} from below through backing/shelf" + ("/6mm adapter/OD9x0.5 top washer" if shared else "") + " into 10mm female/female standoff; verify engagement",
-                               "shared_motherboard_adapter": adapter_name,
-                               "printed_bracket_slot_mm": [10,5.5] if shared else None,
+                               "fastener": "M3x6 from below through OD7/OD12 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
+                               "clearance_through_adapter": adapter_name,
+                               "printed_bracket_slot_mm": [atx_mount.POST_SLOT_LENGTH,atx_mount.POST_SLOT_WIDTH] if shared else None,
+                               "printed_base_opening": post_hw.opening_spec() if shared else None,
                                "verified": False})
-        gpu_post_base_keepouts.append(Box(f"{system} {label} metal post base {i}",
-                                          px - 3, py - 3, base_z, 6, 6, 10,
-                                          "shared adapter clamp" if shared else "metal standoff on steel"))
+        gpu_post_base_keepouts.append(PostBaseEnvelope(f"{system} {label} metal post base {i}",
+                                          px - post_hw.BASE_AF/3**.5, py - post_hw.BASE_AF/3**.5, base_z,
+                                          2*post_hw.BASE_AF/3**.5, 2*post_hw.BASE_AF/3**.5, post_hw.BASE_HEIGHT,
+                                          "clocked hex, corner toward PCB; metal base seats on steel"))
         post_locations.append({"system": system, "card": label, "post": i,
                                "x_mm": px, "y_mm": py,
                                "top_z_survey_mm": rod_top,"GPU_flange_z_survey_mm":post_h,
-                               "base_z_mm":base_z,"shared_adapter":adapter_name,
+                               "base_z_mm":base_z,"clearance_adapter":adapter_name,
                                "rod_length_survey_mm":PCIE_POST_SURVEY_H-10,
-                               "height_note":"131mm rod envelope retained, not a measured rod. Shared base raises its top6.5mm; adjust retaining nuts6.5mm lower only if real threaded travel permits. Dry-fit before drilling."})
-        standoff = cq.Workplane("XY").center(px, py).polygon(6, 5 / (3 ** .5) * 2).extrude(10)
-        standoff = standoff.cut(cq.Workplane("XY").center(px, py).circle(1.5).extrude(10))
-        assembly.add(standoff.translate((0,0,base_z)), name=f"{system}_{label}_M3_SW5_10mm_standoff_{i}",
+                               "height_note":"131mm rod envelope retained, not measured. Rod seat Z14 is2.5mm below old Z16.5, and1.525mm below PCB underside. OBT lower seating nut is fixed: verify flange meets it with card fully seated; do not pull card to fit."})
+        standoff = (cq.Workplane("XY").polygon(6, post_hw.BASE_AF / (3 ** .5) * 2).extrude(post_hw.BASE_HEIGHT)
+                    .rotate((0,0,0),(0,0,1),post_hw.BASE_ROTATION_DEG).translate((px,py,0)))
+        standoff = standoff.cut(cq.Workplane("XY").center(px, py).circle(1.5).extrude(post_hw.BASE_HEIGHT))
+        assembly.add(standoff.translate((0,0,base_z)), name=f"{system}_{label}_M3_SW5p5_14mm_standoff_{i}",
                      color=cq.Color(.8, .7, .4))
         assembly.add(cq.Workplane("XY").center(px, py)
                      .circle(PCIE_POST_SURVEY_D / 2).extrude(post_h - 10)
-                     .translate((0, 0, 10+base_z)),
+                     .translate((0, 0, post_hw.BASE_HEIGHT+base_z)),
                      name=f"{system}_{label}_metal_OBT_PCIe_post_{i}_survey",
                      color=cq.Color(.62, .62, .64))
         # M3x6 through 1 mm backer, 1.2 mm shelf and .5 mm small washer
@@ -706,16 +717,20 @@ for system, label, xs, py in (
         head = cq.Workplane("XY").center(px, py).circle(2.75).extrude(3).translate((0, 0, -5.7))
         assembly.add(shaft.union(head).union(washer),
                      name=f"{system}_{label}_M3x{screw_length}_and_washer_{i}_survey", color=cq.Color(.65, .65, .68))
+        # Show the actual reported male tip and the remaining axial gap.
+        assembly.add(cq.Workplane("XY").center(px,py).circle(1.5)
+                     .extrude(post_hw.OBT_STUD_LENGTH)
+                     .translate((0,0,post_hw.BASE_HEIGHT-post_hw.OBT_STUD_LENGTH)),
+                     name=f"{system}_{label}_OBT_9mm_stud_{i}",color=cq.Color(.62,.62,.64))
         if shared:
-            top_washer=cq.Workplane("XY").center(px,py).circle(atx_mount.POST_WASHER_OD/2).circle(1.6).extrude(atx_mount.POST_WASHER_T).translate((0,0,RAIL_T))
-            assembly.add(top_washer,name=f"{system}_{label}_shared_post_top_washer_{i}",color=cq.Color(.65,.65,.68))
-            shared_post_access.append({"part":adapter_name,"center_xy_mm":[px,py],
-                "screw":"M3x12","adapter_thickness_mm":6,"top_washer_mm":[9,3.2,.5],
-                "under_shelf_washers_mm":[[12,4.4,1],[7,3.2,.5]],"base_spacer_mm":10,
-                "nominal_lower_thread_engagement_mm":round(screw_length-2.7-base_z,3),
-                "opposing_OBT_stud_length_mm":None,"thread_fit_verified":False,
-                "access":"bottom screwdriver and SW5 open wrench above; assemble before GPUs. Set top nuts with GPU fully seated; verify available thread travel.",
-                "drill_use":"clamp bare adapter, locate seated-card post center within slot, mark and drill steel at3.5mm; plastic slot is a transfer template, not a precision drill bushing"})
+            through_post_access.append({"part":adapter_name,"center_xy_mm":[px,py],
+                **post_thread_stack, "adapter_thickness_mm":6,
+                "printed_base_opening":post_hw.opening_spec(),
+                "base_seats_on":"steel shelf at Z0; plastic is clearance only",
+                "under_shelf_washers_mm":[[12,4.4,1],[7,3.2,.5]],
+                "thread_fit_verified":False,
+                "access":"bottom screwdriver and SW5.5 open wrench above adapter; point one hex corner toward PCB. Hold base with wrench when tightening either end, not plastic. Assemble before GPUs. Fixed lower OBT nut height must match fully seated card.",
+                "drill_use":"locate base with fully seated card; mark and drill steel3.5mm on sound steel. Enlarged plastic slot is clearance, not a drill bushing."})
         if label != "NIC-carrier":
             gpu_flange_holes.append({"component": f"{system} {label} flange survey",
                                      "interface": "card flange-to-metal post",
@@ -786,30 +801,35 @@ for system in ("Berserk", "Kenshin"):
         triangle=largest_triangle([(m["center_x_mm"],m["center_y_mm"]) for m in required])
         assert len(required)>=4 and triangle>1000
         for sx,sy in frame["post_slots"]:
-            for dx in (-.6,0,.6):
-                for dy in (-2.5,0,2.5):
-                    witness=cq.Workplane("XY").center(sx+dx,sy+dy).circle(1.75).extrude(6).val()
-                    assert shape.val().intersect(witness).Volume()<.01,(label,"post slot travel",dx,dy)
+            # User-requested regular hex removes adjustment travel. Verify
+            # the complete face allowance at its fixed axis and orientation,
+            # independently of the polyline used to cut the opening.
+            witness=(cq.Workplane("XY").polygon(6,(post_hw.BASE_AF+2*post_hw.BODY_FACE_CLEARANCE)/3**.5*2)
+                     .extrude(6).rotate((0,0,0),(0,0,1),post_hw.BASE_ROTATION_DEG)
+                     .translate((sx,sy,0)).val())
+            assert shape.val().intersect(witness).Volume()<.01,(label,"snug hex face clearance",sx,sy)
         for x,y in frame["standalone_anchors"]:
             add_shelf_hole(label,x,y,8,frame["shelf_slot_mm"][1],frame["shelf_fastener"],frame["shelf_hole_diameter_mm"])
+            shelf_attachment_holes[-1]["install_before_PCB"] = frame["install_anchors_before_PCB"]
         adapter_support_patterns.append({"part":label,"required_ATX_sites":[m["ATX_site"] for m in required],
             "optional_ATX_sites":["B"] if system=="Kenshin" and "B" in frame["sites"] else [],
             "required_motherboard_screw_count":len(required),"largest_motherboard_triangle_area_mm2":round(triangle,3),
             "shelf_anchor_count":len(frame["anchors"]),"shelf_anchor_centers_mm":frame["anchors"],
-            "shared_post_anchor_centers_mm":frame["shared_post_anchors"],"common_post_slot_centers_mm":frame["post_slots"],
+            "through_post_centers_mm":frame["through_post_centers"],"common_post_slot_centers_mm":frame["post_slots"],
             "post_slot_mm":frame["post_slot_mm"],"interchangeable_with":frame["interchangeable_with"],"shelf_anchor_end":frame["anchor_end"],
+            "post_opening":frame["post_opening"],
             "optional_shelf_anchor_centers_mm":frame["optional_anchors"],
             "optional_anchor_access":"under PCB; secure before motherboard; optional hardware omitted from required BOM/drill count",
-            "shelf_slot_mm":frame["post_slot_mm"] if frame["shared_post_anchors"] else frame["shelf_slot_mm"],
-            "checked_Y_adjustment_mm":[-2.5,2.5] if frame["shared_post_anchors"] else [-2,2],
+            "shelf_slot_mm":frame["shelf_slot_mm"],
+            "checked_Y_adjustment_mm":[-2,2],
             "adjustment_datum":"printed slot center, not active post center",
-            "shelf_fastener":frame["shelf_fastener"],"top_washer_OD_mm":atx_mount.POST_WASHER_OD if frame["shared_post_anchors"] else frame["top_washer_od_mm"],
-            "backing_washer_OD_mm":12 if frame["shared_post_anchors"] else frame["backing_washer_od_mm"],
+            "shelf_fastener":frame["shelf_fastener"],"top_washer_OD_mm":frame["top_washer_od_mm"],
+            "backing_washer_OD_mm":frame["backing_washer_od_mm"],
             "bar_width_mm":frame["bar_width_mm"],"ear_width_mm":frame["ear_width_mm"],
             "rear_rail_depth_mm":frame["rear_rail_depth_mm"],"post_slots_are_selectable":True,
             "gpu_tab_relief":frame["gpu_tab_relief"],
             "installed_origin_xy_mm":frame["origin"],"bounds_xy_mm":frame["bounds"],
-            "independent_mount":False,"joint_role":"three full-depth drop-in dovetails, including perpendicular C-H key; shelf and board retain Z"})
+            "independent_shelf_fasteners":True,"anchors_before_PCB":frame["install_anchors_before_PCB"],"joint_role":"three full-depth drop-in dovetails, including perpendicular C-H key; shelf and board retain Z"})
         for x,y in frame["optional_anchors"]:
             optional_mobo_shelf_anchors.append({"part":label,"center_xy_mm":[x,y],"printed_bracket_slot_mm":[8,4],
                 "optional":True,"steel_hole_diameter_mm":3.5,"fastener":"M3 with OD7x0.5 top/back steel washers and nut; solid steel only; install before PCB",
@@ -821,18 +841,13 @@ for system in ("Berserk", "Kenshin"):
     all_anchors=[a for frame in frames.values() for a in frame["anchors"]]
     assert largest_triangle(all_anchors)>8000
 
-# Each shared joint is counted once under GPU posts, not again as a motherboard bolt.
-for joint in shared_post_access:
+# The entire hex envelope must pass through plastic, leaving no clamp contact.
+for joint in through_post_access:
     x,y=joint["center_xy_mm"]; shape=installed_adapter_shapes[joint["part"]].val()
-    shaft=cq.Workplane("XY").center(x,y).circle(1.75).extrude(RAIL_T).val()
-    assert shape.intersect(shaft).Volume()<.01,(joint,"shared3.5mm drill axis")
-    washer=cq.Workplane("XY").center(x,y).circle(4.5).circle(1.6).extrude(.5).translate((0,0,6)).val()
-    for b in parts+connectors:
-        assert washer.intersect(b.shape().val()).Volume()<.01,(joint,b.name,"shared top washer")
-    bearing=cq.Workplane("XY").center(x,y).circle(4.5).circle(1.6).extrude(.1).translate((0,0,5.9)).val()
-    joint["top_washer_supported_area_mm2"]=round(shape.intersect(bearing).Volume()/.1,3)
-    assert joint["top_washer_supported_area_mm2"]>12,(joint,"washer bearing")
-assert len(shared_post_access)==10
+    body=(cq.Workplane("XY").polygon(6,(post_hw.BASE_AF+2*post_hw.BODY_FACE_CLEARANCE)/3**.5*2)
+          .extrude(RAIL_T).rotate((0,0,0),(0,0,1),post_hw.BASE_ROTATION_DEG).translate((x,y,0)).val())
+    assert shape.intersect(body).Volume()<.01,(joint,"through-base clearance")
+assert len(through_post_access)==10
 # Geometric equivalence is checked after normalization, not inferred from ATX naming.
 for left,right in (("berserk_mobo_adapter_left_drill_plan","kenshin_mobo_adapter_right_drill_plan"),):
     pair=[next(sh for name,sh,_ in adapter_parts if name==n).val() for n in (left,right)]
@@ -850,8 +865,8 @@ INSTALLED_MODELS = {
 }
 MOBO_PURPOSE = {
     "atx_mobo_adapter_front": "shelf-front motherboard section, common to every ATX board here: two M3 front ears, three optional inner slots, 25mm rails and three drop-in XY keys",
-    "atx_mobo_adapter_rail": "standard ATX rear-rail section: eight selectable GPU-post slots; provisional 2x2mm GPU-tab groove, preserved washer seats; original recesses-up print orientation without supports",
-    "h12d_mobo_adapter_rail": "H12D-8D rear-rail section: eight GPU-post slots shifted 32.3mm toward low X; provisional 2x2mm GPU-tab groove, preserved washer seats; original recesses-up print orientation without supports",
+    "atx_mobo_adapter_rail": "standard ATX rear-rail section: eight regular hex5.8mm-AF holes at PCB rear+10mm,0.15mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports",
+    "h12d_mobo_adapter_rail": "H12D-8D rear-rail section: eight regular hex5.8mm-AF holes at PCB rear+6mm,0.15mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports",
 }
 mobo_models = {}
 for label, shape, _ in adapter_parts:
@@ -1191,6 +1206,12 @@ for site in shelf_attachment_holes:
         assembly.add(hardware,name=f"{site['part']}_shelf_bolt_{x}_{y}",color=cq.Color(.65,.67,.7))
         for dy in (-2,0,2):
             backing=cq.Workplane("XY").center(x,y+dy).circle(back_r).extrude(back_t).translate((0,0,-SHELF_T-back_t))
+            if site["install_before_PCB"]:
+                # Newly required small washers cannot bridge shelf vents.
+                # The existing vent coordinates are provisional survey data.
+                steel_foot=(cq.Workplane("XY").center(x,y+dy).circle(back_r)
+                            .extrude(.1).translate((0,0,-.1)))
+                assert steel_foot.val().cut(base_shelf_deck.val()).Volume()<.01,(site,dy,"under-PCB washer on sound steel")
             for box in gpu_backer_boxes:
                 assert backing.val().intersect(box.shape().val()).Volume()<.01,(site,box.name,"backing washer")
 
@@ -1224,7 +1245,12 @@ for site in shelf_attachment_holes:
             if box.shape().val().intersect(tool).Volume() > .01:
                 covered_by.add(box.name)
     if "_mobo_adapter_" in site["part"]:
-        assert not any("ATX board" in n for n in covered_by), (site,covered_by)
+        if site["install_before_PCB"]:
+            # These explicit under-PCB anchors are fitted to the bare adapter.
+            # Installed head collision checks above still apply at every offset.
+            assert seat+washer_t+head_h < BOARD_Z
+        else:
+            assert not any("ATX board" in n for n in covered_by), (site,covered_by)
     fastener_access.append({"part": site["part"], "fastener":site["fastener"], "center_xy_mm": [x, y],
                             "washer_seat_z_mm": seat, "washer_max_od_mm": washer_radius * 2,
                             "head_envelope_diameter_height_mm": [head_r*2, head_h], "washer_thickness_mm":washer_t,
@@ -1276,8 +1302,8 @@ exhaust_report, exhaust_shapes = gpu_exhaust.integrate(assembly, parts, connecto
 (OUT / "assembly-access-audit.json").write_text(json.dumps({
     "status": "nominal CAD clearance check; hardware dimensions and physical fit unverified",
     "M4_mount_count": sum(not x["fastener"].startswith("M3") for x in fastener_access),
-    "M3_motherboard_mount_count":sum(x["fastener"].startswith("M3") for x in fastener_access), "M3_direct_metal_post_count": len(gpu_post_holes)-len(shared_post_access),
-    "M3_shared_post_adapter_count":len(shared_post_access),"shared_post_mounts":shared_post_access,
+    "M3_motherboard_mount_count":sum(x["fastener"].startswith("M3") for x in fastener_access), "M3_direct_metal_post_count": len(gpu_post_holes),
+    "M3_shared_post_adapter_count":0,"through_post_mounts":through_post_access,
     "head_and_washer_collisions": 0, "bare_bracket_driver_collisions": 0,
     "limits": "Checks 35 mm of straight 6 mm driver above the head; no driver handle or hand model. Fit shelf fasteners before covering components. No material-strength or creep simulation.",
     "mounts": fastener_access,
@@ -1328,9 +1354,16 @@ shelf_deck = shelf_deck.cut(post_cutters)
 assert len(shelf_deck.solids().vals()) == 1 and shelf_deck.val().isValid()
 for site in gpu_post_holes:
     x, y = site["center_xy_mm"]
-    bearing = (cq.Workplane("XY").center(x, y).polygon(6, 5 / (3 ** .5) * 2)
-                .extrude(.1).translate((0, 0, -.1)))
-    assert shelf_deck.val().intersect(bearing.val()).Volume() > 1.0, (site, "metal bearing at post base")
+    bearing = (cq.Workplane("XY").polygon(6, post_hw.BASE_AF / (3 ** .5) * 2)
+               .circle(1.75).extrude(.1).rotate((0,0,0),(0,0,1),post_hw.BASE_ROTATION_DEG).translate((x,y,-.1)))
+    assert bearing.val().cut(shelf_deck.val()).Volume()<.01,(site,"full metal foot must seat on steel")
+    # The snug regular hex is fixed at the actual modeled post axis. There
+    # is no longer an elongated travel range to sample over the steel vents.
+    frame=next(p for p in adapter_support_patterns if p["part"]==site["clearance_through_adapter"])
+    sx,sy=min(frame["common_post_slot_centers_mm"],key=lambda pt:(pt[0]-x)**2+(pt[1]-y)**2)
+    assert abs(sx-x)<.001 and abs(sy-y)<.001,(site,"hex opening must match post axis")
+    site["fixed_hex_center_xy_mm"] = [sx,sy]
+    site["fit_note"] = "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
 cq.exporters.export(shelf_deck, str(OUT / "adjshelfhdv-drill-plan-deck.step"))
 assembly.add(shelf_deck, name="ADJSHELFHDV_drill_plan_deck_not_manufacturer_CAD",
              color=cq.Color(.38, .42, .47))
@@ -1421,7 +1454,7 @@ for site in optional_mobo_shelf_anchors:
 for i, site in enumerate(gpu_post_holes):
     x, y = site["center_xy_mm"]
     ax.add_patch(Circle((x, y), 1.75, facecolor="#141a22", edgecolor="white", lw=.35,
-                        label="M3 GPU/shared adapter hole" if i == 0 else None))
+                        label="M3 GPU base hole" if i == 0 else None))
 for box in connectors:
     ax.add_patch(Rectangle((box.x, box.y), box.w, box.d, fill=False,
                            linestyle="--", edgecolor="#f39525", lw=1.2))
@@ -1649,7 +1682,7 @@ hole_alignment = {
     "PSU_to_frame_max_nominal_offset_mm": 0.0,
     "drilled_shelf_hole_alignment_nominal": True,
     "printed_shelf_slot_size_mm": [SHELF_SLOT_LENGTH, SHELF_SLOT_WIDTH],
-    "motherboard_shelf_slot_exception_mm": {"front_M3":[8,4],"shared_GPU_post":[10,5.5]},
+    "motherboard_shelf_slot_exception_mm": {"adapter_M3":[8,4],"GPU_base_clearance":[atx_mount.POST_SLOT_LENGTH,atx_mount.POST_SLOT_WIDTH]},
     "V100_hood_shelf_slot_exception_mm": [t_cool.SLOT_LENGTH,t_cool.SLOT_WIDTH],
     "H115i_brace_shelf_slot_exception_mm": [aio_brace.SHELF_SLOT_L,aio_brace.SHELF_SLOT_W],
     "printed_shelf_slot_axis": "Y (front-to-rear)",
@@ -1661,11 +1694,11 @@ assert not any("NIC" in h["component"] for h in mount_holes)
 pressure_holes = [h["center_mm"] for h in mount_holes if h["interface"] == "pressure fan factory clearance"]
 assert len(pressure_holes) == len(fan_holes) == 4
 assert all(min(sum((a - b) ** 2 for a, b in zip(center, factory)) for factory in pressure_holes) < 1e-8 for center in fan_holes)
-assert len(shelf_attachment_holes) == 22 + len(t_cool.ANCHORS) and len(gpu_post_holes) == 10
+assert len(shelf_attachment_holes) == 28 + len(t_cool.ANCHORS) and len(gpu_post_holes) == 10
 assert sum(h["part"] == "v100_gpu_shroud" for h in shelf_attachment_holes) == 3
 assert len(metal_shelf_holes) == 4
 assert all(sum(site["part"].startswith(f"{system}_mobo_adapter_")
-               for site in shelf_attachment_holes) == 2
+               for site in shelf_attachment_holes) == 5
            for system in ("berserk", "kenshin"))
 assert {part: sum(site["part"] == part for site in shelf_attachment_holes)
         for part in ("h115i_screw_frame_drill_plan",
@@ -1705,8 +1738,8 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
     "hole_count": len(all_shelf_holes),
     "M4_printed_mount_hole_count": sum(not h["fastener"].startswith("M3") for h in shelf_attachment_holes),
     "M3_motherboard_mount_hole_count":sum(h["fastener"].startswith("M3") for h in shelf_attachment_holes),
-    "M3_direct_metal_post_hole_count": len(gpu_post_holes)-len(shared_post_access),
-    "M3_shared_post_adapter_hole_count":len(shared_post_access),
+    "M3_direct_metal_post_hole_count": len(gpu_post_holes),
+    "M3_shared_post_adapter_hole_count":0,
     "M4_metal_cooling_and_tail_support_hole_count": len(metal_shelf_holes),
     "estimated_vent_intersection_count": sum(s["intersects_approximate_vent"]
                                          for s in all_shelf_holes),
@@ -1783,14 +1816,15 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
                            "local_backing_plate_locations_survey": True},
     "lateral_support_review": {
         "design_basis": "stationary rack, ordinary handling only; verify holes, backing and loaded fit before powering",
-        "Berserk_and_Kenshin_motherboards": "two interlocking flat sections per board, each with at least four non-collinear motherboard screws; two front shelf anchors plus selected rear GPU-post anchors; eight choices per common rail; eight Berserk and nine Kenshin metal standoffs (Kenshin B optional)",
+        "Berserk_and_Kenshin_motherboards": "two interlocking flat sections per board, each with at least four non-collinear motherboard screws; five independent shelf anchors (two front ears, three under-PCB); eight choices per common rail; eight Berserk and nine Kenshin metal standoffs (Kenshin B optional)",
         "Berserk_and_Kenshin_PSUs": "each PSU rests on steel and uses two upper factory screws for lateral restraint; each open rear frame has a continuous lower rail and a symmetric two-slot shelf foot; PSU patterns and plug clearances remain unmeasured",
         "Berserk_H115i": "trimmed fan-flush replacements preserve the owner-fitted sandwich's ledges,40mm feet and factory axes; ledges bear radiator, feet reach27mm onto shelf; revised slots and loaded fit require checking",
-        "five_GPUs": "All ten selected GPU OBT post joints also clamp the6mm motherboard adapters: eight on Berserk and two on Kenshin. Both common rails provide all eight optional positions; locate real seated-card posts before drilling. All ten have underside backing; shared posts add OD9x0.5 top washers. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
+        "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x6 lower screws through OD12+OD7 underside washers leave1.7mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
     "V100_cooling": "single Sanyo140mm fan on integral45-degree panel; broad3.2mm HT-PLA-GF rear-array hood with6mm base and three internalM4 shelf slots;no fitted collar or individual post cuts;flexible nonconductive inlet seal required;M4 T-nut pockets;physical and thermal qualification pending",
         "Kenshin_AIO": "three coplanar owned fans pull rearward through low 360 radiator at20mm bottom height; two front-style120mm frames with40mm feet bear radiator weight, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; an inward triangular brace adds two factory screws/two shelf bolts; loaded PETG fit unverified",
         "overall": "balanced drilled-hole concept is plausible, but physical holes, PETG stiffness, cooling and GPU post load paths are unverified"
     },
+    "GPU_post_thread_stack": post_thread_stack,
     "motherboard_adapter_revision": {"interlocking_pair_count": 2,
                                       "printed_frame_count": len(adapter_parts),
                                       "standoff_count": 17,
@@ -1800,18 +1834,19 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
                                       "support_patterns": adapter_support_patterns,
                                       "standoff_slot_mm": [6.0, 3.7],
                                       "head_recess_mm": [10.8, 8.5, 3.0],
-                                      "shared_post_joint_count":len(shared_post_access),"standalone_front_anchor_count":4,
+                                      "shared_post_joint_count":0,"through_post_joint_count":len(through_post_access),"standalone_front_anchor_count":4,"under_PCB_anchor_count":6,
                                       "identical_pair_for_both_boards":False,"common_front_section":True,"rear_rail_exception":"H12D GPU slot positions require shifted rear post rail","selectable_post_slots_per_board":8,
                                       "unused_post_positions_add_steel_holes":False,
                                       "adapter_thickness_mm": RAIL_T,
                                       "joint_count": len(adapter_seams),
                                       "joint_type": "three full-depth drop-in dovetails per board, including one perpendicular key; 0.3mm side clearance; shelf and standoffs retain Z",
-                                      "shelf_slots_mm": {"front_M3":[8,4],"shared_GPU_post":[10,5.5]},
-                                      "M3_anchor_note":"Four front anchors: M3x16,OD7x0.5 top/back washers. Ten selected rear shared posts: M3x12 below,OD12+OD7 backing,OD9x0.5 top washer,10mm M3 female base. All steel holes3.5mm; confirm actual rod threads and slot center before drilling",
+                                      "shelf_slots_mm": {"M3_adapter_anchors":[8,4],"GPU_base_clearance":[atx_mount.POST_SLOT_LENGTH,atx_mount.POST_SLOT_WIDTH]},
+                                      "GPU_base_opening":post_hw.opening_spec(),
+                                      "M3_anchor_note":"Ten adapter anchors: M3x16,OD7x0.5 top/back washers and nuts; six under-PCB anchors go in first. Ten GPU bases: Wurth970140324 14mm M3 SW5.5 on steel, M3x6 below with OD12+OD7 backing. All steel holes3.5mm; confirm fixed OBT nut height and solid steel before drilling",
                                       "bar_width_mm":25.,"ear_width_mm":14.,
-                                      "shelf_anchor_access": "front anchors outside PCB; rear rail below nominal I/O shield, high-X posts require actual port/card survey; fit before GPUs/removable shroud; optional inner anchors before PCB",
+                                      "shelf_anchor_access": "front anchors outside PCB; three mandatory anchors per rear section under PCB, fit before motherboard; high-X post/port clearance remains provisional",
                                       "printer_bed_mm": [270, 200],
-                                      "optional_shelf_anchor_count_per_board":6,
+                                      "optional_shelf_anchor_count_per_board":5,
                                       "rear_io_service_keepouts":rear_io_service_keepouts,
                                       "shelf_anchor_positions_verified": False,
                                       "recessed_standoff_screw_head_fit_verified": False},
@@ -1925,7 +1960,7 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
         "PSU rear hole patterns, inlet and modular cable bends require physical measurement; keep each PSU's original modular cables",
         "H115i original brackets are owner-fitted in a fan/frame/radiator sandwich; approximate13mm overhang from owner, ledges touch at Z20; angled EPS plugs are modeled with an unverified 18mm projection target; actual product dimensions, electrical pinout and cable bends must be checked",
         f"Whole build moves {BUILD_FORWARD_SHIFT:g} mm forward. Rear fans pull outward. Heads reach Y{REAR_ASSEMBLY_LIMIT_Y:g}; AIO frame top Z140 leaves 82.25 mm nominal 6U clearance; brace top Z142 leaves 80.25 mm. Survey front fascia/doors, rear cables and all moved anchors",
-        "ten selected GPU posts need ten10mm M3 female bases and M3x12 lower screws (2.8mm nominal engagement); all clamp the adapter. Eight selectable slots per board do not require populating all16. Verify opposing stud clearance and6.5mm top-nut adjustment; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Six posts/spacers are ordered; four additional rods/spacers are required. Both add-in NICs and risers are deferred",
+        "ten selected GPU posts need ten14mm Wurth970140324 M3 female bases and M3x6 lower screws (3.3mm nominal engagement,1.7mm nominal gap to owner-reported9mm stud); plastic does not carry their clamp load. Eight selectable slots per board do not require populating all16. Verify fixed OBT nut height with seated card; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Ten replacement14mm bases are required; ten rods total (six previously ordered, four additional). Both add-in NICs and risers are deferred",
         "ground each motherboard with a metal lead from a standoff to the steel shelf; printed adapters are insulating",
         "Kenshin's AC plug survey volume assumes a side/upward exit above its PSU foot; verify the actual inlet and bend",
         "Berserk AC routes outside the left shelf edge (about 13 mm); Ethernet routes outside the right edge (about 12 mm); QSFP link is deferred; verify cabinet lanes and smooth cable bends",

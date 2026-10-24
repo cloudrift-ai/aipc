@@ -27,15 +27,15 @@ def render_gpu_groove_location(out):
                                              edgecolors='none', antialiaseds=False))
         ax.axhline(0, color='#bb2639', ls='--', lw=1.5)
         low, high = triangles[:, :, 0].min(), triangles[:, :, 0].max()
-        ax.set(xlim=(low-2, high+2), ylim=(-3, 12),
-               yticks=[0, 1, 3, 7.5], ylabel='Behind PCB edge (mm)')
+        ax.set(xlim=(low-2, high+2), ylim=(-3, 14),
+               yticks=[0, 1, 3, 6, 10], ylabel='Behind PCB edge (mm)')
         ax.set_title(f'{system}: installed top view, rear rail detail', loc='left', fontsize=12)
         ax.grid(axis='y', alpha=.12)
         ax.set_xlabel('Along motherboard edge (mm); depth enlarged for visibility')
     fig.suptitle('GPU-tab groove: 2 mm deep, spanning 1–3 mm behind the motherboard edge', fontsize=15)
     fig.legend(handles=[Line2D([], [], color='#bb2639', ls='--', label='Motherboard rear edge'),
                         Line2D([], [], color='#de8a38', lw=7, label='Groove floor'),
-                        Line2D([], [], color='#82bfc8', lw=7, label='Full-height rail / washer seats')],
+                        Line2D([], [], color='#82bfc8', lw=7, label='Full-height rail')],
                loc='lower center', bbox_to_anchor=(.5, .065), ncol=3, frameon=False)
     fig.text(.5, .025, 'ATX / PCIe nominal bracket outer face: +1.95 mm; bent tip about +1.53…+2.39 mm. Physical fit remains provisional.',
              ha='center', fontsize=10)
@@ -84,7 +84,7 @@ def render_gpu_relief(out):
                                                linewidths=0, antialiaseds=False,
                                                shade=True, zorder=2))
             # Rear rail ends16.5mm behind the PCB edge. Project its datum
-            # onto each visible surface; this is not the +7.5mm post line.
+            # onto each visible surface; post axes are +6/+10mm behind it.
             datum_x = width-16.5
             ax.plot([datum_x, datum_x], [0, depth],
                     [-.05, -.05] if elev < 0 else [height+.05, height+.05],
@@ -95,7 +95,7 @@ def render_gpu_relief(out):
             ax.set_title(label, pad=8)
             ax.set_axis_off()
         fig.suptitle(f'{part}: 2 x 2 mm GPU-tab groove (orange roof)\nOriginal plate orientation: screw recesses up, groove toward bed', fontsize=16)
-        fig.text(.5, .03, 'Red dashed line: projected motherboard rear edge. Groove spans 1–3 mm behind this edge.\nOriginal washer seats preserved; 2 mm bridge, no supports. Actual hardware dry-fit required.', ha='center', fontsize=11)
+        fig.text(.5, .03, 'Red dashed line: projected motherboard rear edge. Groove spans 1–3 mm behind this edge.\nRegular hex holes: 5.8 mm across flats, 0.15 mm face clearance. H12D tips meet groove; ATX holes stay separate. Dry-fit required.', ha='center', fontsize=11)
         fig.subplots_adjust(left=0, right=1, bottom=.08, top=.89, wspace=0, hspace=.05)
         fig.savefig(out / f'{part}-print-review.png', dpi=170)
         plt.close(fig)
@@ -119,7 +119,9 @@ def render(out):
             face = "right" if pattern["shelf_anchor_end"] == "rear" else "left"
             ax.add_collection(PolyCollection(triangles[np.abs(normal_z)>1e-6, :, :2],
                                              facecolors=colors[face], edgecolors="none"))
-            shared=pattern.get("shared_post_anchor_centers_mm",[])
+            shared=[]
+            for x,y in pattern.get("through_post_centers_mm",[]):
+                ax.plot(x,y,marker="D",color="#88429b",ms=5,mew=1.5)
             for x, y in pattern["shelf_anchor_centers_mm"]:
                 ax.plot(x,y,marker="D" if [x,y] in shared else "+",color="#88429b" if [x,y] in shared else "#b52730",ms=5 if [x,y] in shared else 8,mew=1.5)
             for x,y in pattern.get("common_post_slot_centers_mm",[]):
@@ -149,13 +151,13 @@ def render(out):
         ax.set_xlabel("Shelf X (mm); left/right viewed from rack front")
         ax.set_ylabel("Shelf Y (mm), rear upward")
         ax.grid(alpha=.12)
-    fig.suptitle("Interlocking adapter pairs — eight selectable post slots per board", fontsize=17, y=.97)
+    fig.suptitle("Interlocking adapter pairs — eight selectable hex holes per board", fontsize=17, y=.97)
     fig.legend(handles=[Line2D([],[],marker="D",ls="",color="#88429b",label="Selected GPU posts: 8 Berserk / 2 Kenshin"),Line2D([],[],marker="o",ls="",color="#263a48",label="Motherboard screw"),
-                        Line2D([],[],marker="+",ls="",color="#b52730",label="Front M3 shelf anchors: two per board"),
-                        Line2D([],[],marker="o",ls="",color="#178642",mfc="none",label="Optional shelf slots: six per board; fit before PCB"),
+                        Line2D([],[],marker="+",ls="",color="#b52730",label="M3 shelf anchors: five per board"),
+                        Line2D([],[],marker="o",ls="",color="#178642",mfc="none",label="Optional shelf slots: five per board; fit before PCB"),
                         Line2D([],[],marker="o",ls="",color="#263a48",mfc="white",label="B*: optional Kenshin PCB hole"),
                         Line2D([],[],marker="s",ls="",color="#8b3a7d",mfc="none",label="Drop-in X/Y key"),
-                        Line2D([],[],marker="|",ls="",color="#777777",label="Selectable post slot; drill only when used"),
+                        Line2D([],[],marker="|",ls="",color="#777777",label="Selectable hex hole; drill only when used"),
                         Line2D([],[],ls="--",color="#596b74",label="Motherboard outline; front at bottom")],
                loc="lower center",ncol=2,frameon=False,bbox_to_anchor=(.5,.015))
     fig.subplots_adjust(left=.07,right=.98,top=.88,bottom=.24,wspace=.26)
