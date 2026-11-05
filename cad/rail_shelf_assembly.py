@@ -378,7 +378,7 @@ def add_to_assembly(assembly, shelf_width, shelf_depth, shelf_thickness, out):
             "adjustment_mm": [-MOUNT_TRAVEL, MOUNT_TRAVEL],
             "checks": mount_checks,
         },
-        "print_quantity": "Plate 15 remains one of each trial thickness. Four display instances do not establish installed quantity or change the print manifest.",
+        "print_quantity": f"Plate 15 contains {shims.FIT_COPIES} of each trial thickness in one print. The four assembly display instances do not establish installed quantity.",
         "checks": {"valid_single_solids": len(entries), "boolean_collision_pairs": checks,
                    "existing_assembly_items_screened": len(existing),
                    "positive_volume_collisions": 0, "both_pad_faces_seated": True},

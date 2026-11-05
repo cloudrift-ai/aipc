@@ -24,7 +24,7 @@ from shelf_interfaces import SIDE_SLOT_LENGTH, SIDE_SLOT_WIDTH
 # side/deck equivalence. Printed clearance and pad dimensions are fit choices.
 LOCATOR_CLEARANCE = .2  # each side, nominal; confirm printed fit
 TRIAL_THICKNESSES = (1.0, 2.0, 3.0, 4.0)
-FIT_COPIES = 1  # one of each thickness, not an installed quantity
+FIT_COPIES = 4  # four of each thickness on one plate, not an installed quantity
 
 
 @dataclass(frozen=True)

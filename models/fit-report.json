@@ -1890,7 +1890,7 @@
     },
     {
       "part": "rail_shelf_shim_1mm",
-      "quantity": 1,
+      "quantity": 4,
       "bounding_box_mm": [
         52.0,
         16.0,
@@ -1900,7 +1900,7 @@
     },
     {
       "part": "rail_shelf_shim_2mm",
-      "quantity": 1,
+      "quantity": 4,
       "bounding_box_mm": [
         52.0,
         16.0,
@@ -1910,7 +1910,7 @@
     },
     {
       "part": "rail_shelf_shim_3mm",
-      "quantity": 1,
+      "quantity": 4,
       "bounding_box_mm": [
         52.0,
         16.0,
@@ -1920,7 +1920,7 @@
     },
     {
       "part": "rail_shelf_shim_4mm",
-      "quantity": 1,
+      "quantity": 4,
       "bounding_box_mm": [
         52.0,
         16.0,
@@ -1933,7 +1933,7 @@
     "status": "owner-confirmed nominal slot size; printed fit and rail gap unmeasured; empty-shelf fit samples only",
     "installation_released": false,
     "installed_quantity": null,
-    "fit_copies_per_unique_part": 1,
+    "fit_copies_per_unique_part": 4,
     "dimensions_mm": {
       "rail_shelf_shim_1mm": {
         "thickness": 1.0,
@@ -2153,7 +2153,7 @@
         "all_metal_stack_contacts": true
       }
     },
-    "print_quantity": "Plate 15 remains one of each trial thickness. Four display instances do not establish installed quantity or change the print manifest.",
+    "print_quantity": "Plate 15 contains 4 of each trial thickness in one print. The four assembly display instances do not establish installed quantity.",
     "checks": {
       "valid_single_solids": 30,
       "boolean_collision_pairs": 34,

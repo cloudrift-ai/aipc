@@ -43,9 +43,9 @@ One model per unique part; the plate manifest says how many to print.
 | `gpu_exhaust_fan_flange` | 1 | Fan outlet to 6-inch duct |
 | `gpu_exhaust_roof_flange` | 1 | Duct to cabinet inner ceiling |
 | `tnut_fit_coupon` | 1 | Test print for the M4 T-nut pocket |
-| `rail_shelf_shim_1mm` / `2mm` / `3mm` / `4mm` | 1 each | Four spacing trials with tall tapered locating ridges; installed thickness and count unmeasured |
+| `rail_shelf_shim_1mm` / `2mm` / `3mm` / `4mm` | 4 each | Sixteen spacing trials with tall tapered locating ridges; installed thickness and count unmeasured |
 
-The [rail/shelf shim fit set](docs/design.md#rail-to-shelf-shim-trials) adds four PETG samples on plate 15. Tall, tapered oblong ridges guide hand insertion into unused shelf side slots; the slide screws use separate metal mounting points. These are empty-shelf fit samples, not a verified rail conversion.
+The [rail/shelf shim fit set](docs/design.md#rail-to-shelf-shim-trials) adds 16 PETG samples on one plate: four each of the 1, 2, 3 and 4 mm shims. Tall, tapered oblong ridges guide hand insertion into unused shelf side slots; the slide screws use separate metal mounting points. These are empty-shelf fit samples, not a verified rail conversion.
 
 ## Regenerating
 

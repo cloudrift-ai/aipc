@@ -2,7 +2,7 @@
   "status": "owner-confirmed nominal slot size; printed fit and rail gap unmeasured; empty-shelf fit samples only",
   "installation_released": false,
   "installed_quantity": null,
-  "fit_copies_per_unique_part": 1,
+  "fit_copies_per_unique_part": 4,
   "dimensions_mm": {
     "rail_shelf_shim_1mm": {
       "thickness": 1.0,

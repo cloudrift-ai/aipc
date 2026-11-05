@@ -139,7 +139,7 @@
       "all_metal_stack_contacts": true
     }
   },
-  "print_quantity": "Plate 15 remains one of each trial thickness. Four display instances do not establish installed quantity or change the print manifest.",
+  "print_quantity": "Plate 15 contains 4 of each trial thickness in one print. The four assembly display instances do not establish installed quantity.",
   "checks": {
     "valid_single_solids": 30,
     "boolean_collision_pairs": 34,

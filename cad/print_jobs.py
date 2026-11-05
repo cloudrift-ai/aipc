@@ -87,6 +87,8 @@ def pack_jobs(meshes):
     """
     single = lambda part, copies=1: ([(part, 0, 0)], copies)
     psu_w = meshes["psu_bracket"][2][0]
+    shim_specs = rail_shims.specs()
+    shim_row_pitch = max(meshes[spec.name][2][1] for spec in shim_specs) + MIN_GAP
     return {
         "01_atx_mobo_adapter_front": single("atx_mobo_adapter_front", 2),
         "02_atx_mobo_adapter_rail": single("atx_mobo_adapter_rail"),
@@ -104,8 +106,9 @@ def pack_jobs(meshes):
         "14_gpu_exhaust_roof_flange": single("gpu_exhaust_roof_flange"),
         "15_rail_shelf_shim_trials": (
             [(spec.name, sum(meshes[prior.name][2][0] + MIN_GAP
-                            for prior in rail_shims.specs()[:index]), 0)
-             for index, spec in enumerate(rail_shims.specs())], rail_shims.FIT_COPIES),
+                            for prior in shim_specs[:index]), row * shim_row_pitch)
+             for row in range(rail_shims.FIT_COPIES)
+             for index, spec in enumerate(shim_specs)], 1),
     }
 
 
