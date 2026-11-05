@@ -14,6 +14,7 @@ import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
+import rail_shelf_shims as rail_shims
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,6 +33,8 @@ def print_orientation(part, mesh):
     STLs stay in shelf coordinates; only the 3MF bed orientation changes.
     """
     vertices, triangles, (width, depth, height) = mesh
+    if part.startswith("rail_shelf_shim_"):
+        return mesh, "flat slide face on bed; elongated tapered ridge up; fit sample only; no supports"
     if part.startswith("gpu_exhaust_"):
         return mesh, {"gpu_exhaust_fan_flange": "flat fan face on bed; straight neck up, no supports",
                       "gpu_exhaust_roof_flange": "flat square mating face on bed; neck up, no supports"}[part]
@@ -99,6 +102,10 @@ def pack_jobs(meshes):
         "12_v100_gpu_shroud": single("v100_gpu_shroud"),
         "13_gpu_exhaust_fan_flange": single("gpu_exhaust_fan_flange"),
         "14_gpu_exhaust_roof_flange": single("gpu_exhaust_roof_flange"),
+        "15_rail_shelf_shim_trials": (
+            [(spec.name, sum(meshes[prior.name][2][0] + MIN_GAP
+                            for prior in rail_shims.specs()[:index]), 0)
+             for index, spec in enumerate(rail_shims.specs())], rail_shims.FIT_COPIES),
     }
 
 
@@ -182,7 +189,7 @@ def make_3mf(path: Path, placements, meshes):
 
 def make_svg(path: Path, placements, meshes):
     palette = {"gpu_exhaust": "#268a99", "v100": "#37a0a5", "mobo_adapter": "#3b82f6", "psu": "#f59e0b",
-               "fan120": "#f97316", "fan140": "#a855f7", "gpu_rest": "#22c55e", "tnut": "#37a0a5"}
+               "fan120": "#f97316", "fan140": "#a855f7", "gpu_rest": "#22c55e", "tnut": "#37a0a5", "rail_shelf_shim": "#65aab2"}
     short_labels = {"atx_mobo_adapter_front": "ATX front section",
                     "atx_mobo_adapter_rail": "ATX rail section",
                     "h12d_mobo_adapter_rail": "H12D rail section",
@@ -211,6 +218,8 @@ def make_svg(path: Path, placements, meshes):
                      f'fill="{next(color for key, color in palette.items() if key in part)}" fill-opacity="0.75" stroke="#0f172a" '
                      'stroke-width="0.6"/>')
         label = short_labels.get(part, part.replace("_", " "))
+        if part.startswith("rail_shelf_shim_"):
+            label = part.removeprefix("rail_shelf_shim_").replace("p", ".")
         lines.append(f'<text x="{x + w / 2}" y="{sy + d / 2 + 1.5}" '
                      'font-family="sans-serif" font-size="5" text-anchor="middle" '
                      f'fill="#0f172a">{label}</text>')
@@ -279,6 +288,8 @@ def main():
             assert after <= before + 0.01, (part, before, after)
             if "_mobo_adapter_" in part:
                 assert after == 0, (part, after)
+            if part.startswith("rail_shelf_shim_"):
+                assert after == 0, (part, "shim must have no elevated downward exterior faces")
         orientation_audit[part] = {
             "orientation": oriented[part][1],
             "original_downward_overhang_projected_mm2": before,

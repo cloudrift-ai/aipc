@@ -28,8 +28,11 @@ import rack_gpu_exhaust as gpu_exhaust
 import tilted_gpu_cooling as t_cool
 import atx_shelf_mounts as atx_mount
 import pcie_post_hardware as post_hw
+import rail_shelf_shims as rail_shims
+import rail_shelf_assembly as rail_assembly
 from pcie_post_mount_preview import render as render_pcie_post_preview
 from rack_shelf_coordinates import BUILD_FORWARD_SHIFT, shelf_y
+from shelf_interfaces import VENT_LENGTH, VENT_WIDTH
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,7 +45,6 @@ OUT.mkdir(parents=True, exist_ok=True)
 SHELF_W, SHELF_D, SHELF_T = 446.0, 700.0, 1.2
 VENT_X = (88.0, 172.0, 275.0, 358.0)
 VENT_FIRST_Y, VENT_PITCH_Y, VENT_ROWS = 65.0, 17.5, 35
-VENT_LENGTH, VENT_WIDTH = 40.0, 6.5
 # GA II Lite Performance 360: published radiator397x120x27, fans124x120x28.
 # Rear fans pull through the radiator; existing frames bear its lower edge.
 # Outer fans clamp through the 6mm frames; one plain middle spacer keeps
@@ -895,6 +897,9 @@ print_manifest = [
                  "single broad rear-array hood;6mm beveled shelf base and three internalM4 slots;flush exterior and four permanent4mm chamber ribs;integral45-degree fan panel;HT-PLA-GF;fan face down without removable supports"),
     export_print("tnut_fit_coupon", screw_fit_sample, 1,
                  "non-installed24x22x10mm HT-PLA-GF coupon: rectangular M4 T-nut pocket"),
+    *(export_print(name, shape, rail_shims.FIT_COPIES,
+                  "non-installed PETG rail/shelf spacing sample; elongated tapered ridge in unused side slot, screws at separate metal sites; see rail-shelf-shims-report.json")
+      for name, shape in rail_shims.print_parts().items()),
 ]
 
 # Printed bracket positions and exact PSU rear faces remain a fit survey.
@@ -1367,6 +1372,8 @@ for site in gpu_post_holes:
 cq.exporters.export(shelf_deck, str(OUT / "adjshelfhdv-drill-plan-deck.step"))
 assembly.add(shelf_deck, name="ADJSHELFHDV_drill_plan_deck_not_manufacturer_CAD",
              color=cq.Color(.38, .42, .47))
+rail_assembly_report = rail_assembly.add_to_assembly(
+    assembly, SHELF_W, SHELF_D, SHELF_T, OUT)
 assembly.save(str(OUT / "kenshin-berserk-6u-shelf-envelope.step"))
 
 fig, (ax, side) = plt.subplots(2, 1, figsize=(12, 11),
@@ -1802,7 +1809,7 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
         "retired_NIC_print_jobs": ["10", "19"],
         "trimmed_H115i_replacement_jobs": ["06", "07"],
         "shelf_anchor_note": f"H115i shelf anchors at Y{RAD_FRAME_FRONT_Y+28:g} for approximately13mm observed face overhang; other component anchors retain{BUILD_FORWARD_SHIFT:g}mm forward shift; survey real slots"},
-    "shelf": "StarTech ADJSHELFHDV 700 x 446 mm nominal body; 140 vent slots are estimated; drill plan is provisional and omits lips and rack rails",
+    "shelf": "StarTech ADJSHELFHDV 700 x 446 mm nominal body; 140 vent slots are estimated; assembly includes provisional downward sidewalls, closed slides, two front and two rear side slots per side, and four 2mm shim instances; deck-only drill plan omits these reference parts",
     "former_NIC_lane": "Both NIC assemblies removed. Hercules stays atX0; 5090 rest nowX43..93 with Kenshin board/GPU2mm left. No NIC mounting holes required.",
     "direct_shelf_mount": {"body_width_mm": SHELF_W, "depth_mm": SHELF_D,
                            "steel_thickness_mm": SHELF_T,
@@ -1970,6 +1977,8 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
     "components_mm": [asdict(part) for part in parts],
     "large_connector_keepouts_mm": [asdict(part) for part in connectors],
     "printed_parts": print_manifest,
+    "rail_shelf_shim_trials": rail_shims.report(),
+    "rail_shelf_assembly": rail_assembly_report,
     "installed_part_models": INSTALLED_MODELS,
     "motherboard_adapter_rail_envelopes_mm": [asdict(box) for box in bridge_boxes],
     "motherboard_adapter_web_envelopes_mm": [asdict(box) for box in adapter_web_boxes],
@@ -1989,6 +1998,7 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
 render_psu_preview(OUT)
 render_motherboard_mounts_preview(OUT)
 render_pcie_post_preview(OUT)
+rail_shims.preview(OUT)
 aio_brace.preview(OUT / "fan140-aio-hose-brace.png", RAD_Y + RAD_D)
 k_aio.preview(OUT / "fan120-aio-frames-and-brace.png", K_AIO_Y, K_AIO_FRAME_REAR_Y)
 gpu_exhaust.preview(OUT / "gpu-exhaust-preview.png", exhaust_shapes, parts)

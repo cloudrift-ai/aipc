@@ -1,6 +1,6 @@
 # Print plates
 
-Fourteen centered plates for the first-generation **Qidi X-Plus** (270 × 200 mm bed, 0.4 mm nozzle) produce all 18 printed parts: 17 installed parts plus one fit coupon. Each `.3mf` holds geometry and placement only; the slicer settings come from [profiles/](profiles) and are listed per plate in [manifest.json](manifest.json). Print a plate as many times as its **Prints** column says.
+Fifteen centered plates for the first-generation **Qidi X-Plus** (270 × 200 mm bed, 0.4 mm nozzle) produce 22 printed pieces: 17 installed parts, one T-nut coupon and four rail/shelf shim trials. Each `.3mf` holds geometry and placement only; the slicer settings come from [profiles/](profiles) and are listed per plate in [manifest.json](manifest.json). Print a plate as many times as its **Prints** column says. The rail-shim installed quantity is not established.
 
 G-code is not committed. Generate it with OrcaSlicer:
 
@@ -26,9 +26,12 @@ or one plate at a time, for example `make print/gcode/05_psu_brackets.gcode`. Th
 | [12_v100_gpu_shroud](12_v100_gpu_shroud.3mf) | One-piece V100 hood with integral 45° fan panel | 1 | HT-PLA-GF | 1 d 21 h 43 m, 404 g |
 | [13_gpu_exhaust_fan_flange](13_gpu_exhaust_fan_flange.3mf) | Fan outlet to 6-inch duct | 1 | HT-PLA-GF | 16 h 15 m, 129 g |
 | [14_gpu_exhaust_roof_flange](14_gpu_exhaust_roof_flange.3mf) | Cabinet inner-ceiling duct flange | 1 | HT-PLA-GF | 16 h 59 m, 149 g |
+| [15_rail_shelf_shim_trials](15_rail_shelf_shim_trials.3mf) | One each of 1/2/3/4 mm pads, tall tapered ridges up; empty-shelf fit trials | 1 | PETG | 1 h 40 m 56 s, 11.42 g |
 
 Estimates are from OrcaSlicer 2.4.2 with the profiles here; your slice will report its own. PETG plates use Duramic PETG at 240 °C / 75 °C. HT-PLA-GF plates use Polymaker HT-PLA-GF at 230 °C / 50 °C and need a **0.4 mm hardened steel nozzle**. All motherboard sections keep their original recesses-up orientation. Plates **02 and 03** bridge the 2 mm-wide GPU-tab groove facing the bed, positioned 1–3 mm behind the motherboard rear edge. The regular hex holes are 5.8 mm across flats, giving 0.15 mm clearance per face with no elongated adjustment. Point one standoff corner toward the PCB. H12D tips meet the groove; ATX holes stay separate. Inspect the first roof layer at Z2.2 and check the snug fit on a test print after removing brim/first-layer excess. No plate needs supports; the shroud's four internal ribs are permanent and must stay.
 
 Each `.svg` next to a plate shows its layout. [orientation-audit.json](orientation-audit.json) records each part's print orientation. See [docs/printing.md](../docs/printing.md) for the printer, material and design rules these plates follow, and [docs/assembly.md](../docs/assembly.md) for where each part goes.
 
 These are **fit prototypes**: fit-test one of each bracket against the real hardware before printing the rest.
+
+Plate 15 places the shims left to right in increasing thickness. Their nominal 52 × 16 mm oblong pads carry 4 mm-tall tapered ridges, narrowing from 39.6 × 6.1 mm roots to 35.6 × 3.2 mm crests. The nominal 40 × 6.5 mm side slots match the deck vents, as confirmed by the owner; the ridge root has 0.2 mm clearance around its outline. Align a ridge with an unused shelf side slot and press in by hand until the pad seats flat; screws use separate metal sites. Print the flat face down, use one thickness at a time, and do not stack. The default dimensions do not establish the gap, slot fit, inward clearance or loaded suitability. See [shim design](../docs/design.md#rail-to-shelf-shim-trials) and [empty-shelf trial](../docs/assembly.md#rail-shim-fit-trial).

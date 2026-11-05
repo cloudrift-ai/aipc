@@ -7,7 +7,7 @@
   "edge_margin_mm": 12.0,
   "motherboard_edge_margin_exception_mm": 3.25,
   "minimum_part_gap_mm": 8.0,
-  "parts_total": 18,
+  "parts_total": 22,
   "installation_released": false,
   "gcode_status": "run `make gcode` for provisional fit-prototype G-code; print each plate `copies` times",
   "jobs": {
@@ -261,6 +261,27 @@
         12.0,
         223.0,
         188.0
+      ]
+    },
+    "15_rail_shelf_shim_trials": {
+      "process_profile": "profiles/process.json",
+      "filament_profile": "profiles/duramic-petg-240c.json",
+      "required_nozzle": "0.4mm; original PETG setup",
+      "supports_required": false,
+      "copies": 1,
+      "items": {
+        "rail_shelf_shim_1mm": 1,
+        "rail_shelf_shim_2mm": 1,
+        "rail_shelf_shim_3mm": 1,
+        "rail_shelf_shim_4mm": 1
+      },
+      "count": 4,
+      "highest_part_mm": 8.0,
+      "occupied_bounds_mm": [
+        19.006,
+        92.0,
+        250.99400000000003,
+        108.0
       ]
     }
   }

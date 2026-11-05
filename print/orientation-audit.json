@@ -73,6 +73,26 @@
       "orientation": "flat coupon, M4 rectangular T-nut pocket open up",
       "original_downward_overhang_projected_mm2": 0.0,
       "print_downward_overhang_projected_mm2": 0.0
+    },
+    "rail_shelf_shim_1mm": {
+      "orientation": "flat slide face on bed; elongated tapered ridge up; fit sample only; no supports",
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "rail_shelf_shim_2mm": {
+      "orientation": "flat slide face on bed; elongated tapered ridge up; fit sample only; no supports",
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "rail_shelf_shim_3mm": {
+      "orientation": "flat slide face on bed; elongated tapered ridge up; fit sample only; no supports",
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
+    },
+    "rail_shelf_shim_4mm": {
+      "orientation": "flat slide face on bed; elongated tapered ridge up; fit sample only; no supports",
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
     }
   }
 }

@@ -1,0 +1,83 @@
+{
+  "status": "owner-confirmed nominal slot size; printed fit and rail gap unmeasured; empty-shelf fit samples only",
+  "installation_released": false,
+  "installed_quantity": null,
+  "fit_copies_per_unique_part": 1,
+  "dimensions_mm": {
+    "rail_shelf_shim_1mm": {
+      "thickness": 1.0,
+      "width": 52.0,
+      "height": 16.0,
+      "locator_length": 39.6,
+      "locator_width": 6.1,
+      "locator_height": 4.0,
+      "crest_length": 35.6,
+      "crest_width": 3.2
+    },
+    "rail_shelf_shim_2mm": {
+      "thickness": 2.0,
+      "width": 52.0,
+      "height": 16.0,
+      "locator_length": 39.6,
+      "locator_width": 6.1,
+      "locator_height": 4.0,
+      "crest_length": 35.6,
+      "crest_width": 3.2
+    },
+    "rail_shelf_shim_3mm": {
+      "thickness": 3.0,
+      "width": 52.0,
+      "height": 16.0,
+      "locator_length": 39.6,
+      "locator_width": 6.1,
+      "locator_height": 4.0,
+      "crest_length": 35.6,
+      "crest_width": 3.2
+    },
+    "rail_shelf_shim_4mm": {
+      "thickness": 4.0,
+      "width": 52.0,
+      "height": 16.0,
+      "locator_length": 39.6,
+      "locator_width": 6.1,
+      "locator_height": 4.0,
+      "crest_length": 35.6,
+      "crest_width": 3.2
+    }
+  },
+  "dimension_basis": "Published deck vents are 40 x 6.5 mm; owner confirms side mounting holes share those dimensions. Pad, taper and print clearances are chosen prototype parameters; no caliper measurements supplied.",
+  "nominal_side_slot_mm": [
+    40.0,
+    6.5
+  ],
+  "nominal_locator_clearance_per_side_mm": 0.2,
+  "gap_rule": "For a centered shelf: thickness=(installed inner-slide face spacing - actual bare shelf width)/2. Measure each side if asymmetric. A zero/negative gap needs no shim or a geometry change.",
+  "published_reference_only": {
+    "StarTech_shelf_body_width_mm": 446.0,
+    "StarTech_shelf_body_width_tolerance_mm": 1.0,
+    "Gigabyte_R162_ZA0_body_width_mm": 438.0,
+    "note": "Body-width difference does not establish slide contact-plane spacing or stud stand-off.",
+    "StarTech_drawing": "https://sgcdn.startech.com/005329/media/sets/ADJSHELFHDV_Diagram/ADJSHELFHDV_Diagram.PDF",
+    "Gigabyte_rail_guide": "https://download.gigabyte.com/FileList/Manual/server_system_qig_25HB2-3A0202-K0R.pdf"
+  },
+  "unmeasured": [
+    "actual left/right gap, rail straightness and free travel",
+    "actual side-hole tolerances and end shape, wall thickness and unobstructed insertion depth",
+    "unused hole positions with full pad bearing on steel and the inner rail",
+    "separate steel fastener locations, thread, length, head and nut access",
+    "rail moving-member clearance and slide load rating for the modified shelf"
+  ],
+  "locator_fit": "Rounded 35.6 x 3.2 mm crest leads into the nominal 40 x 6.5 mm slot; 4 mm continuous taper widens to a 39.6 x 6.1 mm root, leaving 0.2 mm nominal clearance around its outline. A 52 x 16 mm capsule pad surrounds the whole opening with at least 4.75 mm bearing land. Check 4 mm unobstructed insertion depth. Actual aperture tolerances, end shape and printed fit remain unmeasured. Taper guides insertion but has no snap retention; the pad must seat fully, and a wedged ridge must not add to the selected gap.",
+  "load_path": "Screws fasten the metal inner slide to the metal shelf at separate sites. Pads set spacing and carry compression; the tapered ridge only locates an otherwise unoccupied slot. No plastic threads, snap barb or structural ridge retention. Steel fasteners do not eliminate plastic creep in a joint whose spacing depends on the pads.",
+  "fit_sequence": [
+    "Support the empty shelf. Try one sample at a time; do not stack the ridged parts.",
+    "Align the long ridge with an unused shelf side slot and press the rounded crest in by hand, flat opposite face toward the inner slide. Stop if it jams before the pad seats; resize the ridge rather than force the slot.",
+    "Seat the pad face on sound steel around the whole slot and under a flat rail face. Check 4 mm inward ridge projection; a bottomed or wedged ridge is not a seated pad.",
+    "Choose the thickness without pulling a slide inward or spreading it outward. Regenerate to a 0.20 mm intermediate thickness if needed.",
+    "Check separate metal screws/nuts and tools clear the pad footprint, and no head or thread enters the moving rail. No screw size or length is assumed here.",
+    "Check full empty-shelf travel and actual part temperature. Confirm sustained clamp spacing before loaded use; use metal spacers where creep-free spacing is needed."
+  ],
+  "print_orientation": "flat slide face on bed; tapered locating ridge up; no supports",
+  "material": "Duramic PETG, existing 0.20 mm / 240 C / 75 C process",
+  "assembly_collision_checks": "The main STEP includes four representative 2 mm copies with schematic closed rails and slotted sidewalls. Their placement is checked against modeled geometry; see rail-shelf-assembly-report.json. Actual rail interfaces, fasteners and travel remain unverified."
+}

@@ -21,6 +21,8 @@ Everything is generated from Python ([CadQuery](https://cadquery.readthedocs.io/
 | [print/](print/README.md) | Print plates (3MF) for the Qidi X-Plus, slicer profiles and the plate manifest |
 | [cad/](cad) | Generators: [shelf_layout.py](cad/shelf_layout.py) builds the models; [print_jobs.py](cad/print_jobs.py) packs plates; [slice_jobs.py](cad/slice_jobs.py) slices and validates G-code |
 
+The [assembly STEP](models/kenshin-berserk-6u-shelf-envelope.step) includes both closed rails, four representative 2 mm shims and four proposed M4 rail-to-shelf joints. The [mounting view](models/rail-shelf-mounting.png) shows the holes, screws, nuts and metal gap washers. [Rail placement preview](models/rail-shelf-assembly.png) and [assumptions](models/rail-shelf-assembly-report.json): the two-front/two-rear slot pattern on each side follows the owner’s correction; side slots use the confirmed nominal 40 × 6.5 mm vent size, while rail sections, hole positions and the 800 mm rail display length remain unmeasured. The 700 mm shelf is centered on the rails, with 50 mm overhang at each end in the current model; shelf holes and screw positions stay fixed. Exact rail section lengths and rack-bracket span still need confirmation.
+
 ## Printed parts
 
 One model per unique part; the plate manifest says how many to print.
@@ -41,6 +43,9 @@ One model per unique part; the plate manifest says how many to print.
 | `gpu_exhaust_fan_flange` | 1 | Fan outlet to 6-inch duct |
 | `gpu_exhaust_roof_flange` | 1 | Duct to cabinet inner ceiling |
 | `tnut_fit_coupon` | 1 | Test print for the M4 T-nut pocket |
+| `rail_shelf_shim_1mm` / `2mm` / `3mm` / `4mm` | 1 each | Four spacing trials with tall tapered locating ridges; installed thickness and count unmeasured |
+
+The [rail/shelf shim fit set](docs/design.md#rail-to-shelf-shim-trials) adds four PETG samples on plate 15. Tall, tapered oblong ridges guide hand insertion into unused shelf side slots; the slide screws use separate metal mounting points. These are empty-shelf fit samples, not a verified rail conversion.
 
 ## Regenerating
 
@@ -69,6 +74,7 @@ The generators are parametric but written for this hardware. Common changes:
 - **Different shelf positions**: component placement lives at the top of [cad/shelf_layout.py](cad/shelf_layout.py); every printed mount, shelf hole and clearance check follows from it.
 - **Different GPUs or slots**: the rear rail's eight post-slot positions are in [cad/atx_shelf_mounts.py](cad/atx_shelf_mounts.py) (`POST_SLOT_X`) and [cad/berserk_platform.py](cad/berserk_platform.py) for the H12D.
 - **Different AIOs**: the 140 mm frame is `radiator_screw_frame()` in [cad/shelf_layout.py](cad/shelf_layout.py); the 120 mm frame and braces are in [cad/kenshin_aio_mount.py](cad/kenshin_aio_mount.py) and [cad/berserk_aio_brace.py](cad/berserk_aio_brace.py).
+- **Rail/shelf shims**: thicknesses and tapered-ridge dimensions are in [cad/rail_shelf_shims.py](cad/rail_shelf_shims.py). Change the measured interface parameters and regenerate; the default 1–4 mm samples do not establish the required gap.
 
 The script asserts on every collision and access check, so a change that breaks the layout fails loudly instead of exporting a bad part.
 
