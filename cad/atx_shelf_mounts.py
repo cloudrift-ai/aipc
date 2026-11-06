@@ -7,6 +7,7 @@ and seat directly on steel. Under-PCB anchors go in before the motherboard.
 import cadquery as cq
 import berserk_platform as bp
 import pcie_post_hardware as post_hw
+from rack_shelf_coordinates import k_xy, k_shape
 
 THICKNESS = 6.0
 CLEARANCE = .3
@@ -43,9 +44,10 @@ SHARED_POST_X = {'Berserk': tuple(sorted(x+u-bp.X for x in bp.GPU_BODY_X.values(
 SHARED_POST_Y = {'Berserk': 6., 'Kenshin': 10.}
 
 
-def shared_post_centers(system):
+def shared_post_centers(system, *, installed=True):
     x, y, _, d = BOARDS[system]
-    return [(x+u, y+d+SHARED_POST_Y[system]) for u in SHARED_POST_X[system]]
+    points = [(x+u, y+d+SHARED_POST_Y[system]) for u in SHARED_POST_X[system]]
+    return [k_xy(*p) for p in points] if system == 'Kenshin' and installed else points
 
 
 def is_shared_post(system, x, y):
@@ -68,9 +70,14 @@ IO_SERVICE_DEPTH = 40.0
 
 def io_keepout(system):
     x, y, w, d = BOARDS[system]
-    return {'system': system, 'x_range_mm': [x + IO_LOCAL_X[0], x + IO_LOCAL_X[1]],
+    result = {'system': system, 'x_range_mm': [x + IO_LOCAL_X[0], x + IO_LOCAL_X[1]],
             'y_range_mm': [y + d, y + d + IO_SERVICE_DEPTH], 'z_range_mm': [10.5466, 75],
             'basis': 'ATX2.01 Fig4: aperture bottom0.086+/-0.010in below PCB underside, plus0.100in shield margin; lowest standard shield Z10.5466 at PCB underside15.525. X rounded outward;40mm rear service depth and upperZ75 are provisional; actual plugs may project lower'}
+    if system == 'Kenshin':
+        corners = [k_xy(a,b) for a,b in zip(result['x_range_mm'], result['y_range_mm'])]
+        result['x_range_mm'] = sorted(p[0] for p in corners)
+        result['y_range_mm'] = sorted(p[1] for p in corners)
+    return result
 
 
 def box(x0, x1, y0, y1):
@@ -88,7 +95,7 @@ def build(system):
     post_x = SHARED_POST_X['Berserk'] if system == 'Berserk' else POST_SLOT_X
     post_slots = [(x0+u, back+SHARED_POST_Y[system]) for u in post_x]
     assert all(any(abs(px-x)<.001 and abs(py-y)<.001 for x,y in post_slots)
-               for px,py in shared_post_centers(system)), (system,'post must be centered in hex hole')
+               for px,py in shared_post_centers(system, installed=False)), (system,'post must be centered in hex hole')
     anchors = {'front': [(x0+u, back-13) for u in (54.2,110.0)] + [(x0+110.0, yk+3)],
                'rear': [(x0+218, front_y-EAR_OFFSET),(x0+297, front_y-EAR_OFFSET)]}
     # Optional anchors oppose each section's primary ears; matching side slots
@@ -228,7 +235,7 @@ def build(system):
                          'origin': (bb.xmin,bb.ymin), 'sites': sites,
                          'hole_centers': {site: holes[site] for site in sites}, 'anchors': anchors[group],
                          'optional_anchors': optional[group], 'anchor_end': ANCHOR_ENDS[group],
-                         'through_post_centers': shared_post_centers(system) if group == 'front' else [],
+                         'through_post_centers': shared_post_centers(system, installed=False) if group == 'front' else [],
                          'post_slots': post_slots if group == 'front' else [],
                          'rear_rail_depth_mm': BAR_WIDTH if group == 'front' else None,
                          'gpu_tab_relief': relief,
@@ -246,4 +253,21 @@ def build(system):
     a, b = [v['shape'].val() for v in result.values()]
     assert a.intersect(b).Volume() < .01, (system, 'overlapping sections')
     assert a.distance(b) >= CLEARANCE-.001
+    if system == 'Kenshin':
+        for frame in result.values():
+            # Preserve the already-normalized print geometry; only installation turns.
+            frame['shape'] = k_shape(frame['shape'])
+            bb = frame['shape'].val().BoundingBox()
+            frame['origin'] = (bb.xmin, bb.ymin)
+            frame['bounds'] = [bb.xmin, bb.ymin, bb.xmax, bb.ymax]
+            frame['rotation_about_Z_deg'] = 180
+            frame['hole_centers'] = {site: k_xy(*p) for site,p in frame['hole_centers'].items()}
+            for field in ('anchors', 'standalone_anchors', 'optional_anchors', 'through_post_centers', 'post_slots'):
+                frame[field] = [k_xy(*p) for p in frame[field]]
+            frame['anchor_end'] = 'front' if frame['anchor_end'] == 'rear' else 'rear'
+            if frame['gpu_tab_relief']:
+                frame['gpu_tab_relief']['installed_y_range_mm'] = sorted(k_xy(0,y)[1] for y in frame['gpu_tab_relief']['installed_y_range_mm'])
+                frame['gpu_tab_relief']['rear_direction_in_shelf_Y'] = -1
+        for joint in joints:
+            joint['center_xy_mm'] = k_xy(*joint['center_xy_mm'])
     return result, joints

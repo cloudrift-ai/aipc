@@ -31,7 +31,7 @@ def render(path, front, rear):
         ax.annotate("20 mm lower support", (size / 2, 10), (size / 2, -16),
                     ha="center", fontsize=10, arrowprops={"arrowstyle": "->"})
         ax.set(xlim=(-8, size + 8), ylim=(-27, size + 29), aspect="equal",
-               xlabel="Width (mm)", ylabel="Height above shelf (mm)",
+               xlabel="Width (mm)", ylabel="Height above mount base (mm)",
                title=f"{name}: top and sides flush")
 
         ax = fig.add_subplot(2, 2, row * 2 + 2, projection="3d")
@@ -45,10 +45,10 @@ def render(path, front, rear):
         ax.set_box_aspect(high - low)
         ax.view_init(elev=25, azim=65 if row == 0 else -65)
         ax.set_axis_off()
-        ax.set_title("Bearing ledge and two-slot shelf foot retained")
+        ax.set_title("Bearing ledge and two-slot shelf foot")
     fig.suptitle("AIO mounts aligned to standard fan faces", fontsize=16)
     fig.text(.5, .035,
-             "Dashed: nominal fan outline. Existing screw axes and shelf anchors stay in place.\n"
+             "Dashed: nominal fan outline. Factory fan pitch retained; rear shelf anchors revised.\n"
              "Hose braces remain 2 mm above the radiator tops. Print each main frame broad face down.",
              ha="center", fontsize=10)
     fig.tight_layout(rect=(0, .09, 1, .96))

@@ -1,139 +1,42 @@
 # Assembly guide
 
-This guide covers fastening order, tool access and load paths for the shelf build. The geometry and the reasons behind it are in [design.md](design.md), parts in [parts.xlsx](../parts.xlsx), and print settings in [printing.md](printing.md).
+Use the Hammond RSUS1931BK1 **with its supplied slides**. Retire the StarTech/King Slide adaptation and printed rail shims. The current [assembly](../models/dual-pc-hammond-assembly.step), [drill manifest](../models/mount-hole-manifest.json) and [design notes](design.md) describe a fit prototype; measure actual hardware before drilling.
 
-The build uses 17 installed printed parts and 45 shelf joints: 25 M4 and 20 M3. Together with one T-nut coupon and 16 rail/shelf shim trials, there are 34 printed pieces on 15 plates. Rail-shim installation quantities remain unverified; the assembly separately shows a proposed four-joint rail mounting set, excluded from the 45 existing shelf joints above. Berserk's H12D needs eight standoffs and Kenshin's X870E nine. Before assembly, check three items that are still unverified: the BMC-to-GPU underside clearance, the H115i SP3 fit, and the real projection of the angled EPS extensions.
+There are **17 installed printed pieces plus one fit coupon on 14 plates**, and **45 component-to-deck joints: 25 M4 and 20 M3**. Factory shelf/rack mounting hardware is separate. Berserk uses eight motherboard standoffs; Kenshin uses nine.
 
-![Brackets with washer and screw-head envelopes shown in orange](../models/assembly-details.png)
+## Before mounting components
 
-## What carries the weight
+1. Check actual rack-post spacing against Hammond’s current **457.2–711.2 mm** range, mount the empty shelf per its instructions, and check full travel and latches. Confirm rack stability and actual equipment mass against the **39 kg** limit. The conflicting older drawing’s higher rating is not used here.
+2. Verify cabinet width, doors and rear depth. Rear AIO screw heads project **65.1 mm beyond the deck**; allow 35 mm more for straight-driver access during installation. Front fans extend 16 mm ahead of the deck. Shelf-only 2U mounting / 3U clearance does not include the PC/overhead duct envelope.
+3. Dry-place both systems. Kenshin turns 180°: GPU at high X, motherboard I/O and PSU inlet toward the center. Keep its 40 mm I/O approach clear. Check both PSU intake paths, BMC/GPU undersides, H115i SP3 mount, EPS plugs and all hoses.
+4. Survey real deck thickness, folds, underside screws and factory slides. Mark the proposed 45 component holes from positioned bare mounts; remove all electronics, protect slides from chips, drill, deburr and protect exposed steel. Do not drill a motherboard, PSU, radiator, GPU or slide race.
 
-| Component | Load path and restraint | Check before relying on it |
-| --- | --- | --- |
-| PSUs | The steel shelf carries the weight. The Hercules has 202.5 mm of its 245 mm on steel and overhangs 42.5 mm at the front. Two upper factory screws and the gusseted bracket stop tipping and sliding. | Factory hole pattern, screw engagement, cord clearance. The bracket is not a lifting handle. |
-| Motherboards and CPU coolers | Metal standoffs load the 6 mm adapter rails onto the steel. Each section has at least four non-collinear board screws. Three drop-in keys locate the pair in X/Y. Five independent shelf bolts per board clamp it down; the keys alone do not hold Z. | Populate only real board holes. Rails must sit flat with loaded standoffs over solid steel, not a large unmeasured opening. |
-| H115i (140 mm AIO) | Two broad 6 mm ledges and paired 4 mm side webs per frame carry the radiator. Face screws retain it. The 40 mm feet keep 27 mm of steel bearing with anchors at Y15. The hose brace shares fore/aft hose torque through two rear factory holes and two shelf anchors. | Real tank contact, hose pull, warm PETG stiffness. Both ledges must bear evenly; the screws must not hang the radiator above them. |
-| GPU brackets | Ten OBT rods use14 mm metal bases passing freely through plastic to solid steel, with OD12 backing and a small M3 underside washer. | Check the fixed lower nut height and full base footprint on sound steel. |
-| RTX 5090 front end | A 24 mm printed rest carries compression into the deck. Its two bolt heads are recessed below the card. | Touch a rigid shroud or frame surface, clear of fans and PCB. Adjust to the installed card. |
-| V100 tails | Four M4 20 mm metal spacers with 4 mm silicone pads under rigid card-frame surfaces. | Fasten from below. Avoid PCB components, hot contacts and heatsink airflow. |
-| V100 cooling hood | Integral 10 mm fan panel, 3.2 mm hood and 6 mm base. Three internal M4 anchors carry hood and fan. The duct is supported separately. | T-nut coupon, base and rod clearance, long-driver access through the bare fan opening, inlet seal, loaded HT-PLA-GF stiffness. |
-| Lian Li 360 (120 mm AIO) | Two identical frames with broad ledges and tapered webs, four factory radiator screws and two shelf anchors per frame. Three coplanar fans outward with a 6 mm center spacer. A hose brace adds two radiator screws and two shelf anchors. | 38.5 mm rear projection including heads; 80.25 mm nominal clearance to 6U; hose bends, factory threads, PETG temperature, rear lip and door. |
+## Fasteners and load paths
 
-This is a stationary-rack design. The printed parts have no measured strength or thermal-creep rating.
+- **Ordinary M4 printed mounts:** through-bolt, Ø12 steel washers top/bottom and nut. Use Ø9 washers at the 5090 rest and ≤4 mm heads; combined washer/head height ≤5 mm above its recessed seat. Choose lengths from the real stack.
+- **Motherboard anchors:** ten M3 × 16 bolts, Ø7 × 0.5 mm top/back washers and nuts. Six under-PCB anchors go in before the boards. Optional anchors are not in the required count.
+- **GPU bases:** ten 14 mm Würth M3 F/F bases pass through plastic and seat on steel. Each uses **M3 × 8 from below, two Ø7 × 0.5 washers and two Ø12 × 1 backing washers**. Nominal 1.52 mm steel gives 3.48 mm engagement and 1.52 mm gap to the owner-reported 9 mm OBT stud. Measure the real stack; hold the SW5.5 base with a wrench, never the plastic. The rod’s fixed lower nut must meet a fully seated card without pulling it into position.
+- **V100 tails:** four M4 F/F 20 mm metal spacers with 4 mm silicone pads, fastened from below; support rigid frame surfaces clear of PCB parts.
+- **PSUs:** full body depth rests on steel; common printed brackets restrain tipping/sliding through two existing factory screws and two shelf bolts each. Verify thread engagement and seated AC plugs.
+- **Rear radiator:** a **400 × 83 × 3 mm mild-steel extension plate** supports the longer printed feet. It overlaps the shelf by 46.4 mm and extends 36.6 mm beyond the deck. Six Ø5 holes align with the four frame/two brace anchors; six M4 × 20 screws, Ø12 × 1 washers top/back and nuts clamp mounts, plate and shelf together. It raises the mounts by 3 mm. Deburr and coat the steel; check actual clamping, thread projection and loaded deflection.
 
-## Rail shim fit trial
-
-The [assembly STEP](../models/kenshin-berserk-6u-shelf-envelope.step) shows both closed rails and two 2 mm shims per side. Each side has two front slots and two rear slots, one behind the other along the shelf depth, as confirmed by the owner. One slot in each pair locates a shim; the companion slot takes a proposed M4 screw with metal gap and backing washers. Slot dimensions are nominally 40 × 6.5 mm, matching the deck vents as confirmed by the owner; spacing and actual fit remain unverified. The proposed inner-rail holes are Ø4.5 mm at Y150/550, Z−22 on both sides. The owner will drill matching rail holes where necessary; transfer positions from the centered real shelf rather than treating the illustrated coordinates as a measured factory pattern; see the [mounting section](../models/rail-shelf-mounting.png) and [placement report](../models/rail-shelf-assembly-report.json). The shelf is 700 mm deep; it is centered on the provisional 800 mm rails, which extend 50 mm beyond each end (Y−50–750). Rail length and bracket span remain unmeasured; the centering rule keeps equal overhang when the rail length is updated.
-
-Plate 15 prints four of each 1/2/3/4 mm thickness together (16 pieces). Use it to establish fit with the **empty, independently supported shelf**. The samples have identical 52 × 16 mm capsule-shaped pads and 4 mm-tall tapered ridges. Each ridge narrows from a 39.6 × 6.1 mm root to a 35.6 × 3.2 mm crest. Use the selected thickness; the mixed thicknesses are alternatives, and must not be stacked.
-
-1. Center the shelf along the closed rails with equal front/rear overhang. Keep the existing shelf holes and shim sites; transfer screw locations to the inner rails for drilling where needed. Check the actual bare-shelf width against the mounted inner slides. A positive gap may take a shim; zero or negative clearance needs a different mounting geometry. Check both sides and along the slide length.
-2. Choose an unused side slot whose full outline contains the ridge root. The owner-confirmed nominal 40 × 6.5 mm obround gives 0.2 mm clearance around the ridge root. Check 4 mm unobstructed inward depth; the 52 × 16 mm pad must cover the whole opening. Inspect burrs, actual end shape and inside clearances. Do not enlarge the steel slot just to fit the prototype.
-3. Align the ridge's long axis with the slot. Start its rounded crest and press in by hand, letting the tapered sides guide alignment. The pad must sit fully flat against the shelf; if the ridge wedges or bottoms first, resize it in the generator. Ensure the pad bears on sound steel around the slot and under a flat inner-slide surface. It must not sit on an embossed feature, lip or moving rail section. The ridge has no locking barb.
-4. Pick the thickness that fills the gap without bending or forcing the slides. If between sizes, regenerate at the needed 0.20 mm increment. Do not stack the ridged pieces or use the screws to force insertion or pull a mismatched gap closed.
-5. With the inner rails detached, use existing holes or drill the transferred mounting sites to align with the companion shelf slots, then remove drilling burrs and chips before reassembly. The proposed model uses four M4 × 12 button-head screws and four M4 hex nuts. At each joint, put two Ø12 × Ø4.3 × 1 mm metal washers between the rail and shelf to bridge the 2 mm gap; put a third inside the shelf under the nut. The 1.5 mm rail / 2 mm gap / 1.2 mm shelf / 1 mm washer / 3.2 mm nut stack totals 8.9 mm and leaves 3.1 mm of screw beyond the nut. This is a provisional hardware selection: recalculate the stack for the real gap and metal thicknesses, and do not pull the rail across an unsupported gap. Confirm screw-head, nut and washer fit, grade and locking method before purchase or installation. Keep the screws outside the shim pads, and limit modeled fore/aft adjustment to ±17 mm to retain clearance. Tighten before inserting the inner rails into the outer rails; the model checks a 6 mm driver and 11 mm nut socket with 40 mm straight reach.
-6. Reinsert the inner rails and check head, nut and screw-tip clearance to the real moving races. Check the full empty-shelf travel and locking/release operation. Only then establish the final thickness, ridge fit and number of identical copies. Assess sustained clamp compression before loading; plastic spacing can creep even with metal fasteners, and the shelf's original fixed-bracket rating does not validate this slide conversion.
-
-See the [design and section view](design.md#rail-to-shelf-shim-trials). These ridges locate only; they do not carry the shelf or retain the rails, and an oversized slot can still allow movement along its length.
-
-## Fasteners and access
-
-The [access audit](../models/assembly-access-audit.json) checks washer, screw-head and straight-driver envelopes across slot travel. It models straight shafts only, not hands or tool handles, so confirm access on the real hardware. Exact centres and stacks for every joint are in [mount-hole-manifest.json](../models/mount-hole-manifest.json).
-
-**Install covered fasteners first.** Shelf bolts under a PCB, radiator or hood become unreachable once that part is in place.
-
-- **Ordinary printed mounts (M4):** M4 through-bolt, OD12 washers top and bottom, nut. Up to 12 mm OD washers fit everywhere except the 5090 rest. Size bolt length to the real foot, washer and shelf stack.
-- **5090 rest:** use **9 mm OD washers**. Washer plus head must be no more than 5 mm tall inside the 6 mm deep, 17 × 12 mm recesses. That leaves 1 mm nominal clearance under the card.
-- **Motherboard standoffs:** low-head #6-32 screws go into the 10.8 × 8.5 mm, 3 mm deep underside recesses behind 6 × 3.7 mm through-slots. Check a real screw head before printing both adapter sets. Leave these screws loose and align every standoff to the unpowered PCB using the ±1.15 mm travel. Tighten without flexing the board, then remove the board before mounting the adapters to the shelf.
-- **Motherboard anchors (10):** M3 × 16 with Ø7 × 0.5 mm top and back washers. Four front heads stay outside the PCB. Six under-PCB anchors must be tightened before fitting the board; heads top at Z9.5, below the PCB at Z15.525.
-- **GPU bases (10), bottom to top:** M3 × 6 → Ø7 × 0.5 washer → Ø12 × 1 backing washer (M4 DIN 9021, OD12/ID4.4) → shelf (1.2 mm nominal) → Würth 970140324 14 mm M3 female/female base → OBT rod. The base passes through the adapter's regular hex hole, 5.8 mm across flats and seats on steel. No upper washer. Point one hex corner toward the motherboard. Hold them with a wrench while tightening from below and when fitting the OBT rod; do not use the plastic to resist torque. The hole gives 0.15 mm nominal clearance per face for a snug fit, with no added adjustment travel. Remove brim/first-layer excess and check fit without forcing the base. Nominal lower engagement is 3.3 mm; the owner-reported 9 mm OBT stud leaves 1.7 mm between screw tips. Check real thicknesses and free seating. **Do not reuse M3 × 12 screws.** The whole base footprint must sit on sound steel; underside backing cannot support a base over a vent.
-- **V100 tail spacers (4):** M4 from below with a steel washer into the 20 mm female/female spacer.
-- **GPU fan:** four M4 × 14 inlet screws, four M4 × 16 outlet screws, eight M4 2020 hammer T-nuts and eight OD9 × 1 washers. Each face clamps only the 4 mm fan flange to a 10 mm printed panel. The 12.2 × 6.4 × 4.8 mm nut pockets are provisional, so print `11_tnut_fit_coupon` first. The hood needs no joining screws.
-- **PSU, radiator and fan screws:** length depends on the real component. Add the printed part and washer thickness to the factory screw length; the supplied screws may be too short. Use only existing factory threads and never drill a component. An overlong radiator screw can puncture the core.
+The [access audit](../models/assembly-access-audit.json) checks nominal washer/head and straight-driver envelopes across slot travel, not hands or tool handles. Install every covered shelf bolt before the PCB, radiator or hood blocks it.
 
 ## Assembly order
 
-### 1. Survey and dry-place
+1. **Motherboard mounts:** fit the two keyed 6 mm sections per board. Insert recessed #6-32 standoff screws from below, then 9.525 mm metal standoffs. Use only populated holes: H12D A/C/F/G/H/K/L/M, no B/J; verify X870E holes. Tighten five independent M3 shelf anchors per board before fitting PCBs. Bond a metal standoff on each board to the steel shelf.
+2. **GPU hardware:** fit ten metal bases from below, clocking one hex corner toward the board. Fit the OBT rods and metal tail supports. Dry-seat cards to verify bracket tabs, post height, base axes, silicone contact and BMC clearance before tightening retainers.
+3. **Compact 5090 rest:** use the revised 50 × 42 × 24 mm block at Y695–737. Tighten its recessed shelf bolts before placing the card; ensure it contacts a rigid surface without lifting the card or obstructing fans. It must clear the board and rear AIO feet.
+4. **Front H115i:** bolt bare 140 mm frames first, then support the radiator evenly on both ledges and assemble fans → frame → radiator. Preserve safe factory screw engagement. Fit the independent hose brace loosely to the rear factory threads, then its two shelf bolts, without hose preload.
+5. **PSUs:** place both on their sides and fit their common restraint brackets. Kenshin’s bracket is turned with the PSU. Check AC plugs, cable bends and fan arrows; retain each PSU’s own modular leads.
+6. **Rear Lian Li AIO:** position the steel extension, then the revised **75 mm feet**, anchors at Y760.5. Tighten the bare frames to plate and shelf first. Dry-load the supported mounts and check both ledges contact the radiator. Fit radiator → 6 mm frames/center spacer → fans, all coplanar. Account for the added 6 mm and actual washers when choosing safe factory screws. Fit the mirrored **left hose brace** afterward. Route the 400 mm hoses above the PSU with relaxed bends; the CAD route is only a lower length bound.
+7. **V100 hood:** tighten its three internal M4 shelf bolts through the bare fan opening. Keep all four internal ribs. Fit a flexible nonconductive seal to the four GPU outlets, without contacting the rotor or live components. Test the T-nut coupon before fitting the pressure fan and flange.
+8. **Duct and ceiling flange:** install the fixed roof flange and independently supported 6-inch flexible duct. Keep roof outlets open. The roof height/route are provisional; avoid pulling on the printed fan panel. Make the duct removable for shelf service.
+9. **Final mechanical check:** inspect all washer seats, screw tips, GPU seating, fan clearance, plug insertion, cable restraint and frame deflection. Inspect the changed prints and perform a loaded dry fit before power-up.
 
-Fit the empty shelf in the rack. Dry-place the hardware and establish the real board, GPU flange and radiator coordinates before drilling. Check under-shelf access for every washer and nut. Remove electronics before drilling, use real vents where they fit, and deburr every hole.
+## Sliding service
 
-### 2. Motherboard adapters
-
-Berserk uses `01_atx_mobo_adapter_front` + `03_h12d_mobo_adapter_rail`. Kenshin uses `01_atx_mobo_adapter_front` + `02_atx_mobo_adapter_rail`. The two front sections are identical. The rails are not interchangeable: the H12D rail's post slots are shifted 32.3 mm toward low X.
-
-1. Dry-fit all three keys of each pair. They should drop in freely without force.
-2. Fit the underside standoff screws on the bench. H12D: A/C/F/G/H/K/L/M only, four per section, **no standoffs at B or J**. Kenshin: four and five, with B only if the PCB has that hole.
-3. Lay the pair flat on the steel and seat the keys.
-4. Fit the front M3 × 16 anchors with Ø7 × 0.5 washers through sound steel: **Berserk X355 / 434, Y63.70; Kenshin X224 / 303, Y374.00**. The 8 × 4 mm slots give ±2 mm adjustment. Re-mark positions from the real board and the manifest.
-5. Fit the three mandatory under-PCB anchors on each rear section: **Berserk (191.2,301.2), (247,301.2), (247,79.71); Kenshin (60.2,611.5), (116,611.5), (116,390.01)**. Use M3 × 16, Ø7 × 0.5 top/back washers and nuts through solid steel. Fit them before the PCB.
-6. Check the fixed rear hex-hole centres against the fully seated cards. Default posts are **Berserk X128.58 / 148.58 / 169.22 / 189.22 / 209.86 / 229.86 / 250.50 / 270.50, Y320.20; Kenshin X51 / 71, Y634.50**. Confirm that each hex-hole axis matches the seated card, then mark a Ø3.5 mm hole on sound steel. If an axis does not match, revise the printed part before drilling. Remove the card before drilling; the hex holes locate the bases but are not drill bushings. Unused holes need no hardware. See the [base section diagram](../models/pcie-post-shared-mount.png).
-7. Optional: each board has five inner 8 × 4 mm M3 slots. Fit any chosen M3 × 16 bolts, Ø7 washers and nuts now, before the PCB covers them. These are not part of the 45 default joints.
-
-The 6 mm rear rail sits 4.5466 mm below a conservative I/O shield edge. Tall high-X posts and real plug bodies still need a dry fit.
-
-Both rear rails have a **2 mm-deep × 2 mm-wide GPU-tab groove spanning 1–3 mm behind the PCB rear edge**, meeting the forward tips of the H12D hex holes while remaining separate from the Kenshin holes. Its position follows the nominal ATX/PCIe bracket geometry documented in [design.md](design.md#motherboard-adapters); the 2 mm allowance still needs a real fit check. Use the **original print orientation, screw-head recesses up, without supports**. Print one of each changed rail and seat the actual GPUs before setting the post nuts. Check that each lower bracket tongue enters the groove and clears its 4 mm floor, the metal bases and the steel shelf, with the PCIe connector fully seated. If a tongue misses the groove, record its X/Y position, thickness and required depth before revising the CAD. Do not pull a card into its slot with the post nuts.
-
-### 3. Under-shelf metal supports
-
-1. Fit the four M4 20 mm V100 tail spacers from below with steel washers at Y57.5, X263.5 / 222.86 / 182.22 / 141.58, before the cards go in.
-2. Fit the ten GPU-post joints: backing and small M3 washers below the shelf, the 14 mm female/female bases through the plastic onto steel. Tighten the M3 × 6 screws from below while holding the bases' wrench flats.
-3. Fit the OBT rods and fully seat the cards. The rod shoulder is now at Z14, 2.5 mm lower than before. Verify the fixed lower nut meets the flange without lifting or pulling the card; this height remains provisional.
-
-### 4. RTX 5090 rest
-
-Bolt `04_gpu_rest` down at X53 / 83, Y344.25 before fitting the GPU. Both heads and washers must sit below the top contact surface. The rest at X43–93 leaves 2.08 mm nominal clearance to the V100 hood and 6 mm board margin to the shelf edge; check real lips and components. Fit the board and GPU, then adjust the support height so it holds the card without pushing it out of its slot.
-
-### 5. Berserk front AIO (H115i, 140 mm)
-
-1. Bolt the two bare `06_fan140_aio_frame` feet to the shelf at **X162 / 254 / 302 / 394, Y15** first. The radiator blocks the screwdriver path once fitted. With the frame faces about 13 mm ahead of the shelf edge, each foot keeps 27 mm on steel. At full ±2.5 mm slot travel the OD12 washers keep 6.5 mm from the front edge. If the sandwich is already assembled, take it apart for bolt access.
-2. Seat the radiator on both ledges with the fans in front and the frames between. Eight shared screws pass through fan and frame into the factory radiator threads. Allow for the 5 mm frame, real head seats and washers while keeping safe engagement.
-3. Check that the fan arrows point toward the rack rear.
-4. Fit `07_fan140_aio_hose_brace` while supporting the AIO. The brace's inward web covers the frame bolts' top access, so make sure they are already tight.
-   - Attach its 6 mm flange loosely to the two unused rear radiator holes at X410.25, Z27.75 / 152.25, using matching factory-thread screws and OD10 washers. Do not use an overlong fan screw.
-   - Mark the two shelf slots at **X410.25, Y38 / 53.5**. Check the real vent, lip and under-shelf access, then fit two M4 bolts, two nuts and four OD12 washers. The slots allow ±1.5 mm; at opposite travel extremes the OD12 washers keep 0.5 mm apart.
-   - The brace foot runs Y29–62.5, 6.70 mm ahead of the board. Its front web rises to Z13 to clear the frame foot and bolt head.
-5. Check the hose elbows, relax the hose loop and tighten without drawing the radiator into position. The brace and frames must share the restraint without stressing the pump or board. See the [brace detail](../models/fan140-aio-hose-brace.png).
-
-### 6. PSU brackets
-
-1. Anneal the two `psu_bracket` prints (`05_psu_brackets`), let them cool, then check dimensions ([printing.md](printing.md)).
-2. Mark the shelf anchors: **Berserk X31 / 55, Y221.5** (PSU body X0–86); **Kenshin X366 / 390, Y564.5** (PSU body X335–421).
-3. Fit M4 through-bolts with OD12 washers and nuts, sized to the 6 mm foot and the real shelf stack. Leave them loose.
-4. Align the two upper factory screws in the 5 × 4 mm slots. The rear face is 9 mm thick, so allow for it and the washers while keeping safe factory engagement. Do not force the slots or pull the PSU into alignment.
-5. Check that the AC plug seats fully under the 8 mm top bar, that the LED (if any) clears the 9 × 40 mm relief, and that cables can reach. Then tighten and route the cords.
-
-### 7. Kenshin rear AIO (Lian Li 360, 120 mm)
-
-1. Bolt the two bare `08_fan120_aio_frame` feet at **X65 / 141 / 305 / 381, Y678.5** on sound steel with OD12 backing. Tighten these before the radiator goes in: it covers the driver paths, and the brace also limits access to the rightmost bolt.
-2. Rest the radiator on both Z20 ledges.
-3. Fit `10_fan120_aio_center_spacer` (119 × 119 × 6 mm) and all three fans outward on the Y706.5 plane. Twelve matching factory-thread screws hold fans, frames and spacer. Keep the original safe engagement while adding 6 mm plus any washer thickness.
-4. Fit `09_fan120_aio_hose_brace` loosely on the inward radiator face at X395.5, Z27.5 / 132.5 with two matching screws and OD10 washers. Its low-X web points away from the right hose end.
-5. Mark the brace shelf anchors at **X395.5, Y638 / 653.5**. Fit two M4 bolts, two nuts and four OD12 washers sized for the 8 mm foot. Tighten without preloading the hoses.
-6. Check the 2.75 mm nominal gap to the frame, the real hose elbows, the pump routing and warm PETG stiffness. Fit the pump with the original AM5 hardware and broad hose bends. Rear screw heads project 38.5 mm past the shelf. See the [frame and brace detail](../models/fan120-aio-frames-and-brace.png).
-
-### 8. V100 hood and fan
-
-1. Print `11_tnut_fit_coupon` in HT-PLA-GF to test the T-nut pocket. Then print `12_v100_gpu_shroud` fan-face down, without removable supports. Keep its four 4 mm chamber ribs and inspect their roots, the wall transitions and all slots.
-2. Tighten Kenshin's front motherboard anchors now; the hood covers their driver paths.
-3. Load the four inlet T-nuts from inside the empty hood.
-4. Lower the bare hood over the rear of the GPU array. Its base occupies **Y333–363, Z0–6**, with ground contact at Y339–363 after the front bevel. That is 2.3 mm clear of the adapter rail and 17.5 mm from Kenshin's PCB (about 1.7 mm to its adapter ears).
-5. Transfer the three slots, **X147.54 / 257.54 at Y347 and X202.54 at Y352.5**, onto sound steel, reusing vents where possible. Fit three M4 × 16 bolts, three nuts and six OD12 × 1 washers; confirm length on the real shelf. Tighten them with a long driver through the bare fan opening **before** fitting the fan or outlet flange.
-6. Seal the common lower opening and the inlet perimeter with secured, nonconductive flexible foam or tape. Keep vents open and keep material away from the rotor. Do not lever against GPU PCBs.
-7. Fit the fan with the four M4 × 14 inlet screws and OD9 washers. Use a long 3 mm hex bit through the opposite factory holes.
-
-The fan top is at Z233.44, 11.19 mm above nominal 6U. Keep the space above it clear for the duct.
-
-### 9. Exhaust duct
-
-1. Dry-fit `13_gpu_exhaust_fan_flange` and the real Kenshin 24-pin cable. The rigid parts clear the modeled cable reserve, and the hose route can be adjusted. Keep the space up to the inner ceiling at Z400 clear.
-2. Load four M4 hammer T-nuts into the outlet flange's open pockets. Fit it with four M4 × 16 socket caps and OD9 × 1 washers through the fan's open corners, using a short 3 mm hex key. The inlet screws must already be tight, because the outlet hardware blocks their driver paths. Seal the mating seam.
-3. Survey the inner ceiling and roof chamber. Place the 154 mm opening and four corner anchors on sound sheet, away from factory fans, wires and ribs. Remove and deburr the panel for cutting so chips cannot reach electronics. Fit `14_gpu_exhaust_roof_flange` with the 2 mm gasket, four M4 × 20 bolts, four nuts and eight OD12 × 1 washers, sizing bolt length to the real stack. The roof flange has 8 × 5.5 mm adjustment slots. Do not cut the outer lid.
-4. Slip the 6-inch wire-supported duct over both necks. Put one McMaster 53185K52 lever clamp at each end, fully over supported neck material. The fan neck is only 28 mm long: centre the 22.225 mm band and check full cuff insertion. Tighten enough to seal without ovalizing the neck.
-5. Route the duct around components without pushing on RAM, connectors, hoses or fan inlets. Hang its weight from rack structure with a strap and leave a service loop. With GPU load stopped, test that each cuff comes off before trimming the duct. Leave the roof flange installed for service.
-
-### 10. Final mechanical check
-
-Move each part by hand: nothing should rock. No board should be bent by mismatched supports. Radiator and GPU weight should rest on the intended bearing surfaces. Never tighten a screw to pull a misaligned part into position. After sustained operation, recheck printed parts for movement or softening and fasteners for loosening.
+**Power down and disconnect all fixed-rack power/data and the roof duct before extending.** No live-service carrier/slack loop is designed. Check the entire 711.2 mm travel empty first; then follow the rack/shelf stability instructions for loaded service. Keep internal cables on the moving shelf and prevent snagging. Reconnect and re-support the duct before restarting.
 
 ## Fan wiring and first power-up
 

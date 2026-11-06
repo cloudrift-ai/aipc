@@ -209,7 +209,7 @@ def preview(path,shapes,parts):
     ys,zs=hose_path_points()
     ax.plot(ys,zs,color='#268a99',lw=22,alpha=.15);ax.plot(ys,zs,color='#268a99',ls='--')
     ax.axhline(CEILING_Z,color='#333',lw=2);ax.text(420,408,'Inner ceiling Z400 (provisional)',ha='center',fontsize=9)
-    ax.axhline(222.25,color='#b36b12',ls='--');ax.text(545,226,'6U shelf envelope',ha='center',fontsize=8)
+    ax.axhline(222.25,color='#b36b12',ls='--');ax.text(545,226,'component planning band',ha='center',fontsize=8)
     ax.annotate('45° outlet',xy=(380,190),xytext=(475,165),arrowprops={'arrowstyle':'->'},fontsize=10)
     ax.annotate('Shelf-mounted\nhood',xy=(341,6),xytext=(255,55),ha='center',arrowprops={'arrowstyle':'->'},fontsize=9)
     ax.set(xlim=(200,640),ylim=(0,430),xlabel='Front → rear Y (mm)',ylabel='Above steel shelf Z (mm)');ax.set_aspect('equal')

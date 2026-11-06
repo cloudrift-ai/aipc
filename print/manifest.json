@@ -7,7 +7,7 @@
   "edge_margin_mm": 12.0,
   "motherboard_edge_margin_exception_mm": 3.25,
   "minimum_part_gap_mm": 8.0,
-  "parts_total": 34,
+  "parts_total": 18,
   "installation_released": false,
   "gcode_status": "run `make gcode` for provisional fit-prototype G-code; print each plate `copies` times",
   "jobs": {
@@ -78,9 +78,9 @@
       "highest_part_mm": 24.0,
       "occupied_bounds_mm": [
         110.0,
-        65.0,
+        79.0,
         160.0,
-        135.0
+        121.0
       ]
     },
     "05_psu_brackets": {
@@ -147,7 +147,7 @@
         "fan120_aio_frame": 1
       },
       "count": 1,
-      "highest_part_mm": 40.0,
+      "highest_part_mm": 75.0,
       "occupied_bounds_mm": [
         65.0,
         40.0,
@@ -261,27 +261,6 @@
         12.0,
         223.0,
         188.0
-      ]
-    },
-    "15_rail_shelf_shim_trials": {
-      "process_profile": "profiles/process.json",
-      "filament_profile": "profiles/duramic-petg-240c.json",
-      "required_nozzle": "0.4mm; original PETG setup",
-      "supports_required": false,
-      "copies": 1,
-      "items": {
-        "rail_shelf_shim_1mm": 4,
-        "rail_shelf_shim_2mm": 4,
-        "rail_shelf_shim_3mm": 4,
-        "rail_shelf_shim_4mm": 4
-      },
-      "count": 16,
-      "highest_part_mm": 8.0,
-      "occupied_bounds_mm": [
-        19.006,
-        56.0,
-        250.99400000000003,
-        144.0
       ]
     }
   }

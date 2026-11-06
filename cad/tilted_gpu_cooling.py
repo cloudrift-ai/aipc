@@ -7,21 +7,22 @@ import math
 from functools import lru_cache
 import cadquery as cq
 import berserk_platform as bp
+from rack_shelf_coordinates import BERSERK_DY
 
 CX, WIDTH = bp.GPU_CENTER, 173.32
 X0 = CX - WIDTH/2
-CY, CZ, ANGLE = 325.0, 150.0, 45.0
+CY, CZ, ANGLE = 325.0+BERSERK_DY, 150.0, 45.0
 HEIGHT, PANEL, WALL = 148.0, 10.0, 3.2
 # Four nominal40mm GPU bodies follow H12D SLOT_PLANES minus36mm and Z24..135.15.
 # Plain sidewalls cover the rear120.2mm; no fitted collar or individual rod cuts.
-GPU_END_Y, FIT_GAP = 314.2, 1.5
-INLET_Y, INLET_BOTTOM, INLET_TOP = 194.0, 0.0, 145.0
-BASE_Y, BASE_END_Y, BASE_T = 333.0, 363.0, 6.0
+GPU_END_Y, FIT_GAP = bp.REAR_Y, 1.5
+INLET_Y, INLET_BOTTOM, INLET_TOP = 194.0+BERSERK_DY, 0.0, 145.0
+BASE_Y, BASE_END_Y, BASE_T = 333.0+BERSERK_DY, 363.0+BERSERK_DY, 6.0
 BASE_TOE_Y = BASE_Y + BASE_T  # One straight inlet edge;45deg underside bevel.
 RIB_T = 4.0
 RIB_X = tuple(CX + x for x in (-65.0,-25.0,25.0,65.0))
 FAN_SIZE, FAN_DEPTH, FAN_FLANGE, PITCH = 140.0,38.0,4.0,124.5
-ANCHORS=((CX-55.0,347.0),(CX+55.0,347.0),(CX,352.5))
+ANCHORS=((CX-55.0,347.0+BERSERK_DY),(CX+55.0,347.0+BERSERK_DY),(CX,352.5+BERSERK_DY))
 SLOT_LENGTH, SLOT_WIDTH = 8.0,5.5
 NUT_BODY=(11.5,5.7,4.2)
 NUT_POCKET=(12.2,6.4,4.8)
@@ -99,7 +100,7 @@ def parts():
     shell=shell.union(base)
     # Four permanent broad triangular ribs grow from the rear wall toward the
     # shelf flange. They avoid the bolt/washer/driver lanes and stay in chamber.
-    rib=[(344,6),(365,6),(375,60)]
+    rib=[(344+BERSERK_DY,6),(365+BERSERK_DY,6),(375+BERSERK_DY,60)]
     for x in RIB_X:
         shell=shell.union(prism(rib,x-RIB_T/2,RIB_T))
     panel=cq.Workplane('XY').rect(WIDTH,HEIGHT).extrude(PANEL)
@@ -151,14 +152,14 @@ def report():
       'fan_hole_pitch_mm':PITCH,'fan_hole_diameter_mm':4.5,
       'fan_dimension_source':'https://publish.sanyodenki.com/San_Ace_E/book/data/San_Ace_E.pdf pp185-188',
       'angle_up_from_horizontal_deg':45,'panel_center_xyz_mm':[CX,CY,CZ],
-      'fan_top_z_mm':round(b.zmax,2),'rack_space':'fan reaches above nominal6U shelf envelope; keep existing duct space to inner ceilingZ400 clear',
+      'fan_top_z_mm':round(b.zmax,2),'rack_space':'fan reaches above 222.25mm component planning band; keep existing duct space to inner ceilingZ400 clear',
       'GPU_inlet_y_mm':INLET_Y,'outer_width_mm':WIDTH,
       'rear_GPU_coverage_mm':GPU_END_Y-INLET_Y,'side_body_clearance_mm':2.5,
       'base_y_range_mm':[BASE_Y,BASE_END_Y],'base_thickness_mm':BASE_T,
       'base_ground_y_range_mm':[BASE_TOE_Y,BASE_END_Y],'base_front_bevel_deg':45,
       'permanent_ribs':{'count':4,'thickness_mm':RIB_T,'centers_x_mm':RIB_X,
                         'purpose':'support the shelf-flange transition in print; retain inside chamber'},
-      'adapter_rail_gap_mm':BASE_Y-330.7,'individual_rod_cutouts':0,
+      'adapter_rail_gap_mm':BASE_Y-(bp.REAR_Y+16.5),'individual_rod_cutouts':0,
       'support':'continuous sidewalls into6mm base; three M4 shelf bolts carry fan and hood; flex duct separately supported',
       'inlet_edge_yz_mm':[[INLET_Y,INLET_TOP],[BASE_TOE_Y,0]],
       'shelf_slot_size_mm':[SLOT_LENGTH,SLOT_WIDTH],'shelf_slot_checked_travel_mm':[-1.25,1.25],

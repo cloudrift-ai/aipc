@@ -3,8 +3,8 @@
   "material": "Polymaker HT-PLA-GF, hardened0.4mm nozzle,230C/50C; recheck after annealing",
   "ceiling_height_above_shelf_mm": 400.0,
   "roof_center_xy_mm": [
-    202.54,
-    438.93755415948607
+    178.54,
+    466.93755415948607
   ],
   "route": "existing V100 extraction fan -> short straight flange -> adjustable6in flex bend -> inner-ceiling chamber",
   "layout": "GPU inlet fixed; fan and outlet tilt upward45 degrees; PC positions retained",
@@ -27,7 +27,7 @@
       4.8
     ],
     "nut_dimensions_provisional": true,
-    "back_to_neck_end_y_mm": 385.81118318204307,
+    "back_to_neck_end_y_mm": 413.81118318204307,
     "print": "flat face on bed, neck up, no supports",
     "hardware": "4 M4x16,4 M4 hammer T-nuts,4 OD9x1washers; bench mount before hose; test job13 coupon first"
   },
@@ -37,20 +37,20 @@
     "square_mm": 176.0,
     "hole_centers_xy_mm": [
       [
-        124.53999999999999,
-        360.93755415948607
+        100.53999999999999,
+        388.93755415948607
       ],
       [
-        124.53999999999999,
-        516.9375541594861
+        100.53999999999999,
+        544.9375541594861
       ],
       [
-        280.53999999999996,
-        360.93755415948607
+        256.53999999999996,
+        388.93755415948607
       ],
       [
-        280.53999999999996,
-        516.9375541594861
+        256.53999999999996,
+        544.9375541594861
       ]
     ],
     "slots_mm": [

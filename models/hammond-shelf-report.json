@@ -1,0 +1,32 @@
+{
+  "shelf": "Hammond RSUS1931BK1",
+  "source": "https://www.hammfg.com/dci/products/accessories/rsus",
+  "drawing": "https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf",
+  "deck_width_depth_mm": [
+    422.656,
+    787.4
+  ],
+  "nominal_gauge_thickness_mm": 1.52,
+  "thickness_basis": "16 gauge from current series page; 1.52 mm nominal allowance, actual sheet and coating unmeasured",
+  "fold_height_mm": 38.099999999999994,
+  "overall_height_mm": 68.072,
+  "overall_width_mm": 479.806,
+  "rack_hole_pitch_mm": 466.34399999999994,
+  "mount_depth_range_mm": [
+    457.2,
+    711.1999999999999
+  ],
+  "slide_travel_mm": 711.1999999999999,
+  "equipment_load_limit_kg": 39.0,
+  "mounting_space_U": 2,
+  "required_clearance_U": 3,
+  "specification_disagreement": "Individual drawing says 120 lb and 8\u201328 in; current series table says 85 lb (39 kg) and 18\u201328 in. Use the current, more restrictive values pending manufacturer confirmation.",
+  "status": "selected by owner; not purchased or physically fitted",
+  "factory_slide_internal_geometry_verified": false,
+  "physical_fit_verified": false,
+  "static_boolean_pairs_checked": 0,
+  "continuous_travel_envelope_pairs_checked": 0,
+  "travel_check_scope": "Illustrative outer rails and brackets only; actual bearings, stops, rack posts, doors and moving-load capacity unmeasured. Disconnect fixed-rack duct, power and data before extension.",
+  "custom_rail_shims": "none; factory matched slides replace the King Slide adaptation",
+  "limitations": "Deck outer dimensions are sourced. Bend radii, true flat bearing area, slide closed length/cross-section, rack-bracket locations and holes are illustrative. Do not drill using factory slide envelopes. Survey underside hardware clearance, rack spacing, door clearance and total moving load before fabrication."
+}

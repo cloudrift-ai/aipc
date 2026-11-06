@@ -1,6 +1,6 @@
 # Print plates
 
-Fifteen centered plates for the first-generation **Qidi X-Plus** (270 × 200 mm bed, 0.4 mm nozzle) produce 34 printed pieces: 17 installed parts, one T-nut coupon and 16 rail/shelf shim trials. Each `.3mf` holds geometry and placement only; the slicer settings come from [profiles/](profiles) and are listed per plate in [manifest.json](manifest.json). Print a plate as many times as its **Prints** column says. The rail-shim installed quantity is not established.
+Fourteen centered plates for the first-generation **Qidi X-Plus** (270 × 200 mm bed, 0.4 mm nozzle) produce 18 printed pieces: 17 installed parts and one T-nut coupon. Each `.3mf` holds geometry and placement only; the slicer settings come from [profiles/](profiles) and are listed per plate in [manifest.json](manifest.json). Print a plate as many times as its **Prints** column says. The Hammond shelf uses its supplied slides, so the former rail-shim trial plate is retired.
 
 G-code is not committed. Generate it with OrcaSlicer:
 
@@ -12,26 +12,23 @@ or one plate at a time, for example `make print/gcode/05_psu_brackets.gcode`. Th
 
 | Plate | Contents | Prints | Material | Orca estimate per print |
 | --- | --- | ---: | --- | --- |
-| [01_atx_mobo_adapter_front](01_atx_mobo_adapter_front.3mf) | Shelf-front motherboard section with two M3 ears; common to both boards | 2 | PETG | 14 h 30 m, 94 g |
-| [02_atx_mobo_adapter_rail](02_atx_mobo_adapter_rail.3mf) | ATX rear rail with regular hex base holes and 2 × 2 mm groove | 1 | PETG | 14 h 51 m, 95 g |
-| [03_h12d_mobo_adapter_rail](03_h12d_mobo_adapter_rail.3mf) | H12D rear rail with regular hex base holes and 2 × 2 mm groove | 1 | PETG | 14 h 51 m, 95 g |
-| [04_gpu_rest](04_gpu_rest.3mf) | RTX 5090 front-end rest with recessed shelf bolts | 1 | PETG | 9 h 10 m, 51 g |
-| [05_psu_brackets](05_psu_brackets.3mf) | Two identical rear PSU brackets | 1 | HT-PLA-GF | about 13 h 30 m, 95 g |
-| [06_fan140_aio_frame](06_fan140_aio_frame.3mf) | 140 mm fan-flush radiator frame with bearing ledge | 2 | PETG | 11 h 25 m, 76 g |
-| [07_fan140_aio_hose_brace](07_fan140_aio_hose_brace.3mf) | 140 mm radiator hose-end brace | 1 | PETG | 6 h 35 m, 42 g |
-| [08_fan120_aio_frame](08_fan120_aio_frame.3mf) | 120 mm fan-flush radiator frame with bearing ledge | 2 | PETG | 10 h 7 m, 66 g |
-| [09_fan120_aio_hose_brace](09_fan120_aio_hose_brace.3mf) | 120 mm radiator hose-end brace | 1 | PETG | 5 h 43 m, 36 g |
-| [10_fan120_aio_center_spacer](10_fan120_aio_center_spacer.3mf) | Flat spacer that keeps the middle 120 mm fan coplanar | 1 | PETG | 3 h 51 m, 25 g |
-| [11_tnut_fit_coupon](11_tnut_fit_coupon.3mf) | M4 hammer T-nut pocket test; print before plate 12 | 1 | HT-PLA-GF | 43 m, 5 g |
-| [12_v100_gpu_shroud](12_v100_gpu_shroud.3mf) | One-piece V100 hood with integral 45° fan panel | 1 | HT-PLA-GF | 1 d 21 h 43 m, 404 g |
-| [13_gpu_exhaust_fan_flange](13_gpu_exhaust_fan_flange.3mf) | Fan outlet to 6-inch duct | 1 | HT-PLA-GF | 16 h 15 m, 129 g |
-| [14_gpu_exhaust_roof_flange](14_gpu_exhaust_roof_flange.3mf) | Cabinet inner-ceiling duct flange | 1 | HT-PLA-GF | 16 h 59 m, 149 g |
-| [15_rail_shelf_shim_trials](15_rail_shelf_shim_trials.3mf) | Four each of 1/2/3/4 mm pads (16 pieces), tall tapered ridges up; one print | 1 | PETG | 6 h 33 m 41 s, 45.42 g |
+| [01_atx_mobo_adapter_front](01_atx_mobo_adapter_front.3mf) | Shelf-front motherboard section with two M3 ears; common to both boards | 2 | PETG | 14h 28m 35s, 93.68 g |
+| [02_atx_mobo_adapter_rail](02_atx_mobo_adapter_rail.3mf) | ATX rear rail with regular hex base holes and 2 × 2 mm groove | 1 | PETG | 14h 51m 28s, 94.99 g |
+| [03_h12d_mobo_adapter_rail](03_h12d_mobo_adapter_rail.3mf) | H12D rear rail with regular hex base holes and 2 × 2 mm groove | 1 | PETG | 14h 50m 3s, 95.19 g |
+| [04_gpu_rest](04_gpu_rest.3mf) | Compact 50 × 42 × 24 mm RTX 5090 rest with recessed shelf bolts | 1 | PETG | 5h 36m 50s, 31.86 g |
+| [05_psu_brackets](05_psu_brackets.3mf) | Two identical rear PSU brackets | 1 | HT-PLA-GF | 13h 32m 4s, 94.48 g |
+| [06_fan140_aio_frame](06_fan140_aio_frame.3mf) | 140 mm fan-flush radiator frame with bearing ledge | 2 | PETG | 11h 25m 8s, 75.95 g |
+| [07_fan140_aio_hose_brace](07_fan140_aio_hose_brace.3mf) | 140 mm radiator hose-end brace | 1 | PETG | 6h 34m 34s, 41.53 g |
+| [08_fan120_aio_frame](08_fan120_aio_frame.3mf) | 120 mm radiator frame with 75 mm feet on steel extension | 2 | PETG | 12h 10m 14s, 79.57 g |
+| [09_fan120_aio_hose_brace](09_fan120_aio_hose_brace.3mf) | Mirrored left 120 mm radiator hose-end brace | 1 | PETG | 5h 50m 23s, 36.73 g |
+| [10_fan120_aio_center_spacer](10_fan120_aio_center_spacer.3mf) | Flat spacer that keeps the middle 120 mm fan coplanar | 1 | PETG | 3h 50m 39s, 24.87 g |
+| [11_tnut_fit_coupon](11_tnut_fit_coupon.3mf) | M4 hammer T-nut pocket test; print before plate 12 | 1 | HT-PLA-GF | 43m 27s, 4.79 g |
+| [12_v100_gpu_shroud](12_v100_gpu_shroud.3mf) | One-piece V100 hood with integral 45° fan panel | 1 | HT-PLA-GF | 1d 21h 43m 24s, 403.64 g |
+| [13_gpu_exhaust_fan_flange](13_gpu_exhaust_fan_flange.3mf) | Fan outlet to 6-inch duct | 1 | HT-PLA-GF | 16h 14m 32s, 128.96 g |
+| [14_gpu_exhaust_roof_flange](14_gpu_exhaust_roof_flange.3mf) | Cabinet inner-ceiling duct flange | 1 | HT-PLA-GF | 16h 58m 59s, 148.71 g |
 
 Estimates are from OrcaSlicer 2.4.2 with the profiles here; your slice will report its own. PETG plates use Duramic PETG at 240 °C / 75 °C. HT-PLA-GF plates use Polymaker HT-PLA-GF at 230 °C / 50 °C and need a **0.4 mm hardened steel nozzle**. All motherboard sections keep their original recesses-up orientation. Plates **02 and 03** bridge the 2 mm-wide GPU-tab groove facing the bed, positioned 1–3 mm behind the motherboard rear edge. The regular hex holes are 5.8 mm across flats, giving 0.15 mm clearance per face with no elongated adjustment. Point one standoff corner toward the PCB. H12D tips meet the groove; ATX holes stay separate. Inspect the first roof layer at Z2.2 and check the snug fit on a test print after removing brim/first-layer excess. No plate needs supports; the shroud's four internal ribs are permanent and must stay.
 
 Each `.svg` next to a plate shows its layout. [orientation-audit.json](orientation-audit.json) records each part's print orientation. See [docs/printing.md](../docs/printing.md) for the printer, material and design rules these plates follow, and [docs/assembly.md](../docs/assembly.md) for where each part goes.
 
 These are **fit prototypes**: fit-test one of each bracket against the real hardware before printing the rest.
-
-Plate 15 places the thicknesses in four columns, left to right from 1 to 4 mm, and repeats the set across four rows. All 16 pieces print together in one run. The centered layout occupies 232 × 88 mm, with 8 mm gaps between parts and at least 19 mm bed-edge margin before brims. Their nominal 52 × 16 mm oblong pads carry 4 mm-tall tapered ridges, narrowing from 39.6 × 6.1 mm roots to 35.6 × 3.2 mm crests. The nominal 40 × 6.5 mm side slots match the deck vents, as confirmed by the owner; the ridge root has 0.2 mm clearance around its outline. Align a ridge with an unused shelf side slot and press in by hand until the pad seats flat; screws use separate metal sites. Print the flat face down, use one thickness at a time, and do not stack. The default dimensions do not establish the gap, slot fit, inward clearance or loaded suitability. See [shim design](../docs/design.md#rail-to-shelf-shim-trials) and [empty-shelf trial](../docs/assembly.md#rail-shim-fit-trial).

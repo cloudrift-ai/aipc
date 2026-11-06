@@ -4,13 +4,15 @@ Photo is unmodified Huananzhi 1741911996630761326.png. PCB bounds are
 (209,19)..(1372,1477) pixels. Rotation maps image bottom to shelf low X,
 image left (rear I/O) to shelf high Y. Never use these estimates to drill.
 """
+from rack_shelf_coordinates import BERSERK_DX, BERSERK_DY
+
 MODEL = 'HUANANZHI H12D-8D + BMC'
 CPU = 'AMD EPYC 7702P'
 WIDTH, DEPTH = 305.0, 245.0
-X, REAR_Y = 137.0, 314.2
+X, REAR_Y = 137.0+BERSERK_DX, 314.2+BERSERK_DY
 FRONT_Y = REAR_Y - DEPTH
 CPU_CORES, CPU_THREADS, CPU_TDP_W = 64, 128, 200
-RAM = '128 GB: 8 x 16 GB DDR4-3200 ECC RDIMM; exact modules unselected'
+RAM = '256 GB: 8 x 32 GB Micron DDR4-2933 ECC RDIMM ordered; receipt/testing pending'
 LISTING = 'https://www.ebay.com/itm/396800856844'
 SOURCE = 'https://www.huananzhi.com/en/list_6/177.html'
 PHOTO = 'manufacturer board image 1741911996630761326.png from ' + SOURCE
@@ -21,7 +23,7 @@ def photo_xy(px, py):
 
 # First slot is photograph-derived; remaining slots use nominal two-slot pitch.
 # These are PCB planes, NOT the low-X faces of the dual-slot cooler envelopes.
-SLOT_PLANES = {f'PCIE{i+1}': round(279.50-i*40.64,2) for i in range(4)}
+SLOT_PLANES = {f'PCIE{i+1}': round(279.50-i*40.64+BERSERK_DX,2) for i in range(4)}
 GPU_BODY_X = {k: round(v-36.0,2) for k,v in SLOT_PLANES.items()}
 GPU_WIDTH = 40.0  # provisional 36 mm component side / 4 mm back side
 GPU_CENTER = (min(GPU_BODY_X.values())+max(GPU_BODY_X.values())+GPU_WIDTH)/2

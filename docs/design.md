@@ -1,6 +1,6 @@
-# Design: two PCs on one open shelf
+# Design: two PCs on a sliding shelf
 
-This repository describes two PCs, **Berserk** and **Kenshin**, built on a single StarTech ADJSHELFHDV four-post shelf with 3D-printed mounts instead of cases. The layout fits a nominal 6U component envelope; the Berserk GPU exhaust duct rises above it to a ceiling chamber.
+Berserk and Kenshin use a **Hammond RSUS1931BK1 solid sliding shelf with its supplied slides**, selected by the owner on 2026-11-05. This replaces the StarTech ADJSHELFHDV / King Slide adaptation and all rail shims. Purchase and physical fit are not confirmed.
 
 | System | Components |
 | --- | --- |
@@ -13,97 +13,61 @@ Networking uses each board's onboard Ethernet (Berserk: dual 2.5GbE plus the ded
 
 **Berserk storage.** Selected on 2026-11-04: three used Micron 3400 2 TB M.2 2280 PCIe 4.0 ×4 NVMe SSDs (MTFDKBA2T0TFH-1BC1AABDA, Dell DP/N 0VX5CD), from [LA-Tronics' eBay listing](https://www.ebay.com/itm/880020201442). These replace the earlier SK hynix PC801 selection. The checked listing price is $205.95 each, $617.85 for three, with free US shipping and tax extra; an order has not been confirmed. Plan a software RAID 0 array for downloadable model weights, with 6 TB nominal capacity and no redundancy. The [manufacturer specifies three PCIe 4.0 ×4 M.2 slots](https://www.huananzhi.com/en/list_6/177.html); populating all three leaves the boot layout to be decided. Aggregate bandwidth has not been measured. SSD cooling and clearance beneath the V100s remain provisional and require a physical check; they are not validated by the current CAD envelopes. The seller describes working-system OEM pulls but provides no individual SMART reports. Obtain and verify reports for all three drives.
 
-![Plan and side clearance](../models/kenshin-berserk-6u-shelf-layout.png)
+![Layout and side clearance](../models/dual-pc-hammond-layout.png)
 
-**Status.** This is a CAD fit study and prototype. Most interface positions come from manufacturer drawings, photographs and the owner's fit measurements, not from manufacturer CAD or a fully measured build. Every coordinate marked provisional below must be checked on real hardware before drilling. No printed part has a measured load or thermal-creep rating; a valid solid and a clean slice do not establish one.
+This remains a fit prototype. Manufacturer dimensions, photograph estimates, owner measurements and design allowances are separate evidence classes. CAD validates the modeled shapes and checks, not the unmeasured real interfaces. Printed mounts have no measured load or thermal-creep qualification.
+
+## Shelf and layout
+
+The [current Hammond table](https://www.hammfg.com/dci/products/accessories/rsus) specifies:
+
+| Property | Value |
+| --- | --- |
+| Deck width × depth | 16.64 × 31 in = **422.656 × 787.4 mm** |
+| Increase in depth / decrease in width | **87.4 mm deeper / 23.344 mm narrower** than the former shelf |
+| Slide travel | 28 in = 711.2 mm |
+| Front-to-rear rack-post mounting range | 18–28 in = 457.2–711.2 mm |
+| Equipment load limit | 85 lb / 39 kg |
+| Shelf mounting / clearance | 2U mounting; 3U required clearance for shelf alone |
+| Downward fold height / overall assembly height | 38.1 / 68.072 mm |
+| Overall width | 479.806 mm |
+| Material | 16-gauge steel; CAD uses **1.52 mm nominal thickness**, to be measured |
+
+The [individual drawing](https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf) says 120 lb and 8–28 in, conflicting with the current series table. Use the more restrictive **39 kg and 18–28 in** values until Hammond confirms otherwise. The drawing shows downward folds on all four sides. Slide closed length/cross-section, bracket placement, bend radii and flat bearing area are unmeasured; the STEP uses illustrative envelopes, not factory CAD. The 28 in travel is not a verified closed-rail length. Follow [Hammond’s installation bulletin](https://www.hammfg.com/files/parts/bulletins/BUL87361.pdf?v=1697661758).
+
+Coordinates are millimetres: X left to right viewed from rack front, Y front to rear, Z above the deck. The shelf is X0–422.656, Y0–787.4.
+
+- **Berserk:** board X113–418, Y97.2–342.2. Hercules PSU X0–86, Y0–245, fully on steel. Front H115i radiator Y14–40; fans Y−16–9. Its original mount geometry is reused with the new placement.
+- **Kenshin:** board X111.656–416.656, Y446.5–690.5, turned 180°. Rear I/O faces the center corridor; the GPU sits at high X opposite the hood. The PSU is X7.656–93.656, Y525.5–725.5, inlet facing front.
+- **Working clearance:** nominal V100 hood to RTX 5090 lateral gap is **43.656 mm**, previously 2.08 mm. GPU tail to rear board gap is **104.3 mm**. A full **40 mm approach reserve** for Kenshin’s inward-facing I/O is checked against the hood. Exact plugged connector shapes still require a dry fit.
+- **Rear AIO:** radiator Y787.5–814.5; fans Y820.5–848.5; nominal screw heads to Y852.5 (**65.1 mm beyond the deck**). The steel extension, extended feet and compact GPU rest are described below. Reserve another 35 mm behind screw heads for straight-driver access during installation.
+- **Height:** the 222.25 mm component planning band is not a total rack-height claim. The pressure fan reaches Z233.439 and the fixed exhaust roof is provisionally Z400; lower shelf/slide geometry and rack alignment also consume space. Measure the actual cabinet before assigning U positions.
+
+The narrower deck leaves 4.656 mm at Berserk’s right board edge and 6 mm at Kenshin’s. The Hercules fan faces the V100s across an **11.58 mm nominal lane**, down from 35.58 mm; this is an unresolved airflow constraint. Kenshin’s PSU fan faces the cabinet side; its 7.656 mm deck margin does not establish cabinet-wall intake clearance. The solid shelf has no deck ventilation. Qualify both systems under concurrent load.
+
+## Sliding service and load
+
+**Power down and disconnect fixed-rack power/data and the roof duct before extending.** No cable carrier or live-service slack loop has been designed for the 711.2 mm travel. Shelf-mounted wiring must be secured within the moving assembly; the roof flange stays fixed. Support and reconnect the duct without loading the printed fan panel. Leave the cabinet’s roof outlets open.
+
+The generator checks all explicit underside hardware against the fold/slide envelopes and conservative travel sweeps against the illustrative outer rails/brackets. These checks exclude real rack posts, door geometry, bearing races and latches. Confirm empty travel first, then verify the actual total moving equipment mass is below the applicable rating and follow the rack’s stability/anchoring instructions. Do not treat an open shelf as a workbench or add body weight to it.
 
 ## Generated files
 
-All CAD is generated by `cad/shelf_layout.py` and the helpers in `cad/`. Run `make cad` to regenerate everything in `models/`, `make plates` to pack the print plates in `print/`, and `make gcode` to slice them into `print/gcode/` (not committed).
+`cad/` is the source of truth. Run `make cad plates`, then `make gcode` with OrcaSlicer installed. G-code is not committed.
 
 | File | Contents |
 | --- | --- |
-| [kenshin-berserk-6u-shelf-envelope.step](../models/kenshin-berserk-6u-shelf-envelope.step) | Full assembly envelope |
-| [adjshelfhdv-drill-plan-deck.step](../models/adjshelfhdv-drill-plan-deck.step) | Shelf deck with the 45 selected holes |
-| [adjshelfhdv-approx-vented-deck.step](../models/adjshelfhdv-approx-vented-deck.step) | Approximate vented deck (reference only) |
-| [v100-tilted-exhaust.step](../models/v100-tilted-exhaust.step) | V100 hood, fan, flanges and duct route |
-| [pcie-post-backing-washer-reference.step](../models/pcie-post-backing-washer-reference.step) | GPU post underside backing washer |
-| [fit-report.json](../models/fit-report.json) | Component envelopes, clearances, assumptions |
-| [mount-hole-manifest.json](../models/mount-hole-manifest.json) | Every shelf hole, component hole and fastener |
-| [assembly-access-audit.json](../models/assembly-access-audit.json) | Washer, head and driver-path checks |
-| [gpu-exhaust-report.json](../models/gpu-exhaust-report.json) | Exhaust dimensions and assumptions |
-| [shelf-vent-estimate.json](../models/shelf-vent-estimate.json) | Estimated vent pattern |
+| [dual-pc-hammond-assembly.step](../models/dual-pc-hammond-assembly.step) | Complete assembly with illustrative factory slides |
+| [rsus1931bk1-drill-plan-deck.step](../models/rsus1931bk1-drill-plan-deck.step) | Solid deck with 45 proposed component mounting holes |
+| [rsus1931bk1-solid-deck.step](../models/rsus1931bk1-solid-deck.step) | Undrilled dimensional deck envelope |
+| [rear-aio-steel-extension-drill-plan.step](../models/rear-aio-steel-extension-drill-plan.step) | Fabricated 400 × 83 × 3 mm steel extension, six Ø5 holes |
+| [hammond-shelf-report.json](../models/hammond-shelf-report.json) | Sources, specification disagreement and model limits |
+| [fit-report.json](../models/fit-report.json) | Installed coordinates, components, cables and clearance checks |
+| [mount-hole-manifest.json](../models/mount-hole-manifest.json) | Proposed drill positions and factory-interface references |
+| [assembly-access-audit.json](../models/assembly-access-audit.json) | Slot travel, washer/head and driver checks |
+| [gpu-exhaust-report.json](../models/gpu-exhaust-report.json) | Fan, duct and roof interfaces |
 
-Each printed part also has its own STEP and STL in `models/`. The 15 print plates hold 34 printed parts: 17 installed parts, one T-nut fit coupon and 16 rail/shelf shim trials (see [print/README.md](../print/README.md)). No installed rail-shim quantity is established.
-
-## Layout and coordinates
-
-Coordinates are millimetres. **X** runs left to right viewed from the rack front, **Y** runs front to rear, and **Z** is height above the steel deck. The shelf body is 700 × 446 mm.
-
-- **Berserk** occupies the front half. Its rear I/O faces the rack rear. The PSU sits at low X (X0–86), the H115i at the front edge. The H12D board spans X137–442, Y69.2–314.2.
-- **Kenshin** occupies the rear half. Its board spans Y380.5–624.5, its PSU X335–421, Y345.5–545.5. Its AIO hangs off the rear edge.
-- The V100 hood and fan sit between the two boards, Y333–363 at the base.
-
-| Clearance or envelope | Value |
-| --- | --- |
-| Berserk board side margin to shelf edge | 4.0 mm nominal |
-| Kenshin board side margin | 6 mm |
-| V100 hood to RTX 5090 | 2.08 mm nominal |
-| Hercules PSU front overhang | 42.5 mm (202.5 mm of 245 mm on steel) |
-| H115i fan front | Y−38 |
-| Front power-route envelope | reaches Y−57.5; allow at least 60 mm front space |
-| Kenshin rear fans / screw heads | Y734.5 / Y738.5 (38.5 mm past the shelf) |
-| V100 fan top | Z233.44, 11.19 mm above nominal 6U |
-| Provisional inner ceiling for the duct | Z400 |
-
-The layout does not fit in 5U. The assembly now includes provisional downward sidewalls and closed slides; detailed shelf folds, fascia and rack attachments are not modeled; measure the real flat support width, cabinet liners and door clearances.
-
-## Rail-to-shelf shim trials
-
-![Rail/shelf shim fit set and local section](../models/rail-shelf-shims.png)
-
-The shim has an elongated **52 × 16 mm capsule-shaped pad** and a centered **4 mm-tall tapered locating ridge**. The ridge narrows continuously from a **39.6 × 6.1 mm obround root** to a **35.6 × 3.2 mm rounded crest**. The narrow crest starts in the elongated mounting slot; the sloped sides and rounded ends guide hand insertion and alignment as the pad approaches the steel. The opposite pad face stays flat against the slide. Plate `15_rail_shelf_shim_trials` contains **four each with 1, 2, 3 and 4 mm pad thickness**, all 16 pieces in a single print. Four columns group the thicknesses from left to right, and four rows repeat the set. The additional 4 mm ridge projects into an **unused shelf side slot**; it does not add to the gap when the pad is fully seated. The owner confirms the side mounting holes have the same dimensions as the manufacturer-dimensioned **40 × 6.5 mm deck vents**. Both use shared dimensions from [shelf_interfaces.py](../cad/shelf_interfaces.py). Pad dimensions, taper and print clearance are prototype choices; actual aperture tolerances and printed fit still need checking.
-
-The slide screws engage steel at **separate mounting points outside the entire pad footprint**; the slide and shelf faces remain separated by the shim. The shim has no screw hole, thread or captive nut. Its tapered ridge limits rotation in a suitably matching slot, but it is not a snap latch or structural fastener. It cannot establish a unique position along an oversized slot. Pads must bear on sound shelf steel around the slot and on a flat part of the inner rail. **They carry compression and can creep even though the screws engage metal.** Empty-shelf fit and travel testing do not qualify the modified shelf for loaded use. Use metal spacing at permanent clamped joints if sustained spacing cannot be maintained by the plastic pads.
-
-The [StarTech drawing](https://sgcdn.startech.com/005329/media/sets/ADJSHELFHDV_Diagram/ADJSHELFHDV_Diagram.PDF) gives a 446 ±1 mm body. The [compatible Gigabyte R162-ZA0](https://www.gigabyte.com/Enterprise/Rack-Server/R162-ZA0-rev-100) is 438 mm wide, but its [rail installation guide](https://download.gigabyte.com/FileList/Manual/server_system_qig_25HB2-3A0202-K0R.pdf) does not dimension the stud stand-off. That body-width difference therefore **does not specify the shim thickness**. For a centered shelf, thickness is `(installed separation of opposing shelf-facing inner-slide surfaces − actual bare shelf width) / 2`. Check each side independently if asymmetric. A zero or negative gap cannot be corrected with a positive shim.
-
-The **39.6 × 6.1 mm root** fits the nominal **40 × 6.5 mm slot** with **0.2 mm clearance around the outline** (0.4 mm total in each dimension). The **52 × 16 mm pad** covers the entire slot with at least **4.75 mm bearing land** around it. Check **4 mm unobstructed insertion depth**. The entire root outline must fit the actual slot, including its ends. The taller ridge may protrude beyond thin shelf steel, so check inside clearance. Press only by hand until the pad sits flat; if the taper wedges early, resize the ridge rather than using the mounting screws to force it home. Printed tolerances, slot shape and retention still need a dry fit. Actual slot positions, rail-hole compatibility, gap and slide load rating remain unverified. The assembly now includes a proposed metal fastener stack, described below; it is a review layout rather than confirmed purchased hardware, so it is not added to `parts.xlsx`.
-
-Parameters live in [rail_shelf_shims.py](../cad/rail_shelf_shims.py); STEP/STL geometry, the [interface report](../models/rail-shelf-shims-report.json), [six-view print review](../models/rail-shelf-shims-print-review.png) and plate 15 are generated by `make cad plates`. Change `TRIAL_THICKNESSES` for intermediate 0.20 mm increments, and the `Shim` dimensions for the actual slot and available bearing face. Print flat slide face down, ridge up, using the existing PETG profile without supports. Every higher ridge section is smaller than the one below, with no sharp tip, barb or undercut. **Do not stack ridged shims.** The [full assembly STEP](../models/kenshin-berserk-6u-shelf-envelope.step) now shows both closed rails and **four instances of the 2 mm shim**, two per side. The rail group and every added instance are named `PROVISIONAL`. These display instances do not establish the installed quantity; the print plate contains four copies of each trial thickness.
-
-![Side mounting slots and shim positions](../models/shelf-side-mounting-pattern.png)
-
-![Rails and shim placement](../models/rail-shelf-assembly.png)
-
-[rail_shelf_assembly.py](../cad/rail_shelf_assembly.py) models the owner-confirmed pattern: **two slots at the front and two at the back of each side**, arranged one behind the other along the shelf depth. There are eight side slots total, with none in the middle. Their provisional centers are **Y100/150 at the front and Y550/600 at the rear, Z−22 mm**. One shim at Y100 and one at Y600 on each side point inward; the companion slots at Y150 and Y550 take the proposed metal fasteners. The openings are **40 × 6.5 mm**, matching the deck vents as confirmed by the owner; their numeric coordinates remain illustrative, **not drilling instructions**. The 2 mm pads seat between the sidewalls and the inner-slide faces, 450 mm apart. The sidewall uses the published 44 mm overall shelf height with a provisional 1.2 mm thickness; the actual folds, opening tolerances and positions remain unmeasured.
-
-**Rail length correction.** The shelf body is **700 mm deep**, from the [StarTech drawing](https://sgcdn.startech.com/005329/media/sets/ADJSHELFHDV_Diagram/ADJSHELFHDV_Diagram.PDF). The owner confirms the rails extend beyond it. The previous 600 mm model was a visualization parameter, not a sourced rail dimension. The [Gigabyte installation guide](https://download.gigabyte.com/FileList/Manual/server_system_qig_25HB2-3A0202-K0R.pdf) illustrates mounting but does not dimension closed section lengths, bracket span, hole centers or travel. The suffix `600` is not used as evidence of any of these. Pending measurement, the model uses an explicitly **unmeasured 800 mm display envelope, Y−50–750**. The shelf remains at Y0–700 and is centered on the rails, giving equal **50 mm front and rear overhang** in this model, as requested by the owner. Rail position is calculated from shelf depth and rail length, so the centered relationship survives a length update. Shelf slots, shim sites and screw coordinates are unchanged. Both simplified sections share this display length; it does not establish either real section length or their closed offset. Rack brackets, the chosen 36 mm outer height and 11.5 mm depth remain provisional. Do not use this model to order rails or set rack-post depth.
-
-![Proposed rail mounting holes and metal fastener stack](../models/rail-shelf-mounting.png)
-
-**Proposed rail-to-shelf mounting.** Four **Ø4.5 mm clearance holes** are modeled in the inner rails, two per side at **Y150 and Y550, Z−22 mm**, giving a 400 mm pitch. These are a custom design proposal aligned to the illustrative shelf slots, not a recovered factory hole pattern. The owner will drill matching holes where needed. Center the real shelf on the rails and transfer the retained shelf mounting sites to unobstructed inner-rail metal; the model coordinates are not measurements of the real parts. In the current centered model, screw sites are 200 and 600 mm from the illustrated rail front. No holes are added to the outer moving rails.
-
-Each joint has a modeled **M4 × 12 button-head screw**, a **M4 hex nut**, and **three Ø12 × Ø4.3 × 1 mm metal washers**. Two washers bridge the provisional 2 mm rail/shelf gap at the screw; the third backs the shelf slot inside. The screw head sits on the inner-rail web and the nut sits inside the shelf. There are **four screws, four nuts and twelve washers in the review assembly**. The printed shims locate in the neighboring slots and remain outside the screw clamp stacks.
-
-The nominal under-head stack is **1.5 mm rail + 2 mm metal spacing + 1.2 mm shelf + 1 mm backing washer + 3.2 mm nut = 8.9 mm**, leaving **3.1 mm** of the 12 mm screw beyond the nut. Washers span the 6.5 mm opening with **2.75 mm nominal land per side**. The Ø7.6 × 2.2 mm head envelope follows [Blohm's ISO 7380-1 data](https://www.blohm-gmbh.de/de/en/Products/Product-overview/Machine-and-fixture-components/Screws-nuts-and-washers/Button-head-screws-EN-ISO-7380.html); washer dimensions follow [pgb's DIN 9021 data](https://www.pgb-europe.com/en-gb/205267/flat-washer-din-9021-m-4-a4-43-12-10), and the 7 mm across-flats / 3.2 mm nut follows [pgb's DIN 934 data](https://www.pgb-europe.com/en-gb/242836/hexagon-nut-din-934-m-4-a2-70). Screws and nuts use smooth nominal thread envelopes; no tap-drill diameter or detailed thread is implied. Fastener grade, locking method, torque and loaded capacity are not specified.
-
-The whole joint permits **±17 mm modeled fore/aft adjustment**, retaining at least 1 mm longitudinal separation between washer and adjacent shim pad. The screw alone would permit ±18 mm, but that is not the allowed assembled adjustment. A 6 mm driver shaft and an 11 mm outer-diameter nut socket have 40 mm of straight access in the model. **Detach the inner rails from their outer sections before tightening**; the outer webs block external driver access. The screw heads clear the simplified closed outer rail by 6.3 mm. Real bearing races, latches and stops are absent, so this is not proof of real slide clearance or motion.
-
-The [placement report](../models/rail-shelf-assembly-report.json) records the proposed hole coordinates, component counts, stack dimensions, sources and unresolved rail dimensions. It checks all added solids against each other and the existing assembly, including underside hardware, and checks the adjustment endpoints and tool paths. Conservative swept envelopes also check the entire adjustment interval against fixed geometry, with screw heads and shafts checked separately. Both shim faces and the complete metal clamp stacks seat without modeled interference. Individual deck STEP exports remain deck-only; the rail references and hardware belong to the full assembly.
-
-See [assembly instructions](assembly.md#rail-shim-fit-trial) for the empty-shelf trial.
-
-
-**Audit for the 40 × 6.5 mm slot revision, 2026-11-04.** `make cad plates gcode` passed all geometry assertions, plate checks and 15 slices. Independent review verified four valid, watertight shim models, 80 taper sections, all 24 print-orientation views, ridge starts, narrowing perimeters, crests and internal closures. Sampled internal pad roof spans peak at 1.70 mm; the conservative ridge-core transition span peaks at 2.06 mm, with supported exterior perimeters. The four-part plate occupies approximately 232 × 16 mm, with 19 mm bed-edge margins before brims, and estimates **1 h 40 m 56 s / 11.42 g PETG**, without supports. Source, G-code and profile hashes match the slicer manifest.
-
-Independent STEP review confirmed all eight side slots are 40 × 6.5 mm in the two-front/two-rear pattern. Four representative 2 mm shims seat without interference, with 777.062 mm² contact at each inner rail and 526.129 mm² at each shelf side. Only the four shim meshes and plate 15 changed among the 35 existing STL/3MF files. This replaces the earlier smaller-shim audit; physical printed fit, actual slot positions, rail gap, fasteners and loaded performance remain unverified.
-
-**Rail mounting model audit, 2026-11-04.** Independent re-import of the assembly found 265 items: 235 existing and 30 added solids, including four correctly placed Ø4.5 mm rail holes. Static checks found no overlap in 68 contact-inclusive pairs. Every 1 mm adjustment position from −17 to +17 mm was checked independently (700 Boolean pairs), with no interference and at least 1 mm washer-to-shim clearance. Driver approach, actual 2.5 mm hex-tip engagement and nut-socket access passed 84 checks at the center and both limits with the outer rails detached. Every metal-stack interface has positive face contact; nominal screw projection is 3.1 mm and head clearance to the schematic outer web is 6.3 mm. All 35 STL/3MF files are byte-identical to those before this assembly-only revision, preserving the prior print audit. This verifies the proposed CAD arrangement, not the unknown real rail dimensions or physical performance.
-
-**Centering audit, 2026-11-05.** `make cad plates gcode` passed. Independent STEP inspection confirmed all four rail sections span Y−50–750 around the Y0–700 shelf, with equal 50 mm overhang. All eight shelf slots and every shim/screw coordinate remain unchanged; the four rail holes are 200/600 mm from the illustrated rail front. The changed rail bodies have no interference in 26 contact-inclusive checks against the rest of the assembly. Continuous adjustment and tool-access checks remain valid, both previews show the full rail ends, and all 35 STL/3MF hashes match the previous revision. All 15 G-code records match their plate and profile hashes. The earlier independent print audit remains applicable.
-
-**Sixteen-shim batch audit, 2026-11-05.** Plate 15 now prints four each of the 1/2/3/4 mm shims in one run, arranged in four columns and four rows. The nominal 232 × 88 mm layout retains 8 mm part gaps. Independent review verified four shared 3MF mesh resources, 16 correctly oriented placements and 16 connected first-layer islands in the new G-code. All 16 copies reached their 5/6/7/8 mm total heights; 320 ridge transitions and 20 internal pad roof starts passed review. Sampled internal spans remain at most 1.70 mm in pads and 2.06 mm in ridge cores. Actual brims remain separate, with at least 3.43 mm axis clearance; all extrusion footprints including the skirt fit within X13.969–256.034 and Y50.962–149.038 on the 270 × 200 mm bed. Only plate 15 changed among the 35 baseline STL/3MF files; the shim geometry and previous orientation audit are unchanged. All 15 slices passed and their current plate, G-code and profile hashes match. The batch estimates **6 h 33 m 41 s / 45.42 g PETG**, without supports. This replaces the earlier four-piece plate layout and estimate, and remains a prototype print review rather than a physical fit approval.
+There are 17 installed printed pieces plus one T-nut coupon on 14 plates. Identical copies share a model. Retired shim and shelf-conversion outputs are removed by the generators; older revisions remain in Git history.
 
 ## Motherboard adapters
 
@@ -146,7 +110,7 @@ The base bodies still constrain lateral tab fit. Their axes remain survey estima
 
 **Front ears.** 14 mm wide with 8 × 4 mm slots (±2 mm depth travel), M3 × 16 bolts and Ø7 × 0.5 mm top and back washers on sound steel. Common ears at local X218/297 clear Berserk's AIO brace.
 
-**Rear-section anchors.** Three mandatory M3 × 16 bolts per rear section secure it independently of the GPU posts. Two new 8 × 4 mm slots sit at board-local X54.2/110, Yrear−13; a third at X110, Yrear−234.49 replaces the former optional X94.84 slot, placing its small washer clear of the estimated vents. Use Ø7 × 0.5 top/back washers and nuts on sound steel. Their heads top at Z9.5, below the PCB at Z15.525. Fit these before the motherboard. Together with the front ears, this gives five shelf anchors per board.
+**Rear-section anchors.** Three mandatory M3 × 16 bolts per rear section secure it independently of the GPU posts. Two new 8 × 4 mm slots sit at board-local X54.2/110, Yrear−13; a third at X110, Yrear−234.49 replaces the former optional X94.84 slot, placing its small washer clear of the other hardware. Use Ø7 × 0.5 top/back washers and nuts on sound steel. Their heads top at Z9.5, below the PCB at Z15.525. Fit these before the motherboard. Together with the front ears, this gives five shelf anchors per board.
 
 **Optional inner anchors.** Five additional 8 × 4 mm slots per board remain optional and excluded from the default drill plan. Use the same M3 hardware and install before the PCB covers them.
 
@@ -154,30 +118,21 @@ The base bodies still constrain lateral tab fit. Their axes remain survey estima
 
 ## GPU posts and rests
 
-![GPU base passing through the adapter](../models/pcie-post-shared-mount.png)
+![Post screw stack](../models/pcie-post-shared-mount.png)
 
-Each GPU bracket is held by two Open Benchtable PCI-E support rods. Each rod stands on a [Würth 970140324](https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/970140324/9488563) M3 14 mm female/female brass base. The base passes through the plastic and seats directly on steel. Berserk uses eight posts and Kenshin two:
+Ten Open Benchtable PCI-E rods (eight Berserk, two Kenshin) seat on **Würth 970140324**, M3 female/female, 14 mm tall, SW5.5 bases. They pass freely through the regular hex openings and bear directly on steel. Hold the exposed flats with a wrench; do not torque against plastic. Selected post coordinates follow the turned board and appear in the manifest.
 
-| Board | Selected post centres |
-| --- | --- |
-| Berserk | X128.58 / 148.58 / 169.22 / 189.22 / 209.86 / 229.86 / 250.50 / 270.50, Y320.20 |
-| Kenshin | X51 / 71, Y634.50 |
+**Each lower stack:** M3 × 8 screw → **two Ø7 × 0.5 mm washers** → **two Ø12 × 1 mm backing washers** → nominal **1.52 mm steel** → 14 mm metal base → OBT rod. No upper washer; GPU loads bypass the plastic. Ten bases require ten M3 × 8 screws, twenty small and twenty large underside washers, separate from the adapter anchors.
 
-**Stack, bottom to top:** M3 × 6 screw → Ø7 × 0.5 washer → Ø12 × 1 backing washer (M4 DIN 9021, OD12/ID4.4) → 1.2 mm nominal steel shelf → 14 mm female/female base → OBT rod. The 6 mm plastic adapter surrounds the base with clearance. There is no top washer and the GPU hardware does not clamp the plastic.
+The [Würth drawing](https://www.we-online.com/components/products/datasheet/970140324.pdf) specifies 14 mm M3 internal thread. The OBT stud’s **9 mm thread is owner-reported**, not a published drawing dimension. Nominal lower engagement is **8 − 1.52 − 2 − 1 = 3.48 mm**, leaving **14 − 9 − 3.48 = 1.52 mm** between screw tips. Measure actual steel, washers and screw lengths. Do not reuse the old lower screw selection without recalculating the stack.
 
-The [manufacturer drawing](https://www.we-online.com/components/products/datasheet/970140324.pdf) specifies a 14 mm body, **14 mm M3 internal thread**, and SW5.5 flats. The **9 mm OBT male thread is owner-reported on 2026-10-23**, not a published OBT drawing dimension. The [OBT listing](https://store.openbenchtable.com/products/obt-pci-e-thumbscrew-nut-pack) identifies the support/nut pack but gives no threaded-tip dimension. With the nominal shelf/washer stack, the lower screw enters **6 − 1.2 − 1 − 0.5 = 3.3 mm**, leaving **14 − 9 − 3.3 = 1.7 mm** between tips. A 12 mm body with that same screw would interfere by 0.3 mm. Do not reuse the old M3 × 12 lower screws.
+The rod seat remains Z14. The fixed lower OBT nut must meet the GPU flange with the card fully seated; never pull a card into position with the retaining nut. The 131 mm rod body and flange positions remain survey envelopes.
 
-Point one SW5.5 hex corner toward the motherboard, hold the flats with a wrench and tighten from below. Also hold the base while tightening the OBT rod. The complete base footprint must rest on sound steel around the drilled Ø3.5 hole; an underside backing washer cannot stop the base falling into a vent. CAD checks full metal-foot support at the fixed selected axes; the snug hex holes provide no separate adjustment range. Actual vent positions, shelf/washer thicknesses and screw tolerances still require checking.
+**V100s:** four nominal 40 mm cards on 40.64 mm pitch leave only 0.64 mm between cards. NVIDIA’s [dimensioned brief](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-V100-PCIe-Product-Brief.pdf) establishes 266.7 × 111.15 mm bodies; thickness, slots, flange holes and installed underside are provisional. Remove shipping extenders. Each tail uses an M4 female/female 20 mm metal spacer and a 4 mm silicone pad, fastened from below. Pads must touch rigid card frames clear of PCB components and airflow.
 
-The rod shoulder now sits at **Z14**, 2.5 mm lower than the previous Z16.5 and 1.525 mm below the motherboard underside. [Streacom's OBT/BC1 description](https://streacom.com/kb/bc1-v2/product-introduction-bc1v2/) identifies one permanently attached nut on the support screw. Its height relative to the shoulder is not measured here: dry-fit with the card fully seated and ensure that fixed lower nut meets the flange. Do not pull the card into position with the upper nut. The retained 131 mm rod envelope is only a survey estimate.
+**RTX 5090 rest:** a revised **50 × 42 × 24 mm** block at X329.656–379.656, Y695–737 fits between the board and longer rear AIO feet. Two M4 anchors have 17 × 12 × 6 mm head recesses. Use Ø9 mm washers and ≤4 mm heads, total ≤5 mm above the recessed seat. A 32 × 13 × 1.5 mm contact relief retains at least 4 mm of material to the screw recesses; test the actual shroud contact and fan clearance.
 
-**V100 slots.** The four cards sit in PCIE1–4 at slot planes X279.50 / 238.86 / 198.22 / 157.58, each at PCIe 3.0 x16 (the card's limit). The provisional 40 mm card bodies extend 36 mm toward low X and 4 mm toward high X, leaving only 0.64 mm between cards. Remove the OEM extenders. NVIDIA's [V100 brief](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-V100-PCIe-Product-Brief.pdf) gives a 266.7 × 111.15 mm body. Card bodies run Y47.5–314.2.
-
-**V100 tail spacers.** Each V100 tail rests on an M4 female/female 20 mm metal spacer with a 4 mm silicone pad, fastened from below with a steel washer at Y57.5 (X263.5 / 222.86 / 182.22 / 141.58). [RS PRO 222-496](https://docs.rs-online.com/cfbb/A700000007999949.pdf) is an example. The pad must touch a rigid frame surface, clear of PCB components and heatsink airflow. No printed plastic carries the hot V100 tails.
-
-**RTX 5090 rest** (`04_gpu_rest`). A 24 mm wide printed block at X43–93 supports the front end of the 5090. It has two M4 shelf anchors at X53 / 83, Y344.25, in 17 × 12 mm, 6 mm deep recesses. Use 9 mm OD washers, and keep washer plus head no more than 5 mm tall, which leaves 1 mm nominal clearance under the card. Adjust the rest so it touches a rigid shroud or frame surface without lifting the card out of its slot.
-
-**BMC clearance (unresolved).** The H12D BMC is modeled as a provisional 7 mm tall envelope. It overlaps the simplified solid GPU bodies by 0.125 mm. This is an open check, not a confirmed collision or a confirmed fit. Measure the BMC components, headers and real card undersides before assembly.
+**BMC underside remains unresolved:** the provisional H12D BMC envelope overlaps two simplified V100 bodies by 0.125 mm. This is neither a verified fit nor a confirmed real collision. Inspect the actual BMC, headers, NVMe cooling and card undersides before assembly.
 
 ## PSU bracket
 
@@ -191,134 +146,69 @@ Both PSUs use the same printed bracket, `psu_bracket`, two copies on plate `05_p
 - The two upper factory screws pass through 5 × 4 mm vertical slots with at least 4 mm side and 3.5 mm top material. Use washers and verify safe factory thread engagement.
 - **Feet:** 50 × 30 × 6 mm with two tapered side gussets. There are two 10 × 5.5 mm shelf slots side by side, 19 mm behind the rear face, with 6 mm of plastic beyond each slot end.
 
-| PSU | Body | Shelf anchors |
-| --- | --- | --- |
-| Berserk (Hercules) | X0–86 | X31 / 55, Y221.5 |
-| Kenshin (HX1200i) | X335–421 | X366 / 390, Y564.5 |
+Both PSUs rest fully on steel. Kenshin’s PSU and bracket turn 180° in the deck plane, so its AC inlet faces the central service area and its fan faces the cabinet’s left side. Installed hole coordinates are in the generated manifest.
 
 Use M4 through-bolts, OD12 washers and nuts. The brackets are printed in HT-PLA-GF and annealed (see [printing.md](printing.md)). Check AC plug insertion, LED clearance and cord routing during the dry fit.
 
-## 140 mm AIO frames and hose brace (Berserk H115i)
+## Front 140 mm AIO
 
-![140 mm AIO hose brace](../models/fan140-aio-hose-brace.png)
+![H115i brace](../models/fan140-aio-hose-brace.png)
 
-The H115i mounts at the front edge as a sandwich: **front fans → printed frames → radiator**. Its fans pull air rearward through the radiator. The frame faces sit about 13 mm ahead of the shelf edge, from the owner's fit measurement.
+The existing H115i mount shapes are reused: fans → 5 mm frames → radiator, with intended airflow toward rack rear. Frames sit at Y9; the 40 mm feet lie fully on the deck at Y9–49, anchors Y37. The radiator rests on 6 mm ledges at Z20, with paired 4 mm side webs; eight screws pass through the fan/frame stack into factory radiator threads. Frames are 140 × 160 mm with 124.5 mm screw pitch and 7 × 4.5 mm slots.
 
-| Element | Y range |
-| --- | --- |
-| Fans | Y−38 to −13 |
-| Frame faces | Y−13 to −8 |
-| Radiator | Y−8 to 18 |
-| Frame feet | to Y27, anchors at Y15 |
+The 162 mm hose brace retains its 8 mm web, 6 mm face and 8 mm foot. It attaches to two unused rear radiator threads and two shelf bolts; fit it without hose preload. The brace ends Y84.5, 12.7 mm ahead of Berserk’s board. Actual factory screw threads/engagement and hose tank clearance are unmeasured. Reusing the H115i on EPYC requires the correct SP3 bracket, mounting pressure, cold-plate coverage and relaxed hose reach.
 
-**Frames** (`06_fan140_aio_frame`, print 2). Each is 140 mm wide × 160 mm tall, flush with the fan top and sides above a 20 mm lower support. Holes are on the 124.5 × 124.5 mm 140 mm fan pattern (see [Noctua's 140 mm drawing](https://cdn.noctua.at/media/noctua_nf_a14_pwm_infosheet_en_web-1.pdf)) as 7 × 4.5 mm vertical slots, with 4.25 mm top and 5.5 mm side ligaments. Two broad 6 mm ledges carry the radiator at Z20 with paired continuous 4 mm side webs. Each 40 mm foot projects 13 mm ahead of the shelf and keeps 27 mm of steel bearing. Shelf anchors are at X162 / 254 / 302 / 394, Y15. At full ±2.5 mm slot travel, OD12 washers keep 6.5 mm from the front edge. Eight shared screws pass through fan and frame into the radiator's factory threads. The thread and safe engagement depth are not measured.
+## Rear 120 mm AIO
 
-**Hose brace** (`07_fan140_aio_hose_brace`). A triangular brace on the hose end takes fore/aft hose torque, independent of the CPU and motherboard. The frames still carry the radiator's weight.
+![Rear AIO frames and brace](../models/fan120-aio-frames-and-brace.png)
 
-- Bounds X392.5–420.5, Y18–62.5, Z0–162. The 8 mm web lies inward at X392.5–400.5, away from the hoses.
-- A 6 mm radiator flange attaches to the two unused rear factory holes at X410.25, Z27.75 / 152.25, with matching screws and OD10 washers.
-- The 8 mm shelf foot runs Y29–62.5 and stops 6.70 mm ahead of the board. Shelf anchors are at X410.25, Y38 / 53.5 with ±1.5 mm slots, two M4 bolts, two nuts and four OD12 washers.
-- The front web is raised to Z13 to clear the frame foot and its bolt head (2 mm above the 11 mm head envelope).
-- The brace stops 13.5 mm short of the radiator end. That does not prove hose clearance.
+The [Lian Li GA II LITE Performance 360](https://lian-li.com/product/ga-ii-lite/) uses a 397 × 120 × 27 mm radiator, 400 mm tubes and three 124 × 120 × 28 mm fans. The low-X hose end faces the left brace; rear fans pull outward. The pump and radiator ports are still survey assumptions.
 
-**SP3 fit.** Reusing the H115i depends on its exact revision, a correct SP3 bracket and mounting pressure, cold-plate coverage of the EPYC, and relaxed hose reach.
+**Revised bearing frames:** two common 120 × 140 mm frames use **75 mm reach, 80 mm-wide, 6 mm-thick feet**, with paired 4 mm tapered webs. The feet start Y745.5 and bear fully on a **400 × 83 × 3 mm mild-steel extension plate**, which overlaps the deck by **46.4 mm** and projects **36.6 mm** beyond it. Frame anchors are X73/131/313/371, Y760.5 with 10 × 5.5 mm slots and ±2.5 mm adjustment. Ø12 backing washers retain 18.4 mm rear-edge margin at full travel. The 64 × 27.5 × 6 mm ledges bear the radiator at Z23, including the plate thickness.
 
-## 120 mm AIO frames, hose brace and spacer (Kenshin Lian Li 360)
+**Metal load path:** the radiator ledges and printed feet bear on the steel extension; the plate transfers the overhang to six shared deck joints. It is X12.5–412.5, Y741–824, Z0–3, with six Ø5 mm holes matching the four frame and two brace anchors. Fabricate in 3 mm mild steel, deburr and coat; do not substitute a printed plate. Use six M4 × 20 screws with Ø12 × 1 mm washers above the printed feet and below the shelf, plus M4 nuts; measure the real stack and tip projection. All six anchors remain on the original deck. The plate raises both bearing frames and the brace by 3 mm. Full foot bearing and separation from the GPU rest are checked through the complete slot travel. Inspect actual plate bearing, clamping, deflection and warm printed mounts before loaded operation; no physical load test has qualified the arrangement. Do not lift by the radiator.
 
-![120 mm AIO frames and brace](../models/fan120-aio-frames-and-brace.png)
+A plain 119 × 119 × 6 mm center spacer keeps all fans coplanar for their side bridges. Twelve screws share the fan/frame/spacer stack; preserve original safe thread engagement, accounting for the added 6 mm and any washers. Never drill the radiator.
 
-Kenshin's [Lian Li GA II LITE Performance 360](https://lian-li.com/product/ga-ii-lite/) (397 × 120 × 27 mm radiator, 400 mm hoses, three 124 × 120 × 28 mm fans) mounts at the rear edge: **radiator inward → frames and spacer → fans outward**. All three fans pull air toward the rack rear. The radiator sees air already warmed by the components, so qualify CPU and GPU temperatures together.
+**Mirrored left brace:** 142 mm high above the 3 mm plate, same 8 mm web / 6 mm face / 8 mm foot as the front brace, with 105 mm screw pitch. Factory axes are X38.5, Z30.5/135.5; shelf anchors Y752/767.5. The web points toward high X. Fit the bearing frames first, then radiator, then brace, without hose preload. The modeled hose routes pass above the PSU; straight-segment lengths leave over 40 mm of the nominal 400 mm for routing allowance, but real ports and bend radii still need a dry fit.
 
-| Element | Y range |
-| --- | --- |
-| Radiator | Y673.5–700.5 (49 mm behind the board and GPU) |
-| Frames and spacer | Y700.5–706.5 |
-| Fans | Y706.5–734.5 |
-| Screw heads | to Y738.5 |
 
-**Frames** (`08_fan120_aio_frame`, print 2). Each is 120 mm wide × 140 mm tall, flush with the nominal fan above a 20 mm lower support, at X43–163 and X283–403. Holes are on the 105 × 105 mm 120 mm fan pattern ([Noctua spec](https://noctua.at/en/products/fan/nf-a12x25-pwm/service)) as 7 × 4.5 mm slots, with 4 mm top and 5.25 mm side ligaments. Each frame has a 96 mm wide foot with 40 mm reach, a 64 × 27.5 × 6 mm bearing ledge at Z20 and paired 4 mm tapered webs. Shelf anchors are at X65 / 141 / 305 / 381, Y678.5. The 10 × 5.5 mm slots allow ±2.5 mm, and OD12 backing keeps 13 mm rear margin.
+**Prototype audit, 2026-11-05.** The Hammond revision passed a full CAD rebuild and all 14 support-free OrcaSlicer jobs (18 pieces including the coupon). Independent review covered the exported assembly, complete I/O approach reserve, underside hardware, rear steel support and foot bearing throughout slot travel. The three changed parts—compact GPU rest, rear bearing frame and mirrored brace—were inspected from six directions in their actual plate orientations, followed by the recess transitions, frame-slot closure at print Z65.2 and brace-slot closures at Z20.2/Z20.8. The reviewed bridges are anchored at both ends; longer internal bridge roads cross underlying infill. No new digital blocker remains. The conservative BMC/GPU overlap, Berserk hood/I/O service-reserve overlap, physical rack fit, steel deflection, PSU intake clearance and thermal qualification remain open. Final repeat-slice deposition paths match the independently reviewed paths; all final plate, G-code and profile hashes were checked. Test-print and dry-fit one of each changed part before duplicating it.
 
-**Center spacer** (`10_fan120_aio_center_spacer`). A plain 119 × 119 × 6 mm plate that keeps the middle fan coplanar. Don't recess it: the fans use side bridge connectors.
+## V100 cooling, power and cables
 
-**Hose brace** (`09_fan120_aio_hose_brace`). This brace uses the same 8 mm web, 6 mm radiator face and 8 mm foot as the 140 mm brace, on the 105 mm pitch. It occupies X377.75–405.75, Y629–673.5, Z0–142. The web points toward low X, away from the right hose end. Two inward factory radiator screws at X395.5, Z27.5 / 132.5 (±2 mm vertical slots) share the hose load with two M4 shelf anchors at X395.5, Y638 / 653.5 (±1.5 mm slots).
+The broad HT-PLA-GF hood and single **Sanyo Denki 9GV1412P1S001**, 140 × 140 × 38 mm pressure fan, retain their print geometry. The integral fan panel rises 45°. Three internal M4 × 16 shelf bolts use Ø12 washers and nuts; install the bare hood through its open fan face before mounting fan and duct. Four internal ribs stay in the chamber. Use a flexible nonconductive inlet seal and independently support the duct.
 
-**Clearances.** Radiator Z20–140. Frames top at Z140, which leaves 82.25 mm to nominal 6U. The brace tops at Z142 (80.25 mm). Nominal brace gaps are 2.75 mm to the right frame, 8.35 mm to the AC route and 9.25 mm to the modeled hoses. Allow 35 mm of straight driver access behind the rear screw heads, and check the cabinet door and rails.
+The fan flange and roof flange use M4 hammer T-nut pockets; test the coupon against the real nuts. The 6-inch flexible duct leads to a provisional Z400 cabinet inner ceiling and must disconnect for shelf travel. Factory roof outlets stay open. Free-air fan ratings do not establish loaded GPU airflow.
 
-Radiator hole pitch, thread, safe engagement, fitting positions and hose path are not measured. Never drill the radiator.
-
-## V100 hood, fan and exhaust duct
-
-![GPU shroud and exhaust route](../models/gpu-exhaust-preview.png)
-
-The four passive V100s are cooled by one **Sanyo Denki 9GV1412P1S001** (140 × 140 × 38 mm, 12 V, 3.1 A / 37.2 W, 272 CFM free air, 480 Pa shutoff, 67 dBA) that pulls air through all four heatsinks. Free-air flow and shutoff pressure are separate operating points, and the flow delivered through the heatsinks has not been measured. Dimensions and wiring come from the [Sanyo Denki catalog](https://publish.sanyodenki.com/San_Ace_E/book/data/San_Ace_E.pdf); the CAD fan is a simplified model.
-
-![V100 cooling concept](../models/v100-cooling.png)
-
-**Hood** (`12_v100_gpu_shroud`). One 3.2 mm hood with an integral 10 mm fan panel covers the rear portion of all four cards.
-
-- Its straight inlet edge runs from Y194 / Z145 down to the shelf at Y339, with a continuous 45° bevel into the base. Broad sidewalls clear the post rods without cutouts.
-- The base measures 173.32 × 30 × 6 mm, with 24 mm of ground contact after the front bevel. It occupies Y333–363, starts 2.3 mm behind the adapter rail and ends 17.5 mm ahead of Kenshin's PCB (about 1.7 mm to its adapter ears).
-- Three internal 8 × 5.5 mm slots (±1.25 mm travel) anchor it at X147.54 / 257.54, Y347 and X202.54, Y352.5 with M4 × 16 bolts, nuts and OD12 washers.
-- Four permanent 4 mm triangular ribs stiffen the chamber. The part prints without removable supports.
-- The fan panel faces **45° upward and rearward**, centred at X202.54 / Y325 / Z150.
-- Seal the common lower opening and inlet perimeter with secured, nonconductive flexible foam so air passes through the heatsinks.
-- Check the high-X sidewall against Berserk's actual rear ports and I/O shield. These shapes are not measured.
-
-**Fan fastening.** Each fan face uses four M4 2020 hammer T-nuts in open 12.2 × 6.4 × 4.8 mm pockets, sized from a [comparable manufacturer drawing](https://www.motedis.com/shop/products_files/Motedis_S6BHASNM4-Drawing.pdf). The selected [T-nut kit](https://www.amazon.ae/Sutemribor-Hammer-Fastener-Aluminum-Profile/dp/B07FPLZXTF) is not measured, so print `11_tnut_fit_coupon` first. The inlet uses four M4 × 14 socket caps and the outlet four M4 × 16, each with OD9 × 1 washers. Each face clamps only the 4 mm fan flange to a 10 mm printed panel.
-
-**Exhaust duct.**
-
-- `13_gpu_exhaust_fan_flange`: 10 mm face and 28 mm neck. Its opening is the intersection of a 138 mm square and a 145.5 mm circle, inside the 140 mm fan face.
-- `14_gpu_exhaust_roof_flange`: 40 mm neck, 8 × 5.5 mm adjustment slots, 2 mm silicone gasket, four M4 × 20 bolts, nuts and eight OD12 × 1 washers. It mounts on a candidate 154 mm opening in the inner ceiling. Do not cut the outer lid.
-- A 6-inch (152.4 mm ID) wire-supported flexible duct connects the 151.5 mm necks. Its planning route ends near X203 / Y449 / Z400, with about 220 mm of modeled centreline. Buy about 1 m and trim it after a service test.
-- Use two [McMaster 53185K52](https://www.mcmaster.com/53185K52/) lever clamps (152–159 mm range), one per end. Centre the 22.225 mm band on the 28 mm fan neck without crushing its 3 mm wall.
-- Support the duct's weight from rack structure with a strap, not from the hood.
-
-The rigid fan and flange clear the modeled Kenshin 24-pin cable reserve. Verify the real cable. The roof opening, gasket and route are provisional. Survey the ceiling's factory fans, wires, ribs and baffles before cutting. The pressure fan and the roof fans do not have additive CFM ratings.
-
-**Fan power and control.** Feed the fan 12 V from the PSU through a controller rated for 3.1 A plus verified startup current, never from a motherboard header. Leads: red +12 V, black ground, yellow tach, brown 25 kHz PWM. An open PWM line runs the fan at full speed, and 0% duty stops it. Configure full speed at startup and on faults, control speed from the hottest GPU, and stop GPU load if tach is lost. A single fan failure removes cooling from all four GPUs.
-
-## Power and thermal guidance
-
-- **V100 power.** The V100 power socket uses **CPU/EPS 8-pin wiring**. Use a dual-PCIe-8-pin-to-EPS adapter (030-0571-000 compatible), checked against NVIDIA's pinout. Never plug a PCIe 8-pin directly into the card. Four adapters need eight properly rated PCIe feeds from the Hercules's own modular cables, plus the 24-pin and two EPS 8-pin for the board.
-- **Low-profile EPS extension.** The CAD reserves 18 mm for a 90° CPU/EPS extension at Y29.5–47.5, 11.5 mm behind the radiator, with the cable rising at Y35.5 to Z215 (7.25 mm below the 6U ceiling). The 18 mm is a design target, not a measured product dimension. Verify pinout, current rating, seated projection and bend.
-- **Power cap.** Four V100s draw up to 1,000 W at default limits. Start around **180 W per card**, measure temperatures and performance, and raise the limit only after a stable sustained test. Check Berserk's total load against the 1600 W PSU's output and cable allocation, and against any UPS.
-- **Printed-part temperatures.** Treat 50 °C on a loaded printed surface as an inspection trigger, not a material rating. Stop immediately for softening, creep, looseness or fan failure. The PSU brackets and GPU cooling and duct parts are HT-PLA-GF. The other mounts are PETG.
-- Kenshin's AC cord exits around the right side of its radiator. Check fan arrows and PSU exhaust directions on both machines.
-
-## Cable routes
-
-The plan models AC cords, Berserk's onboard RJ45 and the four V100 power leads. Use low-profile or down-exit C13 cords on the Corsair PSU and a cord matching the Hercules inlet. Keep each PSU's modular cables with that PSU. The 24 + 8 + 8 board power bundles, BMC and RJ45 plugs, EPS extensions and AIO hoses all need a dry fit. These routes do not establish a 5U fit.
+- V100s use **CPU/EPS 8-pin wiring**. Use a verified dual-PCIe-8-pin-to-EPS adapter (030-0571-000 compatible). Never plug PCIe 8-pin wiring directly into a V100. Keep each PSU’s original modular cables.
+- The 18 mm angled-EPS projection is a target, not a measured part. The new nominal radiator-to-plug gap is 17.5 mm, and power routes rise to Z215. Measure connector bulk, current rating and bend radius.
+- Four V100s can total 1,000 W. Start around 180 W per card, with the pressure fan at full speed; qualify cooling and PSU/cable/UPS capacity under combined load before increasing it.
+- Treat 50 °C on a loaded printed part as an inspection trigger. Stop for creep, softening, loose joints or fan failure. HT-PLA-GF parts require a hardened nozzle and annealing per [printing.md](printing.md); unloaded heat stability is not a load rating.
+- AC routes use the left cabinet lane; Ethernet uses the right. Board-power bundles, actual I/O plugs, hose bends and movement restraint remain physical checks. Disconnect rack cables and duct for sliding service.
 
 ## Shelf drill plan
 
-The [StarTech drawing](https://sgcdn.startech.com/005329/media/sets/ADJSHELFHDV_Diagram/ADJSHELFHDV_Diagram.PDF) gives a 700 × 446 mm body with 40 × 6.5 mm vents, but no vent centres. The vented deck model and vent estimate are approximations.
+The solid deck has **45 proposed component holes: 25 M4 and 20 M3**, separate from the factory shelf/rack attachments.
 
-The [drill-plan deck](../models/adjshelfhdv-drill-plan-deck.step) has **45 holes: 25 M4 and 20 M3**.
+| Group | Count | Hole and hardware |
+| --- | ---: | --- |
+| Printed frames, braces, PSU brackets, rest and hood | 21 | Ø5 mm, M4 bolt, washers and nut; Ø9 washers at GPU rest |
+| V100 tail spacers | 4 | Ø5 mm, M4 from below into metal spacer |
+| Motherboard adapter anchors | 10 | Ø3.5 mm, M3 × 16, Ø7 × 0.5 washers top/back and nut |
+| Direct-to-steel GPU bases | 10 | Ø3.5 mm, M3 × 8 and doubled washer stack above |
 
-| Group | Count | Size | Hardware |
-| --- | ---: | --- | --- |
-| Printed-part anchors (frames, braces, PSU brackets, 5090 rest, hood) | 21 | M4, Ø5 mm hole | M4 bolt, OD12 washers, nut |
-| V100 tail spacers | 4 | M4, Ø5 mm | M4 from below into 20 mm spacer |
-| Motherboard anchors (four front, six under PCB) | 10 | M3, Ø3.5 mm | M3 × 16, Ø7 × 0.5 washers, nut |
-| Direct-to-steel GPU bases | 10 | M3, Ø3.5 mm | M3 × 6 and stack above |
+Slot travel remains ±2.5 mm for ordinary feet, ±2 mm for adapter anchors, ±1.25 mm for the hood and ±1.5 mm for braces. The snug GPU base hexes have no adjustment. Optional adapter anchors are excluded from the 45-hole plan.
 
-Slot travel checked in CAD: printed foot slots 10 × 5.5 mm ±2.5 mm; motherboard required and optional M3 slots 8 × 4 mm ±2 mm; hood 8 × 5.5 mm ±1.25 mm; brace shelf slots 8 × 5.5 mm ±1.5 mm. Exact centres are in [mount-hole-manifest.json](../models/mount-hole-manifest.json). The [access audit](../models/assembly-access-audit.json) checks washer, head and straight-driver envelopes across slot travel. It does not account for hands or tool handles.
-
-Rules for drilling:
-
-- Survey real vents, lips and sound steel first. Use a real vent where it fits.
-- Drill through the slots of a positioned, clamped bare part. The slots give access and adjustment, not a precise drill guide.
-- Remove all electronics before drilling, then deburr.
-- Back every joint with a steel washer. The shelf's distributed-load rating does not rate an individual hole.
-- Ground one motherboard standoff to the shelf.
+Survey the actual folds, factory slide attachments and underside access before locating holes. Clamp and transfer through bare printed mounts; remove electronics before drilling, protect slides from chips, deburr and coat exposed steel. Back concentrated loads with steel washers. Ground a metal standoff on each board to the shelf. Do not drill component bodies or factory slide races.
 
 ## Physical release checks
 
-1. Fit the empty shelf in the rack. Survey usable width, vents, lips, rails, underside access, the side cable lane and the rear door.
-2. Dry-place both boards, all five GPUs, both PSUs, both radiators, the posts and the cooling module. Record real slot and flange coordinates, GPU thickness, factory holes, power leads, pump hoses and fan arrows. Update the CAD before drilling or printing final parts.
-3. Fit-test the motherboard adapter pairs, the T-nut coupon, the hood with its inlet seal, and one of each bracket. Check screw-head and washer envelopes and safe thread engagement.
-4. Verify the GPU power adapter pinout and PSU feeds, GPU enumeration and ECC health, BMC access, onboard Ethernet and sustained GPU operation.
-5. With the cabinet closed, run a staged concurrent load. Record wall power, GPU / HBM / CPU / PSU temperatures, airflow, noise and loaded printed-part temperatures. Test fan and controller failure behaviour. Reinspect for creep, rocking and loose fasteners.
+1. Verify rack-post spacing, full shelf travel, doors, rear AIO clearance, rack stability and actual equipment mass against the stricter Hammond table.
+2. Measure flat deck width, folds, sheet thickness, underside access and screw stacks. Dry-place all components, plugs and hoses before drilling.
+3. Test-print changed mounts; inspect fit, slot travel, bare-bracket tool access, screw engagement, rear AIO deflection and printed snug hex fit.
+4. Resolve BMC/GPU underside clearance, Berserk hood/I/O approach, H115i SP3 compatibility, V100 EPS pinout/bends, PSU intake restriction and actual port access.
+5. Run staged concurrent loads with the cabinet closed, recording temperatures, noise, power and printed-part stiffness. Test fan/controller failure response and recheck joints after heat cycles.
+6. Test powered-off shelf service with fixed-rack cords and duct disconnected; prevent cable snagging and reconnect without loading the hood.
 
-The design stays a prototype until these measured mechanical, thermal, electrical and software checks pass.
+CAD and slicer checks support prototype review. They do not establish physical fit, load capacity or thermal performance.

@@ -9,9 +9,9 @@ BASE_DRAWING = 'https://www.we-online.com/components/products/datasheet/97014032
 BASE_PRODUCT = 'https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/970140324/9488563'
 # Owner-reported on 2026-10-23; not a dimension from the OBT product page.
 OBT_STUD_LENGTH = 9.0
-BOTTOM_SCREW_LENGTH = 6.0
-BACKER_T = 1.0
-SMALL_WASHER_T = .5
+BOTTOM_SCREW_LENGTH = 8.0
+BACKER_T = 2.0  # two stock OD12 x 1 mm washers
+SMALL_WASHER_T = 1.0  # two stock OD7 x 0.5 mm washers
 BODY_FACE_CLEARANCE = .15
 BASE_ROTATION_DEG = 30
 BASE_ORIENTATION = 'one hex corner points toward PCB (opposite flats parallel Y); hold with wrench, not plastic'
@@ -56,7 +56,8 @@ def thread_stack(shelf_thickness):
             'manufacturer_drawing': BASE_DRAWING, 'purchase_link': BASE_PRODUCT,
             'OBT_stud_length_mm': OBT_STUD_LENGTH,
             'OBT_stud_basis': 'owner-reported 2026-10-23; tolerance not measured',
-            'bottom_screw': 'M3x6', 'shelf_thickness_nominal_mm': shelf_thickness,
+            'bottom_screw': 'M3x8', 'shelf_thickness_nominal_mm': shelf_thickness,
+            'washer_stack': 'two OD12 x 1 mm plus two OD7 x 0.5 mm steel washers per post',
             'nominal_lower_thread_engagement_mm': round(engagement, 3),
             'nominal_tip_clearance_mm': round(gap, 3),
             'physical_fit_verified': False}

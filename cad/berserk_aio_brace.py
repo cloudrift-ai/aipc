@@ -9,7 +9,7 @@ import cadquery as cq
 
 PART = "fan140_aio_hose_brace"
 # Mirror about the installed screw line X410.25, preserving all four axes.
-X0, WIDTH, DEPTH, HEIGHT = 392.5, 28.0, 44.5, 162.0
+X0, WIDTH, DEPTH, HEIGHT = 374.5, 28.0, 44.5, 162.0
 WEB_T, FACE_T, FOOT_T = 8.0, 6.0, 8.0
 FOOT_FRONT, FACE_BOTTOM = 11.0, 18.0
 SCREW_X = 17.75

@@ -4,8 +4,8 @@ PY     := $(VENV)/bin/python
 
 MODELS  := models
 PRINT   := print
-PLATES  := $(wildcard $(PRINT)/*.3mf)
-GCODE   := $(patsubst $(PRINT)/%.3mf,$(PRINT)/gcode/%.gcode,$(PLATES))
+PLATES  = $(wildcard $(PRINT)/*.3mf)
+GCODE   = $(patsubst $(PRINT)/%.3mf,$(PRINT)/gcode/%.gcode,$(PLATES))
 PROFILES := $(wildcard $(PRINT)/profiles/*.json)
 
 .PHONY: help setup cad plates gcode clean-gcode clean
@@ -35,7 +35,8 @@ cad: setup
 plates: setup
 	$(PY) cad/print_jobs.py
 
-gcode: $(GCODE)
+gcode:
+	$(if $(GCODE),$(MAKE) --no-print-directory $(GCODE),$(error No print plates found; run make plates first))
 
 $(PRINT)/gcode/%.gcode: $(PRINT)/%.3mf $(PRINT)/manifest.json $(PROFILES) cad/slice_jobs.py
 	$(PYTHON) cad/slice_jobs.py $*

@@ -1,11 +1,11 @@
 # AIPC: two AI workstations on one rack shelf
 
-An open-shelf build that puts two PCs side by side on a single 1U four-post rack shelf, inside about 6U of rack height, using 3D-printed mounts instead of cases:
+Two PCs arranged front to back on a **Hammond RSUS1931BK1 sliding shelf**, using printed mounts instead of cases. The solid tray is **422.656 × 787.4 mm**, with factory-matched slides. The overhead GPU exhaust needs additional rack height.
 
 - **Berserk**: HUANANZHI H12D-8D with an AMD EPYC 7702P, **256 GB (8 × 32 GB) Micron DDR4-2933 ECC RDIMM ordered**, and **four NVIDIA V100 PCIe** cards cooled by one 140 mm pressure fan through a printed hood and an overhead exhaust duct. Selected model storage: **3 × 2 TB Micron 3400 NVMe in RAID 0** (6 TB nominal). Corsair H115i AIO at the front.
 - **Kenshin**: Gigabyte X870E AORUS PRO with a Ryzen 9 9950X3D and an **RTX 5090**. Lian Li GA II LITE 360 AIO at the rear.
 
-![Shelf layout and side clearance](models/kenshin-berserk-6u-shelf-layout.png)
+![Shelf layout and side clearance](models/dual-pc-hammond-layout.png)
 
 Everything is generated from Python ([CadQuery](https://cadquery.readthedocs.io/)) and checked in CAD for collisions, fastener access and bed fit. The design is a **fit prototype**: the CAD and slicer checks pass, but parts of it (GPU flange positions, the H12D board, cable bends, thermal behavior) still need measuring and dry-fitting on real hardware. The [design notes](docs/design.md) say what is verified and what is not.
 
@@ -21,7 +21,9 @@ Everything is generated from Python ([CadQuery](https://cadquery.readthedocs.io/
 | [print/](print/README.md) | Print plates (3MF) for the Qidi X-Plus, slicer profiles and the plate manifest |
 | [cad/](cad) | Generators: [shelf_layout.py](cad/shelf_layout.py) builds the models; [print_jobs.py](cad/print_jobs.py) packs plates; [slice_jobs.py](cad/slice_jobs.py) slices and validates G-code |
 
-The [assembly STEP](models/kenshin-berserk-6u-shelf-envelope.step) includes both closed rails, four representative 2 mm shims and four proposed M4 rail-to-shelf joints. The [mounting view](models/rail-shelf-mounting.png) shows the holes, screws, nuts and metal gap washers. [Rail placement preview](models/rail-shelf-assembly.png) and [assumptions](models/rail-shelf-assembly-report.json): the two-front/two-rear slot pattern on each side follows the owner’s correction; side slots use the confirmed nominal 40 × 6.5 mm vent size, while rail sections, hole positions and the 800 mm rail display length remain unmeasured. The 700 mm shelf is centered on the rails, with 50 mm overhang at each end in the current model; shelf holes and screw positions stay fixed. Exact rail section lengths and rack-bracket span still need confirmation.
+The [assembly STEP](models/dual-pc-hammond-assembly.step) includes the solid deck, downward folds and illustrative factory slide envelopes. [Hammond dimensions and limitations](models/hammond-shelf-report.json): 711.2 mm travel, 457.2–711.2 mm mounting depth, 39 kg equipment limit; 2U mounting / 3U shelf clearance. The complete PC/duct assembly occupies more height. The deeper layout turns Kenshin 180°, clears its inward-facing ports, and places its GPU opposite the V100 hood. The rear radiator needs about 65 mm beyond the deck and longer printed feet on a 400 × 83 × 3 mm steel extension; verify cabinet depth and loaded deflection. Power down and disconnect rack cables and the roof duct before extending.
+
+The previous StarTech/King Slide conversion and shim trials are retired. Buying the Hammond shelf has not been confirmed; its price remains blank in the parts sheet.
 
 ## Printed parts
 
@@ -43,9 +45,7 @@ One model per unique part; the plate manifest says how many to print.
 | `gpu_exhaust_fan_flange` | 1 | Fan outlet to 6-inch duct |
 | `gpu_exhaust_roof_flange` | 1 | Duct to cabinet inner ceiling |
 | `tnut_fit_coupon` | 1 | Test print for the M4 T-nut pocket |
-| `rail_shelf_shim_1mm` / `2mm` / `3mm` / `4mm` | 4 each | Sixteen spacing trials with tall tapered locating ridges; installed thickness and count unmeasured |
 
-The [rail/shelf shim fit set](docs/design.md#rail-to-shelf-shim-trials) adds 16 PETG samples on one plate: four each of the 1, 2, 3 and 4 mm shims. Tall, tapered oblong ridges guide hand insertion into unused shelf side slots; the slide screws use separate metal mounting points. These are empty-shelf fit samples, not a verified rail conversion.
 
 ## Regenerating
 
@@ -74,7 +74,7 @@ The generators are parametric but written for this hardware. Common changes:
 - **Different shelf positions**: component placement lives at the top of [cad/shelf_layout.py](cad/shelf_layout.py); every printed mount, shelf hole and clearance check follows from it.
 - **Different GPUs or slots**: the rear rail's eight post-slot positions are in [cad/atx_shelf_mounts.py](cad/atx_shelf_mounts.py) (`POST_SLOT_X`) and [cad/berserk_platform.py](cad/berserk_platform.py) for the H12D.
 - **Different AIOs**: the 140 mm frame is `radiator_screw_frame()` in [cad/shelf_layout.py](cad/shelf_layout.py); the 120 mm frame and braces are in [cad/kenshin_aio_mount.py](cad/kenshin_aio_mount.py) and [cad/berserk_aio_brace.py](cad/berserk_aio_brace.py).
-- **Rail/shelf shims**: thicknesses and tapered-ridge dimensions are in [cad/rail_shelf_shims.py](cad/rail_shelf_shims.py). Change the measured interface parameters and regenerate; the default 1–4 mm samples do not establish the required gap.
+- **Shelf and slides**: dimensions and evidence are in [cad/hammond_shelf.py](cad/hammond_shelf.py); installed transforms are in [cad/rack_shelf_coordinates.py](cad/rack_shelf_coordinates.py).
 
 The script asserts on every collision and access check, so a change that breaks the layout fails loudly instead of exporting a bad part.
 

@@ -1,5 +1,5 @@
 {
-  "status": "fan-flush AIO frame prototypes preserve the owner-fitted H115i sandwich interfaces; four-V100 upgrade has unresolved front power-connector clearance; nominal 6U study",
+  "status": "Hammond sliding-shelf fit prototype; factory dimensions sourced, physical interfaces unmeasured. BMC/GPU underside clearance unresolved; planned angled-EPS routes clear nominal geometry",
   "AIO_fan_outline_revision": {
     "date": "2026-10-18",
     "Berserk": {
@@ -46,8 +46,9 @@
       4.5
     ],
     "lower_support_height_mm": 20,
+    "rear_steel_support_lift_mm": 3.0,
     "hose_brace_top_projection_mm": 2,
-    "unchanged_interfaces": "factory screw axes, sandwich thickness, ledges, feet, shelf anchors, braces and center spacer",
+    "retained_local_interfaces": "factory fan pitch, sandwich thickness, ledges and center spacer; rear feet/anchors and brace handedness revised",
     "standard_pitch_sources": [
       "https://cdn.noctua.at/media/noctua_nf_a14_pwm_infosheet_en_web-1.pdf",
       "https://noctua.at/en/products/fan/nf-a12x25-pwm/service"
@@ -59,8 +60,8 @@
     "material": "Polymaker HT-PLA-GF, hardened0.4mm nozzle,230C/50C; recheck after annealing",
     "ceiling_height_above_shelf_mm": 400.0,
     "roof_center_xy_mm": [
-      202.54,
-      438.93755415948607
+      178.54,
+      466.93755415948607
     ],
     "route": "existing V100 extraction fan -> short straight flange -> adjustable6in flex bend -> inner-ceiling chamber",
     "layout": "GPU inlet fixed; fan and outlet tilt upward45 degrees; PC positions retained",
@@ -83,7 +84,7 @@
         4.8
       ],
       "nut_dimensions_provisional": true,
-      "back_to_neck_end_y_mm": 385.81118318204307,
+      "back_to_neck_end_y_mm": 413.81118318204307,
       "print": "flat face on bed, neck up, no supports",
       "hardware": "4 M4x16,4 M4 hammer T-nuts,4 OD9x1washers; bench mount before hose; test job13 coupon first"
     },
@@ -93,20 +94,20 @@
       "square_mm": 176.0,
       "hole_centers_xy_mm": [
         [
-          124.53999999999999,
-          360.93755415948607
+          100.53999999999999,
+          388.93755415948607
         ],
         [
-          124.53999999999999,
-          516.9375541594861
+          100.53999999999999,
+          544.9375541594861
         ],
         [
-          280.53999999999996,
-          360.93755415948607
+          256.53999999999996,
+          388.93755415948607
         ],
         [
-          280.53999999999996,
-          516.9375541594861
+          256.53999999999996,
+          544.9375541594861
         ]
       ],
       "slots_mm": [
@@ -144,26 +145,90 @@
     "cable_fit_condition": "tilted rigid fan/flange clear the modeled24-pin reserve; confirm actual header, latch and cable routing during dry fit",
     "airflow": "not calculated from free-air rating; qualify actual GPU and printed-part temperatures, roof restriction/backflow and seal leakage under load. Roof fanidentity/curve unconfirmed."
   },
+  "rear_AIO_steel_extension": {
+    "material": "3mm mild steel; deburr and coat; physical loading unverified",
+    "size_mm": [
+      400,
+      83,
+      3.0
+    ],
+    "quantity": 1,
+    "position_mm": [
+      12.5,
+      741.0,
+      0
+    ],
+    "holes": [
+      {
+        "center_xy_mm": [
+          38.5,
+          767.5
+        ],
+        "diameter_mm": 5
+      },
+      {
+        "center_xy_mm": [
+          38.5,
+          752.0
+        ],
+        "diameter_mm": 5
+      },
+      {
+        "center_xy_mm": [
+          73.0,
+          760.5
+        ],
+        "diameter_mm": 5
+      },
+      {
+        "center_xy_mm": [
+          131.0,
+          760.5
+        ],
+        "diameter_mm": 5
+      },
+      {
+        "center_xy_mm": [
+          313.0,
+          760.5
+        ],
+        "diameter_mm": 5
+      },
+      {
+        "center_xy_mm": [
+          371.0,
+          760.5
+        ],
+        "diameter_mm": 5
+      }
+    ],
+    "fasteners": "same six shelf joints pass through printed mounts, plate and shelf; use six M4x20 screws for the frame and brace feet, with OD12x1 washers both sides and M4 nuts; verify actual stack and underside projection",
+    "full_footprint_support_checked_at_slot_limits": true,
+    "load_path": "radiator ledges and brace -> feet fully bearing on steel extension -> six clamped deck joints; steel carries rear overhang",
+    "rear_overhang_mm": 36.6,
+    "shelf_bearing_depth_mm": 46.4,
+    "physical_fit_verified": false
+  },
   "H115i_hose_brace": {
     "part": "fan140_aio_hose_brace",
     "quantity": 1,
     "original_brackets_reused": true,
     "handedness": "mirrored inward from owner-reported hose interference; low-X side web, unchanged mounting axes",
     "side_web_x_range_mm": [
-      392.5,
-      400.5
+      374.5,
+      382.5
     ],
     "front_web_underside_clearance_z_mm": 13.0,
     "nominal_original_foot_bolt_head_clearance_mm": 2.0,
     "installed_bounds_xyz_mm": [
       [
-        392.5,
-        18.0,
+        374.5,
+        40.0,
         0
       ],
       [
-        420.5,
-        62.5,
+        402.5,
+        84.5,
         162.0
       ]
     ],
@@ -179,11 +244,11 @@
     ],
     "rear_factory_screw_axes_xz_mm": [
       [
-        410.25,
+        392.25,
         27.75
       ],
       [
-        410.25,
+        392.25,
         152.25
       ]
     ],
@@ -193,12 +258,12 @@
     ],
     "shelf_anchor_xy_mm": [
       [
-        410.25,
-        38.0
+        392.25,
+        60.0
       ],
       [
-        410.25,
-        53.5
+        392.25,
+        75.5
       ]
     ],
     "shelf_slot_length_width_mm": [
@@ -211,7 +276,7 @@
     ],
     "minimum_between_washers_at_opposing_travel_mm": 0.5,
     "nominal_motherboard_adapter_front_gap_mm": 2.21,
-    "nominal_board_front_gap_mm": 6.7,
+    "nominal_board_front_gap_mm": 12.7,
     "nominal_original_foot_y_gap_mm": 2.0,
     "load_path": "two rear factory radiator screws -> broad face and continuous side gusset -> two shelf anchors and steel backing; no CPU or motherboard attachment",
     "print_orientation": "solid outer side of triangular web on bed; load plane within layers",
@@ -226,19 +291,19 @@
     "basis": "same mirrored front brace, adapted to 105 mm vertical screw pitch; structural thickness and fastener sizes retained",
     "installed_bounds_xyz_mm": [
       [
-        377.75,
-        629.0,
-        0
+        28.25,
+        743.0,
+        3.0
       ],
       [
-        405.75,
-        673.5,
-        142.0
+        56.25,
+        787.5,
+        145.0
       ]
     ],
     "web_x_range_mm": [
-      377.75,
-      385.75
+      48.25,
+      56.25
     ],
     "print_dimensions_mm": [
       142.0,
@@ -247,22 +312,22 @@
     ],
     "factory_screw_axes_xz_mm": [
       [
-        395.5,
-        27.5
+        38.5,
+        30.5
       ],
       [
-        395.5,
-        132.5
+        38.5,
+        135.5
       ]
     ],
     "shelf_anchor_xy_mm": [
       [
-        395.5,
-        653.5
+        38.5,
+        767.5
       ],
       [
-        395.5,
-        638.0
+        38.5,
+        752.0
       ]
     ],
     "shelf_slot_length_width_mm": [
@@ -279,11 +344,11 @@
       8.0
     ],
     "load_path": "two unused inward radiator factory threads -> continuous triangular web -> two shelf bolts with steel backing",
-    "assembly_order": "secure bearing-frame shelf bolts before fitting radiator; fit brace loosely to supported radiator, then shelf, without hose preload",
+    "assembly_order": "secure bearing-frame shelf bolts before fitting radiator; fit brace loosely to supported radiator, then steel extension and shelf, without hose preload",
     "fasteners": "two matched radiator screws + OD10 washers; two M4 shelf bolts, two nuts, four OD12 washers; determine lengths from actual engagement/stack",
-    "print_orientation": "broad low-X web flat on bed; supports off; same front-brace slot bridges",
+    "print_orientation": "broad high-X web flat on bed; supports off; same front-brace slot bridges",
     "physical_fit_verified": false,
-    "limitations": "right hose end assumed; actual tank ports, hose sweep, factory threads and warm PETG stiffness require dry fit"
+    "limitations": "left hose end assumed; actual tank ports, hose sweep, factory threads and warm PETG stiffness require dry fit"
   },
   "planned_upgrade_clearance": {
     "passed": false,
@@ -321,7 +386,7 @@
     "cores": 64,
     "threads": 128,
     "cpu_TDP_W": 200,
-    "memory": "128 GB: 8 x 16 GB DDR4-3200 ECC RDIMM; exact modules unselected",
+    "memory": "256 GB: 8 x 32 GB Micron DDR4-2933 ECC RDIMM ordered; receipt/testing pending",
     "PCB_mm": [
       305.0,
       245.0
@@ -333,16 +398,16 @@
     "installed": false,
     "BMC": "included per listing; remote console/media not tested",
     "slot_PCB_planes_x_mm": {
-      "PCIE1": 279.5,
-      "PCIE2": 238.86,
-      "PCIE3": 198.22,
-      "PCIE4": 157.58
+      "PCIE1": 255.5,
+      "PCIE2": 214.86,
+      "PCIE3": 174.22,
+      "PCIE4": 133.58
     },
     "GPU_body_low_x_mm": {
-      "PCIE1": 243.5,
-      "PCIE2": 202.86,
-      "PCIE3": 162.22,
-      "PCIE4": 121.58
+      "PCIE1": 219.5,
+      "PCIE2": 178.86,
+      "PCIE3": 138.22,
+      "PCIE4": 97.58
     },
     "GPU_body_offset_basis": "provisional 36 mm toward low X, 4 mm toward high X; measure real PCIe card",
     "slot_lane_widths": {
@@ -369,21 +434,21 @@
     "hole_basis": "ATX 2.01 datums; eight sites visible in manufacturer photograph; delivered PCB unmeasured",
     "placement_basis": "manufacturer board image 1741911996630761326.png from https://www.huananzhi.com/en/list_6/177.html; photo estimates, not manufacturer CAD",
     "CPU_center_xy_mm": [
-      362.9259259259259,
-      182.7468615649183
+      338.9259259259259,
+      210.7468615649183
     ],
     "M2_2280_standoffs_xy_mm": [
       [
-        259.37654320987656,
-        267.64368013757525
+        235.37654320987656,
+        295.64368013757525
       ],
       [
-        218.37517146776406,
-        267.64368013757525
+        194.37517146776406,
+        295.64368013757525
       ],
       [
-        177.37379972565157,
-        267.64368013757525
+        153.37379972565157,
+        295.64368013757525
       ]
     ],
     "angled_EPS_projection_target_mm": 18.0,
@@ -391,8 +456,8 @@
     "physical_fit_verified": false
   },
   "Kenshin_clearance_revision": {
-    "board_GPU_pump_rest_shift_left_mm": 2.0,
-    "purpose": "2.08mm nominal separation from shifted H12D GPU hood; measure actual gap and shelf lip",
+    "rotation_z_deg": 180,
+    "hood_to_GPU_gap_mm": 43.656,
     "physical_fit_verified": false
   },
   "selected_upgrade": {
@@ -414,49 +479,47 @@
     "link": "QSFP deferred; use onboard Ethernet",
     "software": "Qwen3.8-27B Volta decoder and hybrid KV/state handoff require validation before purchase"
   },
-  "forward_layout_revision": {
-    "translation_y_mm": -52.5,
-    "front_radiator_overhang_mm": 8.0,
-    "front_frame_overhang_mm": 13.0,
-    "Hercules_front_overhang_mm": 42.5,
-    "Hercules_supported_depth_mm": 202.5,
-    "Hercules_geometric_center_y_mm": 80.0,
-    "front_frame_steel_bearing_depth_mm": 27.0,
-    "rear_stack": "radiator, two bearing frames/center spacer, three coplanar exhaust fans",
-    "front_clearance_status": "front door/fascia/rail clearance unmeasured; reserve at least 60mm beyond deck for the modeled power-cable envelope reaching57.5mm; survey real bends",
-    "retired_NIC_print_jobs": [
-      "10",
-      "19"
+  "Hammond_layout_revision": {
+    "date": "2026-11-05",
+    "deck_change_width_depth_mm": [
+      -23.344,
+      87.4
     ],
-    "trimmed_H115i_replacement_jobs": [
-      "06",
-      "07"
+    "Berserk_translation_from_previous_mm": [
+      -24.0,
+      28.0
     ],
-    "shelf_anchor_note": "H115i shelf anchors at Y15 for approximately13mm observed face overhang; other component anchors retain52.5mm forward shift; survey real slots"
+    "Kenshin_orientation": "180 degrees about Z; GPU high X, rear I/O toward center corridor, PSU fan toward cabinet left",
+    "front_fan_projection_mm": 16.0,
+    "rear_AIO_projection_with_heads_mm": 65.1,
+    "Hercules_supported_depth_mm": 245,
+    "service": "Power down and disconnect fixed-rack power/data and roof duct before extending. No live-service cable carrier is designed; 711.2mm travel requires measured cabinet/door clearance.",
+    "rack_space": "Shelf alone: 2U mounting, 3U required clearance per Hammond. Component band222.25mm is not total rack height. Fixed exhaust roof is provisionally Z400; overall allocation needs rack measurements.",
+    "physical_fit_verified": false
   },
-  "shelf": "StarTech ADJSHELFHDV 700 x 446 mm nominal body; 140 vent slots are estimated; assembly includes provisional downward sidewalls, closed slides, two front and two rear side slots per side, and four 2mm shim instances; deck-only drill plan omits these reference parts",
-  "former_NIC_lane": "Both NIC assemblies removed. Hercules stays atX0; 5090 rest nowX43..93 with Kenshin board/GPU2mm left. No NIC mounting holes required.",
+  "shelf": "Hammond RSUS1931BK1 solid 422.656 x 787.4 mm deck with supplied slides; downward folds are dimensioned envelopes, slide cross-sections and bracket positions illustrative",
+  "former_NIC_lane": "No add-in NICs or risers. Left side accommodates the two PSUs; onboard networking retained.",
   "direct_shelf_mount": {
-    "body_width_mm": 446.0,
-    "depth_mm": 700.0,
-    "steel_thickness_mm": 1.2,
+    "body_width_mm": 422.656,
+    "depth_mm": 787.4,
+    "steel_thickness_mm": 1.52,
     "shelf_drilling_allowed": true,
-    "slot_and_lip_pattern_verified": false,
-    "approximate_vented_deck_step": "adjshelfhdv-approx-vented-deck.step",
-    "drill_plan_deck_step": "adjshelfhdv-drill-plan-deck.step",
-    "estimated_slot_count": 140,
+    "folds_and_underside_access_verified": false,
+    "solid_deck_step": "rsus1931bk1-solid-deck.step",
+    "drill_plan_deck_step": "rsus1931bk1-drill-plan-deck.step",
+    "estimated_slot_count": 0,
     "proposed_attachment_count": 45,
-    "candidate_vent_intersections": 3,
+    "candidate_vent_intersections": 0,
     "local_backing_plate_locations_survey": true
   },
   "lateral_support_review": {
     "design_basis": "stationary rack, ordinary handling only; verify holes, backing and loaded fit before powering",
     "Berserk_and_Kenshin_motherboards": "two interlocking flat sections per board, each with at least four non-collinear motherboard screws; five independent shelf anchors (two front ears, three under-PCB); eight choices per common rail; eight Berserk and nine Kenshin metal standoffs (Kenshin B optional)",
     "Berserk_and_Kenshin_PSUs": "each PSU rests on steel and uses two upper factory screws for lateral restraint; each open rear frame has a continuous lower rail and a symmetric two-slot shelf foot; PSU patterns and plug clearances remain unmeasured",
-    "Berserk_H115i": "trimmed fan-flush replacements preserve the owner-fitted sandwich's ledges,40mm feet and factory axes; ledges bear radiator, feet reach27mm onto shelf; revised slots and loaded fit require checking",
-    "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x6 lower screws through OD12+OD7 underside washers leave1.7mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
+    "Berserk_H115i": "trimmed fan-flush replacements preserve the owner-fitted sandwich's ledges,40mm feet and factory axes; ledges bear radiator, 40mm feet fully supported on shelf; revised slots and loaded fit require checking",
+    "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x8 lower screws through two OD12x1 and two OD7x0.5 washers leave1.52mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
     "V100_cooling": "single Sanyo140mm fan on integral45-degree panel; broad3.2mm HT-PLA-GF rear-array hood with6mm base and three internalM4 shelf slots;no fitted collar or individual post cuts;flexible nonconductive inlet seal required;M4 T-nut pockets;physical and thermal qualification pending",
-    "Kenshin_AIO": "three coplanar owned fans pull rearward through low 360 radiator at20mm bottom height; two front-style120mm frames with40mm feet bear radiator weight, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; an inward triangular brace adds two factory screws/two shelf bolts; loaded PETG fit unverified",
+    "Kenshin_AIO": "three coplanar owned fans pull rearward through low 360 radiator at23mm bottom height; two120mm frames with75mm feet on3mm steel extension bear radiator weight, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; an inward triangular brace adds two factory screws/two shelf bolts; loaded PETG fit unverified",
     "overall": "balanced drilled-hole concept is plausible, but physical holes, PETG stiffness, cooling and GPU post load paths are unverified"
   },
   "GPU_post_thread_stack": {
@@ -468,10 +531,11 @@
     "purchase_link": "https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/970140324/9488563",
     "OBT_stud_length_mm": 9.0,
     "OBT_stud_basis": "owner-reported 2026-10-23; tolerance not measured",
-    "bottom_screw": "M3x6",
-    "shelf_thickness_nominal_mm": 1.2,
-    "nominal_lower_thread_engagement_mm": 3.3,
-    "nominal_tip_clearance_mm": 1.7,
+    "bottom_screw": "M3x8",
+    "shelf_thickness_nominal_mm": 1.52,
+    "washer_stack": "two OD12 x 1 mm plus two OD7 x 0.5 mm steel washers per post",
+    "nominal_lower_thread_engagement_mm": 3.48,
+    "nominal_tip_clearance_mm": 1.52,
     "physical_fit_verified": false
   },
   "motherboard_adapter_revision": {
@@ -496,84 +560,84 @@
         "shelf_anchor_count": 3,
         "shelf_anchor_centers_mm": [
           [
-            191.2,
-            301.2
+            167.2,
+            329.2
           ],
           [
-            247.0,
-            301.2
+            223.0,
+            329.2
           ],
           [
-            247.0,
-            79.71000000000001
+            223.0,
+            107.71000000000001
           ]
         ],
         "through_post_centers_mm": [
           [
-            128.57999999999998,
-            320.2
+            104.58,
+            348.2
           ],
           [
-            148.57999999999998,
-            320.2
+            124.58,
+            348.2
           ],
           [
-            169.22,
-            320.2
+            145.22,
+            348.2
           ],
           [
-            189.22,
-            320.2
+            165.22,
+            348.2
           ],
           [
-            209.86,
-            320.2
+            185.86,
+            348.2
           ],
           [
-            229.86,
-            320.2
+            205.86,
+            348.2
           ],
           [
-            250.5,
-            320.2
+            226.5,
+            348.2
           ],
           [
-            270.5,
-            320.2
+            246.5,
+            348.2
           ]
         ],
         "common_post_slot_centers_mm": [
           [
-            128.57999999999998,
-            320.2
+            104.58,
+            348.2
           ],
           [
-            148.57999999999998,
-            320.2
+            124.58,
+            348.2
           ],
           [
-            169.22,
-            320.2
+            145.22,
+            348.2
           ],
           [
-            189.22,
-            320.2
+            165.22,
+            348.2
           ],
           [
-            209.86,
-            320.2
+            185.86,
+            348.2
           ],
           [
-            229.86,
-            320.2
+            205.86,
+            348.2
           ],
           [
-            250.5,
-            320.2
+            226.5,
+            348.2
           ],
           [
-            270.5,
-            320.2
+            246.5,
+            348.2
           ]
         ],
         "post_slot_mm": [
@@ -601,12 +665,12 @@
         },
         "optional_shelf_anchor_centers_mm": [
           [
-            191.2,
-            79.71000000000001
+            167.2,
+            107.71000000000001
           ],
           [
-            157.01,
-            226.57
+            133.01,
+            254.57
           ]
         ],
         "optional_anchor_access": "under PCB; secure before motherboard; optional hardware omitted from required BOM/drill count",
@@ -632,8 +696,8 @@
           "width_mm": 2.0,
           "remaining_base_thickness_mm": 4.0,
           "installed_y_range_mm": [
-            315.2,
-            317.2
+            343.2,
+            345.2
           ],
           "y_range_relative_to_PCB_rear_mm": [
             1.0,
@@ -660,14 +724,14 @@
           "fit_check": "Measure seated tab X/Y/Z; check tongues against metal bases and steel deck; print one of each rear rail and dry-fit before use"
         },
         "installed_origin_xy_mm": [
-          121.57999999999998,
-          67.21000000000001
+          97.58,
+          95.21000000000001
         ],
         "bounds_xy_mm": [
-          121.57999999999998,
-          67.21000000000001,
-          290.47,
-          330.7
+          97.58,
+          95.21000000000001,
+          266.47,
+          358.7
         ],
         "independent_shelf_fasteners": true,
         "anchors_before_PCB": true,
@@ -687,12 +751,12 @@
         "shelf_anchor_count": 2,
         "shelf_anchor_centers_mm": [
           [
-            355.0,
-            63.69999999999999
+            331.0,
+            91.69999999999999
           ],
           [
-            434.0,
-            63.69999999999999
+            410.0,
+            91.69999999999999
           ]
         ],
         "through_post_centers_mm": [],
@@ -722,16 +786,16 @@
         },
         "optional_shelf_anchor_centers_mm": [
           [
-            355.0,
-            278.18
+            331.0,
+            306.18
           ],
           [
-            397.0,
-            278.18
+            373.0,
+            306.18
           ],
           [
-            431.95,
-            215.14
+            407.95,
+            243.14
           ]
         ],
         "optional_anchor_access": "under PCB; secure before motherboard; optional hardware omitted from required BOM/drill count",
@@ -753,14 +817,14 @@
         "post_slots_are_selectable": true,
         "gpu_tab_relief": null,
         "installed_origin_xy_mm": [
-          261.3,
-          55.69999999999999
+          237.3,
+          83.69999999999999
         ],
         "bounds_xy_mm": [
-          261.3,
-          55.69999999999999,
-          444.45,
-          290.68
+          237.3,
+          83.69999999999999,
+          420.45,
+          318.68
         ],
         "independent_shelf_fasteners": true,
         "anchors_before_PCB": false,
@@ -782,60 +846,60 @@
         "shelf_anchor_count": 3,
         "shelf_anchor_centers_mm": [
           [
-            60.2,
-            611.5
+            362.456,
+            459.5
           ],
           [
-            116.0,
-            611.5
+            306.656,
+            459.5
           ],
           [
-            116.0,
-            390.01
+            306.656,
+            680.99
           ]
         ],
         "through_post_centers_mm": [
           [
-            51.0,
-            634.5
+            371.656,
+            436.5
           ],
           [
-            71.0,
-            634.5
+            351.656,
+            436.5
           ]
         ],
         "common_post_slot_centers_mm": [
           [
-            29.88,
-            634.5
+            392.776,
+            436.5
           ],
           [
-            51.0,
-            634.5
+            371.656,
+            436.5
           ],
           [
-            71.0,
-            634.5
+            351.656,
+            436.5
           ],
           [
-            90.52,
-            634.5
+            332.136,
+            436.5
           ],
           [
-            111.16,
-            634.5
+            311.496,
+            436.5
           ],
           [
-            131.16,
-            634.5
+            291.496,
+            436.5
           ],
           [
-            151.8,
-            634.5
+            270.856,
+            436.5
           ],
           [
-            171.8,
-            634.5
+            250.856,
+            436.5
           ]
         ],
         "post_slot_mm": [
@@ -843,7 +907,7 @@
           5.8
         ],
         "interchangeable_with": null,
-        "shelf_anchor_end": "rear",
+        "shelf_anchor_end": "front",
         "post_opening": {
           "profile": "regular hexagon",
           "sides": 6,
@@ -863,12 +927,12 @@
         },
         "optional_shelf_anchor_centers_mm": [
           [
-            60.2,
-            390.01
+            362.456,
+            680.99
           ],
           [
-            26.009999999999998,
-            536.87
+            396.646,
+            534.13
           ]
         ],
         "optional_anchor_access": "under PCB; secure before motherboard; optional hardware omitted from required BOM/drill count",
@@ -894,8 +958,8 @@
           "width_mm": 2.0,
           "remaining_base_thickness_mm": 4.0,
           "installed_y_range_mm": [
-            625.5,
-            627.5
+            443.5,
+            445.5
           ],
           "y_range_relative_to_PCB_rear_mm": [
             1.0,
@@ -919,17 +983,18 @@
             "https://tecsmith.github.io/homeassistant-pc-switch/specs/pci-express-card-electromechanical-specification-revision-2.pdf#page=85"
           ],
           "physical_fit_verified": false,
-          "fit_check": "Measure seated tab X/Y/Z; check tongues against metal bases and steel deck; print one of each rear rail and dry-fit before use"
+          "fit_check": "Measure seated tab X/Y/Z; check tongues against metal bases and steel deck; print one of each rear rail and dry-fit before use",
+          "rear_direction_in_shelf_Y": -1
         },
         "installed_origin_xy_mm": [
-          13.509999999999991,
-          377.51
+          243.8559999999999,
+          430.0
         ],
         "bounds_xy_mm": [
-          13.509999999999991,
-          377.51,
-          178.8,
-          641.0
+          243.8559999999999,
+          430.0,
+          409.146,
+          693.49
         ],
         "independent_shelf_fasteners": true,
         "anchors_before_PCB": true,
@@ -950,12 +1015,12 @@
         "shelf_anchor_count": 2,
         "shelf_anchor_centers_mm": [
           [
-            224.0,
-            374.0
+            198.656,
+            697.0
           ],
           [
-            303.0,
-            374.0
+            119.656,
+            697.0
           ]
         ],
         "through_post_centers_mm": [],
@@ -965,7 +1030,7 @@
           5.8
         ],
         "interchangeable_with": "Berserk",
-        "shelf_anchor_end": "front",
+        "shelf_anchor_end": "rear",
         "post_opening": {
           "profile": "regular hexagon",
           "sides": 6,
@@ -985,16 +1050,16 @@
         },
         "optional_shelf_anchor_centers_mm": [
           [
-            224.0,
-            588.48
+            198.656,
+            482.52
           ],
           [
-            266.0,
-            588.48
+            156.656,
+            482.52
           ],
           [
-            300.95,
-            525.44
+            121.70600000000002,
+            545.56
           ]
         ],
         "optional_anchor_access": "under PCB; secure before motherboard; optional hardware omitted from required BOM/drill count",
@@ -1016,14 +1081,14 @@
         "post_slots_are_selectable": true,
         "gpu_tab_relief": null,
         "installed_origin_xy_mm": [
-          130.3,
-          366.0
+          109.20599999999993,
+          470.02
         ],
         "bounds_xy_mm": [
-          130.3,
-          366.0,
-          313.45,
-          600.98
+          109.20599999999993,
+          470.02,
+          292.356,
+          705.0
         ],
         "independent_shelf_fasteners": true,
         "anchors_before_PCB": false,
@@ -1078,7 +1143,7 @@
       "arbitrary_base_rotation_allowed": false,
       "physical_fit_verified": false
     },
-    "M3_anchor_note": "Ten adapter anchors: M3x16,OD7x0.5 top/back washers and nuts; six under-PCB anchors go in first. Ten GPU bases: Wurth970140324 14mm M3 SW5.5 on steel, M3x6 below with OD12+OD7 backing. All steel holes3.5mm; confirm fixed OBT nut height and solid steel before drilling",
+    "M3_anchor_note": "Ten adapter anchors: M3x16,OD7x0.5 top/back washers and nuts; six under-PCB anchors go in first. Ten GPU bases: Wurth970140324 14mm M3 SW5.5 on steel, M3x8 below with two OD12x1 and two OD7x0.5 washers. All steel holes3.5mm; confirm fixed OBT nut height and solid steel before drilling",
     "bar_width_mm": 25.0,
     "ear_width_mm": 14.0,
     "shelf_anchor_access": "front anchors outside PCB; three mandatory anchors per rear section under PCB, fit before motherboard; high-X post/port clearance remains provisional",
@@ -1091,12 +1156,12 @@
       {
         "system": "Berserk",
         "x_range_mm": [
-          282.0,
-          447.0
+          258.0,
+          423.0
         ],
         "y_range_mm": [
-          314.2,
-          354.2
+          342.2,
+          382.2
         ],
         "z_range_mm": [
           10.5466,
@@ -1107,12 +1172,12 @@
       {
         "system": "Kenshin",
         "x_range_mm": [
-          151.0,
-          316.0
+          106.656,
+          271.656
         ],
         "y_range_mm": [
-          624.5,
-          664.5
+          406.5,
+          446.5
         ],
         "z_range_mm": [
           10.5466,
@@ -1144,14 +1209,15 @@
       120,
       28
     ],
-    "fan_front_y_mm": 706.5,
-    "radiator_bottom_z_mm": 20.0,
+    "fan_front_y_mm": 820.5,
+    "radiator_bottom_z_mm": 23.0,
+    "steel_extension_thickness_mm": 3.0,
     "bearing_ledge_per_frame_mm": [
       64.0,
       27.5,
       6
     ],
-    "frame_print_orientation": "rear face down; feet, tapered webs and ledge all rise from that face",
+    "frame_print_orientation": "rear face down;75mm feet, tapered webs and ledge rise from that face; installed feet fully bear on steel extension",
     "radiator_screw_rule": "twelve matching factory-thread fan screws: preserve original safe engagement and add 6mm for frame/spacer plus any added washer thickness to original under-head length; thread and length unverified; never drill radiator",
     "airflow": "radiator inward, all fans outward pulling toward rack rear",
     "center_spacer_mm": [
@@ -1164,16 +1230,16 @@
     "fan_bank_coplanar": true,
     "shared_fan_radiator_screw_count": 12,
     "frame_count": 2,
-    "foot_front_y_mm": 666.5,
+    "foot_front_y_mm": 745.5,
     "foot_count": 2,
     "shelf_anchors_per_frame": 2,
     "shelf_anchor_Y_adjustment_mm": [
       -2.5,
       2.5
     ],
-    "minimum_rear_washer_edge_margin_mm": 13.0,
+    "minimum_rear_washer_edge_margin_mm": 18.399999999999977,
     "radiator_screws_per_frame": 4,
-    "projection_beyond_shelf_mm": 38.5,
+    "projection_beyond_shelf_mm": 65.1,
     "nominal_keepout_conflicts": [],
     "physical_shelf_verified": false
   },
@@ -1236,7 +1302,7 @@
     "minimum_shelf_slot_end_material_mm": 6,
     "shelf_anchors_per_frame": 2,
     "basis": "Intel ATX12V guide figure 12-1 rotated onto PSU side; installed revisions unmeasured",
-    "PSU_weight_path": "steel shelf surface; Hercules front 42.5 mm overhang with 202.5 mm nominal support; mass distribution and fascia clearance require dry fit",
+    "PSU_weight_path": "steel shelf supports full245mm Hercules depth; mass, edge folds and fascia clearance require dry fit",
     "loaded_fit_verified": false
   },
   "H115i_support_module": {
@@ -1249,17 +1315,17 @@
       "fan-flush replacement frames",
       "radiator"
     ],
-    "bracket_front_y_mm_approx": -13.0,
+    "bracket_front_y_mm_approx": 9.0,
     "fan_y_extent_mm": [
-      -38.0,
-      -13.0
+      -16.0,
+      9.0
     ],
     "radiator_y_extent_mm": [
-      -8.0,
-      18.0
+      14.0,
+      40.0
     ],
-    "shelf_anchor_y_mm": 15.0,
-    "minimum_front_washer_margin_at_full_slot_travel_mm": 6.5,
+    "shelf_anchor_y_mm": 37.0,
+    "minimum_front_washer_margin_at_full_slot_travel_mm": 28.5,
     "shared_fan_frame_radiator_screw_count": 8,
     "reprint_required_for_trimmed_outline": true,
     "identical_frames": true,
@@ -1283,15 +1349,15 @@
     "side_ears_clear_of_bearing_ledge": true,
     "assembly_order": "secure bare shelf brackets before installing radiator and fans; radiator covers vertical shelf-bolt driver paths",
     "shelf_anchors_per_frame": 2,
-    "radiator_weight_path": "radiator bears on two ledges and original 40mm feet; 27mm of each foot bears on steel, two anchors per foot at Y15",
+    "radiator_weight_path": "radiator bears on two ledges and 40mm feet fully on steel, two anchors per foot at Y37",
     "single_piece_print": true,
-    "front_unsupported_foot_depth_mm": 13.0,
+    "front_unsupported_foot_depth_mm": 0,
     "loaded_fit_verified": false
   },
   "GPU_rest_module": {
     "position_mm": [
-      43.0,
-      290.5,
+      329.656,
+      695.0,
       0
     ],
     "head_recess_length_width_depth_mm": [
@@ -1311,7 +1377,7 @@
     "minimum_recess_side_web_mm": 4,
     "physical_contact_point_verified": false
   },
-  "minimum_nominal_board_side_margin_mm": 4.0,
+  "minimum_nominal_board_side_margin_mm": 4.656,
   "planning_clearance_targets_mm": {
     "board_to_shelf_side": 10,
     "GPU_to_GPU_lateral": 0.64,
@@ -1320,11 +1386,11 @@
   },
   "usable_shelf_width_verified": false,
   "unverified_assumptions": [
-    "the 446 mm published shelf width is an outside dimension; measure the true flat steel area, raised lips and cabinet liners before drilling",
-    "candidate M4 holes are nominal: inspect the actual vent grid and relocate any hole that straddles a vent; reuse a suitable vent with metal backing instead of drilling a ragged edge",
+    "the 422.656mm published deck width does not establish bend radii or exact flat bearing area; measure the real shelf and cabinet before drilling",
+    "candidate holes are nominal: survey real folds, slide attachment points and underside access; keep drill chips out of the factory slides",
     "do not drill PSU, radiator, motherboard or GPU bodies; their modeled holes are alignment references for existing factory interfaces",
     "use wide steel washers or backing strips beneath concentrated brackets, especially GPU post joints; deburr and protect drilled steel edges",
-    "Berserk board has only 4.0 mm nominal clearance to the shelf edge and Kenshin has 6 mm; actual board and shelf fit must be checked",
+    "Berserk board has only4.656mm nominal clearance to the shelf edge and Kenshin has 6 mm; actual board and shelf fit must be checked",
     "V100 factory length/height are documented, but thickness, four PCIe slot centers, flange holes, tail bearing points and EPS connector sweeps must be surveyed on the selected PCIe cards",
     "remove shipping/retention extenders; the model uses the 266.7 mm bare-card length, not 312 or 339 mm with extenders",
     "four adjacent dual-slot cards have only 0.64 mm nominal lateral margin at a 40 mm survey thickness; verify screws, shrouds and motherboard components",
@@ -1333,61 +1399,61 @@
     "keep Qwen decoder and RDMA readiness separate from mechanical fit; current standard vLLM excludes Volta and direct GPU memory transfer is topology-dependent",
     "PSU rear hole patterns, inlet and modular cable bends require physical measurement; keep each PSU's original modular cables",
     "H115i original brackets are owner-fitted in a fan/frame/radiator sandwich; approximate13mm overhang from owner, ledges touch at Z20; angled EPS plugs are modeled with an unverified 18mm projection target; actual product dimensions, electrical pinout and cable bends must be checked",
-    "Whole build moves 52.5 mm forward. Rear fans pull outward. Heads reach Y738.5; AIO frame top Z140 leaves 82.25 mm nominal 6U clearance; brace top Z142 leaves 80.25 mm. Survey front fascia/doors, rear cables and all moved anchors",
-    "ten selected GPU posts need ten14mm Wurth970140324 M3 female bases and M3x6 lower screws (3.3mm nominal engagement,1.7mm nominal gap to owner-reported9mm stud); plastic does not carry their clamp load. Eight selectable slots per board do not require populating all16. Verify fixed OBT nut height with seated card; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Ten replacement14mm bases are required; ten rods total (six previously ordered, four additional). Both add-in NICs and risers are deferred",
+    "Rear AIO heads reach Y852.5; front fans start Y-16. Measure rack doors and cabinet intake space. Disconnect fixed-rack cables and exhaust duct before sliding",
+    "ten selected GPU posts need ten14mm Wurth970140324 M3 female bases and M3x8 lower screws (3.48mm nominal engagement,1.52mm nominal gap to owner-reported9mm stud); plastic does not carry their clamp load. Eight selectable slots per board do not require populating all16. Verify fixed OBT nut height with seated card; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Ten replacement14mm bases are required; ten rods total (six previously ordered, four additional). Both add-in NICs and risers are deferred",
     "ground each motherboard with a metal lead from a standoff to the steel shelf; printed adapters are insulating",
     "Kenshin's AC plug survey volume assumes a side/upward exit above its PSU foot; verify the actual inlet and bend",
     "Berserk AC routes outside the left shelf edge (about 13 mm); Ethernet routes outside the right edge (about 12 mm); QSFP link is deferred; verify cabinet lanes and smooth cable bends",
-    "PETG parts, drilled 1.2 mm shelf joints, cooling and power have not had a sustained loaded test; generated G-code remains a fit prototype"
+    "PETG parts, drilled nominal1.52mm shelf joints, cooling and power have not had a sustained loaded test; generated G-code remains a fit prototype"
   ],
   "clearances_mm": {
-    "hood_to_Kenshin_GPU_x_gap_mm": 2.08,
-    "H115i_brace_to_board_front_mm": 6.7,
-    "6U_above_shelf_deck_mm": 222.25,
-    "5U_above_shelf_deck_mm": 177.8,
-    "6U_to_PSU_top_mm": 72.25,
-    "6U_to_radiator_mm": 62.25,
+    "hood_to_Kenshin_GPU_x_gap_mm": 43.656,
+    "H115i_brace_to_board_front_mm": 12.7,
+    "component_height_planning_band_mm": 222.25,
+    "lower_height_reference_mm": 177.8,
+    "planning_band_to_PSU_top_mm": 72.25,
+    "planning_band_to_radiator_mm": 62.25,
     "H115i_bottom_to_shelf_deck_mm": 20.0,
-    "6U_to_V100_power_route_mm": 7.25,
-    "6U_to_5090_cable_keepout_mm": 25.45,
-    "5U_V100_power_route_deficit_mm": 37.2,
-    "radiator_to_Berserk_board_depth_gap_mm": 51.2,
-    "radiator_to_planned_V100_power_plug_gap_mm": 11.5,
-    "Berserk_GPU_tail_to_Kenshin_board_gap_mm": 66.3,
-    "Berserk_GPU2_to_Kenshin_GPU_x_gap_mm": 7.78,
+    "planning_band_to_V100_power_route_mm": 7.25,
+    "planning_band_to_5090_cable_keepout_mm": 25.45,
+    "lower_reference_V100_power_route_deficit_mm": 37.2,
+    "radiator_to_Berserk_board_depth_gap_mm": 57.2,
+    "radiator_to_planned_V100_power_plug_gap_mm": 17.5,
+    "Berserk_GPU_tail_to_Kenshin_board_gap_mm": 104.3,
+    "Berserk_GPU2_to_Kenshin_GPU_x_gap_mm": 49.356,
     "Berserk_GPU_to_GPU_x_gap_mm": 0.64,
-    "Berserk_PSU_to_nearest_V100_x_gap_mm": 35.58,
-    "V100_fan_bbox_to_Kenshin_board_signed_y_gap_mm": -27.939,
-    "V100_fans_to_Kenshin_PSU_x_gap_mm": 62.46,
-    "Kenshin_PSU_to_side_edge_x_gap_mm": 25.0,
-    "Berserk_PSU_rear_plug_to_5090_front_y_gap_mm": 32.3,
-    "Kenshin_PSU_rear_plug_to_AIO_y_gap_mm": 68.0,
-    "Kenshin_GPU_to_AIO_front_y_gap_mm": 49.0,
-    "GPU_to_shelf_rear_mm": 75.5,
-    "Kenshin_post_backer_to_shelf_rear_mm": 59.5,
+    "Berserk_PSU_to_nearest_V100_x_gap_mm": 11.58,
+    "V100_fan_bbox_to_Kenshin_board_signed_y_gap_mm": 10.061,
+    "V100_fans_to_Kenshin_PSU_x_gap_mm": 14.884,
+    "Kenshin_PSU_to_side_edge_x_gap_mm": 7.656,
+    "Berserk_PSU_rear_plug_to_5090_front_y_gap_mm": 141.5,
+    "Kenshin_PSU_rear_plug_to_AIO_y_gap_mm": 62.0,
+    "Kenshin_GPU_to_AIO_front_y_gap_mm": 11.3,
+    "GPU_to_shelf_rear_mm": 11.2,
+    "Kenshin_post_backer_to_shelf_rear_mm": 344.9,
     "Berserk_post_cylinder_to_board_rear_mm": 3.0,
     "Kenshin_post_cylinder_to_board_rear_mm": 7.0,
-    "Berserk_board_to_shelf_right_mm": 4.0,
-    "Kenshin_board_to_shelf_left_mm": 6.0,
-    "radiator_to_shelf_right_mm": 12.0,
-    "Kenshin_AIO_foot_to_shelf_side_mm": 55.0,
-    "Kenshin_AIO_envelope_to_shelf_side_mm": 24.5,
-    "Kenshin_AIO_to_board_rear_mm": 49.0,
-    "Kenshin_AIO_rearward_projection_with_heads_mm": 38.5,
-    "6U_to_Kenshin_AIO_top_mm": 80.25,
-    "6U_to_Kenshin_AIO_frame_top_mm": 82.25,
-    "Kenshin_AIO_front_to_post_flange_y_gap_mm": 31.0,
-    "Berserk_AC_to_Kenshin_board_x_gap_mm": 9.43,
-    "Berserk_Ethernet_keepout_to_Kenshin_PSU_y_gap_mm": 4.3,
+    "Berserk_board_to_shelf_right_mm": 4.656,
+    "Kenshin_board_to_shelf_side_mm": 6.0,
+    "radiator_to_shelf_right_mm": 6.656,
+    "Kenshin_AIO_foot_to_shelf_side_mm": 43.656,
+    "Kenshin_AIO_envelope_to_shelf_side_mm": 13.156,
+    "Kenshin_AIO_to_board_rear_mm": 97.0,
+    "Kenshin_AIO_rearward_projection_with_heads_mm": 65.1,
+    "planning_band_to_Kenshin_AIO_top_mm": 77.25,
+    "planning_band_to_Kenshin_AIO_frame_top_mm": 79.25,
+    "Kenshin_AIO_front_to_post_flange_y_gap_mm": 343.0,
+    "Berserk_AC_to_Kenshin_board_x_gap_mm": 115.086,
+    "Berserk_Ethernet_keepout_to_Kenshin_PSU_y_gap_mm": 156.3,
     "Berserk_Ethernet_right_cabinet_lane_reach_mm": 12,
     "V100_fan_top_above_shelf_mm": 233.439,
-    "V100_fan_above_6U_mm": 11.189
+    "V100_fan_above_component_band_mm": 11.189
   },
   "components_mm": [
     {
       "name": "Berserk ATX board",
-      "x": 137.0,
-      "y": 69.19999999999999,
+      "x": 113.0,
+      "y": 97.19999999999999,
       "z": 15.525,
       "w": 305.0,
       "d": 245.0,
@@ -1396,8 +1462,8 @@
     },
     {
       "name": "Berserk V100 16GB PCIE1",
-      "x": 243.5,
-      "y": 47.5,
+      "x": 219.5,
+      "y": 75.5,
       "z": 24,
       "w": 40.0,
       "d": 266.7,
@@ -1406,8 +1472,8 @@
     },
     {
       "name": "Berserk V100 16GB PCIE2",
-      "x": 202.86,
-      "y": 47.5,
+      "x": 178.86,
+      "y": 75.5,
       "z": 24,
       "w": 40.0,
       "d": 266.7,
@@ -1416,8 +1482,8 @@
     },
     {
       "name": "Berserk V100 16GB PCIE3",
-      "x": 162.22,
-      "y": 47.5,
+      "x": 138.22,
+      "y": 75.5,
       "z": 24,
       "w": 40.0,
       "d": 266.7,
@@ -1426,8 +1492,8 @@
     },
     {
       "name": "Berserk V100 16GB PCIE4",
-      "x": 121.58,
-      "y": 47.5,
+      "x": 97.58,
+      "y": 75.5,
       "z": 24,
       "w": 40.0,
       "d": 266.7,
@@ -1436,8 +1502,8 @@
     },
     {
       "name": "Berserk SP3 CPU and pump survey",
-      "x": 325.4259259259259,
-      "y": 145.2468615649183,
+      "x": 301.4259259259259,
+      "y": 173.2468615649183,
       "z": 17.125,
       "w": 75,
       "d": 75,
@@ -1446,88 +1512,88 @@
     },
     {
       "name": "Berserk RDIMM 1 survey",
-      "x": 434.6886145404664,
-      "y": 113.86036113499569,
+      "x": 410.6886145404664,
+      "y": 141.86036113499569,
       "z": 17.125,
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x16GB DDR4 ECC RDIMM plan; photo-based socket locations and provisional module height, exact DIMMs unselected"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 2 survey",
-      "x": 425.9026063100137,
-      "y": 113.86036113499569,
+      "x": 401.9026063100137,
+      "y": 141.86036113499569,
       "z": 17.125,
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x16GB DDR4 ECC RDIMM plan; photo-based socket locations and provisional module height, exact DIMMs unselected"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 3 survey",
-      "x": 417.116598079561,
-      "y": 113.86036113499569,
+      "x": 393.116598079561,
+      "y": 141.86036113499569,
       "z": 17.125,
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x16GB DDR4 ECC RDIMM plan; photo-based socket locations and provisional module height, exact DIMMs unselected"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 4 survey",
-      "x": 408.3305898491084,
-      "y": 113.86036113499569,
+      "x": 384.3305898491084,
+      "y": 141.86036113499569,
       "z": 17.125,
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x16GB DDR4 ECC RDIMM plan; photo-based socket locations and provisional module height, exact DIMMs unselected"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 5 survey",
-      "x": 314.1947873799726,
-      "y": 113.86036113499569,
+      "x": 290.1947873799726,
+      "y": 141.86036113499569,
       "z": 17.125,
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x16GB DDR4 ECC RDIMM plan; photo-based socket locations and provisional module height, exact DIMMs unselected"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 6 survey",
-      "x": 305.4087791495199,
-      "y": 113.86036113499569,
+      "x": 281.4087791495199,
+      "y": 141.86036113499569,
       "z": 17.125,
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x16GB DDR4 ECC RDIMM plan; photo-based socket locations and provisional module height, exact DIMMs unselected"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 7 survey",
-      "x": 296.6227709190672,
-      "y": 113.86036113499569,
+      "x": 272.6227709190672,
+      "y": 141.86036113499569,
       "z": 17.125,
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x16GB DDR4 ECC RDIMM plan; photo-based socket locations and provisional module height, exact DIMMs unselected"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 8 survey",
-      "x": 287.8367626886145,
-      "y": 113.86036113499569,
+      "x": 263.8367626886145,
+      "y": 141.86036113499569,
       "z": 17.125,
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x16GB DDR4 ECC RDIMM plan; photo-based socket locations and provisional module height, exact DIMMs unselected"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk BMC module survey",
-      "x": 163.56721536351165,
-      "y": 88.58091143594152,
+      "x": 139.56721536351165,
+      "y": 116.58091143594152,
       "z": 17.125,
       "w": 70,
       "d": 48,
@@ -1536,8 +1602,8 @@
     },
     {
       "name": "V100 pressure fan",
-      "x": 132.53999999999996,
-      "y": 282.57359312880715,
+      "x": 108.53999999999999,
+      "y": 310.57359312880715,
       "z": 107.57359312880715,
       "w": 140.0,
       "d": 125.86500705120545,
@@ -1546,8 +1612,8 @@
     },
     {
       "name": "Kenshin ATX board",
-      "x": 6.0,
-      "y": 380.5,
+      "x": 111.656,
+      "y": 446.5,
       "z": 15.525,
       "w": 305,
       "d": 244,
@@ -1556,8 +1622,8 @@
     },
     {
       "name": "Kenshin RTX 5090",
-      "x": 46.0,
-      "y": 294.8,
+      "x": 308.856,
+      "y": 446.5,
       "z": 24,
       "w": 67.8,
       "d": 329.7,
@@ -1566,8 +1632,8 @@
     },
     {
       "name": "5090 straight power-cable keepout",
-      "x": 46.0,
-      "y": 294.8,
+      "x": 308.856,
+      "y": 446.5,
       "z": 161.8,
       "w": 67.8,
       "d": 329.7,
@@ -1576,8 +1642,8 @@
     },
     {
       "name": "Kenshin GA II Lite pump",
-      "x": 206.5,
-      "y": 484.5,
+      "x": 142.156,
+      "y": 512.5,
       "z": 17.125,
       "w": 74,
       "d": 74,
@@ -1586,8 +1652,8 @@
     },
     {
       "name": "Berserk H115i radiator",
-      "x": 122,
-      "y": -8.0,
+      "x": 104,
+      "y": 14.0,
       "z": 20.0,
       "w": 312,
       "d": 26.0,
@@ -1596,8 +1662,8 @@
     },
     {
       "name": "H115i intake fans",
-      "x": 138,
-      "y": -38.0,
+      "x": 120,
+      "y": -16.0,
       "z": 20.0,
       "w": 280,
       "d": 25.0,
@@ -1607,7 +1673,7 @@
     {
       "name": "Berserk owned Hercules 1600W PSU",
       "x": 0.0,
-      "y": -42.5,
+      "y": 0.0,
       "z": 0,
       "w": 86,
       "d": 245,
@@ -1616,19 +1682,19 @@
     },
     {
       "name": "Kenshin owned HX1200i PSU",
-      "x": 335,
-      "y": 345.5,
+      "x": 7.656000000000006,
+      "y": 525.5,
       "z": 0,
       "w": 86,
       "d": 200,
       "h": 150,
-      "note": "ATX unit on its side; fan faces +X into 25 mm side lane; AC grille rear"
+      "note": "ATX unit on its side, rotated 180 degrees; fan faces -X toward cabinet side, AC grille faces front; cabinet intake clearance unmeasured"
     },
     {
       "name": "Kenshin GA II Lite radiator",
-      "x": 24.5,
-      "y": 673.5,
-      "z": 20.0,
+      "x": 12.5,
+      "y": 787.5,
+      "z": 23.0,
       "w": 397,
       "d": 27,
       "h": 120,
@@ -1636,9 +1702,9 @@
     },
     {
       "name": "Kenshin AIO exhaust fan 1",
-      "x": 41,
-      "y": 706.5,
-      "z": 18.0,
+      "x": 29,
+      "y": 820.5,
+      "z": 21.0,
       "w": 124,
       "d": 28,
       "h": 124,
@@ -1646,9 +1712,9 @@
     },
     {
       "name": "Kenshin AIO exhaust fan 2",
-      "x": 161,
-      "y": 706.5,
-      "z": 18.0,
+      "x": 149,
+      "y": 820.5,
+      "z": 21.0,
       "w": 124,
       "d": 28,
       "h": 124,
@@ -1656,9 +1722,9 @@
     },
     {
       "name": "Kenshin AIO exhaust fan 3",
-      "x": 281,
-      "y": 706.5,
-      "z": 18.0,
+      "x": 269,
+      "y": 820.5,
+      "z": 21.0,
       "w": 124,
       "d": 28,
       "h": 124,
@@ -1668,8 +1734,8 @@
   "large_connector_keepouts_mm": [
     {
       "name": "V100 PCIE1 angled EPS plug target",
-      "x": 268.5,
-      "y": 29.5,
+      "x": 244.5,
+      "y": 57.5,
       "z": 94,
       "w": 15,
       "d": 18.0,
@@ -1678,8 +1744,8 @@
     },
     {
       "name": "V100 PCIE2 angled EPS plug target",
-      "x": 227.86,
-      "y": 29.5,
+      "x": 203.86,
+      "y": 57.5,
       "z": 94,
       "w": 15,
       "d": 18.0,
@@ -1688,8 +1754,8 @@
     },
     {
       "name": "V100 PCIE3 angled EPS plug target",
-      "x": 187.22,
-      "y": 29.5,
+      "x": 163.22,
+      "y": 57.5,
       "z": 94,
       "w": 15,
       "d": 18.0,
@@ -1698,8 +1764,8 @@
     },
     {
       "name": "V100 PCIE4 angled EPS plug target",
-      "x": 146.57999999999998,
-      "y": 29.5,
+      "x": 122.58,
+      "y": 57.5,
       "z": 94,
       "w": 15,
       "d": 18.0,
@@ -1709,7 +1775,7 @@
     {
       "name": "Berserk AC plug + tail",
       "x": 16,
-      "y": 202.5,
+      "y": 245.0,
       "z": 99,
       "w": 54,
       "d": 60,
@@ -1718,8 +1784,8 @@
     },
     {
       "name": "Kenshin low-profile C13 plug + bend",
-      "x": 347,
-      "y": 545.5,
+      "x": 19.656000000000006,
+      "y": 465.5,
       "z": 24,
       "w": 62,
       "d": 60,
@@ -1728,8 +1794,8 @@
     },
     {
       "name": "Berserk Ethernet RJ45 boot + bend",
-      "x": 305,
-      "y": 314.2,
+      "x": 281.0,
+      "y": 342.2,
       "z": 25,
       "w": 28,
       "d": 27,
@@ -1738,8 +1804,8 @@
     },
     {
       "name": "Kenshin 24-pin survey",
-      "x": 276.0,
-      "y": 380.5,
+      "x": 96.656,
+      "y": 616.5,
       "z": 14,
       "w": 50,
       "d": 74,
@@ -1833,7 +1899,7 @@
       "quantity": 1,
       "bounding_box_mm": [
         50.0,
-        70.0,
+        42.0,
         24.0
       ],
       "purpose": "secondary GPU rest; recessed M4 heads and 9 mm washers; shim after card measurement"
@@ -1844,9 +1910,9 @@
       "bounding_box_mm": [
         120.0,
         140.0,
-        40.01
+        75.01
       ],
-      "purpose": "120mm fan-flush radiator frame; 105mm pitch, 7x4.5mm slots, 40mm foot, bearing ledge and two slotted anchors; rear face down"
+      "purpose": "120mm fan-flush radiator frame; 105mm pitch, 7x4.5mm slots, 75mm foot, bearing ledge and two slotted anchors; rear face down"
     },
     {
       "part": "fan120_aio_hose_brace",
@@ -1887,439 +1953,39 @@
         10.0
       ],
       "purpose": "non-installed24x22x10mm HT-PLA-GF coupon: rectangular M4 T-nut pocket"
-    },
-    {
-      "part": "rail_shelf_shim_1mm",
-      "quantity": 4,
-      "bounding_box_mm": [
-        52.0,
-        16.0,
-        5.28
-      ],
-      "purpose": "non-installed PETG rail/shelf spacing sample; elongated tapered ridge in unused side slot, screws at separate metal sites; see rail-shelf-shims-report.json"
-    },
-    {
-      "part": "rail_shelf_shim_2mm",
-      "quantity": 4,
-      "bounding_box_mm": [
-        52.0,
-        16.0,
-        6.28
-      ],
-      "purpose": "non-installed PETG rail/shelf spacing sample; elongated tapered ridge in unused side slot, screws at separate metal sites; see rail-shelf-shims-report.json"
-    },
-    {
-      "part": "rail_shelf_shim_3mm",
-      "quantity": 4,
-      "bounding_box_mm": [
-        52.0,
-        16.0,
-        7.28
-      ],
-      "purpose": "non-installed PETG rail/shelf spacing sample; elongated tapered ridge in unused side slot, screws at separate metal sites; see rail-shelf-shims-report.json"
-    },
-    {
-      "part": "rail_shelf_shim_4mm",
-      "quantity": 4,
-      "bounding_box_mm": [
-        52.0,
-        16.0,
-        8.28
-      ],
-      "purpose": "non-installed PETG rail/shelf spacing sample; elongated tapered ridge in unused side slot, screws at separate metal sites; see rail-shelf-shims-report.json"
     }
   ],
-  "rail_shelf_shim_trials": {
-    "status": "owner-confirmed nominal slot size; printed fit and rail gap unmeasured; empty-shelf fit samples only",
-    "installation_released": false,
-    "installed_quantity": null,
-    "fit_copies_per_unique_part": 4,
-    "dimensions_mm": {
-      "rail_shelf_shim_1mm": {
-        "thickness": 1.0,
-        "width": 52.0,
-        "height": 16.0,
-        "locator_length": 39.6,
-        "locator_width": 6.1,
-        "locator_height": 4.0,
-        "crest_length": 35.6,
-        "crest_width": 3.2
-      },
-      "rail_shelf_shim_2mm": {
-        "thickness": 2.0,
-        "width": 52.0,
-        "height": 16.0,
-        "locator_length": 39.6,
-        "locator_width": 6.1,
-        "locator_height": 4.0,
-        "crest_length": 35.6,
-        "crest_width": 3.2
-      },
-      "rail_shelf_shim_3mm": {
-        "thickness": 3.0,
-        "width": 52.0,
-        "height": 16.0,
-        "locator_length": 39.6,
-        "locator_width": 6.1,
-        "locator_height": 4.0,
-        "crest_length": 35.6,
-        "crest_width": 3.2
-      },
-      "rail_shelf_shim_4mm": {
-        "thickness": 4.0,
-        "width": 52.0,
-        "height": 16.0,
-        "locator_length": 39.6,
-        "locator_width": 6.1,
-        "locator_height": 4.0,
-        "crest_length": 35.6,
-        "crest_width": 3.2
-      }
-    },
-    "dimension_basis": "Published deck vents are 40 x 6.5 mm; owner confirms side mounting holes share those dimensions. Pad, taper and print clearances are chosen prototype parameters; no caliper measurements supplied.",
-    "nominal_side_slot_mm": [
-      40.0,
-      6.5
+  "factory_shelf_assembly": {
+    "shelf": "Hammond RSUS1931BK1",
+    "source": "https://www.hammfg.com/dci/products/accessories/rsus",
+    "drawing": "https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf",
+    "deck_width_depth_mm": [
+      422.656,
+      787.4
     ],
-    "nominal_locator_clearance_per_side_mm": 0.2,
-    "gap_rule": "For a centered shelf: thickness=(installed inner-slide face spacing - actual bare shelf width)/2. Measure each side if asymmetric. A zero/negative gap needs no shim or a geometry change.",
-    "published_reference_only": {
-      "StarTech_shelf_body_width_mm": 446.0,
-      "StarTech_shelf_body_width_tolerance_mm": 1.0,
-      "Gigabyte_R162_ZA0_body_width_mm": 438.0,
-      "note": "Body-width difference does not establish slide contact-plane spacing or stud stand-off.",
-      "StarTech_drawing": "https://sgcdn.startech.com/005329/media/sets/ADJSHELFHDV_Diagram/ADJSHELFHDV_Diagram.PDF",
-      "Gigabyte_rail_guide": "https://download.gigabyte.com/FileList/Manual/server_system_qig_25HB2-3A0202-K0R.pdf"
-    },
-    "unmeasured": [
-      "actual left/right gap, rail straightness and free travel",
-      "actual side-hole tolerances and end shape, wall thickness and unobstructed insertion depth",
-      "unused hole positions with full pad bearing on steel and the inner rail",
-      "separate steel fastener locations, thread, length, head and nut access",
-      "rail moving-member clearance and slide load rating for the modified shelf"
+    "nominal_gauge_thickness_mm": 1.52,
+    "thickness_basis": "16 gauge from current series page; 1.52 mm nominal allowance, actual sheet and coating unmeasured",
+    "fold_height_mm": 38.099999999999994,
+    "overall_height_mm": 68.072,
+    "overall_width_mm": 479.806,
+    "rack_hole_pitch_mm": 466.34399999999994,
+    "mount_depth_range_mm": [
+      457.2,
+      711.1999999999999
     ],
-    "locator_fit": "Rounded 35.6 x 3.2 mm crest leads into the nominal 40 x 6.5 mm slot; 4 mm continuous taper widens to a 39.6 x 6.1 mm root, leaving 0.2 mm nominal clearance around its outline. A 52 x 16 mm capsule pad surrounds the whole opening with at least 4.75 mm bearing land. Check 4 mm unobstructed insertion depth. Actual aperture tolerances, end shape and printed fit remain unmeasured. Taper guides insertion but has no snap retention; the pad must seat fully, and a wedged ridge must not add to the selected gap.",
-    "load_path": "Screws fasten the metal inner slide to the metal shelf at separate sites. Pads set spacing and carry compression; the tapered ridge only locates an otherwise unoccupied slot. No plastic threads, snap barb or structural ridge retention. Steel fasteners do not eliminate plastic creep in a joint whose spacing depends on the pads.",
-    "fit_sequence": [
-      "Support the empty shelf. Try one sample at a time; do not stack the ridged parts.",
-      "Align the long ridge with an unused shelf side slot and press the rounded crest in by hand, flat opposite face toward the inner slide. Stop if it jams before the pad seats; resize the ridge rather than force the slot.",
-      "Seat the pad face on sound steel around the whole slot and under a flat rail face. Check 4 mm inward ridge projection; a bottomed or wedged ridge is not a seated pad.",
-      "Choose the thickness without pulling a slide inward or spreading it outward. Regenerate to a 0.20 mm intermediate thickness if needed.",
-      "Check separate metal screws/nuts and tools clear the pad footprint, and no head or thread enters the moving rail. No screw size or length is assumed here.",
-      "Check full empty-shelf travel and actual part temperature. Confirm sustained clamp spacing before loaded use; use metal spacers where creep-free spacing is needed."
-    ],
-    "print_orientation": "flat slide face on bed; tapered locating ridge up; no supports",
-    "material": "Duramic PETG, existing 0.20 mm / 240 C / 75 C process",
-    "assembly_collision_checks": "The main STEP includes four representative 2 mm copies with schematic closed rails and slotted sidewalls. Their placement is checked against modeled geometry; see rail-shelf-assembly-report.json. Actual rail interfaces, fasteners and travel remain unverified."
-  },
-  "rail_shelf_assembly": {
-    "status": "Illustrative closed-slide assembly; unmeasured interfaces, not a drilling or installation release",
-    "main_assembly": "kenshin-berserk-6u-shelf-envelope.step",
-    "source": "cad/rail_shelf_assembly.py",
-    "references": {
-      "shelf_drawing": "https://sgcdn.startech.com/005329/media/sets/ADJSHELFHDV_Diagram/ADJSHELFHDV_Diagram.PDF",
-      "rail_installation_only": "https://download.gigabyte.com/FileList/Manual/server_system_qig_25HB2-3A0202-K0R.pdf",
-      "button_head_envelope": "https://www.blohm-gmbh.de/de/en/Products/Product-overview/Machine-and-fixture-components/Screws-nuts-and-washers/Button-head-screws-EN-ISO-7380.html",
-      "washer": "https://www.pgb-europe.com/en-gb/205267/flat-washer-din-9021-m-4-a4-43-12-10",
-      "nut": "https://www.pgb-europe.com/en-gb/242836/hexagon-nut-din-934-m-4-a2-70"
-    },
-    "rail_identity_reference": "King Slide 3A02-600 / Gigabyte 25HB2-3A0202-K0R; schematic C-sections only, not manufacturer geometry",
-    "dimension_basis": {
-      "shelf_width_depth": "446 x 700 mm nominal published shelf body",
-      "sidewall": "44 mm nominal published overall height used as a simplified downward sidewall; fold shape and 1.2 mm steel thickness are provisional",
-      "slot_pattern": "Owner confirms two slots at the front and two at the back on each side, one behind the other along shelf depth; eight total.",
-      "slot_size": "40 x 6.5 mm: manufacturer-dimensioned deck vents, with matching side-hole dimensions confirmed by owner. Actual aperture tolerances remain unmeasured.",
-      "rail_length": "Owner confirms rails exceed the 700 mm shelf depth. 800 mm is an unmeasured display envelope, not a published or inferred length; 600 in the rail model name is not used as a length specification.",
-      "rail_alignment": "Owner requests shelf centered along the rails; equal front/rear overhang, with shelf, slots and fasteners kept at their existing coordinates. Custom rail holes may be drilled to suit.",
-      "rail_and_positions": "Rail sections and numeric slot/screw coordinates remain chosen visualization parameters, not measurements or rack-standard dimensions"
-    },
-    "closed_rail_envelope_each_mm": {
-      "length_y": 800.0,
-      "depth_x": 11.5,
-      "height_z": 36.0,
-      "start_y": -50.0,
-      "end_y": 750.0,
-      "provisional": true
-    },
-    "shelf_depth_mm": 700.0,
-    "shelf_and_rail_center_y_mm": 350.0,
-    "rail_hole_centers_from_front_mm": [
-      200.0,
-      600.0
-    ],
-    "illustrative_overhang_mm": {
-      "front": 50.0,
-      "rear": 50.0
-    },
-    "rail_dimensions_unresolved": [
-      "actual inner and outer section lengths",
-      "adjustable rack-bracket span and end offsets",
-      "extension travel"
-    ],
-    "inner_rail_height_mm": 28.0,
-    "rail_sheet_thickness_mm": 1.5,
-    "shelf_side_height_mm": 44.0,
-    "inner_slide_face_separation_mm": 450.0,
-    "shim_model": "rail_shelf_shim_2mm",
-    "illustrative_shim_instances": 4,
-    "shim_pad_thickness_mm": 2.0,
-    "side_slots_per_side": 4,
-    "total_side_slots": 8,
-    "front_slot_centers_y_mm": [
-      100.0,
-      150.0
-    ],
-    "rear_slot_centers_y_mm": [
-      550.0,
-      600.0
-    ],
-    "screw_slot_centers_y_mm": [
-      150.0,
-      550.0
-    ],
-    "shim_centers_y_mm": [
-      100.0,
-      600.0
-    ],
-    "shim_center_z_mm": -22.0,
-    "nominal_side_slot_mm": [
-      40.0,
-      6.5
-    ],
-    "ridge_direction": "inward, through unused side slots; long axis follows shelf Y",
-    "ridge_clearance_beyond_inner_wall_mm": 2.8,
-    "proposed_mounting": {
-      "status": "Custom prototype layout, not factory rail-hole data or a drilling release; no purchased hardware change",
-      "hole_count": 4,
-      "rail_hole_diameter_mm": 4.5,
-      "hole_centers_y_mm_each_side": [
-        150.0,
-        550.0
-      ],
-      "hole_center_z_mm": -22.0,
-      "screws": {
-        "type": "M4 x 12 button head, ISO 7380-1 envelope",
-        "quantity": 4,
-        "head_diameter_mm": 7.6,
-        "head_height_mm": 2.2
-      },
-      "nuts": {
-        "type": "M4 hex, DIN 934 envelope",
-        "quantity": 4,
-        "across_flats_mm": 7.0,
-        "height_mm": 3.2
-      },
-      "washers": {
-        "type": "M4 large washer, DIN 9021 envelope",
-        "quantity": 12,
-        "OD_ID_thickness_mm": [
-          12.0,
-          4.3,
-          1.0
-        ],
-        "per_joint": "two washers bridge the 2 mm gap, one backs the shelf slot inside"
-      },
-      "stack_order_from_outside": [
-        "screw head",
-        "inner rail 1.5",
-        "metal gap washers 2 x 1",
-        "shelf 1.2",
-        "backing washer 1",
-        "nut 3.2"
-      ],
-      "under_head_to_nut_end_mm": 8.9,
-      "screw_past_nut_mm": 3.0999999999999996,
-      "thread_model": "Smooth nominal envelopes, no helical thread or tap-drill representation",
-      "adjustment_mm": [
-        -17.0,
-        17.0
-      ],
-      "checks": {
-        "mount_adjustment_endpoints_mm": [
-          -17.0,
-          17.0
-        ],
-        "adjustment_boolean_pairs": 8,
-        "continuous_adjustment_envelope_pairs": 4,
-        "continuous_adjustment_method": "conservative swept bounding volumes against fixed shelf, shims and existing assembly; screw head and shaft treated separately",
-        "tool_boolean_pairs": 36,
-        "continuous_tool_envelope_pairs": 0,
-        "driver_diameter_mm": 6.0,
-        "nut_socket_outer_diameter_mm": 11.0,
-        "tool_reach_mm": 40.0,
-        "tool_access_condition": "inner slide detached from outer rail; tighten before reinsertion",
-        "minimum_head_to_schematic_outer_rail_mm": 6.3,
-        "washer_land_each_side_of_slot_mm": 2.75,
-        "all_metal_stack_contacts": true
-      }
-    },
-    "print_quantity": "Plate 15 contains 4 of each trial thickness in one print. The four assembly display instances do not establish installed quantity.",
-    "checks": {
-      "valid_single_solids": 30,
-      "boolean_collision_pairs": 34,
-      "existing_assembly_items_screened": 235,
-      "positive_volume_collisions": 0,
-      "both_pad_faces_seated": true
-    },
-    "not_validated": [
-      "actual sidewall folds, slot tolerances and positions",
-      "actual rail section and rack fit",
-      "actual fastener fit, torque, locking method and metal load capacity",
-      "real moving races, slide motion, locks and end stops",
-      "load capacity, pad compression and creep"
-    ],
-    "instances": [
-      {
-        "name": "left_sidewall_with_illustrative_slots_PROVISIONAL",
-        "kind": "sidewall",
-        "model": "schematic metal reference"
-      },
-      {
-        "name": "left_inner_slide_with_proposed_mounting_holes_PROVISIONAL",
-        "kind": "inner",
-        "model": "schematic metal reference"
-      },
-      {
-        "name": "left_outer_slide_closed_PROVISIONAL",
-        "kind": "outer",
-        "model": "schematic metal reference"
-      },
-      {
-        "name": "left_rail_shelf_shim_2mm_1_PROVISIONAL",
-        "kind": "shim",
-        "model": "rail_shelf_shim_2mm"
-      },
-      {
-        "name": "left_rail_shelf_shim_2mm_2_PROVISIONAL",
-        "kind": "shim",
-        "model": "rail_shelf_shim_2mm"
-      },
-      {
-        "name": "left_mount_Y150_M4x12_button_screw_PROVISIONAL",
-        "kind": "screw",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "left_mount_Y150_gap_washer_1_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "left_mount_Y150_gap_washer_2_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "left_mount_Y150_shelf_backing_washer_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "left_mount_Y150_M4_hex_nut_PROVISIONAL",
-        "kind": "nut",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "left_mount_Y550_M4x12_button_screw_PROVISIONAL",
-        "kind": "screw",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "left_mount_Y550_gap_washer_1_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "left_mount_Y550_gap_washer_2_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "left_mount_Y550_shelf_backing_washer_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "left_mount_Y550_M4_hex_nut_PROVISIONAL",
-        "kind": "nut",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_sidewall_with_illustrative_slots_PROVISIONAL",
-        "kind": "sidewall",
-        "model": "schematic metal reference"
-      },
-      {
-        "name": "right_inner_slide_with_proposed_mounting_holes_PROVISIONAL",
-        "kind": "inner",
-        "model": "schematic metal reference"
-      },
-      {
-        "name": "right_outer_slide_closed_PROVISIONAL",
-        "kind": "outer",
-        "model": "schematic metal reference"
-      },
-      {
-        "name": "right_rail_shelf_shim_2mm_1_PROVISIONAL",
-        "kind": "shim",
-        "model": "rail_shelf_shim_2mm"
-      },
-      {
-        "name": "right_rail_shelf_shim_2mm_2_PROVISIONAL",
-        "kind": "shim",
-        "model": "rail_shelf_shim_2mm"
-      },
-      {
-        "name": "right_mount_Y150_M4x12_button_screw_PROVISIONAL",
-        "kind": "screw",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_mount_Y150_gap_washer_1_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_mount_Y150_gap_washer_2_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_mount_Y150_shelf_backing_washer_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_mount_Y150_M4_hex_nut_PROVISIONAL",
-        "kind": "nut",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_mount_Y550_M4x12_button_screw_PROVISIONAL",
-        "kind": "screw",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_mount_Y550_gap_washer_1_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_mount_Y550_gap_washer_2_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_mount_Y550_shelf_backing_washer_PROVISIONAL",
-        "kind": "washer",
-        "model": "proposed fastener envelope"
-      },
-      {
-        "name": "right_mount_Y550_M4_hex_nut_PROVISIONAL",
-        "kind": "nut",
-        "model": "proposed fastener envelope"
-      }
-    ]
+    "slide_travel_mm": 711.1999999999999,
+    "equipment_load_limit_kg": 39.0,
+    "mounting_space_U": 2,
+    "required_clearance_U": 3,
+    "specification_disagreement": "Individual drawing says 120 lb and 8\u201328 in; current series table says 85 lb (39 kg) and 18\u201328 in. Use the current, more restrictive values pending manufacturer confirmation.",
+    "status": "selected by owner; not purchased or physically fitted",
+    "factory_slide_internal_geometry_verified": false,
+    "physical_fit_verified": false,
+    "static_boolean_pairs_checked": 0,
+    "continuous_travel_envelope_pairs_checked": 0,
+    "travel_check_scope": "Illustrative outer rails and brackets only; actual bearings, stops, rack posts, doors and moving-load capacity unmeasured. Disconnect fixed-rack duct, power and data before extension.",
+    "custom_rail_shims": "none; factory matched slides replace the King Slide adaptation",
+    "limitations": "Deck outer dimensions are sourced. Bend radii, true flat bearing area, slide closed length/cross-section, rack-bracket locations and holes are illustrative. Do not drill using factory slide envelopes. Survey underside hardware clearance, rack spacing, door clearance and total moving load before fabrication."
   },
   "installed_part_models": {
     "berserk_mobo_adapter_left_drill_plan": "atx_mobo_adapter_front",
@@ -2333,8 +1999,8 @@
   "motherboard_adapter_web_envelopes_mm": [
     {
       "name": "berserk_mobo_adapter_right_drill_plan envelope",
-      "x": 121.57999999999998,
-      "y": 67.21000000000001,
+      "x": 97.58,
+      "y": 95.21000000000001,
       "z": 0,
       "w": 168.89000000000004,
       "d": 263.49,
@@ -2343,8 +2009,8 @@
     },
     {
       "name": "berserk_mobo_adapter_left_drill_plan envelope",
-      "x": 261.3,
-      "y": 55.69999999999999,
+      "x": 237.3,
+      "y": 83.69999999999999,
       "z": 0,
       "w": 183.14999999999998,
       "d": 234.98000000000002,
@@ -2353,20 +2019,20 @@
     },
     {
       "name": "kenshin_mobo_adapter_left_drill_plan envelope",
-      "x": 13.509999999999991,
-      "y": 377.51,
+      "x": 243.8559999999999,
+      "y": 430.0,
       "z": 0,
-      "w": 165.29000000000002,
+      "w": 165.2900000000001,
       "d": 263.49,
       "h": 6.0,
       "note": "bounding envelope only; interlocking open frame"
     },
     {
       "name": "kenshin_mobo_adapter_right_drill_plan envelope",
-      "x": 130.3,
-      "y": 366.0,
+      "x": 109.20599999999993,
+      "y": 470.02,
       "z": 0,
-      "w": 183.14999999999998,
+      "w": 183.15000000000006,
       "d": 234.98000000000002,
       "h": 6.0,
       "note": "bounding envelope only; interlocking open frame"
@@ -2376,8 +2042,8 @@
     {
       "system": "Berserk",
       "center_xy_mm": [
-        261.0,
-        79.71000000000001
+        237.0,
+        107.71000000000001
       ],
       "engagement_mm": 8,
       "neck_mm": 10,
@@ -2393,8 +2059,8 @@
     {
       "system": "Berserk",
       "center_xy_mm": [
-        261.0,
-        149.1
+        237.0,
+        177.1
       ],
       "engagement_mm": 8,
       "neck_mm": 10,
@@ -2410,8 +2076,8 @@
     {
       "system": "Berserk",
       "center_xy_mm": [
-        277.97,
-        179.1
+        253.97,
+        207.1
       ],
       "engagement_mm": 8,
       "neck_mm": 10,
@@ -2427,8 +2093,8 @@
     {
       "system": "Kenshin",
       "center_xy_mm": [
-        130.0,
-        390.01
+        292.656,
+        680.99
       ],
       "engagement_mm": 8,
       "neck_mm": 10,
@@ -2444,8 +2110,8 @@
     {
       "system": "Kenshin",
       "center_xy_mm": [
-        130.0,
-        459.4
+        292.656,
+        611.6
       ],
       "engagement_mm": 8,
       "neck_mm": 10,
@@ -2461,8 +2127,8 @@
     {
       "system": "Kenshin",
       "center_xy_mm": [
-        146.97,
-        489.4
+        275.68600000000004,
+        581.6
       ],
       "engagement_mm": 8,
       "neck_mm": 10,
@@ -2480,8 +2146,8 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        191.2,
-        79.71000000000001
+        167.2,
+        107.71000000000001
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2505,8 +2171,8 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        157.01,
-        226.57
+        133.01,
+        254.57
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2530,8 +2196,8 @@
     {
       "part": "berserk_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        355.0,
-        278.18
+        331.0,
+        306.18
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2555,8 +2221,8 @@
     {
       "part": "berserk_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        397.0,
-        278.18
+        373.0,
+        306.18
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2580,8 +2246,8 @@
     {
       "part": "berserk_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        431.95,
-        215.14
+        407.95,
+        243.14
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2605,8 +2271,8 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        60.2,
-        390.01
+        362.456,
+        680.99
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2630,8 +2296,8 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        26.009999999999998,
-        536.87
+        396.646,
+        534.13
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2655,8 +2321,8 @@
     {
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        224.0,
-        588.48
+        198.656,
+        482.52
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2680,8 +2346,8 @@
     {
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        266.0,
-        588.48
+        156.656,
+        482.52
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2705,8 +2371,8 @@
     {
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        300.95,
-        525.44
+        121.70600000000002,
+        545.56
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2733,8 +2399,8 @@
       "system": "Berserk",
       "card": "PCIE1",
       "post": 1,
-      "x_mm": 250.5,
-      "y_mm": 320.2,
+      "x_mm": 226.5,
+      "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2746,8 +2412,8 @@
       "system": "Berserk",
       "card": "PCIE1",
       "post": 2,
-      "x_mm": 270.5,
-      "y_mm": 320.2,
+      "x_mm": 246.5,
+      "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2759,8 +2425,8 @@
       "system": "Berserk",
       "card": "PCIE2",
       "post": 1,
-      "x_mm": 209.86,
-      "y_mm": 320.2,
+      "x_mm": 185.86,
+      "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2772,8 +2438,8 @@
       "system": "Berserk",
       "card": "PCIE2",
       "post": 2,
-      "x_mm": 229.86,
-      "y_mm": 320.2,
+      "x_mm": 205.86,
+      "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2785,8 +2451,8 @@
       "system": "Berserk",
       "card": "PCIE3",
       "post": 1,
-      "x_mm": 169.22,
-      "y_mm": 320.2,
+      "x_mm": 145.22,
+      "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2798,8 +2464,8 @@
       "system": "Berserk",
       "card": "PCIE3",
       "post": 2,
-      "x_mm": 189.22,
-      "y_mm": 320.2,
+      "x_mm": 165.22,
+      "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2811,8 +2477,8 @@
       "system": "Berserk",
       "card": "PCIE4",
       "post": 1,
-      "x_mm": 128.57999999999998,
-      "y_mm": 320.2,
+      "x_mm": 104.58,
+      "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2824,8 +2490,8 @@
       "system": "Berserk",
       "card": "PCIE4",
       "post": 2,
-      "x_mm": 148.57999999999998,
-      "y_mm": 320.2,
+      "x_mm": 124.58,
+      "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2837,8 +2503,8 @@
       "system": "Kenshin",
       "card": "RTX5090",
       "post": 1,
-      "x_mm": 51.0,
-      "y_mm": 634.5,
+      "x_mm": 371.656,
+      "y_mm": 436.5,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2850,8 +2516,8 @@
       "system": "Kenshin",
       "card": "RTX5090",
       "post": 2,
-      "x_mm": 71.0,
-      "y_mm": 634.5,
+      "x_mm": 351.656,
+      "y_mm": 436.5,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
       "base_z_mm": 0.0,
@@ -2863,103 +2529,103 @@
   "gpu_post_steel_backers_mm": [
     {
       "name": "Berserk PCIE1 purchased post backing washer 1",
-      "x": 244.5,
-      "y": 314.2,
-      "z": -2.2,
+      "x": 220.5,
+      "y": 342.2,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     },
     {
       "name": "Berserk PCIE1 purchased post backing washer 2",
-      "x": 264.5,
-      "y": 314.2,
-      "z": -2.2,
+      "x": 240.5,
+      "y": 342.2,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     },
     {
       "name": "Berserk PCIE2 purchased post backing washer 1",
-      "x": 203.86,
-      "y": 314.2,
-      "z": -2.2,
+      "x": 179.86,
+      "y": 342.2,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     },
     {
       "name": "Berserk PCIE2 purchased post backing washer 2",
-      "x": 223.86,
-      "y": 314.2,
-      "z": -2.2,
+      "x": 199.86,
+      "y": 342.2,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     },
     {
       "name": "Berserk PCIE3 purchased post backing washer 1",
-      "x": 163.22,
-      "y": 314.2,
-      "z": -2.2,
+      "x": 139.22,
+      "y": 342.2,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     },
     {
       "name": "Berserk PCIE3 purchased post backing washer 2",
-      "x": 183.22,
-      "y": 314.2,
-      "z": -2.2,
+      "x": 159.22,
+      "y": 342.2,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     },
     {
       "name": "Berserk PCIE4 purchased post backing washer 1",
-      "x": 122.57999999999998,
-      "y": 314.2,
-      "z": -2.2,
+      "x": 98.58,
+      "y": 342.2,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     },
     {
       "name": "Berserk PCIE4 purchased post backing washer 2",
-      "x": 142.57999999999998,
-      "y": 314.2,
-      "z": -2.2,
+      "x": 118.58,
+      "y": 342.2,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     },
     {
       "name": "Kenshin RTX5090 purchased post backing washer 1",
-      "x": 45.0,
-      "y": 628.5,
-      "z": -2.2,
+      "x": 365.656,
+      "y": 430.5,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     },
     {
       "name": "Kenshin RTX5090 purchased post backing washer 2",
-      "x": 65.0,
-      "y": 628.5,
-      "z": -2.2,
+      "x": 345.656,
+      "y": 430.5,
+      "z": -3.52,
       "w": 12,
       "d": 12,
-      "h": 1.0,
-      "note": "stock M4 DIN9021 steel washer, nominal OD12/ID4.4/T1, plus M3 small washer beneath; no machining"
+      "h": 2.0,
+      "note": "stock Two M4 DIN9021 OD12/ID4.4/T1 washers plus two OD7x0.5 M3 washers beneath; no machining"
     }
   ],
   "assembly_access_audit": "assembly-access-audit.json",
@@ -2967,8 +2633,8 @@
     {
       "system": "Berserk",
       "number": 1,
-      "center_x_mm": 153.51,
-      "center_y_mm": 304.04,
+      "center_x_mm": 129.51,
+      "center_y_mm": 332.04,
       "ATX_site": "A",
       "board_edge_uv_in": [
         0.65,
@@ -2981,8 +2647,8 @@
     {
       "system": "Berserk",
       "number": 3,
-      "center_x_mm": 277.97,
-      "center_y_mm": 304.04,
+      "center_x_mm": 253.97,
+      "center_y_mm": 332.04,
       "ATX_site": "C",
       "board_edge_uv_in": [
         5.55,
@@ -2995,8 +2661,8 @@
     {
       "system": "Berserk",
       "number": 4,
-      "center_x_mm": 435.45,
-      "center_y_mm": 281.18,
+      "center_x_mm": 411.45,
+      "center_y_mm": 309.18,
       "ATX_site": "F",
       "board_edge_uv_in": [
         11.75,
@@ -3009,8 +2675,8 @@
     {
       "system": "Berserk",
       "number": 5,
-      "center_x_mm": 153.51,
-      "center_y_mm": 149.1,
+      "center_x_mm": 129.51,
+      "center_y_mm": 177.1,
       "ATX_site": "G",
       "board_edge_uv_in": [
         0.65,
@@ -3023,8 +2689,8 @@
     {
       "system": "Berserk",
       "number": 6,
-      "center_x_mm": 277.97,
-      "center_y_mm": 149.1,
+      "center_x_mm": 253.97,
+      "center_y_mm": 177.1,
       "ATX_site": "H",
       "board_edge_uv_in": [
         5.55,
@@ -3037,8 +2703,8 @@
     {
       "system": "Berserk",
       "number": 8,
-      "center_x_mm": 153.51,
-      "center_y_mm": 76.71,
+      "center_x_mm": 129.51,
+      "center_y_mm": 104.71,
       "ATX_site": "K",
       "board_edge_uv_in": [
         0.65,
@@ -3051,8 +2717,8 @@
     {
       "system": "Berserk",
       "number": 9,
-      "center_x_mm": 277.97,
-      "center_y_mm": 76.71,
+      "center_x_mm": 253.97,
+      "center_y_mm": 104.71,
       "ATX_site": "L",
       "board_edge_uv_in": [
         5.55,
@@ -3065,8 +2731,8 @@
     {
       "system": "Berserk",
       "number": 10,
-      "center_x_mm": 435.45,
-      "center_y_mm": 76.71,
+      "center_x_mm": 411.45,
+      "center_y_mm": 104.71,
       "ATX_site": "M",
       "board_edge_uv_in": [
         11.75,
@@ -3079,8 +2745,8 @@
     {
       "system": "Kenshin",
       "number": 1,
-      "center_x_mm": 22.51,
-      "center_y_mm": 614.34,
+      "center_x_mm": 400.146,
+      "center_y_mm": 456.66,
       "ATX_site": "A",
       "board_edge_uv_in": [
         0.65,
@@ -3093,8 +2759,8 @@
     {
       "system": "Kenshin",
       "number": 2,
-      "center_x_mm": 101.25,
-      "center_y_mm": 614.34,
+      "center_x_mm": 321.406,
+      "center_y_mm": 456.66,
       "ATX_site": "B",
       "board_edge_uv_in": [
         3.75,
@@ -3107,8 +2773,8 @@
     {
       "system": "Kenshin",
       "number": 3,
-      "center_x_mm": 146.97,
-      "center_y_mm": 614.34,
+      "center_x_mm": 275.686,
+      "center_y_mm": 456.66,
       "ATX_site": "C",
       "board_edge_uv_in": [
         5.55,
@@ -3121,8 +2787,8 @@
     {
       "system": "Kenshin",
       "number": 4,
-      "center_x_mm": 304.45,
-      "center_y_mm": 591.48,
+      "center_x_mm": 118.206,
+      "center_y_mm": 479.52,
       "ATX_site": "F",
       "board_edge_uv_in": [
         11.75,
@@ -3135,8 +2801,8 @@
     {
       "system": "Kenshin",
       "number": 5,
-      "center_x_mm": 22.51,
-      "center_y_mm": 459.4,
+      "center_x_mm": 400.146,
+      "center_y_mm": 611.6,
       "ATX_site": "G",
       "board_edge_uv_in": [
         0.65,
@@ -3149,8 +2815,8 @@
     {
       "system": "Kenshin",
       "number": 6,
-      "center_x_mm": 146.97,
-      "center_y_mm": 459.4,
+      "center_x_mm": 275.686,
+      "center_y_mm": 611.6,
       "ATX_site": "H",
       "board_edge_uv_in": [
         5.55,
@@ -3163,8 +2829,8 @@
     {
       "system": "Kenshin",
       "number": 7,
-      "center_x_mm": 304.45,
-      "center_y_mm": 459.4,
+      "center_x_mm": 118.206,
+      "center_y_mm": 611.6,
       "ATX_site": "J",
       "board_edge_uv_in": [
         11.75,
@@ -3177,8 +2843,8 @@
     {
       "system": "Kenshin",
       "number": 8,
-      "center_x_mm": 22.51,
-      "center_y_mm": 387.01,
+      "center_x_mm": 400.146,
+      "center_y_mm": 683.99,
       "ATX_site": "K",
       "board_edge_uv_in": [
         0.65,
@@ -3191,8 +2857,8 @@
     {
       "system": "Kenshin",
       "number": 9,
-      "center_x_mm": 146.97,
-      "center_y_mm": 387.01,
+      "center_x_mm": 275.686,
+      "center_y_mm": 683.99,
       "ATX_site": "L",
       "board_edge_uv_in": [
         5.55,
@@ -3205,8 +2871,8 @@
     {
       "system": "Kenshin",
       "number": 10,
-      "center_x_mm": 304.45,
-      "center_y_mm": 387.01,
+      "center_x_mm": 118.206,
+      "center_y_mm": 683.99,
       "ATX_site": "M",
       "board_edge_uv_in": [
         11.75,
@@ -3265,289 +2931,274 @@
       "available_length_mm": 400,
       "points_mm": [
         [
-          274.0,
-          514,
-          55
+          150,
+          586,
+          65
         ],
         [
-          305,
+          105,
           610,
-          115
+          162
         ],
         [
-          432,
-          650,
-          130
+          105,
+          730,
+          162
         ],
         [
-          432,
-          678,
-          80
+          20,
+          775.5,
+          105
         ],
         [
-          415,
-          678,
-          80
+          20,
+          787.5,
+          105
         ]
       ],
-      "note": "Provisional400mm hose route to low radiator; broad arcs and port locations must be dry-fitted; polyline length is only a lower bound.",
-      "polyline_length_mm": 325.67
+      "note": "Provisional 400 mm hose route above PSU to low-X radiator tank; dry-fit ports, broad arcs and minimum bend radius. Polyline length is a lower bound.",
+      "polyline_length_mm": 353.59
     },
     "Kenshin AIO hose 2": {
       "od_mm": 14,
       "available_length_mm": 400,
       "points_mm": [
         [
-          274.0,
-          534,
-          73
+          150,
+          586,
+          85
         ],
         [
-          305,
-          624,
-          133
+          117,
+          620,
+          175
         ],
         [
-          432,
-          658,
-          150
+          117,
+          730,
+          175
         ],
         [
-          432,
-          678,
-          104
+          20,
+          775.5,
+          120
         ],
         [
-          415,
-          678,
-          104
+          20,
+          787.5,
+          120
         ]
       ],
-      "note": "Provisional400mm hose route to low radiator; broad arcs and port locations must be dry-fitted; polyline length is only a lower bound.",
-      "polyline_length_mm": 312.25
+      "note": "Provisional 400 mm hose route above PSU to low-X radiator tank; dry-fit ports, broad arcs and minimum bend radius. Polyline length is a lower bound.",
+      "polyline_length_mm": 344.14
     },
     "Berserk AC": {
       "od_mm": 9.14,
       "points_mm": [
         [
           43,
-          262.5,
+          305.0,
           123.5
         ],
         [
           -8,
-          282.5,
-          25
+          315,
+          100
         ],
         [
           -8,
-          647.5,
-          25
-        ],
-        [
-          -8,
-          727.5,
-          25
+          867.4,
+          100
         ]
       ],
-      "polyline_length_mm": 557.71
+      "polyline_length_mm": 609.44
     },
     "Kenshin AC": {
       "od_mm": 9.14,
       "points_mm": [
         [
-          378,
-          605.5,
-          25
+          50,
+          465.5,
+          70
         ],
         [
-          430,
-          630,
-          12
+          -8,
+          465.5,
+          70
         ],
         [
-          440,
-          650,
-          12
-        ],
-        [
-          440,
-          755,
-          12
+          -8,
+          867.4,
+          70
         ]
       ],
-      "note": "Rerouted around right radiator/frame edge; side lane and cord bend remain provisional.",
-      "polyline_length_mm": 186.29
+      "note": "Front-facing PSU inlet after rotation; cabinet-side cable lane is provisional. Disconnect external cord before sliding shelf.",
+      "polyline_length_mm": 459.9
     },
     "Berserk Ethernet": {
       "od_mm": 6,
       "points_mm": [
         [
-          319,
-          337.5,
+          295,
+          369.2,
           50
         ],
         [
-          450,
-          337.5,
+          434.656,
+          369.2,
           50
         ],
         [
-          455,
-          355.5,
-          50
-        ],
-        [
-          455,
-          727.5,
+          434.656,
+          867.4,
           50
         ]
       ],
-      "polyline_length_mm": 521.68
+      "polyline_length_mm": 637.86
     },
     "V100 PCIE1 power": {
       "od_mm": 10,
       "points_mm": [
         [
-          275.5,
-          35.5,
+          251.5,
+          63.5,
           105
         ],
         [
-          275.5,
-          35.5,
+          251.5,
+          63.5,
           210
         ],
         [
-          135,
-          35.5,
-          210
-        ],
-        [
-          70,
-          -52.5,
+          111,
+          63.5,
           210
         ],
         [
           70,
-          -42.5,
+          5,
+          210
+        ],
+        [
+          70,
+          5,
           110
         ]
       ],
-      "note": "Candidate low-profile CPU/EPS power tails; rise in front of the GPUs, above the radiator and return to the owned PSU. Actual connector bulk and bend radius require measurement.",
-      "polyline_length_mm": 455.4
+      "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
+      "polyline_length_mm": 416.94
     },
     "V100 PCIE2 power": {
       "od_mm": 10,
       "points_mm": [
         [
-          234.86,
-          35.5,
+          210.86,
+          63.5,
           105
         ],
         [
-          234.86,
-          35.5,
+          210.86,
+          63.5,
           210
         ],
         [
-          123,
-          35.5,
-          210
-        ],
-        [
-          58,
-          -52.5,
+          99,
+          63.5,
           210
         ],
         [
           58,
-          -42.5,
+          5,
+          210
+        ],
+        [
+          58,
+          5,
           110
         ]
       ],
-      "note": "Candidate low-profile CPU/EPS power tails; rise in front of the GPUs, above the radiator and return to the owned PSU. Actual connector bulk and bend radius require measurement.",
-      "polyline_length_mm": 426.76
+      "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
+      "polyline_length_mm": 388.3
     },
     "V100 PCIE3 power": {
       "od_mm": 10,
       "points_mm": [
         [
-          194.22,
-          35.5,
+          170.22,
+          63.5,
           105
         ],
         [
-          194.22,
-          35.5,
+          170.22,
+          63.5,
           210
         ],
         [
-          111,
-          35.5,
-          210
-        ],
-        [
-          46,
-          -52.5,
+          87,
+          63.5,
           210
         ],
         [
           46,
-          -42.5,
+          5,
+          210
+        ],
+        [
+          46,
+          5,
           110
         ]
       ],
-      "note": "Candidate low-profile CPU/EPS power tails; rise in front of the GPUs, above the radiator and return to the owned PSU. Actual connector bulk and bend radius require measurement.",
-      "polyline_length_mm": 398.12
+      "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
+      "polyline_length_mm": 359.66
     },
     "V100 PCIE4 power": {
       "od_mm": 10,
       "points_mm": [
         [
-          153.57999999999998,
-          35.5,
+          129.57999999999998,
+          63.5,
           105
         ],
         [
-          153.57999999999998,
-          35.5,
+          129.57999999999998,
+          63.5,
           210
         ],
         [
-          99,
-          35.5,
-          210
-        ],
-        [
-          34,
-          -52.5,
+          75,
+          63.5,
           210
         ],
         [
           34,
-          -42.5,
+          5,
+          210
+        ],
+        [
+          34,
+          5,
           110
         ]
       ],
-      "note": "Candidate low-profile CPU/EPS power tails; rise in front of the GPUs, above the radiator and return to the owned PSU. Actual connector bulk and bend radius require measurement.",
-      "polyline_length_mm": 369.48
+      "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
+      "polyline_length_mm": 331.02
     }
   },
   "Berserk_orientation": {
     "rear_IO": "rack rear",
     "PSU": "right viewed from rack rear (low X)",
     "AIO": "rack front",
-    "board_front_y_mm": 69.19999999999999,
-    "board_rear_y_mm": 314.2,
+    "board_front_y_mm": 97.19999999999999,
+    "board_rear_y_mm": 342.2,
     "printed_board_frames": "new interlocking sections authored in installed shelf coordinates; rear I/O orientation preserved"
   },
   "stock_tail_spacer_mounts": [
     {
       "part": "PCIE1-metal-tail-support",
       "center_xy_mm": [
-        263.5,
-        57.5
+        239.5,
+        85.5
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -3559,8 +3210,8 @@
     {
       "part": "PCIE2-metal-tail-support",
       "center_xy_mm": [
-        222.86,
-        57.5
+        198.86,
+        85.5
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -3572,8 +3223,8 @@
     {
       "part": "PCIE3-metal-tail-support",
       "center_xy_mm": [
-        182.22,
-        57.5
+        158.22,
+        85.5
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -3585,8 +3236,8 @@
     {
       "part": "PCIE4-metal-tail-support",
       "center_xy_mm": [
-        141.57999999999998,
-        57.5
+        117.58,
+        85.5
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -3609,34 +3260,34 @@
     "fan_dimension_source": "https://publish.sanyodenki.com/San_Ace_E/book/data/San_Ace_E.pdf pp185-188",
     "angle_up_from_horizontal_deg": 45,
     "panel_center_xyz_mm": [
-      202.54,
-      325.0,
+      178.54,
+      353.0,
       150.0
     ],
     "fan_top_z_mm": 233.44,
-    "rack_space": "fan reaches above nominal6U shelf envelope; keep existing duct space to inner ceilingZ400 clear",
-    "GPU_inlet_y_mm": 194.0,
+    "rack_space": "fan reaches above 222.25mm component planning band; keep existing duct space to inner ceilingZ400 clear",
+    "GPU_inlet_y_mm": 222.0,
     "outer_width_mm": 173.32,
     "rear_GPU_coverage_mm": 120.19999999999999,
     "side_body_clearance_mm": 2.5,
     "base_y_range_mm": [
-      333.0,
-      363.0
+      361.0,
+      391.0
     ],
     "base_thickness_mm": 6.0,
     "base_ground_y_range_mm": [
-      339.0,
-      363.0
+      367.0,
+      391.0
     ],
     "base_front_bevel_deg": 45,
     "permanent_ribs": {
       "count": 4,
       "thickness_mm": 4.0,
       "centers_x_mm": [
-        137.54,
-        177.54,
-        227.54,
-        267.53999999999996
+        113.53999999999999,
+        153.54,
+        203.54,
+        243.54
       ],
       "purpose": "support the shelf-flange transition in print; retain inside chamber"
     },
@@ -3645,11 +3296,11 @@
     "support": "continuous sidewalls into6mm base; three M4 shelf bolts carry fan and hood; flex duct separately supported",
     "inlet_edge_yz_mm": [
       [
-        194.0,
+        222.0,
         145.0
       ],
       [
-        339.0,
+        367.0,
         0
       ]
     ],
@@ -3667,16 +3318,16 @@
     "plenum_wall_mm": 3.2,
     "shelf_anchors_xy_mm": [
       [
-        147.54,
-        347.0
+        123.53999999999999,
+        375.0
       ],
       [
-        257.53999999999996,
-        347.0
+        233.54,
+        375.0
       ],
       [
-        202.54,
-        352.5
+        178.54,
+        380.5
       ]
     ],
     "material": "Polymaker HT-PLA-GF; 0.4mm hardened steel nozzle;230C nozzle/50C bed",

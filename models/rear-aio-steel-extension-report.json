@@ -1,0 +1,64 @@
+{
+  "material": "3mm mild steel; deburr and coat; physical loading unverified",
+  "size_mm": [
+    400,
+    83,
+    3.0
+  ],
+  "quantity": 1,
+  "position_mm": [
+    12.5,
+    741.0,
+    0
+  ],
+  "holes": [
+    {
+      "center_xy_mm": [
+        38.5,
+        767.5
+      ],
+      "diameter_mm": 5
+    },
+    {
+      "center_xy_mm": [
+        38.5,
+        752.0
+      ],
+      "diameter_mm": 5
+    },
+    {
+      "center_xy_mm": [
+        73.0,
+        760.5
+      ],
+      "diameter_mm": 5
+    },
+    {
+      "center_xy_mm": [
+        131.0,
+        760.5
+      ],
+      "diameter_mm": 5
+    },
+    {
+      "center_xy_mm": [
+        313.0,
+        760.5
+      ],
+      "diameter_mm": 5
+    },
+    {
+      "center_xy_mm": [
+        371.0,
+        760.5
+      ],
+      "diameter_mm": 5
+    }
+  ],
+  "fasteners": "same six shelf joints pass through printed mounts, plate and shelf; use six M4x20 screws for the frame and brace feet, with OD12x1 washers both sides and M4 nuts; verify actual stack and underside projection",
+  "full_footprint_support_checked_at_slot_limits": true,
+  "load_path": "radiator ledges and brace -> feet fully bearing on steel extension -> six clamped deck joints; steel carries rear overhang",
+  "rear_overhang_mm": 36.6,
+  "shelf_bearing_depth_mm": 46.4,
+  "physical_fit_verified": false
+}
