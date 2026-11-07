@@ -1,0 +1,49 @@
+id = "sanyo-denki-9gv1412p1s001"
+name = "Sanyo Denki San Ace 9GV1412P1S001 140 x 38 mm fan"
+category = "purchased"
+role = "pressure fan pulling air through the four V100s"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+evidence = "datasheet"
+notes = "12 V, 3.1 A. Power it from the PSU through a controller, not a motherboard header."
+
+[[datasheets]]
+title = "San Ace catalog, pp. 185-188"
+url = "https://publish.sanyodenki.com/San_Ace_E/book/data/San_Ace_E.pdf"
+
+[model]
+source = "constructed"
+vendor_cad = "https://products.sanyodenki.com/en/sanace/dc/ (CAD after registration)"
+notes = "Body envelope tilted 45 degrees on the hood panel."
+
+[dims]
+size = { value = 140.0, evidence = "datasheet", source = "San Ace catalog" }
+depth = { value = 38.0, evidence = "datasheet", source = "San Ace catalog" }
+hole_pitch = { value = 124.5, evidence = "datasheet", source = "San Ace catalog" }
+current = { value = 3.1, unit = "A", evidence = "datasheet", source = "San Ace catalog" }
+mass = { value = 0.63, unit = "kg", evidence = "datasheet", source = "San Ace catalog p.185, 630 g" }
+
+[[requires]]
+type = "fan-mount"
+value = "140 mm, 124.5 mm pitch"
+count = 2
+note = "inlet on the hood panel, outlet on the exhaust flange"
+
+[[requires]]
+type = "fan-power"
+value = "12 V PWM 4-wire, 3.1 A"
+count = 1
+
+[[requires]]
+type = "dc-power"
+load = 37.2
+
+[[provides]]
+type = "gpu-forced-airflow"
+count = 4
+evidence = "allowance"
+note = "free-air rating; loaded airflow through the hood unqualified"
+
+[assembly]
+match = ["^V100_pressure_fan$"]

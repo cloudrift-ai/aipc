@@ -7,19 +7,24 @@ Two PCs arranged front to back on a **Hammond RSUS1931BK1 sliding shelf**, using
 
 ![Shelf layout and side clearance](models/dual-pc-hammond-layout.png)
 
+![Assembly renders](models/renders/assembly.png)
+
 Everything is generated from Python ([CadQuery](https://cadquery.readthedocs.io/)) and checked in CAD for collisions, fastener access and bed fit. The design is a **fit prototype**: the CAD and slicer checks pass, but parts of it (GPU flange positions, the H12D board, cable bends, thermal behavior) still need measuring and dry-fitting on real hardware. The [design notes](docs/design.md) say what is verified and what is not.
 
 ## What's here
 
 | Path | Contents |
 | --- | --- |
+| [parts/](parts/README.md) | One folder per part: spec with evidence-tagged dimensions and interfaces, datasheet links, the model used in the assembly, and renders |
+| [docs/process.md](docs/process.md) | The design process: part folders, renders, one assembly, whole-system compatibility checks |
+| [docs/system-check.md](docs/system-check.md) | Latest compatibility, assembly-coverage and evidence report (generated) |
 | [parts.xlsx](parts.xlsx) | Parts spreadsheet with tabs for the shelf hardware, Berserk and Kenshin |
 | [docs/design.md](docs/design.md) | How the layout, mounts and cooling work, with coordinates and open checks |
 | [docs/assembly.md](docs/assembly.md) | Assembly order, fastener stacks and what to tighten before it gets covered |
 | [docs/printing.md](docs/printing.md) | 3D printing guidelines: printer, materials, design and printability rules |
-| [models/](models) | Generated STEP/STL for every printed part, the assembly STEP, drill-plan deck, fit reports and preview images |
+| [models/](models) | Assembly STEP, drill-plan deck, fit and coverage reports, layout figures and [assembly renders](models/renders/assembly.png) |
 | [print/](print/README.md) | Print plates (3MF) for the Qidi X-Plus, slicer profiles and the plate manifest |
-| [cad/](cad) | Generators: [shelf_layout.py](cad/shelf_layout.py) builds the models; [print_jobs.py](cad/print_jobs.py) packs plates; [slice_jobs.py](cad/slice_jobs.py) slices and validates G-code |
+| [cad/](cad) | Generators and the shared [aipc library](cad/aipc): [shelf_layout.py](cad/shelf_layout.py) builds the assembly and models; [render_all.py](cad/render_all.py) renders; [check_system.py](cad/check_system.py) checks compatibility; [print_jobs.py](cad/print_jobs.py) packs plates; [slice_jobs.py](cad/slice_jobs.py) slices and validates G-code |
 
 The [assembly STEP](models/dual-pc-hammond-assembly.step) includes the solid deck, downward folds and illustrative factory slide envelopes. [Hammond dimensions and limitations](models/hammond-shelf-report.json): 711.2 mm travel, 457.2–711.2 mm mounting depth, 39 kg equipment limit; 2U mounting / 3U shelf clearance. The complete PC/duct assembly occupies more height. The deeper layout turns Kenshin 180°, clears its inward-facing ports, and places its GPU opposite the V100 hood. The rear radiator needs about 65 mm beyond the deck and longer printed feet on a 400 × 83 × 3 mm steel extension; verify cabinet depth and loaded deflection. Power down and disconnect rack cables and the roof duct before extending.
 
@@ -27,7 +32,7 @@ The previous StarTech/King Slide conversion and shim trials are retired. Buying 
 
 ## Printed parts
 
-One model per unique part; the plate manifest says how many to print.
+One model per unique part, in its folder under [parts/printed/](parts/README.md#printed); the plate manifest says how many to print.
 
 | Part | Qty | Used for |
 | --- | ---: | --- |
@@ -56,14 +61,14 @@ make setup
 ```
 
 ```bash
-make cad plates
+make all
 ```
 
 ```bash
 make gcode
 ```
 
-`make cad` rebuilds `models/` (about a minute), `make plates` rebuilds the 3MF plates in `print/`, and `make gcode` slices every plate into `print/gcode/`. G-code is not committed; it is always generated from the plates and profiles. Run `make help` for the full list.
+`make all` runs `make cad` (assembly, reports and every part model, about a minute), `make render` (part and assembly renders, about two minutes), `make plates` (3MF plates in `print/`) and `make check` (compatibility report; it exits non-zero while any check FAILs). `make datasheets` downloads the datasheets listed in each `part.toml`, and `make gcode` slices every plate into `print/gcode/`. G-code is not committed; it is always generated from the plates and profiles. Run `make help` for the full list.
 
 The plates target a first-generation **Qidi X-Plus** with a 0.4 mm nozzle: PETG for most mounts and Polymaker HT-PLA-GF (hardened steel nozzle) for the PSU brackets and GPU cooling parts. For another printer, change the bed size in [cad/print_jobs.py](cad/print_jobs.py), the machine preset in [cad/slice_jobs.py](cad/slice_jobs.py) and the profiles in [print/profiles/](print/profiles), and read [docs/printing.md](docs/printing.md) first.
 

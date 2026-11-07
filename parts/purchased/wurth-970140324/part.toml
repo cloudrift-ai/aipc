@@ -1,0 +1,33 @@
+id = "wurth-970140324"
+name = "Wurth 970140324 M3 F/F standoff, 14 mm, SW5.5"
+category = "purchased"
+role = "GPU post bases, bearing directly on the steel shelf"
+status = "selected"
+quantity = 10
+systems = ["berserk", "kenshin"]
+evidence = "datasheet"
+
+[links]
+listing = "https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/970140324/9488563"
+
+[[datasheets]]
+title = "Wurth 970140324 drawing"
+url = "https://www.we-online.com/components/products/datasheet/970140324.pdf"
+
+[model]
+source = "constructed"
+vendor_cad = "https://www.we-online.com/en/components/products/WA-SSTII (STEP per part number)"
+
+[dims]
+height = { value = 14.0, evidence = "datasheet", source = "Wurth drawing" }
+across_flats = { value = 5.5, evidence = "datasheet", source = "Wurth drawing" }
+thread_length = { value = 14.0, evidence = "datasheet", source = "Wurth drawing, through thread" }
+mass = { value = 0.003, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "post-base-thread"
+value = "M3 female"
+count = 1
+
+[assembly]
+match = ["_M3_SW5p5_14mm_standoff_\\d+$"]

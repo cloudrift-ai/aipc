@@ -8,15 +8,15 @@
   ],
   "nominal_gauge_thickness_mm": 1.52,
   "thickness_basis": "16 gauge from current series page; 1.52 mm nominal allowance, actual sheet and coating unmeasured",
-  "fold_height_mm": 38.099999999999994,
+  "fold_height_mm": 38.1,
   "overall_height_mm": 68.072,
   "overall_width_mm": 479.806,
-  "rack_hole_pitch_mm": 466.34399999999994,
+  "rack_hole_pitch_mm": 466.344,
   "mount_depth_range_mm": [
     457.2,
-    711.1999999999999
+    711.2
   ],
-  "slide_travel_mm": 711.1999999999999,
+  "slide_travel_mm": 711.2,
   "equipment_load_limit_kg": 39.0,
   "mounting_space_U": 2,
   "required_clearance_U": 3,

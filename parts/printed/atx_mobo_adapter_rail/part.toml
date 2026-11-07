@@ -1,0 +1,27 @@
+id = "atx_mobo_adapter_rail"
+name = "atx_mobo_adapter_rail"
+category = "printed"
+role = "Kenshin rear rail with GPU post holes at standard ATX positions"
+status = "design"
+quantity = 1
+systems = ["kenshin"]
+evidence = "allowance"
+
+[print]
+plate = "02_atx_mobo_adapter_rail"
+material = "PETG"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.095, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+[[provides]]
+type = "mobo-rear-rail"
+value = "ATX standard slot positions"
+count = 1
+
+[assembly]
+match = ["^kenshin_mobo_adapter_left_drill_plan$"]

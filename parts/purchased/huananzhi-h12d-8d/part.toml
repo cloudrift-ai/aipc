@@ -1,0 +1,104 @@
+id = "huananzhi-h12d-8d"
+name = "HUANANZHI H12D-8D motherboard with BMC"
+category = "purchased"
+role = "Berserk motherboard"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+evidence = "listing"
+notes = """
+Placement of the CPU, DIMMs, M.2 standoffs, BMC and slot planes comes from the
+manufacturer photograph (cad/berserk_platform.py), not manufacturer CAD.
+Standoff sites A/C/F/G/H/K/L/M are populated; B and J are absent.
+Confirm PCB revision and that the bundled CPU is not vendor-locked.
+"""
+
+[links]
+product = "https://www.huananzhi.com/en/list_6/177.html"
+listing = "https://www.ebay.com/itm/396800856844"
+
+[[datasheets]]
+title = "HUANANZHI H12D-8D product page"
+url = "https://www.huananzhi.com/en/list_6/177.html"
+# The product page also offers a User Manual download (slot and BMC layout); add its direct URL when known.
+
+[model]
+source = "constructed"
+notes = "PCB plate plus BMC envelope; component positions photo-estimated."
+
+[dims]
+pcb_width = { value = 305.0, evidence = "datasheet", source = "product page: Dimension 305*245MM ATX" }
+pcb_depth = { value = 245.0, evidence = "datasheet", source = "product page: Dimension 305*245MM ATX" }
+pcb_thickness = { value = 1.6, evidence = "assumed" }
+mass = { value = 1.2, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "cpu-socket"
+value = "SP3"
+evidence = "datasheet"
+
+[[provides]]
+type = "memory-slot"
+value = "DDR4 RDIMM"
+count = 8
+evidence = "datasheet"
+note = "product page: 8 x DDR4 slots, octa-channel"
+
+[[provides]]
+type = "pcie-x16-slot"
+value = "PCIe x16"
+count = 4
+evidence = "datasheet"
+note = "product page: 4 x PCIe 4.0 x16; slot plane positions photo-estimated"
+
+[[provides]]
+type = "pcie-card-envelope"
+max = 40.64
+evidence = "photo-estimate"
+note = "two-slot pitch 2 x 20.32 mm per PCIe CEM, but the slot positions are photo-estimated; confirm in the user manual"
+
+[[provides]]
+type = "m2-slot"
+value = "M.2 2280 NVMe"
+count = 3
+evidence = "datasheet"
+note = "three PCIe 4.0 x4 slots per manufacturer page"
+
+[[requires]]
+type = "board-standoff"
+value = "#6-32 F/F"
+count = 8
+evidence = "photo-estimate"
+note = "populated sites A/C/F/G/H/K/L/M"
+
+[[requires]]
+type = "mobo-front-section"
+value = "ATX"
+count = 1
+
+[[requires]]
+type = "mobo-rear-rail"
+value = "H12D-8D slot positions"
+count = 1
+
+[[requires]]
+type = "atx-24pin"
+count = 1
+evidence = "datasheet"
+note = "product page: 24PIN+8PIN+8PIN"
+
+[[requires]]
+type = "eps-8pin-cpu"
+count = 2
+evidence = "datasheet"
+note = "product page: 24PIN+8PIN+8PIN"
+
+[[requires]]
+type = "dc-power"
+load = 60.0
+evidence = "assumed"
+note = "board, BMC and chipset allowance"
+
+[assembly]
+match = ["^Berserk_ATX_board$", "^Berserk_BMC_module_survey$"]
+instances_per_unit = 2

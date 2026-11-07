@@ -1,0 +1,20 @@
+id = "moddiy-eps-90-extension"
+name = "Low-profile 90 degree CPU/EPS 8-pin extension"
+category = "purchased"
+role = "keeps V100 power plugs low and clear of the front radiator"
+status = "selected"
+quantity = 4
+systems = ["berserk"]
+evidence = "allowance"
+no_datasheet_reason = "MODDIY product page not recorded; the 18 mm projection is a design target, not a product dimension."
+
+[model]
+source = "constructed"
+notes = "15 x 18 x 22 mm plug target per card."
+
+[dims]
+projection = { value = 18.0, evidence = "allowance" }
+mass = { value = 0.02, unit = "kg", evidence = "assumed" }
+
+[assembly]
+match = ["^V100_PCIE\\d_angled_EPS_plug_target$"]

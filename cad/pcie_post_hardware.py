@@ -1,14 +1,17 @@
 """Purchased GPU post base; millimetres, with explicit evidence boundaries."""
 from math import sqrt
 
+from aipc import spec
+
+_BASE = spec.get('wurth-970140324')
 BASE_PART = '970140324'
-BASE_HEIGHT = 14.0
-BASE_AF = 5.5
-BASE_THREAD_LENGTH = 14.0
-BASE_DRAWING = 'https://www.we-online.com/components/products/datasheet/970140324.pdf'
-BASE_PRODUCT = 'https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/970140324/9488563'
+BASE_HEIGHT = _BASE.dim('height')
+BASE_AF = _BASE.dim('across_flats')
+BASE_THREAD_LENGTH = _BASE.dim('thread_length')
+BASE_DRAWING = _BASE.datasheets[0]['url']
+BASE_PRODUCT = _BASE.data['links']['listing']
 # Owner-reported on 2026-10-23; not a dimension from the OBT product page.
-OBT_STUD_LENGTH = 9.0
+OBT_STUD_LENGTH = spec.dim('obt-pcie-support', 'stud_length')
 BOTTOM_SCREW_LENGTH = 8.0
 BACKER_T = 2.0  # two stock OD12 x 1 mm washers
 SMALL_WASHER_T = 1.0  # two stock OD7 x 0.5 mm washers

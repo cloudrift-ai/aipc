@@ -1,0 +1,18 @@
+id = "ac-power-cords"
+name = "AC power cords"
+category = "purchased"
+role = "PSU mains cords"
+status = "candidate"
+quantity = 2
+systems = ["berserk", "kenshin"]
+evidence = "allowance"
+no_datasheet_reason = "Not selected. HX1200i wants a low-profile or down-exit C13; match the Hercules inlet and the UPS outlet (possibly C19)."
+on_shelf = false
+
+[model]
+source = "constructed"
+notes = "Plug bodies and route segments are survey envelopes."
+
+[assembly]
+match = ["^Berserk_AC_", "^Kenshin_AC_", "^Kenshin_low-profile_C13_plug_\\+_bend$"]
+count_check = false

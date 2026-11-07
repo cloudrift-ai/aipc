@@ -1,0 +1,32 @@
+id = "gpu_exhaust_fan_flange"
+name = "gpu_exhaust_fan_flange"
+category = "printed"
+role = "fan outlet to 6 in duct"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+evidence = "allowance"
+
+[print]
+plate = "13_gpu_exhaust_fan_flange"
+material = "HT-PLA-GF"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.129, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+[[provides]]
+type = "fan-mount"
+value = "140 mm, 124.5 mm pitch"
+count = 1
+
+[[provides]]
+type = "duct-connection"
+value = "6 in"
+count = 1
+
+[assembly]
+match = ["^gpu_exhaust_fan_flange$"]

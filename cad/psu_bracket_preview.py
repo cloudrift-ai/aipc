@@ -1,6 +1,7 @@
 """Inspect the compact PSU bracket: rear outlines, shelf feet and print orientation."""
 from pathlib import Path
 import cadquery as cq
+from aipc import spec
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.collections import PolyCollection
@@ -11,7 +12,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 def render(out: Path):
     fig=plt.figure(figsize=(15,5.6))
     name,width='psu_bracket',92.5
-    shape=cq.importers.importStep(str(out/f'{name}.step'))
+    shape=cq.importers.importStep(str(spec.get(name).model_step))
     vertices,triangles=shape.val().tessellate(.15)
     pts=np.array([v.toTuple() for v in vertices]);faces=pts[np.array(triangles)]
     color='#36a1a1'

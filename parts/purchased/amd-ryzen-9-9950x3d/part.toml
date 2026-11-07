@@ -1,0 +1,37 @@
+id = "amd-ryzen-9-9950x3d"
+name = "AMD Ryzen 9 9950X3D"
+category = "purchased"
+role = "Kenshin CPU"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+evidence = "datasheet"
+
+[[datasheets]]
+title = "AMD Ryzen 9 9950X3D specifications"
+url = "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x3d.html"
+
+[model]
+source = "constructed"
+
+[dims]
+tdp = { value = 170.0, unit = "W", evidence = "datasheet", source = "AMD specifications" }
+ppt = { value = 230.0, unit = "W", evidence = "standard", source = "AM5 170 W TDP class package power" }
+mass = { value = 0.05, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "cpu-socket"
+value = "AM5"
+
+[[requires]]
+type = "cooler-mount"
+value = "AM5"
+
+[[requires]]
+type = "dc-power"
+load = 230.0
+evidence = "standard"
+
+[assembly]
+covered_by = "lian-li-ga2-lite-360"
+not_modeled = "inside the GA II pump-head envelope above the socket"

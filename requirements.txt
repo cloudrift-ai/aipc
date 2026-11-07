@@ -2,3 +2,6 @@
 cadquery>=2.5
 matplotlib>=3.8
 numpy>=1.26
+# Headless renders (make render): VTK ships with CadQuery; Pillow composes the contact sheets.
+vtk>=9.3
+pillow>=10.0

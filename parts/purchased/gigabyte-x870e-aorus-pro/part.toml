@@ -1,0 +1,76 @@
+id = "gigabyte-x870e-aorus-pro"
+name = "Gigabyte X870E AORUS PRO (ATX)"
+category = "purchased"
+role = "Kenshin motherboard"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+evidence = "datasheet"
+notes = "Turned 180 degrees on the shelf; rear I/O faces the centre corridor. M.2 count and EPS header count need checking against the spec page."
+
+[[datasheets]]
+title = "X870E AORUS PRO specifications"
+url = "https://www.gigabyte.com/Motherboard/X870E-AORUS-PRO-rev-10/sp"
+
+[model]
+source = "constructed"
+
+[dims]
+pcb_width = { value = 305.0, evidence = "datasheet", source = "ATX form factor 30.5 x 24.4 cm" }
+pcb_depth = { value = 244.0, evidence = "datasheet", source = "ATX form factor 30.5 x 24.4 cm" }
+mass = { value = 1.3, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "cpu-socket"
+value = "AM5"
+
+[[provides]]
+type = "memory-slot"
+value = "DDR5 UDIMM"
+count = 4
+
+[[provides]]
+type = "pcie-x16-slot"
+value = "PCIe x16"
+count = 1
+note = "primary PCIe 5.0 x16"
+
+[[provides]]
+type = "m2-slot"
+value = "M.2 2280 NVMe"
+count = 4
+evidence = "assumed"
+
+[[requires]]
+type = "board-standoff"
+value = "#6-32 F/F"
+count = 9
+evidence = "standard"
+note = "ATX pattern; B optional if the PCB has it"
+
+[[requires]]
+type = "mobo-front-section"
+value = "ATX"
+count = 1
+
+[[requires]]
+type = "mobo-rear-rail"
+value = "ATX standard slot positions"
+count = 1
+
+[[requires]]
+type = "atx-24pin"
+count = 1
+
+[[requires]]
+type = "eps-8pin-cpu"
+count = 2
+evidence = "assumed"
+
+[[requires]]
+type = "dc-power"
+load = 50.0
+evidence = "assumed"
+
+[assembly]
+match = ["^Kenshin_ATX_board$"]

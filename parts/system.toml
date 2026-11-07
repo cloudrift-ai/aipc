@@ -1,0 +1,54 @@
+# System-level interfaces and keepouts for the whole shelf build.
+#
+# [[requires]] here are needs of the complete assembly that no single part
+# owns; values come from the layout (models/fit-report.json) and must be
+# updated when the layout changes. [[keepouts]] are assembly instances that
+# reserve space (service access, cable sweeps) rather than represent a part.
+
+[[requires]]
+type = "cabinet-front-clearance"
+value = 20.0
+systems = ["rack"]
+evidence = "allowance"
+note = "H115i fan screws reach Y-20, in front of the front rail plane at the deck front (Y0); door must clear"
+
+[[requires]]
+type = "cabinet-rear-clearance"
+value = 176.3
+systems = ["rack"]
+evidence = "allowance"
+note = "rear AIO screw heads at Y852.5 behind the rear rail plane at Y711.2 (28 in rail distance) plus 35 mm driver reserve; more at shorter rail distances"
+
+[[requires]]
+type = "cabinet-height-above-shelf"
+value = 400.0
+systems = ["rack"]
+evidence = "allowance"
+note = "where the roof flange was placed, not a derived need: the pressure fan top is Z233.4 and the 6 in duct bend adds to that. Replace with the real cabinet ceiling once known"
+
+[[requires]]
+type = "rack-units"
+count = 11
+systems = ["rack"]
+evidence = "allowance"
+note = "slide brackets from Z-58 to the provisional roof flange at Z400 plus the flange = 469 mm = 10.6U, rounded up"
+
+[[keepouts]]
+id = "rear-io-service-reserve"
+match = ["_rear_IO_no_ear_service_reserve$"]
+reason = "40 mm approach space for plugging rear I/O"
+
+[[keepouts]]
+id = "rtx5090-power-keepout"
+match = ["^5090_straight_power-cable_keepout$"]
+reason = "straight 12V-2x6 cable sweep above the card"
+
+[[keepouts]]
+id = "kenshin-24pin-reserve"
+match = ["^Kenshin_24-pin_survey$"]
+reason = "24-pin latch and cable projection"
+
+[[keepouts]]
+id = "berserk-ethernet"
+match = ["^Berserk_Ethernet_"]
+reason = "RJ45 boot and cable bend"

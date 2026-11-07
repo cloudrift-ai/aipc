@@ -1,0 +1,48 @@
+id = "rack-cabinet"
+name = "Rack cabinet (not yet specified)"
+category = "purchased"
+role = "cabinet that receives the shelf and the roof exhaust"
+status = "unspecified"
+quantity = 1
+systems = ["rack"]
+evidence = "unknown"
+on_shelf = false
+notes = """
+The cabinet has never been identified, so the shelf, slides, rear radiator
+projection and roof duct cannot be checked against it. Record make/model,
+post spacing, usable depth, door clearance and interior height here before
+buying the shelf or drilling anything.
+"""
+
+[model]
+source = "constructed"
+notes = "Only the provisional inner-ceiling patch at Z400 is modeled."
+
+[dims]
+post_depth = { value = "", evidence = "unknown" }
+interior_depth = { value = "", evidence = "unknown" }
+interior_height_above_shelf = { value = "", evidence = "unknown" }
+
+[[provides]]
+type = "rack-standard"
+note = "unknown until the cabinet is identified"
+
+[[provides]]
+type = "rack-post-depth"
+
+[[provides]]
+type = "rack-units"
+count = ""
+
+[[provides]]
+type = "cabinet-front-clearance"
+
+[[provides]]
+type = "cabinet-rear-clearance"
+
+[[provides]]
+type = "cabinet-height-above-shelf"
+
+[assembly]
+match = ["^inner_ceiling_patch_PROVISIONAL$"]
+count_check = false

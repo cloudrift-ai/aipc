@@ -1,0 +1,28 @@
+id = "gpu_exhaust_roof_flange"
+name = "gpu_exhaust_roof_flange"
+category = "printed"
+role = "duct to cabinet inner ceiling"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+evidence = "allowance"
+on_shelf = false
+
+[print]
+plate = "14_gpu_exhaust_roof_flange"
+material = "HT-PLA-GF"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.1487, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+[[provides]]
+type = "duct-connection"
+value = "6 in"
+count = 1
+
+[assembly]
+match = ["^gpu_exhaust_roof_flange$"]

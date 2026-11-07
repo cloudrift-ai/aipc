@@ -1,0 +1,40 @@
+id = "zotac-rtx-5090-solid"
+name = "Zotac Gaming GeForce RTX 5090 Solid 32 GB"
+category = "purchased"
+role = "Kenshin GPU"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+evidence = "datasheet"
+
+[[datasheets]]
+title = "Zotac RTX 5090 Solid specifications"
+url = "https://www.zotac.com/us/product/graphics_card/zotac-gaming-geforce-rtx-5090-solid"
+
+[model]
+source = "constructed"
+
+[dims]
+length = { value = 329.7, evidence = "datasheet", source = "Zotac published dimensions" }
+height = { value = 137.8, evidence = "datasheet", source = "Zotac published dimensions" }
+thickness = { value = 67.8, evidence = "datasheet", source = "Zotac published dimensions" }
+tgp = { value = 575.0, unit = "W", evidence = "datasheet", source = "NVIDIA RTX 5090 total graphics power" }
+mass = { value = 2.2, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "pcie-x16-slot"
+value = "PCIe x16"
+count = 1
+
+[[requires]]
+type = "gpu-power"
+value = "12V-2x6"
+count = 1
+
+[[requires]]
+type = "dc-power"
+load = 575.0
+
+[assembly]
+match = ["^Kenshin_RTX_5090$", "^Kenshin_RTX5090_GPU_flange_hole_pattern_survey$"]
+instances_per_unit = 2

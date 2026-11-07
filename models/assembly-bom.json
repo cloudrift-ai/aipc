@@ -1,0 +1,802 @@
+{
+  "rule": "every assembly instance belongs to a part folder or a declared keepout; every part is modeled, covered or explicitly not modeled",
+  "parts": {
+    "ac-power-cords": {
+      "name": "AC power cords",
+      "category": "purchased",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 6,
+      "expected_instances": null,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_AC_plug_+_tail",
+        "Kenshin_low-profile_C13_plug_+_bend",
+        "Berserk_AC_survey_segment_1",
+        "Berserk_AC_survey_segment_2",
+        "Kenshin_AC_survey_segment_1",
+        "Kenshin_AC_survey_segment_2"
+      ]
+    },
+    "amd-epyc-7702p": {
+      "name": "AMD EPYC 7702P",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_SP3_CPU_and_pump_survey"
+      ]
+    },
+    "amd-ryzen-9-9950x3d": {
+      "name": "AMD Ryzen 9 9950X3D",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "covered",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": "lian-li-ga2-lite-360",
+      "not_modeled": "inside the GA II pump-head envelope above the socket",
+      "instance_names": []
+    },
+    "corsair-cmp64gx5m4b6400c32": {
+      "name": "Corsair CMP64GX5M4B6400C32 DDR5 kit, 4 x 16 GB",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "X870E DIMM socket positions not surveyed; model them before trusting pump and hose clearance",
+      "instance_names": []
+    },
+    "corsair-h115i": {
+      "name": "Corsair Hydro H115i 280 mm AIO (reused)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_H115i_radiator",
+        "H115i_intake_fans"
+      ]
+    },
+    "corsair-hx1200i": {
+      "name": "Corsair HX1200i PSU",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Kenshin_owned_HX1200i_PSU"
+      ]
+    },
+    "fan-controller": {
+      "name": "PSU-powered PWM fan controller and harness (not selected)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "product not selected",
+      "instance_names": []
+    },
+    "fasteners": {
+      "name": "Shelf and component fasteners (M3/M4 screws, washers, nuts)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 87,
+      "expected_instances": null,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "V100_inlet_M4_-62.25_-62.25",
+        "V100_inlet_M4_-62.25_62.25",
+        "V100_inlet_M4_62.25_-62.25",
+        "V100_inlet_M4_62.25_62.25",
+        "V100_hood_shelf_M4_123.53999999999999_375.0",
+        "V100_hood_shelf_M4_233.54_375.0",
+        "V100_hood_shelf_M4_178.54_380.5",
+        "Berserk_PCIE1_stock_backing_washer_1",
+        "Berserk_PCIE1_M3x8.0_and_washer_1_survey",
+        "Berserk_PCIE1_stock_backing_washer_2",
+        "Berserk_PCIE1_M3x8.0_and_washer_2_survey",
+        "Berserk_PCIE2_stock_backing_washer_1",
+        "Berserk_PCIE2_M3x8.0_and_washer_1_survey",
+        "Berserk_PCIE2_stock_backing_washer_2",
+        "Berserk_PCIE2_M3x8.0_and_washer_2_survey",
+        "Berserk_PCIE3_stock_backing_washer_1",
+        "Berserk_PCIE3_M3x8.0_and_washer_1_survey",
+        "Berserk_PCIE3_stock_backing_washer_2",
+        "Berserk_PCIE3_M3x8.0_and_washer_2_survey",
+        "Berserk_PCIE4_stock_backing_washer_1",
+        "Berserk_PCIE4_M3x8.0_and_washer_1_survey",
+        "Berserk_PCIE4_stock_backing_washer_2",
+        "Berserk_PCIE4_M3x8.0_and_washer_2_survey",
+        "Kenshin_RTX5090_stock_backing_washer_1",
+        "Kenshin_RTX5090_M3x8.0_and_washer_1_survey",
+        "Kenshin_RTX5090_stock_backing_washer_2",
+        "Kenshin_RTX5090_M3x8.0_and_washer_2_survey",
+        "Kenshin_AIO_shared_screw_shaft_38.5_30.5_nominal",
+        "Kenshin_AIO_screw_head_38.5_30.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_38.5_135.5_nominal",
+        "Kenshin_AIO_screw_head_38.5_135.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_143.5_30.5_nominal",
+        "Kenshin_AIO_screw_head_143.5_30.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_143.5_135.5_nominal",
+        "Kenshin_AIO_screw_head_143.5_135.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_278.5_30.5_nominal",
+        "Kenshin_AIO_screw_head_278.5_30.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_278.5_135.5_nominal",
+        "Kenshin_AIO_screw_head_278.5_135.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_383.5_30.5_nominal",
+        "Kenshin_AIO_screw_head_383.5_30.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_383.5_135.5_nominal",
+        "Kenshin_AIO_screw_head_383.5_135.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_158.5_30.5_nominal",
+        "Kenshin_AIO_screw_head_158.5_30.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_158.5_135.5_nominal",
+        "Kenshin_AIO_screw_head_158.5_135.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_263.5_30.5_nominal",
+        "Kenshin_AIO_screw_head_263.5_30.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_263.5_135.5_nominal",
+        "Kenshin_AIO_screw_head_263.5_135.5_survey",
+        "H115i_shared_front_screw_127.75_27.75_survey",
+        "H115i_shared_front_screw_127.75_152.25_survey",
+        "H115i_shared_front_screw_252.25_27.75_survey",
+        "H115i_shared_front_screw_252.25_152.25_survey",
+        "H115i_shared_front_screw_267.75_27.75_survey",
+        "H115i_shared_front_screw_267.75_152.25_survey",
+        "H115i_shared_front_screw_392.25_27.75_survey",
+        "H115i_shared_front_screw_392.25_152.25_survey",
+        "H115i_brace_rear_screw_27.75_survey",
+        "H115i_brace_rear_screw_152.25_survey",
+        "Kenshin_brace_inward_screw_30.5_survey",
+        "Kenshin_brace_inward_screw_135.5_survey",
+        "berserk_mobo_adapter_right_drill_plan_shelf_bolt_167.2_329.2",
+        "berserk_mobo_adapter_right_drill_plan_shelf_bolt_223.0_329.2",
+        "berserk_mobo_adapter_right_drill_plan_shelf_bolt_223.0_107.71",
+        "berserk_mobo_adapter_left_drill_plan_shelf_bolt_331.0_91.7",
+        "berserk_mobo_adapter_left_drill_plan_shelf_bolt_410.0_91.7",
+        "kenshin_mobo_adapter_left_drill_plan_shelf_bolt_362.456_459.5",
+        "kenshin_mobo_adapter_left_drill_plan_shelf_bolt_306.656_459.5",
+        "kenshin_mobo_adapter_left_drill_plan_shelf_bolt_306.656_680.99",
+        "kenshin_mobo_adapter_right_drill_plan_shelf_bolt_198.656_697.0",
+        "kenshin_mobo_adapter_right_drill_plan_shelf_bolt_119.656_697.0",
+        "fan_outlet_M4_-62.25_-62.25",
+        "fan_outlet_M4_-62.25_62.25",
+        "fan_outlet_M4_62.25_-62.25",
+        "fan_outlet_M4_62.25_62.25",
+        "roof_M4_-78.0_-78.0",
+        "roof_M4_-78.0_78.0",
+        "roof_M4_78.0_-78.0",
+        "roof_M4_78.0_78.0",
+        "Rear_extension_M4x20_38.5_767.5",
+        "Rear_extension_M4x20_38.5_752.0",
+        "Rear_extension_M4x20_73.0_760.5",
+        "Rear_extension_M4x20_131.0_760.5",
+        "Rear_extension_M4x20_313.0_760.5",
+        "Rear_extension_M4x20_371.0_760.5"
+      ]
+    },
+    "flex-duct-6in": {
+      "name": "6 in wire-supported flexible duct, uninsulated",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "flex_duct_6in_ADJUSTABLE_ROUTE"
+      ]
+    },
+    "gigabyte-x870e-aorus-pro": {
+      "name": "Gigabyte X870E AORUS PRO (ATX)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Kenshin_ATX_board"
+      ]
+    },
+    "hammond-rsus1931bk1": {
+      "name": "Hammond RSUS1931BK1 solid sliding shelf with factory slides",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 11,
+      "expected_instances": null,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "RSUS1931BK1_drill_plan_deck_not_manufacturer_CAD",
+        "Hammond_left_downward_fold",
+        "Hammond_right_downward_fold",
+        "Hammond_front_downward_fold",
+        "Hammond_rear_downward_fold",
+        "Hammond_left_factory_slide_envelope",
+        "Hammond_left_front_rack_bracket_envelope",
+        "Hammond_left_rear_rack_bracket_envelope",
+        "Hammond_right_factory_slide_envelope",
+        "Hammond_right_front_rack_bracket_envelope",
+        "Hammond_right_rear_rack_bracket_envelope"
+      ]
+    },
+    "huananzhi-h12d-8d": {
+      "name": "HUANANZHI H12D-8D motherboard with BMC",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_ATX_board",
+        "Berserk_BMC_module_survey"
+      ]
+    },
+    "keystone-1451b": {
+      "name": "Keystone 1451B #6-32 F/F brass standoff, 3/8 in",
+      "category": "purchased",
+      "quantity": 17,
+      "state": "modeled",
+      "instances": 17,
+      "expected_instances": 17,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_nominal_6_32_standoff_1",
+        "Berserk_nominal_6_32_standoff_3",
+        "Berserk_nominal_6_32_standoff_4",
+        "Berserk_nominal_6_32_standoff_5",
+        "Berserk_nominal_6_32_standoff_6",
+        "Berserk_nominal_6_32_standoff_8",
+        "Berserk_nominal_6_32_standoff_9",
+        "Berserk_nominal_6_32_standoff_10",
+        "Kenshin_nominal_6_32_standoff_1",
+        "Kenshin_nominal_6_32_standoff_3",
+        "Kenshin_nominal_6_32_standoff_4",
+        "Kenshin_nominal_6_32_standoff_5",
+        "Kenshin_nominal_6_32_standoff_6",
+        "Kenshin_nominal_6_32_standoff_7",
+        "Kenshin_nominal_6_32_standoff_8",
+        "Kenshin_nominal_6_32_standoff_9",
+        "Kenshin_nominal_6_32_standoff_10"
+      ]
+    },
+    "lian-li-ga2-lite-360": {
+      "name": "Lian Li GA II LITE Performance 360 (GA2L36PB)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 13,
+      "expected_instances": null,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Kenshin_GA_II_Lite_pump",
+        "Kenshin_GA_II_Lite_radiator",
+        "Kenshin_AIO_exhaust_fan_1",
+        "Kenshin_AIO_exhaust_fan_2",
+        "Kenshin_AIO_exhaust_fan_3",
+        "Kenshin_AIO_hose_1_survey_segment_1",
+        "Kenshin_AIO_hose_1_survey_segment_2",
+        "Kenshin_AIO_hose_1_survey_segment_3",
+        "Kenshin_AIO_hose_1_survey_segment_4",
+        "Kenshin_AIO_hose_2_survey_segment_1",
+        "Kenshin_AIO_hose_2_survey_segment_2",
+        "Kenshin_AIO_hose_2_survey_segment_3",
+        "Kenshin_AIO_hose_2_survey_segment_4"
+      ]
+    },
+    "mains-power": {
+      "name": "Mains circuit, UPS and PDU (not specified)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "outside the shelf; supply not specified",
+      "instance_names": []
+    },
+    "mcmaster-53185k52": {
+      "name": "McMaster-Carr 53185K52 lever-release hose clamp",
+      "category": "purchased",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "53185K52_fan_clamp_envelope",
+        "53185K52_roof_clamp_envelope"
+      ]
+    },
+    "micron-3400-2tb": {
+      "name": "Micron 3400 2 TB NVMe (MTFDKBA2T0TFH)",
+      "category": "purchased",
+      "quantity": 3,
+      "state": "modeled",
+      "instances": 3,
+      "expected_instances": 3,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_M2_SSD_1",
+        "Berserk_M2_SSD_2",
+        "Berserk_M2_SSD_3"
+      ]
+    },
+    "micron-mta36asf4g72pz-2g9": {
+      "name": "Micron 32 GB DDR4-2933 ECC RDIMM (MTA36ASF4G72PZ-2G9E2UI)",
+      "category": "purchased",
+      "quantity": 8,
+      "state": "modeled",
+      "instances": 8,
+      "expected_instances": 8,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_RDIMM_1_survey",
+        "Berserk_RDIMM_2_survey",
+        "Berserk_RDIMM_3_survey",
+        "Berserk_RDIMM_4_survey",
+        "Berserk_RDIMM_5_survey",
+        "Berserk_RDIMM_6_survey",
+        "Berserk_RDIMM_7_survey",
+        "Berserk_RDIMM_8_survey"
+      ]
+    },
+    "moddiy-eps-90-extension": {
+      "name": "Low-profile 90 degree CPU/EPS 8-pin extension",
+      "category": "purchased",
+      "quantity": 4,
+      "state": "modeled",
+      "instances": 4,
+      "expected_instances": 4,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "V100_PCIE1_angled_EPS_plug_target",
+        "V100_PCIE2_angled_EPS_plug_target",
+        "V100_PCIE3_angled_EPS_plug_target",
+        "V100_PCIE4_angled_EPS_plug_target"
+      ]
+    },
+    "nvidia-v100-pcie-16gb": {
+      "name": "NVIDIA Tesla V100 PCIe 16 GB",
+      "category": "purchased",
+      "quantity": 4,
+      "state": "modeled",
+      "instances": 8,
+      "expected_instances": 8,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_V100_16GB_PCIE1",
+        "Berserk_V100_16GB_PCIE2",
+        "Berserk_V100_16GB_PCIE3",
+        "Berserk_V100_16GB_PCIE4",
+        "Berserk_PCIE1_GPU_flange_hole_pattern_survey",
+        "Berserk_PCIE2_GPU_flange_hole_pattern_survey",
+        "Berserk_PCIE3_GPU_flange_hole_pattern_survey",
+        "Berserk_PCIE4_GPU_flange_hole_pattern_survey"
+      ]
+    },
+    "obt-pcie-support": {
+      "name": "Open Benchtable PCI-E support rod with nut",
+      "category": "purchased",
+      "quantity": 10,
+      "state": "modeled",
+      "instances": 20,
+      "expected_instances": 20,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_PCIE1_metal_OBT_PCIe_post_1_survey",
+        "Berserk_PCIE1_OBT_9mm_stud_1",
+        "Berserk_PCIE1_metal_OBT_PCIe_post_2_survey",
+        "Berserk_PCIE1_OBT_9mm_stud_2",
+        "Berserk_PCIE2_metal_OBT_PCIe_post_1_survey",
+        "Berserk_PCIE2_OBT_9mm_stud_1",
+        "Berserk_PCIE2_metal_OBT_PCIe_post_2_survey",
+        "Berserk_PCIE2_OBT_9mm_stud_2",
+        "Berserk_PCIE3_metal_OBT_PCIe_post_1_survey",
+        "Berserk_PCIE3_OBT_9mm_stud_1",
+        "Berserk_PCIE3_metal_OBT_PCIe_post_2_survey",
+        "Berserk_PCIE3_OBT_9mm_stud_2",
+        "Berserk_PCIE4_metal_OBT_PCIe_post_1_survey",
+        "Berserk_PCIE4_OBT_9mm_stud_1",
+        "Berserk_PCIE4_metal_OBT_PCIe_post_2_survey",
+        "Berserk_PCIE4_OBT_9mm_stud_2",
+        "Kenshin_RTX5090_metal_OBT_PCIe_post_1_survey",
+        "Kenshin_RTX5090_OBT_9mm_stud_1",
+        "Kenshin_RTX5090_metal_OBT_PCIe_post_2_survey",
+        "Kenshin_RTX5090_OBT_9mm_stud_2"
+      ]
+    },
+    "rack-cabinet": {
+      "name": "Rack cabinet (not yet specified)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": null,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "inner_ceiling_patch_PROVISIONAL"
+      ]
+    },
+    "rosewill-hercules-1600": {
+      "name": "Rosewill Hercules 1600 W PSU (reused)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_owned_Hercules_1600W_PSU"
+      ]
+    },
+    "samsung-990-pro-4tb": {
+      "name": "Samsung 990 PRO 4 TB NVMe",
+      "category": "purchased",
+      "quantity": 2,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": "X870E M.2 slot positions not surveyed; drives sit under the board heatsinks",
+      "instance_names": []
+    },
+    "sanyo-denki-9gv1412p1s001": {
+      "name": "Sanyo Denki San Ace 9GV1412P1S001 140 x 38 mm fan",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "V100_pressure_fan"
+      ]
+    },
+    "silicone-gasket-2mm": {
+      "name": "2 mm silicone foam gasket sheet, 200 x 200 mm",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "roof_silicone_gasket"
+      ]
+    },
+    "v100-eps-power-adapter": {
+      "name": "Dual PCIe 8-pin to CPU/EPS 8-pin GPU adapter (030-0571-000 compatible)",
+      "category": "purchased",
+      "quantity": 4,
+      "state": "modeled",
+      "instances": 16,
+      "expected_instances": 16,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "V100_PCIE1_power_survey_segment_1",
+        "V100_PCIE1_power_survey_segment_2",
+        "V100_PCIE1_power_survey_segment_3",
+        "V100_PCIE1_power_survey_segment_4",
+        "V100_PCIE2_power_survey_segment_1",
+        "V100_PCIE2_power_survey_segment_2",
+        "V100_PCIE2_power_survey_segment_3",
+        "V100_PCIE2_power_survey_segment_4",
+        "V100_PCIE3_power_survey_segment_1",
+        "V100_PCIE3_power_survey_segment_2",
+        "V100_PCIE3_power_survey_segment_3",
+        "V100_PCIE3_power_survey_segment_4",
+        "V100_PCIE4_power_survey_segment_1",
+        "V100_PCIE4_power_survey_segment_2",
+        "V100_PCIE4_power_survey_segment_3",
+        "V100_PCIE4_power_survey_segment_4"
+      ]
+    },
+    "v100-tail-support": {
+      "name": "M4 F/F 20 mm metal spacer with 4 mm silicone pad",
+      "category": "purchased",
+      "quantity": 4,
+      "state": "modeled",
+      "instances": 8,
+      "expected_instances": 8,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "PCIE1_metal_tail_support_survey",
+        "PCIE1_silicone_contact_pad_survey",
+        "PCIE2_metal_tail_support_survey",
+        "PCIE2_silicone_contact_pad_survey",
+        "PCIE3_metal_tail_support_survey",
+        "PCIE3_silicone_contact_pad_survey",
+        "PCIE4_metal_tail_support_survey",
+        "PCIE4_silicone_contact_pad_survey"
+      ]
+    },
+    "wurth-970140324": {
+      "name": "Wurth 970140324 M3 F/F standoff, 14 mm, SW5.5",
+      "category": "purchased",
+      "quantity": 10,
+      "state": "modeled",
+      "instances": 10,
+      "expected_instances": 10,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_PCIE1_M3_SW5p5_14mm_standoff_1",
+        "Berserk_PCIE1_M3_SW5p5_14mm_standoff_2",
+        "Berserk_PCIE2_M3_SW5p5_14mm_standoff_1",
+        "Berserk_PCIE2_M3_SW5p5_14mm_standoff_2",
+        "Berserk_PCIE3_M3_SW5p5_14mm_standoff_1",
+        "Berserk_PCIE3_M3_SW5p5_14mm_standoff_2",
+        "Berserk_PCIE4_M3_SW5p5_14mm_standoff_1",
+        "Berserk_PCIE4_M3_SW5p5_14mm_standoff_2",
+        "Kenshin_RTX5090_M3_SW5p5_14mm_standoff_1",
+        "Kenshin_RTX5090_M3_SW5p5_14mm_standoff_2"
+      ]
+    },
+    "zotac-rtx-5090-solid": {
+      "name": "Zotac Gaming GeForce RTX 5090 Solid 32 GB",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Kenshin_RTX_5090",
+        "Kenshin_RTX5090_GPU_flange_hole_pattern_survey"
+      ]
+    },
+    "atx_mobo_adapter_front": {
+      "name": "atx_mobo_adapter_front",
+      "category": "printed",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "berserk_mobo_adapter_left_drill_plan",
+        "kenshin_mobo_adapter_right_drill_plan"
+      ]
+    },
+    "atx_mobo_adapter_rail": {
+      "name": "atx_mobo_adapter_rail",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "kenshin_mobo_adapter_left_drill_plan"
+      ]
+    },
+    "fan120_aio_center_spacer": {
+      "name": "fan120_aio_center_spacer",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Kenshin_AIO_middle_fan_6mm_spacer"
+      ]
+    },
+    "fan120_aio_frame": {
+      "name": "fan120_aio_frame",
+      "category": "printed",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_Kenshin_AIO_1_bearing_frame_drill_plan_survey",
+        "printed_Kenshin_AIO_2_bearing_frame_drill_plan_survey"
+      ]
+    },
+    "fan120_aio_hose_brace": {
+      "name": "fan120_aio_hose_brace",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Kenshin_AIO_inward_hose_brace"
+      ]
+    },
+    "fan140_aio_frame": {
+      "name": "fan140_aio_frame",
+      "category": "printed",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_H115i_left_screw_frame_drill_plan_survey",
+        "printed_H115i_right_screw_frame_drill_plan_survey"
+      ]
+    },
+    "fan140_aio_hose_brace": {
+      "name": "fan140_aio_hose_brace",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_H115i_hose_end_shelf_brace"
+      ]
+    },
+    "gpu_exhaust_fan_flange": {
+      "name": "gpu_exhaust_fan_flange",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "gpu_exhaust_fan_flange"
+      ]
+    },
+    "gpu_exhaust_roof_flange": {
+      "name": "gpu_exhaust_roof_flange",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "gpu_exhaust_roof_flange"
+      ]
+    },
+    "gpu_rest": {
+      "name": "gpu_rest",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_Kenshin_GPU_rest_survey"
+      ]
+    },
+    "h12d_mobo_adapter_rail": {
+      "name": "h12d_mobo_adapter_rail",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "berserk_mobo_adapter_right_drill_plan"
+      ]
+    },
+    "psu_bracket": {
+      "name": "psu_bracket",
+      "category": "printed",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_Berserk_PSU_two_upper_screw_frame_survey",
+        "printed_Kenshin_PSU_two_upper_screw_frame_survey"
+      ]
+    },
+    "tnut_fit_coupon": {
+      "name": "tnut_fit_coupon",
+      "category": "printed",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "fit coupon, not installed",
+      "instance_names": []
+    },
+    "v100_gpu_shroud": {
+      "name": "v100_gpu_shroud",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "V100_GPU_shroud"
+      ]
+    },
+    "rear-aio-steel-extension": {
+      "name": "Rear AIO steel extension plate, 400 x 83 x 3 mm",
+      "category": "fabricated",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Rear_AIO_400x83x3_steel_extension_drill_plan"
+      ]
+    }
+  },
+  "keepouts": {
+    "keepout:rtx5090-power-keepout": [
+      "5090_straight_power-cable_keepout"
+    ],
+    "keepout:berserk-ethernet": [
+      "Berserk_Ethernet_RJ45_boot_+_bend",
+      "Berserk_Ethernet_survey_segment_1",
+      "Berserk_Ethernet_survey_segment_2"
+    ],
+    "keepout:kenshin-24pin-reserve": [
+      "Kenshin_24-pin_survey"
+    ],
+    "keepout:rear-io-service-reserve": [
+      "Berserk_rear_IO_no_ear_service_reserve",
+      "Kenshin_rear_IO_no_ear_service_reserve"
+    ]
+  },
+  "errors": []
+}

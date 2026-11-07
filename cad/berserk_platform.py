@@ -8,7 +8,9 @@ from rack_shelf_coordinates import BERSERK_DX, BERSERK_DY
 
 MODEL = 'HUANANZHI H12D-8D + BMC'
 CPU = 'AMD EPYC 7702P'
-WIDTH, DEPTH = 305.0, 245.0
+from aipc import spec
+
+WIDTH, DEPTH = spec.dim('huananzhi-h12d-8d', 'pcb_width'), spec.dim('huananzhi-h12d-8d', 'pcb_depth')
 X, REAR_Y = 137.0+BERSERK_DX, 314.2+BERSERK_DY
 FRONT_Y = REAR_Y - DEPTH
 CPU_CORES, CPU_THREADS, CPU_TDP_W = 64, 128, 200

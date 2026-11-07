@@ -1,0 +1,23 @@
+id = "fan140_aio_hose_brace"
+name = "fan140_aio_hose_brace"
+category = "printed"
+role = "hose-end brace for the 140 mm radiator"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+evidence = "allowance"
+
+[print]
+plate = "07_fan140_aio_hose_brace"
+material = "PETG"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.0415, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+
+[assembly]
+match = ["^Berserk_H115i_hose_end_shelf_brace$"]

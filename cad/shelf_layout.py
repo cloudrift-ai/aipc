@@ -30,6 +30,9 @@ import atx_shelf_mounts as atx_mount
 import pcie_post_hardware as post_hw
 import hammond_shelf as rail_assembly
 from pcie_post_mount_preview import render as render_pcie_post_preview
+from aipc import spec
+from aipc.export import export_print
+from aipc.registry import classify_assembly
 from rack_shelf_coordinates import (BUILD_FORWARD_SHIFT, shelf_y, SHELF_W, SHELF_D,
                                     SHELF_T, BERSERK_DX, BERSERK_DY, k_xy, k_shape)
 
@@ -69,7 +72,7 @@ REAR_ASSEMBLY_LIMIT_Y = K_AIO_FAN_Y + 28 + 4  # washer and head survey envelope
 U = 44.45
 COMPONENT_Z_LIMIT = 5 * U  # 222.25mm component planning band, not overall rack allocation
 LOWER_Z_REFERENCE = 4 * U
-RAIL_T, STANDOFF_H = 6.0, 9.525
+RAIL_T, STANDOFF_H = 6.0, spec.dim('keystone-1451b', 'length')
 SHELF_SLOT_LENGTH, SHELF_SLOT_WIDTH = 10.0, 5.5  # M4, front-to-rear adjustment in printed mounts
 BERSERK_X, KENSHIN_X, BOARD_Z, BOARD_T = bp.X, 8.0 - K_LEFT_SHIFT, RAIL_T + STANDOFF_H, 1.6
 # Baseline single-fan revision offsets Kenshin and its cards/AIO 8 mm rearward.
@@ -78,16 +81,23 @@ FRONT_Y, REAR_Y = shelf_y(80.0), shelf_y(425.0 + K_REAR_SHIFT)
 # The front fascia appears to turn down below the deck. A 20 mm lift leaves
 # room for the radiator's bearing ledges and shelf fasteners.
 # The previous 56 mm lift had no modeled clearance or airflow benefit.
-RAD_Z, RAD_H = 20.0, 140.0
+RAD_Z, RAD_H = 20.0, spec.dim('corsair-h115i', 'radiator_height')
 RAD_TOP = RAD_Z + RAD_H
 RAD_FRAME_SLOT_L, RAD_FRAME_SLOT_W = 7.0, 4.5
 # Owner's 2026-10-17 approximate measurement: blue vertical face overhangs13mm.
 # Front -> rear: fans, original5mm bracket, radiator. Independent of board shift.
 RAD_FRAME_FRONT_Y = 9.0
-RAD_FRAME_T, RAD_D, RAD_FAN_D = 5.0, 26.0, 25.0
+RAD_FRAME_T, RAD_D, RAD_FAN_D = 5.0, spec.dim('corsair-h115i', 'radiator_thickness'), spec.dim('corsair-h115i', 'fan_depth')
 RAD_Y = RAD_FRAME_FRONT_Y + RAD_FRAME_T
 RAD_FAN_Y = RAD_FRAME_FRONT_Y - RAD_FAN_D
-V100_W, V100_D, V100_H = 40.0, 266.7, 111.15
+_V100 = spec.get('nvidia-v100-pcie-16gb')
+V100_W, V100_D, V100_H = _V100.dim('thickness'), _V100.dim('length'), _V100.dim('height')
+_RTX = spec.get('zotac-rtx-5090-solid')
+_GA2 = spec.get('lian-li-ga2-lite-360')
+_H115I = spec.get('corsair-h115i')
+_HERC = spec.get('rosewill-hercules-1600')
+_HX = spec.get('corsair-hx1200i')
+_M2 = spec.get('micron-3400-2tb')
 V100_SLOTS = bp.GPU_BODY_X
 V100_FRONT_Y = shelf_y(100.0)+BERSERK_DY
 V100_TAIL_Y = V100_FRONT_Y + V100_D
@@ -161,26 +171,30 @@ parts = [
     Box("V100 pressure fan", COOL_FAN_BB.xmin, COOL_FAN_BB.ymin, COOL_FAN_BB.zmin,
         COOL_FAN_BB.xlen, COOL_FAN_BB.ylen, COOL_FAN_BB.zlen,
         "Sanyo 9GV1412P1S001, 45-degree upward exhaust; bounding box only, shape is rotated; occupies reserved upper duct volume"),
-    Box("Kenshin ATX board", KENSHIN_X, REAR_Y, BOARD_Z, 305, 244, BOARD_T,
+    *(Box(f"Berserk M2 SSD {i+1}", x - _M2.dim('width')/2, y - _M2.dim('length'), BOARD_Z + BOARD_T,
+          _M2.dim('width'), _M2.dim('length'), _M2.dim('thickness'),
+          "Micron 3400 2280 at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified")
+      for i, (x, y) in enumerate(bp.M2_STANDOFFS)),
+    Box("Kenshin ATX board", KENSHIN_X, REAR_Y, BOARD_Z, spec.dim('gigabyte-x870e-aorus-pro', 'pcb_width'), spec.dim('gigabyte-x870e-aorus-pro', 'pcb_depth'), BOARD_T,
         "Gigabyte X870E footprint; PCIe slot position approximate"),
-    Box("Kenshin RTX 5090", 48 - K_LEFT_SHIFT, shelf_y(339.3 + K_REAR_SHIFT), 24, 67.8, 329.7, 137.8,
+    Box("Kenshin RTX 5090", 48 - K_LEFT_SHIFT, shelf_y(339.3 + K_REAR_SHIFT), 24, _RTX.dim('thickness'), _RTX.dim('length'), _RTX.dim('height'),
         "Zotac published envelope; socket position to measure"),
-    Box("5090 straight power-cable keepout", 48 - K_LEFT_SHIFT, shelf_y(339.3 + K_REAR_SHIFT), 161.8, 67.8, 329.7, 35,
+    Box("5090 straight power-cable keepout", 48 - K_LEFT_SHIFT, shelf_y(339.3 + K_REAR_SHIFT), 24 + _RTX.dim('height'), _RTX.dim('thickness'), _RTX.dim('length'), 35,
         "conservative full-card sweep; actual connector area is smaller"),
     Box("Kenshin GA II Lite pump", 208.5 - K_LEFT_SHIFT, shelf_y(529 + K_REAR_SHIFT), BOARD_Z + BOARD_T, 74, 74, 67,
         "GA2L36PB owned replacement per 2025-05-30 receipt; socket and hose ports provisional"),
-    Box("Berserk H115i radiator", 104, RAD_Y, RAD_Z, 312, RAD_D, RAD_H,
+    Box("Berserk H115i radiator", 104, RAD_Y, RAD_Z, _H115I.dim('radiator_length'), RAD_D, RAD_H,
         "owner photo confirms original bracket between fan and radiator; bracket front Y~-13 measured; radiator envelope remains approximate"),
-    Box("H115i intake fans", 120, RAD_FAN_Y, RAD_Z, 280, RAD_FAN_D, 140,
+    Box("H115i intake fans", 120, RAD_FAN_Y, RAD_Z, 2 * _H115I.dim('fan_size'), RAD_FAN_D, _H115I.dim('fan_size'),
         "two existing 140mm fans in front of the original brackets and radiator; intended push front-to-rear; arrows need checking"),
-    Box("Berserk owned Hercules 1600W PSU", PSU_BERSERK_X, B_PSU_Y, 0, 86, 245, 150,
+    Box("Berserk owned Hercules 1600W PSU", PSU_BERSERK_X, B_PSU_Y, 0, _HERC.dim('height'), _HERC.dim('depth'), _HERC.dim('width'),
         "245 mm planning depth allows a few mm beyond ~241 mm nominal; fan +X, AC rear"),
-    Box("Kenshin owned HX1200i PSU", 335, shelf_y(398), 0, 86, 200, 150,
+    Box("Kenshin owned HX1200i PSU", 335, shelf_y(398), 0, _HX.dim('height'), _HX.dim('depth'), _HX.dim('width'),
         "ATX unit on its side, rotated 180 degrees; fan faces -X toward cabinet side, AC grille faces front; cabinet intake clearance unmeasured"),
-    Box("Kenshin GA II Lite radiator", K_AIO_X, K_AIO_Y, K_AIO_Z, 397, 27, 120,
+    Box("Kenshin GA II Lite radiator", K_AIO_X, K_AIO_Y, K_AIO_Z, _GA2.dim('radiator_length'), _GA2.dim('radiator_thickness'), _GA2.dim('radiator_height'),
         "Lian Li GA2L36PB published dimensions; 105mm mounting pitch and hose ports provisional"),
     *(Box(f"Kenshin AIO exhaust fan {i+1}", 29 + 120*i,
-          K_AIO_FAN_Y, K_AIO_Z - 2, 124, 28, 124,
+          K_AIO_FAN_Y, K_AIO_Z - 2, _GA2.dim('fan_width'), _GA2.dim('fan_depth'), _GA2.dim('fan_envelope_height'),
           "Owned Performance fan; pull through radiator toward rear. All fans coplanar on 6mm frames/spacer for factory side bridges. 2mm side connector allowance is provisional.")
       for i in range(3)),
 ]
@@ -267,16 +281,7 @@ for i, a in enumerate(parts + connectors):
             raise AssertionError(f"collision {a.name} / {b.name}")
 
 
-def export_print(name: str, shape: cq.Workplane, quantity: int, purpose: str):
-    assert shape.val().isValid(), name
-    assert len(shape.solids().vals()) == 1, f"multiple solids in {name}"
-    cq.exporters.export(shape, str(OUT / f"{name}.step"))
-    cq.exporters.export(shape, str(OUT / f"{name}.stl"), tolerance=0.08,
-                        angularTolerance=0.08)
-    bb = shape.val().BoundingBox()
-    return {"part": name, "quantity": quantity,
-            "bounding_box_mm": [round(bb.xlen, 2), round(bb.ylen, 2), round(bb.zlen, 2)],
-            "purpose": purpose}
+# export_print comes from aipc.export: it writes parts/printed/<name>/ and checks the spec quantity.
 
 
 # Proposed holes are drilled into the solid deck after surveying the actual
@@ -1436,6 +1441,9 @@ rear_plate_report={"material":"3mm mild steel; deburr and coat; physical loading
 rail_assembly_report = rail_assembly.add_to_assembly(
     assembly, SHELF_W, SHELF_D, SHELF_T, OUT)
 assembly.save(str(OUT / "dual-pc-hammond-assembly.step"))
+# Every instance must belong to a part folder; exports each component model into its folder.
+assembly_bom = classify_assembly(assembly)
+assert not assembly_bom["errors"], "\n".join(assembly_bom["errors"])
 
 fig, (ax, side) = plt.subplots(2, 1, figsize=(12, 11),
                                gridspec_kw={"height_ratios": [1.45, 1]})
@@ -2078,3 +2086,8 @@ for pattern in ("rail_shelf_shim_*", "rail-shelf-*", "shelf-side-mounting-patter
                 "shelf-vent-estimate.json", "adjshelfhdv-*.step", "kenshin-berserk-6u-shelf-*"):
     for retired in OUT.glob(pattern):
         retired.unlink()
+# Printed STEP/STL now live in their part folders (parts/printed/<name>/).
+for part in spec.load_all().values():
+    if part.category == "printed":
+        for suffix in (".step", ".stl"):
+            (OUT / f"{part.id}{suffix}").unlink(missing_ok=True)

@@ -1,0 +1,55 @@
+id = "corsair-hx1200i"
+name = "Corsair HX1200i PSU"
+category = "purchased"
+role = "Kenshin PSU"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+evidence = "assumed"
+no_datasheet_reason = "Revision not recorded: the 2017 HX1200i (CP-9020070, 200 mm) has no 12V-2x6 cable; the 2023 ATX 3.x unit (CP-9020281) has one. Record the label and add its spec sheet."
+
+[model]
+source = "constructed"
+
+[dims]
+width = { value = 150.0, evidence = "standard", source = "ATX PSU face 150 x 86" }
+height = { value = 86.0, evidence = "standard", source = "ATX PSU face 150 x 86" }
+depth = { value = 200.0, evidence = "assumed" }
+mass = { value = 2.4, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "dc-power"
+capacity = 1200.0
+unit = "W"
+derate = 0.8
+evidence = "listing"
+
+[[provides]]
+type = "atx-24pin"
+count = 1
+
+[[provides]]
+type = "eps-8pin-cpu"
+count = 2
+
+[[provides]]
+type = "gpu-power"
+value = "12V-2x6"
+count = ""
+note = "depends on PSU revision; a Corsair Type-4 12VHPWR cable may be needed"
+
+[[requires]]
+type = "psu-restraint"
+value = "ATX 150 x 86 face"
+count = 1
+
+[[requires]]
+type = "ac-power"
+load = 1009.0
+unit = "W"
+systems = ["rack"]
+evidence = "allowance"
+note = "Kenshin DC peak 908 W / ~0.9 efficiency"
+
+[assembly]
+match = ["^Kenshin_owned_HX1200i_PSU$"]

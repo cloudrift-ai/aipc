@@ -1,0 +1,31 @@
+id = "samsung-990-pro-4tb"
+name = "Samsung 990 PRO 4 TB NVMe"
+category = "purchased"
+role = "Kenshin storage"
+status = "owned"
+quantity = 2
+systems = ["kenshin"]
+evidence = "datasheet"
+
+[[datasheets]]
+title = "Samsung 990 PRO"
+url = "https://semiconductor.samsung.com/consumer-storage/internal-ssd/990-pro/"
+
+[model]
+source = "constructed"
+
+[dims]
+mass = { value = 0.009, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "m2-slot"
+value = "M.2 2280 NVMe"
+count = 1
+
+[[requires]]
+type = "dc-power"
+load = 9.0
+evidence = "assumed"
+
+[assembly]
+not_modeled = "X870E M.2 slot positions not surveyed; drives sit under the board heatsinks"

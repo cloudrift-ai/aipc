@@ -1,0 +1,45 @@
+id = "lian-li-ga2-lite-360"
+name = "Lian Li GA II LITE Performance 360 (GA2L36PB)"
+category = "purchased"
+role = "Kenshin CPU cooler, rear of shelf"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+evidence = "datasheet"
+notes = "Pump position and hose ports are survey assumptions; the radiator mounting pitch is the 120 mm fan standard."
+
+[[datasheets]]
+title = "Lian Li GA II LITE product page"
+url = "https://lian-li.com/product/ga-ii-lite/"
+
+[model]
+source = "constructed"
+
+[dims]
+radiator_length = { value = 397.0, evidence = "datasheet", source = "Lian Li 397 x 120 x 27" }
+radiator_height = { value = 120.0, evidence = "datasheet", source = "Lian Li 397 x 120 x 27" }
+radiator_thickness = { value = 27.0, evidence = "datasheet", source = "Lian Li 397 x 120 x 27" }
+fan_width = { value = 124.0, evidence = "datasheet", source = "Lian Li 124 x 120 x 28 fan (PB SKU)", note = "axis of the 124 mm not stated; at 120 mm pitch the modeled fans overlap 4 mm (allowed pair in shelf_layout.py). Measure the owned fans." }
+fan_depth = { value = 28.0, evidence = "datasheet", source = "Lian Li 124 x 120 x 28 fan" }
+tube_length = { value = 400.0, evidence = "datasheet", source = "Lian Li" }
+fan_envelope_height = { value = 124.0, evidence = "allowance", note = "120 mm fan plus 2 mm side-connector allowance each way" }
+hole_pitch = { value = 105.0, evidence = "standard", source = "120 mm fan hole pattern" }
+mass = { value = 1.6, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "cooler-mount"
+accepts = ["AM5", "AM4", "LGA1700", "LGA1851"]
+
+[[requires]]
+type = "radiator-mount"
+value = "360 mm, 105 mm pitch"
+count = 2
+
+[[requires]]
+type = "dc-power"
+load = 15.0
+evidence = "assumed"
+
+[assembly]
+match = ["^Kenshin_GA_II_Lite_pump$", "^Kenshin_GA_II_Lite_radiator$", "^Kenshin_AIO_exhaust_fan_\\d$", "^Kenshin_AIO_hose_\\d_survey_segment_\\d+$"]
+count_check = false

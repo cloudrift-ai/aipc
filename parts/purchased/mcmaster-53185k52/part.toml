@@ -1,0 +1,19 @@
+id = "mcmaster-53185k52"
+name = "McMaster-Carr 53185K52 lever-release hose clamp"
+category = "purchased"
+role = "duct clamps"
+status = "selected"
+quantity = 2
+systems = ["berserk"]
+evidence = "datasheet"
+on_shelf = false
+
+[[datasheets]]
+title = "McMaster-Carr 53185K52"
+url = "https://www.mcmaster.com/53185K52/"
+
+[model]
+source = "constructed"
+
+[assembly]
+match = ["^53185K52_"]

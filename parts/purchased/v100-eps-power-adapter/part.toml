@@ -1,0 +1,29 @@
+id = "v100-eps-power-adapter"
+name = "Dual PCIe 8-pin to CPU/EPS 8-pin GPU adapter (030-0571-000 compatible)"
+category = "purchased"
+role = "V100 auxiliary power adapter"
+status = "selected"
+quantity = 4
+systems = ["berserk"]
+evidence = "listing"
+no_datasheet_reason = "Generic marketplace adapter; check its pinout against the NVIDIA brief before use."
+
+[model]
+source = "constructed"
+notes = "Cable route survey segments only."
+
+[dims]
+mass = { value = 0.05, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "pcie-8pin"
+count = 2
+
+[[provides]]
+type = "v100-aux-power"
+value = "CPU/EPS 8-pin"
+count = 1
+
+[assembly]
+match = ["^V100_PCIE\\d_power_survey_segment_\\d+$"]
+instances_per_unit = 4

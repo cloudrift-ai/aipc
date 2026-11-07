@@ -1,0 +1,27 @@
+id = "fan140_aio_frame"
+name = "fan140_aio_frame"
+category = "printed"
+role = "140 mm fan/radiator frame with bearing ledge (H115i)"
+status = "design"
+quantity = 2
+systems = ["berserk"]
+evidence = "allowance"
+
+[print]
+plate = "06_fan140_aio_frame"
+material = "PETG"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.076, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+[[provides]]
+type = "radiator-mount"
+value = "280 mm, 124.5 mm pitch"
+count = 1
+
+[assembly]
+match = ["^printed_H115i_(left|right)_screw_frame_drill_plan_survey$"]

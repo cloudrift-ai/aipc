@@ -1,0 +1,24 @@
+id = "tnut_fit_coupon"
+name = "tnut_fit_coupon"
+category = "printed"
+role = "test print for the M4 hammer T-nut pocket"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+evidence = "allowance"
+on_shelf = false
+
+[print]
+plate = "11_tnut_fit_coupon"
+material = "HT-PLA-GF"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.0048, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+
+[assembly]
+not_modeled = "fit coupon, not installed"

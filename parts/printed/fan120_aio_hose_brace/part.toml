@@ -1,0 +1,23 @@
+id = "fan120_aio_hose_brace"
+name = "fan120_aio_hose_brace"
+category = "printed"
+role = "mirrored left hose-end brace for the 120 mm radiator"
+status = "design"
+quantity = 1
+systems = ["kenshin"]
+evidence = "allowance"
+
+[print]
+plate = "09_fan120_aio_hose_brace"
+material = "PETG"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.0367, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+
+[assembly]
+match = ["^Kenshin_AIO_inward_hose_brace$"]

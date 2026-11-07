@@ -1,4 +1,5 @@
 """Draw interlocking motherboard frames and outside-PCB shelf anchors."""
+from aipc import spec
 from pathlib import Path
 import json
 import numpy as np
@@ -17,7 +18,7 @@ def render_gpu_groove_location(out):
         pattern = next(p for p in data['motherboard_adapter_revision']['support_patterns']
                        if p['part'].startswith(system.lower()) and p['gpu_tab_relief'])
         part = data['installed_part_models'][pattern['part']]
-        vertices, indices, _ = read_binary_stl(out / f'{part}.stl')
+        vertices, indices, _ = read_binary_stl(spec.get(part).model_stl)
         x, y, _, d = model.BOARDS[system]
         dx, dy = pattern['installed_origin_xy_mm']
         triangles = (np.asarray(vertices)+(dx-x, dy-y-d, 0))[np.asarray(indices)]
@@ -51,7 +52,7 @@ def render_gpu_relief(out):
              (15, 0, 'Rear edge'), (15, 180, 'Board-facing edge'),
              (25, 45, 'Oblique'), (-25, 225, 'Bed-face oblique'))
     for part in ('atx_mobo_adapter_rail', 'h12d_mobo_adapter_rail'):
-        mesh, _ = print_orientation(part, read_binary_stl(out / f'{part}.stl'))
+        mesh, _ = print_orientation(part, read_binary_stl(spec.get(part).model_stl))
         vertices, indices, (width, depth, height) = mesh
         triangles = np.asarray(vertices)[np.asarray(indices)]
         # Show only the rear 36 mm; full-frame views hide a 2 mm feature.
@@ -111,7 +112,7 @@ def render(out):
         for pattern in (p for p in patterns if p["part"].startswith(system.lower())):
             label = pattern["part"]
             dx,dy=pattern["installed_origin_xy_mm"]
-            vertices, triangles, _ = read_binary_stl(out / f"{data['installed_part_models'][label]}.stl")
+            vertices, triangles, _ = read_binary_stl(spec.get(data['installed_part_models'][label]).model_stl)
             vertices=np.asarray(vertices)
             vertices = vertices + (dx, dy, 0)
             triangles = vertices[np.asarray(triangles)]

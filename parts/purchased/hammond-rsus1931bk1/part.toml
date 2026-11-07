@@ -1,0 +1,78 @@
+id = "hammond-rsus1931bk1"
+name = "Hammond RSUS1931BK1 solid sliding shelf with factory slides"
+category = "purchased"
+role = "sliding shelf carrying both PCs"
+status = "selected"
+quantity = 1
+systems = ["shelf", "rack"]
+evidence = "datasheet"
+on_shelf = false
+notes = """
+Shelf alone: 2U mounting, 3U clearance. The loaded build needs far more
+height; the rack-unit requirement lives in parts/system.toml.
+
+Selected 2026-11-05; purchase not confirmed. The current series table and the
+individual drawing disagree on load rating (85 lb vs 120 lb) and mounting depth
+(18-28 in vs 8-28 in); the stricter series-table values are used. Slide closed
+length, cross-section and bracket hole pattern are not published: the slide
+envelopes in the assembly are illustrative, not factory CAD.
+"""
+
+[links]
+product = "https://www.hammfg.com/dci/products/accessories/rsus"
+
+[[datasheets]]
+title = "RSUS series specification table"
+url = "https://www.hammfg.com/dci/products/accessories/rsus"
+[[datasheets]]
+title = "RSUS1931BK1 drawing"
+url = "https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf"
+[[datasheets]]
+title = "Installation bulletin BUL87361"
+url = "https://www.hammfg.com/files/parts/bulletins/BUL87361.pdf"
+
+[model]
+source = "constructed"
+vendor_cad = ""
+notes = "Deck outer dimensions from the series table; folds, slides and rack brackets are envelopes."
+
+[dims]
+deck_width = { value = 422.656, evidence = "datasheet", source = "series table 16.64 in" }
+deck_depth = { value = 787.4, evidence = "datasheet", source = "series table 31 in" }
+sheet_thickness = { value = 1.52, evidence = "allowance", note = "16 gauge nominal; measure steel and coating" }
+fold_height = { value = 38.1, evidence = "datasheet", source = "drawing 1.5 in" }
+overall_height = { value = 68.072, evidence = "datasheet", source = "drawing 2.68 in" }
+overall_width = { value = 479.806, evidence = "datasheet", source = "drawing 18.89 in" }
+rack_hole_pitch = { value = 466.344, evidence = "datasheet", source = "drawing 18.36 in" }
+slide_travel = { value = 711.2, evidence = "datasheet", source = "series table 28 in" }
+mount_depth_min = { value = 457.2, evidence = "datasheet", source = "series table 18 in (drawing says 8 in)" }
+mount_depth_max = { value = 711.2, evidence = "datasheet", source = "series table 28 in" }
+load_rating = { value = 39.0, unit = "kg", evidence = "datasheet", source = "series table 85 lb (drawing says 120 lb)" }
+slide_closed_length = { value = 711.2, evidence = "photo-estimate", source = "drawing L.S. view scale reading (~28 in); not dimensioned" }
+front_bracket_setback = { value = 0.0, evidence = "photo-estimate", source = "drawing top view: front bracket flange flush with deck front" }
+rear_bracket_from_deck_rear = { value = 76.2, evidence = "photo-estimate", source = "drawing top view at 28 in rail distance (scale reading 67-76 mm)" }
+slide_cross_section = { value = "", evidence = "unknown", note = "not published" }
+
+[[provides]]
+type = "shelf-load"
+capacity = 39.0
+unit = "kg"
+systems = ["shelf"]
+note = "stricter current series-table rating"
+
+[[requires]]
+type = "rack-standard"
+value = "EIA-310 19 in"
+systems = ["rack"]
+
+[[requires]]
+type = "rack-post-depth"
+min = 457.2
+max = 711.2
+systems = ["rack"]
+note = "front-to-rear rack-post spacing range accepted by the slides"
+
+
+[assembly]
+match = ["^Hammond_", "^RSUS1931BK1_drill_plan_deck"]
+count_check = false

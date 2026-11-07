@@ -1,0 +1,1560 @@
+{
+  "date": "2026-11-06",
+  "summary": {
+    "FAIL": 1,
+    "BLOCKED": 18,
+    "PROVISIONAL": 41,
+    "PASS": 9
+  },
+  "lint": [],
+  "assembly_errors": [],
+  "checks": [
+    {
+      "type": "cooler-mount",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "amd-epyc-7702p"
+      ],
+      "providers": [
+        "corsair-h115i"
+      ],
+      "rule": "value",
+      "status": "FAIL",
+      "detail": "amd-epyc-7702p needs SP3; providers offer ['LGA115x, LGA1366, LGA2011, AM2, AM3, FM2']",
+      "note": "the SP3 IHS is far larger than a round desktop cold plate",
+      "weak_evidence": [
+        "corsair-h115i:cooler-mount(assumed)"
+      ]
+    },
+    {
+      "type": "ac-power",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [],
+      "providers": [
+        "mains-power"
+      ],
+      "rule": "budget",
+      "status": "BLOCKED",
+      "detail": "load 2531.0 W; capacity unknown",
+      "contributors": [
+        "corsair-hx1200i",
+        "rosewill-hercules-1600"
+      ],
+      "weak_evidence": [
+        "corsair-hx1200i:ac-power(allowance)",
+        "mains-power:ac-power(unknown)",
+        "rosewill-hercules-1600:ac-power(allowance)"
+      ]
+    },
+    {
+      "type": "cabinet-front-clearance",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "system"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "BLOCKED",
+      "detail": "system needs 20.0; provider value unknown",
+      "note": "H115i fan screws reach Y-20, in front of the front rail plane at the deck front (Y0); door must clear",
+      "weak_evidence": [
+        "rack-cabinet:cabinet-front-clearance(unknown)",
+        "system:cabinet-front-clearance(allowance)"
+      ]
+    },
+    {
+      "type": "cabinet-height-above-shelf",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "system"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "BLOCKED",
+      "detail": "system needs 400.0; provider value unknown",
+      "note": "where the roof flange was placed, not a derived need: the pressure fan top is Z233.4 and the 6 in duct bend adds to that. Replace with the real cabinet ceiling once known",
+      "weak_evidence": [
+        "rack-cabinet:cabinet-height-above-shelf(unknown)",
+        "system:cabinet-height-above-shelf(allowance)"
+      ]
+    },
+    {
+      "type": "cabinet-rear-clearance",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "system"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "BLOCKED",
+      "detail": "system needs 176.3; provider value unknown",
+      "note": "rear AIO screw heads at Y852.5 behind the rear rail plane at Y711.2 (28 in rail distance) plus 35 mm driver reserve; more at shorter rail distances",
+      "weak_evidence": [
+        "rack-cabinet:cabinet-rear-clearance(unknown)",
+        "system:cabinet-rear-clearance(allowance)"
+      ]
+    },
+    {
+      "type": "fan-power",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sanyo-denki-9gv1412p1s001"
+      ],
+      "providers": [
+        "fan-controller"
+      ],
+      "rule": "value",
+      "status": "BLOCKED",
+      "detail": "sanyo-denki-9gv1412p1s001 needs 12 V PWM 4-wire, 3.1 A; provider value unknown",
+      "note": "",
+      "weak_evidence": [
+        "fan-controller:fan-power(unknown)"
+      ]
+    },
+    {
+      "type": "fan-power",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sanyo-denki-9gv1412p1s001"
+      ],
+      "providers": [
+        "fan-controller"
+      ],
+      "rule": "count",
+      "status": "BLOCKED",
+      "detail": "need 1 x fan-power=12 v pwm 4-wire, 3.1 a, have None",
+      "weak_evidence": []
+    },
+    {
+      "type": "gpu-power",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "corsair-hx1200i"
+      ],
+      "rule": "count",
+      "status": "BLOCKED",
+      "detail": "need 1 x gpu-power=12v-2x6, have None",
+      "weak_evidence": [
+        "corsair-hx1200i:gpu-power(assumed)"
+      ]
+    },
+    {
+      "type": "rack-post-depth",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "hammond-rsus1931bk1"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "BLOCKED",
+      "detail": "hammond-rsus1931bk1 needs 457.2..711.2; provider value unknown",
+      "note": "front-to-rear rack-post spacing range accepted by the slides",
+      "weak_evidence": [
+        "rack-cabinet:rack-post-depth(unknown)"
+      ]
+    },
+    {
+      "type": "rack-standard",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "hammond-rsus1931bk1"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "BLOCKED",
+      "detail": "hammond-rsus1931bk1 needs EIA-310 19 in; provider value unknown",
+      "note": "",
+      "weak_evidence": [
+        "rack-cabinet:rack-standard(unknown)"
+      ]
+    },
+    {
+      "type": "rack-units",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "system"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "count",
+      "status": "BLOCKED",
+      "detail": "need 11 x rack-units, have None",
+      "weak_evidence": [
+        "rack-cabinet:rack-units(unknown)",
+        "system:rack-units(allowance)"
+      ]
+    },
+    {
+      "type": "shelf-load",
+      "systems": [
+        "shelf"
+      ],
+      "requirers": [
+        "fan-controller"
+      ],
+      "providers": [
+        "hammond-rsus1931bk1"
+      ],
+      "rule": "budget",
+      "status": "BLOCKED",
+      "detail": "load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller']",
+      "contributors": [
+        "amd-epyc-7702p",
+        "amd-ryzen-9-9950x3d",
+        "atx_mobo_adapter_front",
+        "atx_mobo_adapter_rail",
+        "corsair-cmp64gx5m4b6400c32",
+        "corsair-h115i",
+        "corsair-hx1200i",
+        "fan-controller",
+        "fan120_aio_center_spacer",
+        "fan120_aio_frame",
+        "fan120_aio_hose_brace",
+        "fan140_aio_frame",
+        "fan140_aio_hose_brace",
+        "fasteners",
+        "gigabyte-x870e-aorus-pro",
+        "gpu_exhaust_fan_flange",
+        "gpu_rest",
+        "h12d_mobo_adapter_rail",
+        "huananzhi-h12d-8d",
+        "keystone-1451b",
+        "lian-li-ga2-lite-360",
+        "micron-3400-2tb",
+        "micron-mta36asf4g72pz-2g9",
+        "moddiy-eps-90-extension",
+        "nvidia-v100-pcie-16gb",
+        "obt-pcie-support",
+        "psu_bracket",
+        "rear-aio-steel-extension",
+        "rosewill-hercules-1600",
+        "samsung-990-pro-4tb",
+        "sanyo-denki-9gv1412p1s001",
+        "v100-eps-power-adapter",
+        "v100-tail-support",
+        "v100_gpu_shroud",
+        "wurth-970140324",
+        "zotac-rtx-5090-solid"
+      ],
+      "weak_evidence": [
+        "amd-epyc-7702p:shelf-load(assumed)",
+        "amd-ryzen-9-9950x3d:shelf-load(assumed)",
+        "atx_mobo_adapter_front:shelf-load(allowance)",
+        "atx_mobo_adapter_rail:shelf-load(allowance)",
+        "corsair-cmp64gx5m4b6400c32:shelf-load(assumed)",
+        "corsair-h115i:shelf-load(assumed)",
+        "corsair-hx1200i:shelf-load(assumed)",
+        "fan-controller:shelf-load(unknown)",
+        "fan120_aio_center_spacer:shelf-load(allowance)",
+        "fan120_aio_frame:shelf-load(allowance)",
+        "fan120_aio_hose_brace:shelf-load(allowance)",
+        "fan140_aio_frame:shelf-load(allowance)",
+        "fan140_aio_hose_brace:shelf-load(allowance)",
+        "fasteners:shelf-load(assumed)",
+        "gigabyte-x870e-aorus-pro:shelf-load(assumed)",
+        "gpu_exhaust_fan_flange:shelf-load(allowance)",
+        "gpu_rest:shelf-load(allowance)",
+        "h12d_mobo_adapter_rail:shelf-load(allowance)",
+        "huananzhi-h12d-8d:shelf-load(assumed)",
+        "keystone-1451b:shelf-load(assumed)",
+        "lian-li-ga2-lite-360:shelf-load(assumed)",
+        "micron-3400-2tb:shelf-load(assumed)",
+        "micron-mta36asf4g72pz-2g9:shelf-load(assumed)",
+        "moddiy-eps-90-extension:shelf-load(assumed)",
+        "obt-pcie-support:shelf-load(assumed)",
+        "psu_bracket:shelf-load(allowance)",
+        "rear-aio-steel-extension:shelf-load(allowance)",
+        "rosewill-hercules-1600:shelf-load(assumed)",
+        "samsung-990-pro-4tb:shelf-load(assumed)",
+        "v100-eps-power-adapter:shelf-load(assumed)",
+        "v100-tail-support:shelf-load(assumed)",
+        "v100_gpu_shroud:shelf-load(allowance)",
+        "wurth-970140324:shelf-load(assumed)",
+        "zotac-rtx-5090-solid:shelf-load(assumed)"
+      ]
+    },
+    {
+      "type": "atx-24pin",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "providers": [
+        "corsair-hx1200i"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x atx-24pin, have 1",
+      "weak_evidence": [
+        "corsair-hx1200i:atx-24pin(assumed)"
+      ]
+    },
+    {
+      "type": "atx-24pin",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "rosewill-hercules-1600"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x atx-24pin, have 1",
+      "weak_evidence": [
+        "rosewill-hercules-1600:atx-24pin(assumed)"
+      ]
+    },
+    {
+      "type": "board-standoff",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "providers": [
+        "keystone-1451b"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "gigabyte-x870e-aorus-pro needs #6-32 F/F; provided by keystone-1451b",
+      "note": "ATX pattern; B optional if the PCB has it",
+      "weak_evidence": [
+        "keystone-1451b:board-standoff(listing)"
+      ]
+    },
+    {
+      "type": "board-standoff",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "keystone-1451b"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b",
+      "note": "populated sites A/C/F/G/H/K/L/M",
+      "weak_evidence": [
+        "huananzhi-h12d-8d:board-standoff(photo-estimate)",
+        "keystone-1451b:board-standoff(listing)"
+      ]
+    },
+    {
+      "type": "board-standoff",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "gigabyte-x870e-aorus-pro",
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "keystone-1451b"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 17 x board-standoff=#6-32 f/f, have 17",
+      "weak_evidence": [
+        "huananzhi-h12d-8d:board-standoff(photo-estimate)",
+        "keystone-1451b:board-standoff(listing)"
+      ]
+    },
+    {
+      "type": "dc-power",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [],
+      "providers": [
+        "rosewill-hercules-1600"
+      ],
+      "rule": "budget",
+      "status": "PROVISIONAL",
+      "detail": "load 1090.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1370.2 W",
+      "contributors": [
+        "amd-epyc-7702p",
+        "corsair-h115i",
+        "huananzhi-h12d-8d",
+        "micron-3400-2tb",
+        "micron-mta36asf4g72pz-2g9",
+        "nvidia-v100-pcie-16gb",
+        "sanyo-denki-9gv1412p1s001"
+      ],
+      "weak_evidence": [
+        "corsair-h115i:dc-power(assumed)",
+        "huananzhi-h12d-8d:dc-power(assumed)",
+        "micron-3400-2tb:dc-power(assumed)",
+        "micron-mta36asf4g72pz-2g9:dc-power(assumed)",
+        "rosewill-hercules-1600:dc-power(listing)"
+      ]
+    },
+    {
+      "type": "dc-power",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [],
+      "providers": [
+        "corsair-hx1200i"
+      ],
+      "rule": "budget",
+      "status": "PROVISIONAL",
+      "detail": "load 908.0 W of 1200.0 W x derate 0.8 = 960.0 W (76% of rating)",
+      "contributors": [
+        "amd-ryzen-9-9950x3d",
+        "corsair-cmp64gx5m4b6400c32",
+        "gigabyte-x870e-aorus-pro",
+        "lian-li-ga2-lite-360",
+        "samsung-990-pro-4tb",
+        "zotac-rtx-5090-solid"
+      ],
+      "weak_evidence": [
+        "corsair-cmp64gx5m4b6400c32:dc-power(assumed)",
+        "corsair-hx1200i:dc-power(listing)",
+        "gigabyte-x870e-aorus-pro:dc-power(assumed)",
+        "lian-li-ga2-lite-360:dc-power(assumed)",
+        "samsung-990-pro-4tb:dc-power(assumed)"
+      ]
+    },
+    {
+      "type": "duct-connection",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "flex-duct-6in"
+      ],
+      "providers": [
+        "gpu_exhaust_fan_flange",
+        "gpu_exhaust_roof_flange"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "flex-duct-6in needs 6 in; provided by gpu_exhaust_fan_flange, gpu_exhaust_roof_flange",
+      "note": "",
+      "weak_evidence": [
+        "flex-duct-6in:duct-connection(allowance)",
+        "gpu_exhaust_fan_flange:duct-connection(allowance)",
+        "gpu_exhaust_roof_flange:duct-connection(allowance)"
+      ]
+    },
+    {
+      "type": "duct-connection",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "flex-duct-6in"
+      ],
+      "providers": [
+        "gpu_exhaust_fan_flange",
+        "gpu_exhaust_roof_flange"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x duct-connection=6 in, have 2",
+      "weak_evidence": [
+        "flex-duct-6in:duct-connection(allowance)",
+        "gpu_exhaust_fan_flange:duct-connection(allowance)",
+        "gpu_exhaust_roof_flange:duct-connection(allowance)"
+      ]
+    },
+    {
+      "type": "eps-8pin-cpu",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "providers": [
+        "corsair-hx1200i"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x eps-8pin-cpu, have 2",
+      "weak_evidence": [
+        "corsair-hx1200i:eps-8pin-cpu(assumed)",
+        "gigabyte-x870e-aorus-pro:eps-8pin-cpu(assumed)"
+      ]
+    },
+    {
+      "type": "eps-8pin-cpu",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "rosewill-hercules-1600"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x eps-8pin-cpu, have 2",
+      "weak_evidence": [
+        "rosewill-hercules-1600:eps-8pin-cpu(assumed)"
+      ]
+    },
+    {
+      "type": "fan-mount",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sanyo-denki-9gv1412p1s001"
+      ],
+      "providers": [
+        "gpu_exhaust_fan_flange",
+        "v100_gpu_shroud"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "sanyo-denki-9gv1412p1s001 needs 140 mm, 124.5 mm pitch; provided by gpu_exhaust_fan_flange, v100_gpu_shroud",
+      "note": "inlet on the hood panel, outlet on the exhaust flange",
+      "weak_evidence": [
+        "gpu_exhaust_fan_flange:fan-mount(allowance)",
+        "v100_gpu_shroud:fan-mount(allowance)"
+      ]
+    },
+    {
+      "type": "fan-mount",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sanyo-denki-9gv1412p1s001"
+      ],
+      "providers": [
+        "gpu_exhaust_fan_flange",
+        "v100_gpu_shroud"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x fan-mount=140 mm, 124.5 mm pitch, have 2",
+      "weak_evidence": [
+        "gpu_exhaust_fan_flange:fan-mount(allowance)",
+        "v100_gpu_shroud:fan-mount(allowance)"
+      ]
+    },
+    {
+      "type": "gpu-forced-airflow",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "nvidia-v100-pcie-16gb"
+      ],
+      "providers": [
+        "sanyo-denki-9gv1412p1s001"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 4 x gpu-forced-airflow, have 4",
+      "weak_evidence": [
+        "sanyo-denki-9gv1412p1s001:gpu-forced-airflow(allowance)"
+      ]
+    },
+    {
+      "type": "gpu-power",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "corsair-hx1200i"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "zotac-rtx-5090-solid needs 12V-2x6; provided by corsair-hx1200i",
+      "note": "",
+      "weak_evidence": [
+        "corsair-hx1200i:gpu-power(assumed)"
+      ]
+    },
+    {
+      "type": "m2-slot",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "micron-3400-2tb"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "micron-3400-2tb needs M.2 2280 NVMe; provided by huananzhi-h12d-8d",
+      "note": "",
+      "weak_evidence": [
+        "micron-3400-2tb:m2-slot(listing)"
+      ]
+    },
+    {
+      "type": "m2-slot",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "micron-3400-2tb"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 3 x m2-slot=m.2 2280 nvme, have 3",
+      "weak_evidence": [
+        "micron-3400-2tb:m2-slot(listing)"
+      ]
+    },
+    {
+      "type": "m2-slot",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "samsung-990-pro-4tb"
+      ],
+      "providers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "samsung-990-pro-4tb needs M.2 2280 NVMe; provided by gigabyte-x870e-aorus-pro",
+      "note": "",
+      "weak_evidence": [
+        "gigabyte-x870e-aorus-pro:m2-slot(assumed)"
+      ]
+    },
+    {
+      "type": "m2-slot",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "samsung-990-pro-4tb"
+      ],
+      "providers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x m2-slot=m.2 2280 nvme, have 4",
+      "weak_evidence": [
+        "gigabyte-x870e-aorus-pro:m2-slot(assumed)"
+      ]
+    },
+    {
+      "type": "memory-slot",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "corsair-cmp64gx5m4b6400c32"
+      ],
+      "providers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "corsair-cmp64gx5m4b6400c32 needs DDR5 UDIMM; provided by gigabyte-x870e-aorus-pro",
+      "note": "",
+      "weak_evidence": [
+        "corsair-cmp64gx5m4b6400c32:memory-slot(listing)"
+      ]
+    },
+    {
+      "type": "memory-slot",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "corsair-cmp64gx5m4b6400c32"
+      ],
+      "providers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 4 x memory-slot=ddr5 udimm, have 4",
+      "weak_evidence": [
+        "corsair-cmp64gx5m4b6400c32:memory-slot(listing)"
+      ]
+    },
+    {
+      "type": "memory-slot",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "micron-mta36asf4g72pz-2g9"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "micron-mta36asf4g72pz-2g9 needs DDR4 RDIMM; provided by huananzhi-h12d-8d",
+      "note": "",
+      "weak_evidence": [
+        "micron-mta36asf4g72pz-2g9:memory-slot(listing)"
+      ]
+    },
+    {
+      "type": "memory-slot",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "micron-mta36asf4g72pz-2g9"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 8 x memory-slot=ddr4 rdimm, have 8",
+      "weak_evidence": [
+        "micron-mta36asf4g72pz-2g9:memory-slot(listing)"
+      ]
+    },
+    {
+      "type": "mobo-front-section",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "providers": [
+        "atx_mobo_adapter_front"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "gigabyte-x870e-aorus-pro needs ATX; provided by atx_mobo_adapter_front",
+      "note": "",
+      "weak_evidence": [
+        "atx_mobo_adapter_front:mobo-front-section(allowance)"
+      ]
+    },
+    {
+      "type": "mobo-front-section",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "atx_mobo_adapter_front"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "huananzhi-h12d-8d needs ATX; provided by atx_mobo_adapter_front",
+      "note": "",
+      "weak_evidence": [
+        "atx_mobo_adapter_front:mobo-front-section(allowance)",
+        "huananzhi-h12d-8d:mobo-front-section(listing)"
+      ]
+    },
+    {
+      "type": "mobo-front-section",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "gigabyte-x870e-aorus-pro",
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "atx_mobo_adapter_front"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x mobo-front-section=atx, have 2",
+      "weak_evidence": [
+        "atx_mobo_adapter_front:mobo-front-section(allowance)",
+        "huananzhi-h12d-8d:mobo-front-section(listing)"
+      ]
+    },
+    {
+      "type": "mobo-rear-rail",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "providers": [
+        "atx_mobo_adapter_rail"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "gigabyte-x870e-aorus-pro needs ATX standard slot positions; provided by atx_mobo_adapter_rail",
+      "note": "",
+      "weak_evidence": [
+        "atx_mobo_adapter_rail:mobo-rear-rail(allowance)"
+      ]
+    },
+    {
+      "type": "mobo-rear-rail",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "providers": [
+        "atx_mobo_adapter_rail"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x mobo-rear-rail=atx standard slot positions, have 1",
+      "weak_evidence": [
+        "atx_mobo_adapter_rail:mobo-rear-rail(allowance)"
+      ]
+    },
+    {
+      "type": "mobo-rear-rail",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "h12d_mobo_adapter_rail"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "huananzhi-h12d-8d needs H12D-8D slot positions; provided by h12d_mobo_adapter_rail",
+      "note": "",
+      "weak_evidence": [
+        "h12d_mobo_adapter_rail:mobo-rear-rail(allowance)",
+        "huananzhi-h12d-8d:mobo-rear-rail(listing)"
+      ]
+    },
+    {
+      "type": "mobo-rear-rail",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "h12d_mobo_adapter_rail"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x mobo-rear-rail=h12d-8d slot positions, have 1",
+      "weak_evidence": [
+        "h12d_mobo_adapter_rail:mobo-rear-rail(allowance)",
+        "huananzhi-h12d-8d:mobo-rear-rail(listing)"
+      ]
+    },
+    {
+      "type": "pcie-8pin",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "v100-eps-power-adapter"
+      ],
+      "providers": [
+        "rosewill-hercules-1600"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 8 x pcie-8pin, have 8",
+      "weak_evidence": [
+        "rosewill-hercules-1600:pcie-8pin(assumed)",
+        "v100-eps-power-adapter:pcie-8pin(listing)"
+      ]
+    },
+    {
+      "type": "pcie-card-envelope",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "nvidia-v100-pcie-16gb"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "nvidia-v100-pcie-16gb needs 40.0; provided by huananzhi-h12d-8d",
+      "note": "",
+      "weak_evidence": [
+        "huananzhi-h12d-8d:pcie-card-envelope(photo-estimate)",
+        "nvidia-v100-pcie-16gb:pcie-card-envelope(allowance)"
+      ]
+    },
+    {
+      "type": "psu-restraint",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "corsair-hx1200i"
+      ],
+      "providers": [
+        "psu_bracket"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "corsair-hx1200i needs ATX 150 x 86 face; provided by psu_bracket",
+      "note": "",
+      "weak_evidence": [
+        "corsair-hx1200i:psu-restraint(assumed)",
+        "psu_bracket:psu-restraint(allowance)"
+      ]
+    },
+    {
+      "type": "psu-restraint",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "rosewill-hercules-1600"
+      ],
+      "providers": [
+        "psu_bracket"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "rosewill-hercules-1600 needs ATX 150 x 86 face; provided by psu_bracket",
+      "note": "",
+      "weak_evidence": [
+        "psu_bracket:psu-restraint(allowance)",
+        "rosewill-hercules-1600:psu-restraint(assumed)"
+      ]
+    },
+    {
+      "type": "psu-restraint",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "corsair-hx1200i",
+        "rosewill-hercules-1600"
+      ],
+      "providers": [
+        "psu_bracket"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x psu-restraint=atx 150 x 86 face, have 2",
+      "weak_evidence": [
+        "corsair-hx1200i:psu-restraint(assumed)",
+        "psu_bracket:psu-restraint(allowance)",
+        "rosewill-hercules-1600:psu-restraint(assumed)"
+      ]
+    },
+    {
+      "type": "radiator-mount",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "corsair-h115i"
+      ],
+      "providers": [
+        "fan140_aio_frame"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "corsair-h115i needs 280 mm, 124.5 mm pitch; provided by fan140_aio_frame",
+      "note": "",
+      "weak_evidence": [
+        "corsair-h115i:radiator-mount(assumed)",
+        "fan140_aio_frame:radiator-mount(allowance)"
+      ]
+    },
+    {
+      "type": "radiator-mount",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "corsair-h115i"
+      ],
+      "providers": [
+        "fan140_aio_frame"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x radiator-mount=280 mm, 124.5 mm pitch, have 2",
+      "weak_evidence": [
+        "corsair-h115i:radiator-mount(assumed)",
+        "fan140_aio_frame:radiator-mount(allowance)"
+      ]
+    },
+    {
+      "type": "radiator-mount",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "lian-li-ga2-lite-360"
+      ],
+      "providers": [
+        "fan120_aio_frame"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "lian-li-ga2-lite-360 needs 360 mm, 105 mm pitch; provided by fan120_aio_frame",
+      "note": "",
+      "weak_evidence": [
+        "fan120_aio_frame:radiator-mount(allowance)"
+      ]
+    },
+    {
+      "type": "radiator-mount",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "lian-li-ga2-lite-360"
+      ],
+      "providers": [
+        "fan120_aio_frame"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x radiator-mount=360 mm, 105 mm pitch, have 2",
+      "weak_evidence": [
+        "fan120_aio_frame:radiator-mount(allowance)"
+      ]
+    },
+    {
+      "type": "v100-aux-power",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "nvidia-v100-pcie-16gb"
+      ],
+      "providers": [
+        "v100-eps-power-adapter"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "nvidia-v100-pcie-16gb needs CPU/EPS 8-pin; provided by v100-eps-power-adapter",
+      "note": "",
+      "weak_evidence": [
+        "v100-eps-power-adapter:v100-aux-power(listing)"
+      ]
+    },
+    {
+      "type": "v100-aux-power",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "nvidia-v100-pcie-16gb"
+      ],
+      "providers": [
+        "v100-eps-power-adapter"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 4 x v100-aux-power=cpu/eps 8-pin, have 4",
+      "weak_evidence": [
+        "v100-eps-power-adapter:v100-aux-power(listing)"
+      ]
+    },
+    {
+      "type": "cooler-mount",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "amd-ryzen-9-9950x3d"
+      ],
+      "providers": [
+        "lian-li-ga2-lite-360"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "amd-ryzen-9-9950x3d needs AM5; provided by lian-li-ga2-lite-360",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
+      "type": "cpu-socket",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "amd-epyc-7702p"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "amd-epyc-7702p needs SP3; provided by huananzhi-h12d-8d",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
+      "type": "cpu-socket",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "amd-ryzen-9-9950x3d"
+      ],
+      "providers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "amd-ryzen-9-9950x3d needs AM5; provided by gigabyte-x870e-aorus-pro",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
+      "type": "pcie-x16-slot",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "nvidia-v100-pcie-16gb"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "nvidia-v100-pcie-16gb needs PCIe x16; provided by huananzhi-h12d-8d",
+      "note": "PCIe 3.0 card in a PCIe 4.0 slot",
+      "weak_evidence": []
+    },
+    {
+      "type": "pcie-x16-slot",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "nvidia-v100-pcie-16gb"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 4 x pcie-x16-slot=pcie x16, have 4",
+      "weak_evidence": []
+    },
+    {
+      "type": "pcie-x16-slot",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "zotac-rtx-5090-solid needs PCIe x16; provided by gigabyte-x870e-aorus-pro",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
+      "type": "pcie-x16-slot",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "gigabyte-x870e-aorus-pro"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 1 x pcie-x16-slot=pcie x16, have 1",
+      "weak_evidence": []
+    },
+    {
+      "type": "post-base-thread",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "obt-pcie-support"
+      ],
+      "providers": [
+        "wurth-970140324"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "obt-pcie-support needs M3 female; provided by wurth-970140324",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
+      "type": "post-base-thread",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "obt-pcie-support"
+      ],
+      "providers": [
+        "wurth-970140324"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 10 x post-base-thread=m3 female, have 10",
+      "weak_evidence": []
+    }
+  ],
+  "coverage": [
+    {
+      "part": "corsair-cmp64gx5m4b6400c32",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: X870E DIMM socket positions not surveyed; model them before trusting pump and hose clearance"
+    },
+    {
+      "part": "fan-controller",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: product not selected"
+    },
+    {
+      "part": "mains-power",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: outside the shelf; supply not specified"
+    },
+    {
+      "part": "samsung-990-pro-4tb",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: X870E M.2 slot positions not surveyed; drives sit under the board heatsinks"
+    },
+    {
+      "part": "tnut_fit_coupon",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: fit coupon, not installed"
+    },
+    {
+      "part": "Berserk V100 16GB PCIE2 / Berserk BMC module survey",
+      "status": "BLOCKED",
+      "detail": "geometry conflict in the layout: unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
+    },
+    {
+      "part": "Berserk V100 16GB PCIE3 / Berserk BMC module survey",
+      "status": "BLOCKED",
+      "detail": "geometry conflict in the layout: unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
+    }
+  ],
+  "renders": [],
+  "datasheets": [
+    {
+      "part": "ac-power-cords",
+      "status": "BLOCKED",
+      "detail": "Not selected. HX1200i wants a low-profile or down-exit C13; match the Hercules inlet and the UPS outlet (possibly C19)."
+    },
+    {
+      "part": "amd-epyc-7702p",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.amd.com/en/products/processors/server/epyc/7002-series/amd-epyc-7702p.html (run make datasheets)"
+    },
+    {
+      "part": "amd-ryzen-9-9950x3d",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x3d.html (run make datasheets)"
+    },
+    {
+      "part": "corsair-cmp64gx5m4b6400c32",
+      "status": "BLOCKED",
+      "detail": "Add Corsair's product page for this kit."
+    },
+    {
+      "part": "corsair-h115i",
+      "status": "BLOCKED",
+      "detail": "Reused unit; exact revision not recorded. Add the Corsair spec sheet for that revision."
+    },
+    {
+      "part": "corsair-hx1200i",
+      "status": "BLOCKED",
+      "detail": "Revision not recorded: the 2017 HX1200i (CP-9020070, 200 mm) has no 12V-2x6 cable; the 2023 ATX 3.x unit (CP-9020281) has one. Record the label and add its spec sheet."
+    },
+    {
+      "part": "fasteners",
+      "status": "BLOCKED",
+      "detail": "Generic ISO metric hardware; choose lengths from measured stacks (see docs/assembly.md)."
+    },
+    {
+      "part": "flex-duct-6in",
+      "status": "BLOCKED",
+      "detail": "Not selected; any 152 mm ID wire-supported duct."
+    },
+    {
+      "part": "gigabyte-x870e-aorus-pro",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.gigabyte.com/Motherboard/X870E-AORUS-PRO-rev-10/sp (run make datasheets)"
+    },
+    {
+      "part": "keystone-1451b",
+      "status": "BLOCKED",
+      "detail": "Only the DigiKey listing is recorded; add Keystone's drawing."
+    },
+    {
+      "part": "micron-3400-2tb",
+      "status": "BLOCKED",
+      "detail": "Dell OEM pull; add Micron's 3400 product brief. SMART reports pending."
+    },
+    {
+      "part": "moddiy-eps-90-extension",
+      "status": "BLOCKED",
+      "detail": "MODDIY product page not recorded; the 18 mm projection is a design target, not a product dimension."
+    },
+    {
+      "part": "obt-pcie-support",
+      "status": "BLOCKED",
+      "detail": "Open Benchtable publishes no drawing; the stud length is an owner measurement."
+    },
+    {
+      "part": "rosewill-hercules-1600",
+      "status": "BLOCKED",
+      "detail": "Owned unit; record its model number and add Rosewill's spec sheet. Connector counts below are assumptions."
+    },
+    {
+      "part": "silicone-gasket-2mm",
+      "status": "BLOCKED",
+      "detail": "Generic sheet."
+    },
+    {
+      "part": "v100-eps-power-adapter",
+      "status": "BLOCKED",
+      "detail": "Generic marketplace adapter; check its pinout against the NVIDIA brief before use."
+    },
+    {
+      "part": "v100-tail-support",
+      "status": "BLOCKED",
+      "detail": "Generic hardware; choose after measuring the card frame height."
+    },
+    {
+      "part": "wurth-970140324",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.we-online.com/components/products/datasheet/970140324.pdf (run make datasheets)"
+    },
+    {
+      "part": "zotac-rtx-5090-solid",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.zotac.com/us/product/graphics_card/zotac-gaming-geforce-rtx-5090-solid (run make datasheets)"
+    }
+  ],
+  "weak_evidence_dims": {
+    "amd-epyc-7702p": {
+      "datasheet": 1,
+      "assumed": 1
+    },
+    "amd-ryzen-9-9950x3d": {
+      "datasheet": 1,
+      "standard": 1,
+      "assumed": 1
+    },
+    "corsair-cmp64gx5m4b6400c32": {
+      "assumed": 1
+    },
+    "corsair-h115i": {
+      "assumed": 4,
+      "standard": 3
+    },
+    "corsair-hx1200i": {
+      "standard": 2,
+      "assumed": 2
+    },
+    "fasteners": {
+      "assumed": 1
+    },
+    "gigabyte-x870e-aorus-pro": {
+      "datasheet": 2,
+      "assumed": 1
+    },
+    "hammond-rsus1931bk1": {
+      "datasheet": 10,
+      "allowance": 1,
+      "photo-estimate": 3,
+      "unknown": 1
+    },
+    "huananzhi-h12d-8d": {
+      "datasheet": 2,
+      "assumed": 2
+    },
+    "keystone-1451b": {
+      "listing": 1,
+      "assumed": 1
+    },
+    "lian-li-ga2-lite-360": {
+      "datasheet": 6,
+      "allowance": 1,
+      "standard": 1,
+      "assumed": 1
+    },
+    "micron-3400-2tb": {
+      "standard": 2,
+      "assumed": 2
+    },
+    "micron-mta36asf4g72pz-2g9": {
+      "assumed": 2
+    },
+    "moddiy-eps-90-extension": {
+      "allowance": 1,
+      "assumed": 1
+    },
+    "nvidia-v100-pcie-16gb": {
+      "datasheet": 4,
+      "allowance": 1
+    },
+    "obt-pcie-support": {
+      "measured": 1,
+      "allowance": 1,
+      "assumed": 1
+    },
+    "rack-cabinet": {
+      "unknown": 3
+    },
+    "rosewill-hercules-1600": {
+      "standard": 2,
+      "allowance": 1,
+      "assumed": 1
+    },
+    "samsung-990-pro-4tb": {
+      "assumed": 1
+    },
+    "v100-eps-power-adapter": {
+      "assumed": 1
+    },
+    "v100-tail-support": {
+      "allowance": 2,
+      "assumed": 1
+    },
+    "wurth-970140324": {
+      "datasheet": 3,
+      "assumed": 1
+    },
+    "zotac-rtx-5090-solid": {
+      "datasheet": 4,
+      "assumed": 1
+    },
+    "atx_mobo_adapter_front": {
+      "allowance": 1
+    },
+    "atx_mobo_adapter_rail": {
+      "allowance": 1
+    },
+    "fan120_aio_center_spacer": {
+      "allowance": 1
+    },
+    "fan120_aio_frame": {
+      "allowance": 1
+    },
+    "fan120_aio_hose_brace": {
+      "allowance": 1
+    },
+    "fan140_aio_frame": {
+      "allowance": 1
+    },
+    "fan140_aio_hose_brace": {
+      "allowance": 1
+    },
+    "gpu_exhaust_fan_flange": {
+      "allowance": 1
+    },
+    "gpu_exhaust_roof_flange": {
+      "allowance": 1
+    },
+    "gpu_rest": {
+      "allowance": 1
+    },
+    "h12d_mobo_adapter_rail": {
+      "allowance": 1
+    },
+    "psu_bracket": {
+      "allowance": 1
+    },
+    "tnut_fit_coupon": {
+      "allowance": 1
+    },
+    "v100_gpu_shroud": {
+      "allowance": 1
+    },
+    "rear-aio-steel-extension": {
+      "allowance": 4
+    }
+  },
+  "unspecified_parts": [
+    "fan-controller",
+    "mains-power",
+    "rack-cabinet"
+  ]
+}

@@ -21,7 +21,9 @@ BASE_Y, BASE_END_Y, BASE_T = 333.0+BERSERK_DY, 363.0+BERSERK_DY, 6.0
 BASE_TOE_Y = BASE_Y + BASE_T  # One straight inlet edge;45deg underside bevel.
 RIB_T = 4.0
 RIB_X = tuple(CX + x for x in (-65.0,-25.0,25.0,65.0))
-FAN_SIZE, FAN_DEPTH, FAN_FLANGE, PITCH = 140.0,38.0,4.0,124.5
+from aipc import spec
+_FAN = spec.get('sanyo-denki-9gv1412p1s001')
+FAN_SIZE, FAN_DEPTH, FAN_FLANGE, PITCH = _FAN.dim('size'), _FAN.dim('depth'), 4.0, _FAN.dim('hole_pitch')
 ANCHORS=((CX-55.0,347.0+BERSERK_DY),(CX+55.0,347.0+BERSERK_DY),(CX,352.5+BERSERK_DY))
 SLOT_LENGTH, SLOT_WIDTH = 8.0,5.5
 NUT_BODY=(11.5,5.7,4.2)

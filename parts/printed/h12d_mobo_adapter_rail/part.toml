@@ -1,0 +1,27 @@
+id = "h12d_mobo_adapter_rail"
+name = "h12d_mobo_adapter_rail"
+category = "printed"
+role = "Berserk rear rail with GPU post holes for four dual-slot V100s"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+evidence = "allowance"
+
+[print]
+plate = "03_h12d_mobo_adapter_rail"
+material = "PETG"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.0952, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+[[provides]]
+type = "mobo-rear-rail"
+value = "H12D-8D slot positions"
+count = 1
+
+[assembly]
+match = ["^berserk_mobo_adapter_right_drill_plan$"]

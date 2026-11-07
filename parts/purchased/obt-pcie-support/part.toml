@@ -1,0 +1,26 @@
+id = "obt-pcie-support"
+name = "Open Benchtable PCI-E support rod with nut"
+category = "purchased"
+role = "GPU bracket posts (two per card)"
+status = "selected"
+quantity = 10
+systems = ["berserk", "kenshin"]
+evidence = "measured"
+no_datasheet_reason = "Open Benchtable publishes no drawing; the stud length is an owner measurement."
+
+[model]
+source = "constructed"
+
+[dims]
+stud_length = { value = 9.0, evidence = "measured", source = "owner report 2026-10-23" }
+rod_length = { value = 131.0, evidence = "allowance" }
+mass = { value = 0.03, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "post-base-thread"
+value = "M3 female"
+count = 1
+
+[assembly]
+match = ["_metal_OBT_PCIe_post_\\d+_survey$", "_OBT_9mm_stud_\\d+$"]
+instances_per_unit = 2

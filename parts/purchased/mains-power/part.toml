@@ -1,0 +1,26 @@
+id = "mains-power"
+name = "Mains circuit, UPS and PDU (not specified)"
+category = "purchased"
+role = "AC supply for both PSUs"
+status = "unspecified"
+quantity = 1
+systems = ["rack"]
+evidence = "unknown"
+on_shelf = false
+notes = """
+Both systems at full load draw about 2.5 kW from the wall, more than one
+15 A / 120 V circuit carries continuously (1.44 kW). Record the circuit(s),
+UPS and PDU ratings and outlet types (C13/C19) here.
+"""
+
+[model]
+source = "constructed"
+
+[[provides]]
+type = "ac-power"
+capacity = ""
+unit = "W"
+derate = 0.8
+
+[assembly]
+not_modeled = "outside the shelf; supply not specified"

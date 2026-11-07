@@ -1,0 +1,23 @@
+id = "fasteners"
+name = "Shelf and component fasteners (M3/M4 screws, washers, nuts)"
+category = "purchased"
+role = "45 shelf joints plus radiator, fan, flange and roof screws"
+status = "candidate"
+quantity = 1
+systems = ["berserk", "kenshin", "shelf"]
+evidence = "allowance"
+no_datasheet_reason = "Generic ISO metric hardware; choose lengths from measured stacks (see docs/assembly.md)."
+
+[model]
+source = "constructed"
+notes = "Shafts, heads and washers at nominal size; the model is one representative set."
+
+[dims]
+mass = { value = 0.6, unit = "kg", evidence = "assumed" }
+
+[assembly]
+match = ["_shelf_bolt_", "^Rear_extension_M4x20_", "^H115i_shared_front_screw_", "^H115i_brace_rear_screw_",
+         "^Kenshin_AIO_screw_head_", "^Kenshin_AIO_shared_screw_shaft_", "^Kenshin_brace_inward_screw_",
+         "_M3x8\\.0_and_washer_\\d+_survey$", "_stock_backing_washer_\\d+$", "^V100_hood_shelf_M4_",
+         "^V100_inlet_M4_", "^fan_outlet_M4_", "^roof_M4_"]
+count_check = false

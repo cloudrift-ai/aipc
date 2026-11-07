@@ -1,0 +1,27 @@
+id = "v100_gpu_shroud"
+name = "v100_gpu_shroud"
+category = "printed"
+role = "hood over the four V100s with integral 45 degree fan panel"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+evidence = "allowance"
+
+[print]
+plate = "12_v100_gpu_shroud"
+material = "HT-PLA-GF"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.4036, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+[[provides]]
+type = "fan-mount"
+value = "140 mm, 124.5 mm pitch"
+count = 1
+
+[assembly]
+match = ["^V100_GPU_shroud$"]

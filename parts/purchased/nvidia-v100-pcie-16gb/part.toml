@@ -1,0 +1,61 @@
+id = "nvidia-v100-pcie-16gb"
+name = "NVIDIA Tesla V100 PCIe 16 GB"
+category = "purchased"
+role = "Berserk GPUs (passive, ducted)"
+status = "selected"
+quantity = 4
+systems = ["berserk"]
+evidence = "datasheet"
+notes = """
+Passive 250 W cards: they need forced ducted airflow. Auxiliary power is a
+CPU/EPS 8-pin connector; never plug PCIe 8-pin into it. Start near 180 W per
+card. Thickness, slot offset and flange holes are provisional.
+"""
+
+[links]
+listing = "https://www.ebay.com/itm/127840399241"
+
+[[datasheets]]
+title = "Tesla V100 PCIe product brief"
+url = "https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-V100-PCIe-Product-Brief.pdf"
+
+[model]
+source = "constructed"
+notes = "Body envelope plus bracket-flange hole survey."
+
+[dims]
+length = { value = 266.7, evidence = "datasheet", source = "product brief" }
+height = { value = 111.15, evidence = "datasheet", source = "product brief" }
+thickness = { value = 40.0, evidence = "allowance", note = "dual-slot nominal; 36 mm component side + 4 mm back side assumed" }
+tgp = { value = 250.0, unit = "W", evidence = "datasheet", source = "product brief" }
+mass = { value = 1.196, unit = "kg", evidence = "datasheet", source = "product brief p.3, board 1196 g" }
+
+[[requires]]
+type = "pcie-x16-slot"
+value = "PCIe x16"
+count = 1
+note = "PCIe 3.0 card in a PCIe 4.0 slot"
+
+[[requires]]
+type = "pcie-card-envelope"
+value = 40.0
+evidence = "allowance"
+
+[[requires]]
+type = "v100-aux-power"
+value = "CPU/EPS 8-pin"
+count = 1
+
+[[requires]]
+type = "gpu-forced-airflow"
+count = 1
+
+[[requires]]
+type = "dc-power"
+load = 250.0
+load_limited = 180.0
+note = "nvidia-smi power limit 180 W planned for first runs"
+
+[assembly]
+match = ["^Berserk_V100_16GB_PCIE\\d$", "^Berserk_PCIE\\d_GPU_flange_hole_pattern_survey$"]
+instances_per_unit = 2

@@ -1,0 +1,37 @@
+id = "amd-epyc-7702p"
+name = "AMD EPYC 7702P"
+category = "purchased"
+role = "Berserk CPU"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+evidence = "datasheet"
+notes = "Bundled with the H12D listing. The assembly envelope includes the cooler pump head."
+
+[[datasheets]]
+title = "AMD EPYC 7702P specifications"
+url = "https://www.amd.com/en/products/processors/server/epyc/7002-series/amd-epyc-7702p.html"
+
+[model]
+source = "constructed"
+notes = "75 x 75 x 50 mm CPU-plus-pump survey envelope at the photo-estimated socket centre."
+
+[dims]
+tdp = { value = 200.0, unit = "W", evidence = "datasheet", source = "AMD specifications" }
+mass = { value = 0.1, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "cpu-socket"
+value = "SP3"
+
+[[requires]]
+type = "cooler-mount"
+value = "SP3"
+note = "the SP3 IHS is far larger than a round desktop cold plate"
+
+[[requires]]
+type = "dc-power"
+load = 200.0
+
+[assembly]
+match = ["^Berserk_SP3_CPU_and_pump_survey$"]

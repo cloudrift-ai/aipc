@@ -1087,7 +1087,7 @@
         "bounds_xy_mm": [
           109.20599999999993,
           470.02,
-          292.356,
+          292.35599999999994,
           705.0
         ],
         "independent_shelf_fasteners": true,
@@ -1607,16 +1607,46 @@
       "z": 107.57359312880715,
       "w": 140.0,
       "d": 125.86500705120545,
-      "h": 125.86500705120545,
+      "h": 125.86500705120548,
       "note": "Sanyo 9GV1412P1S001, 45-degree upward exhaust; bounding box only, shape is rotated; occupies reserved upper duct volume"
+    },
+    {
+      "name": "Berserk M2 SSD 1",
+      "x": 224.37654320987656,
+      "y": 215.64368013757525,
+      "z": 17.125,
+      "w": 22.0,
+      "d": 80.0,
+      "h": 2.4,
+      "note": "Micron 3400 2280 at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
+    },
+    {
+      "name": "Berserk M2 SSD 2",
+      "x": 183.37517146776406,
+      "y": 215.64368013757525,
+      "z": 17.125,
+      "w": 22.0,
+      "d": 80.0,
+      "h": 2.4,
+      "note": "Micron 3400 2280 at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
+    },
+    {
+      "name": "Berserk M2 SSD 3",
+      "x": 142.37379972565157,
+      "y": 215.64368013757525,
+      "z": 17.125,
+      "w": 22.0,
+      "d": 80.0,
+      "h": 2.4,
+      "note": "Micron 3400 2280 at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
     },
     {
       "name": "Kenshin ATX board",
       "x": 111.656,
       "y": 446.5,
       "z": 15.525,
-      "w": 305,
-      "d": 244,
+      "w": 305.0,
+      "d": 244.0,
       "h": 1.6,
       "note": "Gigabyte X870E footprint; PCIe slot position approximate"
     },
@@ -1655,7 +1685,7 @@
       "x": 104,
       "y": 14.0,
       "z": 20.0,
-      "w": 312,
+      "w": 312.0,
       "d": 26.0,
       "h": 140.0,
       "note": "owner photo confirms original bracket between fan and radiator; bracket front Y~-13 measured; radiator envelope remains approximate"
@@ -1665,9 +1695,9 @@
       "x": 120,
       "y": -16.0,
       "z": 20.0,
-      "w": 280,
+      "w": 280.0,
       "d": 25.0,
-      "h": 140,
+      "h": 140.0,
       "note": "two existing 140mm fans in front of the original brackets and radiator; intended push front-to-rear; arrows need checking"
     },
     {
@@ -1675,9 +1705,9 @@
       "x": 0.0,
       "y": 0.0,
       "z": 0,
-      "w": 86,
-      "d": 245,
-      "h": 150,
+      "w": 86.0,
+      "d": 245.0,
+      "h": 150.0,
       "note": "245 mm planning depth allows a few mm beyond ~241 mm nominal; fan +X, AC rear"
     },
     {
@@ -1685,9 +1715,9 @@
       "x": 7.656000000000006,
       "y": 525.5,
       "z": 0,
-      "w": 86,
-      "d": 200,
-      "h": 150,
+      "w": 86.0,
+      "d": 200.0,
+      "h": 150.0,
       "note": "ATX unit on its side, rotated 180 degrees; fan faces -X toward cabinet side, AC grille faces front; cabinet intake clearance unmeasured"
     },
     {
@@ -1695,9 +1725,9 @@
       "x": 12.5,
       "y": 787.5,
       "z": 23.0,
-      "w": 397,
-      "d": 27,
-      "h": 120,
+      "w": 397.0,
+      "d": 27.0,
+      "h": 120.0,
       "note": "Lian Li GA2L36PB published dimensions; 105mm mounting pitch and hose ports provisional"
     },
     {
@@ -1705,9 +1735,9 @@
       "x": 29,
       "y": 820.5,
       "z": 21.0,
-      "w": 124,
-      "d": 28,
-      "h": 124,
+      "w": 124.0,
+      "d": 28.0,
+      "h": 124.0,
       "note": "Owned Performance fan; pull through radiator toward rear. All fans coplanar on 6mm frames/spacer for factory side bridges. 2mm side connector allowance is provisional."
     },
     {
@@ -1715,9 +1745,9 @@
       "x": 149,
       "y": 820.5,
       "z": 21.0,
-      "w": 124,
-      "d": 28,
-      "h": 124,
+      "w": 124.0,
+      "d": 28.0,
+      "h": 124.0,
       "note": "Owned Performance fan; pull through radiator toward rear. All fans coplanar on 6mm frames/spacer for factory side bridges. 2mm side connector allowance is provisional."
     },
     {
@@ -1725,9 +1755,9 @@
       "x": 269,
       "y": 820.5,
       "z": 21.0,
-      "w": 124,
-      "d": 28,
-      "h": 124,
+      "w": 124.0,
+      "d": 28.0,
+      "h": 124.0,
       "note": "Owned Performance fan; pull through radiator toward rear. All fans coplanar on 6mm frames/spacer for factory side bridges. 2mm side connector allowance is provisional."
     }
   ],
@@ -1965,15 +1995,15 @@
     ],
     "nominal_gauge_thickness_mm": 1.52,
     "thickness_basis": "16 gauge from current series page; 1.52 mm nominal allowance, actual sheet and coating unmeasured",
-    "fold_height_mm": 38.099999999999994,
+    "fold_height_mm": 38.1,
     "overall_height_mm": 68.072,
     "overall_width_mm": 479.806,
-    "rack_hole_pitch_mm": 466.34399999999994,
+    "rack_hole_pitch_mm": 466.344,
     "mount_depth_range_mm": [
       457.2,
-      711.1999999999999
+      711.2
     ],
-    "slide_travel_mm": 711.1999999999999,
+    "slide_travel_mm": 711.2,
     "equipment_load_limit_kg": 39.0,
     "mounting_space_U": 2,
     "required_clearance_U": 3,
@@ -2032,7 +2062,7 @@
       "x": 109.20599999999993,
       "y": 470.02,
       "z": 0,
-      "w": 183.15000000000006,
+      "w": 183.15,
       "d": 234.98000000000002,
       "h": 6.0,
       "note": "bounding envelope only; interlocking open frame"

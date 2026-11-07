@@ -1,0 +1,16 @@
+id = "silicone-gasket-2mm"
+name = "2 mm silicone foam gasket sheet, 200 x 200 mm"
+category = "purchased"
+role = "roof flange seal"
+status = "candidate"
+quantity = 1
+systems = ["berserk"]
+evidence = "allowance"
+on_shelf = false
+no_datasheet_reason = "Generic sheet."
+
+[model]
+source = "constructed"
+
+[assembly]
+match = ["^roof_silicone_gasket$"]

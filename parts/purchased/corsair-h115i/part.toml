@@ -1,0 +1,47 @@
+id = "corsair-h115i"
+name = "Corsair Hydro H115i 280 mm AIO (reused)"
+category = "purchased"
+role = "Berserk CPU cooler, front of shelf"
+status = "owned"
+quantity = 1
+systems = ["berserk"]
+evidence = "assumed"
+no_datasheet_reason = "Reused unit; exact revision not recorded. Add the Corsair spec sheet for that revision."
+notes = """
+The retail H115i mounting kit covers Intel and desktop AMD sockets only.
+EPYC SP3 needs a separate bracket that is not in the parts list, and the
+round cold plate covers only part of the SP3 heat spreader.
+"""
+
+[model]
+source = "constructed"
+notes = "Radiator and fan envelopes; owner measured the front bracket overhang only."
+
+[dims]
+radiator_length = { value = 312.0, evidence = "assumed" }
+radiator_thickness = { value = 26.0, evidence = "assumed" }
+radiator_height = { value = 140.0, evidence = "assumed" }
+fan_size = { value = 140.0, evidence = "standard", source = "140 mm PC fan standard" }
+fan_depth = { value = 25.0, evidence = "standard", source = "140 x 25 mm fan" }
+hole_pitch = { value = 124.5, evidence = "standard", source = "140 mm fan hole pattern" }
+mass = { value = 1.3, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "cooler-mount"
+accepts = ["LGA115x", "LGA1366", "LGA2011", "AM2", "AM3", "FM2"]
+evidence = "assumed"
+note = "retail kit; no SP3/TR4 bracket recorded"
+
+[[requires]]
+type = "radiator-mount"
+value = "280 mm, 124.5 mm pitch"
+count = 2
+
+[[requires]]
+type = "dc-power"
+load = 12.0
+evidence = "assumed"
+
+[assembly]
+match = ["^Berserk_H115i_radiator$", "^H115i_intake_fans$"]
+instances_per_unit = 2

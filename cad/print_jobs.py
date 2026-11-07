@@ -15,9 +15,11 @@ from collections import Counter
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
+from aipc import spec
+
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "models"
+SOURCE = ROOT / "models"  # fit-report.json; printed STL come from parts/printed/<name>/
 OUT = ROOT / "print"
 BED_W, BED_D = 270.0, 200.0  # Orca's Qidi X-Plus 0.4 nozzle preset
 EDGE_MARGIN = 12.0
@@ -234,7 +236,9 @@ def main():
     (OUT/"profiles/plenum-supports.json").unlink(missing_ok=True)
     intended = {entry["part"]: entry["quantity"] for entry in
                 json.loads((SOURCE / "fit-report.json").read_text())["printed_parts"]}
-    source_meshes = {part: read_binary_stl(SOURCE / f"{part}.stl") for part in intended}
+    printed_specs = {p.id: p.quantity for p in spec.load_all().values() if p.category == "printed"}
+    assert intended == printed_specs, ("fit-report printed parts differ from parts/printed specs", intended, printed_specs)
+    source_meshes = {part: read_binary_stl(spec.get(part).model_stl) for part in intended}
     oriented = {part: print_orientation(part, mesh)
                 for part, mesh in source_meshes.items()}
     meshes = {part: oriented[part][0] for part in intended}

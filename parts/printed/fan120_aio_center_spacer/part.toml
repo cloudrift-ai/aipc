@@ -1,0 +1,23 @@
+id = "fan120_aio_center_spacer"
+name = "fan120_aio_center_spacer"
+category = "printed"
+role = "keeps the middle 120 mm fan coplanar"
+status = "design"
+quantity = 1
+systems = ["kenshin"]
+evidence = "allowance"
+
+[print]
+plate = "10_fan120_aio_center_spacer"
+material = "PETG"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.0249, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+
+[assembly]
+match = ["^Kenshin_AIO_middle_fan_6mm_spacer$"]

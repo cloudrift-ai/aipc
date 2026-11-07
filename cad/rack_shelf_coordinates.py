@@ -5,7 +5,10 @@ Kenshin is turned 180 degrees in the deck plane: its I/O faces the center
 service corridor and its GPU occupies the high-X side of the deeper tray.
 """
 
-SHELF_W, SHELF_D, SHELF_T = 16.64 * 25.4, 31.0 * 25.4, 1.52
+from aipc import spec
+
+_SHELF = spec.get('hammond-rsus1931bk1')
+SHELF_W, SHELF_D, SHELF_T = _SHELF.dim('deck_width'), _SHELF.dim('deck_depth'), _SHELF.dim('sheet_thickness')
 BERSERK_DX, BERSERK_DY = -24.0, 28.0
 K_XSUM, K_YSUM = SHELF_W, 1071.0
 

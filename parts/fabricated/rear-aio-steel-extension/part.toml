@@ -1,0 +1,22 @@
+id = "rear-aio-steel-extension"
+name = "Rear AIO steel extension plate, 400 x 83 x 3 mm"
+category = "fabricated"
+role = "carries the rear radiator feet beyond the deck"
+status = "design"
+quantity = 1
+systems = ["kenshin", "shelf"]
+evidence = "allowance"
+notes = "Mild steel, six 5 mm holes shared with the frame and brace anchors. Deburr and coat. Loaded deflection untested."
+
+[model]
+source = "constructed"
+notes = "Drill plan also exported as models/rear-aio-steel-extension-drill-plan.step."
+
+[dims]
+length = { value = 400.0, evidence = "allowance" }
+width = { value = 83.0, evidence = "allowance" }
+thickness = { value = 3.0, evidence = "allowance" }
+mass = { value = 0.78, unit = "kg", evidence = "allowance", note = "steel 7.85 g/cm3" }
+
+[assembly]
+match = ["^Rear_AIO_400x83x3_steel_extension_drill_plan$"]

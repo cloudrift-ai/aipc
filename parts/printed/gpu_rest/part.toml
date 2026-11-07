@@ -1,0 +1,23 @@
+id = "gpu_rest"
+name = "gpu_rest"
+category = "printed"
+role = "front-end rest for the RTX 5090"
+status = "design"
+quantity = 1
+systems = ["kenshin"]
+evidence = "allowance"
+
+[print]
+plate = "04_gpu_rest"
+material = "PETG"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.0319, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+
+[assembly]
+match = ["^printed_Kenshin_GPU_rest_survey$"]

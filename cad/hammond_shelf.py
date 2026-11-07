@@ -7,14 +7,17 @@ radii and screw patterns are deliberately not represented as measured parts.
 import json
 import cadquery as cq
 
+from aipc import spec
+
+_P = spec.get('hammond-rsus1931bk1')  # parts/purchased/hammond-rsus1931bk1/part.toml
 MODEL = 'Hammond RSUS1931BK1'
-SOURCE = 'https://www.hammfg.com/dci/products/accessories/rsus'
-DRAWING = 'https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf'
-SIDE_HEIGHT, OVERALL_HEIGHT = 1.5*25.4, 2.68*25.4
-OVERALL_WIDTH, RACK_HOLE_PITCH = 18.89*25.4, 18.36*25.4
-TRAVEL = 28*25.4
-MOUNT_DEPTH_RANGE = (18*25.4, 28*25.4)
-RATING_KG = 39.0
+SOURCE = _P.datasheets[0]['url']
+DRAWING = _P.datasheets[1]['url']
+SIDE_HEIGHT, OVERALL_HEIGHT = _P.dim('fold_height'), _P.dim('overall_height')
+OVERALL_WIDTH, RACK_HOLE_PITCH = _P.dim('overall_width'), _P.dim('rack_hole_pitch')
+TRAVEL = _P.dim('slide_travel')
+MOUNT_DEPTH_RANGE = (_P.dim('mount_depth_min'), _P.dim('mount_depth_max'))
+RATING_KG = _P.dim('load_rating')
 
 
 def box(w,d,h,x,y,z):
@@ -33,8 +36,11 @@ def envelope_parts(width, depth, thickness):
     }
     # Outer slide bars are illustrative keepouts outside the deck width.
     # TRAVEL is sourced; closed bar length and cross-section are not.
-    rail_length, rail_depth, rail_height = TRAVEL, 12.5, 30.0
-    rail_y = (depth-rail_length)/2
+    # Drawing top view (scale reading): front bracket flange flush with the deck
+    # front; at the 28 in rail distance the rear bracket sits ~3 in short of the
+    # deck rear. Closed slide length is not dimensioned; drawing scale gives ~28 in.
+    rail_length, rail_depth, rail_height = _P.dim('slide_closed_length'), 12.5, 30.0
+    rail_y = _P.dim('front_bracket_setback')
     margin = (OVERALL_WIDTH-width)/2
     for side,x in (('left',-rail_depth),('right',width)):
         shapes[f'Hammond_{side}_factory_slide_envelope'] = box(rail_depth,rail_length,rail_height,x,rail_y,-34)

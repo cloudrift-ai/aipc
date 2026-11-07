@@ -1,0 +1,24 @@
+id = "keystone-1451b"
+name = "Keystone 1451B #6-32 F/F brass standoff, 3/8 in"
+category = "purchased"
+role = "motherboard standoffs"
+status = "selected"
+quantity = 17
+systems = ["berserk", "kenshin"]
+evidence = "listing"
+no_datasheet_reason = "Only the DigiKey listing is recorded; add Keystone's drawing."
+
+[model]
+source = "constructed"
+
+[dims]
+length = { value = 9.525, evidence = "listing", source = "part number 3/8 in" }
+mass = { value = 0.002, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "board-standoff"
+value = "#6-32 F/F"
+count = 1
+
+[assembly]
+match = ["^(Berserk|Kenshin)_nominal_6_32_standoff_\\d+$"]

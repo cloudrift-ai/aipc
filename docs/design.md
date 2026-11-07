@@ -15,6 +15,8 @@ Networking uses each board's onboard Ethernet (Berserk: dual 2.5GbE plus the ded
 
 ![Layout and side clearance](../models/dual-pc-hammond-layout.png)
 
+Every part has a folder under [parts/](../parts/README.md) with its evidence-tagged spec, datasheet links, model and renders; [process.md](process.md) describes the workflow and [system-check.md](system-check.md) the current compatibility results.
+
 This remains a fit prototype. Manufacturer dimensions, photograph estimates, owner measurements and design allowances are separate evidence classes. CAD validates the modeled shapes and checks, not the unmeasured real interfaces. Printed mounts have no measured load or thermal-creep qualification.
 
 ## Shelf and layout
@@ -174,6 +176,23 @@ A plain 119 × 119 × 6 mm center spacer keeps all fans coplanar for their side 
 
 
 **Prototype audit, 2026-11-05.** The Hammond revision passed a full CAD rebuild and all 14 support-free OrcaSlicer jobs (18 pieces including the coupon). Independent review covered the exported assembly, complete I/O approach reserve, underside hardware, rear steel support and foot bearing throughout slot travel. The three changed parts—compact GPU rest, rear bearing frame and mirrored brace—were inspected from six directions in their actual plate orientations, followed by the recess transitions, frame-slot closure at print Z65.2 and brace-slot closures at Z20.2/Z20.8. The reviewed bridges are anchored at both ends; longer internal bridge roads cross underlying infill. No new digital blocker remains. The conservative BMC/GPU overlap, Berserk hood/I/O service-reserve overlap, physical rack fit, steel deflection, PSU intake clearance and thermal qualification remain open. Final repeat-slice deposition paths match the independently reviewed paths; all final plate, G-code and profile hashes were checked. Test-print and dry-fit one of each changed part before duplicating it.
+
+**Design audit, 2026-11-06 (process refactor).** Every part now has a folder under [parts/](../parts/README.md), the assembly is fully registered (every instance maps to a part or a declared keepout) and the whole-system check is in [system-check.md](system-check.md). The rebuild, the renders and an independent fresh-context review found:
+
+- **FAIL: H115i on EPYC.** The H115i retail kit has no SP3 bracket, and none is in the parts list; its round cold plate also covers only part of the SP3 heat spreader. Choose an SP3-capable cooler or add a verified SP3/TR4 bracket before relying on it.
+- **Cabinet unspecified.** Rack standard, post depth, rack units (about 11U, from Z−58 to the Z400 roof flange), front door clearance (H115i screws reach 20 mm ahead of the deck front) and rear clearance (rear AIO screw heads end 141 mm behind the rear rail plane at the 28 in rail distance, plus 35 mm for a driver) cannot be checked until the cabinet is identified. This is the class of mismatch that sank the earlier shelf/slide choice.
+- **Slide bracket positions corrected.** The Hammond drawing's top view (a scale reading, not a dimension) shows the front bracket flange flush with the deck front and the rear bracket about 3 in short of the deck rear at 28 in. The illustrative envelopes previously sat 38.1 mm in from each end; they now follow the drawing. Travel sweeps still pass.
+- **Mains power.** Both systems at full load draw about 2.5 kW from the wall, more than one 15 A/120 V circuit carries continuously. No circuit, UPS or PDU is specified ([mains-power](../parts/purchased/mains-power/README.md)).
+- **HX1200i revision unknown.** Only the 2023 ATX 3.x unit has a native 12V-2x6 cable for the RTX 5090; record the label.
+- **Fan controller not selected** for the 3.1 A pressure fan.
+- **BMC/V100 underside:** PCIE2 and PCIE3 overlap the photo-estimated BMC envelope (0.1 mm in Z). The H12D slot pitch check passes only against photo-estimated slot positions; get the H12D user manual.
+- **Kenshin AIO fans** are modeled 124 mm wide on a 120 mm pitch, so neighbours overlap by 4 mm (an allowed pair in the layout). Measure the owned fans.
+- **Cables along the shelf edges:** the AC and Ethernet survey routes run at X−12.6 and X431.7–437.7, at the edge of a 450 mm rack opening. Check them against the real posts. Kenshin's display, USB and network cables are not modeled; its rear I/O faces the 64 mm corridor under the V100 duct.
+- **Not modeled:** Kenshin DIMMs and NVMe drives (X870E positions not surveyed).
+- **Evidence corrected:** V100 mass 1196 g and San Ace mass 630 g (datasheets); H12D PCB size, slot counts and 24+8+8 power headers (manufacturer page). The shelf load (23 kg of 39 kg) is still mostly assumed masses and excludes cables and the duct.
+- **Airflow:** the V100 tails sit 35 mm downstream of the front H115i exhaust, about 1.3 kW goes into a cabinet whose ventilation is unknown, and the PSU intake lanes (11.6 mm and 7.7 mm) remain open.
+
+Datasheets for AMD, Gigabyte, Würth and Zotac block automated download; save them by hand into each part's `datasheets/` folder.
 
 ## V100 cooling, power and cables
 

@@ -1,0 +1,21 @@
+id = "v100-tail-support"
+name = "M4 F/F 20 mm metal spacer with 4 mm silicone pad"
+category = "purchased"
+role = "V100 tail support"
+status = "candidate"
+quantity = 4
+systems = ["berserk"]
+evidence = "allowance"
+no_datasheet_reason = "Generic hardware; choose after measuring the card frame height."
+
+[model]
+source = "constructed"
+
+[dims]
+spacer_length = { value = 20.0, evidence = "allowance" }
+pad_thickness = { value = 4.0, evidence = "allowance" }
+mass = { value = 0.01, unit = "kg", evidence = "assumed" }
+
+[assembly]
+match = ["^PCIE\\d_metal_tail_support_survey$", "^PCIE\\d_silicone_contact_pad_survey$"]
+instances_per_unit = 2

@@ -6,6 +6,9 @@ __pycache__/
 # Sliced toolpaths: regenerate with `make gcode`
 print/gcode/
 
+# Manufacturer datasheets: fetched by `make datasheets`, not redistributed
+parts/*/*/datasheets/
+
 # Scratch output
 tmp/
 

@@ -1,0 +1,35 @@
+id = "micron-3400-2tb"
+name = "Micron 3400 2 TB NVMe (MTFDKBA2T0TFH)"
+category = "purchased"
+role = "Berserk model storage, 3-drive RAID 0"
+status = "selected"
+quantity = 3
+systems = ["berserk"]
+evidence = "listing"
+no_datasheet_reason = "Dell OEM pull; add Micron's 3400 product brief. SMART reports pending."
+
+[links]
+listing = "https://www.ebay.com/itm/880020201442"
+
+[model]
+source = "constructed"
+notes = "22 x 80 x 2.4 mm at the photo-estimated M.2 standoffs, beneath the V100s."
+
+[dims]
+length = { value = 80.0, evidence = "standard", source = "M.2 2280" }
+width = { value = 22.0, evidence = "standard", source = "M.2 2280" }
+thickness = { value = 2.4, evidence = "assumed", note = "single-sided bare drive" }
+mass = { value = 0.008, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "m2-slot"
+value = "M.2 2280 NVMe"
+count = 1
+
+[[requires]]
+type = "dc-power"
+load = 7.0
+evidence = "assumed"
+
+[assembly]
+match = ["^Berserk_M2_SSD_\\d$"]
