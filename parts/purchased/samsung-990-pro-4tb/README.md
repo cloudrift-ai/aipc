@@ -36,8 +36,8 @@
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
 | provisional | budget | `dc-power` | load 908.0 W of 1200.0 W x derate 0.8 = 960.0 W (76% of rating) |
 | provisional | value | `m2-slot` | samsung-990-pro-4tb needs M.2 2280 NVMe; provided by gigabyte-x870e-aorus-pro |
 | provisional | count | `m2-slot` | need 2 x m2-slot=m.2 2280 nvme, have 4 |
+| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
 

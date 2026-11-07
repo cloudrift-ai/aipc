@@ -40,7 +40,8 @@ The [access audit](../models/assembly-access-audit.json) checks nominal washer/h
 
 ## Fan wiring and first power-up
 
-- Power the Sanyo Denki fan from the PSU through a controller rated for 3.1 A plus a verified startup allowance, not from a motherboard header. Leads: red +12 V, black ground, yellow tach, brown 25 kHz PWM. An open PWM line runs the fan at full speed, and 0% duty stops it.
+- Power the Sanyo Denki fan motor from the PSU through the [fused harness](../parts/fabricated/fan-power-harness/README.md) (Molex 12 V, 5 A fuse), never from a motherboard header or directly from a QUADRO output (25 W per channel, below the fan's 37.2 W). Leads: red +12 V, black ground, yellow tach, brown 25 kHz PWM. Only tach, PWM and ground go to the [QUADRO](../parts/purchased/aquacomputer-quadro/README.md); its +12 V pin stays unconnected. An open PWM line runs the fan at full speed, and 0% duty stops it.
+- On Linux the `aquacomputer_d5next` driver exposes the QUADRO as hwmon (`pwm1`-`pwm4`, `fan1`-`fan4`). A host service sets the duty from the hottest GPU; it must write 100% on start, on exit and on error, because the QUADRO otherwise holds its last duty.
 - Configure full speed at startup and on faults. Control from the hottest GPU, and stop GPU load if tach is lost. Keep leads and seals away from the rotor.
 - Check the V100 power adapters' pinout before connecting: the cards take CPU/EPS 8-pin wiring. Never plug a PCIe 8-pin directly into a V100.
 - Start at about **180 W per V100** with the fan at full speed. Measure GPU / HBM, hood, base and fan-panel temperatures with the cabinet closed. A loaded printed surface at 50 °C is an inspection trigger, not a rating. Stop for softening, creep, looseness, fan failure, duct collapse, backflow or a loosening joint. Raise power only after a stable sustained test and reinspection.

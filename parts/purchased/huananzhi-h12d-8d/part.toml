@@ -64,6 +64,11 @@ count = 3
 evidence = "datasheet"
 note = "three PCIe 4.0 x4 slots per manufacturer page"
 
+[[provides]]
+type = "usb2-header"
+count = ""
+note = "internal USB 2.0 header not listed on the product page; check the manual or board"
+
 [[requires]]
 type = "board-standoff"
 value = "#6-32 F/F"

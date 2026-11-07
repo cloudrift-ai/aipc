@@ -184,7 +184,7 @@ A plain 119 × 119 × 6 mm center spacer keeps all fans coplanar for their side 
 - **Slide bracket positions corrected.** The Hammond drawing's top view (a scale reading, not a dimension) shows the front bracket flange flush with the deck front and the rear bracket about 3 in short of the deck rear at 28 in. The illustrative envelopes previously sat 38.1 mm in from each end; they now follow the drawing. Travel sweeps still pass.
 - **Mains power.** Both systems at full load draw about 2.5 kW from the wall, more than one 15 A/120 V circuit carries continuously. No circuit, UPS or PDU is specified ([mains-power](../parts/purchased/mains-power/README.md)).
 - **HX1200i revision unknown.** Only the 2023 ATX 3.x unit has a native 12V-2x6 cable for the RTX 5090; record the label.
-- **Fan controller not selected** for the 3.1 A pressure fan.
+- **Fan controller (resolved 2026-11-06):** an Aquacomputer QUADRO supplies PWM and tach only; the 37.2 W motor runs from the PSU through a fused harness, because a QUADRO channel is rated 25 W. The H12D internal USB 2.0 header is not confirmed.
 - **BMC/V100 underside:** PCIE2 and PCIE3 overlap the photo-estimated BMC envelope (0.1 mm in Z). The H12D slot pitch check passes only against photo-estimated slot positions; get the H12D user manual.
 - **Kenshin AIO fans** are modeled 124 mm wide on a 120 mm pitch, so neighbours overlap by 4 mm (an allowed pair in the layout). Measure the owned fans.
 - **Cables along the shelf edges:** the AC and Ethernet survey routes run at X−12.6 and X431.7–437.7, at the edge of a 450 mm rack opening. Check them against the real posts. Kenshin's display, USB and network cables are not modeled; its rear I/O faces the 64 mm corridor under the V100 duct.

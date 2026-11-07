@@ -44,8 +44,8 @@
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
-| provisional | budget | `dc-power` | load 1090.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1370.2 W |
+| provisional | budget | `dc-power` | load 1092.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1372.2 W |
 | provisional | value | `m2-slot` | micron-3400-2tb needs M.2 2280 NVMe; provided by huananzhi-h12d-8d |
 | provisional | count | `m2-slot` | need 3 x m2-slot=m.2 2280 nvme, have 3 |
+| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
 

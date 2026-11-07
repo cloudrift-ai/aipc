@@ -6,7 +6,7 @@ status = "selected"
 quantity = 1
 systems = ["berserk"]
 evidence = "datasheet"
-notes = "12 V, 3.1 A. Power it from the PSU through a controller, not a motherboard header."
+notes = "12 V, 3.1 A, 37.2 W at 100% PWM; 272 CFM, 480 Pa (catalog p.185). Motor fed from the PSU by fan-power-harness; PWM from the QUADRO. An open PWM line runs it at 100%."
 
 [[datasheets]]
 title = "San Ace catalog, pp. 185-188"

@@ -11,7 +11,7 @@
 | Quantity | 1 |
 | Systems | berserk |
 
-12 V, 3.1 A. Power it from the PSU through a controller, not a motherboard header.
+12 V, 3.1 A, 37.2 W at 100% PWM; 272 CFM, 480 Pa (catalog p.185). Motor fed from the PSU by fan-power-harness; PWM from the QUADRO. An open PWM line runs it at 100%.
 
 ![Part views](render.png)
 
@@ -50,11 +50,11 @@
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | value | `fan-power` | sanyo-denki-9gv1412p1s001 needs 12 V PWM 4-wire, 3.1 A; provider value unknown |
-| BLOCKED | count | `fan-power` | need 1 x fan-power=12 v pwm 4-wire, 3.1 a, have None |
-| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
-| provisional | budget | `dc-power` | load 1090.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1370.2 W |
+| provisional | budget | `dc-power` | load 1092.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1372.2 W |
 | provisional | value | `fan-mount` | sanyo-denki-9gv1412p1s001 needs 140 mm, 124.5 mm pitch; provided by gpu_exhaust_fan_flange, v100_gpu_shroud |
 | provisional | count | `fan-mount` | need 2 x fan-mount=140 mm, 124.5 mm pitch, have 2 |
+| provisional | value | `fan-power` | sanyo-denki-9gv1412p1s001 needs 12 V PWM 4-wire, 3.1 A; provided by fan-power-harness |
+| provisional | count | `fan-power` | need 1 x fan-power=12 v pwm 4-wire, 3.1 a, have 1 |
 | provisional | count | `gpu-forced-airflow` | need 4 x gpu-forced-airflow, have 4 |
+| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
 

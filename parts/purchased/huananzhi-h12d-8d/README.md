@@ -49,6 +49,7 @@ Confirm PCB revision and that the bundled CPU is not vendor-locked.
 - provides `pcie-x16-slot` value PCIe x16 count 4 (datasheet) — product page: 4 x PCIe 4.0 x16; slot plane positions photo-estimated
 - provides `pcie-card-envelope` max 40.64 (photo-estimate) — two-slot pitch 2 x 20.32 mm per PCIe CEM, but the slot positions are photo-estimated; confirm in the user manual
 - provides `m2-slot` value M.2 2280 NVMe count 3 (datasheet) — three PCIe 4.0 x4 slots per manufacturer page
+- provides `usb2-header` count **unknown** (listing) — internal USB 2.0 header not listed on the product page; check the manual or board
 - requires `board-standoff` value #6-32 F/F count 8 (photo-estimate) — populated sites A/C/F/G/H/K/L/M
 - requires `mobo-front-section` value ATX count 1 (listing)
 - requires `mobo-rear-rail` value H12D-8D slot positions count 1 (listing)
@@ -60,11 +61,11 @@ Confirm PCB revision and that the bundled CPU is not vendor-locked.
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| BLOCKED | count | `usb2-header` | need 1 x usb2-header, have None |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | value | `board-standoff` | huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b |
 | provisional | count | `board-standoff` | need 17 x board-standoff=#6-32 f/f, have 17 |
-| provisional | budget | `dc-power` | load 1090.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1370.2 W |
+| provisional | budget | `dc-power` | load 1092.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1372.2 W |
 | provisional | count | `eps-8pin-cpu` | need 2 x eps-8pin-cpu, have 2 |
 | provisional | value | `m2-slot` | micron-3400-2tb needs M.2 2280 NVMe; provided by huananzhi-h12d-8d |
 | provisional | count | `m2-slot` | need 3 x m2-slot=m.2 2280 nvme, have 3 |
@@ -75,6 +76,7 @@ Confirm PCB revision and that the bundled CPU is not vendor-locked.
 | provisional | value | `mobo-rear-rail` | huananzhi-h12d-8d needs H12D-8D slot positions; provided by h12d_mobo_adapter_rail |
 | provisional | count | `mobo-rear-rail` | need 1 x mobo-rear-rail=h12d-8d slot positions, have 1 |
 | provisional | value | `pcie-card-envelope` | nvidia-v100-pcie-16gb needs 40.0; provided by huananzhi-h12d-8d |
+| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
 | pass | value | `cpu-socket` | amd-epyc-7702p needs SP3; provided by huananzhi-h12d-8d |
 | pass | value | `pcie-x16-slot` | nvidia-v100-pcie-16gb needs PCIe x16; provided by huananzhi-h12d-8d |
 | pass | count | `pcie-x16-slot` | need 4 x pcie-x16-slot=pcie x16, have 4 |

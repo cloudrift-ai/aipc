@@ -1,0 +1,40 @@
+id = "fan-power-harness"
+name = "Fused PWM pass-through harness for the pressure fan"
+category = "fabricated"
+role = "feeds the San Ace motor from the PSU and passes PWM/tach to the QUADRO"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+evidence = "allowance"
+notes = """
+PSU 4-pin peripheral (Molex) 12 V and ground -> 5 A inline blade fuse -> fan
+pins 2 (+12 V, red) and 1 (ground, black). Fan pin 3 (tach, yellow) and pin 4
+(PWM, brown) -> QUADRO channel pins 3 and 4. QUADRO channel pin 1 (ground)
+joins the fan ground for a common reference; QUADRO pin 2 (+12 V) stays
+unconnected. Use 18 AWG for the 12 V pair. Confirm the San Ace starting
+current (catalog p.616) is within the fuse's slow-blow curve.
+"""
+
+[model]
+source = "constructed"
+
+[dims]
+fuse_rating = { value = 5.0, unit = "A", evidence = "allowance", note = "3.1 A rated fan current plus start-up margin" }
+mass = { value = 0.05, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "fan-power"
+value = "12 V PWM 4-wire, 3.1 A"
+count = 1
+
+[[requires]]
+type = "fan-pwm-control"
+value = "25 kHz PWM + tach, Linux hwmon"
+count = 1
+
+[[requires]]
+type = "peripheral-12v"
+count = 1
+
+[assembly]
+not_modeled = "flexible wiring; route along the hood clear of the fan rotor"

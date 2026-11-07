@@ -43,6 +43,17 @@
       "not_modeled": "inside the GA II pump-head envelope above the socket",
       "instance_names": []
     },
+    "aquacomputer-quadro": {
+      "name": "Aquacomputer QUADRO fan controller (53256)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "outline not published and mounting place not chosen; small enough for the hood side or the H12D front edge",
+      "instance_names": []
+    },
     "asetek-tr4-bracket": {
       "name": "Asetek TR4/SP3 mounting bracket for round-pump AIOs",
       "category": "purchased",
@@ -91,17 +102,6 @@
       "instance_names": [
         "Kenshin_owned_HX1200i_PSU"
       ]
-    },
-    "fan-controller": {
-      "name": "PSU-powered PWM fan controller and harness (not selected)",
-      "category": "purchased",
-      "quantity": 1,
-      "state": "not_modeled",
-      "instances": 0,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": "product not selected",
-      "instance_names": []
     },
     "fasteners": {
       "name": "Shelf and component fasteners (M3/M4 screws, washers, nuts)",
@@ -777,6 +777,17 @@
       "instance_names": [
         "V100_GPU_shroud"
       ]
+    },
+    "fan-power-harness": {
+      "name": "Fused PWM pass-through harness for the pressure fan",
+      "category": "fabricated",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "flexible wiring; route along the hood clear of the fan rotor",
+      "instance_names": []
     },
     "rear-aio-steel-extension": {
       "name": "Rear AIO steel extension plate, 400 x 83 x 3 mm",

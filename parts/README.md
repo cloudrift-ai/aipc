@@ -11,16 +11,16 @@ One folder per part: `part.toml` (spec, evidence, interfaces), a generated `READ
 | [ac-power-cords](purchased/ac-power-cords/README.md) | 2 | candidate | berserk, kenshin | - | PSU mains cords |
 | [amd-epyc-7702p](purchased/amd-epyc-7702p/README.md) | 1 | selected | berserk | provisional | Berserk CPU |
 | [amd-ryzen-9-9950x3d](purchased/amd-ryzen-9-9950x3d/README.md) | 1 | owned | kenshin | pass | Kenshin CPU |
+| [aquacomputer-quadro](purchased/aquacomputer-quadro/README.md) | 1 | selected | berserk | BLOCKED | PWM and tach for the V100 pressure fan, driven from GPU temperature by the host |
 | [asetek-tr4-bracket](purchased/asetek-tr4-bracket/README.md) | 1 | selected | berserk | provisional | mounts the H115i pump on the EPYC SP3 socket |
 | [corsair-cmp64gx5m4b6400c32](purchased/corsair-cmp64gx5m4b6400c32/README.md) | 1 | owned | kenshin | provisional | Kenshin memory |
 | [corsair-h115i](purchased/corsair-h115i/README.md) | 1 | owned | berserk | provisional | Berserk CPU cooler, front of shelf |
 | [corsair-hx1200i](purchased/corsair-hx1200i/README.md) | 1 | owned | kenshin | BLOCKED | Kenshin PSU |
-| [fan-controller](purchased/fan-controller/README.md) | 1 | unspecified | berserk | BLOCKED | drives the pressure fan from the hottest GPU |
 | [fasteners](purchased/fasteners/README.md) | 1 | candidate | berserk, kenshin, shelf | - | 45 shelf joints plus radiator, fan, flange and roof screws |
 | [flex-duct-6in](purchased/flex-duct-6in/README.md) | 1 | candidate | berserk | provisional | GPU exhaust to cabinet ceiling |
 | [gigabyte-x870e-aorus-pro](purchased/gigabyte-x870e-aorus-pro/README.md) | 1 | owned | kenshin | provisional | Kenshin motherboard |
 | [hammond-rsus1931bk1](purchased/hammond-rsus1931bk1/README.md) | 1 | selected | shelf, rack | BLOCKED | sliding shelf carrying both PCs |
-| [huananzhi-h12d-8d](purchased/huananzhi-h12d-8d/README.md) | 1 | selected | berserk | provisional | Berserk motherboard |
+| [huananzhi-h12d-8d](purchased/huananzhi-h12d-8d/README.md) | 1 | selected | berserk | BLOCKED | Berserk motherboard |
 | [keystone-1451b](purchased/keystone-1451b/README.md) | 17 | selected | berserk, kenshin | provisional | motherboard standoffs |
 | [lian-li-ga2-lite-360](purchased/lian-li-ga2-lite-360/README.md) | 1 | owned | kenshin | provisional | Kenshin CPU cooler, rear of shelf |
 | [mains-power](purchased/mains-power/README.md) | 1 | unspecified | rack | BLOCKED | AC supply for both PSUs |
@@ -33,7 +33,7 @@ One folder per part: `part.toml` (spec, evidence, interfaces), a generated `READ
 | [rack-cabinet](purchased/rack-cabinet/README.md) | 1 | unspecified | rack | BLOCKED | cabinet that receives the shelf and the roof exhaust |
 | [rosewill-hercules-1600](purchased/rosewill-hercules-1600/README.md) | 1 | owned | berserk | provisional | Berserk PSU |
 | [samsung-990-pro-4tb](purchased/samsung-990-pro-4tb/README.md) | 2 | owned | kenshin | provisional | Kenshin storage |
-| [sanyo-denki-9gv1412p1s001](purchased/sanyo-denki-9gv1412p1s001/README.md) | 1 | selected | berserk | BLOCKED | pressure fan pulling air through the four V100s |
+| [sanyo-denki-9gv1412p1s001](purchased/sanyo-denki-9gv1412p1s001/README.md) | 1 | selected | berserk | provisional | pressure fan pulling air through the four V100s |
 | [silicone-gasket-2mm](purchased/silicone-gasket-2mm/README.md) | 1 | candidate | berserk | - | roof flange seal |
 | [v100-eps-power-adapter](purchased/v100-eps-power-adapter/README.md) | 4 | selected | berserk | provisional | V100 auxiliary power adapter |
 | [v100-tail-support](purchased/v100-tail-support/README.md) | 4 | candidate | berserk | - | V100 tail support |
@@ -63,5 +63,6 @@ One folder per part: `part.toml` (spec, evidence, interfaces), a generated `READ
 
 | Part | Qty | Status | Systems | Worst check | Role |
 | --- | ---: | --- | --- | --- | --- |
+| [fan-power-harness](fabricated/fan-power-harness/README.md) | 1 | design | berserk | provisional | feeds the San Ace motor from the PSU and passes PWM/tach to the QUADRO |
 | [rear-aio-steel-extension](fabricated/rear-aio-steel-extension/README.md) | 1 | design | kenshin, shelf | - | carries the rear radiator feet beyond the deck |
 

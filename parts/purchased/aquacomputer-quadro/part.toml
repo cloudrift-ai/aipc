@@ -1,0 +1,59 @@
+id = "aquacomputer-quadro"
+name = "Aquacomputer QUADRO fan controller (53256)"
+category = "purchased"
+role = "PWM and tach for the V100 pressure fan, driven from GPU temperature by the host"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+evidence = "datasheet"
+notes = """
+Chosen 2026-11-06. Each output is rated 25 W, below the San Ace's 37.2 W, so
+the QUADRO does not power the fan: the fused harness feeds the motor from the
+PSU and only PWM, tach and ground go to a QUADRO channel. On Linux the
+aquacomputer_d5next hwmon driver exposes writable pwm1-4 and fan tach; a host
+service reads the hottest GPU (nvidia-smi) and writes the duty. If the PWM
+line goes open the San Ace runs at 100% (catalog p.185 note), but a running
+QUADRO holds its last duty if the host service dies: the service must set
+100% on start, on exit and on any error, and stop GPU load if tach is lost.
+Initial configuration software (aquasuite) is Windows-only; Linux control
+needs no configuration. Whether its outputs float when unpowered is not
+documented.
+"""
+
+[links]
+product = "https://shop.aquacomputer.de/Monitoring-and-Controlling/QUADRO-and-OCTO/QUADRO-fan-controller-for-PWM-fans::3773.html"
+linux_driver = "https://docs.kernel.org/hwmon/aquacomputer_d5next.html"
+
+[[datasheets]]
+title = "QUADRO product page"
+url = "https://shop.aquacomputer.de/Monitoring-and-Controlling/QUADRO-and-OCTO/QUADRO-fan-controller-for-PWM-fans::3773.html"
+[[datasheets]]
+title = "Linux aquacomputer_d5next hwmon driver"
+url = "https://docs.kernel.org/hwmon/aquacomputer_d5next.html"
+
+[model]
+source = "constructed"
+
+[dims]
+channel_power = { value = 25.0, unit = "W", evidence = "datasheet", source = "product page: max 25 W per channel" }
+mass = { value = 0.1, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "fan-pwm-control"
+value = "25 kHz PWM + tach, Linux hwmon"
+count = 4
+evidence = "datasheet"
+note = "product page: four 4-pin PWM outputs with speed monitoring; kernel driver pwm writable"
+
+[[requires]]
+type = "usb2-header"
+count = 1
+note = "internal USB 2.0 header; cable about 100 cm included"
+
+[[requires]]
+type = "dc-power"
+load = 2.0
+evidence = "assumed"
+
+[assembly]
+not_modeled = "outline not published and mounting place not chosen; small enough for the hood side or the H12D front edge"

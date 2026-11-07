@@ -53,7 +53,6 @@ Turned 180 degrees on the shelf; rear I/O faces the centre corridor. M.2 count a
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | value | `board-standoff` | gigabyte-x870e-aorus-pro needs #6-32 F/F; provided by keystone-1451b |
 | provisional | count | `board-standoff` | need 17 x board-standoff=#6-32 f/f, have 17 |
@@ -67,6 +66,7 @@ Turned 180 degrees on the shelf; rear I/O faces the centre corridor. M.2 count a
 | provisional | count | `mobo-front-section` | need 2 x mobo-front-section=atx, have 2 |
 | provisional | value | `mobo-rear-rail` | gigabyte-x870e-aorus-pro needs ATX standard slot positions; provided by atx_mobo_adapter_rail |
 | provisional | count | `mobo-rear-rail` | need 1 x mobo-rear-rail=atx standard slot positions, have 1 |
+| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
 | pass | value | `cpu-socket` | amd-ryzen-9-9950x3d needs AM5; provided by gigabyte-x870e-aorus-pro |
 | pass | value | `pcie-x16-slot` | zotac-rtx-5090-solid needs PCIe x16; provided by gigabyte-x870e-aorus-pro |
 | pass | count | `pcie-x16-slot` | need 1 x pcie-x16-slot=pcie x16, have 1 |

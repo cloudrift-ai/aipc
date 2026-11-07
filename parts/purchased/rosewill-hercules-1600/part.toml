@@ -36,6 +36,11 @@ count = 2
 type = "pcie-8pin"
 count = 8
 
+[[provides]]
+type = "peripheral-12v"
+count = 2
+note = "4-pin peripheral (Molex) leads; count assumed"
+
 [[requires]]
 type = "psu-restraint"
 value = "ATX 150 x 86 face"

@@ -1,8 +1,8 @@
 {
   "date": "2026-11-06",
   "summary": {
-    "BLOCKED": 18,
-    "PROVISIONAL": 44,
+    "BLOCKED": 17,
+    "PROVISIONAL": 50,
     "PASS": 9
   },
   "lint": [],
@@ -91,41 +91,6 @@
       ]
     },
     {
-      "type": "fan-power",
-      "systems": [
-        "berserk"
-      ],
-      "requirers": [
-        "sanyo-denki-9gv1412p1s001"
-      ],
-      "providers": [
-        "fan-controller"
-      ],
-      "rule": "value",
-      "status": "BLOCKED",
-      "detail": "sanyo-denki-9gv1412p1s001 needs 12 V PWM 4-wire, 3.1 A; provider value unknown",
-      "note": "",
-      "weak_evidence": [
-        "fan-controller:fan-power(unknown)"
-      ]
-    },
-    {
-      "type": "fan-power",
-      "systems": [
-        "berserk"
-      ],
-      "requirers": [
-        "sanyo-denki-9gv1412p1s001"
-      ],
-      "providers": [
-        "fan-controller"
-      ],
-      "rule": "count",
-      "status": "BLOCKED",
-      "detail": "need 1 x fan-power=12 v pwm 4-wire, 3.1 a, have None",
-      "weak_evidence": []
-    },
-    {
       "type": "gpu-power",
       "systems": [
         "kenshin"
@@ -201,94 +166,21 @@
       ]
     },
     {
-      "type": "shelf-load",
+      "type": "usb2-header",
       "systems": [
-        "shelf"
+        "berserk"
       ],
       "requirers": [
-        "fan-controller"
+        "aquacomputer-quadro"
       ],
       "providers": [
-        "hammond-rsus1931bk1"
+        "huananzhi-h12d-8d"
       ],
-      "rule": "budget",
+      "rule": "count",
       "status": "BLOCKED",
-      "detail": "load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller']",
-      "contributors": [
-        "amd-epyc-7702p",
-        "amd-ryzen-9-9950x3d",
-        "asetek-tr4-bracket",
-        "atx_mobo_adapter_front",
-        "atx_mobo_adapter_rail",
-        "corsair-cmp64gx5m4b6400c32",
-        "corsair-h115i",
-        "corsair-hx1200i",
-        "fan-controller",
-        "fan120_aio_center_spacer",
-        "fan120_aio_frame",
-        "fan120_aio_hose_brace",
-        "fan140_aio_frame",
-        "fan140_aio_hose_brace",
-        "fasteners",
-        "gigabyte-x870e-aorus-pro",
-        "gpu_exhaust_fan_flange",
-        "gpu_rest",
-        "h12d_mobo_adapter_rail",
-        "huananzhi-h12d-8d",
-        "keystone-1451b",
-        "lian-li-ga2-lite-360",
-        "micron-3400-2tb",
-        "micron-mta36asf4g72pz-2g9",
-        "moddiy-eps-90-extension",
-        "nvidia-v100-pcie-16gb",
-        "obt-pcie-support",
-        "psu_bracket",
-        "rear-aio-steel-extension",
-        "rosewill-hercules-1600",
-        "samsung-990-pro-4tb",
-        "sanyo-denki-9gv1412p1s001",
-        "v100-eps-power-adapter",
-        "v100-tail-support",
-        "v100_gpu_shroud",
-        "wurth-970140324",
-        "zotac-rtx-5090-solid"
-      ],
+      "detail": "need 1 x usb2-header, have None",
       "weak_evidence": [
-        "amd-epyc-7702p:shelf-load(assumed)",
-        "amd-ryzen-9-9950x3d:shelf-load(assumed)",
-        "asetek-tr4-bracket:shelf-load(assumed)",
-        "atx_mobo_adapter_front:shelf-load(allowance)",
-        "atx_mobo_adapter_rail:shelf-load(allowance)",
-        "corsair-cmp64gx5m4b6400c32:shelf-load(assumed)",
-        "corsair-h115i:shelf-load(assumed)",
-        "corsair-hx1200i:shelf-load(assumed)",
-        "fan-controller:shelf-load(unknown)",
-        "fan120_aio_center_spacer:shelf-load(allowance)",
-        "fan120_aio_frame:shelf-load(allowance)",
-        "fan120_aio_hose_brace:shelf-load(allowance)",
-        "fan140_aio_frame:shelf-load(allowance)",
-        "fan140_aio_hose_brace:shelf-load(allowance)",
-        "fasteners:shelf-load(assumed)",
-        "gigabyte-x870e-aorus-pro:shelf-load(assumed)",
-        "gpu_exhaust_fan_flange:shelf-load(allowance)",
-        "gpu_rest:shelf-load(allowance)",
-        "h12d_mobo_adapter_rail:shelf-load(allowance)",
-        "huananzhi-h12d-8d:shelf-load(assumed)",
-        "keystone-1451b:shelf-load(assumed)",
-        "lian-li-ga2-lite-360:shelf-load(assumed)",
-        "micron-3400-2tb:shelf-load(assumed)",
-        "micron-mta36asf4g72pz-2g9:shelf-load(assumed)",
-        "moddiy-eps-90-extension:shelf-load(assumed)",
-        "obt-pcie-support:shelf-load(assumed)",
-        "psu_bracket:shelf-load(allowance)",
-        "rear-aio-steel-extension:shelf-load(allowance)",
-        "rosewill-hercules-1600:shelf-load(assumed)",
-        "samsung-990-pro-4tb:shelf-load(assumed)",
-        "v100-eps-power-adapter:shelf-load(assumed)",
-        "v100-tail-support:shelf-load(assumed)",
-        "v100_gpu_shroud:shelf-load(allowance)",
-        "wurth-970140324:shelf-load(assumed)",
-        "zotac-rtx-5090-solid:shelf-load(assumed)"
+        "huananzhi-h12d-8d:usb2-header(listing)"
       ]
     },
     {
@@ -460,9 +352,10 @@
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 1090.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1370.2 W",
+      "detail": "load 1092.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1372.2 W",
       "contributors": [
         "amd-epyc-7702p",
+        "aquacomputer-quadro",
         "corsair-h115i",
         "huananzhi-h12d-8d",
         "micron-3400-2tb",
@@ -471,6 +364,7 @@
         "sanyo-denki-9gv1412p1s001"
       ],
       "weak_evidence": [
+        "aquacomputer-quadro:dc-power(assumed)",
         "corsair-h115i:dc-power(assumed)",
         "huananzhi-h12d-8d:dc-power(assumed)",
         "micron-3400-2tb:dc-power(assumed)",
@@ -625,6 +519,80 @@
       "weak_evidence": [
         "gpu_exhaust_fan_flange:fan-mount(allowance)",
         "v100_gpu_shroud:fan-mount(allowance)"
+      ]
+    },
+    {
+      "type": "fan-power",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sanyo-denki-9gv1412p1s001"
+      ],
+      "providers": [
+        "fan-power-harness"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "sanyo-denki-9gv1412p1s001 needs 12 V PWM 4-wire, 3.1 A; provided by fan-power-harness",
+      "note": "",
+      "weak_evidence": [
+        "fan-power-harness:fan-power(allowance)"
+      ]
+    },
+    {
+      "type": "fan-power",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sanyo-denki-9gv1412p1s001"
+      ],
+      "providers": [
+        "fan-power-harness"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x fan-power=12 v pwm 4-wire, 3.1 a, have 1",
+      "weak_evidence": [
+        "fan-power-harness:fan-power(allowance)"
+      ]
+    },
+    {
+      "type": "fan-pwm-control",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "fan-power-harness"
+      ],
+      "providers": [
+        "aquacomputer-quadro"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "fan-power-harness needs 25 kHz PWM + tach, Linux hwmon; provided by aquacomputer-quadro",
+      "note": "",
+      "weak_evidence": [
+        "fan-power-harness:fan-pwm-control(allowance)"
+      ]
+    },
+    {
+      "type": "fan-pwm-control",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "fan-power-harness"
+      ],
+      "providers": [
+        "aquacomputer-quadro"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x fan-pwm-control=25 khz pwm + tach, linux hwmon, have 4",
+      "weak_evidence": [
+        "fan-power-harness:fan-pwm-control(allowance)"
       ]
     },
     {
@@ -990,6 +958,25 @@
       ]
     },
     {
+      "type": "peripheral-12v",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "fan-power-harness"
+      ],
+      "providers": [
+        "rosewill-hercules-1600"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x peripheral-12v, have 2",
+      "weak_evidence": [
+        "fan-power-harness:peripheral-12v(allowance)",
+        "rosewill-hercules-1600:peripheral-12v(assumed)"
+      ]
+    },
+    {
       "type": "psu-restraint",
       "systems": [
         "berserk",
@@ -1127,6 +1114,97 @@
       "detail": "need 2 x radiator-mount=360 mm, 105 mm pitch, have 2",
       "weak_evidence": [
         "fan120_aio_frame:radiator-mount(allowance)"
+      ]
+    },
+    {
+      "type": "shelf-load",
+      "systems": [
+        "shelf"
+      ],
+      "requirers": [],
+      "providers": [
+        "hammond-rsus1931bk1"
+      ],
+      "rule": "budget",
+      "status": "PROVISIONAL",
+      "detail": "load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating)",
+      "contributors": [
+        "amd-epyc-7702p",
+        "amd-ryzen-9-9950x3d",
+        "aquacomputer-quadro",
+        "asetek-tr4-bracket",
+        "atx_mobo_adapter_front",
+        "atx_mobo_adapter_rail",
+        "corsair-cmp64gx5m4b6400c32",
+        "corsair-h115i",
+        "corsair-hx1200i",
+        "fan-power-harness",
+        "fan120_aio_center_spacer",
+        "fan120_aio_frame",
+        "fan120_aio_hose_brace",
+        "fan140_aio_frame",
+        "fan140_aio_hose_brace",
+        "fasteners",
+        "gigabyte-x870e-aorus-pro",
+        "gpu_exhaust_fan_flange",
+        "gpu_rest",
+        "h12d_mobo_adapter_rail",
+        "huananzhi-h12d-8d",
+        "keystone-1451b",
+        "lian-li-ga2-lite-360",
+        "micron-3400-2tb",
+        "micron-mta36asf4g72pz-2g9",
+        "moddiy-eps-90-extension",
+        "nvidia-v100-pcie-16gb",
+        "obt-pcie-support",
+        "psu_bracket",
+        "rear-aio-steel-extension",
+        "rosewill-hercules-1600",
+        "samsung-990-pro-4tb",
+        "sanyo-denki-9gv1412p1s001",
+        "v100-eps-power-adapter",
+        "v100-tail-support",
+        "v100_gpu_shroud",
+        "wurth-970140324",
+        "zotac-rtx-5090-solid"
+      ],
+      "weak_evidence": [
+        "amd-epyc-7702p:shelf-load(assumed)",
+        "amd-ryzen-9-9950x3d:shelf-load(assumed)",
+        "aquacomputer-quadro:shelf-load(assumed)",
+        "asetek-tr4-bracket:shelf-load(assumed)",
+        "atx_mobo_adapter_front:shelf-load(allowance)",
+        "atx_mobo_adapter_rail:shelf-load(allowance)",
+        "corsair-cmp64gx5m4b6400c32:shelf-load(assumed)",
+        "corsair-h115i:shelf-load(assumed)",
+        "corsair-hx1200i:shelf-load(assumed)",
+        "fan-power-harness:shelf-load(assumed)",
+        "fan120_aio_center_spacer:shelf-load(allowance)",
+        "fan120_aio_frame:shelf-load(allowance)",
+        "fan120_aio_hose_brace:shelf-load(allowance)",
+        "fan140_aio_frame:shelf-load(allowance)",
+        "fan140_aio_hose_brace:shelf-load(allowance)",
+        "fasteners:shelf-load(assumed)",
+        "gigabyte-x870e-aorus-pro:shelf-load(assumed)",
+        "gpu_exhaust_fan_flange:shelf-load(allowance)",
+        "gpu_rest:shelf-load(allowance)",
+        "h12d_mobo_adapter_rail:shelf-load(allowance)",
+        "huananzhi-h12d-8d:shelf-load(assumed)",
+        "keystone-1451b:shelf-load(assumed)",
+        "lian-li-ga2-lite-360:shelf-load(assumed)",
+        "micron-3400-2tb:shelf-load(assumed)",
+        "micron-mta36asf4g72pz-2g9:shelf-load(assumed)",
+        "moddiy-eps-90-extension:shelf-load(assumed)",
+        "obt-pcie-support:shelf-load(assumed)",
+        "psu_bracket:shelf-load(allowance)",
+        "rear-aio-steel-extension:shelf-load(allowance)",
+        "rosewill-hercules-1600:shelf-load(assumed)",
+        "samsung-990-pro-4tb:shelf-load(assumed)",
+        "v100-eps-power-adapter:shelf-load(assumed)",
+        "v100-tail-support:shelf-load(assumed)",
+        "v100_gpu_shroud:shelf-load(allowance)",
+        "wurth-970140324:shelf-load(assumed)",
+        "zotac-rtx-5090-solid:shelf-load(assumed)"
       ]
     },
     {
@@ -1321,14 +1399,14 @@
   ],
   "coverage": [
     {
+      "part": "aquacomputer-quadro",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: outline not published and mounting place not chosen; small enough for the hood side or the H12D front edge"
+    },
+    {
       "part": "corsair-cmp64gx5m4b6400c32",
       "status": "BLOCKED",
       "detail": "not in the assembly: X870E DIMM socket positions not surveyed; model them before trusting pump and hose clearance"
-    },
-    {
-      "part": "fan-controller",
-      "status": "BLOCKED",
-      "detail": "not in the assembly: product not selected"
     },
     {
       "part": "mains-power",
@@ -1344,6 +1422,11 @@
       "part": "tnut_fit_coupon",
       "status": "BLOCKED",
       "detail": "not in the assembly: fit coupon, not installed"
+    },
+    {
+      "part": "fan-power-harness",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: flexible wiring; route along the hood clear of the fan rotor"
     },
     {
       "part": "Berserk V100 16GB PCIE2 / Berserk BMC module survey",
@@ -1414,6 +1497,16 @@
       "part": "amd-ryzen-9-9950x3d",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x3d.html (run make datasheets)"
+    },
+    {
+      "part": "aquacomputer-quadro",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://shop.aquacomputer.de/Monitoring-and-Controlling/QUADRO-and-OCTO/QUADRO-fan-controller-for-PWM-fans::3773.html (run make datasheets)"
+    },
+    {
+      "part": "aquacomputer-quadro",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://docs.kernel.org/hwmon/aquacomputer_d5next.html (run make datasheets)"
     },
     {
       "part": "asetek-tr4-bracket",
@@ -1509,6 +1602,10 @@
     "amd-ryzen-9-9950x3d": {
       "datasheet": 1,
       "standard": 1,
+      "assumed": 1
+    },
+    "aquacomputer-quadro": {
+      "datasheet": 1,
       "assumed": 1
     },
     "asetek-tr4-bracket": {
@@ -1640,12 +1737,15 @@
     "v100_gpu_shroud": {
       "allowance": 1
     },
+    "fan-power-harness": {
+      "allowance": 1,
+      "assumed": 1
+    },
     "rear-aio-steel-extension": {
       "allowance": 4
     }
   },
   "unspecified_parts": [
-    "fan-controller",
     "mains-power",
     "rack-cabinet"
   ]
