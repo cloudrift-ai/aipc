@@ -40,7 +40,7 @@
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
 | provisional | value | `mobo-rear-rail` | gigabyte-x870e-aorus-pro needs ATX standard slot positions; provided by atx_mobo_adapter_rail |
 | provisional | count | `mobo-rear-rail` | need 1 x mobo-rear-rail=atx standard slot positions, have 1 |
 

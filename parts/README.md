@@ -9,10 +9,11 @@ One folder per part: `part.toml` (spec, evidence, interfaces), a generated `READ
 | Part | Qty | Status | Systems | Worst check | Role |
 | --- | ---: | --- | --- | --- | --- |
 | [ac-power-cords](purchased/ac-power-cords/README.md) | 2 | candidate | berserk, kenshin | - | PSU mains cords |
-| [amd-epyc-7702p](purchased/amd-epyc-7702p/README.md) | 1 | selected | berserk | FAIL | Berserk CPU |
+| [amd-epyc-7702p](purchased/amd-epyc-7702p/README.md) | 1 | selected | berserk | provisional | Berserk CPU |
 | [amd-ryzen-9-9950x3d](purchased/amd-ryzen-9-9950x3d/README.md) | 1 | owned | kenshin | pass | Kenshin CPU |
+| [asetek-tr4-bracket](purchased/asetek-tr4-bracket/README.md) | 1 | selected | berserk | provisional | mounts the H115i pump on the EPYC SP3 socket |
 | [corsair-cmp64gx5m4b6400c32](purchased/corsair-cmp64gx5m4b6400c32/README.md) | 1 | owned | kenshin | provisional | Kenshin memory |
-| [corsair-h115i](purchased/corsair-h115i/README.md) | 1 | owned | berserk | FAIL | Berserk CPU cooler, front of shelf |
+| [corsair-h115i](purchased/corsair-h115i/README.md) | 1 | owned | berserk | provisional | Berserk CPU cooler, front of shelf |
 | [corsair-hx1200i](purchased/corsair-hx1200i/README.md) | 1 | owned | kenshin | BLOCKED | Kenshin PSU |
 | [fan-controller](purchased/fan-controller/README.md) | 1 | unspecified | berserk | BLOCKED | drives the pressure fan from the hottest GPU |
 | [fasteners](purchased/fasteners/README.md) | 1 | candidate | berserk, kenshin, shelf | - | 45 shelf joints plus radiator, fan, flange and roof screws |

@@ -70,5 +70,5 @@ envelopes in the assembly are illustrative, not factory CAD.
 | --- | --- | --- | --- |
 | BLOCKED | value | `rack-post-depth` | hammond-rsus1931bk1 needs 457.2..711.2; provider value unknown |
 | BLOCKED | value | `rack-standard` | hammond-rsus1931bk1 needs EIA-310 19 in; provider value unknown |
-| BLOCKED | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
 

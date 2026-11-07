@@ -40,7 +40,7 @@
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
 | provisional | count | `pcie-8pin` | need 8 x pcie-8pin, have 8 |
 | provisional | value | `v100-aux-power` | nvidia-v100-pcie-16gb needs CPU/EPS 8-pin; provided by v100-eps-power-adapter |
 | provisional | count | `v100-aux-power` | need 4 x v100-aux-power=cpu/eps 8-pin, have 4 |

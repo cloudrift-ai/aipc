@@ -1,33 +1,13 @@
 {
   "date": "2026-11-06",
   "summary": {
-    "FAIL": 1,
     "BLOCKED": 18,
-    "PROVISIONAL": 41,
+    "PROVISIONAL": 44,
     "PASS": 9
   },
   "lint": [],
   "assembly_errors": [],
   "checks": [
-    {
-      "type": "cooler-mount",
-      "systems": [
-        "berserk"
-      ],
-      "requirers": [
-        "amd-epyc-7702p"
-      ],
-      "providers": [
-        "corsair-h115i"
-      ],
-      "rule": "value",
-      "status": "FAIL",
-      "detail": "amd-epyc-7702p needs SP3; providers offer ['LGA115x, LGA1366, LGA2011, AM2, AM3, FM2']",
-      "note": "the SP3 IHS is far larger than a round desktop cold plate",
-      "weak_evidence": [
-        "corsair-h115i:cooler-mount(assumed)"
-      ]
-    },
     {
       "type": "ac-power",
       "systems": [
@@ -233,10 +213,11 @@
       ],
       "rule": "budget",
       "status": "BLOCKED",
-      "detail": "load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller']",
+      "detail": "load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller']",
       "contributors": [
         "amd-epyc-7702p",
         "amd-ryzen-9-9950x3d",
+        "asetek-tr4-bracket",
         "atx_mobo_adapter_front",
         "atx_mobo_adapter_rail",
         "corsair-cmp64gx5m4b6400c32",
@@ -275,6 +256,7 @@
       "weak_evidence": [
         "amd-epyc-7702p:shelf-load(assumed)",
         "amd-ryzen-9-9950x3d:shelf-load(assumed)",
+        "asetek-tr4-bracket:shelf-load(assumed)",
         "atx_mobo_adapter_front:shelf-load(allowance)",
         "atx_mobo_adapter_rail:shelf-load(allowance)",
         "corsair-cmp64gx5m4b6400c32:shelf-load(assumed)",
@@ -307,6 +289,45 @@
         "v100_gpu_shroud:shelf-load(allowance)",
         "wurth-970140324:shelf-load(assumed)",
         "zotac-rtx-5090-solid:shelf-load(assumed)"
+      ]
+    },
+    {
+      "type": "aio-pump-mount",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "asetek-tr4-bracket"
+      ],
+      "providers": [
+        "corsair-h115i"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "asetek-tr4-bracket needs Asetek round pump; provided by corsair-h115i",
+      "note": "",
+      "weak_evidence": [
+        "asetek-tr4-bracket:aio-pump-mount(assumed)",
+        "corsair-h115i:aio-pump-mount(assumed)"
+      ]
+    },
+    {
+      "type": "aio-pump-mount",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "asetek-tr4-bracket"
+      ],
+      "providers": [
+        "corsair-h115i"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x aio-pump-mount=asetek round pump, have 1",
+      "weak_evidence": [
+        "asetek-tr4-bracket:aio-pump-mount(assumed)",
+        "corsair-h115i:aio-pump-mount(assumed)"
       ]
     },
     {
@@ -405,6 +426,27 @@
       "weak_evidence": [
         "huananzhi-h12d-8d:board-standoff(photo-estimate)",
         "keystone-1451b:board-standoff(listing)"
+      ]
+    },
+    {
+      "type": "cooler-mount",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "amd-epyc-7702p"
+      ],
+      "providers": [
+        "asetek-tr4-bracket",
+        "corsair-h115i"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "amd-epyc-7702p needs SP3; provided by asetek-tr4-bracket",
+      "note": "the SP3 IHS is far larger than a round desktop cold plate",
+      "weak_evidence": [
+        "asetek-tr4-bracket:cooler-mount(assumed)",
+        "corsair-h115i:cooler-mount(assumed)"
       ]
     },
     {
@@ -1314,7 +1356,49 @@
       "detail": "geometry conflict in the layout: unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
     }
   ],
-  "renders": [],
+  "renders": [
+    "ac-power-cords: render.png missing or older than its model (run make render)",
+    "amd-epyc-7702p: render.png missing or older than its model (run make render)",
+    "corsair-h115i: render.png missing or older than its model (run make render)",
+    "corsair-hx1200i: render.png missing or older than its model (run make render)",
+    "fasteners: render.png missing or older than its model (run make render)",
+    "flex-duct-6in: render.png missing or older than its model (run make render)",
+    "gigabyte-x870e-aorus-pro: render.png missing or older than its model (run make render)",
+    "hammond-rsus1931bk1: render.png missing or older than its model (run make render)",
+    "huananzhi-h12d-8d: render.png missing or older than its model (run make render)",
+    "keystone-1451b: render.png missing or older than its model (run make render)",
+    "lian-li-ga2-lite-360: render.png missing or older than its model (run make render)",
+    "mcmaster-53185k52: render.png missing or older than its model (run make render)",
+    "micron-3400-2tb: render.png missing or older than its model (run make render)",
+    "micron-mta36asf4g72pz-2g9: render.png missing or older than its model (run make render)",
+    "moddiy-eps-90-extension: render.png missing or older than its model (run make render)",
+    "nvidia-v100-pcie-16gb: render.png missing or older than its model (run make render)",
+    "obt-pcie-support: render.png missing or older than its model (run make render)",
+    "rack-cabinet: render.png missing or older than its model (run make render)",
+    "rosewill-hercules-1600: render.png missing or older than its model (run make render)",
+    "sanyo-denki-9gv1412p1s001: render.png missing or older than its model (run make render)",
+    "silicone-gasket-2mm: render.png missing or older than its model (run make render)",
+    "v100-eps-power-adapter: render.png missing or older than its model (run make render)",
+    "v100-tail-support: render.png missing or older than its model (run make render)",
+    "wurth-970140324: render.png missing or older than its model (run make render)",
+    "zotac-rtx-5090-solid: render.png missing or older than its model (run make render)",
+    "atx_mobo_adapter_front: render.png missing or older than its model (run make render)",
+    "atx_mobo_adapter_rail: render.png missing or older than its model (run make render)",
+    "fan120_aio_center_spacer: render.png missing or older than its model (run make render)",
+    "fan120_aio_frame: render.png missing or older than its model (run make render)",
+    "fan120_aio_hose_brace: render.png missing or older than its model (run make render)",
+    "fan140_aio_frame: render.png missing or older than its model (run make render)",
+    "fan140_aio_hose_brace: render.png missing or older than its model (run make render)",
+    "gpu_exhaust_fan_flange: render.png missing or older than its model (run make render)",
+    "gpu_exhaust_roof_flange: render.png missing or older than its model (run make render)",
+    "gpu_rest: render.png missing or older than its model (run make render)",
+    "h12d_mobo_adapter_rail: render.png missing or older than its model (run make render)",
+    "psu_bracket: render.png missing or older than its model (run make render)",
+    "tnut_fit_coupon: render.png missing or older than its model (run make render)",
+    "v100_gpu_shroud: render.png missing or older than its model (run make render)",
+    "rear-aio-steel-extension: render.png missing or older than its model (run make render)",
+    "models/renders/assembly.png missing or older than the assembly (run make render)"
+  ],
   "datasheets": [
     {
       "part": "ac-power-cords",
@@ -1330,6 +1414,11 @@
       "part": "amd-ryzen-9-9950x3d",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x3d.html (run make datasheets)"
+    },
+    {
+      "part": "asetek-tr4-bracket",
+      "status": "BLOCKED",
+      "detail": "Not yet sourced. Record the product and confirm it lists the original H115i pump before buying."
     },
     {
       "part": "corsair-cmp64gx5m4b6400c32",
@@ -1420,6 +1509,9 @@
     "amd-ryzen-9-9950x3d": {
       "datasheet": 1,
       "standard": 1,
+      "assumed": 1
+    },
+    "asetek-tr4-bracket": {
       "assumed": 1
     },
     "corsair-cmp64gx5m4b6400c32": {

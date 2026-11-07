@@ -11,9 +11,10 @@
 | Quantity | 1 |
 | Systems | berserk |
 
-The retail H115i mounting kit covers Intel and desktop AMD sockets only.
-EPYC SP3 needs a separate bracket that is not in the parts list, and the
-round cold plate covers only part of the SP3 heat spreader.
+The retail H115i mounting kit covers Intel and desktop AMD sockets only. On
+the EPYC it mounts with a separate TR4/SP3 bracket (asetek-tr4-bracket). The
+round cold plate covers only part of the SP3 heat spreader; the owner accepted
+that on 2026-11-06.
 
 ![Part views](render.png)
 
@@ -43,7 +44,8 @@ round cold plate covers only part of the SP3 heat spreader.
 
 ## Interfaces
 
-- provides `cooler-mount` accepts ['LGA115x', 'LGA1366', 'LGA2011', 'AM2', 'AM3', 'FM2'] (assumed) — retail kit; no SP3/TR4 bracket recorded
+- provides `cooler-mount` accepts ['LGA115x', 'LGA1366', 'LGA2011', 'AM2', 'AM3', 'FM2'] (assumed) — retail kit only; SP3 comes from asetek-tr4-bracket
+- provides `aio-pump-mount` value Asetek round pump count 1 (assumed) — confirm the bracket lists this pump revision
 - requires `radiator-mount` value 280 mm, 124.5 mm pitch count 2 (assumed)
 - requires `dc-power` load 12 (assumed)
 
@@ -51,8 +53,10 @@ round cold plate covers only part of the SP3 heat spreader.
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| FAIL | value | `cooler-mount` | amd-epyc-7702p needs SP3; providers offer ['LGA115x, LGA1366, LGA2011, AM2, AM3, FM2'] |
-| BLOCKED | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| provisional | value | `aio-pump-mount` | asetek-tr4-bracket needs Asetek round pump; provided by corsair-h115i |
+| provisional | count | `aio-pump-mount` | need 1 x aio-pump-mount=asetek round pump, have 1 |
+| provisional | value | `cooler-mount` | amd-epyc-7702p needs SP3; provided by asetek-tr4-bracket |
 | provisional | budget | `dc-power` | load 1090.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1370.2 W |
 | provisional | value | `radiator-mount` | corsair-h115i needs 280 mm, 124.5 mm pitch; provided by fan140_aio_frame |
 | provisional | count | `radiator-mount` | need 2 x radiator-mount=280 mm, 124.5 mm pitch, have 2 |

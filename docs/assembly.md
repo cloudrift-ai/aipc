@@ -8,7 +8,7 @@ There are **17 installed printed pieces plus one fit coupon on 14 plates**, and 
 
 1. Check actual rack-post spacing against Hammond’s current **457.2–711.2 mm** range, mount the empty shelf per its instructions, and check full travel and latches. Confirm rack stability and actual equipment mass against the **39 kg** limit. The conflicting older drawing’s higher rating is not used here.
 2. Verify cabinet width, doors and rear depth. Rear AIO screw heads project **65.1 mm beyond the deck**; allow 35 mm more for straight-driver access during installation. Front fans extend 16 mm ahead of the deck. Shelf-only 2U mounting / 3U clearance does not include the PC/overhead duct envelope.
-3. Dry-place both systems. Kenshin turns 180°: GPU at high X, motherboard I/O and PSU inlet toward the center. Keep its 40 mm I/O approach clear. Check both PSU intake paths, BMC/GPU undersides, H115i SP3 mount, EPS plugs and all hoses.
+3. Dry-place both systems. Kenshin turns 180°: GPU at high X, motherboard I/O and PSU inlet toward the center. Keep its 40 mm I/O approach clear. Check both PSU intake paths, BMC/GPU undersides, H115i TR4/SP3 bracket and cold-plate seating, EPS plugs and all hoses.
 4. Survey real deck thickness, folds, underside screws and factory slides. Mark the proposed 45 component holes from positioned bare mounts; remove all electronics, protect slides from chips, drill, deburr and protect exposed steel. Do not drill a motherboard, PSU, radiator, GPU or slide race.
 
 ## Fasteners and load paths

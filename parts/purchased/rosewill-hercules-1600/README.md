@@ -48,7 +48,7 @@
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
 | BLOCKED | budget | `ac-power` | load 2531.0 W; capacity unknown |
-| BLOCKED | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | budget | `dc-power` | load 1090.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1370.2 W |
 | provisional | count | `eps-8pin-cpu` | need 2 x eps-8pin-cpu, have 2 |

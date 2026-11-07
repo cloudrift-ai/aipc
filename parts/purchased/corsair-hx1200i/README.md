@@ -49,7 +49,7 @@
 | --- | --- | --- | --- |
 | BLOCKED | budget | `ac-power` | load 2531.0 W; capacity unknown |
 | BLOCKED | count | `gpu-power` | need 1 x gpu-power=12v-2x6, have None |
-| BLOCKED | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | budget | `dc-power` | load 908.0 W of 1200.0 W x derate 0.8 = 960.0 W (76% of rating) |
 | provisional | count | `eps-8pin-cpu` | need 2 x eps-8pin-cpu, have 2 |

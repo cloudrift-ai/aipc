@@ -1,0 +1,37 @@
+id = "asetek-tr4-bracket"
+name = "Asetek TR4/SP3 mounting bracket for round-pump AIOs"
+category = "purchased"
+role = "mounts the H115i pump on the EPYC SP3 socket"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+evidence = "assumed"
+no_datasheet_reason = "Not yet sourced. Record the product and confirm it lists the original H115i pump before buying."
+notes = """
+Accepted by the owner on 2026-11-06 with partial cold-plate coverage. SP3 and
+TR4 share the same four-post cooler mounting, so a TR4 bracket fits the
+H12D-8D. The round H115i cold plate does not cover the whole 58 x 75 mm SP3
+heat spreader, and the 7702P's outer dies sit near its edges: expect higher
+temperatures and less headroom than a full-coverage TR4/SP3 cooler. Watch
+CPU temperatures under all-core load and revisit if it throttles.
+"""
+
+[model]
+source = "constructed"
+
+[dims]
+mass = { value = 0.05, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "aio-pump-mount"
+value = "Asetek round pump"
+count = 1
+
+[[provides]]
+type = "cooler-mount"
+value = "SP3"
+note = "TR4/sTRX4/SP3 share the four-post mounting; cold-plate coverage is partial"
+
+[assembly]
+covered_by = "amd-epyc-7702p"
+not_modeled = "inside the CPU-and-pump survey envelope"

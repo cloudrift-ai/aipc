@@ -32,5 +32,5 @@ Needs 12 V from the PSU, >= 3.1 A plus startup margin, 25 kHz PWM, tach monitori
 | --- | --- | --- | --- |
 | BLOCKED | value | `fan-power` | sanyo-denki-9gv1412p1s001 needs 12 V PWM 4-wire, 3.1 A; provider value unknown |
 | BLOCKED | count | `fan-power` | need 1 x fan-power=12 v pwm 4-wire, 3.1 a, have None |
-| BLOCKED | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
 

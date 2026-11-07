@@ -60,7 +60,7 @@ Confirm PCB revision and that the bundled CPU is not vendor-locked.
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
+| BLOCKED | budget | `shelf-load` | load 23.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating); unknown load for ['fan-controller'] |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | value | `board-standoff` | huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b |
 | provisional | count | `board-standoff` | need 17 x board-standoff=#6-32 f/f, have 17 |

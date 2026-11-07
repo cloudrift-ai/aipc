@@ -8,9 +8,10 @@ systems = ["berserk"]
 evidence = "assumed"
 no_datasheet_reason = "Reused unit; exact revision not recorded. Add the Corsair spec sheet for that revision."
 notes = """
-The retail H115i mounting kit covers Intel and desktop AMD sockets only.
-EPYC SP3 needs a separate bracket that is not in the parts list, and the
-round cold plate covers only part of the SP3 heat spreader.
+The retail H115i mounting kit covers Intel and desktop AMD sockets only. On
+the EPYC it mounts with a separate TR4/SP3 bracket (asetek-tr4-bracket). The
+round cold plate covers only part of the SP3 heat spreader; the owner accepted
+that on 2026-11-06.
 """
 
 [model]
@@ -30,7 +31,13 @@ mass = { value = 1.3, unit = "kg", evidence = "assumed" }
 type = "cooler-mount"
 accepts = ["LGA115x", "LGA1366", "LGA2011", "AM2", "AM3", "FM2"]
 evidence = "assumed"
-note = "retail kit; no SP3/TR4 bracket recorded"
+note = "retail kit only; SP3 comes from asetek-tr4-bracket"
+
+[[provides]]
+type = "aio-pump-mount"
+value = "Asetek round pump"
+count = 1
+note = "confirm the bracket lists this pump revision"
 
 [[requires]]
 type = "radiator-mount"
