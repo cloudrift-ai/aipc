@@ -347,15 +347,27 @@
     "micron-3400-2tb": {
       "name": "Micron 3400 2 TB NVMe (MTFDKBA2T0TFH)",
       "category": "purchased",
-      "quantity": 3,
+      "quantity": 2,
       "state": "modeled",
-      "instances": 3,
-      "expected_instances": 3,
+      "instances": 2,
+      "expected_instances": 2,
       "covered_by": null,
       "not_modeled": null,
       "instance_names": [
         "Berserk_M2_SSD_1",
-        "Berserk_M2_SSD_2",
+        "Berserk_M2_SSD_2"
+      ]
+    },
+    "micron-3500-2tb": {
+      "name": "Micron 3500 2 TB NVMe (MTFDKBA2T0TGD)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
         "Berserk_M2_SSD_3"
       ]
     },

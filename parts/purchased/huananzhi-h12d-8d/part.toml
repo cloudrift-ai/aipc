@@ -2,7 +2,7 @@ id = "huananzhi-h12d-8d"
 name = "HUANANZHI H12D-8D motherboard with BMC"
 category = "purchased"
 role = "Berserk motherboard"
-status = "selected"
+status = "owned"
 quantity = 1
 systems = ["berserk"]
 evidence = "listing"
@@ -10,7 +10,12 @@ notes = """
 Placement of the CPU, DIMMs, M.2 standoffs, BMC and slot planes comes from the
 manufacturer photograph (cad/berserk_platform.py), not manufacturer CAD.
 Standoff sites A/C/F/G/H/K/L/M are populated; B and J are absent.
-Confirm PCB revision and that the bundled CPU is not vendor-locked.
+First boot 2026-11-07, read from the running system: PCB V2.0 (DMI), AMI
+BIOS 2.2 dated 2026-01-06, ASPEED BMC firmware 1.01 (BMC MAC
+00:e0:97:2a:aa:fc, DHCP), two Intel I226-V 2.5GbE ports. The I226-V has no
+BMC sideband, so the BMC needs its own RJ45 cable. The bundled EPYC 7702P
+boots, so it is not locked to another vendor's board. The BMC reports FAN1-8
+headers and inlet/outlet temperatures.
 """
 
 [links]

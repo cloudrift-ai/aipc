@@ -9,7 +9,7 @@ One folder per part: `part.toml` (spec, evidence, interfaces), a generated `READ
 | Part | Qty | Status | Systems | Worst check | Role |
 | --- | ---: | --- | --- | --- | --- |
 | [ac-power-cords](purchased/ac-power-cords/README.md) | 2 | candidate | berserk, kenshin | - | PSU mains cords |
-| [amd-epyc-7702p](purchased/amd-epyc-7702p/README.md) | 1 | selected | berserk | provisional | Berserk CPU |
+| [amd-epyc-7702p](purchased/amd-epyc-7702p/README.md) | 1 | owned | berserk | provisional | Berserk CPU |
 | [amd-ryzen-9-9950x3d](purchased/amd-ryzen-9-9950x3d/README.md) | 1 | owned | kenshin | pass | Kenshin CPU |
 | [aquacomputer-quadro](purchased/aquacomputer-quadro/README.md) | 1 | selected | berserk | BLOCKED | PWM and tach for the V100 pressure fan, driven from GPU temperature by the host |
 | [asetek-tr4-bracket](purchased/asetek-tr4-bracket/README.md) | 1 | selected | berserk | provisional | mounts the H115i pump on the EPYC SP3 socket |
@@ -20,13 +20,14 @@ One folder per part: `part.toml` (spec, evidence, interfaces), a generated `READ
 | [flex-duct-6in](purchased/flex-duct-6in/README.md) | 1 | candidate | berserk | provisional | GPU exhaust to cabinet ceiling |
 | [gigabyte-x870e-aorus-pro](purchased/gigabyte-x870e-aorus-pro/README.md) | 1 | owned | kenshin | provisional | Kenshin motherboard |
 | [hammond-rsus1931bk1](purchased/hammond-rsus1931bk1/README.md) | 1 | selected | shelf, rack | BLOCKED | sliding shelf carrying both PCs |
-| [huananzhi-h12d-8d](purchased/huananzhi-h12d-8d/README.md) | 1 | selected | berserk | BLOCKED | Berserk motherboard |
+| [huananzhi-h12d-8d](purchased/huananzhi-h12d-8d/README.md) | 1 | owned | berserk | BLOCKED | Berserk motherboard |
 | [keystone-1451b](purchased/keystone-1451b/README.md) | 17 | selected | berserk, kenshin | provisional | motherboard standoffs |
 | [lian-li-ga2-lite-360](purchased/lian-li-ga2-lite-360/README.md) | 1 | owned | kenshin | provisional | Kenshin CPU cooler, rear of shelf |
 | [mains-power](purchased/mains-power/README.md) | 1 | unspecified | rack | BLOCKED | AC supply for both PSUs |
 | [mcmaster-53185k52](purchased/mcmaster-53185k52/README.md) | 2 | selected | berserk | - | duct clamps |
-| [micron-3400-2tb](purchased/micron-3400-2tb/README.md) | 3 | selected | berserk | provisional | Berserk model storage, 3-drive RAID 0 |
-| [micron-mta36asf4g72pz-2g9](purchased/micron-mta36asf4g72pz-2g9/README.md) | 8 | ordered | berserk | provisional | Berserk memory, 8 x 32 GB |
+| [micron-3400-2tb](purchased/micron-3400-2tb/README.md) | 2 | owned | berserk | provisional | Berserk model storage, two of the three RAID 0 members |
+| [micron-3500-2tb](purchased/micron-3500-2tb/README.md) | 1 | owned | berserk | provisional | Berserk model storage, one of the three RAID 0 members |
+| [micron-mta36asf4g72pz-2g9](purchased/micron-mta36asf4g72pz-2g9/README.md) | 8 | owned | berserk | provisional | Berserk memory, 8 x 32 GB |
 | [moddiy-eps-90-extension](purchased/moddiy-eps-90-extension/README.md) | 4 | selected | berserk | - | keeps V100 power plugs low and clear of the front radiator |
 | [nvidia-v100-pcie-16gb](purchased/nvidia-v100-pcie-16gb/README.md) | 4 | selected | berserk | provisional | Berserk GPUs (passive, ducted) |
 | [obt-pcie-support](purchased/obt-pcie-support/README.md) | 10 | selected | berserk, kenshin | pass | GPU bracket posts (two per card) |

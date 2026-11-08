@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "summary": {
     "BLOCKED": 17,
-    "PROVISIONAL": 50,
+    "PROVISIONAL": 51,
     "PASS": 9
   },
   "lint": [],
@@ -352,13 +352,14 @@
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 1092.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1372.2 W",
+      "detail": "load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1376.0 W",
       "contributors": [
         "amd-epyc-7702p",
         "aquacomputer-quadro",
         "corsair-h115i",
         "huananzhi-h12d-8d",
         "micron-3400-2tb",
+        "micron-3500-2tb",
         "micron-mta36asf4g72pz-2g9",
         "nvidia-v100-pcie-16gb",
         "sanyo-denki-9gv1412p1s001"
@@ -367,7 +368,6 @@
         "aquacomputer-quadro:dc-power(assumed)",
         "corsair-h115i:dc-power(assumed)",
         "huananzhi-h12d-8d:dc-power(assumed)",
-        "micron-3400-2tb:dc-power(assumed)",
         "micron-mta36asf4g72pz-2g9:dc-power(assumed)",
         "rosewill-hercules-1600:dc-power(listing)"
       ]
@@ -657,7 +657,27 @@
         "berserk"
       ],
       "requirers": [
-        "micron-3400-2tb"
+        "micron-3500-2tb"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "micron-3500-2tb needs M.2 2280 NVMe; provided by huananzhi-h12d-8d",
+      "note": "",
+      "weak_evidence": [
+        "micron-3500-2tb:m2-slot(listing)"
+      ]
+    },
+    {
+      "type": "m2-slot",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "micron-3400-2tb",
+        "micron-3500-2tb"
       ],
       "providers": [
         "huananzhi-h12d-8d"
@@ -666,7 +686,8 @@
       "status": "PROVISIONAL",
       "detail": "need 3 x m2-slot=m.2 2280 nvme, have 3",
       "weak_evidence": [
-        "micron-3400-2tb:m2-slot(listing)"
+        "micron-3400-2tb:m2-slot(listing)",
+        "micron-3500-2tb:m2-slot(listing)"
       ]
     },
     {
@@ -1153,6 +1174,7 @@
         "keystone-1451b",
         "lian-li-ga2-lite-360",
         "micron-3400-2tb",
+        "micron-3500-2tb",
         "micron-mta36asf4g72pz-2g9",
         "moddiy-eps-90-extension",
         "nvidia-v100-pcie-16gb",
@@ -1193,6 +1215,7 @@
         "keystone-1451b:shelf-load(assumed)",
         "lian-li-ga2-lite-360:shelf-load(assumed)",
         "micron-3400-2tb:shelf-load(assumed)",
+        "micron-3500-2tb:shelf-load(assumed)",
         "micron-mta36asf4g72pz-2g9:shelf-load(assumed)",
         "moddiy-eps-90-extension:shelf-load(assumed)",
         "obt-pcie-support:shelf-load(assumed)",
@@ -1439,49 +1462,7 @@
       "detail": "geometry conflict in the layout: unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
     }
   ],
-  "renders": [
-    "ac-power-cords: render.png missing or older than its model (run make render)",
-    "amd-epyc-7702p: render.png missing or older than its model (run make render)",
-    "corsair-h115i: render.png missing or older than its model (run make render)",
-    "corsair-hx1200i: render.png missing or older than its model (run make render)",
-    "fasteners: render.png missing or older than its model (run make render)",
-    "flex-duct-6in: render.png missing or older than its model (run make render)",
-    "gigabyte-x870e-aorus-pro: render.png missing or older than its model (run make render)",
-    "hammond-rsus1931bk1: render.png missing or older than its model (run make render)",
-    "huananzhi-h12d-8d: render.png missing or older than its model (run make render)",
-    "keystone-1451b: render.png missing or older than its model (run make render)",
-    "lian-li-ga2-lite-360: render.png missing or older than its model (run make render)",
-    "mcmaster-53185k52: render.png missing or older than its model (run make render)",
-    "micron-3400-2tb: render.png missing or older than its model (run make render)",
-    "micron-mta36asf4g72pz-2g9: render.png missing or older than its model (run make render)",
-    "moddiy-eps-90-extension: render.png missing or older than its model (run make render)",
-    "nvidia-v100-pcie-16gb: render.png missing or older than its model (run make render)",
-    "obt-pcie-support: render.png missing or older than its model (run make render)",
-    "rack-cabinet: render.png missing or older than its model (run make render)",
-    "rosewill-hercules-1600: render.png missing or older than its model (run make render)",
-    "sanyo-denki-9gv1412p1s001: render.png missing or older than its model (run make render)",
-    "silicone-gasket-2mm: render.png missing or older than its model (run make render)",
-    "v100-eps-power-adapter: render.png missing or older than its model (run make render)",
-    "v100-tail-support: render.png missing or older than its model (run make render)",
-    "wurth-970140324: render.png missing or older than its model (run make render)",
-    "zotac-rtx-5090-solid: render.png missing or older than its model (run make render)",
-    "atx_mobo_adapter_front: render.png missing or older than its model (run make render)",
-    "atx_mobo_adapter_rail: render.png missing or older than its model (run make render)",
-    "fan120_aio_center_spacer: render.png missing or older than its model (run make render)",
-    "fan120_aio_frame: render.png missing or older than its model (run make render)",
-    "fan120_aio_hose_brace: render.png missing or older than its model (run make render)",
-    "fan140_aio_frame: render.png missing or older than its model (run make render)",
-    "fan140_aio_hose_brace: render.png missing or older than its model (run make render)",
-    "gpu_exhaust_fan_flange: render.png missing or older than its model (run make render)",
-    "gpu_exhaust_roof_flange: render.png missing or older than its model (run make render)",
-    "gpu_rest: render.png missing or older than its model (run make render)",
-    "h12d_mobo_adapter_rail: render.png missing or older than its model (run make render)",
-    "psu_bracket: render.png missing or older than its model (run make render)",
-    "tnut_fit_coupon: render.png missing or older than its model (run make render)",
-    "v100_gpu_shroud: render.png missing or older than its model (run make render)",
-    "rear-aio-steel-extension: render.png missing or older than its model (run make render)",
-    "models/renders/assembly.png missing or older than the assembly (run make render)"
-  ],
+  "renders": [],
   "datasheets": [
     {
       "part": "ac-power-cords",
@@ -1544,19 +1525,59 @@
       "detail": "not fetched locally: https://www.gigabyte.com/Motherboard/X870E-AORUS-PRO-rev-10/sp (run make datasheets)"
     },
     {
+      "part": "hammond-rsus1931bk1",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.hammfg.com/dci/products/accessories/rsus (run make datasheets)"
+    },
+    {
+      "part": "hammond-rsus1931bk1",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf (run make datasheets)"
+    },
+    {
+      "part": "hammond-rsus1931bk1",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.hammfg.com/files/parts/bulletins/BUL87361.pdf (run make datasheets)"
+    },
+    {
+      "part": "huananzhi-h12d-8d",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.huananzhi.com/en/list_6/177.html (run make datasheets)"
+    },
+    {
       "part": "keystone-1451b",
       "status": "BLOCKED",
       "detail": "Only the DigiKey listing is recorded; add Keystone's drawing."
     },
     {
-      "part": "micron-3400-2tb",
-      "status": "BLOCKED",
-      "detail": "Dell OEM pull; add Micron's 3400 product brief. SMART reports pending."
+      "part": "lian-li-ga2-lite-360",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://lian-li.com/product/ga-ii-lite/ (run make datasheets)"
+    },
+    {
+      "part": "mcmaster-53185k52",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.mcmaster.com/53185K52/ (run make datasheets)"
+    },
+    {
+      "part": "micron-3500-2tb",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://static6.arrow.com/aropdfconversion/2547cff09287eb6bd4dacd83d5c50d725f96917/3500-nvme-ssd-product-brief.pdf (run make datasheets)"
+    },
+    {
+      "part": "micron-mta36asf4g72pz-2g9",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.micron.com/products/memory/dram-modules/rdimm (run make datasheets)"
     },
     {
       "part": "moddiy-eps-90-extension",
       "status": "BLOCKED",
       "detail": "MODDIY product page not recorded; the 18 mm projection is a design target, not a product dimension."
+    },
+    {
+      "part": "nvidia-v100-pcie-16gb",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-V100-PCIe-Product-Brief.pdf (run make datasheets)"
     },
     {
       "part": "obt-pcie-support",
@@ -1567,6 +1588,16 @@
       "part": "rosewill-hercules-1600",
       "status": "BLOCKED",
       "detail": "Owned unit; record its model number and add Rosewill's spec sheet. Connector counts below are assumptions."
+    },
+    {
+      "part": "samsung-990-pro-4tb",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://semiconductor.samsung.com/consumer-storage/internal-ssd/990-pro/ (run make datasheets)"
+    },
+    {
+      "part": "sanyo-denki-9gv1412p1s001",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://publish.sanyodenki.com/San_Ace_E/book/data/San_Ace_E.pdf (run make datasheets)"
     },
     {
       "part": "silicone-gasket-2mm",
@@ -1650,6 +1681,10 @@
       "assumed": 1
     },
     "micron-3400-2tb": {
+      "datasheet": 5,
+      "assumed": 2
+    },
+    "micron-3500-2tb": {
       "standard": 2,
       "assumed": 2
     },

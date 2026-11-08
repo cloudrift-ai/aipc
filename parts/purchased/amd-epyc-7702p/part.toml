@@ -2,11 +2,15 @@ id = "amd-epyc-7702p"
 name = "AMD EPYC 7702P"
 category = "purchased"
 role = "Berserk CPU"
-status = "selected"
+status = "owned"
 quantity = 1
 systems = ["berserk"]
 evidence = "datasheet"
-notes = "Bundled with the H12D listing. The assembly envelope includes the cooler pump head."
+notes = """
+Bundled with the H12D listing. The assembly envelope includes the cooler pump head.
+First boot 2026-11-07: 64 cores / 128 threads, SMT and boost on (3.35 GHz max),
+one NUMA node (NPS1). Idle Tctl 44.5 C, CCDs 33-38 C. No load test yet.
+"""
 
 [[datasheets]]
 title = "AMD EPYC 7702P specifications"

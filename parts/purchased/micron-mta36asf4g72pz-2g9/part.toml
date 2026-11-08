@@ -2,11 +2,17 @@ id = "micron-mta36asf4g72pz-2g9"
 name = "Micron 32 GB DDR4-2933 ECC RDIMM (MTA36ASF4G72PZ-2G9E2UI)"
 category = "purchased"
 role = "Berserk memory, 8 x 32 GB"
-status = "ordered"
+status = "owned"
 quantity = 8
 systems = ["berserk"]
 evidence = "listing"
-notes = "Ordered 2026-11-04 as a used matched kit, 2Rx4, 1.2 V. Receipt and memory test pending."
+notes = """
+Ordered 2026-11-04 as a used matched kit, 2Rx4, 1.2 V. Installed 2026-11-07,
+one DIMM per channel in MM1-MM8 (channels A-H). SPD reads Micron
+36ASF4G72PZ-2G9E2, 32 GB, 2 ranks; all eight run at 2933 MT/s. ECC is active
+(EDAC x4 chipkill mode) with no corrected or uncorrected errors at first boot.
+A full memory test is still pending.
+"""
 
 [links]
 listing = "https://www.ebay.com/itm/377566838345"

@@ -50,7 +50,7 @@
 | --- | --- | --- | --- |
 | BLOCKED | budget | `ac-power` | load 2531.0 W; capacity unknown |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
-| provisional | budget | `dc-power` | load 1092.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1372.2 W |
+| provisional | budget | `dc-power` | load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1376.0 W |
 | provisional | count | `eps-8pin-cpu` | need 2 x eps-8pin-cpu, have 2 |
 | provisional | count | `pcie-8pin` | need 8 x pcie-8pin, have 8 |
 | provisional | count | `peripheral-12v` | need 1 x peripheral-12v, have 2 |

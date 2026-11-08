@@ -1087,7 +1087,7 @@
         "bounds_xy_mm": [
           109.20599999999993,
           470.02,
-          292.35599999999994,
+          292.356,
           705.0
         ],
         "independent_shelf_fasteners": true,
@@ -1518,7 +1518,7 @@
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs installed; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 2 survey",
@@ -1528,7 +1528,7 @@
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs installed; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 3 survey",
@@ -1538,7 +1538,7 @@
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs installed; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 4 survey",
@@ -1548,7 +1548,7 @@
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs installed; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 5 survey",
@@ -1558,7 +1558,7 @@
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs installed; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 6 survey",
@@ -1568,7 +1568,7 @@
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs installed; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 7 survey",
@@ -1578,7 +1578,7 @@
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs installed; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk RDIMM 8 survey",
@@ -1588,7 +1588,7 @@
       "w": 5,
       "d": 139,
       "h": 32,
-      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height"
+      "note": "8x32GB Micron DDR4-2933 ECC RDIMMs installed; photo-based socket locations and provisional module height"
     },
     {
       "name": "Berserk BMC module survey",
@@ -1607,7 +1607,7 @@
       "z": 107.57359312880715,
       "w": 140.0,
       "d": 125.86500705120545,
-      "h": 125.86500705120548,
+      "h": 125.86500705120545,
       "note": "Sanyo 9GV1412P1S001, 45-degree upward exhaust; bounding box only, shape is rotated; occupies reserved upper duct volume"
     },
     {
@@ -1618,7 +1618,7 @@
       "w": 22.0,
       "d": 80.0,
       "h": 2.4,
-      "note": "Micron 3400 2280 at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
+      "note": "Micron 3400 2 TB NVMe (MTFDKBA2T0TFH) at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
     },
     {
       "name": "Berserk M2 SSD 2",
@@ -1628,7 +1628,7 @@
       "w": 22.0,
       "d": 80.0,
       "h": 2.4,
-      "note": "Micron 3400 2280 at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
+      "note": "Micron 3400 2 TB NVMe (MTFDKBA2T0TFH) at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
     },
     {
       "name": "Berserk M2 SSD 3",
@@ -1638,7 +1638,7 @@
       "w": 22.0,
       "d": 80.0,
       "h": 2.4,
-      "note": "Micron 3400 2280 at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
+      "note": "Micron 3500 2 TB NVMe (MTFDKBA2T0TGD) at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
     },
     {
       "name": "Kenshin ATX board",
@@ -2062,7 +2062,7 @@
       "x": 109.20599999999993,
       "y": 470.02,
       "z": 0,
-      "w": 183.15,
+      "w": 183.15000000000006,
       "d": 234.98000000000002,
       "h": 6.0,
       "note": "bounding envelope only; interlocking open frame"

@@ -7,7 +7,7 @@
 | ID | `huananzhi-h12d-8d` |
 | Category | purchased |
 | Role | Berserk motherboard |
-| Status | selected |
+| Status | owned |
 | Quantity | 1 |
 | Systems | berserk |
 | Product | <https://www.huananzhi.com/en/list_6/177.html> |
@@ -16,7 +16,12 @@
 Placement of the CPU, DIMMs, M.2 standoffs, BMC and slot planes comes from the
 manufacturer photograph (cad/berserk_platform.py), not manufacturer CAD.
 Standoff sites A/C/F/G/H/K/L/M are populated; B and J are absent.
-Confirm PCB revision and that the bundled CPU is not vendor-locked.
+First boot 2026-11-07, read from the running system: PCB V2.0 (DMI), AMI
+BIOS 2.2 dated 2026-01-06, ASPEED BMC firmware 1.01 (BMC MAC
+00:e0:97:2a:aa:fc, DHCP), two Intel I226-V 2.5GbE ports. The I226-V has no
+BMC sideband, so the BMC needs its own RJ45 cable. The bundled EPYC 7702P
+boots, so it is not locked to another vendor's board. The BMC reports FAN1-8
+headers and inlet/outlet temperatures.
 
 ![Part views](render.png)
 
@@ -65,9 +70,10 @@ Confirm PCB revision and that the bundled CPU is not vendor-locked.
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | value | `board-standoff` | huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b |
 | provisional | count | `board-standoff` | need 17 x board-standoff=#6-32 f/f, have 17 |
-| provisional | budget | `dc-power` | load 1092.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1372.2 W |
+| provisional | budget | `dc-power` | load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1376.0 W |
 | provisional | count | `eps-8pin-cpu` | need 2 x eps-8pin-cpu, have 2 |
 | provisional | value | `m2-slot` | micron-3400-2tb needs M.2 2280 NVMe; provided by huananzhi-h12d-8d |
+| provisional | value | `m2-slot` | micron-3500-2tb needs M.2 2280 NVMe; provided by huananzhi-h12d-8d |
 | provisional | count | `m2-slot` | need 3 x m2-slot=m.2 2280 nvme, have 3 |
 | provisional | value | `memory-slot` | micron-mta36asf4g72pz-2g9 needs DDR4 RDIMM; provided by huananzhi-h12d-8d |
 | provisional | count | `memory-slot` | need 8 x memory-slot=ddr4 rdimm, have 8 |

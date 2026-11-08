@@ -7,12 +7,16 @@
 | ID | `micron-mta36asf4g72pz-2g9` |
 | Category | purchased |
 | Role | Berserk memory, 8 x 32 GB |
-| Status | ordered |
+| Status | owned |
 | Quantity | 8 |
 | Systems | berserk |
 | Listing | <https://www.ebay.com/itm/377566838345> |
 
-Ordered 2026-11-04 as a used matched kit, 2Rx4, 1.2 V. Receipt and memory test pending.
+Ordered 2026-11-04 as a used matched kit, 2Rx4, 1.2 V. Installed 2026-11-07,
+one DIMM per channel in MM1-MM8 (channels A-H). SPD reads Micron
+36ASF4G72PZ-2G9E2, 32 GB, 2 ranks; all eight run at 2933 MT/s. ECC is active
+(EDAC x4 chipkill mode) with no corrected or uncorrected errors at first boot.
+A full memory test is still pending.
 
 ![Part views](render.png)
 
@@ -45,7 +49,7 @@ Ordered 2026-11-04 as a used matched kit, 2Rx4, 1.2 V. Receipt and memory test p
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| provisional | budget | `dc-power` | load 1092.2 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1372.2 W |
+| provisional | budget | `dc-power` | load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1376.0 W |
 | provisional | value | `memory-slot` | micron-mta36asf4g72pz-2g9 needs DDR4 RDIMM; provided by huananzhi-h12d-8d |
 | provisional | count | `memory-slot` | need 8 x memory-slot=ddr4 rdimm, have 8 |
 | provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |

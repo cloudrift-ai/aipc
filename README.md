@@ -2,7 +2,7 @@
 
 Two PCs arranged front to back on a **Hammond RSUS1931BK1 sliding shelf**, using printed mounts instead of cases. The solid tray is **422.656 × 787.4 mm**, with factory-matched slides. The overhead GPU exhaust needs additional rack height.
 
-- **Berserk**: HUANANZHI H12D-8D with an AMD EPYC 7702P, **256 GB (8 × 32 GB) Micron DDR4-2933 ECC RDIMM ordered**, and **four NVIDIA V100 PCIe** cards cooled by one 140 mm pressure fan through a printed hood and an overhead exhaust duct. Selected model storage: **3 × 2 TB Micron 3400 NVMe in RAID 0** (6 TB nominal). Corsair H115i AIO at the front.
+- **Berserk**: HUANANZHI H12D-8D with an AMD EPYC 7702P, **256 GB (8 × 32 GB) Micron DDR4-2933 ECC RDIMM**, and **four NVIDIA V100 PCIe** cards cooled by one 140 mm pressure fan through a printed hood and an overhead exhaust duct. Storage: **three 2 TB Micron NVMe drives (two 3400s, one 3500) in RAID 0** (6 TB nominal), holding the OS and model weights. Corsair H115i AIO at the front.
 - **Kenshin**: Gigabyte X870E AORUS PRO with a Ryzen 9 9950X3D and an **RTX 5090**. Lian Li GA II LITE 360 AIO at the rear.
 
 ![Shelf layout and side clearance](models/dual-pc-hammond-layout.png)

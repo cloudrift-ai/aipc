@@ -1,0 +1,51 @@
+id = "micron-3500-2tb"
+name = "Micron 3500 2 TB NVMe (MTFDKBA2T0TGD)"
+category = "purchased"
+role = "Berserk model storage, one of the three RAID 0 members"
+status = "owned"
+quantity = 1
+systems = ["berserk"]
+evidence = "listing"
+notes = """
+Installed and in use since 2026-11-07. Arrived in the order for three Dell
+Micron 3400s from the eBay listing below in place of one 3400. Identity from
+the drive's NVMe identify data: MTFDKBA2T0TGD-1BK1AABHA, firmware HPS0050
+(HP OEM firmware). Links at PCIe 4.0 x4 (16 GT/s). Measured idle composite
+temperature about 39 C on the bare board, about 15 C cooler than the 3400s
+(warning threshold 86 C).
+SMART 2026-11-07: PASSED, 0% used, 100% spare, no media errors, 559 power-on
+hours, 6.4 TB written.
+Which M.2 slot holds it is not recorded; the assembly puts it in slot 3.
+The Arrow copy of the brief blocks automated download; save it by hand.
+"""
+
+[links]
+listing = "https://www.ebay.com/itm/880020201442"
+
+[[datasheets]]
+title = "Micron 3500 NVMe SSD product brief (Arrow copy)"
+url = "https://static6.arrow.com/aropdfconversion/2547cff09287eb6bd4dacd83d5c50d725f96917/3500-nvme-ssd-product-brief.pdf"
+
+[model]
+source = "constructed"
+notes = "22 x 80 x 2.4 mm at the photo-estimated M.2 standoffs, beneath the V100s."
+
+[dims]
+length = { value = 80.0, evidence = "standard", source = "M.2 2280" }
+width = { value = 22.0, evidence = "standard", source = "M.2 2280" }
+thickness = { value = 2.4, evidence = "assumed", note = "single-sided bare drive" }
+mass = { value = 0.008, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "m2-slot"
+value = "M.2 2280 NVMe"
+count = 1
+
+[[requires]]
+type = "dc-power"
+load = 8.25
+evidence = "measured"
+note = "NVMe power state 0 maximum, read from the drive 2026-11-07"
+
+[assembly]
+match = ["^Berserk_M2_SSD_3$"]

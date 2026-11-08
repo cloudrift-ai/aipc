@@ -97,7 +97,9 @@ _GA2 = spec.get('lian-li-ga2-lite-360')
 _H115I = spec.get('corsair-h115i')
 _HERC = spec.get('rosewill-hercules-1600')
 _HX = spec.get('corsair-hx1200i')
-_M2 = spec.get('micron-3400-2tb')
+# Installed drive per M.2 slot, in bp.M2_STANDOFFS order. Which slot holds the
+# 3500 is not recorded; both are 2280 drives with the same envelope.
+_M2_SLOTS = [spec.get(i) for i in ('micron-3400-2tb', 'micron-3400-2tb', 'micron-3500-2tb')]
 V100_SLOTS = bp.GPU_BODY_X
 V100_FRONT_Y = shelf_y(100.0)+BERSERK_DY
 V100_TAIL_Y = V100_FRONT_Y + V100_D
@@ -163,7 +165,7 @@ parts = [
         "EPYC 7702P; photo-estimated socket center. H115i retained conditionally: verify SP3 mount, cold-plate coverage and hose reach"),
     *(Box(f"Berserk RDIMM {i+1} survey", bp.photo_xy(830,py)[0]-2.5,
           bp.photo_xy(1160,py)[1], BOARD_Z+BOARD_T, 5, 139, 32,
-          "8x32GB Micron DDR4-2933 ECC RDIMMs ordered; photo-based socket locations and provisional module height")
+          "8x32GB Micron DDR4-2933 ECC RDIMMs installed; photo-based socket locations and provisional module height")
       for i,py in enumerate((42,84,126,168,618,660,702,744))),
     Box("Berserk BMC module survey", bp.photo_xy(1280,1350)[0], bp.photo_xy(1280,1350)[1],
         BOARD_Z+BOARD_T, 70, 48, 7,
@@ -171,10 +173,10 @@ parts = [
     Box("V100 pressure fan", COOL_FAN_BB.xmin, COOL_FAN_BB.ymin, COOL_FAN_BB.zmin,
         COOL_FAN_BB.xlen, COOL_FAN_BB.ylen, COOL_FAN_BB.zlen,
         "Sanyo 9GV1412P1S001, 45-degree upward exhaust; bounding box only, shape is rotated; occupies reserved upper duct volume"),
-    *(Box(f"Berserk M2 SSD {i+1}", x - _M2.dim('width')/2, y - _M2.dim('length'), BOARD_Z + BOARD_T,
-          _M2.dim('width'), _M2.dim('length'), _M2.dim('thickness'),
-          "Micron 3400 2280 at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified")
-      for i, (x, y) in enumerate(bp.M2_STANDOFFS)),
+    *(Box(f"Berserk M2 SSD {i+1}", x - m2.dim('width')/2, y - m2.dim('length'), BOARD_Z + BOARD_T,
+          m2.dim('width'), m2.dim('length'), m2.dim('thickness'),
+          f"{m2.name} at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified")
+      for i, ((x, y), m2) in enumerate(zip(bp.M2_STANDOFFS, _M2_SLOTS, strict=True))),
     Box("Kenshin ATX board", KENSHIN_X, REAR_Y, BOARD_Z, spec.dim('gigabyte-x870e-aorus-pro', 'pcb_width'), spec.dim('gigabyte-x870e-aorus-pro', 'pcb_depth'), BOARD_T,
         "Gigabyte X870E footprint; PCIe slot position approximate"),
     Box("Kenshin RTX 5090", 48 - K_LEFT_SHIFT, shelf_y(339.3 + K_REAR_SHIFT), 24, _RTX.dim('thickness'), _RTX.dim('length'), _RTX.dim('height'),
