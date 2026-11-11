@@ -25,7 +25,10 @@ listing = "https://www.ebay.com/itm/396800856844"
 [[datasheets]]
 title = "HUANANZHI H12D-8D product page"
 url = "https://www.huananzhi.com/en/list_6/177.html"
-# The product page also offers a User Manual download (slot and BMC layout); add its direct URL when known.
+
+[[datasheets]]
+title = "HUANANZHI H12D-8D user manual"
+url = "https://www.huananzhi.com/uploads/file/20260212/1770877734213650.pdf"
 
 [model]
 source = "constructed"
@@ -68,6 +71,20 @@ value = "M.2 2280 NVMe"
 count = 3
 evidence = "datasheet"
 note = "three PCIe 4.0 x4 slots per manufacturer page"
+
+[[provides]]
+type = "sff-8643-port"
+accepts = ["PCIe 4.0 x4 U.2", "4 x SATA 6Gb/s"]
+count = 3
+evidence = "datasheet"
+note = "product page: 3 x SFF-8643 supports expand 12 x SATA3.0 6Gbps or 3 x PCIE4.0 x4 U.2; manual spec list: 3xMINISAS(SATA*4&PCIE3.0/4.0X4). Neither document says how a port is switched between SATA and PCIe (BIOS, jumper or auto-detect) or whether two ports can be grouped as x8; connector positions are photo-estimated from the manual layout figure only. Candidate host for a cabled PCIe riser and NIC, since all four x16 slots carry V100s"
+
+[[provides]]
+type = "sata-port"
+value = "SATA 6Gb/s"
+count = 4
+evidence = "datasheet"
+note = "product page: 4xSATA3.0 6Gbps; separate from the SFF-8643 SATA mode"
 
 [[provides]]
 type = "usb2-header"

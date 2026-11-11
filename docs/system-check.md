@@ -117,7 +117,7 @@ Every assembly instance belongs to a part folder or a declared keepout. Parts no
 - **v100-eps-power-adapter**: no datasheet recorded. Generic marketplace adapter; check its pinout against the NVIDIA brief before use.
 - **v100-tail-support**: no datasheet recorded. Generic hardware; choose after measuring the card frame height.
 
-Not fetched locally (run `make datasheets`): amd-epyc-7702p, amd-ryzen-9-9950x3d, aquacomputer-quadro, gigabyte-x870e-aorus-pro, hammond-rsus1931bk1, huananzhi-h12d-8d, lian-li-ga2-lite-360, mcmaster-53185k52, micron-3500-2tb, micron-mta36asf4g72pz-2g9, nvidia-v100-pcie-16gb, samsung-990-pro-4tb, sanyo-denki-9gv1412p1s001, wurth-970140324, zotac-rtx-5090-solid.
+Not fetched locally (run `make datasheets`): amd-epyc-7702p, amd-ryzen-9-9950x3d, gigabyte-x870e-aorus-pro, micron-3500-2tb, wurth-970140324, zotac-rtx-5090-solid.
 
 ## Weak-evidence dimensions
 

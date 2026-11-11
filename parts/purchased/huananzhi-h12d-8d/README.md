@@ -36,6 +36,7 @@ headers and inlet/outlet temperatures.
 ## Datasheets
 
 - [HUANANZHI H12D-8D product page](https://www.huananzhi.com/en/list_6/177.html)
+- [HUANANZHI H12D-8D user manual](https://www.huananzhi.com/uploads/file/20260212/1770877734213650.pdf)
 - Local copies: `datasheets/` after `make datasheets` (not committed)
 
 ## Dimensions
@@ -54,6 +55,8 @@ headers and inlet/outlet temperatures.
 - provides `pcie-x16-slot` value PCIe x16 count 4 (datasheet) — product page: 4 x PCIe 4.0 x16; slot plane positions photo-estimated
 - provides `pcie-card-envelope` max 40.64 (photo-estimate) — two-slot pitch 2 x 20.32 mm per PCIe CEM, but the slot positions are photo-estimated; confirm in the user manual
 - provides `m2-slot` value M.2 2280 NVMe count 3 (datasheet) — three PCIe 4.0 x4 slots per manufacturer page
+- provides `sff-8643-port` accepts ['PCIe 4.0 x4 U.2', '4 x SATA 6Gb/s'] count 3 (datasheet) — product page: 3 x SFF-8643 supports expand 12 x SATA3.0 6Gbps or 3 x PCIE4.0 x4 U.2; manual spec list: 3xMINISAS(SATA*4&PCIE3.0/4.0X4). Neither document says how a port is switched between SATA and PCIe (BIOS, jumper or auto-detect) or whether two ports can be grouped as x8; connector positions are photo-estimated from the manual layout figure only. Candidate host for a cabled PCIe riser and NIC, since all four x16 slots carry V100s
+- provides `sata-port` value SATA 6Gb/s count 4 (datasheet) — product page: 4xSATA3.0 6Gbps; separate from the SFF-8643 SATA mode
 - provides `usb2-header` count **unknown** (listing) — internal USB 2.0 header not listed on the product page; check the manual or board
 - requires `board-standoff` value #6-32 F/F count 8 (photo-estimate) — populated sites A/C/F/G/H/K/L/M
 - requires `mobo-front-section` value ATX count 1 (listing)

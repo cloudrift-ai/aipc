@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-10",
   "summary": {
     "BLOCKED": 17,
     "PROVISIONAL": 51,
@@ -1480,16 +1480,6 @@
       "detail": "not fetched locally: https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x3d.html (run make datasheets)"
     },
     {
-      "part": "aquacomputer-quadro",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://shop.aquacomputer.de/Monitoring-and-Controlling/QUADRO-and-OCTO/QUADRO-fan-controller-for-PWM-fans::3773.html (run make datasheets)"
-    },
-    {
-      "part": "aquacomputer-quadro",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://docs.kernel.org/hwmon/aquacomputer_d5next.html (run make datasheets)"
-    },
-    {
       "part": "asetek-tr4-bracket",
       "status": "BLOCKED",
       "detail": "Not yet sourced. Record the product and confirm it lists the original H115i pump before buying."
@@ -1525,39 +1515,9 @@
       "detail": "not fetched locally: https://www.gigabyte.com/Motherboard/X870E-AORUS-PRO-rev-10/sp (run make datasheets)"
     },
     {
-      "part": "hammond-rsus1931bk1",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.hammfg.com/dci/products/accessories/rsus (run make datasheets)"
-    },
-    {
-      "part": "hammond-rsus1931bk1",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf (run make datasheets)"
-    },
-    {
-      "part": "hammond-rsus1931bk1",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.hammfg.com/files/parts/bulletins/BUL87361.pdf (run make datasheets)"
-    },
-    {
-      "part": "huananzhi-h12d-8d",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.huananzhi.com/en/list_6/177.html (run make datasheets)"
-    },
-    {
       "part": "keystone-1451b",
       "status": "BLOCKED",
       "detail": "Only the DigiKey listing is recorded; add Keystone's drawing."
-    },
-    {
-      "part": "lian-li-ga2-lite-360",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://lian-li.com/product/ga-ii-lite/ (run make datasheets)"
-    },
-    {
-      "part": "mcmaster-53185k52",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.mcmaster.com/53185K52/ (run make datasheets)"
     },
     {
       "part": "micron-3500-2tb",
@@ -1565,19 +1525,9 @@
       "detail": "not fetched locally: https://static6.arrow.com/aropdfconversion/2547cff09287eb6bd4dacd83d5c50d725f96917/3500-nvme-ssd-product-brief.pdf (run make datasheets)"
     },
     {
-      "part": "micron-mta36asf4g72pz-2g9",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.micron.com/products/memory/dram-modules/rdimm (run make datasheets)"
-    },
-    {
       "part": "moddiy-eps-90-extension",
       "status": "BLOCKED",
       "detail": "MODDIY product page not recorded; the 18 mm projection is a design target, not a product dimension."
-    },
-    {
-      "part": "nvidia-v100-pcie-16gb",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-V100-PCIe-Product-Brief.pdf (run make datasheets)"
     },
     {
       "part": "obt-pcie-support",
@@ -1588,16 +1538,6 @@
       "part": "rosewill-hercules-1600",
       "status": "BLOCKED",
       "detail": "Owned unit; record its model number and add Rosewill's spec sheet. Connector counts below are assumptions."
-    },
-    {
-      "part": "samsung-990-pro-4tb",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://semiconductor.samsung.com/consumer-storage/internal-ssd/990-pro/ (run make datasheets)"
-    },
-    {
-      "part": "sanyo-denki-9gv1412p1s001",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://publish.sanyodenki.com/San_Ace_E/book/data/San_Ace_E.pdf (run make datasheets)"
     },
     {
       "part": "silicone-gasket-2mm",
