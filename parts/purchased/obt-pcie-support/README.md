@@ -41,7 +41,7 @@
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
+| provisional | budget | `shelf-load` | load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating) |
 | pass | value | `post-base-thread` | obt-pcie-support needs M3 female; provided by wurth-970140324 |
 | pass | count | `post-base-thread` | need 10 x post-base-thread=m3 female, have 10 |
 

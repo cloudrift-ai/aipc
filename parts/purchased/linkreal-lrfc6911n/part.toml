@@ -1,0 +1,58 @@
+id = "linkreal-lrfc6911n"
+name = "Linkreal (LR-Link) LRFC6911N, 1 x SFF-8643 to PCIe x16 slot (x4) adapter"
+category = "purchased"
+role = "Berserk NIC slot: takes an H12D-8D SFF-8643 PCIe x4 port and provides an x16 slot for the ConnectX"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+evidence = "listing"
+notes = """
+Chosen 2026-11-10, to be bought from Newegg (about $26, ships from China); not
+ordered yet. It replaces the Delock 64173 candidate: that riser was listed as
+PCIe 4.0 but was on backorder at the only US seller found, and the ConnectX-4
+Lx is PCIe 3.0, so a Gen3 board is enough.
+LR-Link does not state a PCIe generation; the Newegg Business listing of the
+same 6911 board says PCIe 3.0 x4. Power is a SATA 15-pin socket, which leaves
+the Hercules's Molex leads for the fan harness.
+The LR-Link spec table gives 121 x 114.10 mm and 45.5 g; a search summary
+quoting 120 x 42 mm did not match the page. Measure the board and its hole
+positions on arrival before designing the holder.
+The board has no bracket. It needs a printed holder and a place on the shelf,
+and the NIC on it needs 300 LFM.
+"""
+
+[links]
+product = "https://lr-link.com/products/lrfc6911.html"
+listing = "https://www.newegg.com/p/17Z-00TX-000C5"
+
+[[datasheets]]
+title = "LR-Link LRFC6911 product page"
+url = "https://lr-link.com/products/lrfc6911.html"
+
+[model]
+source = "constructed"
+
+[dims]
+length = { value = 121.0, unit = "mm", evidence = "datasheet", source = "LR-Link spec table: Dimensions 121mm*114.10mm" }
+width = { value = 114.1, unit = "mm", evidence = "datasheet", source = "LR-Link spec table: Dimensions 121mm*114.10mm" }
+mass = { value = 0.0455, unit = "kg", evidence = "datasheet", source = "LR-Link spec table: Weight 45.5g" }
+
+[[provides]]
+type = "sff-8643-port"
+value = "PCIe x4 device"
+count = 1
+note = "LR-Link: Mini-SAS HD 4i socket connector (SFF-8643)"
+
+[[provides]]
+type = "pcie-x4-slot"
+value = "PCIe x8 card, x4 link"
+count = 1
+note = "LR-Link: 1*PCIe X16 Slot (X4 Bandwidth); LR-Link lists network cards among supported devices"
+
+[[requires]]
+type = "sata-power"
+count = 1
+note = "LR-Link: 1x SATA 15 Pin Power Interface, 12V & 3.3V 5A; feeds the slot's 12 V and 3.3 V for the NIC"
+
+[assembly]
+not_modeled = "shelf location and holder not designed yet; must clear the V100s and the BMC and leave airflow over the NIC"

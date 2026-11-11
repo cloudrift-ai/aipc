@@ -1,0 +1,46 @@
+id = "sff-8643-pcie-cable"
+name = "10Gtek CAB-8643/8643-P0.5M, SFF-8643 to SFF-8643 cable, 0.5 m, with sideband (2-pack)"
+category = "purchased"
+role = "PCIe x4 link from an H12D-8D SFF-8643 port to the Linkreal LRFC6911N riser"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+evidence = "listing"
+no_datasheet_reason = "Marketplace cable; 10Gtek publishes no drawing or PCIe rating for it. Listings give 12G SAS, 100 ohm, 30 AWG, sideband."
+notes = """
+Chosen 2026-11-10, to be bought from Newegg (2-pack, about $22.59 on a listing
+that may be stale); not ordered yet. One cable is used and the other is kept
+as a spare, so the quantity here is 1.
+Straight male-to-male, not a reverse or breakout cable. The ConnectX-4 Lx
+link is PCIe 3.0, which a short 12G SAS-grade cable with sideband normally
+carries. If the link shows errors, set the port to Gen3 in the BIOS. No
+straight SFF-8643 cable rated for PCIe 4.0 was found.
+"""
+
+[links]
+listing = "https://www.newegg.com/10Gtek-SCSI-SAS-InfiniBand-Cables/BrandSubCat/ID-137698-2835"
+ebay = "https://www.ebay.com/itm/405447883263"
+
+[model]
+source = "constructed"
+
+[dims]
+length = { value = 500.0, unit = "mm", evidence = "listing", source = "eBay listing: CAB-8643/8643-P0.5M, 0.5 m" }
+mass = { value = 0.05, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "sff-8643-port"
+value = "PCIe 4.0 x4 U.2"
+count = 1
+evidence = "datasheet"
+note = "host end on an H12D-8D SFF-8643 port set to PCIe mode"
+
+[[requires]]
+type = "sff-8643-port"
+value = "PCIe x4 device"
+count = 1
+evidence = "listing"
+note = "device end on the riser"
+
+[assembly]
+not_modeled = "cable route follows the riser location, which is not chosen yet"

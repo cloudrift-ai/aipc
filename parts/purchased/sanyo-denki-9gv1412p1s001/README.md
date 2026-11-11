@@ -56,5 +56,5 @@
 | provisional | value | `fan-power` | sanyo-denki-9gv1412p1s001 needs 12 V PWM 4-wire, 3.1 A; provided by fan-power-harness |
 | provisional | count | `fan-power` | need 1 x fan-power=12 v pwm 4-wire, 3.1 a, have 1 |
 | provisional | count | `gpu-forced-airflow` | need 4 x gpu-forced-airflow, have 4 |
-| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
+| provisional | budget | `shelf-load` | load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating) |
 

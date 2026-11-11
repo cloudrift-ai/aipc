@@ -1,0 +1,78 @@
+id = "nvidia-mcx4131a-gcat"
+name = "NVIDIA (Mellanox) ConnectX-4 Lx EN MCX4131A-GCAT, 50GbE single-port QSFP28"
+category = "purchased"
+role = "Direct Berserk-Kenshin link over a QSFP28 DAC (one card per system)"
+status = "owned"
+quantity = 2
+systems = ["berserk", "kenshin"]
+evidence = "datasheet"
+notes = """
+Owned, two cards (owner, 2026-11-10); serial numbers, firmware and bracket
+height not yet recorded. One goes in each PC, cabled directly with no switch.
+PCIe 3.0 x8 card. Berserk has no free x16 slot (four V100s), so its card sits
+in a Linkreal LRFC6911N riser fed from an H12D-8D SFF-8643 port (x4). Kenshin's
+card goes in a chipset PCIEX4 slot (x4). Both links therefore train at
+PCIe 3.0 x4 (about 31.5 Gb/s raw, roughly 25-28 Gb/s usable), below the
+50GbE line rate.
+Each card's systems entry covers both PCs, so the compatibility check lists
+the NIC's power and slot rules as a separate group from each system's other
+loads. Kenshin's PCIEX4 slots may sit under the RTX 5090 cooler; check that
+before relying on them.
+The card has a passive heatsink and needs 300 LFM across it (manual airflow
+table). Neither placement has forced airflow yet.
+NVIDIA lists the ConnectX-4 Lx line as end of life.
+"""
+
+[links]
+manual = "https://networking-docs.nvidia.com/connectx4lxhw/"
+
+[[datasheets]]
+title = "ConnectX-4 Lx Ethernet adapter cards user manual: specifications"
+url = "https://networking-docs.nvidia.com/connectx4lxhw/specifications"
+
+[model]
+source = "constructed"
+
+[dims]
+card_height = { value = 68.9, unit = "mm", evidence = "datasheet", source = "manual specifications: 2.71 in. x 5.6 in. (68.90mm x 142.24 mm) - low profile" }
+card_length = { value = 142.24, unit = "mm", evidence = "datasheet", source = "manual specifications: 2.71 in. x 5.6 in. (68.90mm x 142.24 mm) - low profile" }
+power_typical = { value = 9.6, unit = "W", evidence = "datasheet", source = "manual specifications: typical power, passive cables" }
+power_max = { value = 11.6, unit = "W", evidence = "datasheet", source = "manual specifications: maximum power, passive cables" }
+airflow = { value = 300.0, unit = "LFM", evidence = "datasheet", source = "manual airflow table, 40/50Gb/s, passive cable, either direction" }
+mass = { value = 0.15, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "qsfp28-port"
+value = "QSFP28 50GbE"
+count = 1
+note = "manual: Single QSFP28 (copper and optical); 50G-R2 and 50GBASE-R4 listed"
+
+[[requires]]
+type = "pcie-x4-slot"
+value = "PCIe x8 card, x4 link"
+count = 1
+evidence = "datasheet"
+note = "x8 edge connector, PCIe 3.0 8 GT/s; needs an open-ended or x16 physical slot; x4 electrical trains at x4"
+
+[[requires]]
+type = "qsfp28-dac"
+value = "QSFP28 passive DAC, 50GbE"
+count = 1
+evidence = "allowance"
+note = "one cable end per card; a passive DAC keeps power at the 11.6 W figure. Cable not chosen; length depends on where the two cards end up"
+
+[[requires]]
+type = "pcie-card-airflow"
+value = 300.0
+evidence = "datasheet"
+note = "300 LFM over the heatsink with passive cables; nothing in either system is specified to provide it yet"
+
+[[requires]]
+type = "dc-power"
+load = 11.6
+unit = "W"
+evidence = "datasheet"
+note = "maximum with passive cables, 12 V and 3.3 V; Berserk's comes through the riser"
+
+[assembly]
+not_modeled = "card positions not chosen: Berserk's sits on a riser whose shelf location is open, and Kenshin's PCIEX4 slot clearance under the RTX 5090 is unchecked"

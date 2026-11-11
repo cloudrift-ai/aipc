@@ -51,9 +51,10 @@
 | BLOCKED | count | `gpu-power` | need 1 x gpu-power=12v-2x6, have None |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | budget | `dc-power` | load 908.0 W of 1200.0 W x derate 0.8 = 960.0 W (76% of rating) |
+| provisional | budget | `dc-power` | load 23.2 W of 2800.0 W x derate 0.8 = 2240.0 W (1% of rating) |
 | provisional | count | `eps-8pin-cpu` | need 2 x eps-8pin-cpu, have 2 |
 | provisional | value | `gpu-power` | zotac-rtx-5090-solid needs 12V-2x6; provided by corsair-hx1200i |
 | provisional | value | `psu-restraint` | corsair-hx1200i needs ATX 150 x 86 face; provided by psu_bracket |
 | provisional | count | `psu-restraint` | need 2 x psu-restraint=atx 150 x 86 face, have 2 |
-| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
+| provisional | budget | `shelf-load` | load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating) |
 

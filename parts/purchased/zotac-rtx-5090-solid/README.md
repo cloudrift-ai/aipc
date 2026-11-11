@@ -49,7 +49,7 @@
 | BLOCKED | count | `gpu-power` | need 1 x gpu-power=12v-2x6, have None |
 | provisional | budget | `dc-power` | load 908.0 W of 1200.0 W x derate 0.8 = 960.0 W (76% of rating) |
 | provisional | value | `gpu-power` | zotac-rtx-5090-solid needs 12V-2x6; provided by corsair-hx1200i |
-| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
+| provisional | budget | `shelf-load` | load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating) |
 | pass | value | `pcie-x16-slot` | zotac-rtx-5090-solid needs PCIe x16; provided by gigabyte-x870e-aorus-pro |
 | pass | count | `pcie-x16-slot` | need 1 x pcie-x16-slot=pcie x16, have 1 |
 

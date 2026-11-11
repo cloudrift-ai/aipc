@@ -319,6 +319,17 @@
         "Kenshin_AIO_hose_2_survey_segment_4"
       ]
     },
+    "linkreal-lrfc6911n": {
+      "name": "Linkreal (LR-Link) LRFC6911N, 1 x SFF-8643 to PCIe x16 slot (x4) adapter",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "shelf location and holder not designed yet; must clear the V100s and the BMC and leave airflow over the NIC",
+      "instance_names": []
+    },
     "mains-power": {
       "name": "Mains circuit, UPS and PDU (not specified)",
       "category": "purchased",
@@ -406,6 +417,17 @@
         "V100_PCIE3_angled_EPS_plug_target",
         "V100_PCIE4_angled_EPS_plug_target"
       ]
+    },
+    "nvidia-mcx4131a-gcat": {
+      "name": "NVIDIA (Mellanox) ConnectX-4 Lx EN MCX4131A-GCAT, 50GbE single-port QSFP28",
+      "category": "purchased",
+      "quantity": 2,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": "card positions not chosen: Berserk's sits on a riser whose shelf location is open, and Kenshin's PCIEX4 slot clearance under the RTX 5090 is unchecked",
+      "instance_names": []
     },
     "nvidia-v100-pcie-16gb": {
       "name": "NVIDIA Tesla V100 PCIe 16 GB",
@@ -508,6 +530,17 @@
       "instance_names": [
         "V100_pressure_fan"
       ]
+    },
+    "sff-8643-pcie-cable": {
+      "name": "10Gtek CAB-8643/8643-P0.5M, SFF-8643 to SFF-8643 cable, 0.5 m, with sideband (2-pack)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "cable route follows the riser location, which is not chosen yet",
+      "instance_names": []
     },
     "silicone-gasket-2mm": {
       "name": "2 mm silicone foam gasket sheet, 200 x 200 mm",

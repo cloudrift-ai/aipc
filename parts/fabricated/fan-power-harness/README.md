@@ -49,5 +49,5 @@ current (catalog p.616) is within the fuse's slow-blow curve.
 | provisional | value | `fan-pwm-control` | fan-power-harness needs 25 kHz PWM + tach, Linux hwmon; provided by aquacomputer-quadro |
 | provisional | count | `fan-pwm-control` | need 1 x fan-pwm-control=25 khz pwm + tach, linux hwmon, have 4 |
 | provisional | count | `peripheral-12v` | need 1 x peripheral-12v, have 2 |
-| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
+| provisional | budget | `shelf-load` | load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating) |
 

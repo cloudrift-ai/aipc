@@ -41,6 +41,12 @@ type = "peripheral-12v"
 count = 2
 note = "4-pin peripheral (Molex) leads; count assumed"
 
+[[provides]]
+type = "sata-power"
+count = ""
+evidence = "unknown"
+note = "SATA power leads in the modular cable set; number not yet counted"
+
 [[requires]]
 type = "psu-restraint"
 value = "ATX 150 x 86 face"

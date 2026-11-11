@@ -45,5 +45,5 @@ CPU temperatures under all-core load and revisit if it throttles.
 | provisional | value | `aio-pump-mount` | asetek-tr4-bracket needs Asetek round pump; provided by corsair-h115i |
 | provisional | count | `aio-pump-mount` | need 1 x aio-pump-mount=asetek round pump, have 1 |
 | provisional | value | `cooler-mount` | amd-epyc-7702p needs SP3; provided by asetek-tr4-bracket |
-| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
+| provisional | budget | `shelf-load` | load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating) |
 

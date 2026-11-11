@@ -1,9 +1,9 @@
 {
   "date": "2026-11-10",
   "summary": {
-    "BLOCKED": 17,
-    "PROVISIONAL": 51,
-    "PASS": 9
+    "BLOCKED": 23,
+    "PROVISIONAL": 56,
+    "PASS": 11
   },
   "lint": [],
   "assembly_errors": [],
@@ -109,6 +109,34 @@
       ]
     },
     {
+      "type": "pcie-card-airflow",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "nvidia-mcx4131a-gcat"
+      ],
+      "providers": [],
+      "rule": "presence",
+      "status": "BLOCKED",
+      "detail": "nothing in systems ['berserk', 'kenshin'] provides 'pcie-card-airflow'"
+    },
+    {
+      "type": "qsfp28-dac",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "nvidia-mcx4131a-gcat"
+      ],
+      "providers": [],
+      "rule": "presence",
+      "status": "BLOCKED",
+      "detail": "nothing in systems ['berserk', 'kenshin'] provides 'qsfp28-dac'"
+    },
+    {
       "type": "rack-post-depth",
       "systems": [
         "rack"
@@ -163,6 +191,25 @@
       "weak_evidence": [
         "rack-cabinet:rack-units(unknown)",
         "system:rack-units(allowance)"
+      ]
+    },
+    {
+      "type": "sata-power",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "linkreal-lrfc6911n"
+      ],
+      "providers": [
+        "rosewill-hercules-1600"
+      ],
+      "rule": "count",
+      "status": "BLOCKED",
+      "detail": "need 1 x sata-power, have None",
+      "weak_evidence": [
+        "linkreal-lrfc6911n:sata-power(listing)",
+        "rosewill-hercules-1600:sata-power(unknown)"
       ]
     },
     {
@@ -398,6 +445,28 @@
         "gigabyte-x870e-aorus-pro:dc-power(assumed)",
         "lian-li-ga2-lite-360:dc-power(assumed)",
         "samsung-990-pro-4tb:dc-power(assumed)"
+      ]
+    },
+    {
+      "type": "dc-power",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [],
+      "providers": [
+        "corsair-hx1200i",
+        "rosewill-hercules-1600"
+      ],
+      "rule": "budget",
+      "status": "PROVISIONAL",
+      "detail": "load 23.2 W of 2800.0 W x derate 0.8 = 2240.0 W (1% of rating)",
+      "contributors": [
+        "nvidia-mcx4131a-gcat"
+      ],
+      "weak_evidence": [
+        "corsair-hx1200i:dc-power(listing)",
+        "rosewill-hercules-1600:dc-power(listing)"
       ]
     },
     {
@@ -979,6 +1048,47 @@
       ]
     },
     {
+      "type": "pcie-x4-slot",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "nvidia-mcx4131a-gcat"
+      ],
+      "providers": [
+        "gigabyte-x870e-aorus-pro",
+        "linkreal-lrfc6911n"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "nvidia-mcx4131a-gcat needs PCIe x8 card, x4 link; provided by gigabyte-x870e-aorus-pro, linkreal-lrfc6911n",
+      "note": "x8 edge connector, PCIe 3.0 8 GT/s; needs an open-ended or x16 physical slot; x4 electrical trains at x4",
+      "weak_evidence": [
+        "linkreal-lrfc6911n:pcie-x4-slot(listing)"
+      ]
+    },
+    {
+      "type": "pcie-x4-slot",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "nvidia-mcx4131a-gcat"
+      ],
+      "providers": [
+        "gigabyte-x870e-aorus-pro",
+        "linkreal-lrfc6911n"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x pcie-x4-slot=pcie x8 card, x4 link, have 3",
+      "weak_evidence": [
+        "linkreal-lrfc6911n:pcie-x4-slot(listing)"
+      ]
+    },
+    {
       "type": "peripheral-12v",
       "systems": [
         "berserk"
@@ -1138,6 +1248,47 @@
       ]
     },
     {
+      "type": "sff-8643-port",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sff-8643-pcie-cable"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d",
+        "linkreal-lrfc6911n"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "sff-8643-pcie-cable needs PCIe x4 device; provided by linkreal-lrfc6911n",
+      "note": "device end on the riser",
+      "weak_evidence": [
+        "linkreal-lrfc6911n:sff-8643-port(listing)",
+        "sff-8643-pcie-cable:sff-8643-port(listing)"
+      ]
+    },
+    {
+      "type": "sff-8643-port",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sff-8643-pcie-cable"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d",
+        "linkreal-lrfc6911n"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x sff-8643-port=pcie x4 device, have 1",
+      "weak_evidence": [
+        "linkreal-lrfc6911n:sff-8643-port(listing)",
+        "sff-8643-pcie-cable:sff-8643-port(listing)"
+      ]
+    },
+    {
       "type": "shelf-load",
       "systems": [
         "shelf"
@@ -1148,7 +1299,7 @@
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating)",
+      "detail": "load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating)",
       "contributors": [
         "amd-epyc-7702p",
         "amd-ryzen-9-9950x3d",
@@ -1173,10 +1324,12 @@
         "huananzhi-h12d-8d",
         "keystone-1451b",
         "lian-li-ga2-lite-360",
+        "linkreal-lrfc6911n",
         "micron-3400-2tb",
         "micron-3500-2tb",
         "micron-mta36asf4g72pz-2g9",
         "moddiy-eps-90-extension",
+        "nvidia-mcx4131a-gcat",
         "nvidia-v100-pcie-16gb",
         "obt-pcie-support",
         "psu_bracket",
@@ -1184,6 +1337,7 @@
         "rosewill-hercules-1600",
         "samsung-990-pro-4tb",
         "sanyo-denki-9gv1412p1s001",
+        "sff-8643-pcie-cable",
         "v100-eps-power-adapter",
         "v100-tail-support",
         "v100_gpu_shroud",
@@ -1218,11 +1372,13 @@
         "micron-3500-2tb:shelf-load(assumed)",
         "micron-mta36asf4g72pz-2g9:shelf-load(assumed)",
         "moddiy-eps-90-extension:shelf-load(assumed)",
+        "nvidia-mcx4131a-gcat:shelf-load(assumed)",
         "obt-pcie-support:shelf-load(assumed)",
         "psu_bracket:shelf-load(allowance)",
         "rear-aio-steel-extension:shelf-load(allowance)",
         "rosewill-hercules-1600:shelf-load(assumed)",
         "samsung-990-pro-4tb:shelf-load(assumed)",
+        "sff-8643-pcie-cable:shelf-load(assumed)",
         "v100-eps-power-adapter:shelf-load(assumed)",
         "v100-tail-support:shelf-load(assumed)",
         "v100_gpu_shroud:shelf-load(allowance)",
@@ -1418,6 +1574,43 @@
       "status": "PASS",
       "detail": "need 10 x post-base-thread=m3 female, have 10",
       "weak_evidence": []
+    },
+    {
+      "type": "sff-8643-port",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sff-8643-pcie-cable"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d",
+        "linkreal-lrfc6911n"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "sff-8643-pcie-cable needs PCIe 4.0 x4 U.2; provided by huananzhi-h12d-8d",
+      "note": "host end on an H12D-8D SFF-8643 port set to PCIe mode",
+      "weak_evidence": [
+        "linkreal-lrfc6911n:sff-8643-port(listing)"
+      ]
+    },
+    {
+      "type": "sff-8643-port",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "sff-8643-pcie-cable"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d",
+        "linkreal-lrfc6911n"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 1 x sff-8643-port=pcie 4.0 x4 u.2, have 3",
+      "weak_evidence": []
     }
   ],
   "coverage": [
@@ -1432,14 +1625,29 @@
       "detail": "not in the assembly: X870E DIMM socket positions not surveyed; model them before trusting pump and hose clearance"
     },
     {
+      "part": "linkreal-lrfc6911n",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: shelf location and holder not designed yet; must clear the V100s and the BMC and leave airflow over the NIC"
+    },
+    {
       "part": "mains-power",
       "status": "BLOCKED",
       "detail": "not in the assembly: outside the shelf; supply not specified"
     },
     {
+      "part": "nvidia-mcx4131a-gcat",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: card positions not chosen: Berserk's sits on a riser whose shelf location is open, and Kenshin's PCIEX4 slot clearance under the RTX 5090 is unchecked"
+    },
+    {
       "part": "samsung-990-pro-4tb",
       "status": "BLOCKED",
       "detail": "not in the assembly: X870E M.2 slot positions not surveyed; drives sit under the board heatsinks"
+    },
+    {
+      "part": "sff-8643-pcie-cable",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: cable route follows the riser location, which is not chosen yet"
     },
     {
       "part": "tnut_fit_coupon",
@@ -1540,6 +1748,11 @@
       "detail": "Owned unit; record its model number and add Rosewill's spec sheet. Connector counts below are assumptions."
     },
     {
+      "part": "sff-8643-pcie-cable",
+      "status": "BLOCKED",
+      "detail": "Marketplace cable; 10Gtek publishes no drawing or PCIe rating for it. Listings give 12G SAS, 100 ohm, 30 AWG, sideband."
+    },
+    {
       "part": "silicone-gasket-2mm",
       "status": "BLOCKED",
       "detail": "Generic sheet."
@@ -1635,6 +1848,10 @@
       "allowance": 1,
       "assumed": 1
     },
+    "nvidia-mcx4131a-gcat": {
+      "datasheet": 5,
+      "assumed": 1
+    },
     "nvidia-v100-pcie-16gb": {
       "datasheet": 4,
       "allowance": 1
@@ -1653,6 +1870,10 @@
       "assumed": 1
     },
     "samsung-990-pro-4tb": {
+      "assumed": 1
+    },
+    "sff-8643-pcie-cable": {
+      "listing": 1,
       "assumed": 1
     },
     "v100-eps-power-adapter": {

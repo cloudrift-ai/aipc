@@ -36,6 +36,13 @@ count = 1
 note = "primary PCIe 5.0 x16"
 
 [[provides]]
+type = "pcie-x4-slot"
+value = "PCIe x8 card, x4 link"
+count = 2
+evidence = "datasheet"
+note = "rev 1.0 spec page: two chipset x16-size slots running at x4, PCIEX4_1 PCIe 4.0 and PCIEX4_2 PCIe 3.0. Whether the RTX 5090 cooler covers either slot is unchecked, and the board revision is not yet confirmed on the PCB"
+
+[[provides]]
 type = "m2-slot"
 value = "M.2 2280 NVMe"
 count = 4

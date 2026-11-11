@@ -41,6 +41,7 @@ Turned 180 degrees on the shelf; rear I/O faces the centre corridor. M.2 count a
 - provides `cpu-socket` value AM5 (datasheet)
 - provides `memory-slot` value DDR5 UDIMM count 4 (datasheet)
 - provides `pcie-x16-slot` value PCIe x16 count 1 (datasheet) — primary PCIe 5.0 x16
+- provides `pcie-x4-slot` value PCIe x8 card, x4 link count 2 (datasheet) — rev 1.0 spec page: two chipset x16-size slots running at x4, PCIEX4_1 PCIe 4.0 and PCIEX4_2 PCIe 3.0. Whether the RTX 5090 cooler covers either slot is unchecked, and the board revision is not yet confirmed on the PCB
 - provides `m2-slot` value M.2 2280 NVMe count 4 (assumed)
 - requires `board-standoff` value #6-32 F/F count 9 (standard) — ATX pattern; B optional if the PCB has it
 - requires `mobo-front-section` value ATX count 1 (datasheet)
@@ -66,7 +67,9 @@ Turned 180 degrees on the shelf; rear I/O faces the centre corridor. M.2 count a
 | provisional | count | `mobo-front-section` | need 2 x mobo-front-section=atx, have 2 |
 | provisional | value | `mobo-rear-rail` | gigabyte-x870e-aorus-pro needs ATX standard slot positions; provided by atx_mobo_adapter_rail |
 | provisional | count | `mobo-rear-rail` | need 1 x mobo-rear-rail=atx standard slot positions, have 1 |
-| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
+| provisional | value | `pcie-x4-slot` | nvidia-mcx4131a-gcat needs PCIe x8 card, x4 link; provided by gigabyte-x870e-aorus-pro, linkreal-lrfc6911n |
+| provisional | count | `pcie-x4-slot` | need 2 x pcie-x4-slot=pcie x8 card, x4 link, have 3 |
+| provisional | budget | `shelf-load` | load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating) |
 | pass | value | `cpu-socket` | amd-ryzen-9-9950x3d needs AM5; provided by gigabyte-x870e-aorus-pro |
 | pass | value | `pcie-x16-slot` | zotac-rtx-5090-solid needs PCIe x16; provided by gigabyte-x870e-aorus-pro |
 | pass | count | `pcie-x16-slot` | need 1 x pcie-x16-slot=pcie x16, have 1 |

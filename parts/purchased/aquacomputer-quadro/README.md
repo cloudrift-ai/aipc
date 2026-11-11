@@ -57,5 +57,5 @@ documented.
 | provisional | budget | `dc-power` | load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1376.0 W |
 | provisional | value | `fan-pwm-control` | fan-power-harness needs 25 kHz PWM + tach, Linux hwmon; provided by aquacomputer-quadro |
 | provisional | count | `fan-pwm-control` | need 1 x fan-pwm-control=25 khz pwm + tach, linux hwmon, have 4 |
-| provisional | budget | `shelf-load` | load 23.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (60% of rating) |
+| provisional | budget | `shelf-load` | load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating) |
 
