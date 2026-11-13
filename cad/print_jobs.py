@@ -16,6 +16,7 @@ from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 from aipc import spec
+import pcie_post_hardware as post_hw
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,7 +24,7 @@ SOURCE = ROOT / "models"  # fit-report.json; printed STL come from parts/printed
 OUT = ROOT / "print"
 BED_W, BED_D = 270.0, 200.0  # Orca's Qidi X-Plus 0.4 nozzle preset
 EDGE_MARGIN = 12.0
-MOBO_EDGE_MARGIN = 3.25  # long interlocked sections; motherboard-only profile disables skirt, keeps 3 mm brim
+MOBO_EDGE_MARGIN = 3.25  # long interlocked sections; motherboard profiles disable skirt; rear rails also have no brim
 MIN_GAP = 8.0  # leaves 2 mm between neighboring 3 mm brims
 
 
@@ -227,6 +228,12 @@ def main():
     mobo_process=json.loads((OUT/"profiles/process.json").read_text())
     mobo_process.update({"name":"0.20mm PETG ATX ears @Qidi X-Plus Gen1","setting_id":"PETG_ATX_EARS", "skirt_loops":"0"})
     (OUT/"profiles/motherboard-ears.json").write_text(json.dumps(mobo_process,indent=2)+"\n")
+    # The rear rails' GPU-tab groove runs the full rail length, so on the
+    # first layer it is part of the outer contour. An outer brim fills the
+    # groove and, on H12D, the hex holes that open into it. No brim.
+    rail_process = {**mobo_process, "name":"0.20mm PETG rear rails no brim @Qidi X-Plus Gen1",
+                    "setting_id":"PETG_MOBO_RAILS", "brim_type":"no_brim", "brim_width":"0"}
+    (OUT/"profiles/motherboard-rails.json").write_text(json.dumps(rail_process,indent=2)+"\n")
     (OUT/"profiles/motherboard-rails-supported.json").unlink(missing_ok=True)
     # Integral chamber ribs support the shroud; all current cooling jobs use this process.
     cooling_process=json.loads((OUT / "profiles/ht-pla-gf-psu.json").read_text())
@@ -250,12 +257,12 @@ def main():
         if part.endswith('_mobo_adapter_rail'):
             # Only the 2mm-wide GPU groove roofs may face down. All screw
             # pockets stay open upward in the original print orientation.
-            # Groove is1..3mm behind PCB edge. Regular5.8mm-AF hexes
+            # Groove is1..3mm behind PCB edge. Regular hexes (post_hw.OPENING_AF)
             # point toward it atY+6(H12D) or+10(ATX). Only H12D tips
             # intersect it. Integrate those triangular caps independently
             # of the generator's polygon and mesh to check exact roof area.
             vertices, triangles, (width, depth, _) = meshes[part]
-            radius = 5.8/math.sqrt(3)
+            radius = post_hw.OPENING_AF/math.sqrt(3)
             post_y = 6 if part == 'h12d_mobo_adapter_rail' else 10
             overlap = max(0, 3-(post_y-radius))
             assert overlap < radius/2
@@ -320,7 +327,7 @@ def main():
         make_svg(OUT / f"{job}.svg", placements, meshes)
         heat_material = any(key in job for key in ("psu", "v100_", "gpu_exhaust_", "tnut_"))
         summary[job] = {
-            "process_profile": "profiles/ht-pla-gf-psu.json" if "psu" in job else "profiles/ht-pla-gf-cooling.json" if heat_material else "profiles/motherboard-ears.json" if "mobo_adapter" in job else "profiles/process.json",
+            "process_profile": "profiles/ht-pla-gf-psu.json" if "psu" in job else "profiles/ht-pla-gf-cooling.json" if heat_material else "profiles/motherboard-rails.json" if "mobo_adapter_rail" in job else "profiles/motherboard-ears.json" if "mobo_adapter" in job else "profiles/process.json",
             "filament_profile": "profiles/polymaker-ht-pla-gf-230c.json" if heat_material else "profiles/duramic-petg-240c.json",
             "required_nozzle": "0.4mm hardened steel" if heat_material else "0.4mm; original PETG setup",
             "supports_required": False,

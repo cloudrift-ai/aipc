@@ -30,7 +30,7 @@
       ]
     },
     "02_atx_mobo_adapter_rail": {
-      "process_profile": "profiles/motherboard-ears.json",
+      "process_profile": "profiles/motherboard-rails.json",
       "filament_profile": "profiles/duramic-petg-240c.json",
       "required_nozzle": "0.4mm; original PETG setup",
       "supports_required": false,
@@ -48,7 +48,7 @@
       ]
     },
     "03_h12d_mobo_adapter_rail": {
-      "process_profile": "profiles/motherboard-ears.json",
+      "process_profile": "profiles/motherboard-rails.json",
       "filament_profile": "profiles/duramic-petg-240c.json",
       "required_nozzle": "0.4mm; original PETG setup",
       "supports_required": false,

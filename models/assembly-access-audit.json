@@ -29,11 +29,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -94,11 +94,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -159,11 +159,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -224,11 +224,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -289,11 +289,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -354,11 +354,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -419,11 +419,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -484,11 +484,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -549,11 +549,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -614,11 +614,11 @@
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0

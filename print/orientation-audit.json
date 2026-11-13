@@ -15,7 +15,7 @@
     "h12d_mobo_adapter_rail": {
       "orientation": "flat, rotated 90 degrees; screw-head recesses up",
       "original_downward_overhang_projected_mm2": 285.1,
-      "print_downward_overhang_projected_mm2": 336.1,
+      "print_downward_overhang_projected_mm2": 334.8,
       "bridge_review": "Original recesses-up orientation; only the2mm GPU groove at PCB rear+1..3mm bridges at print Z2, between walls rooted on bed. H12D regular hex tips intersect the groove; ATX hex holes are separate. Inspect sliced closure and hole fit. No support; dry-fit required."
     },
     "atx_mobo_adapter_front": {

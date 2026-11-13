@@ -54,7 +54,7 @@ One model per unique part, in its folder under [parts/printed/](parts/README.md#
 
 ## Regenerating
 
-Requires Python 3.11+ and, for G-code, [OrcaSlicer](https://github.com/SoftFever/OrcaSlicer) with its bundled Qidi presets.
+Requires Python 3.11+ and, for G-code, [OrcaSlicer](https://github.com/SoftFever/OrcaSlicer) 2.5.x (Qidi base presets are vendored in `print/profiles/orca-2.5.0/`).
 
 ```bash
 make setup

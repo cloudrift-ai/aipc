@@ -641,19 +641,19 @@
           ]
         ],
         "post_slot_mm": [
-          6.697263122599659,
-          5.8
+          6.92820323027551,
+          6.0
         ],
         "interchangeable_with": null,
         "shelf_anchor_end": "rear",
         "post_opening": {
           "profile": "regular hexagon",
           "sides": 6,
-          "across_flats_mm": 5.8,
-          "across_corners_mm": 6.697263122599659,
-          "length_Y_mm": 6.697263122599659,
-          "width_X_mm": 5.8,
-          "clearance_per_hex_face_mm": 0.15,
+          "across_flats_mm": 6.0,
+          "across_corners_mm": 6.92820323027551,
+          "length_Y_mm": 6.92820323027551,
+          "width_X_mm": 6.0,
+          "clearance_per_hex_face_mm": 0.25,
           "designed_adjustment_mm": {
             "X": 0,
             "Y": 0
@@ -762,19 +762,19 @@
         "through_post_centers_mm": [],
         "common_post_slot_centers_mm": [],
         "post_slot_mm": [
-          6.697263122599659,
-          5.8
+          6.92820323027551,
+          6.0
         ],
         "interchangeable_with": "Kenshin",
         "shelf_anchor_end": "front",
         "post_opening": {
           "profile": "regular hexagon",
           "sides": 6,
-          "across_flats_mm": 5.8,
-          "across_corners_mm": 6.697263122599659,
-          "length_Y_mm": 6.697263122599659,
-          "width_X_mm": 5.8,
-          "clearance_per_hex_face_mm": 0.15,
+          "across_flats_mm": 6.0,
+          "across_corners_mm": 6.92820323027551,
+          "length_Y_mm": 6.92820323027551,
+          "width_X_mm": 6.0,
+          "clearance_per_hex_face_mm": 0.25,
           "designed_adjustment_mm": {
             "X": 0,
             "Y": 0
@@ -903,19 +903,19 @@
           ]
         ],
         "post_slot_mm": [
-          6.697263122599659,
-          5.8
+          6.92820323027551,
+          6.0
         ],
         "interchangeable_with": null,
         "shelf_anchor_end": "front",
         "post_opening": {
           "profile": "regular hexagon",
           "sides": 6,
-          "across_flats_mm": 5.8,
-          "across_corners_mm": 6.697263122599659,
-          "length_Y_mm": 6.697263122599659,
-          "width_X_mm": 5.8,
-          "clearance_per_hex_face_mm": 0.15,
+          "across_flats_mm": 6.0,
+          "across_corners_mm": 6.92820323027551,
+          "length_Y_mm": 6.92820323027551,
+          "width_X_mm": 6.0,
+          "clearance_per_hex_face_mm": 0.25,
           "designed_adjustment_mm": {
             "X": 0,
             "Y": 0
@@ -1026,19 +1026,19 @@
         "through_post_centers_mm": [],
         "common_post_slot_centers_mm": [],
         "post_slot_mm": [
-          6.697263122599659,
-          5.8
+          6.92820323027551,
+          6.0
         ],
         "interchangeable_with": "Berserk",
         "shelf_anchor_end": "rear",
         "post_opening": {
           "profile": "regular hexagon",
           "sides": 6,
-          "across_flats_mm": 5.8,
-          "across_corners_mm": 6.697263122599659,
-          "length_Y_mm": 6.697263122599659,
-          "width_X_mm": 5.8,
-          "clearance_per_hex_face_mm": 0.15,
+          "across_flats_mm": 6.0,
+          "across_corners_mm": 6.92820323027551,
+          "length_Y_mm": 6.92820323027551,
+          "width_X_mm": 6.0,
+          "clearance_per_hex_face_mm": 0.25,
           "designed_adjustment_mm": {
             "X": 0,
             "Y": 0
@@ -1122,18 +1122,18 @@
         4
       ],
       "GPU_base_clearance": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ]
     },
     "GPU_base_opening": {
       "profile": "regular hexagon",
       "sides": 6,
-      "across_flats_mm": 5.8,
-      "across_corners_mm": 6.697263122599659,
-      "length_Y_mm": 6.697263122599659,
-      "width_X_mm": 5.8,
-      "clearance_per_hex_face_mm": 0.15,
+      "across_flats_mm": 6.0,
+      "across_corners_mm": 6.92820323027551,
+      "length_Y_mm": 6.92820323027551,
+      "width_X_mm": 6.0,
+      "clearance_per_hex_face_mm": 0.25,
       "designed_adjustment_mm": {
         "X": 0,
         "Y": 0
@@ -1872,7 +1872,7 @@
         263.49,
         6.0
       ],
-      "purpose": "H12D-8D rear-rail section: eight regular hex5.8mm-AF holes at PCB rear+6mm,0.15mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports"
+      "purpose": "H12D-8D rear-rail section: eight regular hex6.0mm-AF holes at PCB rear+6mm,0.25mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports"
     },
     {
       "part": "atx_mobo_adapter_front",
@@ -1892,7 +1892,7 @@
         263.49,
         6.0
       ],
-      "purpose": "standard ATX rear-rail section: eight regular hex5.8mm-AF holes at PCB rear+10mm,0.15mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports"
+      "purpose": "standard ATX rear-rail section: eight regular hex6.0mm-AF holes at PCB rear+10mm,0.25mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports"
     },
     {
       "part": "psu_bracket",
@@ -2938,8 +2938,8 @@
         4
       ],
       "GPU_base_clearance": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ]
     },
     "V100_hood_shelf_slot_exception_mm": [

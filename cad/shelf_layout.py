@@ -884,8 +884,8 @@ INSTALLED_MODELS = {
 }
 MOBO_PURPOSE = {
     "atx_mobo_adapter_front": "shelf-front motherboard section, common to every ATX board here: two M3 front ears, three optional inner slots, 25mm rails and three drop-in XY keys",
-    "atx_mobo_adapter_rail": "standard ATX rear-rail section: eight regular hex5.8mm-AF holes at PCB rear+10mm,0.15mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports",
-    "h12d_mobo_adapter_rail": "H12D-8D rear-rail section: eight regular hex5.8mm-AF holes at PCB rear+6mm,0.15mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports",
+    "atx_mobo_adapter_rail": "standard ATX rear-rail section: eight regular hex6.0mm-AF holes at PCB rear+10mm,0.25mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports",
+    "h12d_mobo_adapter_rail": "H12D-8D rear-rail section: eight regular hex6.0mm-AF holes at PCB rear+6mm,0.25mm face clearance, corner toward PCB; three independent M3 anchors and provisional2x2mm GPU-tab groove; original recesses-up print orientation without supports",
 }
 mobo_models = {}
 for label, shape, _ in adapter_parts:
@@ -1388,7 +1388,7 @@ for site in gpu_post_holes:
     sx,sy=min(frame["common_post_slot_centers_mm"],key=lambda pt:(pt[0]-x)**2+(pt[1]-y)**2)
     assert abs(sx-x)<.001 and abs(sy-y)<.001,(site,"hex opening must match post axis")
     site["fixed_hex_center_xy_mm"] = [sx,sy]
-    site["fit_note"] = "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+    site["fit_note"] = "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
 cq.exporters.export(shelf_deck, str(OUT / "rsus1931bk1-drill-plan-deck.step"))
 assembly.add(shelf_deck, name="RSUS1931BK1_drill_plan_deck_not_manufacturer_CAD",
              color=cq.Color(.38, .42, .47))

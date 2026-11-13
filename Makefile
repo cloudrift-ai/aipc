@@ -6,7 +6,7 @@ MODELS  := models
 PRINT   := print
 PLATES  = $(wildcard $(PRINT)/*.3mf)
 GCODE   = $(patsubst $(PRINT)/%.3mf,$(PRINT)/gcode/%.gcode,$(PLATES))
-PROFILES := $(wildcard $(PRINT)/profiles/*.json)
+PROFILES := $(wildcard $(PRINT)/profiles/*.json $(PRINT)/profiles/orca-*/*/*.json)
 
 .PHONY: help setup all cad render check datasheets plates gcode clean-gcode clean
 # slice_jobs.py updates one shared print/gcode/manifest.json
@@ -23,7 +23,7 @@ help:
 	@echo "make gcode   - slice every plate with OrcaSlicer into $(PRINT)/gcode/ (not committed)"
 	@echo "make $(PRINT)/gcode/<plate>.gcode - slice one plate"
 	@echo "make clean-gcode - delete generated G-code"
-	@echo "Override slicer detection with ORCA=\"<command>\" and ORCA_MACHINE=<Qidi X-Plus preset .json>."
+	@echo "Override slicer detection with ORCA=\"<command>\" (OrcaSlicer 2.5.x; base presets vendored in $(PRINT)/profiles/orca-2.5.0/)."
 
 setup: $(VENV)/.installed
 

@@ -1923,17 +1923,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -1950,7 +1950,7 @@
         226.5,
         348.2
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE1_metal_post_2",
@@ -1962,17 +1962,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -1989,7 +1989,7 @@
         246.5,
         348.2
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE2_metal_post_1",
@@ -2001,17 +2001,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -2028,7 +2028,7 @@
         185.86,
         348.2
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE2_metal_post_2",
@@ -2040,17 +2040,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -2067,7 +2067,7 @@
         205.86,
         348.2
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE3_metal_post_1",
@@ -2079,17 +2079,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -2106,7 +2106,7 @@
         145.22,
         348.2
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE3_metal_post_2",
@@ -2118,17 +2118,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -2145,7 +2145,7 @@
         165.22,
         348.2
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE4_metal_post_1",
@@ -2157,17 +2157,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -2184,7 +2184,7 @@
         104.58,
         348.2
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE4_metal_post_2",
@@ -2196,17 +2196,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "berserk_mobo_adapter_right_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -2223,7 +2223,7 @@
         124.58,
         348.2
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Kenshin_RTX5090_metal_post_1",
@@ -2235,17 +2235,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "kenshin_mobo_adapter_left_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -2262,7 +2262,7 @@
         371.656,
         436.5
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     },
     {
       "part": "Kenshin_RTX5090_metal_post_2",
@@ -2274,17 +2274,17 @@
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
       "clearance_through_adapter": "kenshin_mobo_adapter_left_drill_plan",
       "printed_bracket_slot_mm": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ],
       "printed_base_opening": {
         "profile": "regular hexagon",
         "sides": 6,
-        "across_flats_mm": 5.8,
-        "across_corners_mm": 6.697263122599659,
-        "length_Y_mm": 6.697263122599659,
-        "width_X_mm": 5.8,
-        "clearance_per_hex_face_mm": 0.15,
+        "across_flats_mm": 6.0,
+        "across_corners_mm": 6.92820323027551,
+        "length_Y_mm": 6.92820323027551,
+        "width_X_mm": 6.0,
+        "clearance_per_hex_face_mm": 0.25,
         "designed_adjustment_mm": {
           "X": 0,
           "Y": 0
@@ -2301,7 +2301,7 @@
         351.656,
         436.5
       ],
-      "fit_note": "Regular hex with0.15mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
     }
   ],
   "optional_motherboard_shelf_holes": [
@@ -2596,8 +2596,8 @@
         4
       ],
       "GPU_base_clearance": [
-        6.697263122599659,
-        5.8
+        6.92820323027551,
+        6.0
       ]
     },
     "V100_hood_shelf_slot_exception_mm": [

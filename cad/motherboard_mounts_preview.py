@@ -96,7 +96,7 @@ def render_gpu_relief(out):
             ax.set_title(label, pad=8)
             ax.set_axis_off()
         fig.suptitle(f'{part}: 2 x 2 mm GPU-tab groove (orange roof)\nOriginal plate orientation: screw recesses up, groove toward bed', fontsize=16)
-        fig.text(.5, .03, 'Red dashed line: projected motherboard rear edge. Groove spans 1–3 mm behind this edge.\nRegular hex holes: 5.8 mm across flats, 0.15 mm face clearance. H12D tips meet groove; ATX holes stay separate. Dry-fit required.', ha='center', fontsize=11)
+        fig.text(.5, .03, 'Red dashed line: projected motherboard rear edge. Groove spans 1–3 mm behind this edge.\nRegular hex holes: 6.0 mm across flats, 0.25 mm face clearance. H12D tips meet groove; ATX holes stay separate. Dry-fit required.', ha='center', fontsize=11)
         fig.subplots_adjust(left=0, right=1, bottom=.08, top=.89, wspace=0, hspace=.05)
         fig.savefig(out / f'{part}-print-review.png', dpi=170)
         plt.close(fig)

@@ -154,7 +154,7 @@ def build(system):
                 s = s.cut(cq.Workplane('XY').center(x,y).slot2D(length,width,90).extrude(height))
         if group == 'front':
             for x,y in post_slots:
-                # A true six-sided hole with0.15mm clearance per face.
+                # A true six-sided hole with post_hw.BODY_FACE_CLEARANCE per face.
                 # The user requested a snug fit, removing slot adjustment.
                 s = s.cut(cq.Workplane('XY').polyline(post_hw.opening_points()).close()
                           .extrude(THICKNESS).translate((x,y,0)))
