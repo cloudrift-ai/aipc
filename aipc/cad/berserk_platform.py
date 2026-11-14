@@ -23,10 +23,21 @@ POPULATED_SITES = ('A','C','F','G','H','K','L','M')
 def photo_xy(px, py):
     return X + (1477-py)*WIDTH/1458, REAR_Y-(px-209)*DEPTH/1163
 
-# First slot is photograph-derived; remaining slots use nominal two-slot pitch.
-# These are PCB planes, NOT the low-X faces of the dual-slot cooler envelopes.
-SLOT_PLANES = {f'PCIE{i+1}': round(279.50-i*40.64+BERSERK_DX,2) for i in range(4)}
+# PCIe connector centrelines (= card PCB planes), NOT the low-X faces of the
+# dual-slot cooler envelopes. PCIe CEM 2.0 Fig. 6-14 puts the slot nearest the
+# I/O 47.29 mm from the microATX datum, which is ATX hole B at 3.75 in from the
+# board's low-X edge; slots step 20.32 mm (ATX 2.2 Fig. 3). The H12D x16 slots
+# take every second position. The earlier photo estimate agreed within 0.04 mm.
+SLOT_PITCH = 20.32
+ATX_HOLE_B_X = 3.75*25.4
+PCIE_SLOT1_FROM_HOLE_B = 47.29
+SLOT_PLANES = {f'PCIE{i+1}': round(X+ATX_HOLE_B_X+PCIE_SLOT1_FROM_HOLE_B-2*i*SLOT_PITCH,2) for i in range(4)}
 GPU_BODY_X = {k: round(v-36.0,2) for k,v in SLOT_PLANES.items()}
+# OBT rod axes = bracket screw notches. CEM Fig. 6-5 puts the notch on the PCB
+# plane (1.27 mm ref); a dual-slot bracket's second tab is one slot pitch
+# toward the cooler (low X). Earlier body+7/+27 guesses sat about 9 mm toward
+# the cooler, which a seated-card photo (2026-11-14) showed as leaning rods.
+BRACKET_POST_X = {k: (round(v,2), round(v-SLOT_PITCH,2)) for k,v in SLOT_PLANES.items()}
 GPU_WIDTH = 40.0  # provisional 36 mm component side / 4 mm back side
 GPU_CENTER = (min(GPU_BODY_X.values())+max(GPU_BODY_X.values())+GPU_WIDTH)/2
 CPU_CENTER = photo_xy(833,397)

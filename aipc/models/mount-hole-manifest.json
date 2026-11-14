@@ -100,7 +100,7 @@
       "component": "V100 pressure fan",
       "interface": "pressure fan factory clearance",
       "center_mm": [
-        116.28999999999999,
+        116.32999999999998,
         404.08846494072804,
         113.05367068300289
       ],
@@ -116,7 +116,7 @@
       "component": "V100 pressure fan",
       "interface": "pressure fan factory clearance",
       "center_mm": [
-        116.28999999999999,
+        116.32999999999998,
         316.0536706830029,
         201.08846494072804
       ],
@@ -132,7 +132,7 @@
       "component": "V100 pressure fan",
       "interface": "pressure fan factory clearance",
       "center_mm": [
-        240.79,
+        240.82999999999998,
         404.08846494072804,
         113.05367068300289
       ],
@@ -148,7 +148,7 @@
       "component": "V100 pressure fan",
       "interface": "pressure fan factory clearance",
       "center_mm": [
-        240.79,
+        240.82999999999998,
         316.0536706830029,
         201.08846494072804
       ],
@@ -1022,7 +1022,7 @@
       "component": "V100 PCIE1 tail support",
       "interface": "surveyed bearing contact, no GPU drilling",
       "center_mm": [
-        239.5,
+        239.54,
         85.5,
         24
       ],
@@ -1032,7 +1032,7 @@
       "component": "V100 PCIE2 tail support",
       "interface": "surveyed bearing contact, no GPU drilling",
       "center_mm": [
-        198.86,
+        198.9,
         85.5,
         24
       ],
@@ -1042,7 +1042,7 @@
       "component": "V100 PCIE3 tail support",
       "interface": "surveyed bearing contact, no GPU drilling",
       "center_mm": [
-        158.22,
+        158.26,
         85.5,
         24
       ],
@@ -1052,7 +1052,7 @@
       "component": "V100 PCIE4 tail support",
       "interface": "surveyed bearing contact, no GPU drilling",
       "center_mm": [
-        117.58,
+        117.62,
         85.5,
         24
       ],
@@ -1062,7 +1062,7 @@
       "component": "V100 integral fan panel",
       "interface": "fan inlet-flange through-bolt clearance",
       "center_mm": [
-        116.28999999999999,
+        116.32999999999998,
         404.08846494072804,
         113.05367068300289
       ],
@@ -1078,7 +1078,7 @@
       "component": "V100 integral fan panel",
       "interface": "fan inlet-flange through-bolt clearance",
       "center_mm": [
-        116.28999999999999,
+        116.32999999999998,
         316.0536706830029,
         201.08846494072804
       ],
@@ -1094,7 +1094,7 @@
       "component": "V100 integral fan panel",
       "interface": "fan inlet-flange through-bolt clearance",
       "center_mm": [
-        240.79,
+        240.82999999999998,
         404.08846494072804,
         113.05367068300289
       ],
@@ -1110,7 +1110,7 @@
       "component": "V100 integral fan panel",
       "interface": "fan inlet-flange through-bolt clearance",
       "center_mm": [
-        240.79,
+        240.82999999999998,
         316.0536706830029,
         201.08846494072804
       ],
@@ -1126,7 +1126,7 @@
       "component": "Berserk PCIE1 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        226.5,
+        255.54,
         348.2,
         141.0
       ],
@@ -1137,7 +1137,7 @@
       "component": "Berserk PCIE1 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        246.5,
+        235.22,
         348.2,
         141.0
       ],
@@ -1148,7 +1148,7 @@
       "component": "Berserk PCIE2 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        185.86,
+        214.9,
         348.2,
         141.0
       ],
@@ -1159,7 +1159,7 @@
       "component": "Berserk PCIE2 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        205.86,
+        194.58,
         348.2,
         141.0
       ],
@@ -1170,7 +1170,7 @@
       "component": "Berserk PCIE3 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        145.22,
+        174.26,
         348.2,
         141.0
       ],
@@ -1181,7 +1181,7 @@
       "component": "Berserk PCIE3 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        165.22,
+        153.94,
         348.2,
         141.0
       ],
@@ -1192,7 +1192,7 @@
       "component": "Berserk PCIE4 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        104.58,
+        133.62,
         348.2,
         141.0
       ],
@@ -1203,7 +1203,7 @@
       "component": "Berserk PCIE4 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        124.58,
+        113.3,
         348.2,
         141.0
       ],
@@ -1238,7 +1238,7 @@
     "material": "Polymaker HT-PLA-GF, hardened0.4mm nozzle,230C/50C; recheck after annealing",
     "ceiling_height_above_shelf_mm": 400.0,
     "roof_center_xy_mm": [
-      178.54,
+      178.57999999999998,
       466.93755415948607
     ],
     "route": "existing V100 extraction fan -> short straight flange -> adjustable6in flex bend -> inner-ceiling chamber",
@@ -1272,19 +1272,19 @@
       "square_mm": 176.0,
       "hole_centers_xy_mm": [
         [
-          100.53999999999999,
+          100.57999999999998,
           388.93755415948607
         ],
         [
-          100.53999999999999,
+          100.57999999999998,
           544.9375541594861
         ],
         [
-          256.53999999999996,
+          256.58,
           388.93755415948607
         ],
         [
-          256.53999999999996,
+          256.58,
           544.9375541594861
         ]
       ],
@@ -1813,7 +1813,7 @@
     {
       "part": "v100_gpu_shroud",
       "center_xy_mm": [
-        123.54,
+        123.58,
         375.0
       ],
       "diameter_mm": 5.0,
@@ -1830,7 +1830,7 @@
     {
       "part": "v100_gpu_shroud",
       "center_xy_mm": [
-        233.54,
+        233.58,
         375.0
       ],
       "diameter_mm": 5.0,
@@ -1847,7 +1847,7 @@
     {
       "part": "v100_gpu_shroud",
       "center_xy_mm": [
-        178.54,
+        178.58,
         380.5
       ],
       "diameter_mm": 5.0,
@@ -1864,7 +1864,7 @@
     {
       "part": "PCIE1-metal-tail-support",
       "center_xy_mm": [
-        239.5,
+        239.54,
         85.5
       ],
       "diameter_mm": 5.0,
@@ -1877,7 +1877,7 @@
     {
       "part": "PCIE2-metal-tail-support",
       "center_xy_mm": [
-        198.86,
+        198.9,
         85.5
       ],
       "diameter_mm": 5.0,
@@ -1890,7 +1890,7 @@
     {
       "part": "PCIE3-metal-tail-support",
       "center_xy_mm": [
-        158.22,
+        158.26,
         85.5
       ],
       "diameter_mm": 5.0,
@@ -1903,7 +1903,7 @@
     {
       "part": "PCIE4-metal-tail-support",
       "center_xy_mm": [
-        117.58,
+        117.62,
         85.5
       ],
       "diameter_mm": 5.0,
@@ -1916,7 +1916,7 @@
     {
       "part": "Berserk_PCIE1_metal_post_1",
       "center_xy_mm": [
-        226.5,
+        255.54,
         348.2
       ],
       "diameter_mm": 3.5,
@@ -1947,7 +1947,7 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        226.5,
+        255.54,
         348.2
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
@@ -1955,7 +1955,7 @@
     {
       "part": "Berserk_PCIE1_metal_post_2",
       "center_xy_mm": [
-        246.5,
+        235.22,
         348.2
       ],
       "diameter_mm": 3.5,
@@ -1986,7 +1986,7 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        246.5,
+        235.22,
         348.2
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
@@ -1994,7 +1994,7 @@
     {
       "part": "Berserk_PCIE2_metal_post_1",
       "center_xy_mm": [
-        185.86,
+        214.9,
         348.2
       ],
       "diameter_mm": 3.5,
@@ -2025,7 +2025,7 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        185.86,
+        214.9,
         348.2
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
@@ -2033,7 +2033,7 @@
     {
       "part": "Berserk_PCIE2_metal_post_2",
       "center_xy_mm": [
-        205.86,
+        194.58,
         348.2
       ],
       "diameter_mm": 3.5,
@@ -2064,7 +2064,7 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        205.86,
+        194.57999999999998,
         348.2
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
@@ -2072,7 +2072,7 @@
     {
       "part": "Berserk_PCIE3_metal_post_1",
       "center_xy_mm": [
-        145.22,
+        174.26,
         348.2
       ],
       "diameter_mm": 3.5,
@@ -2103,7 +2103,7 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        145.22,
+        174.26,
         348.2
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
@@ -2111,7 +2111,7 @@
     {
       "part": "Berserk_PCIE3_metal_post_2",
       "center_xy_mm": [
-        165.22,
+        153.94,
         348.2
       ],
       "diameter_mm": 3.5,
@@ -2142,7 +2142,7 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        165.22,
+        153.94,
         348.2
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
@@ -2150,7 +2150,7 @@
     {
       "part": "Berserk_PCIE4_metal_post_1",
       "center_xy_mm": [
-        104.58,
+        133.62,
         348.2
       ],
       "diameter_mm": 3.5,
@@ -2181,7 +2181,7 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        104.58,
+        133.62,
         348.2
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
@@ -2189,7 +2189,7 @@
     {
       "part": "Berserk_PCIE4_metal_post_2",
       "center_xy_mm": [
-        124.58,
+        113.3,
         348.2
       ],
       "diameter_mm": 3.5,
@@ -2220,7 +2220,7 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        124.58,
+        113.3,
         348.2
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
@@ -2480,35 +2480,35 @@
   "selectable_GPU_post_slot_centers_mm": {
     "berserk_mobo_adapter_right_drill_plan": [
       [
-        104.58,
+        113.3,
         348.2
       ],
       [
-        124.58,
+        133.62,
         348.2
       ],
       [
-        145.22,
+        153.94,
         348.2
       ],
       [
-        165.22,
+        174.26,
         348.2
       ],
       [
-        185.86,
+        194.57999999999998,
         348.2
       ],
       [
-        205.86,
+        214.9,
         348.2
       ],
       [
-        226.5,
+        235.22,
         348.2
       ],
       [
-        246.5,
+        255.54,
         348.2
       ]
     ],

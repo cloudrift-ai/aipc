@@ -8,7 +8,7 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        226.5,
+        255.54,
         348.2
       ],
       "base_part": "970140324",
@@ -73,7 +73,7 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        246.5,
+        235.22,
         348.2
       ],
       "base_part": "970140324",
@@ -138,7 +138,7 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        185.86,
+        214.9,
         348.2
       ],
       "base_part": "970140324",
@@ -203,7 +203,7 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        205.86,
+        194.58,
         348.2
       ],
       "base_part": "970140324",
@@ -268,7 +268,7 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        145.22,
+        174.26,
         348.2
       ],
       "base_part": "970140324",
@@ -333,7 +333,7 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        165.22,
+        153.94,
         348.2
       ],
       "base_part": "970140324",
@@ -398,7 +398,7 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        104.58,
+        133.62,
         348.2
       ],
       "base_part": "970140324",
@@ -463,7 +463,7 @@
     {
       "part": "berserk_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        124.58,
+        113.3,
         348.2
       ],
       "base_part": "970140324",
@@ -1431,7 +1431,7 @@
       "part": "v100_gpu_shroud",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        123.54,
+        123.58,
         375.0
       ],
       "washer_seat_z_mm": 6.0,
@@ -1457,7 +1457,7 @@
       "part": "v100_gpu_shroud",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        233.54,
+        233.58,
         375.0
       ],
       "washer_seat_z_mm": 6.0,
@@ -1483,7 +1483,7 @@
       "part": "v100_gpu_shroud",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        178.54,
+        178.58,
         380.5
       ],
       "washer_seat_z_mm": 6.0,
@@ -1512,7 +1512,7 @@
       "part": "PCIE1-metal-tail-support",
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
       "center_xy_mm": [
-        239.5,
+        239.54,
         85.5
       ],
       "driver_side": "below shelf",
@@ -1527,7 +1527,7 @@
       "part": "PCIE2-metal-tail-support",
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
       "center_xy_mm": [
-        198.86,
+        198.9,
         85.5
       ],
       "driver_side": "below shelf",
@@ -1542,7 +1542,7 @@
       "part": "PCIE3-metal-tail-support",
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
       "center_xy_mm": [
-        158.22,
+        158.26,
         85.5
       ],
       "driver_side": "below shelf",
@@ -1557,7 +1557,7 @@
       "part": "PCIE4-metal-tail-support",
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
       "center_xy_mm": [
-        117.58,
+        117.62,
         85.5
       ],
       "driver_side": "below shelf",
@@ -1754,7 +1754,7 @@
   "V100_fan_fasteners": [
     {
       "center_mm": [
-        116.28999999999999,
+        116.32999999999998,
         404.08846494072804,
         113.05367068300289
       ],
@@ -1774,7 +1774,7 @@
     },
     {
       "center_mm": [
-        116.28999999999999,
+        116.32999999999998,
         316.0536706830029,
         201.08846494072804
       ],
@@ -1794,7 +1794,7 @@
     },
     {
       "center_mm": [
-        240.79,
+        240.82999999999998,
         404.08846494072804,
         113.05367068300289
       ],
@@ -1814,7 +1814,7 @@
     },
     {
       "center_mm": [
-        240.79,
+        240.82999999999998,
         316.0536706830029,
         201.08846494072804
       ],
@@ -1838,7 +1838,7 @@
     "material": "Polymaker HT-PLA-GF, hardened0.4mm nozzle,230C/50C; recheck after annealing",
     "ceiling_height_above_shelf_mm": 400.0,
     "roof_center_xy_mm": [
-      178.54,
+      178.57999999999998,
       466.93755415948607
     ],
     "route": "existing V100 extraction fan -> short straight flange -> adjustable6in flex bend -> inner-ceiling chamber",
@@ -1872,19 +1872,19 @@
       "square_mm": 176.0,
       "hole_centers_xy_mm": [
         [
-          100.53999999999999,
+          100.57999999999998,
           388.93755415948607
         ],
         [
-          100.53999999999999,
+          100.57999999999998,
           544.9375541594861
         ],
         [
-          256.53999999999996,
+          256.58,
           388.93755415948607
         ],
         [
-          256.53999999999996,
+          256.58,
           544.9375541594861
         ]
       ],

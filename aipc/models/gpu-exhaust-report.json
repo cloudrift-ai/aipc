@@ -3,7 +3,7 @@
   "material": "Polymaker HT-PLA-GF, hardened0.4mm nozzle,230C/50C; recheck after annealing",
   "ceiling_height_above_shelf_mm": 400.0,
   "roof_center_xy_mm": [
-    178.54,
+    178.57999999999998,
     466.93755415948607
   ],
   "route": "existing V100 extraction fan -> short straight flange -> adjustable6in flex bend -> inner-ceiling chamber",
@@ -37,19 +37,19 @@
     "square_mm": 176.0,
     "hole_centers_xy_mm": [
       [
-        100.53999999999999,
+        100.57999999999998,
         388.93755415948607
       ],
       [
-        100.53999999999999,
+        100.57999999999998,
         544.9375541594861
       ],
       [
-        256.53999999999996,
+        256.58,
         388.93755415948607
       ],
       [
-        256.53999999999996,
+        256.58,
         544.9375541594861
       ]
     ],

@@ -16,7 +16,7 @@ POST_SLOT_X = (23.88, 45., 65., 84.52, 105.16, 125.16, 145.80, 165.80)
 # Eight selectable positions on one continuous rear rail, common to both boards.
 # Current card layout populates all eight on Berserk and two on Kenshin.
 # Post coordinates are survey estimates, not a standardized card-flange drawing.
-SHARED_POST_X = {'Berserk': tuple(sorted(x+u-bp.X for x in bp.GPU_BODY_X.values() for u in (7,27))),
+SHARED_POST_X = {'Berserk': tuple(sorted(round(x-bp.X,2) for xs in bp.BRACKET_POST_X.values() for x in xs)),
                  'Kenshin': (45., 65.)}
 SHARED_POST_Y = {'Berserk': 6., 'Kenshin': 10.}
 

@@ -60,7 +60,7 @@
     "material": "Polymaker HT-PLA-GF, hardened0.4mm nozzle,230C/50C; recheck after annealing",
     "ceiling_height_above_shelf_mm": 400.0,
     "roof_center_xy_mm": [
-      178.54,
+      178.57999999999998,
       466.93755415948607
     ],
     "route": "existing V100 extraction fan -> short straight flange -> adjustable6in flex bend -> inner-ceiling chamber",
@@ -94,19 +94,19 @@
       "square_mm": 176.0,
       "hole_centers_xy_mm": [
         [
-          100.53999999999999,
+          100.57999999999998,
           388.93755415948607
         ],
         [
-          100.53999999999999,
+          100.57999999999998,
           544.9375541594861
         ],
         [
-          256.53999999999996,
+          256.58,
           388.93755415948607
         ],
         [
-          256.53999999999996,
+          256.58,
           544.9375541594861
         ]
       ],
@@ -398,16 +398,16 @@
     "installed": false,
     "BMC": "included per listing; remote console/media not tested",
     "slot_PCB_planes_x_mm": {
-      "PCIE1": 255.5,
-      "PCIE2": 214.86,
-      "PCIE3": 174.22,
-      "PCIE4": 133.58
+      "PCIE1": 255.54,
+      "PCIE2": 214.9,
+      "PCIE3": 174.26,
+      "PCIE4": 133.62
     },
     "GPU_body_low_x_mm": {
-      "PCIE1": 219.5,
-      "PCIE2": 178.86,
-      "PCIE3": 138.22,
-      "PCIE4": 97.58
+      "PCIE1": 219.54,
+      "PCIE2": 178.9,
+      "PCIE3": 138.26,
+      "PCIE4": 97.62
     },
     "GPU_body_offset_basis": "provisional 36 mm toward low X, 4 mm toward high X; measure real PCIe card",
     "slot_lane_widths": {
@@ -457,7 +457,7 @@
   },
   "Kenshin_clearance_revision": {
     "rotation_z_deg": 180,
-    "hood_to_GPU_gap_mm": 43.656,
+    "hood_to_GPU_gap_mm": 43.616,
     "physical_fit_verified": false
   },
   "selected_upgrade": {
@@ -574,69 +574,69 @@
         ],
         "through_post_centers_mm": [
           [
-            104.58,
+            113.3,
             348.2
           ],
           [
-            124.58,
+            133.62,
             348.2
           ],
           [
-            145.22,
+            153.94,
             348.2
           ],
           [
-            165.22,
+            174.26,
             348.2
           ],
           [
-            185.86,
+            194.57999999999998,
             348.2
           ],
           [
-            205.86,
+            214.9,
             348.2
           ],
           [
-            226.5,
+            235.22,
             348.2
           ],
           [
-            246.5,
+            255.54,
             348.2
           ]
         ],
         "common_post_slot_centers_mm": [
           [
-            104.58,
+            113.3,
             348.2
           ],
           [
-            124.58,
+            133.62,
             348.2
           ],
           [
-            145.22,
+            153.94,
             348.2
           ],
           [
-            165.22,
+            174.26,
             348.2
           ],
           [
-            185.86,
+            194.57999999999998,
             348.2
           ],
           [
-            205.86,
+            214.9,
             348.2
           ],
           [
-            226.5,
+            235.22,
             348.2
           ],
           [
-            246.5,
+            255.54,
             348.2
           ]
         ],
@@ -724,11 +724,11 @@
           "fit_check": "Measure seated tab X/Y/Z; check tongues against metal bases and steel deck; print one of each rear rail and dry-fit before use"
         },
         "installed_origin_xy_mm": [
-          97.58,
+          106.3,
           95.21000000000001
         ],
         "bounds_xy_mm": [
-          97.58,
+          106.3,
           95.21000000000001,
           266.47,
           358.7
@@ -1407,7 +1407,7 @@
     "PETG parts, drilled nominal1.52mm shelf joints, cooling and power have not had a sustained loaded test; generated G-code remains a fit prototype"
   ],
   "clearances_mm": {
-    "hood_to_Kenshin_GPU_x_gap_mm": 43.656,
+    "hood_to_Kenshin_GPU_x_gap_mm": 43.616,
     "H115i_brace_to_board_front_mm": 12.7,
     "component_height_planning_band_mm": 222.25,
     "lower_height_reference_mm": 177.8,
@@ -1420,11 +1420,11 @@
     "radiator_to_Berserk_board_depth_gap_mm": 57.2,
     "radiator_to_planned_V100_power_plug_gap_mm": 17.5,
     "Berserk_GPU_tail_to_Kenshin_board_gap_mm": 104.3,
-    "Berserk_GPU2_to_Kenshin_GPU_x_gap_mm": 49.356,
+    "Berserk_GPU2_to_Kenshin_GPU_x_gap_mm": 49.316,
     "Berserk_GPU_to_GPU_x_gap_mm": 0.64,
-    "Berserk_PSU_to_nearest_V100_x_gap_mm": 11.58,
+    "Berserk_PSU_to_nearest_V100_x_gap_mm": 11.62,
     "V100_fan_bbox_to_Kenshin_board_signed_y_gap_mm": 10.061,
-    "V100_fans_to_Kenshin_PSU_x_gap_mm": 14.884,
+    "V100_fans_to_Kenshin_PSU_x_gap_mm": 14.924,
     "Kenshin_PSU_to_side_edge_x_gap_mm": 7.656,
     "Berserk_PSU_rear_plug_to_5090_front_y_gap_mm": 141.5,
     "Kenshin_PSU_rear_plug_to_AIO_y_gap_mm": 62.0,
@@ -1462,7 +1462,7 @@
     },
     {
       "name": "Berserk V100 16GB PCIE1",
-      "x": 219.5,
+      "x": 219.54,
       "y": 75.5,
       "z": 24,
       "w": 40.0,
@@ -1472,7 +1472,7 @@
     },
     {
       "name": "Berserk V100 16GB PCIE2",
-      "x": 178.86,
+      "x": 178.9,
       "y": 75.5,
       "z": 24,
       "w": 40.0,
@@ -1482,7 +1482,7 @@
     },
     {
       "name": "Berserk V100 16GB PCIE3",
-      "x": 138.22,
+      "x": 138.26,
       "y": 75.5,
       "z": 24,
       "w": 40.0,
@@ -1492,7 +1492,7 @@
     },
     {
       "name": "Berserk V100 16GB PCIE4",
-      "x": 97.58,
+      "x": 97.62,
       "y": 75.5,
       "z": 24,
       "w": 40.0,
@@ -1602,7 +1602,7 @@
     },
     {
       "name": "V100 pressure fan",
-      "x": 108.53999999999999,
+      "x": 108.57999999999998,
       "y": 310.57359312880715,
       "z": 107.57359312880715,
       "w": 140.0,
@@ -1764,7 +1764,7 @@
   "large_connector_keepouts_mm": [
     {
       "name": "V100 PCIE1 angled EPS plug target",
-      "x": 244.5,
+      "x": 244.54,
       "y": 57.5,
       "z": 94,
       "w": 15,
@@ -1774,7 +1774,7 @@
     },
     {
       "name": "V100 PCIE2 angled EPS plug target",
-      "x": 203.86,
+      "x": 203.9,
       "y": 57.5,
       "z": 94,
       "w": 15,
@@ -1784,7 +1784,7 @@
     },
     {
       "name": "V100 PCIE3 angled EPS plug target",
-      "x": 163.22,
+      "x": 163.26,
       "y": 57.5,
       "z": 94,
       "w": 15,
@@ -1794,7 +1794,7 @@
     },
     {
       "name": "V100 PCIE4 angled EPS plug target",
-      "x": 122.58,
+      "x": 122.62,
       "y": 57.5,
       "z": 94,
       "w": 15,
@@ -1868,7 +1868,7 @@
       "part": "h12d_mobo_adapter_rail",
       "quantity": 1,
       "bounding_box_mm": [
-        168.89,
+        160.17,
         263.49,
         6.0
       ],
@@ -2029,10 +2029,10 @@
   "motherboard_adapter_web_envelopes_mm": [
     {
       "name": "berserk_mobo_adapter_right_drill_plan envelope",
-      "x": 97.58,
+      "x": 106.3,
       "y": 95.21000000000001,
       "z": 0,
-      "w": 168.89000000000004,
+      "w": 160.17000000000002,
       "d": 263.49,
       "h": 6.0,
       "note": "bounding envelope only; interlocking open frame"
@@ -2429,7 +2429,7 @@
       "system": "Berserk",
       "card": "PCIE1",
       "post": 1,
-      "x_mm": 226.5,
+      "x_mm": 255.54,
       "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
@@ -2442,7 +2442,7 @@
       "system": "Berserk",
       "card": "PCIE1",
       "post": 2,
-      "x_mm": 246.5,
+      "x_mm": 235.22,
       "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
@@ -2455,7 +2455,7 @@
       "system": "Berserk",
       "card": "PCIE2",
       "post": 1,
-      "x_mm": 185.86,
+      "x_mm": 214.9,
       "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
@@ -2468,7 +2468,7 @@
       "system": "Berserk",
       "card": "PCIE2",
       "post": 2,
-      "x_mm": 205.86,
+      "x_mm": 194.58,
       "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
@@ -2481,7 +2481,7 @@
       "system": "Berserk",
       "card": "PCIE3",
       "post": 1,
-      "x_mm": 145.22,
+      "x_mm": 174.26,
       "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
@@ -2494,7 +2494,7 @@
       "system": "Berserk",
       "card": "PCIE3",
       "post": 2,
-      "x_mm": 165.22,
+      "x_mm": 153.94,
       "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
@@ -2507,7 +2507,7 @@
       "system": "Berserk",
       "card": "PCIE4",
       "post": 1,
-      "x_mm": 104.58,
+      "x_mm": 133.62,
       "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
@@ -2520,7 +2520,7 @@
       "system": "Berserk",
       "card": "PCIE4",
       "post": 2,
-      "x_mm": 124.58,
+      "x_mm": 113.3,
       "y_mm": 348.2,
       "top_z_survey_mm": 145.0,
       "GPU_flange_z_survey_mm": 141.0,
@@ -2559,7 +2559,7 @@
   "gpu_post_steel_backers_mm": [
     {
       "name": "Berserk PCIE1 purchased post backing washer 1",
-      "x": 220.5,
+      "x": 249.54,
       "y": 342.2,
       "z": -3.52,
       "w": 12,
@@ -2569,7 +2569,7 @@
     },
     {
       "name": "Berserk PCIE1 purchased post backing washer 2",
-      "x": 240.5,
+      "x": 229.22,
       "y": 342.2,
       "z": -3.52,
       "w": 12,
@@ -2579,7 +2579,7 @@
     },
     {
       "name": "Berserk PCIE2 purchased post backing washer 1",
-      "x": 179.86,
+      "x": 208.9,
       "y": 342.2,
       "z": -3.52,
       "w": 12,
@@ -2589,7 +2589,7 @@
     },
     {
       "name": "Berserk PCIE2 purchased post backing washer 2",
-      "x": 199.86,
+      "x": 188.58,
       "y": 342.2,
       "z": -3.52,
       "w": 12,
@@ -2599,7 +2599,7 @@
     },
     {
       "name": "Berserk PCIE3 purchased post backing washer 1",
-      "x": 139.22,
+      "x": 168.26,
       "y": 342.2,
       "z": -3.52,
       "w": 12,
@@ -2609,7 +2609,7 @@
     },
     {
       "name": "Berserk PCIE3 purchased post backing washer 2",
-      "x": 159.22,
+      "x": 147.94,
       "y": 342.2,
       "z": -3.52,
       "w": 12,
@@ -2619,7 +2619,7 @@
     },
     {
       "name": "Berserk PCIE4 purchased post backing washer 1",
-      "x": 98.58,
+      "x": 127.62,
       "y": 342.2,
       "z": -3.52,
       "w": 12,
@@ -2629,7 +2629,7 @@
     },
     {
       "name": "Berserk PCIE4 purchased post backing washer 2",
-      "x": 118.58,
+      "x": 107.3,
       "y": 342.2,
       "z": -3.52,
       "w": 12,
@@ -3090,12 +3090,12 @@
       "od_mm": 10,
       "points_mm": [
         [
-          251.5,
+          251.54,
           63.5,
           105
         ],
         [
-          251.5,
+          251.54,
           63.5,
           210
         ],
@@ -3116,18 +3116,18 @@
         ]
       ],
       "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
-      "polyline_length_mm": 416.94
+      "polyline_length_mm": 416.98
     },
     "V100 PCIE2 power": {
       "od_mm": 10,
       "points_mm": [
         [
-          210.86,
+          210.9,
           63.5,
           105
         ],
         [
-          210.86,
+          210.9,
           63.5,
           210
         ],
@@ -3148,18 +3148,18 @@
         ]
       ],
       "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
-      "polyline_length_mm": 388.3
+      "polyline_length_mm": 388.34
     },
     "V100 PCIE3 power": {
       "od_mm": 10,
       "points_mm": [
         [
-          170.22,
+          170.26,
           63.5,
           105
         ],
         [
-          170.22,
+          170.26,
           63.5,
           210
         ],
@@ -3180,18 +3180,18 @@
         ]
       ],
       "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
-      "polyline_length_mm": 359.66
+      "polyline_length_mm": 359.7
     },
     "V100 PCIE4 power": {
       "od_mm": 10,
       "points_mm": [
         [
-          129.57999999999998,
+          129.62,
           63.5,
           105
         ],
         [
-          129.57999999999998,
+          129.62,
           63.5,
           210
         ],
@@ -3212,7 +3212,7 @@
         ]
       ],
       "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
-      "polyline_length_mm": 331.02
+      "polyline_length_mm": 331.06
     }
   },
   "Berserk_orientation": {
@@ -3227,7 +3227,7 @@
     {
       "part": "PCIE1-metal-tail-support",
       "center_xy_mm": [
-        239.5,
+        239.54,
         85.5
       ],
       "diameter_mm": 5.0,
@@ -3240,7 +3240,7 @@
     {
       "part": "PCIE2-metal-tail-support",
       "center_xy_mm": [
-        198.86,
+        198.9,
         85.5
       ],
       "diameter_mm": 5.0,
@@ -3253,7 +3253,7 @@
     {
       "part": "PCIE3-metal-tail-support",
       "center_xy_mm": [
-        158.22,
+        158.26,
         85.5
       ],
       "diameter_mm": 5.0,
@@ -3266,7 +3266,7 @@
     {
       "part": "PCIE4-metal-tail-support",
       "center_xy_mm": [
-        117.58,
+        117.62,
         85.5
       ],
       "diameter_mm": 5.0,
@@ -3290,7 +3290,7 @@
     "fan_dimension_source": "https://publish.sanyodenki.com/San_Ace_E/book/data/San_Ace_E.pdf pp185-188",
     "angle_up_from_horizontal_deg": 45,
     "panel_center_xyz_mm": [
-      178.54,
+      178.57999999999998,
       353.0,
       150.0
     ],
@@ -3314,10 +3314,10 @@
       "count": 4,
       "thickness_mm": 4.0,
       "centers_x_mm": [
-        113.53999999999999,
-        153.54,
-        203.54,
-        243.54
+        113.57999999999998,
+        153.57999999999998,
+        203.57999999999998,
+        243.57999999999998
       ],
       "purpose": "support the shelf-flange transition in print; retain inside chamber"
     },
@@ -3348,15 +3348,15 @@
     "plenum_wall_mm": 3.2,
     "shelf_anchors_xy_mm": [
       [
-        123.53999999999999,
+        123.57999999999998,
         375.0
       ],
       [
-        233.54,
+        233.57999999999998,
         375.0
       ],
       [
-        178.54,
+        178.57999999999998,
         380.5
       ]
     ],

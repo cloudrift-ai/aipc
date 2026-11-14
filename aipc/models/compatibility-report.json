@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-15",
+  "date": "2026-11-18",
   "summary": {
     "BLOCKED": 23,
     "PROVISIONAL": 55,
@@ -1707,11 +1707,6 @@
       "part": "keystone-1451b",
       "status": "BLOCKED",
       "detail": "Only the DigiKey listing is recorded; add Keystone's drawing."
-    },
-    {
-      "part": "micron-3400-2tb",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.mouser.com/datasheet/2/671/Micron_Technology_micron_3400_ssd_product_brief-2499062.pdf (run make datasheets)"
     },
     {
       "part": "micron-3500-2tb",

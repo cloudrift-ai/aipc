@@ -648,7 +648,7 @@ cq.exporters.export(gpu_backer, str(OUT / "pcie-post-backing-washer-reference.st
 post_locations = []
 gpu_flange_holes = []
 for system, label, xs, py in (
-    *(("Berserk", slot, (x + 7, x + 27), V100_TAIL_Y + 6) for slot, x in V100_SLOTS.items()),
+    *(("Berserk", slot, bp.BRACKET_POST_X[slot], V100_TAIL_Y + 6) for slot in V100_SLOTS),
     ("Kenshin", "RTX5090", tuple(k_xy(x,0)[0] for x in (53-K_LEFT_SHIFT,73-K_LEFT_SHIFT)), k_xy(0,shelf_y(679+K_REAR_SHIFT))[1]),
 ):
     post_h = PCIE_POST_SURVEY_H
