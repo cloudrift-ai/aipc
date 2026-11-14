@@ -1950,7 +1950,7 @@
         226.5,
         348.2
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE1_metal_post_2",
@@ -1989,7 +1989,7 @@
         246.5,
         348.2
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE2_metal_post_1",
@@ -2028,7 +2028,7 @@
         185.86,
         348.2
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE2_metal_post_2",
@@ -2067,7 +2067,7 @@
         205.86,
         348.2
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE3_metal_post_1",
@@ -2106,7 +2106,7 @@
         145.22,
         348.2
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE3_metal_post_2",
@@ -2145,7 +2145,7 @@
         165.22,
         348.2
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE4_metal_post_1",
@@ -2184,7 +2184,7 @@
         104.58,
         348.2
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Berserk_PCIE4_metal_post_2",
@@ -2223,7 +2223,7 @@
         124.58,
         348.2
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Kenshin_RTX5090_metal_post_1",
@@ -2262,7 +2262,7 @@
         371.656,
         436.5
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Kenshin_RTX5090_metal_post_2",
@@ -2301,7 +2301,7 @@
         351.656,
         436.5
       ],
-      "fit_note": "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+      "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     }
   ],
   "optional_motherboard_shelf_holes": [

@@ -1388,7 +1388,7 @@ for site in gpu_post_holes:
     sx,sy=min(frame["common_post_slot_centers_mm"],key=lambda pt:(pt[0]-x)**2+(pt[1]-y)**2)
     assert abs(sx-x)<.001 and abs(sy-y)<.001,(site,"hex opening must match post axis")
     site["fixed_hex_center_xy_mm"] = [sx,sy]
-    site["fit_note"] = "Regular hex with0.25mm face allowance and no elongated adjustment. Point one corner toward PCB. Verify actual fit and full foot on real steel before drilling."
+    site["fit_note"] = "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
 cq.exporters.export(shelf_deck, str(OUT / "rsus1931bk1-drill-plan-deck.step"))
 assembly.add(shelf_deck, name="RSUS1931BK1_drill_plan_deck_not_manufacturer_CAD",
              color=cq.Color(.38, .42, .47))
