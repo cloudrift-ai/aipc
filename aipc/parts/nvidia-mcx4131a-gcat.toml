@@ -1,0 +1,8 @@
+part = "purchased/nvidia-mcx4131a-gcat"
+role = "Direct Berserk-Kenshin link over a QSFP28 DAC (one card per system)"
+status = "owned"
+quantity = 2
+systems = ["berserk", "kenshin"]
+
+[assembly]
+not_modeled = "card positions not chosen: Berserk's sits on a riser whose shelf location is open, and Kenshin's PCIEX4 slot clearance under the RTX 5090 is unchecked"

@@ -1,0 +1,8 @@
+part = "printed/gpu_exhaust_fan_flange"
+role = "fan outlet to 6 in duct"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+match = ["^gpu_exhaust_fan_flange$"]

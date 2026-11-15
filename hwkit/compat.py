@@ -71,7 +71,7 @@ def _pseudo_items(parts):
 
     Configured in build.toml ``[compat]``: ``load_carrier`` turns each part's
     dims.mass into a load on one system; ``default_system`` applies to
-    parts/system.toml items that name none.
+    system.toml items that name none.
     """
     config = paths.BUILD.get("compat", {})
     reqs, provs = [], []

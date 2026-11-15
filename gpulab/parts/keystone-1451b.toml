@@ -1,0 +1,8 @@
+part = "purchased/keystone-1451b"
+role = "H12D-8D motherboard standoffs, screwed from below through the steel deck"
+status = "selected"
+quantity = 8
+systems = ["node"]
+
+[assembly]
+match = ["^H12D_6_32_standoff_[A-Z]$"]

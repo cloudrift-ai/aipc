@@ -1,0 +1,8 @@
+part = "purchased/pcie-8pin-splitter"
+role = "feeds two riser boards (75 W each) from one PSU 6+2 lead"
+status = "candidate"
+quantity = 5
+systems = ["node"]
+
+[assembly]
+not_modeled = "flexible cable"

@@ -1,0 +1,27 @@
+id = "cpayne-mcio-8i-cable-0p75m"
+name = "C-Payne MCIO 8i to MCIO 8i cable, 0.75 m, 85 ohm (305-CAB-MCIO/MCIO-8i-P0.75M-11-85)"
+category = "purchased"
+evidence = "datasheet"
+notes = "Gen5 32G, AWG30 twinax. C-Payne sells 0.45 m and 0.75 m only; the layout's route lengths are in models/gpulab-fit-report.json."
+
+[links]
+product = "https://c-payne.com/products/mcio-pcie-gen5-host-adapter-x16-passive"
+
+[[datasheets]]
+title = "C-Payne MCIO cable listing (same product family page)"
+url = "https://c-payne.com/products/mcio-pcie-gen5-host-adapter-x16-passive"
+
+[model]
+source = "constructed"
+
+[dims]
+length = { value = 750.0, evidence = "datasheet", source = "part number P0.75M" }
+mass = { value = 0.05, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "mcio-8i-cable"
+count = 1
+
+[[requires]]
+type = "mcio-8i-port"
+count = 1

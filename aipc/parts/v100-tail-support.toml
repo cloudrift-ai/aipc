@@ -1,0 +1,9 @@
+part = "purchased/v100-tail-support"
+role = "V100 tail support"
+status = "candidate"
+quantity = 4
+systems = ["berserk"]
+
+[assembly]
+match = ["^PCIE\\d_metal_tail_support_survey$", "^PCIE\\d_silicone_contact_pad_survey$"]
+instances_per_unit = 2

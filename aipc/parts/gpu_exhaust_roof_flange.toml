@@ -1,0 +1,9 @@
+part = "printed/gpu_exhaust_roof_flange"
+role = "duct to cabinet inner ceiling"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+on_shelf = false
+
+[assembly]
+match = ["^gpu_exhaust_roof_flange$"]

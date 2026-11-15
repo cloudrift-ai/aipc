@@ -1,0 +1,17 @@
+id = "mains-power"
+name = "Mains circuit, UPS and PDU (not specified)"
+category = "purchased"
+evidence = "unknown"
+notes = """
+Placeholder for the building supply. Each build records the circuit(s), UPS
+and PDU ratings and outlet types it needs in its own parts/mains-power.toml.
+"""
+
+[model]
+source = "constructed"
+
+[[provides]]
+type = "ac-power"
+capacity = ""
+unit = "W"
+derate = 0.8

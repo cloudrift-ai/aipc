@@ -1,0 +1,8 @@
+part = "purchased/super-flower-leadex-2800w"
+role = "node PSU: board, CPU, GPUs and riser boards"
+status = "selected"
+quantity = 1
+systems = ["node"]
+
+[assembly]
+match = ["^PSU_Super_Flower_2800W$"]

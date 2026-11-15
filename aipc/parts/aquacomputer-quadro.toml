@@ -1,0 +1,8 @@
+part = "purchased/aquacomputer-quadro"
+role = "PWM and tach for the V100 pressure fan, driven from GPU temperature by the host"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+not_modeled = "outline not published and mounting place not chosen; small enough for the hood side or the H12D front edge"

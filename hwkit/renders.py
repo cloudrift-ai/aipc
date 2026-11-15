@@ -1,9 +1,9 @@
 """Render every part and the assembly for visual inspection.
 
-Run with ``hwkit render`` after ``hwkit cad``. Writes, in the build folder:
-  parts/<category>/<id>/render.png        nine views of the part model
-  parts/<category>/<id>/in-assembly.png   the part highlighted in the full assembly
-  models/renders/assembly*.png            whole build, and each system in build.toml [render] system_sheets
+Run with ``hwkit render`` after ``hwkit cad``. Writes:
+  parts/<category>/<id>/render.png   nine views of the library model, for the parts whose model this build owns
+  models/renders/parts/<id>.png      in the build folder: the part highlighted in the build's assembly
+  models/renders/assembly*.png       whole build, and each system in build.toml [render] system_sheets
 
 Usage: hwkit render [part-id ...]   (no ids = everything)
 """
@@ -23,15 +23,16 @@ def main(selected: list[str]):
     todo = [parts[i] for i in selected] if selected else list(parts.values())
 
     for p in todo:
-        if p.model_step.exists():
-            render_views(p.model_step, p.render_png, title=f"{p.id}  ({p.category}, qty {p.quantity})")
-            print("rendered", p.render_png.relative_to(paths.ROOT))
+        if p.owns_model and p.model_step.exists():
+            render_views(p.model_step, p.render_png, title=f"{p.id}  ({p.category})")
+            print("rendered", p.render_png.relative_to(paths.REPO))
 
     scene = Scene(paths.ASSEMBLY_STEP)
+    paths.PART_RENDERS.mkdir(parents=True, exist_ok=True)
     for p in todo:
         names = set(bom.get(p.id, {}).get("instance_names", []))
         if names:
-            scene.highlight(p.dir / "in-assembly.png", names, title=f"{p.id} in the assembly")
+            scene.highlight(p.in_assembly_png, names, title=f"{p.id} in the assembly")
 
     if selected:
         return

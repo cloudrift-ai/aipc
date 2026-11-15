@@ -38,8 +38,8 @@ These are the rules every printed part in this repo follows, in every build. Use
 
 ## Checking a change
 
-1. Change the generator in the build's `cad/` or the part's `part.toml`, not the exported files. Then regenerate everything that depends on it: `make all gcode BUILD=<build>`.
-2. Look at the part's `render.png` and `in-assembly.png` in the build's `parts/printed/<name>/` (`make render`; see the design-review skill), then review every changed part in its actual print orientation from above, below, both sides and oblique angles, including joints and underside transitions. Step through the sliced layers where features begin, bridge or close. A clean render, a valid solid or a low overhang score is not enough.
+1. Change the generator in the build's `cad/` or the part's `part.toml` (or the build's `parts/<name>.toml`), not the exported files. Then regenerate everything that depends on it: `make all gcode BUILD=<build>`.
+2. Look at the part's `render.png` in the library's `parts/printed/<name>/` and its assembly view in the build's `models/renders/parts/<name>.png` (`make render`; see the design-review skill), then review every changed part in its actual print orientation from above, below, both sides and oblique angles, including joints and underside transitions. Step through the sliced layers where features begin, bridge or close. A clean render, a valid solid or a low overhang score is not enough.
 3. Have someone (or a separate agent) audit the change independently, fix what they find, and recheck the affected areas.
 4. Print one of each changed part and dry-fit it against the real hardware before printing the rest. A successful CAD or slicer check is a prototype review, not a fit approval.
 

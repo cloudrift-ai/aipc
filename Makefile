@@ -27,7 +27,7 @@ help:
 	@echo "make cad         - regenerate the assembly, reports and every part model"
 	@echo "make render      - render every part and the assembly for visual inspection"
 	@echo "make check       - spec lint, system compatibility, assembly coverage; writes docs/system-check.md"
-	@echo "make datasheets  - download each part's datasheets into parts/*/*/datasheets/ (not committed)"
+	@echo "make datasheets  - download the datasheets of each build's parts into parts/*/*/datasheets/ (not committed)"
 	@echo "make plates      - pack the printed parts into print plates (3MF) in print/"
 	@echo "make gcode       - slice the plates with OrcaSlicer into print/gcode/ (not committed); PLATES=\"<plate> ...\" for some"
 	@echo "make clean-gcode - delete generated G-code"

@@ -1,0 +1,17 @@
+part = "purchased/huananzhi-h12d-8d"
+role = "GPU lab host board: four x16 slots, each split x8x8 for two cabled GPUs"
+status = "selected"
+quantity = 1
+systems = ["node"]
+notes = """
+A second board is needed unless Berserk's is moved here. x8x8 bifurcation is
+NOT documented in the manual or any found source: check AMD CBS -> NBIO in the
+BIOS before buying adapters.
+"""
+
+[[requires]]
+type = "board-standoff"
+note = "populated sites A/C/F/G/H/K/L/M; screwed from below through the drilled steel deck"
+
+[assembly]
+match = ["^H12D_8D_board$"]

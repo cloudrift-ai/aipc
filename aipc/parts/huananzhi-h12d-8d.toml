@@ -1,0 +1,21 @@
+part = "purchased/huananzhi-h12d-8d"
+role = "Berserk motherboard"
+status = "owned"
+quantity = 1
+systems = ["berserk"]
+
+[[requires]]
+type = "mobo-front-section"
+value = "ATX"
+count = 1
+evidence = "listing"
+
+[[requires]]
+type = "mobo-rear-rail"
+value = "H12D-8D slot positions"
+count = 1
+evidence = "listing"
+
+[assembly]
+match = ["^Berserk_ATX_board$", "^Berserk_BMC_module_survey$"]
+instances_per_unit = 2

@@ -1,0 +1,8 @@
+part = "purchased/cpayne-mcio-8i-cable-0p75m"
+role = "x8 link from a host adapter port to a riser board"
+status = "candidate"
+quantity = 7
+systems = ["node"]
+
+[assembly]
+not_modeled = "flexible cable; route length checked in models/gpulab-fit-report.json"

@@ -1,0 +1,20 @@
+id = "psu_bracket"
+name = "psu_bracket"
+category = "printed"
+evidence = "allowance"
+
+[print]
+plate = "05_psu_brackets"
+material = "HT-PLA-GF"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.0472, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+[[provides]]
+type = "psu-restraint"
+value = "ATX 150 x 86 face"
+count = 1

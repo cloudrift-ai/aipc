@@ -65,6 +65,33 @@
       "not_modeled": "inside the CPU-and-pump survey envelope",
       "instance_names": []
     },
+    "atx_mobo_adapter_front": {
+      "name": "atx_mobo_adapter_front",
+      "category": "printed",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "berserk_mobo_adapter_left_drill_plan",
+        "kenshin_mobo_adapter_right_drill_plan"
+      ]
+    },
+    "atx_mobo_adapter_rail": {
+      "name": "atx_mobo_adapter_rail",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "kenshin_mobo_adapter_left_drill_plan"
+      ]
+    },
     "corsair-cmp64gx5m4b6400c32": {
       "name": "Corsair CMP64GX5M4B6400C32 DDR5 kit, 4 x 16 GB",
       "category": "purchased",
@@ -103,8 +130,86 @@
         "Kenshin_owned_HX1200i_PSU"
       ]
     },
+    "fan-power-harness": {
+      "name": "Fused PWM pass-through harness for the pressure fan",
+      "category": "fabricated",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "flexible wiring; route along the hood clear of the fan rotor",
+      "instance_names": []
+    },
+    "fan120_aio_center_spacer": {
+      "name": "fan120_aio_center_spacer",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Kenshin_AIO_middle_fan_6mm_spacer"
+      ]
+    },
+    "fan120_aio_frame": {
+      "name": "fan120_aio_frame",
+      "category": "printed",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_Kenshin_AIO_1_bearing_frame_drill_plan_survey",
+        "printed_Kenshin_AIO_2_bearing_frame_drill_plan_survey"
+      ]
+    },
+    "fan120_aio_hose_brace": {
+      "name": "fan120_aio_hose_brace",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Kenshin_AIO_inward_hose_brace"
+      ]
+    },
+    "fan140_aio_frame": {
+      "name": "fan140_aio_frame",
+      "category": "printed",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_H115i_left_screw_frame_drill_plan_survey",
+        "printed_H115i_right_screw_frame_drill_plan_survey"
+      ]
+    },
+    "fan140_aio_hose_brace": {
+      "name": "fan140_aio_hose_brace",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_H115i_hose_end_shelf_brace"
+      ]
+    },
     "fasteners": {
-      "name": "Shelf and component fasteners (M3/M4 screws, washers, nuts)",
+      "name": "Shelf and component fasteners (metric and UNC screws, washers, nuts)",
       "category": "purchased",
       "quantity": 1,
       "state": "modeled",
@@ -226,6 +331,58 @@
       "not_modeled": null,
       "instance_names": [
         "Kenshin_ATX_board"
+      ]
+    },
+    "gpu_exhaust_fan_flange": {
+      "name": "gpu_exhaust_fan_flange",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "gpu_exhaust_fan_flange"
+      ]
+    },
+    "gpu_exhaust_roof_flange": {
+      "name": "gpu_exhaust_roof_flange",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "gpu_exhaust_roof_flange"
+      ]
+    },
+    "gpu_rest": {
+      "name": "gpu_rest",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_Kenshin_GPU_rest_survey"
+      ]
+    },
+    "h12d_mobo_adapter_rail": {
+      "name": "h12d_mobo_adapter_rail",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "berserk_mobo_adapter_right_drill_plan"
       ]
     },
     "hammond-rsus1931bk1": {
@@ -481,6 +638,20 @@
         "Kenshin_RTX5090_OBT_9mm_stud_2"
       ]
     },
+    "psu_bracket": {
+      "name": "psu_bracket",
+      "category": "printed",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_Berserk_PSU_two_upper_screw_frame_survey",
+        "printed_Kenshin_PSU_two_upper_screw_frame_survey"
+      ]
+    },
     "rack-cabinet": {
       "name": "Rack cabinet (not yet specified)",
       "category": "purchased",
@@ -492,6 +663,19 @@
       "not_modeled": null,
       "instance_names": [
         "inner_ceiling_patch_PROVISIONAL"
+      ]
+    },
+    "rear-aio-steel-extension": {
+      "name": "Rear AIO steel extension plate, 400 x 83 x 3 mm",
+      "category": "fabricated",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Rear_AIO_400x83x3_steel_extension_drill_plan"
       ]
     },
     "rosewill-hercules-1600": {
@@ -555,6 +739,17 @@
         "roof_silicone_gasket"
       ]
     },
+    "tnut_fit_coupon": {
+      "name": "tnut_fit_coupon",
+      "category": "printed",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "fit coupon, not installed",
+      "instance_names": []
+    },
     "v100-eps-power-adapter": {
       "name": "Dual PCIe 8-pin to CPU/EPS 8-pin GPU adapter (030-0571-000 compatible)",
       "category": "purchased",
@@ -603,6 +798,19 @@
         "PCIE4_silicone_contact_pad_survey"
       ]
     },
+    "v100_gpu_shroud": {
+      "name": "v100_gpu_shroud",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "V100_GPU_shroud"
+      ]
+    },
     "wurth-970140324": {
       "name": "Wurth 970140324 M3 F/F standoff, 14 mm, SW5.5",
       "category": "purchased",
@@ -637,214 +845,6 @@
       "instance_names": [
         "Kenshin_RTX_5090",
         "Kenshin_RTX5090_GPU_flange_hole_pattern_survey"
-      ]
-    },
-    "atx_mobo_adapter_front": {
-      "name": "atx_mobo_adapter_front",
-      "category": "printed",
-      "quantity": 2,
-      "state": "modeled",
-      "instances": 2,
-      "expected_instances": 2,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "berserk_mobo_adapter_left_drill_plan",
-        "kenshin_mobo_adapter_right_drill_plan"
-      ]
-    },
-    "atx_mobo_adapter_rail": {
-      "name": "atx_mobo_adapter_rail",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "kenshin_mobo_adapter_left_drill_plan"
-      ]
-    },
-    "fan120_aio_center_spacer": {
-      "name": "fan120_aio_center_spacer",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "Kenshin_AIO_middle_fan_6mm_spacer"
-      ]
-    },
-    "fan120_aio_frame": {
-      "name": "fan120_aio_frame",
-      "category": "printed",
-      "quantity": 2,
-      "state": "modeled",
-      "instances": 2,
-      "expected_instances": 2,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "printed_Kenshin_AIO_1_bearing_frame_drill_plan_survey",
-        "printed_Kenshin_AIO_2_bearing_frame_drill_plan_survey"
-      ]
-    },
-    "fan120_aio_hose_brace": {
-      "name": "fan120_aio_hose_brace",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "Kenshin_AIO_inward_hose_brace"
-      ]
-    },
-    "fan140_aio_frame": {
-      "name": "fan140_aio_frame",
-      "category": "printed",
-      "quantity": 2,
-      "state": "modeled",
-      "instances": 2,
-      "expected_instances": 2,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "printed_H115i_left_screw_frame_drill_plan_survey",
-        "printed_H115i_right_screw_frame_drill_plan_survey"
-      ]
-    },
-    "fan140_aio_hose_brace": {
-      "name": "fan140_aio_hose_brace",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "Berserk_H115i_hose_end_shelf_brace"
-      ]
-    },
-    "gpu_exhaust_fan_flange": {
-      "name": "gpu_exhaust_fan_flange",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "gpu_exhaust_fan_flange"
-      ]
-    },
-    "gpu_exhaust_roof_flange": {
-      "name": "gpu_exhaust_roof_flange",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "gpu_exhaust_roof_flange"
-      ]
-    },
-    "gpu_rest": {
-      "name": "gpu_rest",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "printed_Kenshin_GPU_rest_survey"
-      ]
-    },
-    "h12d_mobo_adapter_rail": {
-      "name": "h12d_mobo_adapter_rail",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "berserk_mobo_adapter_right_drill_plan"
-      ]
-    },
-    "psu_bracket": {
-      "name": "psu_bracket",
-      "category": "printed",
-      "quantity": 2,
-      "state": "modeled",
-      "instances": 2,
-      "expected_instances": 2,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "printed_Berserk_PSU_two_upper_screw_frame_survey",
-        "printed_Kenshin_PSU_two_upper_screw_frame_survey"
-      ]
-    },
-    "tnut_fit_coupon": {
-      "name": "tnut_fit_coupon",
-      "category": "printed",
-      "quantity": 1,
-      "state": "not_modeled",
-      "instances": 0,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": "fit coupon, not installed",
-      "instance_names": []
-    },
-    "v100_gpu_shroud": {
-      "name": "v100_gpu_shroud",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "V100_GPU_shroud"
-      ]
-    },
-    "fan-power-harness": {
-      "name": "Fused PWM pass-through harness for the pressure fan",
-      "category": "fabricated",
-      "quantity": 1,
-      "state": "not_modeled",
-      "instances": 0,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": "flexible wiring; route along the hood clear of the fan rotor",
-      "instance_names": []
-    },
-    "rear-aio-steel-extension": {
-      "name": "Rear AIO steel extension plate, 400 x 83 x 3 mm",
-      "category": "fabricated",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "Rear_AIO_400x83x3_steel_extension_drill_plan"
       ]
     }
   },

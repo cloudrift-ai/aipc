@@ -1,0 +1,8 @@
+part = "purchased/rosewill-hercules-1600"
+role = "Berserk PSU"
+status = "owned"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+match = ["^Berserk_owned_Hercules_1600W_PSU$"]

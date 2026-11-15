@@ -1,0 +1,8 @@
+part = "purchased/sanyo-denki-9gv1412p1s001"
+role = "pressure fan pulling air through the four V100s"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+match = ["^V100_pressure_fan$"]

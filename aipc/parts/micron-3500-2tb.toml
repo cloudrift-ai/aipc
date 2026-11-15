@@ -1,0 +1,8 @@
+part = "purchased/micron-3500-2tb"
+role = "Berserk model storage, one of the three RAID 0 members"
+status = "owned"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+match = ["^Berserk_M2_SSD_3$"]

@@ -1,0 +1,8 @@
+part = "purchased/amd-radeon-ai-pro-r9700"
+role = "GPU under test (blower cooler), 3 baseboard positions"
+status = "candidate"
+quantity = 1
+systems = ["node"]
+
+[assembly]
+match = ["^GPU_amd_radeon_ai_pro_r9700$"]

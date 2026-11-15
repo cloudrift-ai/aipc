@@ -1,0 +1,8 @@
+part = "purchased/samsung-990-pro-4tb"
+role = "Kenshin storage"
+status = "owned"
+quantity = 2
+systems = ["kenshin"]
+
+[assembly]
+not_modeled = "X870E M.2 slot positions not surveyed; drives sit under the board heatsinks"

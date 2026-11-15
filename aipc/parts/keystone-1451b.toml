@@ -1,0 +1,8 @@
+part = "purchased/keystone-1451b"
+role = "motherboard standoffs"
+status = "selected"
+quantity = 17
+systems = ["berserk", "kenshin"]
+
+[assembly]
+match = ["^(Berserk|Kenshin)_nominal_6_32_standoff_\\d+$"]

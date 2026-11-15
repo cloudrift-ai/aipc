@@ -1,0 +1,8 @@
+part = "purchased/amd-rx-7900-xtx-reference"
+role = "GPU under test (open-air cooler), 4 baseboard positions"
+status = "candidate"
+quantity = 1
+systems = ["node"]
+
+[assembly]
+match = ["^GPU_amd_rx_7900_xtx_reference$"]

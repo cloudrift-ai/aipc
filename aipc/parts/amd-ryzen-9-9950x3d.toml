@@ -1,0 +1,9 @@
+part = "purchased/amd-ryzen-9-9950x3d"
+role = "Kenshin CPU"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+
+[assembly]
+covered_by = "lian-li-ga2-lite-360"
+not_modeled = "inside the GA II pump-head envelope above the socket"

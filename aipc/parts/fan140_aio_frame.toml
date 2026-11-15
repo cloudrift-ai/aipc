@@ -1,0 +1,8 @@
+part = "printed/fan140_aio_frame"
+role = "140 mm fan/radiator frame with bearing ledge (H115i)"
+status = "design"
+quantity = 2
+systems = ["berserk"]
+
+[assembly]
+match = ["^printed_H115i_(left|right)_screw_frame_drill_plan_survey$"]

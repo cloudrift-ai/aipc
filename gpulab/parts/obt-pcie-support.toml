@@ -1,0 +1,9 @@
+part = "purchased/obt-pcie-support"
+role = "GPU bracket posts (two per card)"
+status = "selected"
+quantity = 14
+systems = ["node"]
+
+[assembly]
+match = ["_metal_OBT_PCIe_post_\\d+_survey$", "_OBT_9mm_stud_\\d+$"]
+instances_per_unit = 2

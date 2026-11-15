@@ -1,0 +1,8 @@
+part = "purchased/m3-ff-standoff-10mm"
+role = "riser board standoffs on the baseboard nut channels"
+status = "candidate"
+quantity = 28
+systems = ["node"]
+
+[assembly]
+match = ["_riser_standoff_\\d+$"]

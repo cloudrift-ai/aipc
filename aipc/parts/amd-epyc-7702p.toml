@@ -1,0 +1,13 @@
+part = "purchased/amd-epyc-7702p"
+role = "Berserk CPU"
+status = "owned"
+quantity = 1
+systems = ["berserk"]
+notes = """
+Bundled with the H12D listing. The assembly envelope includes the cooler pump head.
+First boot 2026-11-07: 64 cores / 128 threads, SMT and boost on (3.35 GHz max),
+one NUMA node (NPS1). Idle Tctl 44.5 C, CCDs 33-38 C. No load test yet.
+"""
+
+[assembly]
+match = ["^Berserk_SP3_CPU_and_pump_survey$"]

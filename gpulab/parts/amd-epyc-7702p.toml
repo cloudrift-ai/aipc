@@ -1,0 +1,16 @@
+part = "purchased/amd-epyc-7702p"
+role = "node CPU (same model as Berserk's)"
+status = "candidate"
+quantity = 1
+systems = ["node"]
+notes = """
+Any SP3 EPYC 7002/7003 works; the 7702P is assumed here because Berserk runs
+one. The CPU cooler is not chosen: the layout reserves a 100 mm envelope above the board.
+"""
+
+[[requires]]
+type = "cooler-mount"
+note = "cooler not chosen"
+
+[assembly]
+match = ["^H12D_SP3_CPU_and_cooler_envelope$"]

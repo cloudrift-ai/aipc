@@ -2,7 +2,7 @@
 
 Rule: everything is modeled in the assembly. Each instance name must match
 exactly one part's ``[assembly] match`` regex (or a declared keepout in
-parts/system.toml). Each part either appears with the expected instance count,
+the build's system.toml). Each part either appears with the expected instance count,
 is ``covered_by`` another part's envelope, or states why it is ``not_modeled``.
 """
 

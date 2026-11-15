@@ -1,0 +1,8 @@
+part = "purchased/nvidia-rtx-3090-fe"
+role = "GPU under test (flow-through cooler), 4 baseboard positions"
+status = "candidate"
+quantity = 1
+systems = ["node"]
+
+[assembly]
+match = ["^GPU_nvidia_rtx_3090_fe$"]

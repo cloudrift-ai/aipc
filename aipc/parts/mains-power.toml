@@ -1,0 +1,14 @@
+part = "purchased/mains-power"
+role = "AC supply for both PSUs"
+status = "unspecified"
+quantity = 1
+systems = ["rack"]
+on_shelf = false
+notes = """
+Both systems at full load draw about 2.5 kW from the wall, more than one
+15 A / 120 V circuit carries continuously (1.44 kW). Record the circuit(s),
+UPS and PDU ratings and outlet types (C13/C19) here.
+"""
+
+[assembly]
+not_modeled = "outside the shelf; supply not specified"

@@ -5,7 +5,7 @@ and slicing. Every build's generators import from here instead of
 re-implementing spec lookup, file layout, STEP/STL export or image rendering.
 The current build is the folder with build.toml (see hwkit.paths).
 
-    from hwkit import spec          # parts/<category>/<id>/part.toml lookups
+    from hwkit import spec          # library part.toml merged with the build's parts/<id>.toml
     from hwkit import paths         # build locations
     from hwkit.export import export_print, export_component
     from hwkit.registry import classify_assembly

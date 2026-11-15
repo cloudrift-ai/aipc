@@ -11,7 +11,7 @@ import cadquery as cq
 
 from hwkit import spec
 
-_P = spec.get("hammond-rsus1931bk1")  # the build's parts/purchased/hammond-rsus1931bk1/part.toml
+_P = spec.get("hammond-rsus1931bk1")  # library spec, as the current build uses it
 MODEL = "Hammond RSUS1931BK1"
 SOURCE = _P.datasheets[0]["url"]
 DRAWING = _P.datasheets[1]["url"]

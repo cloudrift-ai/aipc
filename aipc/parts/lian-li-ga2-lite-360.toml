@@ -1,0 +1,9 @@
+part = "purchased/lian-li-ga2-lite-360"
+role = "Kenshin CPU cooler, rear of shelf"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+
+[assembly]
+match = ["^Kenshin_GA_II_Lite_pump$", "^Kenshin_GA_II_Lite_radiator$", "^Kenshin_AIO_exhaust_fan_\\d$", "^Kenshin_AIO_hose_\\d_survey_segment_\\d+$"]
+count_check = false

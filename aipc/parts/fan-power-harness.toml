@@ -1,0 +1,8 @@
+part = "fabricated/fan-power-harness"
+role = "feeds the San Ace motor from the PSU and passes PWM/tach to the QUADRO"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+not_modeled = "flexible wiring; route along the hood clear of the fan rotor"

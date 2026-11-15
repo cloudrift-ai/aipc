@@ -1,0 +1,8 @@
+id = "silicone-gasket-2mm"
+name = "2 mm silicone foam gasket sheet, 200 x 200 mm"
+category = "purchased"
+evidence = "allowance"
+no_datasheet_reason = "Generic sheet."
+
+[model]
+source = "constructed"

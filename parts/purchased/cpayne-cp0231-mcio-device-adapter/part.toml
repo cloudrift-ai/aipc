@@ -1,0 +1,64 @@
+id = "cpayne-cp0231-mcio-device-adapter"
+name = "C-Payne CP-0231 MCIO PCIe gen5 Device Adapter x8/x16 (BOTTOM)"
+category = "purchased"
+evidence = "photo-estimate"
+notes = """
+Two MCIO 8i inputs on the underside; with one cable the slot runs x8 (use the
+input nearest the power plug). 12 V power is mandatory (PEG, not EPS). C-Payne
+publishes a 3D model (https://a360.co/3TxrU7w) but no 2D drawing: the PCB
+outline, hole positions and slot position here are scaled from the product
+photo and must be replaced from the 3D model or a measurement before printing.
+Slot orientation (which end faces the bracket) is assumed.
+"""
+
+[links]
+product = "https://c-payne.com/products/mcio-pcie-gen5-device-adapter-x8-x16"
+vendor_cad = "https://a360.co/3TxrU7w"
+
+[[datasheets]]
+title = "C-Payne CP-0231 product page"
+url = "https://c-payne.com/products/mcio-pcie-gen5-device-adapter-x8-x16"
+
+[model]
+source = "constructed"
+vendor_cad = "https://a360.co/3TxrU7w"
+
+[dims]
+pcb_length = { value = 140.0, evidence = "photo-estimate", source = "product photo, scaled to a ~40 mm board width" }
+pcb_width = { value = 40.0, evidence = "photo-estimate", source = "product photo; similar boards are 38 mm" }
+pcb_thickness = { value = 1.6, evidence = "assumed" }
+hole_diameter = { value = 3.2, evidence = "photo-estimate", source = "plated holes in the product photo, M3 class" }
+hole_x_inner = { value = 24.0, evidence = "photo-estimate", source = "from the power-plug end" }
+hole_x_outer = { value = 133.0, evidence = "photo-estimate", source = "from the power-plug end" }
+hole_y_near = { value = 13.6, evidence = "photo-estimate", source = "from the long edge away from the MCIO cable entry" }
+hole_y_far = { value = 34.4, evidence = "photo-estimate", source = "product photo, same edge as hole_y_near" }
+slot_bracket_end_x = { value = 128.0, evidence = "photo-estimate", source = "slot body seen past the PCB edge" }
+mcio_height_below_pcb = { value = 7.0, evidence = "allowance", note = "receptacle plus latch; unmeasured" }
+mass = { value = 0.05, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "riser-x16-slot"
+value = "PCIe x16"
+count = 1
+evidence = "datasheet"
+
+[[requires]]
+type = "mcio-8i-cable"
+count = 1
+
+[[requires]]
+type = "pcie-8pin"
+count = 1
+evidence = "photo-estimate"
+note = "2x3 power footprint in the photo: a PCIe 6-pin, fed from a 6+2 lead"
+
+[[requires]]
+type = "riser-standoff"
+value = "M3 F/F 10 mm"
+count = 4
+
+[[requires]]
+type = "dc-power"
+load = 5.0
+evidence = "allowance"
+note = "3.3 V buck for the slot; GPU slot 12 V counted in each GPU's board power"

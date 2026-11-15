@@ -1,0 +1,8 @@
+part = "printed/fan120_aio_frame"
+role = "120 mm fan/radiator frame with 75 mm feet on the steel extension"
+status = "design"
+quantity = 2
+systems = ["kenshin"]
+
+[assembly]
+match = ["^printed_Kenshin_AIO_\\d_bearing_frame_drill_plan_survey$"]

@@ -1,0 +1,39 @@
+id = "rack-cabinet"
+name = "Rack cabinet (not yet specified)"
+category = "purchased"
+evidence = "unknown"
+notes = """
+The cabinet has never been identified, so the shelf, slides, rear radiator
+projection, roof duct and other loads cannot be checked against it. Record make/model,
+post spacing, usable depth, door clearance and interior height here before
+buying the shelf or drilling anything.
+"""
+
+[model]
+source = "constructed"
+notes = "AIPC models only a provisional inner-ceiling patch at Z400."
+
+[dims]
+post_depth = { value = "", evidence = "unknown" }
+interior_depth = { value = "", evidence = "unknown" }
+interior_height_above_shelf = { value = "", evidence = "unknown" }
+
+[[provides]]
+type = "rack-standard"
+note = "unknown until the cabinet is identified"
+
+[[provides]]
+type = "rack-post-depth"
+
+[[provides]]
+type = "rack-units"
+count = ""
+
+[[provides]]
+type = "cabinet-front-clearance"
+
+[[provides]]
+type = "cabinet-rear-clearance"
+
+[[provides]]
+type = "cabinet-height-above-shelf"

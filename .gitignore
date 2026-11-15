@@ -8,7 +8,7 @@ __pycache__/
 /*/print/gcode/
 
 # Manufacturer datasheets: fetched by `make datasheets`, not redistributed
-/*/parts/*/*/datasheets/
+/parts/*/*/datasheets/
 
 # Scratch output
 tmp/

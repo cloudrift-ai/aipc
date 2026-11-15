@@ -1,0 +1,9 @@
+part = "purchased/mcmaster-53185k52"
+role = "duct clamps"
+status = "selected"
+quantity = 2
+systems = ["berserk"]
+on_shelf = false
+
+[assembly]
+match = ["^53185K52_"]

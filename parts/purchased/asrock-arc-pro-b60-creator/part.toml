@@ -1,0 +1,55 @@
+id = "asrock-arc-pro-b60-creator"
+name = "ASRock Intel Arc Pro B60 Creator 24 GB (B60 CT 24G)"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+Intel makes no reference B60; ASRock Creator chosen. Blower: air exits through the bracket. Board dimensions are from listings only.
+Occupies 3 positions (thickness plus a few mm air gap at the 20.32 mm pitch).
+Running on an MCIO riser at x8; values marked review/listing are provisional.
+"""
+
+[links]
+product = "https://www.pbtech.com/product/VGAASR0060/ASRock-Intel-Arc-Pro-B60-Creator-24GB-GDDR6-Graphi"
+
+[[datasheets]]
+title = "Intel Arc Pro B60 specifications"
+url = "https://www.intel.com/content/www/us/en/products/sku/243916/intel-arc-pro-b60-graphics/specifications.html"
+
+[[datasheets]]
+title = "Intel Arc Pro B60 datasheet"
+url = "https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2026-03/datasheet-b60-gpu.pdf"
+
+[model]
+source = "constructed"
+notes = "Body envelope only: length x height x thickness."
+
+[dims]
+length = { value = 271.0, evidence = "listing", source = "retailer listing" }
+height = { value = 112.0, evidence = "listing", source = "retailer listing" }
+thickness = { value = 39.0, evidence = "listing", source = "retailer listing; 2-slot" }
+tgp = { value = 200.0, unit = "W", evidence = "datasheet", source = "Intel: 120-200 W" }
+mass = { value = 1.12, unit = "kg", evidence = "listing", source = "listings 1.1-1.118 kg" }
+power_connector_from_tail = { value = 0.0, evidence = "allowance", note = "8-pin on the tail end (blower), from product photos; 0 means on the tail end. Not measured" }
+
+[[requires]]
+type = "riser-x16-slot"
+value = "PCIe x16"
+count = 1
+note = "PCIe 5.0 x8 (x16 connector) card on an x8 riser link"
+
+[[requires]]
+type = "gpu-baseboard-position"
+count = 3
+evidence = "allowance"
+
+[[requires]]
+type = "pcie-8pin"
+count = 1
+note = "1 x 8-pin PCIe (listing)"
+
+[[requires]]
+type = "dc-power"
+load = 200.0
+evidence = "datasheet"
+load_limited = 160.0
+note = "stock board power, including the 75 W slot power drawn through the riser; capped to 160 W for the 2800 W PSU budget: xpu-smi config -d <gpu> --powerlimit 160, set at boot and confirm the driver accepts it"

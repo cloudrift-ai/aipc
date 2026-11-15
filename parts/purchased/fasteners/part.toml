@@ -1,0 +1,9 @@
+id = "fasteners"
+name = "Shelf and component fasteners (metric and UNC screws, washers, nuts)"
+category = "purchased"
+evidence = "allowance"
+no_datasheet_reason = "Generic ISO metric and UNC hardware; each build chooses lengths from its own stacks."
+
+[model]
+source = "constructed"
+notes = "Shafts, heads and washers at nominal size; the model is one representative AIPC set."

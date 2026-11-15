@@ -8,6 +8,7 @@ Notes for coding agents working in this repo. The design process for every build
 | --- | --- |
 | [aipc/](aipc/README.md) | AIPC build: two AI workstations (Berserk, Kenshin) on one rack shelf. Fit prototype; has its own [AGENTS.md](aipc/AGENTS.md) |
 | [gpulab/](gpulab/README.md) | GPU lab build: seven mixed GPUs on cabled x8 risers from one H12D-8D, two printed 13-position baseboards. Design; has its own [AGENTS.md](gpulab/AGENTS.md) |
+| [parts/](parts/README.md) | Shared parts library: one folder per part with its spec (`part.toml`), generated README, model, render and fetched datasheets. Builds only reference it |
 | [hwkit/](hwkit) | Shared Python package: part specs, compatibility, assembly registry, export, renders, plates, printers, slicing, shared component models (`hwkit/components`: Hammond shelf, PCIe posts), and the `hwkit` CLI |
 | [hwkit/printers/](hwkit/printers) | Printer definitions (`printer.toml`), vendored OrcaSlicer base presets and shared slicer profiles |
 | [docs/](docs) | Shared process and printing guidelines |
@@ -15,7 +16,7 @@ Notes for coding agents working in this repo. The design process for every build
 | [tests/](tests) | hwkit tests |
 | `Makefile`, `pyproject.toml` | Root build: `make setup` creates `venv/` and installs hwkit; every target runs per build |
 
-A build is a folder with a `build.toml` (name, assembly, printer, render sheets and its `[scripts]`). Its `parts/`, `cad/`, `models/`, `print/` and `docs/` belong to that build only. Read the build's own `AGENTS.md` before changing it.
+A build is a folder with a `build.toml` (name, assembly, printer, render sheets and its `[scripts]`). Its `cad/`, `models/`, `print/` and `docs/` belong to that build only. Its `parts/` holds one `<id>.toml` per part it uses: a reference to the library spec plus the build's quantity, role, status, systems, assembly mapping and any build-specific dims or interface changes (schema in [hwkit/spec.py](hwkit/spec.py)). Read the build's own `AGENTS.md` before changing it.
 
 ## Commands
 
@@ -33,8 +34,9 @@ Inside a build folder, `../venv/bin/hwkit <cad|plates|render|check|datasheets|sl
 ## Rules
 
 - Shared code goes in `hwkit/`; a build's `cad/` holds only that build's geometry and plate layout. Do not copy helpers between builds. Read part dimensions with `spec.dim(id, key)`, never as literals.
-- Builds do not share part folders, models or generated files. If a part is used in two builds, give it a part folder in each build.
-- Never hand-edit generated files (`models/`, `print/*.3mf`, `parts/*/*/*.step|stl|png|README.md`, `parts/README.md`, `docs/system-check.md` in each build). Change the generator or spec and rerun `make all BUILD=<build>`.
+- A part's spec lives once, in the `parts/` library. A build references it with `<build>/parts/<id>.toml`; never copy a spec into a build. Put what is true of the part itself (dimensions, interfaces, datasheets) in the library, and only what this build decides (quantity, role, caps, assembly names) in the build's file. Changing a library spec affects every build that uses it: rerun `make all` for each.
+- A part's library model is written only by the build that owns it (`[model] build`, default the first build by name that uses it). Other builds model the part in their own assembly.
+- Never hand-edit generated files: in the library `parts/README.md` and `parts/*/*/*.step|stl|png|README.md`; in each build `models/`, `print/*.3mf`, `parts/*.md` and `docs/system-check.md`. Change the generator or spec and rerun `make all BUILD=<build>`.
 - Changes to `hwkit/` affect every build: run `make lint test` and `make all` for every build, and confirm the generated outputs did not change unless intended.
 - Do not loosen a check, add keepouts or disable count checks to hide a mismatch. Fix the geometry or spec.
 - G-code, fetched datasheets and `venv/` are generated and gitignored.

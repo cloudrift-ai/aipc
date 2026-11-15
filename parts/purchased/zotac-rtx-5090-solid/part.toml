@@ -1,0 +1,42 @@
+id = "zotac-rtx-5090-solid"
+name = "Zotac Gaming GeForce RTX 5090 Solid 32 GB"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+Open-air, three axial fans: heat goes into the surrounding air. Reviews call it 3.5- or 4-slot; plan on 67.8 mm.
+"""
+
+[links]
+product = "https://www.zotac.com/us/product/graphics_card/zotac-gaming-geforce-rtx-5090-solid"
+
+[[datasheets]]
+title = "Zotac RTX 5090 Solid specifications"
+url = "https://www.zotac.com/us/product/graphics_card/zotac-gaming-geforce-rtx-5090-solid"
+
+[model]
+source = "constructed"
+notes = "Body envelope: length x height x thickness."
+
+[dims]
+length = { value = 329.7, evidence = "datasheet", source = "Zotac published dimensions" }
+height = { value = 137.8, evidence = "datasheet", source = "Zotac published dimensions" }
+thickness = { value = 67.8, evidence = "datasheet", source = "Zotac published dimensions" }
+tgp = { value = 575.0, unit = "W", evidence = "datasheet", source = "NVIDIA RTX 5090 total graphics power" }
+mass = { value = 2.29, unit = "kg", evidence = "review", source = "Notebookcheck 2.287 kg" }
+power_connector_from_tail = { value = 140.0, evidence = "allowance", note = "16-pin on the top edge, from product photos; 0 means on the tail end. Not measured" }
+
+[[requires]]
+type = "pcie-x16-slot"
+value = "PCIe x16"
+count = 1
+note = "PCIe 5.0 x16"
+
+[[requires]]
+type = "12v-2x6"
+count = 1
+note = "16-pin 12V-2x6"
+
+[[requires]]
+type = "dc-power"
+load = 575.0
+note = "stock board power, including the 75 W slot power"

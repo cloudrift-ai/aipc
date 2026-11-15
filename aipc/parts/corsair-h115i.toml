@@ -1,0 +1,9 @@
+part = "purchased/corsair-h115i"
+role = "Berserk CPU cooler, front of shelf"
+status = "owned"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+match = ["^Berserk_H115i_radiator$", "^H115i_intake_fans$"]
+instances_per_unit = 2

@@ -15,8 +15,8 @@ Everything is generated from Python ([CadQuery](https://cadquery.readthedocs.io/
 
 | Path | Contents |
 | --- | --- |
-| [parts/](parts/README.md) | One folder per part: spec with evidence-tagged dimensions and interfaces, datasheet links, the model used in the assembly, and renders |
-| [docs/process.md](../docs/process.md) | The design process shared by all builds: part folders, renders, one assembly, whole-system compatibility checks |
+| [parts/](parts/README.md) | One `<id>.toml` per part: a reference to its spec in the shared [library](../parts/README.md) (evidence-tagged dimensions and interfaces, datasheet links, model, renders), with quantity, role and assembly mapping for this build |
+| [docs/process.md](../docs/process.md) | The design process shared by all builds: the parts library, renders, one assembly, whole-system compatibility checks |
 | [docs/system-check.md](docs/system-check.md) | Latest compatibility, assembly-coverage and evidence report (generated) |
 | [parts.xlsx](parts.xlsx) | Parts spreadsheet with tabs for the shelf hardware, Berserk and Kenshin |
 | [docs/design.md](docs/design.md) | How the layout, mounts and cooling work, with coordinates and open checks |
@@ -33,7 +33,7 @@ The previous StarTech/King Slide conversion and shim trials are retired. Buying 
 
 ## Printed parts
 
-One model per unique part, in its folder under [parts/printed/](parts/README.md#printed); the plate manifest says how many to print.
+One model per unique part, in its library folder (see [parts/](parts/README.md#printed)); the plate manifest says how many to print.
 
 | Part | Qty | Used for |
 | --- | ---: | --- |
@@ -69,7 +69,7 @@ make all BUILD=aipc
 make gcode BUILD=aipc
 ```
 
-`make setup` creates `venv/` at the repo root and installs the shared [hwkit](../hwkit) package. `make all` runs `make cad` (assembly, reports and every part model, about a minute), `make render` (part and assembly renders, about two minutes), `make plates` (3MF plates in `print/`) and `make check` (compatibility report; it exits non-zero while any check FAILs). `make datasheets` downloads the datasheets listed in each `part.toml`, and `make gcode` slices every plate into `print/gcode/`. G-code is not committed; it is always generated from the plates and profiles. Run `make help` for the full list.
+`make setup` creates `venv/` at the repo root and installs the shared [hwkit](../hwkit) package. `make all` runs `make cad` (assembly, reports and every part model, about a minute), `make render` (part and assembly renders, about two minutes), `make plates` (3MF plates in `print/`) and `make check` (compatibility report; it exits non-zero while any check FAILs). `make datasheets` downloads the datasheets listed in each library `part.toml`, and `make gcode` slices every plate into `print/gcode/`. G-code is not committed; it is always generated from the plates and profiles. Run `make help` for the full list.
 
 The plates target a first-generation **Qidi X-Plus** with a 0.4 mm nozzle: PETG for most mounts and Polymaker HT-PLA-GF (hardened steel nozzle) for the PSU brackets and GPU cooling parts. For another printer, add a folder under [hwkit/printers/](../hwkit/printers) with its `printer.toml`, base presets and profiles, set `printer` in [build.toml](build.toml), and read [docs/printing.md](../docs/printing.md) first.
 

@@ -1,0 +1,10 @@
+part = "purchased/hammond-rsus1931bk1"
+role = "sliding shelf carrying the GPU lab node"
+status = "selected"
+quantity = 1
+systems = ["shelf", "rack"]
+on_shelf = false
+
+[assembly]
+match = ["^Hammond_", "^RSUS1931BK1_drill_plan_deck"]
+count_check = false

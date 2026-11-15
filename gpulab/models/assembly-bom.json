@@ -100,7 +100,7 @@
       "instance_names": []
     },
     "fasteners": {
-      "name": "Shelf and component fasteners (M3/M4/#6-32 screws, washers, nuts)",
+      "name": "Shelf and component fasteners (metric and UNC screws, washers, nuts)",
       "category": "purchased",
       "quantity": 1,
       "state": "modeled",
@@ -207,6 +207,20 @@
         "zotac_rtx_5090_solid_post_backing_washer_1",
         "zotac_rtx_5090_solid_M3x8_post_screw_2",
         "zotac_rtx_5090_solid_post_backing_washer_2"
+      ]
+    },
+    "gpulab_baseboard": {
+      "name": "gpulab_baseboard",
+      "category": "printed",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_gpulab_baseboard_A",
+        "printed_gpulab_baseboard_B"
       ]
     },
     "hammond-rsus1931bk1": {
@@ -497,20 +511,6 @@
       "not_modeled": null,
       "instance_names": [
         "GPU_zotac_rtx_5090_solid"
-      ]
-    },
-    "gpulab_baseboard": {
-      "name": "gpulab_baseboard",
-      "category": "printed",
-      "quantity": 2,
-      "state": "modeled",
-      "instances": 2,
-      "expected_instances": 2,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "printed_gpulab_baseboard_A",
-        "printed_gpulab_baseboard_B"
       ]
     }
   },

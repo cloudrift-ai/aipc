@@ -5,16 +5,16 @@ description: Visually inspect a build's part and assembly renders (for example A
 
 # Design review
 
-This skill applies to every build in the repo. Paths such as `parts/`, `models/` and `docs/system-check.md` are inside the build folder (for example `aipc/`). Run `make <target> BUILD=<build>` from the repo root; the shared code is in `hwkit/`.
+This skill applies to every build in the repo. Part specs live in the shared `parts/` library at the repo root; the build's `parts/<id>.toml` references, `models/` and `docs/system-check.md` are inside the build folder (for example `aipc/`). Run `make <target> BUILD=<build>` from the repo root; the shared code is in `hwkit/`.
 
 A valid solid, a passing collision check or a clean slice is not a review. Look at the pictures.
 
 ## Steps
 
-1. `make cad render BUILD=<build>` (or, inside the build folder, `../venv/bin/hwkit render <part-id> ...` for just the changed parts; this still refreshes their in-assembly views).
+1. `make cad render BUILD=<build>` (or, inside the build folder, `../venv/bin/hwkit render <part-id> ...` for just the changed parts; this still refreshes their assembly views).
 2. For each changed part, open with the Read tool:
-   - `parts/<category>/<id>/render.png`: nine views (three isometric, top, bottom, front, rear, left, right), with the bounding box in the title.
-   - `parts/<category>/<id>/in-assembly.png`: the part in orange with the rest of the assembly ghosted.
+   - `parts/<category>/<id>/render.png` in the library (for parts whose model the build owns): nine views (three isometric, top, bottom, front, rear, left, right), with the bounding box in the title.
+   - `models/renders/parts/<id>.png` in the build: the part in orange with the rest of the assembly ghosted.
 3. Open `models/renders/assembly.png` and the per-system sheets `assembly-<system>.png` listed in the build's `build.toml` `[render] system_sheets` (AIPC: berserk, kenshin, shelf).
 4. Walk the checklist below and write down every finding with the view it came from.
 5. For a non-trivial change, ask a fresh-context subagent to review the same images and specs without telling it your conclusions (see the design-audit skill), then reconcile.
@@ -31,9 +31,9 @@ A valid solid, a passing collision check or a clean slice is not a review. Look 
 - The part sits on or against what carries it: no gaps, no interpenetration, nothing floating.
 - It is oriented as intended (fan airflow, ports facing the service corridor, hose ends, PSU fan and inlet).
 - Fastener heads, washers and drivers have room; parts installed earlier are not covered before their bolts are tightened.
-- Overhang beyond the deck front and rear, and total height, match `parts/system.toml` and the cabinet.
+- Overhang beyond the deck front and rear, and total height, match the build's `system.toml` and the cabinet.
 - Cables, hoses, connectors and plugs have their keepouts, and nothing blocks them.
-- Every part in `parts/README.md` with state "modeled" is visible where it should be; parts marked `not_modeled` are listed as open items.
+- Every part in the build's `parts/README.md` with state "modeled" is visible where it should be; parts marked `not_modeled` are listed as open items.
 
 ## Report
 

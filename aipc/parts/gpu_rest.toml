@@ -1,0 +1,8 @@
+part = "printed/gpu_rest"
+role = "front-end rest for the RTX 5090"
+status = "design"
+quantity = 1
+systems = ["kenshin"]
+
+[assembly]
+match = ["^printed_Kenshin_GPU_rest_survey$"]

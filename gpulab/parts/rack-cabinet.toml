@@ -1,0 +1,9 @@
+part = "purchased/rack-cabinet"
+role = "cabinet that receives the GPU lab shelf"
+status = "unspecified"
+quantity = 1
+systems = ["rack"]
+on_shelf = false
+
+[assembly]
+not_modeled = "cabinet not identified; nothing to model"

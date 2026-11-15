@@ -1,0 +1,20 @@
+id = "fan140_aio_frame"
+name = "fan140_aio_frame"
+category = "printed"
+evidence = "allowance"
+
+[print]
+plate = "06_fan140_aio_frame"
+material = "PETG"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+
+[dims]
+mass = { value = 0.076, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+
+[[provides]]
+type = "radiator-mount"
+value = "280 mm, 124.5 mm pitch"
+count = 1

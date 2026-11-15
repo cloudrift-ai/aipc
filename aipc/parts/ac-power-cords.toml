@@ -1,0 +1,10 @@
+part = "purchased/ac-power-cords"
+role = "PSU mains cords"
+status = "candidate"
+quantity = 2
+systems = ["berserk", "kenshin"]
+on_shelf = false
+
+[assembly]
+match = ["^Berserk_AC_", "^Kenshin_AC_", "^Kenshin_low-profile_C13_plug_\\+_bend$"]
+count_check = false

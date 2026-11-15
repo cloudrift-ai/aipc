@@ -1,8 +1,27 @@
-"""Part specifications: parts/<category>/<id>/part.toml.
+"""Part specifications: a shared library plus one reference file per part in each build.
 
-Each part folder is the single source of truth for that part's identity,
-dimensions, interfaces, datasheets and evidence. Generators read dimensions
-through ``dim()`` so the CAD can never silently drift from the spec.
+``parts/<category>/<id>/part.toml`` at the repo root is the single source of
+truth for what a part is: identity, dimensions, interfaces, datasheets, model
+and evidence. A build uses a part through ``<build>/parts/<id>.toml``::
+
+    part = "purchased/<id>"          # the library spec it references
+    role = "what it does in this build"
+    status = "selected"
+    quantity = 2
+    systems = ["node"]
+    notes = "build-specific notes"    # optional
+    on_shelf = false                  # optional
+
+    [dims]                            # optional: add or override dims for this build
+    [[requires]]                      # optional: interface changes for this build
+    type = "dc-power"                 # updates the library entry of this type,
+    load_limited = 400.0              #   or is added when the library has none
+    # replaces = "<type>"             # takes over the library entry of another type
+    # remove = true                   # drops the library entry of this type
+    [assembly]                        # how the build's assembly instances map to this part
+
+``load_all()`` returns the build's parts with the two merged. Generators read
+dimensions through ``dim()`` so the CAD can never silently drift from the spec.
 
 Every dimension and interface carries an evidence class. Only the strong
 classes (measured, datasheet, standard) count as verified; everything else
@@ -22,7 +41,10 @@ STRONG_EVIDENCE = ("measured", "datasheet", "standard")
 WEAK_EVIDENCE = ("listing", "review", "photo-estimate", "allowance", "assumed")
 EVIDENCE = STRONG_EVIDENCE + WEAK_EVIDENCE + ("unknown",)
 STATUSES = ("owned", "ordered", "selected", "candidate", "unspecified", "design")
-REQUIRED_FIELDS = ("id", "name", "category", "status", "quantity", "systems", "role")
+LIBRARY_FIELDS = ("id", "name", "category")
+USAGE_FIELDS = ("part", "role", "status", "quantity", "systems")  # required in a build's <id>.toml
+USAGE_SCALARS = ("role", "status", "quantity", "systems", "on_shelf")  # usage values that override the library
+USAGE_KEYS = (*USAGE_FIELDS, "notes", "on_shelf", "dims", "provides", "requires", "assembly")
 
 
 @dataclass(frozen=True)
@@ -41,10 +63,15 @@ class Dim:
 
 @dataclass
 class Part:
+    """A library part; with ``use`` set, as one build uses it (``data`` is then the merged spec)."""
+
     id: str
     category: str
-    dir: Path
+    dir: Path  # the library folder parts/<category>/<id>/
     data: dict = field(repr=False)
+    library: dict = field(repr=False, default_factory=dict)  # the library spec alone
+    use: dict | None = field(repr=False, default=None)  # the build's <id>.toml
+    use_file: Path | None = None
 
     # Identity -----------------------------------------------------------
     @property
@@ -61,7 +88,7 @@ class Part:
 
     @property
     def systems(self) -> list[str]:
-        return list(self.data["systems"])
+        return list(self.data.get("systems", []))  # a library part alone has no systems
 
     @property
     def role(self) -> str:
@@ -134,6 +161,35 @@ class Part:
     def datasheets(self) -> list[dict]:
         return list(self.data.get("datasheets", []))
 
+    # Build usage --------------------------------------------------------
+    @property
+    def use_notes(self) -> str:
+        return (self.use or {}).get("notes") or ""
+
+    @property
+    def page(self) -> Path:
+        """Generated page for this part in the current build: parts/<id>.md."""
+        return paths.PARTS / f"{self.id}.md"
+
+    @property
+    def in_assembly_png(self) -> Path:
+        return paths.PART_RENDERS / f"{self.id}.png"
+
+    @property
+    def model_build(self) -> str | None:
+        """The build whose generator writes and renders this part's model.
+
+        ``[model] build`` in part.toml, else the first build (by name) that uses
+        the part. Other builds model the part in their own assembly but never
+        write the library copy.
+        """
+        users = library_users().get(self.id, [])
+        return self.data.get("model", {}).get("build") or (users[0] if users else None)
+
+    @property
+    def owns_model(self) -> bool:
+        return self.model_build == paths.BUILD_ID
+
 
 def _blank_to_none(obj):
     """TOML has no null; an empty string means 'unknown' everywhere in the specs."""
@@ -144,22 +200,88 @@ def _blank_to_none(obj):
     return None if obj == "" else obj
 
 
-def _load(path: Path) -> Part:
+def _read(path: Path) -> dict:
     data = tomllib.loads(path.read_text())
     for key in ("dims", "provides", "requires"):
         if key in data:
             data[key] = _blank_to_none(data[key])
-    return Part(data.get("id", path.parent.name), data.get("category", path.parent.parent.name), path.parent, data)
+    return data
+
+
+@lru_cache(maxsize=1)
+def load_library() -> dict[str, Part]:
+    """Every part in the shared library, without any build's usage."""
+    parts = {}
+    for category in paths.CATEGORIES:
+        for toml in sorted((paths.LIBRARY / category).glob("*/part.toml")):
+            data = _read(toml)
+            part = Part(data.get("id", toml.parent.name), data.get("category", category), toml.parent, data, data)
+            assert part.id not in parts, f"duplicate part id {part.id}"
+            parts[part.id] = part
+    return parts
+
+
+def _use_files(build: Path) -> list[Path]:
+    return sorted((build / "parts").glob("*.toml"))
+
+
+@lru_cache(maxsize=1)
+def library_users() -> dict[str, list[str]]:
+    """Library part id -> names of the builds that reference it."""
+    users: dict[str, list[str]] = {}
+    for build in paths.builds():
+        for toml in _use_files(build):
+            ref = tomllib.loads(toml.read_text()).get("part", "")
+            users.setdefault(ref.rpartition("/")[2], []).append(build.name)
+    return users
+
+
+def _merge_interfaces(base: list[dict], changes: list[dict], where: str) -> list[dict]:
+    out = [dict(i) for i in base]
+    for change in changes:
+        change = dict(change)
+        target = change.pop("replaces", None) or change["type"]
+        hits = [n for n, i in enumerate(out) if i.get("type") == target]
+        if len(hits) > 1:
+            raise ValueError(f"{where}: library has several '{target}' entries; a build can only change a unique one")
+        if change.pop("remove", False):
+            if not hits:
+                raise ValueError(f"{where}: remove '{target}' but the library has no such entry")
+            del out[hits[0]]
+        elif hits:
+            out[hits[0]].update(change)
+        else:
+            if target != change["type"]:
+                raise ValueError(f"{where}: replaces '{target}' but the library has no such entry")
+            out.append(change)
+    return out
+
+
+def _merge(lib: Part, use: dict, where: str) -> dict:
+    data = {k: v for k, v in lib.library.items()}
+    for key in USAGE_SCALARS:
+        if key in use:
+            data[key] = use[key]
+    data["dims"] = {**lib.library.get("dims", {}), **use.get("dims", {})}
+    for kind in ("provides", "requires"):
+        data[kind] = _merge_interfaces(lib.library.get(kind, []), use.get(kind, []), f"{where} {kind}")
+    data["assembly"] = use.get("assembly", {})
+    return data
 
 
 @lru_cache(maxsize=1)
 def load_all() -> dict[str, Part]:
+    """The current build's parts: each <build>/parts/<id>.toml merged over its library spec."""
+    library = load_library()
     parts = {}
-    for category in paths.CATEGORIES:
-        for toml in sorted((paths.PARTS / category).glob("*/part.toml")):
-            part = _load(toml)
-            assert part.id not in parts, f"duplicate part id {part.id}"
-            parts[part.id] = part
+    for toml in _use_files(paths.ROOT):
+        use = _read(toml)
+        ref = use.get("part", "")
+        lib = library.get(ref.rpartition("/")[2])
+        if lib is None or f"{lib.category}/{lib.id}" != ref:
+            raise KeyError(f"{toml.relative_to(paths.REPO)}: part = '{ref}' is not in the parts/ library")
+        data = _merge(lib, use, str(toml.relative_to(paths.REPO)))
+        parts[lib.id] = Part(lib.id, lib.category, lib.dir, data, lib.library, use, toml)
     return parts
 
 
@@ -167,7 +289,7 @@ def get(part_id: str) -> Part:
     try:
         return load_all()[part_id]
     except KeyError:
-        raise KeyError(f"no parts/*/{part_id}/part.toml") from None
+        raise KeyError(f"{paths.BUILD_ID} has no parts/{part_id}.toml (library spec: parts/*/{part_id}/part.toml)") from None
 
 
 def dim(part_id: str, key: str) -> float:
@@ -176,20 +298,34 @@ def dim(part_id: str, key: str) -> float:
 
 
 def system_spec() -> dict:
-    """System-level requirements derived from the layout (parts/system.toml)."""
-    path = paths.PARTS / "system.toml"
-    return tomllib.loads(path.read_text()) if path.exists() else {}
+    """System-level requirements and keepouts derived from the layout (<build>/system.toml)."""
+    return tomllib.loads(paths.SYSTEM.read_text()) if paths.SYSTEM.exists() else {}
 
 
 def lint(parts: dict[str, Part] | None = None) -> list[str]:
-    """Structural problems in the part specs. Empty list means the specs are well formed."""
+    """Structural problems in the library and the build's part references. Empty means well formed."""
     parts = parts or load_all()
     problems = []
+    for lib in load_library().values():
+        for key in LIBRARY_FIELDS:
+            if key not in lib.library:
+                problems.append(f"parts/{lib.category}/{lib.id}: missing field '{key}'")
+        for key in USAGE_FIELDS[1:] + ("assembly",):
+            if key in lib.library:
+                problems.append(f"parts/{lib.category}/{lib.id}: '{key}' belongs in each build's parts/{lib.id}.toml")
+        model_build = lib.library.get("model", {}).get("build")
+        if model_build and model_build not in [b.name for b in paths.builds()]:
+            problems.append(f"parts/{lib.category}/{lib.id}: [model] build '{model_build}' is not a build")
     for p in parts.values():
-        where = f"{p.category}/{p.id}"
-        for key in REQUIRED_FIELDS:
-            if key not in p.data:
+        where = f"{paths.BUILD_ID}/parts/{p.id}.toml"
+        if p.use_file.stem != p.id:
+            problems.append(f"{where}: file name does not match part '{p.id}'")
+        for key in USAGE_FIELDS:
+            if key not in p.use:
                 problems.append(f"{where}: missing field '{key}'")
+        for key in p.use:
+            if key not in USAGE_KEYS:
+                problems.append(f"{where}: '{key}' is not a usage field; put it in the library part.toml")
         if p.data.get("id") != p.dir.name:
             problems.append(f"{where}: id '{p.data.get('id')}' does not match folder name")
         if p.data.get("category") != p.dir.parent.name:

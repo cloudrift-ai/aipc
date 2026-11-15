@@ -1,0 +1,8 @@
+part = "purchased/asrock-arc-pro-b60-creator"
+role = "GPU under test (blower cooler), 3 baseboard positions"
+status = "candidate"
+quantity = 1
+systems = ["node"]
+
+[assembly]
+match = ["^GPU_asrock_arc_pro_b60_creator$"]

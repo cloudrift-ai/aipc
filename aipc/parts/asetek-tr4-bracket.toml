@@ -1,0 +1,9 @@
+part = "purchased/asetek-tr4-bracket"
+role = "mounts the H115i pump on the EPYC SP3 socket"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+covered_by = "amd-epyc-7702p"
+not_modeled = "inside the CPU-and-pump survey envelope"

@@ -1,0 +1,19 @@
+id = "psu-modular-cables"
+name = "Super Flower Leadex 2800W modular cable set (approximate routes)"
+category = "purchased"
+evidence = "allowance"
+no_datasheet_reason = "Ships with the PSU; lead lengths are not published. Measure them against models/gpulab-fit-report.json."
+notes = """
+Modeled as round bundles along simple orthogonal routes: from the PSU's modular
+face, back along the left edge of the deck past the card tails, then to each
+connector. Riser leads run low (under the card bodies) through the gaps between
+cards; leads to top-edge GPU connectors rise 40 mm above the card for the bend.
+Bundle diameters are allowances. The splitters are modeled as separate riser
+leads. Cables may touch each other; they are checked only against rigid parts.
+"""
+
+[model]
+source = "constructed"
+
+[dims]
+mass = { value = 1.2, unit = "kg", evidence = "assumed" }

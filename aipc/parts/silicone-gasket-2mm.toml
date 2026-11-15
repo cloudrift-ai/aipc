@@ -1,0 +1,9 @@
+part = "purchased/silicone-gasket-2mm"
+role = "roof flange seal"
+status = "candidate"
+quantity = 1
+systems = ["berserk"]
+on_shelf = false
+
+[assembly]
+match = ["^roof_silicone_gasket$"]

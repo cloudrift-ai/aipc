@@ -1,0 +1,9 @@
+part = "purchased/psu-modular-cables"
+role = "power leads from the PSU to the GPUs, riser boards and board"
+status = "candidate"
+quantity = 1
+systems = ["node"]
+
+[assembly]
+match = ["^cable_"]
+count_check = false

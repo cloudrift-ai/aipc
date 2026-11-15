@@ -1,0 +1,8 @@
+part = "printed/psu_bracket"
+role = "rear restraint for an 86 x 150 mm ATX PSU face"
+status = "design"
+quantity = 2
+systems = ["berserk", "kenshin"]
+
+[assembly]
+match = ["^printed_(Berserk|Kenshin)_PSU_two_upper_screw_frame_survey$"]

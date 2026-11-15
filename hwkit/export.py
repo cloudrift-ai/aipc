@@ -1,4 +1,8 @@
-"""STEP/STL export into part folders."""
+"""STEP/STL export into the library part folders.
+
+Only the build that owns a part's model (``Part.owns_model``) writes it; any
+other build that uses the part models it in its own assembly only.
+"""
 
 from __future__ import annotations
 
@@ -13,13 +17,14 @@ def _check_single_solid(name: str, shape: cq.Workplane):
 
 
 def export_print(name: str, shape: cq.Workplane, quantity: int, purpose: str) -> dict:
-    """Export one unique printed part to parts/printed/<name>/ and return its manifest row.
+    """Export one unique printed part to the library parts/printed/<name>/ and return its manifest row.
 
     The quantity must match the part spec, so the generator, the spec and the
     plate counts cannot disagree.
     """
     part = spec.get(name)
     assert part.category == "printed", f"{name} is not a printed part"
+    assert part.owns_model, f"{name}: the model belongs to build {part.model_build}; set [model] build to change that"
     assert part.quantity == quantity, f"{name}: generator quantity {quantity} != part.toml {part.quantity}"
     _check_single_solid(name, shape)
     part.dir.mkdir(parents=True, exist_ok=True)
@@ -37,10 +42,11 @@ def export_print(name: str, shape: cq.Workplane, quantity: int, purpose: str) ->
 def export_component(part_id: str, shape: cq.Shape | cq.Workplane) -> None:
     """Export the model a purchased/fabricated part uses in the assembly, moved to its own origin.
 
-    A vendor CAD file (``[model] source = "vendor"``) is never overwritten.
+    A vendor CAD file (``[model] source = "vendor"``) is never overwritten, and
+    a build that does not own the model leaves the library copy alone.
     """
     part = spec.get(part_id)
-    if part.data.get("model", {}).get("source") == "vendor":
+    if part.data.get("model", {}).get("source") == "vendor" or not part.owns_model:
         return
     solid = shape.val() if isinstance(shape, cq.Workplane) else shape
     bb = solid.BoundingBox()

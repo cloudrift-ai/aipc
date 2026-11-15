@@ -1,0 +1,8 @@
+part = "printed/gpulab_baseboard"
+role = "13-position GPU baseboard: post holes for the card brackets and sliding-nut channels for the MCIO riser boards"
+status = "design"
+quantity = 2
+systems = ["node"]
+
+[assembly]
+match = ["^printed_gpulab_baseboard_[AB]$"]

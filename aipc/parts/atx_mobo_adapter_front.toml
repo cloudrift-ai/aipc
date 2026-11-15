@@ -1,0 +1,8 @@
+part = "printed/atx_mobo_adapter_front"
+role = "shelf-front motherboard section, common to both boards"
+status = "design"
+quantity = 2
+systems = ["berserk", "kenshin"]
+
+[assembly]
+match = ["^berserk_mobo_adapter_left_drill_plan$", "^kenshin_mobo_adapter_right_drill_plan$"]

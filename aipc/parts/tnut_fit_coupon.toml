@@ -1,0 +1,9 @@
+part = "printed/tnut_fit_coupon"
+role = "test print for the M4 hammer T-nut pocket"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+on_shelf = false
+
+[assembly]
+not_modeled = "fit coupon, not installed"

@@ -1,0 +1,8 @@
+part = "purchased/intel-arc-pro-b70"
+role = "GPU under test (blower cooler), 3 baseboard positions"
+status = "candidate"
+quantity = 1
+systems = ["node"]
+
+[assembly]
+match = ["^GPU_intel_arc_pro_b70$"]

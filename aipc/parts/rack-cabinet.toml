@@ -1,0 +1,10 @@
+part = "purchased/rack-cabinet"
+role = "cabinet that receives the shelf and the roof exhaust"
+status = "unspecified"
+quantity = 1
+systems = ["rack"]
+on_shelf = false
+
+[assembly]
+match = ["^inner_ceiling_patch_PROVISIONAL$"]
+count_check = false

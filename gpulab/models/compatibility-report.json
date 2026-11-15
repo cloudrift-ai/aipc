@@ -665,7 +665,9 @@
       "detail": "not in the assembly: cabinet not identified; nothing to model"
     }
   ],
-  "renders": [],
+  "renders": [
+    "models/renders/assembly.png missing or older than the assembly (run make render)"
+  ],
   "datasheets": [
     {
       "part": "amd-epyc-7702p",
@@ -673,79 +675,14 @@
       "detail": "not fetched locally: https://www.amd.com/en/products/processors/server/epyc/7002-series/amd-epyc-7702p.html (run make datasheets)"
     },
     {
-      "part": "amd-radeon-ai-pro-r9700",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html (run make datasheets)"
-    },
-    {
-      "part": "amd-radeon-ai-pro-r9700",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://shop.captech.se/sv-SE/Product/158676/Link/89673/AI%20PRO%20R9700%20(1).pdf (run make datasheets)"
-    },
-    {
       "part": "amd-rx-7900-xtx-reference",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html (run make datasheets)"
     },
     {
-      "part": "asrock-arc-pro-b60-creator",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.intel.com/content/www/us/en/products/sku/243916/intel-arc-pro-b60-graphics/specifications.html (run make datasheets)"
-    },
-    {
-      "part": "asrock-arc-pro-b60-creator",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2026-03/datasheet-b60-gpu.pdf (run make datasheets)"
-    },
-    {
-      "part": "cpayne-cp0120-mcio-host-adapter",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://c-payne.com/products/mcio-pcie-gen5-host-adapter-x16-passive (run make datasheets)"
-    },
-    {
-      "part": "cpayne-cp0231-mcio-device-adapter",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://c-payne.com/products/mcio-pcie-gen5-device-adapter-x8-x16 (run make datasheets)"
-    },
-    {
-      "part": "cpayne-mcio-8i-cable-0p75m",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://c-payne.com/products/mcio-pcie-gen5-host-adapter-x16-passive (run make datasheets)"
-    },
-    {
       "part": "fasteners",
       "status": "BLOCKED",
-      "detail": "Generic ISO metric and UNC hardware; choose lengths from the stacks in models/gpulab-fit-report.json."
-    },
-    {
-      "part": "hammond-rsus1931bk1",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.hammfg.com/dci/products/accessories/rsus (run make datasheets)"
-    },
-    {
-      "part": "hammond-rsus1931bk1",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf (run make datasheets)"
-    },
-    {
-      "part": "hammond-rsus1931bk1",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.hammfg.com/files/parts/bulletins/BUL87361.pdf (run make datasheets)"
-    },
-    {
-      "part": "huananzhi-h12d-8d",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.huananzhi.com/en/list_6/177.html (run make datasheets)"
-    },
-    {
-      "part": "huananzhi-h12d-8d",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.huananzhi.com/uploads/file/20260212/1770877734213650.pdf (run make datasheets)"
-    },
-    {
-      "part": "intel-arc-pro-b70",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.intel.com/content/www/us/en/products/sku/245797/intel-arc-pro-b70-graphics/specifications.html (run make datasheets)"
+      "detail": "Generic ISO metric and UNC hardware; each build chooses lengths from its own stacks."
     },
     {
       "part": "keystone-1451b",
@@ -756,16 +693,6 @@
       "part": "m3-ff-standoff-10mm",
       "status": "BLOCKED",
       "detail": "Generic hardware; pick a brand (for example a Wurth WA-SSTII M3 F/F 10 mm) and record its drawing."
-    },
-    {
-      "part": "nvidia-rtx-3090-fe",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090-3090ti/ (run make datasheets)"
-    },
-    {
-      "part": "nvidia-rtx-4090-fe",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/ (run make datasheets)"
     },
     {
       "part": "obt-pcie-support",
@@ -781,11 +708,6 @@
       "part": "psu-modular-cables",
       "status": "BLOCKED",
       "detail": "Ships with the PSU; lead lengths are not published. Measure them against models/gpulab-fit-report.json."
-    },
-    {
-      "part": "super-flower-leadex-2800w",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://hwbusters.com/psus/super-flower-leadex-2800w-atx-v3-1-psu-review/ (run make datasheets)"
     },
     {
       "part": "wurth-970140324",
@@ -833,6 +755,9 @@
     },
     "fasteners": {
       "assumed": 1
+    },
+    "gpulab_baseboard": {
+      "allowance": 1
     },
     "hammond-rsus1931bk1": {
       "datasheet": 10,
@@ -895,9 +820,6 @@
     "zotac-rtx-5090-solid": {
       "datasheet": 4,
       "review": 1,
-      "allowance": 1
-    },
-    "gpulab_baseboard": {
       "allowance": 1
     }
   },

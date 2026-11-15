@@ -1,0 +1,8 @@
+part = "fabricated/rear-aio-steel-extension"
+role = "carries the rear radiator feet beyond the deck"
+status = "design"
+quantity = 1
+systems = ["kenshin", "shelf"]
+
+[assembly]
+match = ["^Rear_AIO_400x83x3_steel_extension_drill_plan$"]

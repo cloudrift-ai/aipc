@@ -1,0 +1,8 @@
+part = "purchased/linkreal-lrfc6911n"
+role = "Berserk NIC slot: takes an H12D-8D SFF-8643 PCIe x4 port and provides an x16 slot for the ConnectX"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+not_modeled = "shelf location and holder not designed yet; must clear the V100s and the BMC and leave airflow over the NIC"

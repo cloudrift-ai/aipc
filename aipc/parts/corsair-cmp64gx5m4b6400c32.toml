@@ -1,0 +1,8 @@
+part = "purchased/corsair-cmp64gx5m4b6400c32"
+role = "Kenshin memory"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+
+[assembly]
+not_modeled = "X870E DIMM socket positions not surveyed; model them before trusting pump and hose clearance"

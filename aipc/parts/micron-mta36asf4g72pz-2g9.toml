@@ -1,0 +1,8 @@
+part = "purchased/micron-mta36asf4g72pz-2g9"
+role = "Berserk memory, 8 x 32 GB"
+status = "owned"
+quantity = 8
+systems = ["berserk"]
+
+[assembly]
+match = ["^Berserk_RDIMM_\\d+_survey$"]

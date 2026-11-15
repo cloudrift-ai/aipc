@@ -1,0 +1,8 @@
+part = "purchased/wurth-970140324"
+role = "GPU post bases, bearing directly on the steel shelf"
+status = "selected"
+quantity = 10
+systems = ["berserk", "kenshin"]
+
+[assembly]
+match = ["_M3_SW5p5_14mm_standoff_\\d+$"]

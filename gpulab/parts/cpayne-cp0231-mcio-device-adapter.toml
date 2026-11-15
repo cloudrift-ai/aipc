@@ -1,0 +1,8 @@
+part = "purchased/cpayne-cp0231-mcio-device-adapter"
+role = "GPU riser: MCIO 8i in, x16 slot (x8 electrical) for one GPU"
+status = "candidate"
+quantity = 7
+systems = ["node"]
+
+[assembly]
+match = ["^riser_\\d+_CP0231$"]

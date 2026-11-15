@@ -1,0 +1,8 @@
+part = "purchased/sff-8643-pcie-cable"
+role = "PCIe x4 link from an H12D-8D SFF-8643 port to the Linkreal LRFC6911N riser"
+status = "selected"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+not_modeled = "cable route follows the riser location, which is not chosen yet"

@@ -1,0 +1,15 @@
+part = "purchased/mains-power"
+role = "AC supply for the 2800 W PSU"
+status = "unspecified"
+quantity = 1
+systems = ["rack"]
+on_shelf = false
+notes = """
+The Super Flower Leadex 2800W accepts 200-240 V only. At full load the node
+draws about 3 kW from the wall: plan one 240 V / 20 A circuit (3.84 kW
+continuous) or larger. Record the circuit, UPS and PDU ratings and outlet
+type (C19) here.
+"""
+
+[assembly]
+not_modeled = "outside the shelf; supply not specified"

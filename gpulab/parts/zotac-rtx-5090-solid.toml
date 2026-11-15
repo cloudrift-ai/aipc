@@ -1,0 +1,27 @@
+part = "purchased/zotac-rtx-5090-solid"
+role = "GPU under test (open-air cooler), 5 baseboard positions"
+status = "candidate"
+quantity = 1
+systems = ["node"]
+notes = """
+Occupies 5 positions (thickness plus 15-25 mm air gap at the 20.32 mm pitch).
+Runs on an MCIO riser at x8; values marked review/listing are provisional.
+"""
+
+[[requires]]
+type = "riser-x16-slot"
+replaces = "pcie-x16-slot"
+note = "PCIe 5.0 x16 card on an x8 riser link"
+
+[[requires]]
+type = "gpu-baseboard-position"
+count = 5
+evidence = "allowance"
+
+[[requires]]
+type = "dc-power"
+load_limited = 400.0
+note = "stock board power, including the 75 W slot power drawn through the riser; capped to 400 W for the 2800 W PSU budget: nvidia-smi -i <gpu> -pl 400, set at boot and confirm the driver accepts it"
+
+[assembly]
+match = ["^GPU_zotac_rtx_5090_solid$"]

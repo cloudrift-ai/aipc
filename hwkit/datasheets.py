@@ -1,4 +1,4 @@
-"""Download each part's [[datasheets]] into parts/<category>/<id>/datasheets/.
+"""Download the datasheets of the build's parts into the library's parts/<category>/<id>/datasheets/.
 
 Local copies are gitignored: manufacturer PDFs are not ours to redistribute,
 so the repository keeps the URLs and the extracted, evidence-tagged values in

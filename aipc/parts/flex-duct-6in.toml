@@ -1,0 +1,9 @@
+part = "purchased/flex-duct-6in"
+role = "GPU exhaust to cabinet ceiling"
+status = "candidate"
+quantity = 1
+systems = ["berserk"]
+on_shelf = false
+
+[assembly]
+match = ["^flex_duct_6in_"]

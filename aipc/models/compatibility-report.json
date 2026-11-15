@@ -1,13 +1,31 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "summary": {
     "BLOCKED": 23,
-    "PROVISIONAL": 56,
+    "PROVISIONAL": 55,
     "PASS": 11
   },
   "lint": [],
   "assembly_errors": [],
   "checks": [
+    {
+      "type": "12v-2x6",
+      "systems": [
+        "kenshin"
+      ],
+      "requirers": [
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "corsair-hx1200i"
+      ],
+      "rule": "count",
+      "status": "BLOCKED",
+      "detail": "need 1 x 12v-2x6, have None",
+      "weak_evidence": [
+        "corsair-hx1200i:12v-2x6(assumed)"
+      ]
+    },
     {
       "type": "ac-power",
       "systems": [
@@ -88,24 +106,6 @@
       "weak_evidence": [
         "rack-cabinet:cabinet-rear-clearance(unknown)",
         "system:cabinet-rear-clearance(allowance)"
-      ]
-    },
-    {
-      "type": "gpu-power",
-      "systems": [
-        "kenshin"
-      ],
-      "requirers": [
-        "zotac-rtx-5090-solid"
-      ],
-      "providers": [
-        "corsair-hx1200i"
-      ],
-      "rule": "count",
-      "status": "BLOCKED",
-      "detail": "need 1 x gpu-power=12v-2x6, have None",
-      "weak_evidence": [
-        "corsair-hx1200i:gpu-power(assumed)"
       ]
     },
     {
@@ -680,25 +680,6 @@
       "detail": "need 4 x gpu-forced-airflow, have 4",
       "weak_evidence": [
         "sanyo-denki-9gv1412p1s001:gpu-forced-airflow(allowance)"
-      ]
-    },
-    {
-      "type": "gpu-power",
-      "systems": [
-        "kenshin"
-      ],
-      "requirers": [
-        "zotac-rtx-5090-solid"
-      ],
-      "providers": [
-        "corsair-hx1200i"
-      ],
-      "rule": "value",
-      "status": "PROVISIONAL",
-      "detail": "zotac-rtx-5090-solid needs 12V-2x6; provided by corsair-hx1200i",
-      "note": "",
-      "weak_evidence": [
-        "corsair-hx1200i:gpu-power(assumed)"
       ]
     },
     {
@@ -1299,7 +1280,7 @@
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 23.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating)",
+      "detail": "load 23.8 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating)",
       "contributors": [
         "amd-epyc-7702p",
         "amd-ryzen-9-9950x3d",
@@ -1383,7 +1364,7 @@
         "v100-tail-support:shelf-load(assumed)",
         "v100_gpu_shroud:shelf-load(allowance)",
         "wurth-970140324:shelf-load(assumed)",
-        "zotac-rtx-5090-solid:shelf-load(assumed)"
+        "zotac-rtx-5090-solid:shelf-load(review)"
       ]
     },
     {
@@ -1521,7 +1502,7 @@
       "rule": "value",
       "status": "PASS",
       "detail": "zotac-rtx-5090-solid needs PCIe x16; provided by gigabyte-x870e-aorus-pro",
-      "note": "",
+      "note": "PCIe 5.0 x16",
       "weak_evidence": []
     },
     {
@@ -1625,6 +1606,11 @@
       "detail": "not in the assembly: X870E DIMM socket positions not surveyed; model them before trusting pump and hose clearance"
     },
     {
+      "part": "fan-power-harness",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: flexible wiring; route along the hood clear of the fan rotor"
+    },
+    {
       "part": "linkreal-lrfc6911n",
       "status": "BLOCKED",
       "detail": "not in the assembly: shelf location and holder not designed yet; must clear the V100s and the BMC and leave airflow over the NIC"
@@ -1653,11 +1639,6 @@
       "part": "tnut_fit_coupon",
       "status": "BLOCKED",
       "detail": "not in the assembly: fit coupon, not installed"
-    },
-    {
-      "part": "fan-power-harness",
-      "status": "BLOCKED",
-      "detail": "not in the assembly: flexible wiring; route along the hood clear of the fan rotor"
     },
     {
       "part": "Berserk V100 16GB PCIE2 / Berserk BMC module survey",
@@ -1710,7 +1691,7 @@
     {
       "part": "fasteners",
       "status": "BLOCKED",
-      "detail": "Generic ISO metric hardware; choose lengths from measured stacks (see docs/assembly.md)."
+      "detail": "Generic ISO metric and UNC hardware; each build chooses lengths from its own stacks."
     },
     {
       "part": "flex-duct-6in",
@@ -1726,6 +1707,11 @@
       "part": "keystone-1451b",
       "status": "BLOCKED",
       "detail": "Only the DigiKey listing is recorded; add Keystone's drawing."
+    },
+    {
+      "part": "micron-3400-2tb",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.mouser.com/datasheet/2/671/Micron_Technology_micron_3400_ssd_product_brief-2499062.pdf (run make datasheets)"
     },
     {
       "part": "micron-3500-2tb",
@@ -1795,6 +1781,12 @@
     "asetek-tr4-bracket": {
       "assumed": 1
     },
+    "atx_mobo_adapter_front": {
+      "allowance": 1
+    },
+    "atx_mobo_adapter_rail": {
+      "allowance": 1
+    },
     "corsair-cmp64gx5m4b6400c32": {
       "assumed": 1
     },
@@ -1806,12 +1798,43 @@
       "standard": 2,
       "assumed": 2
     },
+    "fan-power-harness": {
+      "allowance": 1,
+      "assumed": 1
+    },
+    "fan120_aio_center_spacer": {
+      "allowance": 1
+    },
+    "fan120_aio_frame": {
+      "allowance": 1
+    },
+    "fan120_aio_hose_brace": {
+      "allowance": 1
+    },
+    "fan140_aio_frame": {
+      "allowance": 1
+    },
+    "fan140_aio_hose_brace": {
+      "allowance": 1
+    },
     "fasteners": {
       "assumed": 1
     },
     "gigabyte-x870e-aorus-pro": {
       "datasheet": 2,
       "assumed": 1
+    },
+    "gpu_exhaust_fan_flange": {
+      "allowance": 1
+    },
+    "gpu_exhaust_roof_flange": {
+      "allowance": 1
+    },
+    "gpu_rest": {
+      "allowance": 1
+    },
+    "h12d_mobo_adapter_rail": {
+      "allowance": 1
     },
     "hammond-rsus1931bk1": {
       "datasheet": 10,
@@ -1821,7 +1844,10 @@
     },
     "huananzhi-h12d-8d": {
       "datasheet": 2,
-      "assumed": 2
+      "assumed": 2,
+      "photo-estimate": 3,
+      "standard": 1,
+      "allowance": 2
     },
     "keystone-1451b": {
       "listing": 1,
@@ -1861,8 +1887,14 @@
       "allowance": 1,
       "assumed": 1
     },
+    "psu_bracket": {
+      "allowance": 1
+    },
     "rack-cabinet": {
       "unknown": 3
+    },
+    "rear-aio-steel-extension": {
+      "allowance": 4
     },
     "rosewill-hercules-1600": {
       "standard": 2,
@@ -1876,6 +1908,9 @@
       "listing": 1,
       "assumed": 1
     },
+    "tnut_fit_coupon": {
+      "allowance": 1
+    },
     "v100-eps-power-adapter": {
       "assumed": 1
     },
@@ -1883,62 +1918,17 @@
       "allowance": 2,
       "assumed": 1
     },
+    "v100_gpu_shroud": {
+      "allowance": 1
+    },
     "wurth-970140324": {
       "datasheet": 3,
       "assumed": 1
     },
     "zotac-rtx-5090-solid": {
       "datasheet": 4,
-      "assumed": 1
-    },
-    "atx_mobo_adapter_front": {
+      "review": 1,
       "allowance": 1
-    },
-    "atx_mobo_adapter_rail": {
-      "allowance": 1
-    },
-    "fan120_aio_center_spacer": {
-      "allowance": 1
-    },
-    "fan120_aio_frame": {
-      "allowance": 1
-    },
-    "fan120_aio_hose_brace": {
-      "allowance": 1
-    },
-    "fan140_aio_frame": {
-      "allowance": 1
-    },
-    "fan140_aio_hose_brace": {
-      "allowance": 1
-    },
-    "gpu_exhaust_fan_flange": {
-      "allowance": 1
-    },
-    "gpu_exhaust_roof_flange": {
-      "allowance": 1
-    },
-    "gpu_rest": {
-      "allowance": 1
-    },
-    "h12d_mobo_adapter_rail": {
-      "allowance": 1
-    },
-    "psu_bracket": {
-      "allowance": 1
-    },
-    "tnut_fit_coupon": {
-      "allowance": 1
-    },
-    "v100_gpu_shroud": {
-      "allowance": 1
-    },
-    "fan-power-harness": {
-      "allowance": 1,
-      "assumed": 1
-    },
-    "rear-aio-steel-extension": {
-      "allowance": 4
     }
   },
   "unspecified_parts": [

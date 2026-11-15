@@ -1,0 +1,8 @@
+part = "purchased/cpayne-cp0120-mcio-host-adapter"
+role = "host adapter: one H12D x16 slot to two MCIO 8i ports (x8x8)"
+status = "candidate"
+quantity = 4
+systems = ["node"]
+
+[assembly]
+match = ["^host_adapter_slot\\d_CP0120$"]

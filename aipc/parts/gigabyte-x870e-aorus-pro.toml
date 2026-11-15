@@ -1,0 +1,8 @@
+part = "purchased/gigabyte-x870e-aorus-pro"
+role = "Kenshin motherboard"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+
+[assembly]
+match = ["^Kenshin_ATX_board$"]

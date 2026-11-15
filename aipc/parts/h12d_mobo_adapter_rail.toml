@@ -1,0 +1,8 @@
+part = "printed/h12d_mobo_adapter_rail"
+role = "Berserk rear rail with GPU post holes for four dual-slot V100s"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+match = ["^berserk_mobo_adapter_right_drill_plan$"]

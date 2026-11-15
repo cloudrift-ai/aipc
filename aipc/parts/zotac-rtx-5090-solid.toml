@@ -1,0 +1,9 @@
+part = "purchased/zotac-rtx-5090-solid"
+role = "Kenshin GPU"
+status = "owned"
+quantity = 1
+systems = ["kenshin"]
+
+[assembly]
+match = ["^Kenshin_RTX_5090$", "^Kenshin_RTX5090_GPU_flange_hole_pattern_survey$"]
+instances_per_unit = 2

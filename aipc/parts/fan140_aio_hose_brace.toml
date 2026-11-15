@@ -1,0 +1,8 @@
+part = "printed/fan140_aio_hose_brace"
+role = "hose-end brace for the 140 mm radiator"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+match = ["^Berserk_H115i_hose_end_shelf_brace$"]
