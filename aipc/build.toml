@@ -1,0 +1,25 @@
+# Build settings read by the shared hwkit library (../hwkit).
+
+name = "AIPC"
+title = "Dual-PC shelf assembly"
+assembly_step = "models/dual-pc-hammond-assembly.step"
+printer = "qidi-x-plus"
+
+[render]
+# One assembly sheet per system, showing only that system's parts.
+system_sheets = ["berserk", "kenshin", "shelf"]
+
+[compat]
+# Items in parts/system.toml without `systems` belong to this system.
+default_system = "rack"
+
+# Every part's dims.mass loads the shelf, unless its part.toml sets on_shelf = false.
+[compat.load_carrier]
+flag = "on_shelf"
+system = "shelf"
+type = "shelf-load"
+
+# Build-specific generators, run by `hwkit cad` and `hwkit plates`.
+[scripts]
+cad = "cad/shelf_layout.py"
+plates = "cad/print_jobs.py"

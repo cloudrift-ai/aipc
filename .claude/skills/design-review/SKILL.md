@@ -1,19 +1,21 @@
 ---
 name: design-review
-description: Visually inspect AIPC part and assembly renders after any CAD change. Use after make cad, before committing geometry, or when asked whether a part or the assembly looks right. Renders every part and the assembly headlessly and walks a checklist; optionally gets an independent fresh-context review.
+description: Visually inspect a build's part and assembly renders (for example AIPC) after any CAD change. Use after make cad, before committing geometry, or when asked whether a part or the assembly looks right. Renders every part and the assembly headlessly and walks a checklist; optionally gets an independent fresh-context review.
 ---
 
 # Design review
+
+This skill applies to every build in the repo. Paths such as `parts/`, `models/` and `docs/system-check.md` are inside the build folder (for example `aipc/`). Run `make <target> BUILD=<build>` from the repo root; the shared code is in `hwkit/`.
 
 A valid solid, a passing collision check or a clean slice is not a review. Look at the pictures.
 
 ## Steps
 
-1. `make cad render` (or `.venv/bin/python cad/render_all.py <part-id> ...` for just the changed parts; this still refreshes their in-assembly views).
+1. `make cad render BUILD=<build>` (or, inside the build folder, `../venv/bin/hwkit render <part-id> ...` for just the changed parts; this still refreshes their in-assembly views).
 2. For each changed part, open with the Read tool:
    - `parts/<category>/<id>/render.png`: nine views (three isometric, top, bottom, front, rear, left, right), with the bounding box in the title.
    - `parts/<category>/<id>/in-assembly.png`: the part in orange with the rest of the assembly ghosted.
-3. Open `models/renders/assembly.png` and the per-system sheets `assembly-berserk.png`, `assembly-kenshin.png`, `assembly-shelf.png`.
+3. Open `models/renders/assembly.png` and the per-system sheets `assembly-<system>.png` listed in the build's `build.toml` `[render] system_sheets` (AIPC: berserk, kenshin, shelf).
 4. Walk the checklist below and write down every finding with the view it came from.
 5. For a non-trivial change, ask a fresh-context subagent to review the same images and specs without telling it your conclusions (see the design-audit skill), then reconcile.
 

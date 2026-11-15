@@ -1,21 +1,41 @@
 # AGENTS.md
 
-Notes for coding agents working in this repo. The full workflow is in [docs/process.md](docs/process.md).
+Notes for coding agents working in this repo. The design process for every build is in [docs/process.md](docs/process.md).
 
-## Process rules
+## Layout
 
-1. **One folder per part.** Every purchased, printed and fabricated part has `parts/<category>/<id>/` with `part.toml` (evidence-tagged dimensions and interfaces), a generated `README.md`, its datasheets (`make datasheets`) and the model used in the assembly. Use the `part-intake` skill to add or change a part.
-2. **Render and inspect every part** (`make render`, then look at `render.png`). Use the `design-review` skill.
-3. **Everything is modeled in one assembly** and inspected (`models/renders/`, `in-assembly.png`). `make cad` fails if an assembly instance has no part folder, or a part is missing from the assembly without a `not_modeled` reason.
-4. **Check whole-system compatibility from the datasheets before choosing a part** (`make check`, [docs/system-check.md](docs/system-check.md)). Resolve FAILs before buying; report BLOCKED items as open questions.
+| Path | What it is |
+| --- | --- |
+| [aipc/](aipc/README.md) | AIPC build: two AI workstations (Berserk, Kenshin) on one rack shelf. Fit prototype; has its own [AGENTS.md](aipc/AGENTS.md) |
+| [gpulab/](gpulab/README.md) | GPU lab build: mixed GPUs on cabled PCIe risers, one VM per GPU. Planning; README only |
+| [hwkit/](hwkit) | Shared Python package: part specs, compatibility, assembly registry, export, renders, plates, printers, slicing, and the `hwkit` CLI |
+| [hwkit/printers/](hwkit/printers) | Printer definitions (`printer.toml`), vendored OrcaSlicer base presets and shared slicer profiles |
+| [docs/](docs) | Shared process and printing guidelines |
+| [.claude/skills/](.claude/skills) | Agent skills for every build: `part-intake`, `design-review`, `design-audit` |
+| [tests/](tests) | hwkit tests |
+| `Makefile`, `pyproject.toml` | Root build: `make setup` creates `venv/` and installs hwkit; every target runs per build |
 
-## Code rules
+A build is a folder with a `build.toml` (name, assembly, printer, render sheets and its `[scripts]`). Its `parts/`, `cad/`, `models/`, `print/` and `docs/` belong to that build only. Read the build's own `AGENTS.md` before changing it.
 
-- Generators in `cad/` and specs in `parts/*/*/part.toml` are the source of truth. Never hand-edit generated files: `models/`, `print/*.3mf`, `parts/*/*/*.step|stl|png|README.md`, `parts/README.md`, `docs/system-check.md`. Change the script or spec and run `make all` (then `make gcode` if OrcaSlicer is installed).
-- Use the shared library `cad/aipc/` (spec lookup, export, assembly registry, rendering, compatibility) instead of writing new helpers. Read part dimensions with `spec.dim(id, key)`, never as literals.
-- `cad/shelf_layout.py` asserts on collisions, fastener access and slot travel; `aipc.registry` asserts on assembly coverage. Fix the geometry or spec when an assertion fails; do not loosen the check, add keepouts or disable count checks to hide a mismatch.
-- Keep one model per unique printed part. Identical copies share a model; the quantity lives in `part.toml`, and `export_print(...)` and the plate `copies` in `cad/print_jobs.py` must agree with it.
-- Follow [docs/printing.md](docs/printing.md) for every printable change, including the independent print audit before release. Use the `design-audit` skill for a full design audit.
-- G-code and fetched datasheets are generated and gitignored. Do not commit `print/gcode/` or `parts/*/*/datasheets/`.
-- Distinguish evidence: `measured`, `datasheet` and `standard` are verified; `listing`, `photo-estimate`, `allowance` and `assumed` are not. Mark unmeasured interfaces as provisional in docs and reports. A CAD check against coordinates from the same code does not validate those coordinates.
-- Keep [parts.xlsx](parts.xlsx) to parts the build actually uses, and keep it in step with `parts/`; update it and the docs when hardware changes.
+## Commands
+
+Run everything from the repo root. Targets run for every build, or one with `BUILD=<folder>`.
+
+```bash
+make setup                  # venv/ with hwkit, CadQuery and dev tools
+make all BUILD=aipc         # cad + render + plates + check
+make gcode BUILD=aipc       # slice with OrcaSlicer 2.5.x (PLATES="<plate> ..." for some)
+make lint test              # ruff and pytest for hwkit
+```
+
+Inside a build folder, `../venv/bin/hwkit <cad|plates|render|check|datasheets|slice>` runs one step.
+
+## Rules
+
+- Shared code goes in `hwkit/`; a build's `cad/` holds only that build's geometry and plate layout. Do not copy helpers between builds. Read part dimensions with `spec.dim(id, key)`, never as literals.
+- Builds do not share part folders, models or generated files. If a part is used in two builds, give it a part folder in each build.
+- Never hand-edit generated files (`models/`, `print/*.3mf`, `parts/*/*/*.step|stl|png|README.md`, `parts/README.md`, `docs/system-check.md` in each build). Change the generator or spec and rerun `make all BUILD=<build>`.
+- Changes to `hwkit/` affect every build: run `make lint test` and `make all` for every build, and confirm the generated outputs did not change unless intended.
+- Do not loosen a check, add keepouts or disable count checks to hide a mismatch. Fix the geometry or spec.
+- G-code, fetched datasheets and `venv/` are generated and gitignored.
+- Distinguish evidence everywhere: `measured`, `datasheet` and `standard` are verified; `listing`, `photo-estimate`, `allowance` and `assumed` are not. A CAD check against coordinates from the same code does not validate those coordinates.

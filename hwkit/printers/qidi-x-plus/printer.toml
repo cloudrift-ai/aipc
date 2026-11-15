@@ -1,0 +1,72 @@
+# First-generation Qidi X-Plus with a 0.4 mm nozzle, sliced with OrcaSlicer 2.5.x.
+# Read by hwkit.printers; the slicer checks every G-code file against this policy.
+
+name = "Qidi X-Plus first generation, 0.4 mm nozzle"
+bed_mm = [270.0, 200.0]          # Orca's Qidi X-Plus 0.4 nozzle preset
+nozzle_mm = 0.4
+orca_version = "2.5."
+orca_base = "orca-2.5.0"         # vendored base presets; see orca-2.5.0/SOURCE.md
+machine_preset = "Qidi_X-Plus_0.4_nozzle.json"
+
+# Every G-code file must carry these settings (from process.json).
+[gcode.settings]
+wall_loops = "4"
+sparse_infill_density = "40%"
+nozzle_diameter = "0.4"
+layer_height = "0.2"
+filament_max_volumetric_speed = "5"
+initial_layer_speed = "15"
+initial_layer_infill_speed = "15"
+skirt_speed = "15"
+outer_wall_speed = "25"
+inner_wall_speed = "30"
+sparse_infill_speed = "35"
+internal_solid_infill_speed = "35"
+top_surface_speed = "25"
+travel_speed = "100"
+default_acceleration = "300"
+initial_layer_acceleration = "200"
+travel_acceleration = "500"
+
+# Limits checked on every move of the toolpath (mm/s, mm/s², °C).
+[gcode.limits]
+print_speed = 35.0
+first_layer_speed = 15.0
+brim_speed = 15.0
+travel_speed = 100.0
+print_acceleration = 300.0
+first_layer_acceleration = 200.0
+travel_acceleration = 500.0
+nozzle_c = 240.0
+
+# Settings required when a plate needs supports.
+[gcode.support_settings]
+support_type = "normal(auto)"
+support_style = "snug"
+support_threshold_angle = "45"
+support_on_build_plate_only = "0"
+support_top_z_distance = "0.2"
+support_object_xy_distance = "0.4"
+support_speed = "30"
+support_interface_speed = "25"
+
+# Filament profiles in this folder, keyed by file name.
+[materials."duramic-petg-240c.json"]
+name = "Duramic PETG"
+nozzle_c = 240
+bed_c = 75
+
+[materials."polymaker-ht-pla-gf-230c.json"]
+name = "Polymaker HT-PLA-GF"
+nozzle_c = 230
+bed_c = 50
+# The stock X-Plus preset always reports hardened_steel, so this checks the
+# profile only; fitting the hardened steel nozzle is an operator step.
+hardened_nozzle = true
+
+[materials."polymaker-ht-pla-gf-230c.json".gcode_settings]
+nozzle_type = "hardened_steel"
+filament_type = "PLA"
+filament_density = "1.337"
+fan_min_speed = "100"
+fan_max_speed = "100"

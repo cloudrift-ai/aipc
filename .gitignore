@@ -1,13 +1,14 @@
 # Python
-.venv/
+venv/
+*.egg-info/
 __pycache__/
 *.pyc
 
-# Sliced toolpaths: regenerate with `make gcode`
-print/gcode/
+# Sliced toolpaths: regenerate with `make gcode` in the build folder
+/*/print/gcode/
 
 # Manufacturer datasheets: fetched by `make datasheets`, not redistributed
-parts/*/*/datasheets/
+/*/parts/*/*/datasheets/
 
 # Scratch output
 tmp/

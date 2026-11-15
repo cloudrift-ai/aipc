@@ -1,64 +1,84 @@
-VENV   ?= .venv
-PYTHON ?= python3
-PY     := $(VENV)/bin/python
+# Hardware builds: one folder per build (a folder with build.toml), shared tooling in hwkit/.
+# Targets run for every build, or for one with BUILD=<folder>, e.g. `make all BUILD=aipc`.
 
-MODELS  := models
-PRINT   := print
-PLATES  = $(wildcard $(PRINT)/*.3mf)
-GCODE   = $(patsubst $(PRINT)/%.3mf,$(PRINT)/gcode/%.gcode,$(PLATES))
-PROFILES := $(wildcard $(PRINT)/profiles/*.json $(PRINT)/profiles/orca-*/*/*.json)
+PYTHON ?= python3.13
+VENV   := venv
+HWKIT  := $(CURDIR)/$(VENV)/bin/hwkit
+BUILDS := $(patsubst %/build.toml,%,$(wildcard */build.toml))
+BUILD  ?= $(BUILDS)
 
-.PHONY: help setup all cad render check datasheets plates gcode clean-gcode clean
-# slice_jobs.py updates one shared print/gcode/manifest.json
+# Runs `hwkit <command>` in each selected build folder.
+define hwkit
+	@for b in $(BUILD); do echo "== $$b: hwkit $(1)"; (cd $$b && $(HWKIT) $(1)) || exit 1; done
+endef
+
+.PHONY: help setup lint format test all cad render check datasheets plates gcode clean-gcode clean
+# The slicer updates one shared print/gcode/manifest.json per build.
 .NOTPARALLEL:
 
 help:
-	@echo "make setup   - create $(VENV) with the CAD dependencies"
-	@echo "make all     - cad + render + plates + check (everything except G-code)"
-	@echo "make cad     - regenerate the assembly, reports and every part model (parts/<category>/<id>/)"
-	@echo "make render  - render every part and the assembly for visual inspection"
-	@echo "make check   - spec lint, system compatibility, assembly coverage; writes docs/system-check.md"
-	@echo "make datasheets - download each part's datasheets into parts/*/*/datasheets/ (not committed)"
-	@echo "make plates  - pack the models into centered Qidi X-Plus plates (3MF) in $(PRINT)/"
-	@echo "make gcode   - slice every plate with OrcaSlicer into $(PRINT)/gcode/ (not committed)"
-	@echo "make $(PRINT)/gcode/<plate>.gcode - slice one plate"
+	@echo "Builds: $(BUILDS)   (select one with BUILD=<folder>; default: all)"
+	@echo ""
+	@echo "make setup       - create $(VENV)/ and install hwkit with its CAD and dev dependencies"
+	@echo "make lint        - ruff check and format check of hwkit/ and tests/"
+	@echo "make format      - ruff format and autofix hwkit/ and tests/"
+	@echo "make test        - run the hwkit tests"
+	@echo "make all         - cad + render + plates + check (everything except G-code)"
+	@echo "make cad         - regenerate the assembly, reports and every part model"
+	@echo "make render      - render every part and the assembly for visual inspection"
+	@echo "make check       - spec lint, system compatibility, assembly coverage; writes docs/system-check.md"
+	@echo "make datasheets  - download each part's datasheets into parts/*/*/datasheets/ (not committed)"
+	@echo "make plates      - pack the printed parts into print plates (3MF) in print/"
+	@echo "make gcode       - slice the plates with OrcaSlicer into print/gcode/ (not committed); PLATES=\"<plate> ...\" for some"
 	@echo "make clean-gcode - delete generated G-code"
-	@echo "Override slicer detection with ORCA=\"<command>\" (OrcaSlicer 2.5.x; base presets vendored in $(PRINT)/profiles/orca-2.5.0/)."
+	@echo "Override slicer detection with ORCA=\"<command>\" (OrcaSlicer 2.5.x; base presets vendored in hwkit/printers/)."
 
-setup: $(VENV)/.installed
+setup: $(VENV)/.setup-complete
 
-$(VENV)/.installed: requirements.txt
-	$(PYTHON) -m venv $(VENV)
+# The marker lives inside the venv, so an interrupted install never looks complete.
+$(VENV)/.setup-complete: pyproject.toml
+	@if [ ! -x "$(VENV)/bin/python" ]; then \
+		echo "Creating virtual environment..."; \
+		$(PYTHON) -m venv --prompt aipc $(VENV); \
+	fi
 	$(VENV)/bin/pip install --upgrade pip
-	$(VENV)/bin/pip install -r requirements.txt
-	touch $@
+	$(VENV)/bin/pip install -e ".[dev]"
+	@touch $@
+
+lint: setup
+	$(VENV)/bin/ruff check hwkit tests
+	$(VENV)/bin/ruff format --check hwkit tests
+
+format: setup
+	$(VENV)/bin/ruff check --fix hwkit tests
+	$(VENV)/bin/ruff format hwkit tests
+
+test: setup
+	$(VENV)/bin/pytest
 
 all: cad render plates check
 
 cad: setup
-	$(PY) cad/shelf_layout.py
+	$(call hwkit,cad)
 
 render: setup
-	$(PY) cad/render_all.py
+	$(call hwkit,render)
 
 check: setup
-	$(PY) cad/check_system.py
+	$(call hwkit,check)
 
 datasheets: setup
-	$(PY) cad/fetch_datasheets.py
+	$(call hwkit,datasheets)
 
 plates: setup
-	$(PY) cad/print_jobs.py
+	$(call hwkit,plates)
 
-gcode:
-	$(if $(GCODE),$(MAKE) --no-print-directory $(GCODE),$(error No print plates found; run make plates first))
-
-$(PRINT)/gcode/%.gcode: $(PRINT)/%.3mf $(PRINT)/manifest.json $(PROFILES) cad/slice_jobs.py
-	$(PYTHON) cad/slice_jobs.py $*
+gcode: setup
+	$(call hwkit,slice $(PLATES))
 
 clean-gcode:
-	rm -rf $(PRINT)/gcode
+	rm -rf $(addsuffix /print/gcode,$(BUILD))
 
 clean: clean-gcode
 	rm -rf $(VENV)
-	find . -name __pycache__ -type d -prune -exec rm -rf {} +
+	find . -name __pycache__ -type d -prune -not -path "./$(VENV)/*" -exec rm -rf {} +
