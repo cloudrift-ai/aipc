@@ -19,7 +19,7 @@ from pathlib import Path
 from . import paths
 
 STRONG_EVIDENCE = ("measured", "datasheet", "standard")
-WEAK_EVIDENCE = ("listing", "photo-estimate", "allowance", "assumed")
+WEAK_EVIDENCE = ("listing", "review", "photo-estimate", "allowance", "assumed")
 EVIDENCE = STRONG_EVIDENCE + WEAK_EVIDENCE + ("unknown",)
 STATUSES = ("owned", "ordered", "selected", "candidate", "unspecified", "design")
 REQUIRED_FIELDS = ("id", "name", "category", "status", "quantity", "systems", "role")

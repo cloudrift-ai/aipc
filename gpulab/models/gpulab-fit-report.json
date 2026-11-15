@@ -1,0 +1,577 @@
+{
+  "status": "design; nothing bought or fitted. Riser outline, host adapter envelope, card post offsets and PSU depth are not measured.",
+  "deck_mm": [
+    422.656,
+    787.4
+  ],
+  "positions": 26,
+  "pitch_mm": 20.32,
+  "baseboard": {
+    "count": 2,
+    "positions_each": 13,
+    "size_mm": [
+      172.76,
+      257.84,
+      6.0
+    ],
+    "spans_y_mm": [
+      [
+        263.4,
+        521.24
+      ],
+      [
+        527.56,
+        785.4
+      ]
+    ],
+    "seam_mm": 6.32,
+    "x_mm": [
+      247.36,
+      420.12
+    ],
+    "nut_channel_x_mm": [
+      257.56,
+      366.56
+    ],
+    "post_x_mm": 412.656,
+    "post_y_mm": [
+      270.4,
+      290.72,
+      311.04,
+      331.36,
+      351.68,
+      372.0,
+      392.32,
+      412.64,
+      432.96,
+      453.28,
+      473.6,
+      493.92,
+      514.24,
+      534.56,
+      554.88,
+      575.2,
+      595.52,
+      615.84,
+      636.16,
+      656.48,
+      676.8,
+      697.12,
+      717.44,
+      737.76,
+      758.08,
+      778.4
+    ]
+  },
+  "card_heights": {
+    "riser_pcb_top_z_mm": 17.6,
+    "card_flange_z_mm": 141.475,
+    "post_seat_z_mm": 141.0,
+    "flange_minus_seat_mm": 0.475,
+    "basis": "AIPC survey: flange 123.875 mm above an H12D PCB on 6 mm rail + 3/8 in standoffs; OBT rod length is an allowance"
+  },
+  "cards": [
+    {
+      "card": "amd-radeon-ai-pro-r9700",
+      "cooler": "blower",
+      "positions": [
+        1,
+        2,
+        3
+      ],
+      "pcb_plane_y_mm": 281.72,
+      "post_y_mm": [
+        290.72,
+        311.04
+      ],
+      "body_y_mm": [
+        277.72,
+        317.72
+      ],
+      "body_x_mm": [
+        141.91,
+        408.61
+      ],
+      "air_gap_mm": 20.96,
+      "riser": 1,
+      "riser_mcio_xyz": [
+        320.056,
+        301.71999999999997,
+        12.0
+      ]
+    },
+    {
+      "card": "asrock-arc-pro-b60-creator",
+      "cooler": "blower",
+      "positions": [
+        4,
+        5,
+        6
+      ],
+      "pcb_plane_y_mm": 342.68,
+      "post_y_mm": [
+        351.68,
+        372.0
+      ],
+      "body_y_mm": [
+        338.68,
+        377.68
+      ],
+      "body_x_mm": [
+        137.61,
+        408.61
+      ],
+      "air_gap_mm": 21.96,
+      "riser": 2,
+      "riser_mcio_xyz": [
+        320.056,
+        362.67999999999995,
+        12.0
+      ]
+    },
+    {
+      "card": "intel-arc-pro-b70",
+      "cooler": "blower",
+      "positions": [
+        7,
+        8,
+        9
+      ],
+      "pcb_plane_y_mm": 403.64,
+      "post_y_mm": [
+        412.64,
+        432.96
+      ],
+      "body_y_mm": [
+        399.64,
+        438.64
+      ],
+      "body_x_mm": [
+        141.61,
+        408.61
+      ],
+      "air_gap_mm": 21.96,
+      "riser": 3,
+      "riser_mcio_xyz": [
+        320.056,
+        423.64,
+        12.0
+      ]
+    },
+    {
+      "card": "amd-rx-7900-xtx-reference",
+      "cooler": "open-air",
+      "positions": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "pcb_plane_y_mm": 464.6,
+      "post_y_mm": [
+        473.6,
+        493.92
+      ],
+      "body_y_mm": [
+        460.6,
+        512.1
+      ],
+      "body_x_mm": [
+        121.61,
+        408.61
+      ],
+      "air_gap_mm": 29.78,
+      "riser": 4,
+      "riser_mcio_xyz": [
+        320.056,
+        484.59999999999997,
+        12.0
+      ]
+    },
+    {
+      "card": "nvidia-rtx-3090-fe",
+      "cooler": "flow-through",
+      "positions": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "pcb_plane_y_mm": 545.88,
+      "post_y_mm": [
+        554.88,
+        575.2
+      ],
+      "body_y_mm": [
+        541.88,
+        595.88
+      ],
+      "body_x_mm": [
+        95.61,
+        408.61
+      ],
+      "air_gap_mm": 27.28,
+      "riser": 5,
+      "riser_mcio_xyz": [
+        320.056,
+        565.88,
+        12.0
+      ]
+    },
+    {
+      "card": "nvidia-rtx-4090-fe",
+      "cooler": "flow-through",
+      "positions": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "pcb_plane_y_mm": 627.16,
+      "post_y_mm": [
+        636.16,
+        656.48
+      ],
+      "body_y_mm": [
+        623.16,
+        684.16
+      ],
+      "body_x_mm": [
+        104.61,
+        408.61
+      ],
+      "air_gap_mm": 20.28,
+      "riser": 6,
+      "riser_mcio_xyz": [
+        320.056,
+        647.16,
+        12.0
+      ]
+    },
+    {
+      "card": "zotac-rtx-5090-solid",
+      "cooler": "open-air",
+      "positions": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "pcb_plane_y_mm": 708.44,
+      "post_y_mm": [
+        717.44,
+        737.76
+      ],
+      "body_y_mm": [
+        704.44,
+        772.24
+      ],
+      "body_x_mm": [
+        78.91,
+        408.61
+      ],
+      "air_gap_mm": 13.48,
+      "riser": 7,
+      "riser_mcio_xyz": [
+        320.056,
+        728.4399999999999,
+        12.0
+      ]
+    }
+  ],
+  "first_position_used": 1,
+  "rear_card_free_to_deck_end_mm": 15.2,
+  "positions_used": 25,
+  "mcio_routes": [
+    {
+      "card": "zotac-rtx-5090-solid",
+      "host_slot": 4,
+      "host_port": 1,
+      "route_mm": 701,
+      "cable_mm": 750.0,
+      "spare_mm": 49
+    },
+    {
+      "card": "nvidia-rtx-4090-fe",
+      "host_slot": 4,
+      "host_port": 2,
+      "route_mm": 650,
+      "cable_mm": 750.0,
+      "spare_mm": 100
+    },
+    {
+      "card": "nvidia-rtx-3090-fe",
+      "host_slot": 3,
+      "host_port": 1,
+      "route_mm": 579,
+      "cable_mm": 750.0,
+      "spare_mm": 171
+    },
+    {
+      "card": "amd-rx-7900-xtx-reference",
+      "host_slot": 3,
+      "host_port": 2,
+      "route_mm": 528,
+      "cable_mm": 750.0,
+      "spare_mm": 222
+    },
+    {
+      "card": "intel-arc-pro-b70",
+      "host_slot": 2,
+      "host_port": 1,
+      "route_mm": 478,
+      "cable_mm": 750.0,
+      "spare_mm": 272
+    },
+    {
+      "card": "asrock-arc-pro-b60-creator",
+      "host_slot": 2,
+      "host_port": 2,
+      "route_mm": 447,
+      "cable_mm": 750.0,
+      "spare_mm": 303
+    },
+    {
+      "card": "amd-radeon-ai-pro-r9700",
+      "host_slot": 1,
+      "host_port": 1,
+      "route_mm": 396,
+      "cable_mm": 750.0,
+      "spare_mm": 354
+    }
+  ],
+  "max_component_z_mm": 159.6,
+  "shelf_mass_kg": 17.2,
+  "shelf_rating_kg": 39.0,
+  "drill_plan": [
+    {
+      "part": "H12D standoff #6-32",
+      "xy_mm": [
+        298.49,
+        20.16
+      ],
+      "diameter_mm": 3.6
+    },
+    {
+      "part": "H12D standoff #6-32",
+      "xy_mm": [
+        174.03,
+        20.16
+      ],
+      "diameter_mm": 3.6
+    },
+    {
+      "part": "H12D standoff #6-32",
+      "xy_mm": [
+        16.55,
+        43.02
+      ],
+      "diameter_mm": 3.6
+    },
+    {
+      "part": "H12D standoff #6-32",
+      "xy_mm": [
+        298.49,
+        175.1
+      ],
+      "diameter_mm": 3.6
+    },
+    {
+      "part": "H12D standoff #6-32",
+      "xy_mm": [
+        174.03,
+        175.1
+      ],
+      "diameter_mm": 3.6
+    },
+    {
+      "part": "H12D standoff #6-32",
+      "xy_mm": [
+        298.49,
+        247.49
+      ],
+      "diameter_mm": 3.6
+    },
+    {
+      "part": "H12D standoff #6-32",
+      "xy_mm": [
+        174.03,
+        247.49
+      ],
+      "diameter_mm": 3.6
+    },
+    {
+      "part": "H12D standoff #6-32",
+      "xy_mm": [
+        16.55,
+        247.49
+      ],
+      "diameter_mm": 3.6
+    },
+    {
+      "part": "amd-radeon-ai-pro-r9700 post M3",
+      "xy_mm": [
+        412.656,
+        290.72
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "amd-radeon-ai-pro-r9700 post M3",
+      "xy_mm": [
+        412.656,
+        311.04
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "asrock-arc-pro-b60-creator post M3",
+      "xy_mm": [
+        412.656,
+        351.68
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "asrock-arc-pro-b60-creator post M3",
+      "xy_mm": [
+        412.656,
+        372.0
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "intel-arc-pro-b70 post M3",
+      "xy_mm": [
+        412.656,
+        412.64
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "intel-arc-pro-b70 post M3",
+      "xy_mm": [
+        412.656,
+        432.96
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "amd-rx-7900-xtx-reference post M3",
+      "xy_mm": [
+        412.656,
+        473.6
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "amd-rx-7900-xtx-reference post M3",
+      "xy_mm": [
+        412.656,
+        493.92
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "nvidia-rtx-3090-fe post M3",
+      "xy_mm": [
+        412.656,
+        554.88
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "nvidia-rtx-3090-fe post M3",
+      "xy_mm": [
+        412.656,
+        575.2
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "nvidia-rtx-4090-fe post M3",
+      "xy_mm": [
+        412.656,
+        636.16
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "nvidia-rtx-4090-fe post M3",
+      "xy_mm": [
+        412.656,
+        656.48
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "zotac-rtx-5090-solid post M3",
+      "xy_mm": [
+        412.656,
+        717.44
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "zotac-rtx-5090-solid post M3",
+      "xy_mm": [
+        412.656,
+        737.76
+      ],
+      "diameter_mm": 3.5
+    },
+    {
+      "part": "baseboard A M4 anchor",
+      "xy_mm": [
+        312.06,
+        283.4
+      ],
+      "diameter_mm": 4.5
+    },
+    {
+      "part": "baseboard A M4 anchor",
+      "xy_mm": [
+        312.06,
+        392.32
+      ],
+      "diameter_mm": 4.5
+    },
+    {
+      "part": "baseboard A M4 anchor",
+      "xy_mm": [
+        312.06,
+        501.24
+      ],
+      "diameter_mm": 4.5
+    },
+    {
+      "part": "baseboard B M4 anchor",
+      "xy_mm": [
+        312.06,
+        547.56
+      ],
+      "diameter_mm": 4.5
+    },
+    {
+      "part": "baseboard B M4 anchor",
+      "xy_mm": [
+        312.06,
+        656.48
+      ],
+      "diameter_mm": 4.5
+    },
+    {
+      "part": "baseboard B M4 anchor",
+      "xy_mm": [
+        312.06,
+        765.4
+      ],
+      "diameter_mm": 4.5
+    }
+  ],
+  "collision_pairs_checked": 140,
+  "hammond": {
+    "static_boolean_pairs_checked": 0,
+    "continuous_travel_envelope_pairs_checked": 0
+  }
+}

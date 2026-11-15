@@ -6,7 +6,7 @@ and seat directly on steel. Under-PCB anchors go in before the motherboard.
 """
 import cadquery as cq
 import berserk_platform as bp
-import pcie_post_hardware as post_hw
+from hwkit.components import pcie_post as post_hw
 from rack_shelf_coordinates import k_xy, k_shape
 
 THICKNESS = 6.0

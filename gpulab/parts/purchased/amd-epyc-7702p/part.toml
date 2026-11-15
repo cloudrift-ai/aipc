@@ -1,0 +1,40 @@
+id = "amd-epyc-7702p"
+name = "AMD EPYC 7702P"
+category = "purchased"
+role = "node CPU (same model as Berserk's)"
+status = "candidate"
+quantity = 1
+systems = ["node"]
+evidence = "datasheet"
+notes = """
+Any SP3 EPYC 7002/7003 works; the 7702P is assumed here because Berserk runs
+one. The CPU cooler is not chosen: the envelope reserves 100 mm above the board.
+"""
+
+[[datasheets]]
+title = "AMD EPYC 7702P specifications"
+url = "https://www.amd.com/en/products/processors/server/epyc/7002-series/amd-epyc-7702p.html"
+
+[model]
+source = "constructed"
+notes = "CPU plus a 100 mm cooler envelope (allowance), not a chosen cooler."
+
+[dims]
+tdp = { value = 200.0, unit = "W", evidence = "datasheet", source = "AMD specifications" }
+mass = { value = 0.1, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "cpu-socket"
+value = "SP3"
+
+[[requires]]
+type = "cooler-mount"
+value = "SP3"
+note = "cooler not chosen"
+
+[[requires]]
+type = "dc-power"
+load = 200.0
+
+[assembly]
+match = ["^H12D_SP3_CPU_and_cooler_envelope$"]

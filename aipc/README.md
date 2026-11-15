@@ -80,7 +80,7 @@ The generators are parametric but written for this hardware. Common changes:
 - **Different shelf positions**: component placement lives at the top of [cad/shelf_layout.py](cad/shelf_layout.py); every printed mount, shelf hole and clearance check follows from it.
 - **Different GPUs or slots**: the rear rail's eight post-slot positions are in [cad/atx_shelf_mounts.py](cad/atx_shelf_mounts.py) (`POST_SLOT_X`) and [cad/berserk_platform.py](cad/berserk_platform.py) for the H12D.
 - **Different AIOs**: the 140 mm frame is `radiator_screw_frame()` in [cad/shelf_layout.py](cad/shelf_layout.py); the 120 mm frame and braces are in [cad/kenshin_aio_mount.py](cad/kenshin_aio_mount.py) and [cad/berserk_aio_brace.py](cad/berserk_aio_brace.py).
-- **Shelf and slides**: dimensions and evidence are in [cad/hammond_shelf.py](cad/hammond_shelf.py); installed transforms are in [cad/rack_shelf_coordinates.py](cad/rack_shelf_coordinates.py).
+- **Shelf and slides**: dimensions and evidence are in [hwkit/components/hammond_shelf.py](../hwkit/components/hammond_shelf.py) (shared with gpulab); installed transforms are in [cad/rack_shelf_coordinates.py](cad/rack_shelf_coordinates.py).
 
 The script asserts on every collision and access check, so a change that breaks the layout fails loudly instead of exporting a bad part.
 

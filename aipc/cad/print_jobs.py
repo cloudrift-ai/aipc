@@ -12,7 +12,7 @@ import json
 import math
 from collections import Counter
 
-import pcie_post_hardware as post_hw
+from hwkit.components import pcie_post as post_hw
 from hwkit import paths, printers, spec
 from hwkit.plates import center_group, downward_overhang_area, make_3mf, make_svg, read_binary_stl
 

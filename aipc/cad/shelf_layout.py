@@ -27,8 +27,8 @@ import kenshin_aio_mount as k_aio
 import rack_gpu_exhaust as gpu_exhaust
 import tilted_gpu_cooling as t_cool
 import atx_shelf_mounts as atx_mount
-import pcie_post_hardware as post_hw
-import hammond_shelf as rail_assembly
+from hwkit.components import pcie_post as post_hw
+from hwkit.components import hammond_shelf as rail_assembly
 from pcie_post_mount_preview import render as render_pcie_post_preview
 from hwkit import spec
 from hwkit.export import export_print

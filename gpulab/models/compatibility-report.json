@@ -1,0 +1,890 @@
+{
+  "date": "2026-11-15",
+  "summary": {
+    "BLOCKED": 10,
+    "PROVISIONAL": 13,
+    "PASS": 12
+  },
+  "lint": [],
+  "assembly_errors": [],
+  "checks": [
+    {
+      "type": "ac-power",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [],
+      "providers": [
+        "mains-power"
+      ],
+      "rule": "budget",
+      "status": "BLOCKED",
+      "detail": "load 3060.0 W; capacity unknown",
+      "contributors": [
+        "super-flower-leadex-2800w"
+      ],
+      "weak_evidence": [
+        "mains-power:ac-power(unknown)",
+        "super-flower-leadex-2800w:ac-power(allowance)"
+      ]
+    },
+    {
+      "type": "cooler-mount",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "amd-epyc-7702p"
+      ],
+      "providers": [],
+      "rule": "presence",
+      "status": "BLOCKED",
+      "detail": "nothing in systems ['node'] provides 'cooler-mount'"
+    },
+    {
+      "type": "pcie-bifurcation-x8x8",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "cpayne-cp0120-mcio-host-adapter"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "count",
+      "status": "BLOCKED",
+      "detail": "need 4 x pcie-bifurcation-x8x8, have None",
+      "weak_evidence": [
+        "cpayne-cp0120-mcio-host-adapter:pcie-bifurcation-x8x8(photo-estimate)",
+        "huananzhi-h12d-8d:pcie-bifurcation-x8x8(listing)"
+      ]
+    },
+    {
+      "type": "rack-post-depth",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "hammond-rsus1931bk1"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "BLOCKED",
+      "detail": "hammond-rsus1931bk1 needs 457.2..711.2; provider value unknown",
+      "note": "front-to-rear rack-post spacing range accepted by the slides",
+      "weak_evidence": [
+        "rack-cabinet:rack-post-depth(unknown)"
+      ]
+    },
+    {
+      "type": "rack-standard",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "hammond-rsus1931bk1"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "BLOCKED",
+      "detail": "hammond-rsus1931bk1 needs EIA-310 19 in; provider value unknown",
+      "note": "",
+      "weak_evidence": [
+        "rack-cabinet:rack-standard(unknown)"
+      ]
+    },
+    {
+      "type": "shelf-load",
+      "systems": [
+        "shelf"
+      ],
+      "requirers": [
+        "amd-radeon-ai-pro-r9700"
+      ],
+      "providers": [
+        "hammond-rsus1931bk1"
+      ],
+      "rule": "budget",
+      "status": "BLOCKED",
+      "detail": "load 17.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (44% of rating); unknown load for ['amd-radeon-ai-pro-r9700']",
+      "contributors": [
+        "amd-epyc-7702p",
+        "amd-radeon-ai-pro-r9700",
+        "amd-rx-7900-xtx-reference",
+        "asrock-arc-pro-b60-creator",
+        "cpayne-cp0120-mcio-host-adapter",
+        "cpayne-cp0231-mcio-device-adapter",
+        "cpayne-mcio-8i-cable-0p75m",
+        "fasteners",
+        "gpulab_baseboard",
+        "huananzhi-h12d-8d",
+        "intel-arc-pro-b70",
+        "keystone-1451b",
+        "m3-ff-standoff-10mm",
+        "nvidia-rtx-3090-fe",
+        "nvidia-rtx-4090-fe",
+        "obt-pcie-support",
+        "pcie-8pin-splitter",
+        "super-flower-leadex-2800w",
+        "wurth-970140324",
+        "zotac-rtx-5090-solid"
+      ],
+      "weak_evidence": [
+        "amd-epyc-7702p:shelf-load(assumed)",
+        "amd-radeon-ai-pro-r9700:shelf-load(unknown)",
+        "amd-rx-7900-xtx-reference:shelf-load(review)",
+        "asrock-arc-pro-b60-creator:shelf-load(listing)",
+        "cpayne-cp0120-mcio-host-adapter:shelf-load(assumed)",
+        "cpayne-cp0231-mcio-device-adapter:shelf-load(assumed)",
+        "cpayne-mcio-8i-cable-0p75m:shelf-load(assumed)",
+        "fasteners:shelf-load(assumed)",
+        "gpulab_baseboard:shelf-load(allowance)",
+        "huananzhi-h12d-8d:shelf-load(assumed)",
+        "intel-arc-pro-b70:shelf-load(review)",
+        "keystone-1451b:shelf-load(assumed)",
+        "m3-ff-standoff-10mm:shelf-load(assumed)",
+        "nvidia-rtx-3090-fe:shelf-load(review)",
+        "nvidia-rtx-4090-fe:shelf-load(review)",
+        "obt-pcie-support:shelf-load(assumed)",
+        "pcie-8pin-splitter:shelf-load(assumed)",
+        "super-flower-leadex-2800w:shelf-load(review)",
+        "wurth-970140324:shelf-load(assumed)",
+        "zotac-rtx-5090-solid:shelf-load(review)"
+      ]
+    },
+    {
+      "type": "12v-2x6",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "amd-radeon-ai-pro-r9700",
+        "nvidia-rtx-3090-fe",
+        "nvidia-rtx-4090-fe",
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "super-flower-leadex-2800w"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 4 x 12v-2x6, have 4",
+      "weak_evidence": [
+        "super-flower-leadex-2800w:12v-2x6(review)"
+      ]
+    },
+    {
+      "type": "atx-24pin",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "super-flower-leadex-2800w"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x atx-24pin, have 1",
+      "weak_evidence": [
+        "super-flower-leadex-2800w:atx-24pin(review)"
+      ]
+    },
+    {
+      "type": "board-standoff",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "keystone-1451b"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b",
+      "note": "populated sites A/C/F/G/H/K/L/M; screwed from below through the drilled steel deck",
+      "weak_evidence": [
+        "huananzhi-h12d-8d:board-standoff(photo-estimate)",
+        "keystone-1451b:board-standoff(listing)"
+      ]
+    },
+    {
+      "type": "board-standoff",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "keystone-1451b"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 8 x board-standoff=#6-32 f/f, have 8",
+      "weak_evidence": [
+        "huananzhi-h12d-8d:board-standoff(photo-estimate)",
+        "keystone-1451b:board-standoff(listing)"
+      ]
+    },
+    {
+      "type": "dc-power",
+      "systems": [
+        "node"
+      ],
+      "requirers": [],
+      "providers": [
+        "super-flower-leadex-2800w"
+      ],
+      "rule": "budget",
+      "status": "PROVISIONAL",
+      "detail": "load 2205.0 W of 2800.0 W x derate 0.8 = 2240.0 W (79% of rating); relies on configured limits of ['amd-radeon-ai-pro-r9700', 'amd-rx-7900-xtx-reference', 'asrock-arc-pro-b60-creator', 'intel-arc-pro-b70', 'nvidia-rtx-3090-fe', 'nvidia-rtx-4090-fe', 'zotac-rtx-5090-solid']; unlimited peak 2755.0 W",
+      "contributors": [
+        "amd-epyc-7702p",
+        "amd-radeon-ai-pro-r9700",
+        "amd-rx-7900-xtx-reference",
+        "asrock-arc-pro-b60-creator",
+        "cpayne-cp0231-mcio-device-adapter",
+        "huananzhi-h12d-8d",
+        "intel-arc-pro-b70",
+        "nvidia-rtx-3090-fe",
+        "nvidia-rtx-4090-fe",
+        "zotac-rtx-5090-solid"
+      ],
+      "weak_evidence": [
+        "cpayne-cp0231-mcio-device-adapter:dc-power(allowance)",
+        "huananzhi-h12d-8d:dc-power(assumed)",
+        "super-flower-leadex-2800w:dc-power(review)"
+      ]
+    },
+    {
+      "type": "eps-8pin-cpu",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "super-flower-leadex-2800w"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x eps-8pin-cpu, have 2",
+      "weak_evidence": [
+        "super-flower-leadex-2800w:eps-8pin-cpu(review)"
+      ]
+    },
+    {
+      "type": "gpu-baseboard-position",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "amd-radeon-ai-pro-r9700",
+        "amd-rx-7900-xtx-reference",
+        "asrock-arc-pro-b60-creator",
+        "intel-arc-pro-b70",
+        "nvidia-rtx-3090-fe",
+        "nvidia-rtx-4090-fe",
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "gpulab_baseboard"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 26 x gpu-baseboard-position, have 26",
+      "weak_evidence": [
+        "amd-radeon-ai-pro-r9700:gpu-baseboard-position(allowance)",
+        "amd-rx-7900-xtx-reference:gpu-baseboard-position(allowance)",
+        "asrock-arc-pro-b60-creator:gpu-baseboard-position(allowance)",
+        "gpulab_baseboard:gpu-baseboard-position(allowance)",
+        "intel-arc-pro-b70:gpu-baseboard-position(allowance)",
+        "nvidia-rtx-3090-fe:gpu-baseboard-position(allowance)",
+        "nvidia-rtx-4090-fe:gpu-baseboard-position(allowance)",
+        "zotac-rtx-5090-solid:gpu-baseboard-position(allowance)"
+      ]
+    },
+    {
+      "type": "mcio-8i-cable",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "providers": [
+        "cpayne-mcio-8i-cable-0p75m"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 7 x mcio-8i-cable, have 7",
+      "weak_evidence": [
+        "cpayne-cp0231-mcio-device-adapter:mcio-8i-cable(photo-estimate)"
+      ]
+    },
+    {
+      "type": "pcie-8pin",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "amd-rx-7900-xtx-reference",
+        "asrock-arc-pro-b60-creator",
+        "cpayne-cp0231-mcio-device-adapter",
+        "intel-arc-pro-b70",
+        "pcie-8pin-splitter"
+      ],
+      "providers": [
+        "pcie-8pin-splitter",
+        "super-flower-leadex-2800w"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 16 x pcie-8pin, have 16",
+      "weak_evidence": [
+        "cpayne-cp0231-mcio-device-adapter:pcie-8pin(photo-estimate)",
+        "pcie-8pin-splitter:pcie-8pin(allowance)",
+        "super-flower-leadex-2800w:pcie-8pin(review)"
+      ]
+    },
+    {
+      "type": "pcie-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "cpayne-cp0120-mcio-host-adapter"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "cpayne-cp0120-mcio-host-adapter needs PCIe x16; provided by huananzhi-h12d-8d",
+      "note": "",
+      "weak_evidence": [
+        "cpayne-cp0120-mcio-host-adapter:pcie-x16-slot(photo-estimate)"
+      ]
+    },
+    {
+      "type": "pcie-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "cpayne-cp0120-mcio-host-adapter"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 4 x pcie-x16-slot=pcie x16, have 4",
+      "weak_evidence": [
+        "cpayne-cp0120-mcio-host-adapter:pcie-x16-slot(photo-estimate)"
+      ]
+    },
+    {
+      "type": "riser-standoff",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "providers": [
+        "m3-ff-standoff-10mm"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "cpayne-cp0231-mcio-device-adapter needs M3 F/F 10 mm; provided by m3-ff-standoff-10mm",
+      "note": "",
+      "weak_evidence": [
+        "cpayne-cp0231-mcio-device-adapter:riser-standoff(photo-estimate)",
+        "m3-ff-standoff-10mm:riser-standoff(allowance)"
+      ]
+    },
+    {
+      "type": "riser-standoff",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "providers": [
+        "m3-ff-standoff-10mm"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 28 x riser-standoff=m3 f/f 10 mm, have 28",
+      "weak_evidence": [
+        "cpayne-cp0231-mcio-device-adapter:riser-standoff(photo-estimate)",
+        "m3-ff-standoff-10mm:riser-standoff(allowance)"
+      ]
+    },
+    {
+      "type": "cpu-socket",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "amd-epyc-7702p"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "amd-epyc-7702p needs SP3; provided by huananzhi-h12d-8d",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
+      "type": "mcio-8i-port",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "cpayne-mcio-8i-cable-0p75m"
+      ],
+      "providers": [
+        "cpayne-cp0120-mcio-host-adapter"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 7 x mcio-8i-port, have 8",
+      "weak_evidence": []
+    },
+    {
+      "type": "post-base-thread",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "obt-pcie-support"
+      ],
+      "providers": [
+        "wurth-970140324"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "obt-pcie-support needs M3 female; provided by wurth-970140324",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
+      "type": "post-base-thread",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "obt-pcie-support"
+      ],
+      "providers": [
+        "wurth-970140324"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 14 x post-base-thread=m3 female, have 14",
+      "weak_evidence": []
+    },
+    {
+      "type": "riser-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "amd-radeon-ai-pro-r9700"
+      ],
+      "providers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "amd-radeon-ai-pro-r9700 needs PCIe x16; provided by cpayne-cp0231-mcio-device-adapter",
+      "note": "PCIe 5.0 x16 card on an x8 riser link",
+      "weak_evidence": []
+    },
+    {
+      "type": "riser-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "amd-rx-7900-xtx-reference"
+      ],
+      "providers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "amd-rx-7900-xtx-reference needs PCIe x16; provided by cpayne-cp0231-mcio-device-adapter",
+      "note": "PCIe 4.0 x16 card on an x8 riser link",
+      "weak_evidence": []
+    },
+    {
+      "type": "riser-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "asrock-arc-pro-b60-creator"
+      ],
+      "providers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "asrock-arc-pro-b60-creator needs PCIe x16; provided by cpayne-cp0231-mcio-device-adapter",
+      "note": "PCIe 5.0 x8 (x16 connector) card on an x8 riser link",
+      "weak_evidence": []
+    },
+    {
+      "type": "riser-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "intel-arc-pro-b70"
+      ],
+      "providers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "intel-arc-pro-b70 needs PCIe x16; provided by cpayne-cp0231-mcio-device-adapter",
+      "note": "PCIe 5.0 x16 card on an x8 riser link",
+      "weak_evidence": []
+    },
+    {
+      "type": "riser-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "nvidia-rtx-3090-fe"
+      ],
+      "providers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "nvidia-rtx-3090-fe needs PCIe x16; provided by cpayne-cp0231-mcio-device-adapter",
+      "note": "PCIe 4.0 x16 card on an x8 riser link",
+      "weak_evidence": []
+    },
+    {
+      "type": "riser-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "nvidia-rtx-4090-fe"
+      ],
+      "providers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "nvidia-rtx-4090-fe needs PCIe x16; provided by cpayne-cp0231-mcio-device-adapter",
+      "note": "PCIe 4.0 x16 card on an x8 riser link",
+      "weak_evidence": []
+    },
+    {
+      "type": "riser-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "zotac-rtx-5090-solid needs PCIe x16; provided by cpayne-cp0231-mcio-device-adapter",
+      "note": "PCIe 5.0 x16 card on an x8 riser link",
+      "weak_evidence": []
+    },
+    {
+      "type": "riser-x16-slot",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "amd-radeon-ai-pro-r9700",
+        "amd-rx-7900-xtx-reference",
+        "asrock-arc-pro-b60-creator",
+        "intel-arc-pro-b70",
+        "nvidia-rtx-3090-fe",
+        "nvidia-rtx-4090-fe",
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "cpayne-cp0231-mcio-device-adapter"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 7 x riser-x16-slot=pcie x16, have 7",
+      "weak_evidence": []
+    }
+  ],
+  "coverage": [
+    {
+      "part": "cpayne-mcio-8i-cable-0p75m",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: flexible cable; route length checked in models/gpulab-fit-report.json"
+    },
+    {
+      "part": "mains-power",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: outside the shelf; supply not specified"
+    },
+    {
+      "part": "pcie-8pin-splitter",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: flexible cable"
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: cabinet not identified; nothing to model"
+    }
+  ],
+  "renders": [],
+  "datasheets": [
+    {
+      "part": "amd-epyc-7702p",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.amd.com/en/products/processors/server/epyc/7002-series/amd-epyc-7702p.html (run make datasheets)"
+    },
+    {
+      "part": "amd-radeon-ai-pro-r9700",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.amd.com/en/products/graphics/workstations/radeon-ai-pro/ai-9000-series/amd-radeon-ai-pro-r9700.html (run make datasheets)"
+    },
+    {
+      "part": "amd-radeon-ai-pro-r9700",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://shop.captech.se/sv-SE/Product/158676/Link/89673/AI%20PRO%20R9700%20(1).pdf (run make datasheets)"
+    },
+    {
+      "part": "amd-rx-7900-xtx-reference",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html (run make datasheets)"
+    },
+    {
+      "part": "asrock-arc-pro-b60-creator",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.intel.com/content/www/us/en/products/sku/243916/intel-arc-pro-b60-graphics/specifications.html (run make datasheets)"
+    },
+    {
+      "part": "asrock-arc-pro-b60-creator",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2026-03/datasheet-b60-gpu.pdf (run make datasheets)"
+    },
+    {
+      "part": "cpayne-cp0120-mcio-host-adapter",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://c-payne.com/products/mcio-pcie-gen5-host-adapter-x16-passive (run make datasheets)"
+    },
+    {
+      "part": "cpayne-cp0231-mcio-device-adapter",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://c-payne.com/products/mcio-pcie-gen5-device-adapter-x8-x16 (run make datasheets)"
+    },
+    {
+      "part": "cpayne-mcio-8i-cable-0p75m",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://c-payne.com/products/mcio-pcie-gen5-host-adapter-x16-passive (run make datasheets)"
+    },
+    {
+      "part": "fasteners",
+      "status": "BLOCKED",
+      "detail": "Generic ISO metric and UNC hardware; choose lengths from the stacks in models/gpulab-fit-report.json."
+    },
+    {
+      "part": "hammond-rsus1931bk1",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.hammfg.com/dci/products/accessories/rsus (run make datasheets)"
+    },
+    {
+      "part": "hammond-rsus1931bk1",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf (run make datasheets)"
+    },
+    {
+      "part": "hammond-rsus1931bk1",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.hammfg.com/files/parts/bulletins/BUL87361.pdf (run make datasheets)"
+    },
+    {
+      "part": "huananzhi-h12d-8d",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.huananzhi.com/en/list_6/177.html (run make datasheets)"
+    },
+    {
+      "part": "huananzhi-h12d-8d",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.huananzhi.com/uploads/file/20260212/1770877734213650.pdf (run make datasheets)"
+    },
+    {
+      "part": "intel-arc-pro-b70",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.intel.com/content/www/us/en/products/sku/245797/intel-arc-pro-b70-graphics/specifications.html (run make datasheets)"
+    },
+    {
+      "part": "keystone-1451b",
+      "status": "BLOCKED",
+      "detail": "Only the DigiKey listing is recorded; add Keystone's drawing."
+    },
+    {
+      "part": "m3-ff-standoff-10mm",
+      "status": "BLOCKED",
+      "detail": "Generic hardware; pick a brand (for example a Wurth WA-SSTII M3 F/F 10 mm) and record its drawing."
+    },
+    {
+      "part": "nvidia-rtx-3090-fe",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090-3090ti/ (run make datasheets)"
+    },
+    {
+      "part": "nvidia-rtx-4090-fe",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/ (run make datasheets)"
+    },
+    {
+      "part": "obt-pcie-support",
+      "status": "BLOCKED",
+      "detail": "Open Benchtable publishes no drawing; the stud length is an owner measurement."
+    },
+    {
+      "part": "pcie-8pin-splitter",
+      "status": "BLOCKED",
+      "detail": "Generic cable; choose 16 AWG and check the PSU lead is rated for both loads (2 x 75 W)."
+    },
+    {
+      "part": "super-flower-leadex-2800w",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://hwbusters.com/psus/super-flower-leadex-2800w-atx-v3-1-psu-review/ (run make datasheets)"
+    },
+    {
+      "part": "wurth-970140324",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.we-online.com/components/products/datasheet/970140324.pdf (run make datasheets)"
+    },
+    {
+      "part": "zotac-rtx-5090-solid",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.zotac.com/us/product/graphics_card/zotac-gaming-geforce-rtx-5090-solid (run make datasheets)"
+    }
+  ],
+  "weak_evidence_dims": {
+    "amd-epyc-7702p": {
+      "datasheet": 1,
+      "assumed": 1
+    },
+    "amd-radeon-ai-pro-r9700": {
+      "datasheet": 4,
+      "unknown": 1
+    },
+    "amd-rx-7900-xtx-reference": {
+      "datasheet": 2,
+      "review": 3
+    },
+    "asrock-arc-pro-b60-creator": {
+      "listing": 4,
+      "datasheet": 1
+    },
+    "cpayne-cp0120-mcio-host-adapter": {
+      "allowance": 3,
+      "assumed": 1
+    },
+    "cpayne-cp0231-mcio-device-adapter": {
+      "photo-estimate": 8,
+      "assumed": 2,
+      "allowance": 1
+    },
+    "cpayne-mcio-8i-cable-0p75m": {
+      "datasheet": 1,
+      "assumed": 1
+    },
+    "fasteners": {
+      "assumed": 1
+    },
+    "hammond-rsus1931bk1": {
+      "datasheet": 10,
+      "allowance": 1,
+      "photo-estimate": 3,
+      "unknown": 1
+    },
+    "huananzhi-h12d-8d": {
+      "datasheet": 2,
+      "assumed": 2,
+      "photo-estimate": 3,
+      "standard": 1
+    },
+    "intel-arc-pro-b70": {
+      "datasheet": 2,
+      "review": 3
+    },
+    "keystone-1451b": {
+      "listing": 1,
+      "assumed": 1
+    },
+    "m3-ff-standoff-10mm": {
+      "allowance": 2,
+      "assumed": 1
+    },
+    "nvidia-rtx-3090-fe": {
+      "datasheet": 3,
+      "review": 2
+    },
+    "nvidia-rtx-4090-fe": {
+      "datasheet": 4,
+      "review": 1
+    },
+    "obt-pcie-support": {
+      "measured": 1,
+      "allowance": 1,
+      "assumed": 1
+    },
+    "pcie-8pin-splitter": {
+      "assumed": 1
+    },
+    "rack-cabinet": {
+      "unknown": 3
+    },
+    "super-flower-leadex-2800w": {
+      "review": 3,
+      "listing": 1
+    },
+    "wurth-970140324": {
+      "datasheet": 3,
+      "assumed": 1
+    },
+    "zotac-rtx-5090-solid": {
+      "datasheet": 4,
+      "review": 1
+    },
+    "gpulab_baseboard": {
+      "allowance": 1
+    }
+  },
+  "unspecified_parts": [
+    "mains-power",
+    "rack-cabinet"
+  ]
+}

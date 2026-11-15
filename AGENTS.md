@@ -7,8 +7,8 @@ Notes for coding agents working in this repo. The design process for every build
 | Path | What it is |
 | --- | --- |
 | [aipc/](aipc/README.md) | AIPC build: two AI workstations (Berserk, Kenshin) on one rack shelf. Fit prototype; has its own [AGENTS.md](aipc/AGENTS.md) |
-| [gpulab/](gpulab/README.md) | GPU lab build: mixed GPUs on cabled PCIe risers, one VM per GPU. Planning; README only |
-| [hwkit/](hwkit) | Shared Python package: part specs, compatibility, assembly registry, export, renders, plates, printers, slicing, and the `hwkit` CLI |
+| [gpulab/](gpulab/README.md) | GPU lab build: seven mixed GPUs on cabled x8 risers from one H12D-8D, two printed 13-position baseboards. Design; has its own [AGENTS.md](gpulab/AGENTS.md) |
+| [hwkit/](hwkit) | Shared Python package: part specs, compatibility, assembly registry, export, renders, plates, printers, slicing, shared component models (`hwkit/components`: Hammond shelf, PCIe posts), and the `hwkit` CLI |
 | [hwkit/printers/](hwkit/printers) | Printer definitions (`printer.toml`), vendored OrcaSlicer base presets and shared slicer profiles |
 | [docs/](docs) | Shared process and printing guidelines |
 | [.claude/skills/](.claude/skills) | Agent skills for every build: `part-intake`, `design-review`, `design-audit` |
@@ -38,4 +38,4 @@ Inside a build folder, `../venv/bin/hwkit <cad|plates|render|check|datasheets|sl
 - Changes to `hwkit/` affect every build: run `make lint test` and `make all` for every build, and confirm the generated outputs did not change unless intended.
 - Do not loosen a check, add keepouts or disable count checks to hide a mismatch. Fix the geometry or spec.
 - G-code, fetched datasheets and `venv/` are generated and gitignored.
-- Distinguish evidence everywhere: `measured`, `datasheet` and `standard` are verified; `listing`, `photo-estimate`, `allowance` and `assumed` are not. A CAD check against coordinates from the same code does not validate those coordinates.
+- Distinguish evidence everywhere: `measured`, `datasheet` and `standard` are verified; `listing`, `review`, `photo-estimate`, `allowance` and `assumed` are not. A CAD check against coordinates from the same code does not validate those coordinates.

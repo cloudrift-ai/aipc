@@ -23,6 +23,7 @@ Most past mistakes came from a mismatch between the modeled part and the real on
 | `datasheet` | Manufacturer datasheet, drawing or spec page | yes |
 | `standard` | Published standard (ATX, PCIe CEM, M.2, fan hole patterns) | yes |
 | `listing` | Seller listing or marketing text | no |
+| `review` | Independent review or teardown measurement | no |
 | `photo-estimate` | Scaled from a photograph | no |
 | `allowance` | Design allowance or target chosen by us | no |
 | `assumed` | Plausible value not yet sourced | no |

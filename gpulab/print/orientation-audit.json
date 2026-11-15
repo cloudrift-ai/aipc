@@ -1,0 +1,9 @@
+{
+  "parts": {
+    "gpulab_baseboard": {
+      "orientation": "as installed, nut channels open to the bed, turned 90 degrees; no supports",
+      "downward_overhang_projected_mm2": 1587.84,
+      "overhang_note": "the 1.5 mm ledges over each nut channel and the channel roofs between slot ends"
+    }
+  }
+}

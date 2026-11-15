@@ -1,0 +1,32 @@
+{
+  "printer": "Qidi X-Plus first generation, 0.4 mm nozzle Orca preset",
+  "bed_mm": [
+    270.0,
+    200.0
+  ],
+  "edge_margin_mm": 12.0,
+  "long_edge_margin_mm": 3.25,
+  "parts_total": 2,
+  "installation_released": false,
+  "gcode_status": "run `make gcode BUILD=gpulab`; print each plate `copies` times",
+  "jobs": {
+    "01_gpulab_baseboard": {
+      "process_profile": "profiles/baseboard-no-brim.json",
+      "filament_profile": "printer:duramic-petg-240c.json",
+      "required_nozzle": "0.4mm; original PETG setup",
+      "supports_required": false,
+      "copies": 2,
+      "items": {
+        "gpulab_baseboard": 1
+      },
+      "count": 1,
+      "highest_part_mm": 6.0,
+      "occupied_bounds_mm": [
+        6.08,
+        13.618,
+        263.91999999999996,
+        186.382
+      ]
+    }
+  }
+}

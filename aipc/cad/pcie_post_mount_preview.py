@@ -2,7 +2,7 @@
 from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle, Polygon
-import pcie_post_hardware as hw
+from hwkit.components import pcie_post as hw
 from rack_shelf_coordinates import SHELF_T
 
 

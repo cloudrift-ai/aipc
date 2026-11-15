@@ -5,7 +5,7 @@ Designs for self-built AI compute, one folder per build. Each build is modeled i
 | Build | What it is | Status |
 | --- | --- | --- |
 | [aipc/](aipc/README.md) | **AIPC**: two AI workstations on one rack shelf. Berserk (EPYC 7702P, 4 × V100) and Kenshin (Ryzen 9 9950X3D, RTX 5090), with printed mounts instead of cases | Fit prototype |
-| [gpulab/](gpulab/README.md) | **GPU lab**: a test rig for many different GPUs, each on its own x8 cabled riser and its own VM | Planning |
+| [gpulab/](gpulab/README.md) | **GPU lab**: seven test GPUs (RTX 3090/4090/5090, R9700, 7900 XTX, Arc Pro B60/B70) on cabled x8 risers from one H12D-8D, on a Hammond shelf | Design; GPUs power-capped |
 
 The builds share [hwkit](hwkit), a Python package for part specs, compatibility checks, assembly coverage, renders, print plates and slicing, plus the [design process](docs/process.md) and [printing guidelines](docs/printing.md).
 

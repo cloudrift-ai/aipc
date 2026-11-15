@@ -1,66 +1,93 @@
-# GPU lab: a test rig for mixed GPUs
+# GPU lab: seven test GPUs on one Hammond shelf
 
-**Status: planning.** Nothing here is selected, bought, modeled or measured yet. This page records the intended design and the open questions.
+A test node for mixed GPUs. One HUANANZHI H12D-8D feeds seven cards over MCIO cables: each x16 slot is split x8x8 and drives two cabled riser boards. The cards stand upright on two printed 13-position baseboards that run along the shelf depth, with their brackets on metal posts. Each GPU is meant to be passed through to its own VM with CloudRift, so every card can run its own driver.
 
-## Goal
+**Status: design.** Nothing is bought, printed or fitted. The CAD and checks pass on the numbers given, but the riser board outline, the host adapter envelope, the bracket post offsets and the PSU depth are not measured. The power budget passes only with the GPU power caps below.
 
-Test about 16 different GPUs (datacenter and consumer, NVIDIA and others) with each card isolated, so that:
+![Assembly renders](models/renders/assembly.png)
 
-- every GPU can run its own driver branch (for example, Volta is not supported after NVIDIA's R580 branch, while new cards need current drivers);
-- a hung or faulty card under test affects only its own tests;
-- cards can be swapped often without disturbing the others.
+## Layout
 
-## Intended design
+| Item | Where |
+| --- | --- |
+| [Hammond RSUS1931BK1](parts/purchased/hammond-rsus1931bk1/README.md) | 422.7 × 787.4 mm sliding shelf, 39 kg rating |
+| [H12D-8D](parts/purchased/huananzhi-h12d-8d/README.md) | Front left on 3/8 in standoffs screwed through the deck, I/O edge facing the rack front |
+| [Super Flower Leadex 2800W](parts/purchased/super-flower-leadex-2800w/README.md) | Front right, on its side beside the board |
+| [C-Payne CP-0120](parts/purchased/cpayne-cp0120-mcio-host-adapter/README.md) × 4 | In the four x16 slots, two MCIO 8i ports each (x8x8) |
+| [Baseboards](parts/printed/gpulab_baseboard/README.md) × 2 | 172.8 × 257.8 × 6 mm PETG, end to end along the deck from Y 263 to 785 mm: 26 positions on one 20.32 mm pitch |
+| [C-Payne CP-0231](parts/purchased/cpayne-cp0231-mcio-device-adapter/README.md) × 7 | Riser boards on M3 standoffs; M3 nuts slide in two channels under each baseboard, so a riser fits under any position |
+| Posts × 14 | Wurth 970140324 hex bases through the baseboard onto the steel, Open Benchtable rods on top: two per card under the bracket tabs, as in AIPC |
 
-**Nodes.** Two or more single-socket EPYC hosts with about 8 GPUs each, instead of one 16-GPU host. That leaves lanes for the NIC and storage, splits the power and limits the damage from one bad card.
+Cards stand across the shelf width with the bracket on the right and the tail to the left, cooler side toward the rear. Each card takes enough positions for its thickness plus an air gap (18 mm for open-air and flow-through coolers, 3 mm for blowers). The rearmost card's fans face the open rack space past the deck end.
 
-**One VM per GPU.** Each GPU is passed through to its own VM (VFIO), managed with CloudRift: lab nodes run as CloudRift provider nodes in a private cluster or team, and each test rents a one-GPU VM, runs the suite and releases it. Requirements: each GPU in its own IOMMU group, and cards that reset cleanly between VMs.
-
-**PCIe link per GPU: x8 over a cable.**
-
-```
-CPU ── x16 slot (BIOS: x8x8) ── host adapter: x16 → 2 × MCIO 8i
-                                    │
-                              MCIO 8i cable (Gen4, ≤ ~0.5–0.75 m)
-                                    │
-                         device board: MCIO 8i → x16 slot (x8 electrical) + 6/8-pin power
-                                    │
-                                   GPU
-```
-
-- Passive host adapters need x8x8 bifurcation in BIOS. Without it, use a PCIe switch card (shared uplink).
-- Boards with native MCIO ports (for example Gigabyte MZ33-AR1) need no host adapter.
-- Lock the links to Gen4 for cable margin. x8 Gen4 is about 16 GB/s, so host-to-device bandwidth results reflect the link.
-- Buy the host adapter, cables and device boards as a matched set. Check per-port REFCLK/PERST#, lane order (0–7) and that the slot power comes from the same PSU as the GPU.
-
-**Mechanics: cards upright in a row on T-slot extrusion.**
-
-- Bracket rail: each GPU bracket screws to a T-nut, so the card spacing adjusts to each card's width.
-- Riser rail below it: each MCIO device board sits on a carrier that places its slot where a motherboard slot would be relative to the bracket (PCIe CEM: bracket outside face 59.05 mm behind the connector key; see [aipc/docs/design.md](../aipc/docs/design.md)).
-- Tail rail: an adjustable post with a silicone pad under the far end of every card. Heavy consumer cards (an RTX 5090 is about 2.2 kg) must not hang on the riser connector.
-- Spacing for open-air coolers: card thickness plus about 15–25 mm (about 85–95 mm for a 5090-class card). Eight such cards need about 720 mm, so run the row front to back or use two rows of four.
-- Front-to-back airflow with a fan wall or duct. Keep one card's exhaust out of the next card's intake.
-- A fixed-pitch backplane (for example an ADT-Link 11-slot board on 40 mm pitch) suits a node of 2-slot datacenter cards only.
-
-**Power.** Plan about 300 W per GPU on average and 575 W for 5090-class cards. Each 8-GPU node needs several PSUs that power on together with a common ground, on 240 V circuits.
-
-## Candidate boards (unverified)
-
-| Board | Lanes exposed | GPUs at x8 | Notes |
+| Positions | Card | Cooler | Air gap |
 | --- | --- | --- | --- |
-| Gigabyte MZ33-AR1 (SP5) | 4 × x16 + 6 × MCIO 8i | up to 14 | Native MCIO; needs qualified cables for Gen5 |
-| ASRock Rack GENOAD8X-2T/BCM (SP5) | 7 × x16 + 1 × x8 | up to 14 | Slot bifurcation not confirmed; some slots share lanes |
-| ASRock Rack ROMED8-2T (SP3) | 7 × x16 | about 14 | Gen4; cheaper platform |
-| HUANANZHI H12D-8D (SP3, Berserk's board) | 4 × x16 + 3 × SFF-8643 x4 | 8 | Only with x8x8 bifurcation; its manual does not mention it |
+| 1–3 | [AMD Radeon AI PRO R9700](parts/purchased/amd-radeon-ai-pro-r9700/README.md) | blower | 21.0 mm |
+| 4–6 | [ASRock Arc Pro B60 Creator](parts/purchased/asrock-arc-pro-b60-creator/README.md) | blower | 22.0 mm |
+| 7–9 | [Intel Arc Pro B70](parts/purchased/intel-arc-pro-b70/README.md) | blower | 22.0 mm |
+| 10–13 | [AMD RX 7900 XTX](parts/purchased/amd-rx-7900-xtx-reference/README.md) | open-air | 29.8 mm |
+| 14–17 | [RTX 3090 FE](parts/purchased/nvidia-rtx-3090-fe/README.md) | flow-through | 27.3 mm |
+| 18–21 | [RTX 4090 FE](parts/purchased/nvidia-rtx-4090-fe/README.md) | flow-through | 20.3 mm |
+| 22–25 | [Zotac RTX 5090 Solid](parts/purchased/zotac-rtx-5090-solid/README.md) | open-air | 13.5 mm to the deck end |
+
+Position 0 stays empty: a riser there would reach over the board's far corner. The layout generator asserts on collisions, air gaps, riser screws landing in the baseboard slots, cards staying on the deck, and MCIO cable reach. All seven routes fit a 0.75 m cable; the 5090's is tightest, with 49 mm spare. The three blower cards would also fit 0.45 m cables. Everything stays below 160 mm above the deck, and the parts with a known mass put 17.2 kg on the shelf (the R9700's mass is unknown). Coordinates, routes and the deck drill plan are in [models/gpulab-fit-report.json](models/gpulab-fit-report.json).
+
+## Power
+
+The seven cards draw 2,460 W at stock limits; with the CPU, board and risers (295 W) the node would need about 2,755 W DC. The repo's rule loads a PSU to 80% at most, 2,240 W for the 2800 W unit, so every card runs with a power cap, set at boot. With the caps the node needs 2,205 W (79% of the PSU rating). The caps are recorded as `load_limited` in each card's `part.toml`, so `make check` reports the budget as provisional.
+
+| Card | Stock | Cap | Set with |
+| --- | ---: | ---: | --- |
+| RTX 5090 Solid | 575 W | 400 W | `nvidia-smi -i <gpu> -pl 400` |
+| RTX 4090 FE | 450 W | 320 W | `nvidia-smi -i <gpu> -pl 320` |
+| RTX 3090 FE | 350 W | 250 W | `nvidia-smi -i <gpu> -pl 250` |
+| RX 7900 XTX | 355 W | 320 W | `rocm-smi -d <gpu> --setpoweroverdrive 320` |
+| Radeon AI PRO R9700 | 300 W | 270 W | `rocm-smi -d <gpu> --setpoweroverdrive 270` |
+| Arc Pro B70 | 230 W | 190 W | `xpu-smi config -d <gpu> --powerlimit 190` |
+| Arc Pro B60 Creator | 200 W | 160 W | `xpu-smi config -d <gpu> --powerlimit 160` |
+
+Total: 1,910 W for the cards. Notes:
+
+- Benchmarks run at these caps, not at stock power. To test one card at stock, lower the others so the total stays under 1,945 W.
+- The minimum cap each driver accepts is not checked. AMD often allows only about 10% below stock, which is why the AMD caps are the mildest. Read the limit back after setting it (`nvidia-smi -q -d POWER`, `rocm-smi --showmaxpower`, `xpu-smi stats`). If a driver refuses a cap, lower another card's.
+- Set the caps in each VM or on the host before any load, and again after every reboot or driver reload. A card at stock power can overload the PSU.
+
+The 2800 W PSU accepts 200–240 V only and draws about 3 kW from the wall at full load, so the node needs a 240 V circuit (20 A or more).
+
+The PSU's six 6+2 leads are not enough for three GPUs' 8-pin inputs plus seven riser boards; five [8-pin splitters](parts/purchased/pcie-8pin-splitter/README.md) feed the risers in pairs (75 W each). Never put a splitter on a GPU's own connector.
 
 ## Open questions
 
-1. Which GPUs will be tested? This sets the node grouping, power and card spacing.
-2. Does the H12D-8D BIOS offer x8x8 bifurcation? Check in Berserk's BIOS.
-3. Which host adapter, cable and device board set, and does it give each port its own REFCLK?
-4. Can CloudRift run lab nodes in a private cluster, and how are nodes onboarded?
-5. Power circuits and cooling capacity available in the lab room.
+The full list is in [docs/system-check.md](docs/system-check.md). The ones that block buying:
 
-## Test suite (draft)
+1. **x8x8 bifurcation on the H12D-8D** is not in the manual. Check AMD CBS → NBIO in the BIOS (Berserk runs the same board).
+2. **Riser board geometry.** C-Payne publishes a 3D model but no drawing: the outline, hole positions and slot position are scaled from a photo. Take them from the model or a measured board before printing.
+3. **CP-0120 per-port REFCLK/PERST**: ask C-Payne.
+4. **Power caps** are enforced only by software (above). Also open: the **240 V circuit**, the **rack cabinet** and the **CPU cooler**, which is not chosen yet (100 mm envelope reserved).
+5. **Bracket seating.** The riser PCB sits 0.475 mm higher than the H12D PCB the AIPC posts were surveyed for. Check that brackets seat on the posts with each card fully inserted.
+6. **Card support and airflow.** Cards hang from bracket and slot only, with no tail rest yet. There is no forced airflow; the open-air cards dump heat around themselves.
 
-Per GPU at first boot and after every swap: `lspci -vv` link speed and width, AER counters at zero under load, `nvidia-smi` / DCGM diagnostics, `gpu-burn`, `nvbandwidth`, and the equivalent ROCm tools for AMD cards. Log Xid and AER events per slot.
+## What's here
+
+| Path | Contents |
+| --- | --- |
+| [parts/](parts/README.md) | One folder per part: spec with evidence-tagged dimensions and interfaces, datasheet links, model and renders |
+| [docs/system-check.md](docs/system-check.md) | Compatibility, assembly-coverage and evidence report (generated) |
+| [models/](models) | Assembly STEP, fit report with the drill plan and cable routes, [assembly renders](models/renders/assembly.png) |
+| [print/](print/README.md) | Baseboard print plate, its profile and the manifest |
+| [cad/](cad) | [layout.py](cad/layout.py) builds the assembly, the baseboard and the fit report; [print_jobs.py](cad/print_jobs.py) packs the plate |
+| [build.toml](build.toml) | Build settings read by [hwkit](../hwkit) |
+
+## Regenerating
+
+From the repo root ([AGENTS.md](../AGENTS.md) has the setup):
+
+```bash
+make all BUILD=gpulab
+```
+
+```bash
+make gcode BUILD=gpulab
+```
+
+`make all` ends with `make check`, which exits non-zero if any check FAILs.
