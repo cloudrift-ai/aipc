@@ -12,6 +12,8 @@ import json
 import math
 from collections import Counter
 
+from hwkit.components import atx_mobo_mount as mobo_mount
+from hwkit.components import atx_psu_bracket as psu_bracket
 from hwkit.components import pcie_post as post_hw
 from hwkit import paths, printers, spec
 from hwkit.plates import center_group, downward_overhang_area, make_3mf, make_svg, read_binary_stl
@@ -21,7 +23,7 @@ OUT = paths.PRINT
 PRINTER = printers.get()
 BED_W, BED_D = PRINTER.bed
 EDGE_MARGIN = 12.0
-MOBO_EDGE_MARGIN = 3.25  # long interlocked sections; motherboard profiles disable skirt; rear rails also have no brim
+MOBO_EDGE_MARGIN = mobo_mount.PRINT_EDGE_MARGIN
 MIN_GAP = 8.0  # leaves 2 mm between neighboring 3 mm brims
 PALETTE = {"gpu_exhaust": "#268a99", "v100": "#37a0a5", "mobo_adapter": "#3b82f6", "psu": "#f59e0b",
            "fan120": "#f97316", "fan140": "#a855f7", "gpu_rest": "#22c55e", "tnut": "#37a0a5"}
@@ -52,7 +54,7 @@ def print_orientation(part, mesh):
     if part.endswith("_aio_hose_brace"):
         return mesh, "mirrored inward web on bed; hose-load plane within layers; broad original-foot clearance; no supports"
     if part == "psu_bracket":
-        return mesh, "broad rear frame face flat on bed; compact foot and gussets grow upward; HT-PLA-GF with0.4mm hardened nozzle"
+        return mesh, psu_bracket.PRINT_NOTE
     if part == "v100_gpu_shroud":
         return mesh, "integral fan face on bed, rotated90deg; continuous exterior and four permanent tapered ribs; no removable supports"
     if part == "tnut_fit_coupon":
@@ -62,9 +64,7 @@ def print_orientation(part, mesh):
         return (rotated, triangles, (depth, width, height)), "flat, rotated 90 degrees for larger bed-edge clearance"
     if "_mobo_adapter_" not in part:
         return mesh, "shelf orientation"
-    rotated = [(y, x, round(height - z, 5))
-               for x, y, z in vertices]
-    return (rotated, triangles, (depth, width, height)), "flat, rotated 90 degrees; screw-head recesses up"
+    return mobo_mount.print_mesh(mesh), mobo_mount.PRINT_NOTE
 
 
 def pack_jobs(meshes):
@@ -96,17 +96,9 @@ def pack_jobs(meshes):
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    # Center the two long ATX sections; keep the 3 mm brim, omit only the skirt.
     (OUT / "profiles").mkdir(exist_ok=True)
-    mobo_process=PRINTER.load_profile("printer:process.json")
-    mobo_process.update({"name":"0.20mm PETG ATX ears @Qidi X-Plus Gen1","setting_id":"PETG_ATX_EARS", "skirt_loops":"0"})
-    (OUT/"profiles/motherboard-ears.json").write_text(json.dumps(mobo_process,indent=2)+"\n")
-    # The rear rails' GPU-tab groove runs the full rail length, so on the
-    # first layer it is part of the outer contour. An outer brim fills the
-    # groove and, on H12D, the hex holes that open into it. No brim.
-    rail_process = {**mobo_process, "name":"0.20mm PETG rear rails no brim @Qidi X-Plus Gen1",
-                    "setting_id":"PETG_MOBO_RAILS", "brim_type":"no_brim", "brim_width":"0"}
-    (OUT/"profiles/motherboard-rails.json").write_text(json.dumps(rail_process,indent=2)+"\n")
+    for name, profile in mobo_mount.print_profiles(PRINTER).items():
+        (OUT / "profiles" / name).write_text(json.dumps(profile, indent=2) + "\n")
     (OUT/"profiles/motherboard-rails-supported.json").unlink(missing_ok=True)
     # Integral chamber ribs support the shroud; all current cooling jobs use this process.
     cooling_process=PRINTER.load_profile("printer:ht-pla-gf-psu.json")
@@ -200,7 +192,7 @@ def main():
         make_svg(OUT / f"{job}.svg", placements, meshes, PRINTER.bed, EDGE_MARGIN, PALETTE, LABELS)
         heat_material = any(key in job for key in ("psu", "v100_", "gpu_exhaust_", "tnut_"))
         summary[job] = {
-            "process_profile": "printer:ht-pla-gf-psu.json" if "psu" in job else "profiles/ht-pla-gf-cooling.json" if heat_material else "profiles/motherboard-rails.json" if "mobo_adapter_rail" in job else "profiles/motherboard-ears.json" if "mobo_adapter" in job else "printer:process.json",
+            "process_profile": psu_bracket.PROCESS if "psu" in job else "profiles/ht-pla-gf-cooling.json" if heat_material else mobo_mount.PROFILE[placements[0][0]] if "mobo_adapter" in job else "printer:process.json",
             "filament_profile": "printer:polymaker-ht-pla-gf-230c.json" if heat_material else "printer:duramic-petg-240c.json",
             "required_nozzle": "0.4mm hardened steel" if heat_material else "0.4mm; original PETG setup",
             "supports_required": False,

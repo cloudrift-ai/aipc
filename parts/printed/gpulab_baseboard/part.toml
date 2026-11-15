@@ -13,7 +13,6 @@ PCIe CEM drawing; neither is measured on a real card in this layout.
 """
 
 [print]
-plate = "01_gpulab_baseboard"
 material = "PETG"
 
 [model]

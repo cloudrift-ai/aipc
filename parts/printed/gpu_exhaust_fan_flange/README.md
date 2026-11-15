@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `gpu_exhaust_fan_flange` |
 | Category | printed |
-| Print | plate `13_gpu_exhaust_fan_flange`, HT-PLA-GF |
+| Print | HT-PLA-GF; plates are in each build's print/ |
 
 ![Part views](render.png)
 

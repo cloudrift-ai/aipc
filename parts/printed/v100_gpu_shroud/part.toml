@@ -4,7 +4,6 @@ category = "printed"
 evidence = "allowance"
 
 [print]
-plate = "12_v100_gpu_shroud"
 material = "HT-PLA-GF"
 
 [model]

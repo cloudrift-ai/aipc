@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `gpu_exhaust_roof_flange` |
 | Category | printed |
-| Print | plate `14_gpu_exhaust_roof_flange`, HT-PLA-GF |
+| Print | HT-PLA-GF; plates are in each build's print/ |
 
 ![Part views](render.png)
 

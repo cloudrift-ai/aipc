@@ -61,7 +61,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 
 | Part | Name | Used in |
 | --- | --- | --- |
-| [atx_mobo_adapter_front](printed/atx_mobo_adapter_front/README.md) | atx_mobo_adapter_front | [aipc](../aipc/parts/atx_mobo_adapter_front.md) |
+| [atx_mobo_adapter_front](printed/atx_mobo_adapter_front/README.md) | atx_mobo_adapter_front | [aipc](../aipc/parts/atx_mobo_adapter_front.md), [gpulab](../gpulab/parts/atx_mobo_adapter_front.md) |
 | [atx_mobo_adapter_rail](printed/atx_mobo_adapter_rail/README.md) | atx_mobo_adapter_rail | [aipc](../aipc/parts/atx_mobo_adapter_rail.md) |
 | [fan120_aio_center_spacer](printed/fan120_aio_center_spacer/README.md) | fan120_aio_center_spacer | [aipc](../aipc/parts/fan120_aio_center_spacer.md) |
 | [fan120_aio_frame](printed/fan120_aio_frame/README.md) | fan120_aio_frame | [aipc](../aipc/parts/fan120_aio_frame.md) |
@@ -72,8 +72,8 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [gpu_exhaust_roof_flange](printed/gpu_exhaust_roof_flange/README.md) | gpu_exhaust_roof_flange | [aipc](../aipc/parts/gpu_exhaust_roof_flange.md) |
 | [gpu_rest](printed/gpu_rest/README.md) | gpu_rest | [aipc](../aipc/parts/gpu_rest.md) |
 | [gpulab_baseboard](printed/gpulab_baseboard/README.md) | gpulab_baseboard | [gpulab](../gpulab/parts/gpulab_baseboard.md) |
-| [h12d_mobo_adapter_rail](printed/h12d_mobo_adapter_rail/README.md) | h12d_mobo_adapter_rail | [aipc](../aipc/parts/h12d_mobo_adapter_rail.md) |
-| [psu_bracket](printed/psu_bracket/README.md) | psu_bracket | [aipc](../aipc/parts/psu_bracket.md) |
+| [h12d_mobo_adapter_rail](printed/h12d_mobo_adapter_rail/README.md) | h12d_mobo_adapter_rail | [aipc](../aipc/parts/h12d_mobo_adapter_rail.md), [gpulab](../gpulab/parts/h12d_mobo_adapter_rail.md) |
+| [psu_bracket](printed/psu_bracket/README.md) | psu_bracket | [aipc](../aipc/parts/psu_bracket.md), [gpulab](../gpulab/parts/psu_bracket.md) |
 | [tnut_fit_coupon](printed/tnut_fit_coupon/README.md) | tnut_fit_coupon | [aipc](../aipc/parts/tnut_fit_coupon.md) |
 | [v100_gpu_shroud](printed/v100_gpu_shroud/README.md) | v100_gpu_shroud | [aipc](../aipc/parts/v100_gpu_shroud.md) |
 

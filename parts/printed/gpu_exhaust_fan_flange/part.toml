@@ -4,7 +4,6 @@ category = "printed"
 evidence = "allowance"
 
 [print]
-plate = "13_gpu_exhaust_fan_flange"
 material = "HT-PLA-GF"
 
 [model]

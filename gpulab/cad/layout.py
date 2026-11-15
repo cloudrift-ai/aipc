@@ -6,9 +6,13 @@ position counts and cable reach.
 
 Coordinates (mm): X across the deck from the left edge, Y from the deck front
 toward the rear, Z up from the deck top. The H12D-8D sits at the front right
-with its I/O edge facing the rack front; the PSU lies on its side at the front
-left, its modular face toward the rear, so the power leads run back along the
-left edge past the card tails. Two identical 13-position baseboards run end to
+with its I/O edge facing the rack front, on the same two printed sections as
+AIPC's Berserk (hwkit.components.atx_mobo_mount), turned 180 degrees. The PSU
+lies on its side at the front left, held by AIPC's printed PSU bracket
+(hwkit.components.atx_psu_bracket) on its AC face; its modular face points to
+the rear, so the power leads run back along the left edge past the card tails.
+Both printed designs are AIPC library parts: this script builds the same
+geometry, asserts it matches the library models and never exports them. Two identical 13-position baseboards run end to
 end along the rest of the depth. Cards stand upright across the width: bracket
 on the right (high X), tail to the left, PCB planes normal to Y on one
 continuous 20.32 mm pitch.
@@ -25,6 +29,8 @@ import math
 import cadquery as cq
 
 from hwkit import paths, spec
+from hwkit.components import atx_mobo_mount as mobo_mount
+from hwkit.components import atx_psu_bracket as psu_bracket
 from hwkit.components import hammond_shelf
 from hwkit.components import pcie_post as post_hw
 from hwkit.export import export_print
@@ -38,8 +44,14 @@ SHELF = spec.get("hammond-rsus1931bk1")
 W, D, T = SHELF.dim("deck_width"), SHELF.dim("deck_depth"), SHELF.dim("sheet_thickness")
 
 # Layout allowances.
-EDGE = 10.0  # board, PSU and post line inset from the deck edges
-REAR_MARGIN = 2.0  # baseboard B end before the deck rear edge
+EDGE = 10.0  # PSU and post line inset from the deck edges
+FRONT_MARGIN = 0.0  # the H12D rail section's I/O-side edge is flush with the deck front edge (no room to spare)
+REAR_MARGIN = 0.5  # baseboard B end before the deck rear edge
+PSU_BRACKET_MARGIN = 1.0  # PSU bracket foot behind the deck front edge
+MOUNT_GAP = 0.5  # least free space between the H12D mount sections and baseboard A (both printed, on the deck)
+# AIPC's H12D rail keeps the post holes of Berserk's four dual-slot V100s: tabs 7 and 27 mm from each
+# cooler body, which starts 36 mm on the component side of its slot plane (aipc/cad/berserk_platform.py).
+RAIL_POST_BODY_OFFSET, RAIL_POST_TABS, RAIL_POST_Y = 36.0, (7.0, 27.0), 6.0
 PLATE_T = 6.0  # baseboard thickness (same as the AIPC rails)
 POSITIONS_PER_BOARD = 13
 END_MARGIN = 7.0  # plate beyond the first and last post centre (AIPC EAR_WIDTH / 2)
@@ -64,7 +76,7 @@ SLOT_END_FROM_KEY = 12.0  # x16 connector bracket-side end beyond the key (allow
 POST_BEYOND_FACE = 4.05  # AIPC: posts at PCB edge +6, bracket face at +1.95
 POST_FROM_PLANE = 9.0  # AIPC survey: bracket tab hole 9 mm from the card PCB plane, cooler side
 BACK_SIDE = 4.0  # card back side beyond its PCB plane (AIPC V100 allowance)
-FLANGE_ABOVE_PCB = 141.0 - (6.0 + spec.dim("keystone-1451b", "length") + 1.6)  # AIPC H12D survey
+FLANGE_ABOVE_PCB = 141.0 - (mobo_mount.THICKNESS + spec.dim("keystone-1451b", "length") + 1.6)  # AIPC H12D survey
 FLANGE_BELOW_ROD_TOP = 4.0  # AIPC: flange Z141, rod top Z145
 ATX_SITES = {"A": (0.65, 0.4), "C": (5.55, 0.4), "F": (11.75, 1.3), "G": (0.65, 6.5), "H": (5.55, 6.5),
              "K": (0.65, 9.35), "L": (5.55, 9.35), "M": (11.75, 9.35)}  # ATX 2.2 datums (inches), H12D populated sites
@@ -93,11 +105,19 @@ def add(name, shape, color):
     colors[name] = color
 
 
-# --- Board, CPU envelope, PSU, host adapters ---------------------------------------------------
+# --- Board on the AIPC mount, CPU envelope, PSU and bracket, host adapters -----------------------
 BOARD = spec.get("huananzhi-h12d-8d")
 BW, BD, BT = BOARD.dim("pcb_width"), BOARD.dim("pcb_depth"), BOARD.dim("pcb_thickness")
 STANDOFF_L = spec.dim("keystone-1451b", "length")
-BX, BY, BZ = W - EDGE - BW, EDGE, STANDOFF_L  # front right; I/O edge at Y = BY, facing the rack front
+RAIL_T = mobo_mount.THICKNESS
+# Board-local frame, as in AIPC: x from the PCB low-X edge, y from the edge opposite the I/O, I/O edge at y = BD.
+planes = [BOARD.dim("slot1_plane_x") - k * BOARD.dim("slot_pitch") for k in range(4)]
+rail_post_x = sorted(p - RAIL_POST_BODY_OFFSET + u for p in planes for u in RAIL_POST_TABS)
+sections, _joints = mobo_mount.build("gpulab", 0.0, 0.0, BW, BD, rail_post_x, RAIL_POST_Y)
+io_reach = max(f["shape"].val().BoundingBox().ymax for f in sections.values()) - BD  # rail beyond the I/O edge
+far_reach = -min(f["shape"].val().BoundingBox().ymin for f in sections.values())  # bars beyond the opposite edge
+BX, BY = W - EDGE - BW, FRONT_MARGIN + io_reach  # front right; I/O edge at Y = BY, facing the rack front
+BZ = RAIL_T + STANDOFF_L
 BOARD_TOP = BZ + BT
 
 
@@ -109,23 +129,70 @@ def board_xy(x_local, from_io_edge):
     return BX + BW - x_local, BY + from_io_edge
 
 
+def board_shape(shape):
+    """Board-local shape (I/O edge at y = BD) turned into place."""
+    return shape.rotate((0, 0, 0), (0, 0, 1), 180).translate((BX + BW, BY + BD, 0))
+
+
+def library_match(part_id, print_shape):
+    """The same printed part: this build's copy and the library model differ by less than 0.5 mm3."""
+    model = cq.importers.importStep(str(spec.get(part_id).model_step)).val()
+    ours = print_shape.val()
+    diff = ours.cut(model).Volume() + model.cut(ours).Volume()
+    assert diff < 0.5, (part_id, "differs from the library model", round(diff, 3))
+
+
+SECTION_PART = {"front": "h12d_mobo_adapter_rail", "rear": "atx_mobo_adapter_front"}
+mount_anchors = []
+for group, frame in sections.items():
+    library_match(SECTION_PART[group], frame["print_shape"])
+    add(f"printed_H12D_mount_{group}_section", board_shape(frame["shape"]), cq.Color(0.23, 0.78, 0.77))
+    mount_anchors += [board_xy(x, BD - y) for x, y in frame["standalone_anchors"]]
+
 add("H12D_8D_board", box(BX, BY, BZ, BW, BD, BT), cq.Color(0.1, 0.35, 0.15))
+hole_centers = {s: board_xy(x, BD - y) for f in sections.values() for s, (x, y) in f["hole_centers"].items()}
 standoff_sites = {}
 for site, (u, v) in ATX_SITES.items():
     x, y = board_xy(u * 25.4, v * 25.4)
+    hx, hy = hole_centers[site]
+    assert abs(hx - x) < 1e-6 and abs(hy - y) < 1e-6, (site, "board hole off the mount's screw slot")
     standoff_sites[site] = (x, y)
-    add(f"H12D_6_32_standoff_{site}", cq.Workplane("XY").center(x, y).polygon(6, 6.35).circle(1.8).extrude(STANDOFF_L),
-        cq.Color(0.85, 0.75, 0.4))
-    add(f"H12D_6_32_screw_{site}", cq.Workplane("XY").center(x, y).circle(1.8).extrude(6.0).translate((0, 0, -T - 3.0))
-        .union(cq.Workplane("XY").center(x, y).circle(2.75).extrude(2.5).translate((0, 0, -T - 2.5))), cq.Color(0.65, 0.65, 0.68))
+    add(f"H12D_6_32_standoff_{site}", cq.Workplane("XY").center(x, y).polygon(6, 6.35).circle(1.8).extrude(STANDOFF_L)
+        .translate((0, 0, RAIL_T)), cq.Color(0.85, 0.75, 0.4))
+    # From below, before the section goes down: head in the 3 mm counterbore, shank through the slot.
+    add(f"H12D_6_32_screw_{site}", cq.Workplane("XY").center(x, y).circle(2.75).extrude(2.5).translate((0, 0, 0.3))
+        .union(cq.Workplane("XY").center(x, y).circle(1.8).extrude(RAIL_T + 5.0 - 2.8).translate((0, 0, 2.8))),
+        cq.Color(0.65, 0.65, 0.68))
+for i, (x, y) in enumerate(mount_anchors, 1):  # M3 with 7 mm washers through the steel; the front three go in before the PCB
+    add(f"H12D_mount_M3_shelf_bolt_{i}", cq.Workplane("XY").center(x, y).circle(1.5).extrude(RAIL_T + T + 4).translate((0, 0, -T - 4))
+        .union(cq.Workplane("XY").center(x, y).circle(3.5).extrude(2.5).translate((0, 0, RAIL_T))), cq.Color(0.65, 0.65, 0.68))
 cpu_x, cpu_y = board_xy(BOARD.dim("cpu_center_x"), BOARD.dim("cpu_center_from_io_edge"))
 cw, cd, ch = CPU_COOLER_ENVELOPE
 add("H12D_SP3_CPU_and_cooler_envelope", box(cpu_x - cw / 2, cpu_y - cd / 2, BOARD_TOP, cw, cd, ch), cq.Color(0.55, 0.55, 0.6))
 
 PSU = spec.get("super-flower-leadex-2800w")
 PSU_X = EDGE  # front left, on its side: the 85 mm face is the footprint width; modular face toward the rear
-PSU_FACE_Y = EDGE + PSU.dim("depth")
-add("PSU_Super_Flower_2800W", box(PSU_X, EDGE, 0.0, PSU.dim("height"), PSU.dim("depth"), PSU.dim("width")), cq.Color(0.15, 0.15, 0.17))
+PSU_Y = PSU_BRACKET_MARGIN + psu_bracket.FOOT_REACH  # AC face; the bracket and its foot sit in front of it
+PSU_FACE_Y = PSU_Y + PSU.dim("depth")
+add("PSU_Super_Flower_2800W", box(PSU_X, PSU_Y, 0.0, PSU.dim("height"), PSU.dim("depth"), PSU.dim("width")), cq.Color(0.15, 0.15, 0.17))
+# AIPC's bracket, turned 180 degrees: its 86 mm frame spans the PSU face from PSU_X; the LED bypass overhangs the low-X side.
+BRACKET_FACE_W = 86.0
+bracket_print = psu_bracket.bracket(berserk=True)
+library_match("psu_bracket", bracket_print)
+
+
+def psu_local(x, depth):
+    """Bracket-local x and depth in front of the AC face to shelf XY."""
+    return PSU_X + BRACKET_FACE_W - x, PSU_Y - depth
+
+
+bracket = psu_bracket.installed(bracket_print, 0.0, 0.0).rotate((0, 0, 0), (0, 0, 1), 180).translate((PSU_X + BRACKET_FACE_W, PSU_Y, 0))
+assert bracket.val().BoundingBox().ymin >= PSU_BRACKET_MARGIN - 1e-6 and bracket.val().BoundingBox().xmin >= 0
+add("printed_PSU_bracket", bracket, cq.Color(0.68, 0.58, 0.77))
+psu_anchors = [psu_local(x, depth) for x, depth in psu_bracket.SHELF_ANCHORS]
+for i, (x, y) in enumerate(psu_anchors, 1):
+    add(f"PSU_bracket_M4_anchor_{i}", cq.Workplane("XY").center(x, y).circle(2.0).extrude(6.0 + T + 4).translate((0, 0, -T - 4))
+        .union(cq.Workplane("XY").center(x, y).circle(4.5).extrude(2.5).translate((0, 0, 6.0))), cq.Color(0.65, 0.65, 0.68))
 
 HOST = spec.get("cpayne-cp0120-mcio-host-adapter")
 host_ports = []
@@ -200,7 +267,7 @@ rod_top = post_hw.BASE_HEIGHT + rod_length
 post_seat_z = rod_top - FLANGE_BELOW_ROD_TOP
 card_flange_z = RISER_TOP + FLANGE_ABOVE_PCB
 placements = []
-BOARD_CLEARANCE = 2.0  # riser PCB and standoffs in front of the board's far edge
+BOARD_CLEARANCE = 1.5  # riser PCB in front of the board's far edge: both PCBs sit at about Z 16 on their mounts
 # Position 0's riser would reach over the board corner: start at the first position whose riser clears it.
 first_free = next(i for i, y in enumerate(plane_y) if y - RW / 2 >= BY + BD + BOARD_CLEARANCE)
 next_free = first_free
@@ -331,7 +398,7 @@ for n, place in enumerate(placements, 1):  # riser leads: low along the left edg
     k += 1
     lx = CABLE_LANE_X0 + CABLE_LANE_STEP * (n - 1)
     rx, ry, rz = place["riser_plug_xyz"]
-    low = 12.0
+    low = RAIL_T + 2.5 + 1.0 + CABLE_D["riser"] / 2  # over the mount's shelf-bolt heads
     pts = [start, out, (lx, out[1], low), (lx, ry, low), (rx - 6.0, ry, low), (rx - 6.0, ry, rz), (rx, ry, rz)]
     add_cable(f"cable_riser_{n}_pcie_6pin", pts, "riser", f"riser_{n}_CP0231")
 for kind, xl, idx in (("atx-24pin", BOARD.dim("atx24_x"), 1), ("eps-8pin-cpu", BOARD.dim("eps_x"), 1), ("eps-8pin-cpu", BOARD.dim("eps_x") - 30.0, 2)):
@@ -350,7 +417,8 @@ def overlaps(a, b):
 # Pairs that touch by design: fasteners in what they fasten.
 TOUCH_OK = (("_post_screw_", "_14mm_standoff_"), ("_OBT_9mm_stud_", "_14mm_standoff_"), ("_OBT_PCIe_post_", "_14mm_standoff_"),
             ("riser_M3_screw", "riser_standoff"), ("riser_M3_screw", "riser_M3_nut"), ("riser_M3_screw", "printed_gpulab"),
-            ("_M4_anchor_", "printed_gpulab"), ("_6_32_screw_", "_6_32_standoff_"), ("_OBT_9mm_stud_", "_OBT_PCIe_post_"))
+            ("_M4_anchor_", "printed_gpulab"), ("_6_32_screw_", "_6_32_standoff_"), ("_OBT_9mm_stud_", "_OBT_PCIe_post_"),
+            ("_M3_shelf_bolt_", "printed_H12D_mount"), ("PSU_bracket_M4_anchor_", "printed_PSU_bracket"))
 names = list(solids)
 boxes = {n: solids[n].val().BoundingBox() for n in names}
 collision_pairs = 0
@@ -374,6 +442,11 @@ for first, second in zip(placements, placements[1:], strict=False):
     need = AIR_GAP[first["cooler"]]
     assert gap >= need - 0.01, ("air gap", first["card"], second["card"], gap, need)
 assert placements[0]["body_y_mm"][0] > BY + BD, ("first card over the board", placements[0]["body_y_mm"][0], BY + BD)
+# The sections' far-side bars against baseboard A, within the baseboard's X span (the two ears lie outside it).
+slab = box(PLATE_X0, 0, 0, PLATE_X1 - PLATE_X0, D, RAIL_T)
+mount_free = SPAN_A[0] - max(solids[f"printed_H12D_mount_{g}_section"].intersect(slab).val().BoundingBox().ymax for g in sections)
+assert mount_free >= MOUNT_GAP, ("H12D mount sections reach baseboard A", round(mount_free, 2))
+riser_free = placements[0]["pcb_plane_y_mm"] - RW / 2 - (BY + BD)
 
 # Cable reach: each riser's MCIO input to its host adapter port, routed along X, then Y, plus height.
 routes = []
@@ -389,8 +462,12 @@ for place, port in zip(sorted(placements, key=lambda p: -p["pcb_plane_y_mm"]), p
 
 # --- Deck drill plan, shelf envelope, assembly ----------------------------------------------------
 drill = []
-for (x, y) in standoff_sites.values():
-    drill.append({"part": "H12D standoff #6-32", "xy_mm": [round(x, 2), round(y, 2)], "diameter_mm": 3.6})
+for (x, y) in mount_anchors:
+    assert 6 <= x <= W - 6 and 6 <= y <= D - 6, ("mount anchor too near the deck edge", x, y)
+    drill.append({"part": "H12D mount M3 anchor", "xy_mm": [round(x, 2), round(y, 2)], "diameter_mm": 3.5})
+for (x, y) in psu_anchors:
+    assert 6 <= x <= W - 6 and 6 <= y <= D - 6, ("PSU anchor too near the deck edge", x, y)
+    drill.append({"part": "PSU bracket M4 anchor", "xy_mm": [round(x, 2), round(y, 2)], "diameter_mm": 5.0})
 for place in placements:
     for y in place["post_y_mm"]:
         drill.append({"part": f"{place['card']} post M3", "xy_mm": [POST_X, y], "diameter_mm": 3.5})
@@ -421,6 +498,15 @@ top = max(s.val().BoundingBox().zmax for s in solids.values())
 report = {
     "status": "design; nothing bought or fitted. Riser outline, host adapter envelope, card post offsets and PSU depth are not measured.",
     "deck_mm": [W, D], "positions": N, "pitch_mm": PITCH,
+    "board_mount": {"parts": list(SECTION_PART.values()), "source": "AIPC library models, hwkit.components.atx_mobo_mount",
+                    "io_edge_y_mm": round(BY, 2), "pcb_bottom_z_mm": BZ, "rail_beyond_io_edge_mm": round(io_reach, 2),
+                    "bars_beyond_far_edge_mm": round(far_reach, 2), "free_to_baseboard_A_mm": round(mount_free, 2),
+                    "riser_1_free_to_board_edge_mm": round(riser_free, 2),
+                    "unused_rail_post_holes": "the rail keeps Berserk's eight V100 post holes; the host adapters use none",
+                    "anchors_xy_mm": [[round(x, 2), round(y, 2)] for x, y in mount_anchors]},
+    "psu": {"ac_face_y_mm": PSU_Y, "modular_face_y_mm": PSU_FACE_Y, "bracket": "psu_bracket (AIPC), turned 180 degrees",
+            "bracket_anchors_xy_mm": [[round(x, 2), round(y, 2)] for x, y in psu_anchors],
+            "lie_on": "the same side as AIPC's PSUs, so the two upper rear-face #6-32 holes meet the bracket"},
     "baseboard": {"count": 2, "positions_each": POSITIONS_PER_BOARD,
                   "size_mm": [round(PLATE_X1 - PLATE_X0, 2), round(SPAN_A[1] - SPAN_A[0], 2), PLATE_T],
                   "spans_y_mm": [[round(v, 2) for v in SPAN_A], [round(v, 2) for v in SPAN_B]], "seam_mm": round(seam, 2),
@@ -428,7 +514,7 @@ report = {
                   "post_x_mm": POST_X, "post_y_mm": [round(y, 2) for y in post_y]},
     "card_heights": {"riser_pcb_top_z_mm": RISER_TOP, "card_flange_z_mm": round(card_flange_z, 3), "post_seat_z_mm": post_seat_z,
                      "flange_minus_seat_mm": round(card_flange_z - post_seat_z, 3),
-                     "basis": "AIPC survey: flange 123.875 mm above an H12D PCB on 6 mm rail + 3/8 in standoffs; OBT rod length is an allowance"},
+                     "basis": "AIPC survey: flange 123.875 mm above an H12D PCB on 6 mm rail + 3/8 in standoffs (the riser PCB stands in for it); OBT rod length is an allowance"},
     "cards": placements, "first_position_used": first_free, "rear_card_free_to_deck_end_mm": round(rear_free, 1), "positions_used": next_free - first_free, "mcio_routes": routes,
     "max_component_z_mm": round(top, 1),
     "power_cables": cables, "power_cable_basis": "approximate orthogonal routes; connector positions and bundle diameters are allowances",

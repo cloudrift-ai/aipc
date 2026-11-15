@@ -4,7 +4,6 @@ category = "printed"
 evidence = "allowance"
 
 [print]
-plate = "04_gpu_rest"
 material = "PETG"
 
 [model]

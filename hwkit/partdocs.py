@@ -69,7 +69,7 @@ def library_readme(p, used_in) -> str:
     ]
     if p.data.get("print"):
         pr = p.data["print"]
-        L.append(f"| Print | plate `{pr.get('plate')}`, {pr.get('material')} |")
+        L.append(f"| Print | {pr.get('material')}; plates are in each build's print/ |")
     for k, v in p.data.get("links", {}).items():
         L.append(f"| {k.capitalize()} | <{v}> |")
     L.append("")

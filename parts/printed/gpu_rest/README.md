@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `gpu_rest` |
 | Category | printed |
-| Print | plate `04_gpu_rest`, PETG |
+| Print | PETG; plates are in each build's print/ |
 
 ![Part views](render.png)
 

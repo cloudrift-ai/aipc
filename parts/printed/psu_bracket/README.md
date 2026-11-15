@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `psu_bracket` |
 | Category | printed |
-| Print | plate `05_psu_brackets`, HT-PLA-GF |
+| Print | HT-PLA-GF; plates are in each build's print/ |
 
 ![Part views](render.png)
 
@@ -15,11 +15,12 @@
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
 | [aipc](../../../aipc/parts/psu_bracket.md) | 2 | design | rear restraint for an 86 x 150 mm ATX PSU face |
+| [gpulab](../../../gpulab/parts/psu_bracket.md) | 1 | design | PSU restraint on the AC face, reused from AIPC and turned 180 degrees |
 
 ## Model
 
 - [psu_bracket.step](psu_bracket.step) and [psu_bracket.stl](psu_bracket.stl)
-- Source: generated. Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate.
+- Source: generated. Geometry from hwkit.components.atx_psu_bracket; exported by AIPC. Print frame: PSU face on the bed. Builds stand it up with atx_psu_bracket.installed().
 - Written by the `aipc` build's generator
 
 ## Datasheets

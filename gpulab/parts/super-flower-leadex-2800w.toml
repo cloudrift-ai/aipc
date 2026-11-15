@@ -4,5 +4,12 @@ status = "selected"
 quantity = 1
 systems = ["node"]
 
+[[requires]]
+type = "psu-restraint"
+value = "ATX 150 x 86 face"
+count = 1
+evidence = "review"
+note = "150 x 85 mm face (HWBusters; Puget lists 86); the rear-face screw pattern is assumed ATX"
+
 [assembly]
 match = ["^PSU_Super_Flower_2800W$"]

@@ -1,0 +1,8 @@
+part = "printed/atx_mobo_adapter_front"
+role = "H12D-8D mount section on the side away from the I/O, reused from AIPC"
+status = "design"
+quantity = 1
+systems = ["node"]
+
+[assembly]
+match = ["^printed_H12D_mount_rear_section$"]

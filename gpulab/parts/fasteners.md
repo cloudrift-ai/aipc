@@ -23,11 +23,11 @@ M3/M4/#6-32 hardware; lengths from the stacks in models/gpulab-fit-report.json.
 
 ## Assembly
 
-- 98 instances in the assembly
+- 105 instances in the assembly
 
 ## Compatibility checks
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| BLOCKED | budget | `shelf-load` | load 18.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (48% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 

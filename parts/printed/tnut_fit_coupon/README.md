@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `tnut_fit_coupon` |
 | Category | printed |
-| Print | plate `11_tnut_fit_coupon`, HT-PLA-GF |
+| Print | HT-PLA-GF; plates are in each build's print/ |
 
 ![Part views](render.png)
 

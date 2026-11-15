@@ -1,0 +1,9 @@
+part = "printed/psu_bracket"
+role = "PSU restraint on the AC face, reused from AIPC and turned 180 degrees"
+status = "design"
+quantity = 1
+systems = ["node"]
+notes = "The PSU lies on the same side as AIPC's, so the two upper rear-face #6-32 holes meet the bracket."
+
+[assembly]
+match = ["^printed_PSU_bracket$"]

@@ -11,10 +11,10 @@ A test node for mixed GPUs. One HUANANZHI H12D-8D feeds seven cards over MCIO ca
 | Item | Where |
 | --- | --- |
 | [Hammond RSUS1931BK1](parts/hammond-rsus1931bk1.md) | 422.7 × 787.4 mm sliding shelf, 39 kg rating |
-| [Super Flower Leadex 2800W](parts/super-flower-leadex-2800w.md) | Front left, on its side, modular face toward the rear so the leads run straight back past the card tails |
-| [H12D-8D](parts/huananzhi-h12d-8d.md) | Front right on 3/8 in standoffs screwed through the deck, I/O edge facing the rack front |
+| [Super Flower Leadex 2800W](parts/super-flower-leadex-2800w.md) | Front left, on its side, modular face toward the rear so the leads run straight back past the card tails. Held at its AC face by AIPC's [PSU bracket](parts/psu_bracket.md), turned 180 degrees, with two M4 bolts through the deck |
+| [H12D-8D](parts/huananzhi-h12d-8d.md) | Front right, I/O edge facing the rack front, on the same printed mount as AIPC's Berserk: the [rail section](parts/h12d_mobo_adapter_rail.md) and the [far section](parts/atx_mobo_adapter_front.md), turned 180 degrees, with 3/8 in standoffs on top and five M3 bolts through the deck. The rail is flush with the deck front |
 | [C-Payne CP-0120](parts/cpayne-cp0120-mcio-host-adapter.md) × 4 | In the four x16 slots, two MCIO 8i ports each (x8x8) |
-| [Baseboards](parts/gpulab_baseboard.md) × 2 | 172.8 × 257.8 × 6 mm PETG, end to end along the deck from Y 263 to 785 mm: 26 positions on one 20.32 mm pitch |
+| [Baseboards](parts/gpulab_baseboard.md) × 2 | 172.8 × 257.8 × 6 mm PETG, end to end along the deck from Y 264.9 to 786.9 mm: 26 positions on one 20.32 mm pitch |
 | [C-Payne CP-0231](parts/cpayne-cp0231-mcio-device-adapter.md) × 7 | Riser boards on M3 standoffs; M3 nuts slide in two channels under each baseboard, so a riser fits under any position |
 | [Power leads](parts/psu-modular-cables.md) | Back along the left edge of the deck past the card tails; GPU leads to each card's tail end or over its top edge, riser leads low through the gap in front of each card, board leads across to the 24-pin and EPS |
 | Posts × 14 | Wurth 970140324 hex bases through the baseboard onto the steel, Open Benchtable rods on top: two per card under the bracket tabs, as in AIPC |
@@ -31,7 +31,9 @@ Cards stand across the shelf width with the bracket on the right and the tail to
 | 18–21 | [RTX 4090 FE](parts/nvidia-rtx-4090-fe.md) | flow-through | 20.3 mm |
 | 22–25 | [Zotac RTX 5090 Solid](parts/zotac-rtx-5090-solid.md) | open-air | 13.5 mm to the deck end |
 
-Position 0 stays empty: a riser there would reach over the board's far corner. The layout generator asserts on collisions, air gaps, riser screws landing in the baseboard slots, cards staying on the deck, and MCIO cable reach. All seven routes fit a 0.75 m cable; the 5090's is tightest, with 65 mm spare. The three blower cards would also fit 0.45 m cables. The cards top out at 160 mm above the deck, and the leads over the top-edge connectors at 205 mm. The parts with a known mass put 18.5 kg on the shelf (the R9700's mass is unknown). Coordinates, routes and the deck drill plan are in [models/gpulab-fit-report.json](models/gpulab-fit-report.json).
+Position 0 stays empty: a riser there would reach over the board's far edge.
+
+The reused AIPC mount is what makes the depth tight. Its rail runs 16.5 mm in front of the I/O edge (it keeps Berserk's eight V100 post holes, unused here), and the board sits 6 mm higher than on bare standoffs, level with the riser boards. With the rail flush at the deck front and baseboard B 0.5 mm from the deck rear, riser 1 clears the board's far edge by 1.7 mm and the mount clears baseboard A by 1.4 mm. The layout generator asserts on collisions, air gaps, riser screws landing in the baseboard slots, cards staying on the deck, and MCIO cable reach. All seven routes fit a 0.75 m cable; the 5090's is tightest, with 64 mm spare. The three blower cards would also fit 0.45 m cables. The cards top out at 160 mm above the deck, and the leads over the top-edge connectors at 205 mm. The parts with a known mass put 18.7 kg on the shelf (the R9700's mass is unknown). Coordinates, routes and the deck drill plan are in [models/gpulab-fit-report.json](models/gpulab-fit-report.json).
 
 ### Power leads
 
@@ -39,15 +41,15 @@ The leads are modeled approximately: round bundles (8–15 mm) on orthogonal rou
 
 | Lead | Modeled route | Buy at least (+10%) |
 | --- | ---: | ---: |
-| R9700 12V-2x6 | 283 mm | 311 mm |
-| B60 8-pin | 336 mm | 370 mm |
-| B70 8-pin | 396 mm | 435 mm |
-| 7900 XTX 8-pin × 2 | 587 mm | 646 mm |
-| 3090 FE 12V-2x6 | 720 mm | 792 mm |
-| 4090 FE 12V-2x6 | 780 mm | 858 mm |
-| 5090 12V-2x6 | 849 mm | 934 mm |
-| Riser 6-pin leads 1–7 | 344–759 mm | 379–834 mm |
-| Board 24-pin / EPS × 2 | 178 / 327–339 mm | 195 / 359–372 mm |
+| R9700 12V-2x6 | 264 mm | 290 mm |
+| B60 8-pin | 316 mm | 348 mm |
+| B70 8-pin | 376 mm | 414 mm |
+| 7900 XTX 8-pin × 2 | 568 mm | 625 mm |
+| 3090 FE 12V-2x6 | 701 mm | 771 mm |
+| 4090 FE 12V-2x6 | 760 mm | 836 mm |
+| 5090 12V-2x6 | 829 mm | 912 mm |
+| Riser 6-pin leads 1–7 | 322–736 mm | 354–810 mm |
+| Board 24-pin / EPS × 2 | 176 / 325–337 mm | 194 / 358–371 mm |
 
 The PSU's stock lead lengths are not published. The rear GPUs and risers likely need longer leads or extensions; measure the stock set against this table.
 
@@ -86,6 +88,7 @@ The full list is in [docs/system-check.md](docs/system-check.md). The ones that 
 5. **Bracket seating.** The riser PCB sits 0.475 mm higher than the H12D PCB the AIPC posts were surveyed for. Check that brackets seat on the posts with each card fully inserted.
 6. **Lead lengths and connector positions**: measure the stock leads and each card's connector position (table above).
 7. **Card support and airflow.** Cards hang from bracket and slot only, with no tail rest yet. There is no forced airflow; the open-air cards dump heat around themselves.
+8. **Reused AIPC mounts.** The PSU bracket assumes the 2800 W unit's rear face carries the standard ATX screw holes and that it lies on the same side as AIPC's PSUs; check both. The tight depth above rests on the photo-estimated riser width and the listed 245 mm board depth: dry-fit the board on its mount with riser 1 in place before printing the baseboards.
 
 ## What's here
 
@@ -94,7 +97,7 @@ The full list is in [docs/system-check.md](docs/system-check.md). The ones that 
 | [parts/](parts/README.md) | One `<id>.toml` per part: a reference to its spec in the shared [library](../parts/README.md), with quantity, role, power caps and assembly mapping for this build; generated pages with the checks |
 | [docs/system-check.md](docs/system-check.md) | Compatibility, assembly-coverage and evidence report (generated) |
 | [models/](models) | Assembly STEP, fit report with the drill plan and cable routes, [assembly renders](models/renders/assembly.png) |
-| [print/](print/README.md) | Baseboard print plate, its profile and the manifest |
+| [print/](print/README.md) | Baseboard plate, plates for the reused AIPC mount and PSU bracket, profiles and the manifest |
 | [cad/](cad) | [layout.py](cad/layout.py) builds the assembly, the baseboard and the fit report; [print_jobs.py](cad/print_jobs.py) packs the plate |
 | [build.toml](build.toml) | Build settings read by [hwkit](../hwkit) |
 

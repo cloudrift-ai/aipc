@@ -4,7 +4,6 @@ category = "printed"
 evidence = "allowance"
 
 [print]
-plate = "11_tnut_fit_coupon"
 material = "HT-PLA-GF"
 
 [model]

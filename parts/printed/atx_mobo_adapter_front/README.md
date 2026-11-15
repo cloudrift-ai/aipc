@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `atx_mobo_adapter_front` |
 | Category | printed |
-| Print | plate `01_atx_mobo_adapter_front`, PETG |
+| Print | PETG; plates are in each build's print/ |
 
 ![Part views](render.png)
 
@@ -15,11 +15,12 @@
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
 | [aipc](../../../aipc/parts/atx_mobo_adapter_front.md) | 2 | design | shelf-front motherboard section, common to both boards |
+| [gpulab](../../../gpulab/parts/atx_mobo_adapter_front.md) | 1 | design | H12D-8D mount section on the side away from the I/O, reused from AIPC |
 
 ## Model
 
 - [atx_mobo_adapter_front.step](atx_mobo_adapter_front.step) and [atx_mobo_adapter_front.stl](atx_mobo_adapter_front.stl)
-- Source: generated. Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate.
+- Source: generated. Geometry from hwkit.components.atx_mobo_mount; exported by AIPC. Board-section frame as installed under AIPC's board, moved to the origin; print/ turns it over on the plate.
 - Written by the `aipc` build's generator
 
 ## Datasheets

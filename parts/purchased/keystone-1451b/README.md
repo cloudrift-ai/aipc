@@ -14,7 +14,7 @@
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
 | [aipc](../../../aipc/parts/keystone-1451b.md) | 17 | selected | motherboard standoffs |
-| [gpulab](../../../gpulab/parts/keystone-1451b.md) | 8 | selected | H12D-8D motherboard standoffs, screwed from below through the steel deck |
+| [gpulab](../../../gpulab/parts/keystone-1451b.md) | 8 | selected | H12D-8D motherboard standoffs on the printed mount, screwed from below through its sections |
 
 ## Model
 

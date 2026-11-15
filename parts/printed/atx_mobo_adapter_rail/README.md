@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `atx_mobo_adapter_rail` |
 | Category | printed |
-| Print | plate `02_atx_mobo_adapter_rail`, PETG |
+| Print | PETG; plates are in each build's print/ |
 
 ![Part views](render.png)
 
@@ -19,7 +19,7 @@
 ## Model
 
 - [atx_mobo_adapter_rail.step](atx_mobo_adapter_rail.step) and [atx_mobo_adapter_rail.stl](atx_mobo_adapter_rail.stl)
-- Source: generated. Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate.
+- Source: generated. Geometry from hwkit.components.atx_mobo_mount; exported by AIPC. Board-section frame as installed under AIPC's board, moved to the origin; print/ turns it over on the plate.
 - Written by the `aipc` build's generator
 
 ## Datasheets

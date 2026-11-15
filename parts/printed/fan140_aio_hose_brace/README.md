@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `fan140_aio_hose_brace` |
 | Category | printed |
-| Print | plate `07_fan140_aio_hose_brace`, PETG |
+| Print | PETG; plates are in each build's print/ |
 
 ![Part views](render.png)
 

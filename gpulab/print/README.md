@@ -1,6 +1,19 @@
 # Print plates
 
-One plate, printed twice: [01_gpulab_baseboard](01_gpulab_baseboard.3mf), the 13-position GPU baseboard, in Duramic PETG on the first-generation Qidi X-Plus (0.4 mm nozzle). OrcaSlicer 2.5.1 estimates 1 d 5 h 30 min and 193 g per print.
+Four plates on the first-generation Qidi X-Plus. The first is this build's own; the other three are AIPC library parts, oriented and sliced the same way as on the AIPC plates, so their 3MF files are identical to AIPC's.
+
+| Plate | Part | Prints | Material and profile |
+| --- | --- | ---: | --- |
+| [01_gpulab_baseboard](01_gpulab_baseboard.3mf) | 13-position GPU baseboard | 2 | Duramic PETG, [no brim](profiles/baseboard-no-brim.json) |
+| [02_h12d_mobo_adapter_rail](02_h12d_mobo_adapter_rail.3mf) | H12D mount section with the I/O-side rail | 1 | Duramic PETG, [rails, no brim](profiles/motherboard-rails.json) |
+| [03_atx_mobo_adapter_front](03_atx_mobo_adapter_front.3mf) | H12D mount section on the far side | 1 | Duramic PETG, [no skirt](profiles/motherboard-ears.json) |
+| [04_psu_bracket](04_psu_bracket.3mf) | PSU bracket | 1 | HT-PLA-GF, `printer:ht-pla-gf-psu.json`, 0.4 mm hardened nozzle |
+
+The notes and print audit for plates 02–04 are in [AIPC's print README](../../aipc/print/README.md). If AIPC already printed spares of these parts, they fit here unchanged.
+
+## Baseboard
+
+OrcaSlicer 2.5.1 estimates 1 d 5 h 30 min and 193 g per baseboard print.
 
 - The plate prints as installed, nut channels open to the bed, turned 90 degrees so its 258 mm length runs along the 270 mm bed axis with 3.25 mm edge margins.
 - It prints **without a brim or skirt** ([profiles/baseboard-no-brim.json](profiles/baseboard-no-brim.json), derived from the shared `printer:process.json`). The channels are open at both ends for the M3 nuts, and a brim would fill their mouths, as happened on the AIPC rear rails. Clean the bed well.

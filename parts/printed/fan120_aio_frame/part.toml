@@ -4,7 +4,6 @@ category = "printed"
 evidence = "allowance"
 
 [print]
-plate = "08_fan120_aio_frame"
 material = "PETG"
 
 [model]

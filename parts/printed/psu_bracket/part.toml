@@ -4,12 +4,12 @@ category = "printed"
 evidence = "allowance"
 
 [print]
-plate = "05_psu_brackets"
 material = "HT-PLA-GF"
 
 [model]
 source = "generated"
-notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+notes = "Geometry from hwkit.components.atx_psu_bracket; exported by AIPC. Print frame: PSU face on the bed. Builds stand it up with atx_psu_bracket.installed()."
+build = "aipc"
 
 [dims]
 mass = { value = 0.0472, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }

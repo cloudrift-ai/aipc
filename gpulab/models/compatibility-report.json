@@ -2,7 +2,7 @@
   "date": "2026-11-15",
   "summary": {
     "BLOCKED": 10,
-    "PROVISIONAL": 13,
+    "PROVISIONAL": 19,
     "PASS": 12
   },
   "lint": [],
@@ -111,17 +111,19 @@
       ],
       "rule": "budget",
       "status": "BLOCKED",
-      "detail": "load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700']",
+      "detail": "load 18.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (48% of rating); unknown load for ['amd-radeon-ai-pro-r9700']",
       "contributors": [
         "amd-epyc-7702p",
         "amd-radeon-ai-pro-r9700",
         "amd-rx-7900-xtx-reference",
         "asrock-arc-pro-b60-creator",
+        "atx_mobo_adapter_front",
         "cpayne-cp0120-mcio-host-adapter",
         "cpayne-cp0231-mcio-device-adapter",
         "cpayne-mcio-8i-cable-0p75m",
         "fasteners",
         "gpulab_baseboard",
+        "h12d_mobo_adapter_rail",
         "huananzhi-h12d-8d",
         "intel-arc-pro-b70",
         "keystone-1451b",
@@ -131,6 +133,7 @@
         "obt-pcie-support",
         "pcie-8pin-splitter",
         "psu-modular-cables",
+        "psu_bracket",
         "super-flower-leadex-2800w",
         "wurth-970140324",
         "zotac-rtx-5090-solid"
@@ -140,11 +143,13 @@
         "amd-radeon-ai-pro-r9700:shelf-load(unknown)",
         "amd-rx-7900-xtx-reference:shelf-load(review)",
         "asrock-arc-pro-b60-creator:shelf-load(listing)",
+        "atx_mobo_adapter_front:shelf-load(allowance)",
         "cpayne-cp0120-mcio-host-adapter:shelf-load(assumed)",
         "cpayne-cp0231-mcio-device-adapter:shelf-load(assumed)",
         "cpayne-mcio-8i-cable-0p75m:shelf-load(assumed)",
         "fasteners:shelf-load(assumed)",
         "gpulab_baseboard:shelf-load(allowance)",
+        "h12d_mobo_adapter_rail:shelf-load(allowance)",
         "huananzhi-h12d-8d:shelf-load(assumed)",
         "intel-arc-pro-b70:shelf-load(review)",
         "keystone-1451b:shelf-load(assumed)",
@@ -154,6 +159,7 @@
         "obt-pcie-support:shelf-load(assumed)",
         "pcie-8pin-splitter:shelf-load(assumed)",
         "psu-modular-cables:shelf-load(assumed)",
+        "psu_bracket:shelf-load(allowance)",
         "super-flower-leadex-2800w:shelf-load(review)",
         "wurth-970140324:shelf-load(assumed)",
         "zotac-rtx-5090-solid:shelf-load(review)"
@@ -212,7 +218,7 @@
       "rule": "value",
       "status": "PROVISIONAL",
       "detail": "huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b",
-      "note": "populated sites A/C/F/G/H/K/L/M; screwed from below through the drilled steel deck",
+      "note": "populated sites A/C/F/G/H/K/L/M",
       "weak_evidence": [
         "huananzhi-h12d-8d:board-standoff(photo-estimate)",
         "keystone-1451b:board-standoff(listing)"
@@ -335,6 +341,84 @@
       ]
     },
     {
+      "type": "mobo-front-section",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "atx_mobo_adapter_front"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "huananzhi-h12d-8d needs ATX; provided by atx_mobo_adapter_front",
+      "note": "",
+      "weak_evidence": [
+        "atx_mobo_adapter_front:mobo-front-section(allowance)",
+        "huananzhi-h12d-8d:mobo-front-section(listing)"
+      ]
+    },
+    {
+      "type": "mobo-front-section",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "atx_mobo_adapter_front"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x mobo-front-section=atx, have 1",
+      "weak_evidence": [
+        "atx_mobo_adapter_front:mobo-front-section(allowance)",
+        "huananzhi-h12d-8d:mobo-front-section(listing)"
+      ]
+    },
+    {
+      "type": "mobo-rear-rail",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "h12d_mobo_adapter_rail"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "huananzhi-h12d-8d needs H12D-8D slot positions; provided by h12d_mobo_adapter_rail",
+      "note": "",
+      "weak_evidence": [
+        "h12d_mobo_adapter_rail:mobo-rear-rail(allowance)",
+        "huananzhi-h12d-8d:mobo-rear-rail(listing)"
+      ]
+    },
+    {
+      "type": "mobo-rear-rail",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "h12d_mobo_adapter_rail"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x mobo-rear-rail=h12d-8d slot positions, have 1",
+      "weak_evidence": [
+        "h12d_mobo_adapter_rail:mobo-rear-rail(allowance)",
+        "huananzhi-h12d-8d:mobo-rear-rail(listing)"
+      ]
+    },
+    {
       "type": "pcie-8pin",
       "systems": [
         "node"
@@ -394,6 +478,45 @@
       "detail": "need 4 x pcie-x16-slot=pcie x16, have 4",
       "weak_evidence": [
         "cpayne-cp0120-mcio-host-adapter:pcie-x16-slot(photo-estimate)"
+      ]
+    },
+    {
+      "type": "psu-restraint",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "super-flower-leadex-2800w"
+      ],
+      "providers": [
+        "psu_bracket"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "super-flower-leadex-2800w needs ATX 150 x 86 face; provided by psu_bracket",
+      "note": "150 x 85 mm face (HWBusters; Puget lists 86); the rear-face screw pattern is assumed ATX",
+      "weak_evidence": [
+        "psu_bracket:psu-restraint(allowance)",
+        "super-flower-leadex-2800w:psu-restraint(review)"
+      ]
+    },
+    {
+      "type": "psu-restraint",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "super-flower-leadex-2800w"
+      ],
+      "providers": [
+        "psu_bracket"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x psu-restraint=atx 150 x 86 face, have 1",
+      "weak_evidence": [
+        "psu_bracket:psu-restraint(allowance)",
+        "super-flower-leadex-2800w:psu-restraint(review)"
       ]
     },
     {
@@ -665,9 +788,7 @@
       "detail": "not in the assembly: cabinet not identified; nothing to model"
     }
   ],
-  "renders": [
-    "models/renders/assembly.png missing or older than the assembly (run make render)"
-  ],
+  "renders": [],
   "datasheets": [
     {
       "part": "amd-epyc-7702p",
@@ -740,6 +861,9 @@
       "datasheet": 1,
       "allowance": 1
     },
+    "atx_mobo_adapter_front": {
+      "allowance": 1
+    },
     "cpayne-cp0120-mcio-host-adapter": {
       "allowance": 3,
       "assumed": 1
@@ -757,6 +881,9 @@
       "assumed": 1
     },
     "gpulab_baseboard": {
+      "allowance": 1
+    },
+    "h12d_mobo_adapter_rail": {
       "allowance": 1
     },
     "hammond-rsus1931bk1": {
@@ -805,6 +932,9 @@
     },
     "psu-modular-cables": {
       "assumed": 1
+    },
+    "psu_bracket": {
+      "allowance": 1
     },
     "rack-cabinet": {
       "unknown": 3

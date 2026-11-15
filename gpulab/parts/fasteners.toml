@@ -10,5 +10,6 @@ mass = { value = 0.3, unit = "kg", evidence = "assumed" }
 
 [assembly]
 match = ["_M3x8_post_screw_\\d+$", "_post_backing_washer_\\d+$", "^H12D_6_32_screw_[A-Z]$",
-         "^baseboard_[AB]_M4_anchor_\\d+$", "_riser_M3_screw_\\d+$", "_riser_M3_nut_\\d+$"]
+         "^baseboard_[AB]_M4_anchor_\\d+$", "_riser_M3_screw_\\d+$", "_riser_M3_nut_\\d+$",
+         "^H12D_mount_M3_shelf_bolt_\\d+$", "^PSU_bracket_M4_anchor_\\d+$"]
 count_check = false

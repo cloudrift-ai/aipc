@@ -4,6 +4,21 @@
       "orientation": "as installed, nut channels open to the bed, turned 90 degrees; no supports",
       "downward_overhang_projected_mm2": 1587.84,
       "overhang_note": "the 1.5 mm ledges over each nut channel and the channel roofs between slot ends"
+    },
+    "h12d_mobo_adapter_rail": {
+      "orientation": "flat, rotated 90 degrees; screw-head recesses up",
+      "downward_overhang_projected_mm2": 334.8,
+      "overhang_note": "the 2 mm GPU-tab groove roof only (audited in AIPC)"
+    },
+    "atx_mobo_adapter_front": {
+      "orientation": "flat, rotated 90 degrees; screw-head recesses up",
+      "downward_overhang_projected_mm2": 0.0,
+      "overhang_note": "none expected"
+    },
+    "psu_bracket": {
+      "orientation": "broad rear frame face flat on bed; compact foot and gussets grow upward; HT-PLA-GF with0.4mm hardened nozzle",
+      "downward_overhang_projected_mm2": 46.2,
+      "overhang_note": "none expected"
     }
   }
 }

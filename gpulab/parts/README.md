@@ -19,7 +19,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [hammond-rsus1931bk1](hammond-rsus1931bk1.md) | 1 | selected | shelf, rack | BLOCKED | sliding shelf carrying the GPU lab node |
 | [huananzhi-h12d-8d](huananzhi-h12d-8d.md) | 1 | selected | node | BLOCKED | GPU lab host board: four x16 slots, each split x8x8 for two cabled GPUs |
 | [intel-arc-pro-b70](intel-arc-pro-b70.md) | 1 | candidate | node | provisional | GPU under test (blower cooler), 3 baseboard positions |
-| [keystone-1451b](keystone-1451b.md) | 8 | selected | node | provisional | H12D-8D motherboard standoffs, screwed from below through the steel deck |
+| [keystone-1451b](keystone-1451b.md) | 8 | selected | node | provisional | H12D-8D motherboard standoffs on the printed mount, screwed from below through its sections |
 | [m3-ff-standoff-10mm](m3-ff-standoff-10mm.md) | 28 | candidate | node | provisional | riser board standoffs on the baseboard nut channels |
 | [mains-power](mains-power.md) | 1 | unspecified | rack | BLOCKED | AC supply for the 2800 W PSU |
 | [nvidia-rtx-3090-fe](nvidia-rtx-3090-fe.md) | 1 | candidate | node | provisional | GPU under test (flow-through cooler), 4 baseboard positions |
@@ -36,5 +36,8 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 
 | Part | Qty | Status | Systems | Worst check | Role |
 | --- | ---: | --- | --- | --- | --- |
+| [atx_mobo_adapter_front](atx_mobo_adapter_front.md) | 1 | design | node | provisional | H12D-8D mount section on the side away from the I/O, reused from AIPC |
 | [gpulab_baseboard](gpulab_baseboard.md) | 2 | design | node | provisional | 13-position GPU baseboard: post holes for the card brackets and sliding-nut channels for the MCIO riser boards |
+| [h12d_mobo_adapter_rail](h12d_mobo_adapter_rail.md) | 1 | design | node | provisional | H12D-8D mount section with the I/O-side rail, reused from AIPC (Berserk); its V100 post holes stay empty |
+| [psu_bracket](psu_bracket.md) | 1 | design | node | provisional | PSU restraint on the AC face, reused from AIPC and turned 180 degrees |
 

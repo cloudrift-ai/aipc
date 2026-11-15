@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `gpulab_baseboard` |
 | Category | printed |
-| Print | plate `01_gpulab_baseboard`, PETG |
+| Print | PETG; plates are in each build's print/ |
 
 Two identical prints laid end to end along the shelf depth give 26 positions on
 one continuous 20.32 mm (PCIe CEM) pitch. Each position has a hex hole for a

@@ -19,6 +19,6 @@ Library spec: [parts/purchased/pcie-8pin-splitter](../../parts/purchased/pcie-8p
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| BLOCKED | budget | `shelf-load` | load 18.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (48% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 | provisional | count | `pcie-8pin` | need 16 x pcie-8pin, have 16 |
 

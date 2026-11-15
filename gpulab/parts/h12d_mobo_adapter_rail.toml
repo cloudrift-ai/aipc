@@ -1,0 +1,8 @@
+part = "printed/h12d_mobo_adapter_rail"
+role = "H12D-8D mount section with the I/O-side rail, reused from AIPC (Berserk); its V100 post holes stay empty"
+status = "design"
+quantity = 1
+systems = ["node"]
+
+[assembly]
+match = ["^printed_H12D_mount_front_section$"]

@@ -4,7 +4,6 @@ category = "printed"
 evidence = "allowance"
 
 [print]
-plate = "09_fan120_aio_hose_brace"
 material = "PETG"
 
 [model]

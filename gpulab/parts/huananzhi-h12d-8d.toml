@@ -7,11 +7,21 @@ notes = """
 A second board is needed unless Berserk's is moved here. x8x8 bifurcation is
 NOT documented in the manual or any found source: check AMD CBS -> NBIO in the
 BIOS before buying adapters.
+It sits on the same two printed sections as Berserk (AIPC), turned 180 degrees
+so the I/O edge faces the rack front.
 """
 
 [[requires]]
-type = "board-standoff"
-note = "populated sites A/C/F/G/H/K/L/M; screwed from below through the drilled steel deck"
+type = "mobo-front-section"
+value = "ATX"
+count = 1
+evidence = "listing"
+
+[[requires]]
+type = "mobo-rear-rail"
+value = "H12D-8D slot positions"
+count = 1
+evidence = "listing"
 
 [assembly]
 match = ["^H12D_8D_board$"]

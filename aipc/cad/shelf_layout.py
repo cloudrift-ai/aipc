@@ -27,6 +27,7 @@ import kenshin_aio_mount as k_aio
 import rack_gpu_exhaust as gpu_exhaust
 import tilted_gpu_cooling as t_cool
 import atx_shelf_mounts as atx_mount
+from hwkit.components import atx_psu_bracket as psu_bracket
 from hwkit.components import pcie_post as post_hw
 from hwkit.components import hammond_shelf as rail_assembly
 from pcie_post_mount_preview import render as render_pcie_post_preview
@@ -63,8 +64,8 @@ K_AIO_FOOT_X, K_AIO_FOOT_W, K_AIO_REACH = k_aio.FOOT_X, k_aio.FOOT_W, k_aio.REAC
 K_AIO_ANCHORS = k_aio.ANCHORS
 RAD_FOOT_REACH = 40.0  # preserve the fitted sandwich's feet and shelf anchors
 RAD_ANCHORS = ((24.0, 28.0), (116.0, 28.0))
-PSU_SHELF_ANCHORS = ((31.0, 19.0), (55.0, 19.0))
-PSU_FOOT_REACH = 30.0
+PSU_SHELF_ANCHORS = psu_bracket.SHELF_ANCHORS
+PSU_FOOT_REACH = psu_bracket.FOOT_REACH
 PSU_BERSERK_X = 0.0  # body and compact frame inside shelf width
 GPU_REST_X, GPU_REST_Y, GPU_REST_ANCHOR_Y = 45.0 - K_LEFT_SHIFT, 334.0, 12.5
 GPU_REST_D = 42.0
@@ -400,51 +401,13 @@ render_aio_fan_mount_preview(
     kenshin_aio_frame_on_shelf(k_aio_frame, 0).translate((0, -K_AIO_FRAME_REAR_Y, -k_aio.SUPPORT_T)))
 
 
-# Intel ATX12V guide figure 12-1: retain only the two upper #6-32 rear-face
-# threads for lateral restraint. PSU weight rests directly on the steel shelf;
-# the lower frame is a continuous rail instead of two awkward screw pads.
-# The 150 mm direction is vertical on its side. Both units need a real survey.
-PSU_REAR_HOLES_LOCAL_XZ = ((80, 144), (6, 120))
-BERSERK_LED_CENTER = (80.0, 60.0)  # local X, distance down from PSU top; photo estimate
-BERSERK_LED_RELIEF_WH = (9.0, 40.0)
-BERSERK_LED_BYPASS_X = 92.5  # only local LED bypass extends past86mm PSU width
-BERSERK_LED_OUTER_WEB = BERSERK_LED_BYPASS_X - BERSERK_LED_CENTER[0] - BERSERK_LED_RELIEF_WH[0] / 2
-
-
-def psu_screw_frame(*, berserk=False):
-    """Compact rear restraint: face on bed, two side-by-side shelf slots.
-
-    PSU weight remains on steel. Berserk uses an8mm top bar within the
-    PSU outline; owner reports >10mm from PSU top to power connector.
-    """
-    frame = cq.Workplane("XY").box(86,150,9,centered=(False,False,False))
-    window_top = 8 if berserk else 12
-    window = (cq.Workplane("XY").box(62,138-window_top,9,centered=(False,False,False))
-              .translate((12,window_top,0)).edges("|Z").fillet(4))
-    frame=frame.cut(window)
-    if berserk:
-        relief_top,relief_bottom=40.,80.
-        bypass=(cq.Workplane("XY").polyline([
-            (74,30),(86,30),(BERSERK_LED_BYPASS_X,40),
-            (BERSERK_LED_BYPASS_X,80),(86,90),(74,90)]).close().extrude(9))
-        led_relief=(cq.Workplane("XY").center(*BERSERK_LED_CENTER)
-                    .slot2D(40,9,90).extrude(9))
-        # Open the relief to the main window; no fragile1.5mm inner strip.
-        opening=cq.Workplane("XY").box(6,40,9,centered=(False,False,False)).translate((74,40,0))
-        frame=frame.union(bypass).cut(led_relief.union(opening))
-        assert BERSERK_LED_OUTER_WEB == 8
-    for x,z in PSU_REAR_HOLES_LOCAL_XZ:
-        frame=frame.cut(cq.Workplane("XY").center(x,150-z).slot2D(5,4,90).extrude(9))
-    foot=cq.Workplane("XY").box(50,6,PSU_FOOT_REACH,centered=(False,False,False)).translate((18,144,0))
-    for gx in (18,64):
-        foot=foot.union(cq.Workplane("YZ").polyline(((126,0),(150,0),(144,30)))
-                        .close().extrude(4).translate((gx,0,0)))
-    frame=frame.union(foot)
-    for x,depth in PSU_SHELF_ANCHORS:
-        frame=frame.cut(shelf_slot_xz(x,depth,144))
-    assert frame.val().isValid() and len(frame.solids().vals())==1
-    assert frame.val().BoundingBox().ylen <=150.0001
-    return frame
+# The PSU bracket geometry is shared: hwkit.components.atx_psu_bracket.
+PSU_REAR_HOLES_LOCAL_XZ = psu_bracket.PSU_REAR_HOLES_LOCAL_XZ
+BERSERK_LED_CENTER = psu_bracket.BERSERK_LED_CENTER
+BERSERK_LED_RELIEF_WH = psu_bracket.BERSERK_LED_RELIEF_WH
+BERSERK_LED_OUTER_WEB = psu_bracket.BERSERK_LED_OUTER_WEB
+assert (psu_bracket.SLOT_LENGTH, psu_bracket.SLOT_WIDTH) == (SHELF_SLOT_LENGTH, SHELF_SLOT_WIDTH)
+psu_screw_frame = psu_bracket.bracket
 
 
 # One bracket serves both PSUs: the 8 mm top bar and LED relief are harmless on
@@ -454,8 +417,7 @@ psu_frame_berserk=psu_frame_kenshin=psu_frame
 
 
 def psu_frame_on_shelf(print_shape: cq.Workplane,x0: float,rear_y: float):
-    # (printX,Y,Z) -> (shelf x0+X,rear_y+Z,150-Y).
-    shape = print_shape.rotate((0,0,0),(1,0,0),-90).translate((x0,rear_y,150))
+    shape = psu_bracket.installed(print_shape, x0, rear_y)
     return k_shape(shape).translate((6,0,0)) if x0 == 335 else shape
 
 

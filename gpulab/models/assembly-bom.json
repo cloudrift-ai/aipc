@@ -53,6 +53,19 @@
         "GPU_asrock_arc_pro_b60_creator"
       ]
     },
+    "atx_mobo_adapter_front": {
+      "name": "atx_mobo_adapter_front",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_H12D_mount_rear_section"
+      ]
+    },
     "cpayne-cp0120-mcio-host-adapter": {
       "name": "C-Payne CP-0120 MCIO PCIe gen5 Host Adapter x16 (passive)",
       "category": "purchased",
@@ -104,7 +117,7 @@
       "category": "purchased",
       "quantity": 1,
       "state": "modeled",
-      "instances": 98,
+      "instances": 105,
       "expected_instances": null,
       "covered_by": null,
       "not_modeled": null,
@@ -117,6 +130,13 @@
         "H12D_6_32_screw_K",
         "H12D_6_32_screw_L",
         "H12D_6_32_screw_M",
+        "H12D_mount_M3_shelf_bolt_1",
+        "H12D_mount_M3_shelf_bolt_2",
+        "H12D_mount_M3_shelf_bolt_3",
+        "H12D_mount_M3_shelf_bolt_4",
+        "H12D_mount_M3_shelf_bolt_5",
+        "PSU_bracket_M4_anchor_1",
+        "PSU_bracket_M4_anchor_2",
         "baseboard_A_M4_anchor_1",
         "baseboard_A_M4_anchor_2",
         "baseboard_A_M4_anchor_3",
@@ -221,6 +241,19 @@
       "instance_names": [
         "printed_gpulab_baseboard_A",
         "printed_gpulab_baseboard_B"
+      ]
+    },
+    "h12d_mobo_adapter_rail": {
+      "name": "h12d_mobo_adapter_rail",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_H12D_mount_front_section"
       ]
     },
     "hammond-rsus1931bk1": {
@@ -448,6 +481,19 @@
         "cable_board_atx_24pin_1",
         "cable_board_eps_8pin_cpu_1",
         "cable_board_eps_8pin_cpu_2"
+      ]
+    },
+    "psu_bracket": {
+      "name": "psu_bracket",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_PSU_bracket"
       ]
     },
     "rack-cabinet": {

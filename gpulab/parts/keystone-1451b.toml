@@ -1,5 +1,5 @@
 part = "purchased/keystone-1451b"
-role = "H12D-8D motherboard standoffs, screwed from below through the steel deck"
+role = "H12D-8D motherboard standoffs on the printed mount, screwed from below through its sections"
 status = "selected"
 quantity = 8
 systems = ["node"]

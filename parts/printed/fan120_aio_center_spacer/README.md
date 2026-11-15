@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `fan120_aio_center_spacer` |
 | Category | printed |
-| Print | plate `10_fan120_aio_center_spacer`, PETG |
+| Print | PETG; plates are in each build's print/ |
 
 ![Part views](render.png)
 

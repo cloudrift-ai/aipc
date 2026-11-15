@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `fan120_aio_frame` |
 | Category | printed |
-| Print | plate `08_fan120_aio_frame`, PETG |
+| Print | PETG; plates are in each build's print/ |
 
 ![Part views](render.png)
 

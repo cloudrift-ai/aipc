@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `h12d_mobo_adapter_rail` |
 | Category | printed |
-| Print | plate `03_h12d_mobo_adapter_rail`, PETG |
+| Print | PETG; plates are in each build's print/ |
 
 ![Part views](render.png)
 
@@ -15,11 +15,12 @@
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
 | [aipc](../../../aipc/parts/h12d_mobo_adapter_rail.md) | 1 | design | Berserk rear rail with GPU post holes for four dual-slot V100s |
+| [gpulab](../../../gpulab/parts/h12d_mobo_adapter_rail.md) | 1 | design | H12D-8D mount section with the I/O-side rail, reused from AIPC (Berserk); its V100 post holes stay empty |
 
 ## Model
 
 - [h12d_mobo_adapter_rail.step](h12d_mobo_adapter_rail.step) and [h12d_mobo_adapter_rail.stl](h12d_mobo_adapter_rail.stl)
-- Source: generated. Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate.
+- Source: generated. Geometry from hwkit.components.atx_mobo_mount; exported by AIPC. Board-section frame as installed under AIPC's board, moved to the origin; print/ turns it over on the plate.
 - Written by the `aipc` build's generator
 
 ## Datasheets

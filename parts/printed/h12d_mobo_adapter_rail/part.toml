@@ -4,12 +4,12 @@ category = "printed"
 evidence = "allowance"
 
 [print]
-plate = "03_h12d_mobo_adapter_rail"
 material = "PETG"
 
 [model]
 source = "generated"
-notes = "Exported by cad/shelf_layout.py in shelf coordinates; print/ re-orients it on the plate."
+notes = "Geometry from hwkit.components.atx_mobo_mount; exported by AIPC. Board-section frame as installed under AIPC's board, moved to the origin; print/ turns it over on the plate."
+build = "aipc"
 
 [dims]
 mass = { value = 0.0952, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }

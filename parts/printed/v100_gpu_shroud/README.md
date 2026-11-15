@@ -6,7 +6,7 @@
 | --- | --- |
 | ID | `v100_gpu_shroud` |
 | Category | printed |
-| Print | plate `12_v100_gpu_shroud`, HT-PLA-GF |
+| Print | HT-PLA-GF; plates are in each build's print/ |
 
 ![Part views](render.png)
 

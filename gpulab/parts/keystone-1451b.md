@@ -6,7 +6,7 @@ Library spec: [parts/purchased/keystone-1451b](../../parts/purchased/keystone-14
 
 | | |
 | --- | --- |
-| Role | H12D-8D motherboard standoffs, screwed from below through the steel deck |
+| Role | H12D-8D motherboard standoffs on the printed mount, screwed from below through its sections |
 | Status | selected |
 | Quantity | 8 |
 | Systems | node |
@@ -21,7 +21,7 @@ Library spec: [parts/purchased/keystone-1451b](../../parts/purchased/keystone-14
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| BLOCKED | budget | `shelf-load` | load 18.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (48% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 | provisional | value | `board-standoff` | huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b |
 | provisional | count | `board-standoff` | need 8 x board-standoff=#6-32 f/f, have 8 |
 
