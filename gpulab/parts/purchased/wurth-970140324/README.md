@@ -45,7 +45,7 @@
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 17.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (44% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| BLOCKED | budget | `shelf-load` | load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 | pass | value | `post-base-thread` | obt-pcie-support needs M3 female; provided by wurth-970140324 |
 | pass | count | `post-base-thread` | need 14 x post-base-thread=m3 female, have 14 |
 

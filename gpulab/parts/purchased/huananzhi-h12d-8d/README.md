@@ -53,6 +53,8 @@ headers and inlet/outlet temperatures.
 | slot_pitch | 40.64 mm | standard | PCIe CEM two-slot pitch; positions after slot 1 assumed on it |
 | cpu_center_x | 225.9 mm | photo-estimate | AIPC berserk_platform photo_xy(833,397) |
 | cpu_center_from_io_edge | 131.4 mm | photo-estimate | AIPC berserk_platform photo_xy(833,397) |
+| atx24_x | 280 mm | allowance | 24-pin assumed on the edge opposite the I/O, toward the low-X side (ATX convention); read the manual layout figure |
+| eps_x | 210 mm | allowance | two EPS 8-pin assumed on the edge opposite the I/O, near the CPU; read the manual layout figure |
 | mass | 1.2 kg | assumed |  |
 
 ## Interfaces
@@ -75,7 +77,7 @@ headers and inlet/outlet temperatures.
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
 | BLOCKED | count | `pcie-bifurcation-x8x8` | need 4 x pcie-bifurcation-x8x8, have None |
-| BLOCKED | budget | `shelf-load` | load 17.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (44% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| BLOCKED | budget | `shelf-load` | load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | value | `board-standoff` | huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b |
 | provisional | count | `board-standoff` | need 8 x board-standoff=#6-32 f/f, have 8 |

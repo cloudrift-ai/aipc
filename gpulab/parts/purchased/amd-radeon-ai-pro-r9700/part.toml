@@ -33,6 +33,7 @@ height = { value = 111.2, evidence = "datasheet", source = "spec sheet" }
 thickness = { value = 40.0, evidence = "datasheet", source = "spec sheet; AMD: double slot" }
 tgp = { value = 300.0, unit = "W", evidence = "datasheet", source = "AMD TBP" }
 mass = { value = "", unit = "kg", evidence = "unknown", source = "not published" }
+power_connector_from_tail = { value = 0.0, evidence = "allowance", note = "12V-2x6 on the tail end (workstation blower), from product photos; 0 means on the tail end. Not measured" }
 
 [[requires]]
 type = "riser-x16-slot"

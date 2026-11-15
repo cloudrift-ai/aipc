@@ -41,6 +41,7 @@ Running on an MCIO riser at x8; values marked review/listing are provisional.
 | thickness | 39 mm | listing | retailer listing; 2-slot |
 | tgp | 200 W | datasheet | Intel: 120-200 W |
 | mass | 1.12 kg | listing | listings 1.1-1.118 kg |
+| power_connector_from_tail | 0 mm | allowance | 8-pin on the tail end (blower), from product photos; 0 means on the tail end. Not measured |
 
 ## Interfaces
 
@@ -53,7 +54,7 @@ Running on an MCIO riser at x8; values marked review/listing are provisional.
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 17.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (44% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| BLOCKED | budget | `shelf-load` | load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 | provisional | budget | `dc-power` | load 2205.0 W of 2800.0 W x derate 0.8 = 2240.0 W (79% of rating); relies on configured limits of ['amd-radeon-ai-pro-r9700', 'amd-rx-7900-xtx-reference', 'asrock-arc-pro-b60-creator', 'intel-arc-pro-b70', 'nvidia-rtx-3090-fe', 'nvidia-rtx-4090-fe', 'zotac-rtx-5090-solid']; unlimited peak 2755.0 W |
 | provisional | count | `gpu-baseboard-position` | need 26 x gpu-baseboard-position, have 26 |
 | provisional | count | `pcie-8pin` | need 16 x pcie-8pin, have 16 |

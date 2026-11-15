@@ -33,6 +33,7 @@ height = { value = 112.0, evidence = "listing", source = "retailer listing" }
 thickness = { value = 39.0, evidence = "listing", source = "retailer listing; 2-slot" }
 tgp = { value = 200.0, unit = "W", evidence = "datasheet", source = "Intel: 120-200 W" }
 mass = { value = 1.12, unit = "kg", evidence = "listing", source = "listings 1.1-1.118 kg" }
+power_connector_from_tail = { value = 0.0, evidence = "allowance", note = "8-pin on the tail end (blower), from product photos; 0 means on the tail end. Not measured" }
 
 [[requires]]
 type = "riser-x16-slot"

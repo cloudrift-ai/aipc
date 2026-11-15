@@ -11,11 +11,12 @@ A test node for mixed GPUs. One HUANANZHI H12D-8D feeds seven cards over MCIO ca
 | Item | Where |
 | --- | --- |
 | [Hammond RSUS1931BK1](parts/purchased/hammond-rsus1931bk1/README.md) | 422.7 × 787.4 mm sliding shelf, 39 kg rating |
-| [H12D-8D](parts/purchased/huananzhi-h12d-8d/README.md) | Front left on 3/8 in standoffs screwed through the deck, I/O edge facing the rack front |
-| [Super Flower Leadex 2800W](parts/purchased/super-flower-leadex-2800w/README.md) | Front right, on its side beside the board |
+| [Super Flower Leadex 2800W](parts/purchased/super-flower-leadex-2800w/README.md) | Front left, on its side, modular face toward the rear so the leads run straight back past the card tails |
+| [H12D-8D](parts/purchased/huananzhi-h12d-8d/README.md) | Front right on 3/8 in standoffs screwed through the deck, I/O edge facing the rack front |
 | [C-Payne CP-0120](parts/purchased/cpayne-cp0120-mcio-host-adapter/README.md) × 4 | In the four x16 slots, two MCIO 8i ports each (x8x8) |
 | [Baseboards](parts/printed/gpulab_baseboard/README.md) × 2 | 172.8 × 257.8 × 6 mm PETG, end to end along the deck from Y 263 to 785 mm: 26 positions on one 20.32 mm pitch |
 | [C-Payne CP-0231](parts/purchased/cpayne-cp0231-mcio-device-adapter/README.md) × 7 | Riser boards on M3 standoffs; M3 nuts slide in two channels under each baseboard, so a riser fits under any position |
+| [Power leads](parts/purchased/psu-modular-cables/README.md) | Back along the left edge of the deck past the card tails; GPU leads to each card's tail end or over its top edge, riser leads low through the gap in front of each card, board leads across to the 24-pin and EPS |
 | Posts × 14 | Wurth 970140324 hex bases through the baseboard onto the steel, Open Benchtable rods on top: two per card under the bracket tabs, as in AIPC |
 
 Cards stand across the shelf width with the bracket on the right and the tail to the left, cooler side toward the rear. Each card takes enough positions for its thickness plus an air gap (18 mm for open-air and flow-through coolers, 3 mm for blowers). The rearmost card's fans face the open rack space past the deck end.
@@ -30,7 +31,25 @@ Cards stand across the shelf width with the bracket on the right and the tail to
 | 18–21 | [RTX 4090 FE](parts/purchased/nvidia-rtx-4090-fe/README.md) | flow-through | 20.3 mm |
 | 22–25 | [Zotac RTX 5090 Solid](parts/purchased/zotac-rtx-5090-solid/README.md) | open-air | 13.5 mm to the deck end |
 
-Position 0 stays empty: a riser there would reach over the board's far corner. The layout generator asserts on collisions, air gaps, riser screws landing in the baseboard slots, cards staying on the deck, and MCIO cable reach. All seven routes fit a 0.75 m cable; the 5090's is tightest, with 49 mm spare. The three blower cards would also fit 0.45 m cables. Everything stays below 160 mm above the deck, and the parts with a known mass put 17.2 kg on the shelf (the R9700's mass is unknown). Coordinates, routes and the deck drill plan are in [models/gpulab-fit-report.json](models/gpulab-fit-report.json).
+Position 0 stays empty: a riser there would reach over the board's far corner. The layout generator asserts on collisions, air gaps, riser screws landing in the baseboard slots, cards staying on the deck, and MCIO cable reach. All seven routes fit a 0.75 m cable; the 5090's is tightest, with 65 mm spare. The three blower cards would also fit 0.45 m cables. The cards top out at 160 mm above the deck, and the leads over the top-edge connectors at 205 mm. The parts with a known mass put 18.5 kg on the shelf (the R9700's mass is unknown). Coordinates, routes and the deck drill plan are in [models/gpulab-fit-report.json](models/gpulab-fit-report.json).
+
+### Power leads
+
+The leads are modeled approximately: round bundles (8–15 mm) on orthogonal routes, with 40 mm of straight lead above each top-edge connector before the bend. They are checked against every rigid part but not against each other. Where each card's power connector sits (tail end or a distance along the top edge) and where the board's 24-pin and EPS sit are allowances from product photos and ATX convention, recorded in the parts' `part.toml`.
+
+| Lead | Modeled route | Buy at least (+10%) |
+| --- | ---: | ---: |
+| R9700 12V-2x6 | 283 mm | 311 mm |
+| B60 8-pin | 336 mm | 370 mm |
+| B70 8-pin | 396 mm | 435 mm |
+| 7900 XTX 8-pin × 2 | 587 mm | 646 mm |
+| 3090 FE 12V-2x6 | 720 mm | 792 mm |
+| 4090 FE 12V-2x6 | 780 mm | 858 mm |
+| 5090 12V-2x6 | 849 mm | 934 mm |
+| Riser 6-pin leads 1–7 | 344–759 mm | 379–834 mm |
+| Board 24-pin / EPS × 2 | 178 / 327–339 mm | 195 / 359–372 mm |
+
+The PSU's stock lead lengths are not published. The rear GPUs and risers likely need longer leads or extensions; measure the stock set against this table.
 
 ## Power
 
@@ -65,7 +84,8 @@ The full list is in [docs/system-check.md](docs/system-check.md). The ones that 
 3. **CP-0120 per-port REFCLK/PERST**: ask C-Payne.
 4. **Power caps** are enforced only by software (above). Also open: the **240 V circuit**, the **rack cabinet** and the **CPU cooler**, which is not chosen yet (100 mm envelope reserved).
 5. **Bracket seating.** The riser PCB sits 0.475 mm higher than the H12D PCB the AIPC posts were surveyed for. Check that brackets seat on the posts with each card fully inserted.
-6. **Card support and airflow.** Cards hang from bracket and slot only, with no tail rest yet. There is no forced airflow; the open-air cards dump heat around themselves.
+6. **Lead lengths and connector positions**: measure the stock leads and each card's connector position (table above).
+7. **Card support and airflow.** Cards hang from bracket and slot only, with no tail rest yet. There is no forced airflow; the open-air cards dump heat around themselves.
 
 ## What's here
 

@@ -29,6 +29,7 @@ height = { value = 110.0, evidence = "review", source = "Igor's Lab; Intel lists
 thickness = { value = 39.0, evidence = "review", source = "Igor's Lab; Intel: 2-slot" }
 tgp = { value = 230.0, unit = "W", evidence = "datasheet", source = "Intel TBP; partner boards 160-290 W" }
 mass = { value = 1.02, unit = "kg", evidence = "review", source = "review" }
+power_connector_from_tail = { value = 0.0, evidence = "allowance", note = "8-pin on the tail end (blower), from product photos; 0 means on the tail end. Not measured" }
 
 [[requires]]
 type = "riser-x16-slot"

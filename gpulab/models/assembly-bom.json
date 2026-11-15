@@ -406,6 +406,36 @@
       "not_modeled": "flexible cable",
       "instance_names": []
     },
+    "psu-modular-cables": {
+      "name": "Super Flower Leadex 2800W modular cable set (approximate routes)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 18,
+      "expected_instances": null,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "cable_amd_radeon_ai_pro_r9700_12v_2x6_1",
+        "cable_asrock_arc_pro_b60_creator_pcie_8pin_1",
+        "cable_intel_arc_pro_b70_pcie_8pin_1",
+        "cable_amd_rx_7900_xtx_reference_pcie_8pin_1",
+        "cable_amd_rx_7900_xtx_reference_pcie_8pin_2",
+        "cable_nvidia_rtx_3090_fe_12v_2x6_1",
+        "cable_nvidia_rtx_4090_fe_12v_2x6_1",
+        "cable_zotac_rtx_5090_solid_12v_2x6_1",
+        "cable_riser_1_pcie_6pin",
+        "cable_riser_2_pcie_6pin",
+        "cable_riser_3_pcie_6pin",
+        "cable_riser_4_pcie_6pin",
+        "cable_riser_5_pcie_6pin",
+        "cable_riser_6_pcie_6pin",
+        "cable_riser_7_pcie_6pin",
+        "cable_board_atx_24pin_1",
+        "cable_board_eps_8pin_cpu_1",
+        "cable_board_eps_8pin_cpu_2"
+      ]
+    },
     "rack-cabinet": {
       "name": "Rack cabinet (not yet specified)",
       "category": "purchased",

@@ -5,11 +5,13 @@ printed baseboard and the fit report; asserts on collisions, card spacing,
 position counts and cable reach.
 
 Coordinates (mm): X across the deck from the left edge, Y from the deck front
-toward the rear, Z up from the deck top. The H12D-8D sits at the front with
-its I/O edge facing the rack front and the PSU on its side to its right. Two
-identical 13-position baseboards run end to end along the rest of the depth.
-Cards stand upright across the width: bracket on the right (high X), tail to
-the left, PCB planes normal to Y on one continuous 20.32 mm pitch.
+toward the rear, Z up from the deck top. The H12D-8D sits at the front right
+with its I/O edge facing the rack front; the PSU lies on its side at the front
+left, its modular face toward the rear, so the power leads run back along the
+left edge past the card tails. Two identical 13-position baseboards run end to
+end along the rest of the depth. Cards stand upright across the width: bracket
+on the right (high X), tail to the left, PCB planes normal to Y on one
+continuous 20.32 mm pitch.
 
 Values below that are not part dimensions are layout allowances or come from
 the PCIe CEM drawing and the AIPC survey; see the fit report for evidence.
@@ -49,6 +51,11 @@ NUT_AF, NUT_T = 5.5, 2.4  # ISO 4032 M3 nut
 CHANNEL_W, CHANNEL_DEPTH, SLOT_W = 6.4, 3.0, 3.4  # sliding-nut channel under each riser hole line
 SLOT_END_WEB = 3.0  # solid plate at each end of the screw slot
 ANCHOR_D, ANCHOR_CSK_D = 4.5, 8.6  # M4 countersunk anchors through the steel
+RISER_PLUG = (2.0, 22.0, 2.0, 14.0, 10.0)  # riser 6-pin plug: local x0, x1, y0, y1 from the back-side edge, height (allowance)
+CABLE_D = {"12v-2x6": 10.0, "pcie-8pin": 9.0, "riser": 8.0, "atx-24pin": 15.0, "eps-8pin-cpu": 9.0}  # bundle diameters (allowance)
+CABLE_LANE_X0, CABLE_LANE_STEP = 15.0, 7.0  # lanes along the left edge, past the card tails
+TOP_BEND = 40.0  # straight lead above a top-edge connector before it bends (12V-2x6 guidance is about 35 mm)
+CABLE_SLACK_FACTOR = 1.1  # buy leads 10% longer than the modeled route
 
 # PCIe CEM 2.0 and the AIPC survey (aipc/cad/atx_shelf_mounts.py, aipc/cad/shelf_layout.py).
 PITCH = spec.dim("huananzhi-h12d-8d", "slot_pitch") / 2  # 20.32 mm single-slot pitch
@@ -90,7 +97,7 @@ def add(name, shape, color):
 BOARD = spec.get("huananzhi-h12d-8d")
 BW, BD, BT = BOARD.dim("pcb_width"), BOARD.dim("pcb_depth"), BOARD.dim("pcb_thickness")
 STANDOFF_L = spec.dim("keystone-1451b", "length")
-BX, BY, BZ = EDGE, EDGE, STANDOFF_L  # I/O edge at Y = BY, facing the rack front
+BX, BY, BZ = W - EDGE - BW, EDGE, STANDOFF_L  # front right; I/O edge at Y = BY, facing the rack front
 BOARD_TOP = BZ + BT
 
 
@@ -116,7 +123,8 @@ cw, cd, ch = CPU_COOLER_ENVELOPE
 add("H12D_SP3_CPU_and_cooler_envelope", box(cpu_x - cw / 2, cpu_y - cd / 2, BOARD_TOP, cw, cd, ch), cq.Color(0.55, 0.55, 0.6))
 
 PSU = spec.get("super-flower-leadex-2800w")
-PSU_X = W - EDGE - PSU.dim("height")  # on its side: the 85 mm face is the footprint width
+PSU_X = EDGE  # front left, on its side: the 85 mm face is the footprint width; modular face toward the rear
+PSU_FACE_Y = EDGE + PSU.dim("depth")
 add("PSU_Super_Flower_2800W", box(PSU_X, EDGE, 0.0, PSU.dim("height"), PSU.dim("depth"), PSU.dim("width")), cq.Color(0.15, 0.15, 0.17))
 
 HOST = spec.get("cpayne-cp0120-mcio-host-adapter")
@@ -221,6 +229,8 @@ for n, card_id in enumerate(CARDS, 1):
     riser = box(RISER_X0, py - RW / 2, RISER_Z, RL, RW, RT)
     for a, b in ((52.0, 81.0), (92.0, 121.0)):  # MCIO receptacles under the PCB (photo-estimate)
         riser = riser.union(box(RISER_X0 + a, py + RW / 2 - 10, RISER_Z - RISER.dim("mcio_height_below_pcb"), b - a, 10, RISER.dim("mcio_height_below_pcb")))
+    px0, px1, py0, py1, ph = RISER_PLUG
+    riser = riser.union(box(RISER_X0 + px0, py - RW / 2 + py0, RISER_TOP, px1 - px0, py1 - py0, ph))
     slot_len = 89.0
     riser = riser.union(box(KEY_X + SLOT_END_FROM_KEY - slot_len, py - 3.75, RISER_TOP, slot_len, 7.5, CARD_BOTTOM_ABOVE_RISER))
     add(f"riser_{n}_CP0231", riser, cq.Color(0.08, 0.08, 0.1))
@@ -255,7 +265,82 @@ for n, card_id in enumerate(CARDS, 1):
                        "body_y_mm": [round(py - BACK_SIDE, 2), round(py - BACK_SIDE + thick, 2)],
                        "body_x_mm": [round(x0, 2), round(FACE_X, 2)],
                        "air_gap_mm": round(positions * PITCH - thick, 2), "riser": n,
-                       "riser_mcio_xyz": (RISER_X0 + 86.5, py + RW / 2, RISER_Z - 4)})
+                       "riser_mcio_xyz": (RISER_X0 + 86.5, py + RW / 2, RISER_Z - 4),
+                       "riser_plug_xyz": (RISER_X0 + px0, py - RW / 2 + (py0 + py1) / 2, RISER_TOP + ph / 2),
+                       "card_top_z": RISER_TOP + CARD_BOTTOM_ABOVE_RISER + height, "tail_x": x0,
+                       "body_center_y": py - BACK_SIDE + thick / 2, "power": [(r["type"], r["count"]) for r in part.requires
+                                                                             if r["type"] in ("12v-2x6", "pcie-8pin")],
+                       "connector_from_tail": part.dim("power_connector_from_tail")})
+
+
+# --- Power cables (approximate) --------------------------------------------------------------------
+def tube(points, d):
+    """Round bundle along a polyline: cylinders between points, spheres at the joints."""
+    shape = None
+    for (a, b) in zip(points, points[1:], strict=False):
+        va, vb = cq.Vector(*a), cq.Vector(*b)
+        length = (vb - va).Length
+        if length < 1e-6:
+            continue
+        seg = cq.Solid.makeCylinder(d / 2, length, va, (vb - va).normalized())
+        shape = seg if shape is None else shape.fuse(seg)
+    for pt in points[1:-1]:
+        shape = shape.fuse(cq.Solid.makeSphere(d / 2, cq.Vector(*pt), angleDegrees1=-90, angleDegrees2=90))
+    return cq.Workplane("XY").add(shape.clean())
+
+
+face_slots = [(PSU_X + 12 + 18 * c, z) for z in (25.0, 55.0, 85.0, 115.0, 140.0) for c in range(4)]
+cables, cable_targets = [], {}
+
+
+def add_cable(name, points, kind, target):
+    d = CABLE_D[kind]
+    length = sum((cq.Vector(*b) - cq.Vector(*a)).Length for a, b in zip(points, points[1:], strict=False))
+    add(name, tube(points, d), cq.Color(0.9, 0.75, 0.1) if kind == "riser" else cq.Color(0.95, 0.55, 0.1))
+    cable_targets[name] = {target, "PSU_Super_Flower_2800W"}
+    cables.append({"cable": name, "kind": kind, "to": target, "route_mm": round(length), "buy_at_least_mm": round(length * CABLE_SLACK_FACTOR)})
+
+
+def from_psu(k):
+    x, z = face_slots[k]
+    return (x, PSU_FACE_Y, z), (x, PSU_FACE_Y + 12, z)
+
+
+k = 0
+lane = 0
+for place in placements:  # GPU leads: back along the left edge, then to the tail end or over the top edge
+    target = f"GPU_{place['card'].replace('-', '_')}"
+    leads = [kind for kind, count in place["power"] for _ in range(count)]
+    for j, kind in enumerate(leads):
+        start, out = from_psu(k)
+        k += 1
+        lx, lz = CABLE_LANE_X0 + CABLE_LANE_STEP * lane, 60.0 + 9.0 * lane
+        lane += 1
+        y = place["body_center_y"] + (j - (len(leads) - 1) / 2) * 12.0
+        ztop = place["card_top_z"]
+        if place["connector_from_tail"] == 0:
+            zc = ztop - 20.0
+            pts = [start, out, (lx, out[1], lz), (lx, y, lz), (lx, y, zc), (place["tail_x"], y, zc)]
+        else:
+            xc = place["tail_x"] + place["connector_from_tail"] + 25.0 * j
+            pts = [start, out, (lx, out[1], lz), (lx, y, lz), (lx, y, ztop + TOP_BEND), (xc, y, ztop + TOP_BEND), (xc, y, ztop)]
+        assert lx + CABLE_D[kind] / 2 < min(p["tail_x"] for p in placements), "cable lane runs into a card tail"
+        add_cable(f"cable_{place['card'].replace('-', '_')}_{kind.replace('-', '_')}_{j + 1}", pts, kind, target)
+for n, place in enumerate(placements, 1):  # riser leads: low along the left edge, then under the cards in the gap before each card
+    start, out = from_psu(k)
+    k += 1
+    lx = CABLE_LANE_X0 + CABLE_LANE_STEP * (n - 1)
+    rx, ry, rz = place["riser_plug_xyz"]
+    low = 12.0
+    pts = [start, out, (lx, out[1], low), (lx, ry, low), (rx - 6.0, ry, low), (rx - 6.0, ry, rz), (rx, ry, rz)]
+    add_cable(f"cable_riser_{n}_pcie_6pin", pts, "riser", f"riser_{n}_CP0231")
+for kind, xl, idx in (("atx-24pin", BOARD.dim("atx24_x"), 1), ("eps-8pin-cpu", BOARD.dim("eps_x"), 1), ("eps-8pin-cpu", BOARD.dim("eps_x") - 30.0, 2)):
+    start, out = from_psu(k)
+    k += 1
+    tx, ty = board_xy(xl, BD - 8.0)
+    zb = BOARD_TOP + 40.0
+    pts = [start, out, (out[0], out[1], zb), (tx, out[1], zb), (tx, ty, zb), (tx, ty, BOARD_TOP)]
+    add_cable(f"cable_board_{kind.replace('-', '_')}_{idx}", pts, kind, "H12D_8D_board")
 
 # --- Collision checks -----------------------------------------------------------------------------
 def overlaps(a, b):
@@ -273,6 +358,10 @@ for a_i, a in enumerate(names):
     for b in names[a_i + 1 :]:
         if not overlaps(boxes[a], boxes[b]):
             continue
+        if a.startswith("cable_") and b.startswith("cable_"):
+            continue  # leads may bundle and touch
+        if (a in cable_targets and b in cable_targets[a]) or (b in cable_targets and a in cable_targets[b]):
+            continue  # a lead ends in its own connector
         if any((p in a and q in b) or (p in b and q in a) for p, q in TOUCH_OK):
             continue
         collision_pairs += 1
@@ -288,7 +377,8 @@ assert placements[0]["body_y_mm"][0] > BY + BD, ("first card over the board", pl
 
 # Cable reach: each riser's MCIO input to its host adapter port, routed along X, then Y, plus height.
 routes = []
-ports = sorted(host_ports, key=lambda p: -p["xyz"][0])  # outermost ports for the farthest cards
+riser_mcio_x = placements[0]["riser_mcio_xyz"][0]
+ports = sorted(host_ports, key=lambda p: abs(p["xyz"][0] - riser_mcio_x))  # ports nearest the riser inputs for the farthest cards
 for place, port in zip(sorted(placements, key=lambda p: -p["pcb_plane_y_mm"]), ports, strict=False):
     (hx, hy, hz), (rx, ry, rz) = port["xyz"], place["riser_mcio_xyz"]
     run = abs(hx - rx) + abs(hy - ry) + abs(hz - rz) + CABLE_SLACK
@@ -341,6 +431,7 @@ report = {
                      "basis": "AIPC survey: flange 123.875 mm above an H12D PCB on 6 mm rail + 3/8 in standoffs; OBT rod length is an allowance"},
     "cards": placements, "first_position_used": first_free, "rear_card_free_to_deck_end_mm": round(rear_free, 1), "positions_used": next_free - first_free, "mcio_routes": routes,
     "max_component_z_mm": round(top, 1),
+    "power_cables": cables, "power_cable_basis": "approximate orthogonal routes; connector positions and bundle diameters are allowances",
     "shelf_mass_kg": round(sum(masses.values()), 2), "shelf_rating_kg": SHELF.dim("load_rating"),
     "drill_plan": drill, "collision_pairs_checked": collision_pairs,
     "hammond": {k: shelf_report[k] for k in ("static_boolean_pairs_checked", "continuous_travel_envelope_pairs_checked")},

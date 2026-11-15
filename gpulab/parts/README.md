@@ -26,6 +26,7 @@ One folder per part: `part.toml` (spec, evidence, interfaces), a generated `READ
 | [nvidia-rtx-4090-fe](purchased/nvidia-rtx-4090-fe/README.md) | 1 | candidate | node | provisional | GPU under test (flow-through cooler), 4 baseboard positions |
 | [obt-pcie-support](purchased/obt-pcie-support/README.md) | 14 | selected | node | pass | GPU bracket posts (two per card) |
 | [pcie-8pin-splitter](purchased/pcie-8pin-splitter/README.md) | 5 | candidate | node | provisional | feeds two riser boards (75 W each) from one PSU 6+2 lead |
+| [psu-modular-cables](purchased/psu-modular-cables/README.md) | 1 | candidate | node | - | power leads from the PSU to the GPUs, riser boards and board |
 | [rack-cabinet](purchased/rack-cabinet/README.md) | 1 | unspecified | rack | BLOCKED | cabinet that receives the GPU lab shelf |
 | [super-flower-leadex-2800w](purchased/super-flower-leadex-2800w/README.md) | 1 | selected | node | provisional | node PSU: board, CPU, GPUs and riser boards |
 | [wurth-970140324](purchased/wurth-970140324/README.md) | 14 | selected | node | pass | GPU post bases, bearing directly on the steel shelf |

@@ -29,6 +29,7 @@ height = { value = 137.8, evidence = "datasheet", source = "Zotac published dime
 thickness = { value = 67.8, evidence = "datasheet", source = "Zotac published dimensions" }
 tgp = { value = 575.0, unit = "W", evidence = "datasheet", source = "NVIDIA RTX 5090 total graphics power" }
 mass = { value = 2.29, unit = "kg", evidence = "review", source = "Notebookcheck 2.287 kg" }
+power_connector_from_tail = { value = 140.0, evidence = "allowance", note = "16-pin on the top edge, from product photos; 0 means on the tail end. Not measured" }
 
 [[requires]]
 type = "riser-x16-slot"

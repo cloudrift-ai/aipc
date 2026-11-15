@@ -98,7 +98,22 @@
         320.056,
         301.71999999999997,
         12.0
-      ]
+      ],
+      "riser_plug_xyz": [
+        235.55599999999998,
+        269.71999999999997,
+        22.6
+      ],
+      "card_top_z": 132.8,
+      "tail_x": 141.906,
+      "body_center_y": 297.71999999999997,
+      "power": [
+        [
+          "12v-2x6",
+          1
+        ]
+      ],
+      "connector_from_tail": 0.0
     },
     {
       "card": "asrock-arc-pro-b60-creator",
@@ -127,7 +142,22 @@
         320.056,
         362.67999999999995,
         12.0
-      ]
+      ],
+      "riser_plug_xyz": [
+        235.55599999999998,
+        330.67999999999995,
+        22.6
+      ],
+      "card_top_z": 133.6,
+      "tail_x": 137.606,
+      "body_center_y": 358.17999999999995,
+      "power": [
+        [
+          "pcie-8pin",
+          1
+        ]
+      ],
+      "connector_from_tail": 0.0
     },
     {
       "card": "intel-arc-pro-b70",
@@ -156,7 +186,22 @@
         320.056,
         423.64,
         12.0
-      ]
+      ],
+      "riser_plug_xyz": [
+        235.55599999999998,
+        391.64,
+        22.6
+      ],
+      "card_top_z": 131.6,
+      "tail_x": 141.606,
+      "body_center_y": 419.14,
+      "power": [
+        [
+          "pcie-8pin",
+          1
+        ]
+      ],
+      "connector_from_tail": 0.0
     },
     {
       "card": "amd-rx-7900-xtx-reference",
@@ -186,7 +231,22 @@
         320.056,
         484.59999999999997,
         12.0
-      ]
+      ],
+      "riser_plug_xyz": [
+        235.55599999999998,
+        452.59999999999997,
+        22.6
+      ],
+      "card_top_z": 144.6,
+      "tail_x": 121.606,
+      "body_center_y": 486.34999999999997,
+      "power": [
+        [
+          "pcie-8pin",
+          2
+        ]
+      ],
+      "connector_from_tail": 40.0
     },
     {
       "card": "nvidia-rtx-3090-fe",
@@ -216,7 +276,22 @@
         320.056,
         565.88,
         12.0
-      ]
+      ],
+      "riser_plug_xyz": [
+        235.55599999999998,
+        533.88,
+        22.6
+      ],
+      "card_top_z": 159.6,
+      "tail_x": 95.606,
+      "body_center_y": 568.88,
+      "power": [
+        [
+          "12v-2x6",
+          1
+        ]
+      ],
+      "connector_from_tail": 150.0
     },
     {
       "card": "nvidia-rtx-4090-fe",
@@ -246,7 +321,22 @@
         320.056,
         647.16,
         12.0
-      ]
+      ],
+      "riser_plug_xyz": [
+        235.55599999999998,
+        615.16,
+        22.6
+      ],
+      "card_top_z": 158.6,
+      "tail_x": 104.606,
+      "body_center_y": 653.66,
+      "power": [
+        [
+          "12v-2x6",
+          1
+        ]
+      ],
+      "connector_from_tail": 125.0
     },
     {
       "card": "zotac-rtx-5090-solid",
@@ -276,7 +366,22 @@
         320.056,
         728.4399999999999,
         12.0
-      ]
+      ],
+      "riser_plug_xyz": [
+        235.55599999999998,
+        696.4399999999999,
+        22.6
+      ],
+      "card_top_z": 159.4,
+      "tail_x": 78.906,
+      "body_center_y": 738.3399999999999,
+      "power": [
+        [
+          "12v-2x6",
+          1
+        ]
+      ],
+      "connector_from_tail": 140.0
     }
   ],
   "first_position_used": 1,
@@ -285,69 +390,198 @@
   "mcio_routes": [
     {
       "card": "zotac-rtx-5090-solid",
-      "host_slot": 4,
+      "host_slot": 2,
       "host_port": 1,
-      "route_mm": 701,
+      "route_mm": 685,
       "cable_mm": 750.0,
-      "spare_mm": 49
+      "spare_mm": 65
     },
     {
       "card": "nvidia-rtx-4090-fe",
-      "host_slot": 4,
+      "host_slot": 2,
       "host_port": 2,
-      "route_mm": 650,
+      "route_mm": 634,
       "cable_mm": 750.0,
-      "spare_mm": 100
+      "spare_mm": 116
     },
     {
       "card": "nvidia-rtx-3090-fe",
       "host_slot": 3,
       "host_port": 1,
-      "route_mm": 579,
+      "route_mm": 556,
       "cable_mm": 750.0,
-      "spare_mm": 171
+      "spare_mm": 194
     },
     {
       "card": "amd-rx-7900-xtx-reference",
       "host_slot": 3,
       "host_port": 2,
-      "route_mm": 528,
+      "route_mm": 505,
       "cable_mm": 750.0,
-      "spare_mm": 222
+      "spare_mm": 245
     },
     {
       "card": "intel-arc-pro-b70",
-      "host_slot": 2,
+      "host_slot": 1,
       "host_port": 1,
-      "route_mm": 478,
+      "route_mm": 421,
       "cable_mm": 750.0,
-      "spare_mm": 272
+      "spare_mm": 329
     },
     {
       "card": "asrock-arc-pro-b60-creator",
-      "host_slot": 2,
+      "host_slot": 1,
       "host_port": 2,
-      "route_mm": 447,
+      "route_mm": 390,
       "cable_mm": 750.0,
-      "spare_mm": 303
+      "spare_mm": 360
     },
     {
       "card": "amd-radeon-ai-pro-r9700",
-      "host_slot": 1,
+      "host_slot": 4,
       "host_port": 1,
-      "route_mm": 396,
+      "route_mm": 333,
       "cable_mm": 750.0,
-      "spare_mm": 354
+      "spare_mm": 417
     }
   ],
-  "max_component_z_mm": 159.6,
-  "shelf_mass_kg": 17.2,
+  "max_component_z_mm": 204.6,
+  "power_cables": [
+    {
+      "cable": "cable_amd_radeon_ai_pro_r9700_12v_2x6_1",
+      "kind": "12v-2x6",
+      "to": "GPU_amd_radeon_ai_pro_r9700",
+      "route_mm": 283,
+      "buy_at_least_mm": 311
+    },
+    {
+      "cable": "cable_asrock_arc_pro_b60_creator_pcie_8pin_1",
+      "kind": "pcie-8pin",
+      "to": "GPU_asrock_arc_pro_b60_creator",
+      "route_mm": 336,
+      "buy_at_least_mm": 370
+    },
+    {
+      "cable": "cable_intel_arc_pro_b70_pcie_8pin_1",
+      "kind": "pcie-8pin",
+      "to": "GPU_intel_arc_pro_b70",
+      "route_mm": 396,
+      "buy_at_least_mm": 435
+    },
+    {
+      "cable": "cable_amd_rx_7900_xtx_reference_pcie_8pin_1",
+      "kind": "pcie-8pin",
+      "to": "GPU_amd_rx_7900_xtx_reference",
+      "route_mm": 587,
+      "buy_at_least_mm": 646
+    },
+    {
+      "cable": "cable_amd_rx_7900_xtx_reference_pcie_8pin_2",
+      "kind": "pcie-8pin",
+      "to": "GPU_amd_rx_7900_xtx_reference",
+      "route_mm": 581,
+      "buy_at_least_mm": 639
+    },
+    {
+      "cable": "cable_nvidia_rtx_3090_fe_12v_2x6_1",
+      "kind": "12v-2x6",
+      "to": "GPU_nvidia_rtx_3090_fe",
+      "route_mm": 720,
+      "buy_at_least_mm": 792
+    },
+    {
+      "cable": "cable_nvidia_rtx_4090_fe_12v_2x6_1",
+      "kind": "12v-2x6",
+      "to": "GPU_nvidia_rtx_4090_fe",
+      "route_mm": 780,
+      "buy_at_least_mm": 858
+    },
+    {
+      "cable": "cable_zotac_rtx_5090_solid_12v_2x6_1",
+      "kind": "12v-2x6",
+      "to": "GPU_zotac_rtx_5090_solid",
+      "route_mm": 849,
+      "buy_at_least_mm": 934
+    },
+    {
+      "cable": "cable_riser_1_pcie_6pin",
+      "kind": "riser",
+      "to": "riser_1_CP0231",
+      "route_mm": 344,
+      "buy_at_least_mm": 379
+    },
+    {
+      "cable": "cable_riser_2_pcie_6pin",
+      "kind": "riser",
+      "to": "riser_2_CP0231",
+      "route_mm": 400,
+      "buy_at_least_mm": 440
+    },
+    {
+      "cable": "cable_riser_3_pcie_6pin",
+      "kind": "riser",
+      "to": "riser_3_CP0231",
+      "route_mm": 457,
+      "buy_at_least_mm": 503
+    },
+    {
+      "cable": "cable_riser_4_pcie_6pin",
+      "kind": "riser",
+      "to": "riser_4_CP0231",
+      "route_mm": 516,
+      "buy_at_least_mm": 568
+    },
+    {
+      "cable": "cable_riser_5_pcie_6pin",
+      "kind": "riser",
+      "to": "riser_5_CP0231",
+      "route_mm": 612,
+      "buy_at_least_mm": 673
+    },
+    {
+      "cable": "cable_riser_6_pcie_6pin",
+      "kind": "riser",
+      "to": "riser_6_CP0231",
+      "route_mm": 685,
+      "buy_at_least_mm": 753
+    },
+    {
+      "cable": "cable_riser_7_pcie_6pin",
+      "kind": "riser",
+      "to": "riser_7_CP0231",
+      "route_mm": 759,
+      "buy_at_least_mm": 834
+    },
+    {
+      "cable": "cable_board_atx_24pin_1",
+      "kind": "atx-24pin",
+      "to": "H12D_8D_board",
+      "route_mm": 178,
+      "buy_at_least_mm": 195
+    },
+    {
+      "cable": "cable_board_eps_8pin_cpu_1",
+      "kind": "eps-8pin-cpu",
+      "to": "H12D_8D_board",
+      "route_mm": 327,
+      "buy_at_least_mm": 359
+    },
+    {
+      "cable": "cable_board_eps_8pin_cpu_2",
+      "kind": "eps-8pin-cpu",
+      "to": "H12D_8D_board",
+      "route_mm": 339,
+      "buy_at_least_mm": 372
+    }
+  ],
+  "power_cable_basis": "approximate orthogonal routes; connector positions and bundle diameters are allowances",
+  "shelf_mass_kg": 18.49,
   "shelf_rating_kg": 39.0,
   "drill_plan": [
     {
       "part": "H12D standoff #6-32",
       "xy_mm": [
-        298.49,
+        396.15,
         20.16
       ],
       "diameter_mm": 3.6
@@ -355,7 +589,7 @@
     {
       "part": "H12D standoff #6-32",
       "xy_mm": [
-        174.03,
+        271.69,
         20.16
       ],
       "diameter_mm": 3.6
@@ -363,7 +597,7 @@
     {
       "part": "H12D standoff #6-32",
       "xy_mm": [
-        16.55,
+        114.21,
         43.02
       ],
       "diameter_mm": 3.6
@@ -371,7 +605,7 @@
     {
       "part": "H12D standoff #6-32",
       "xy_mm": [
-        298.49,
+        396.15,
         175.1
       ],
       "diameter_mm": 3.6
@@ -379,7 +613,7 @@
     {
       "part": "H12D standoff #6-32",
       "xy_mm": [
-        174.03,
+        271.69,
         175.1
       ],
       "diameter_mm": 3.6
@@ -387,7 +621,7 @@
     {
       "part": "H12D standoff #6-32",
       "xy_mm": [
-        298.49,
+        396.15,
         247.49
       ],
       "diameter_mm": 3.6
@@ -395,7 +629,7 @@
     {
       "part": "H12D standoff #6-32",
       "xy_mm": [
-        174.03,
+        271.69,
         247.49
       ],
       "diameter_mm": 3.6
@@ -403,7 +637,7 @@
     {
       "part": "H12D standoff #6-32",
       "xy_mm": [
-        16.55,
+        114.21,
         247.49
       ],
       "diameter_mm": 3.6
@@ -569,7 +803,7 @@
       "diameter_mm": 4.5
     }
   ],
-  "collision_pairs_checked": 140,
+  "collision_pairs_checked": 225,
   "hammond": {
     "static_boolean_pairs_checked": 0,
     "continuous_travel_envelope_pairs_checked": 0

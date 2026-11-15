@@ -45,6 +45,8 @@ slot1_plane_x = { value = 142.5, evidence = "photo-estimate", source = "AIPC ber
 slot_pitch = { value = 40.64, evidence = "standard", source = "PCIe CEM two-slot pitch; positions after slot 1 assumed on it" }
 cpu_center_x = { value = 225.9, evidence = "photo-estimate", source = "AIPC berserk_platform photo_xy(833,397)" }
 cpu_center_from_io_edge = { value = 131.4, evidence = "photo-estimate", source = "AIPC berserk_platform photo_xy(833,397)" }
+atx24_x = { value = 280.0, evidence = "allowance", note = "24-pin assumed on the edge opposite the I/O, toward the low-X side (ATX convention); read the manual layout figure" }
+eps_x = { value = 210.0, evidence = "allowance", note = "two EPS 8-pin assumed on the edge opposite the I/O, near the CPU; read the manual layout figure" }
 mass = { value = 1.2, unit = "kg", evidence = "assumed" }
 
 [[provides]]

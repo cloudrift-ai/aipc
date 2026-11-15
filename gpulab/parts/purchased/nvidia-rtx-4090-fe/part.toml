@@ -29,6 +29,7 @@ height = { value = 137.0, evidence = "datasheet", source = "NVIDIA spec page; Ki
 thickness = { value = 61.0, evidence = "datasheet", source = "NVIDIA spec page" }
 tgp = { value = 450.0, unit = "W", evidence = "datasheet", source = "NVIDIA spec page" }
 mass = { value = 2.19, unit = "kg", evidence = "review", source = "reviews 2.186 kg; Puget lists 2.254 kg" }
+power_connector_from_tail = { value = 125.0, evidence = "allowance", note = "16-pin on the top edge, from product photos; 0 means on the tail end. Not measured" }
 
 [[requires]]
 type = "riser-x16-slot"

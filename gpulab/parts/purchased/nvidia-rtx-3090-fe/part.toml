@@ -29,6 +29,7 @@ height = { value = 138.0, evidence = "datasheet", source = "NVIDIA spec page" }
 thickness = { value = 54.0, evidence = "review", source = "Tom's Hardware measurement; NVIDIA lists 3-slot only" }
 tgp = { value = 350.0, unit = "W", evidence = "datasheet", source = "NVIDIA spec page" }
 mass = { value = 2.2, unit = "kg", evidence = "review", source = "reviews 2.19-2.21 kg" }
+power_connector_from_tail = { value = 150.0, evidence = "allowance", note = "12-pin on the top edge near mid-length (angled), from product photos; 0 means on the tail end. Not measured" }
 
 [[requires]]
 type = "riser-x16-slot"

@@ -40,7 +40,7 @@ Gen5 32G, AWG30 twinax. C-Payne sells 0.45 m and 0.75 m only; the layout's route
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 17.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (44% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| BLOCKED | budget | `shelf-load` | load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 | provisional | count | `mcio-8i-cable` | need 7 x mcio-8i-cable, have 7 |
 | pass | count | `mcio-8i-port` | need 7 x mcio-8i-port, have 8 |
 

@@ -22,7 +22,7 @@ These parts have not been chosen, so nothing that depends on them can be checked
 | BLOCKED | count | `pcie-bifurcation-x8x8` | need 4 x pcie-bifurcation-x8x8, have None |
 | BLOCKED | value | `rack-post-depth` | hammond-rsus1931bk1 needs 457.2..711.2; provider value unknown (front-to-rear rack-post spacing range accepted by the slides) |
 | BLOCKED | value | `rack-standard` | hammond-rsus1931bk1 needs EIA-310 19 in; provider value unknown |
-| BLOCKED | budget | `shelf-load` | load 17.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (44% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| BLOCKED | budget | `shelf-load` | load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 | provisional | count | `12v-2x6` | need 4 x 12v-2x6, have 4 |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | value | `board-standoff` | huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b (populated sites A/C/F/G/H/K/L/M; screwed from below through the drilled steel deck) |
@@ -65,6 +65,7 @@ Every assembly instance belongs to a part folder or a declared keepout. Parts no
 - **m3-ff-standoff-10mm**: no datasheet recorded. Generic hardware; pick a brand (for example a Wurth WA-SSTII M3 F/F 10 mm) and record its drawing.
 - **obt-pcie-support**: no datasheet recorded. Open Benchtable publishes no drawing; the stud length is an owner measurement.
 - **pcie-8pin-splitter**: no datasheet recorded. Generic cable; choose 16 AWG and check the PSU lead is rated for both loads (2 x 75 W).
+- **psu-modular-cables**: no datasheet recorded. Ships with the PSU; lead lengths are not published. Measure them against models/gpulab-fit-report.json.
 
 Not fetched locally (run `make datasheets`): amd-epyc-7702p, amd-radeon-ai-pro-r9700, amd-rx-7900-xtx-reference, asrock-arc-pro-b60-creator, cpayne-cp0120-mcio-host-adapter, cpayne-cp0231-mcio-device-adapter, cpayne-mcio-8i-cable-0p75m, hammond-rsus1931bk1, huananzhi-h12d-8d, intel-arc-pro-b70, nvidia-rtx-3090-fe, nvidia-rtx-4090-fe, super-flower-leadex-2800w, wurth-970140324, zotac-rtx-5090-solid.
 
@@ -73,24 +74,25 @@ Not fetched locally (run `make datasheets`): amd-epyc-7702p, amd-radeon-ai-pro-r
 Dimensions not backed by a datasheet, standard or measurement, by part:
 
 - amd-epyc-7702p: 1 assumed, 1 datasheet
-- amd-radeon-ai-pro-r9700: 4 datasheet, 1 unknown
-- amd-rx-7900-xtx-reference: 2 datasheet, 3 review
-- asrock-arc-pro-b60-creator: 1 datasheet, 4 listing
+- amd-radeon-ai-pro-r9700: 1 allowance, 4 datasheet, 1 unknown
+- amd-rx-7900-xtx-reference: 1 allowance, 2 datasheet, 3 review
+- asrock-arc-pro-b60-creator: 1 allowance, 1 datasheet, 4 listing
 - cpayne-cp0120-mcio-host-adapter: 3 allowance, 1 assumed
 - cpayne-cp0231-mcio-device-adapter: 1 allowance, 2 assumed, 8 photo-estimate
 - cpayne-mcio-8i-cable-0p75m: 1 assumed, 1 datasheet
 - fasteners: 1 assumed
 - gpulab_baseboard: 1 allowance
 - hammond-rsus1931bk1: 1 allowance, 10 datasheet, 3 photo-estimate, 1 unknown
-- huananzhi-h12d-8d: 2 assumed, 2 datasheet, 3 photo-estimate, 1 standard
-- intel-arc-pro-b70: 2 datasheet, 3 review
+- huananzhi-h12d-8d: 2 allowance, 2 assumed, 2 datasheet, 3 photo-estimate, 1 standard
+- intel-arc-pro-b70: 1 allowance, 2 datasheet, 3 review
 - keystone-1451b: 1 assumed, 1 listing
 - m3-ff-standoff-10mm: 2 allowance, 1 assumed
-- nvidia-rtx-3090-fe: 3 datasheet, 2 review
-- nvidia-rtx-4090-fe: 4 datasheet, 1 review
+- nvidia-rtx-3090-fe: 1 allowance, 3 datasheet, 2 review
+- nvidia-rtx-4090-fe: 1 allowance, 4 datasheet, 1 review
 - obt-pcie-support: 1 allowance, 1 assumed, 1 measured
 - pcie-8pin-splitter: 1 assumed
+- psu-modular-cables: 1 assumed
 - rack-cabinet: 3 unknown
 - super-flower-leadex-2800w: 1 listing, 3 review
 - wurth-970140324: 1 assumed, 3 datasheet
-- zotac-rtx-5090-solid: 4 datasheet, 1 review
+- zotac-rtx-5090-solid: 1 allowance, 4 datasheet, 1 review

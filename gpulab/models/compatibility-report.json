@@ -111,7 +111,7 @@
       ],
       "rule": "budget",
       "status": "BLOCKED",
-      "detail": "load 17.3 kg of 39.0 kg x derate 1.0 = 39.0 kg (44% of rating); unknown load for ['amd-radeon-ai-pro-r9700']",
+      "detail": "load 18.5 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-radeon-ai-pro-r9700']",
       "contributors": [
         "amd-epyc-7702p",
         "amd-radeon-ai-pro-r9700",
@@ -130,6 +130,7 @@
         "nvidia-rtx-4090-fe",
         "obt-pcie-support",
         "pcie-8pin-splitter",
+        "psu-modular-cables",
         "super-flower-leadex-2800w",
         "wurth-970140324",
         "zotac-rtx-5090-solid"
@@ -152,6 +153,7 @@
         "nvidia-rtx-4090-fe:shelf-load(review)",
         "obt-pcie-support:shelf-load(assumed)",
         "pcie-8pin-splitter:shelf-load(assumed)",
+        "psu-modular-cables:shelf-load(assumed)",
         "super-flower-leadex-2800w:shelf-load(review)",
         "wurth-970140324:shelf-load(assumed)",
         "zotac-rtx-5090-solid:shelf-load(review)"
@@ -776,6 +778,11 @@
       "detail": "Generic cable; choose 16 AWG and check the PSU lead is rated for both loads (2 x 75 W)."
     },
     {
+      "part": "psu-modular-cables",
+      "status": "BLOCKED",
+      "detail": "Ships with the PSU; lead lengths are not published. Measure them against models/gpulab-fit-report.json."
+    },
+    {
       "part": "super-flower-leadex-2800w",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://hwbusters.com/psus/super-flower-leadex-2800w-atx-v3-1-psu-review/ (run make datasheets)"
@@ -798,15 +805,18 @@
     },
     "amd-radeon-ai-pro-r9700": {
       "datasheet": 4,
-      "unknown": 1
+      "unknown": 1,
+      "allowance": 1
     },
     "amd-rx-7900-xtx-reference": {
       "datasheet": 2,
-      "review": 3
+      "review": 3,
+      "allowance": 1
     },
     "asrock-arc-pro-b60-creator": {
       "listing": 4,
-      "datasheet": 1
+      "datasheet": 1,
+      "allowance": 1
     },
     "cpayne-cp0120-mcio-host-adapter": {
       "allowance": 3,
@@ -834,11 +844,13 @@
       "datasheet": 2,
       "assumed": 2,
       "photo-estimate": 3,
-      "standard": 1
+      "standard": 1,
+      "allowance": 2
     },
     "intel-arc-pro-b70": {
       "datasheet": 2,
-      "review": 3
+      "review": 3,
+      "allowance": 1
     },
     "keystone-1451b": {
       "listing": 1,
@@ -850,11 +862,13 @@
     },
     "nvidia-rtx-3090-fe": {
       "datasheet": 3,
-      "review": 2
+      "review": 2,
+      "allowance": 1
     },
     "nvidia-rtx-4090-fe": {
       "datasheet": 4,
-      "review": 1
+      "review": 1,
+      "allowance": 1
     },
     "obt-pcie-support": {
       "measured": 1,
@@ -862,6 +876,9 @@
       "assumed": 1
     },
     "pcie-8pin-splitter": {
+      "assumed": 1
+    },
+    "psu-modular-cables": {
       "assumed": 1
     },
     "rack-cabinet": {
@@ -877,7 +894,8 @@
     },
     "zotac-rtx-5090-solid": {
       "datasheet": 4,
-      "review": 1
+      "review": 1,
+      "allowance": 1
     },
     "gpulab_baseboard": {
       "allowance": 1
