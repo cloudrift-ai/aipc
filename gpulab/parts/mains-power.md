@@ -6,15 +6,15 @@ Library spec: [parts/purchased/mains-power](../../parts/purchased/mains-power/RE
 
 | | |
 | --- | --- |
-| Role | AC supply for the 2800 W PSU |
+| Role | AC supply for the 3000 W PSU |
 | Status | unspecified |
 | Quantity | 1 |
 | Systems | rack |
 
-The Super Flower Leadex 2800W accepts 200-240 V only. At full load the node
-draws about 3 kW from the wall: plan one 240 V / 20 A circuit (3.84 kW
-continuous) or larger. Record the circuit, UPS and PDU ratings and outlet
-type (C19) here.
+The Corsair WS3000 accepts 220-240 V only (16 A, C19 inlet). At full load it
+draws about 3.3 kW from the wall: plan one 240 V / 20 A circuit (3.84 kW
+continuous) or larger and a C19 outlet. Record the circuit, UPS and PDU
+ratings here.
 
 ## Assembly
 
@@ -24,5 +24,5 @@ type (C19) here.
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `ac-power` | load 3060.0 W; capacity unknown |
+| BLOCKED | budget | `ac-power` | load 3260.0 W; capacity unknown |
 

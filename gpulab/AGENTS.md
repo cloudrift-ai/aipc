@@ -7,5 +7,5 @@ Notes for coding agents working on the GPU lab build. Paths are relative to this
 - The H12D mount sections and the PSU bracket are AIPC library parts built by `hwkit.components.atx_mobo_mount` and `atx_psu_bracket`. The layout rebuilds them and asserts they match the library models; it never exports them. Change their design in hwkit and regenerate AIPC first.
 - Both baseboards are one model (`quantity = 2`); baseboard B is a translated copy of A, and the generator asserts it.
 - The riser board outline and holes are photo estimates. Replace them in the library's [part.toml](../parts/purchased/cpayne-cp0231-mcio-device-adapter/part.toml) from C-Payne's 3D model or a measured board before printing.
-- The power budget passes only with each GPU's `load_limited` cap (set in this build's `parts/<id>.toml`) (see [README.md](README.md#power)). Changing a card or a cap means rechecking the 2,240 W budget; never drop a cap to make a card fit.
+- The power budget passes only with each GPU's `load_limited` cap (set in this build's `parts/<id>.toml`) (see [README.md](README.md#power)). Changing a card or a cap means rechecking the 2,400 W budget; never drop a cap to make a card fit.
 - Follow [docs/printing.md](../docs/printing.md) for every printable change.

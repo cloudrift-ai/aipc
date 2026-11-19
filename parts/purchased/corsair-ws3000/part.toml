@@ -1,0 +1,80 @@
+id = "corsair-ws3000"
+name = "Corsair WS3000 3000 W ATX 3.1 workstation PSU (CP-9020312)"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+220-240 V AC only (16 A, 47-63 Hz) with a C19 inlet; not for 110/120 V outlets.
+Fully modular, 140 mm fan without a zero-RPM mode, 80 PLUS Platinum (230 V EU),
+rated continuously at 40 C, 10-year warranty, no iCUE monitoring.
+The PCIe outputs are four dual cables: 6+2 at 600 mm, a second 6+2 150 mm further.
+The rear-face screw pattern is not published; ATX is assumed.
+"""
+
+[links]
+product = "https://www.corsair.com/us/en/p/psu/cp-9020312-na/ws3000-3000w-atx-3-1-fully-modular-workstation-power-supply-cp-9020312-na"
+explainer = "https://www.corsair.com/explorer/diy-builder/power-supply-units/corsair-ws3000-everything-you-need-to-know/"
+
+[[datasheets]]
+title = "Corsair WS3000: everything you need to know (spec and cable tables)"
+url = "https://www.corsair.com/explorer/diy-builder/power-supply-units/corsair-ws3000-everything-you-need-to-know/"
+
+[[datasheets]]
+title = "Corsair WS3000 product page"
+url = "https://www.corsair.com/us/en/p/psu/cp-9020312-na/ws3000-3000w-atx-3-1-fully-modular-workstation-power-supply-cp-9020312-na"
+
+[model]
+source = "constructed"
+
+[dims]
+width = { value = 150.0, evidence = "datasheet", source = "Corsair: 175 x 150 x 86 mm (L x W x H)" }
+height = { value = 86.0, evidence = "datasheet", source = "Corsair: 175 x 150 x 86 mm (L x W x H)" }
+depth = { value = 175.0, evidence = "datasheet", source = "Corsair: 175 x 150 x 86 mm (L x W x H)" }
+mass = { value = 4.465, unit = "kg", evidence = "listing", source = "Computer Lounge NZ listing, CP-9020312-WW" }
+cable_atx24_length = { value = 610.0, evidence = "datasheet", source = "Corsair cable table, +/-10 mm" }
+cable_eps_length = { value = 650.0, evidence = "datasheet", source = "Corsair cable table, +/-10 mm" }
+cable_12v_2x6_length = { value = 675.0, evidence = "datasheet", source = "Corsair cable table, +/-10 mm" }
+cable_pcie_length = { value = 750.0, evidence = "datasheet", source = "Corsair cable table: dual 6+2, 600 mm to the first connector and 150 mm more to the second" }
+cable_pcie_first_connector = { value = 600.0, evidence = "datasheet", source = "Corsair cable table, connector spacing 600 + 150 mm" }
+
+[[provides]]
+type = "dc-power"
+capacity = 3000.0
+unit = "W"
+derate = 0.8
+note = "+12 V 250 A"
+
+[[provides]]
+type = "atx-24pin"
+count = 1
+
+[[provides]]
+type = "eps-8pin-cpu"
+count = 2
+note = "4+4 pin"
+
+[[provides]]
+type = "12v-2x6"
+count = 4
+note = "four native cables, 600 W each"
+
+[[provides]]
+type = "pcie-8pin"
+count = 8
+note = "6+2 pin, two per cable on four cables"
+
+[[provides]]
+type = "sata-power"
+count = 9
+
+[[provides]]
+type = "peripheral-12v"
+count = 6
+note = "Molex (PATA), three per cable on two cables"
+
+[[requires]]
+type = "ac-power"
+load = 3260.0
+unit = "W"
+systems = ["rack"]
+evidence = "allowance"
+note = "3.0 kW output / ~0.92 Platinum efficiency at full load"

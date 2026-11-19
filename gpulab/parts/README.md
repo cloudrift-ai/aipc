@@ -12,6 +12,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [amd-radeon-ai-pro-r9700](amd-radeon-ai-pro-r9700.md) | 1 | candidate | node | BLOCKED | GPU under test (blower cooler), 3 baseboard positions |
 | [amd-rx-7900-xtx-reference](amd-rx-7900-xtx-reference.md) | 1 | candidate | node | provisional | GPU under test (open-air cooler), 4 baseboard positions |
 | [asrock-arc-pro-b60-creator](asrock-arc-pro-b60-creator.md) | 1 | candidate | node | provisional | GPU under test (blower cooler), 3 baseboard positions |
+| [corsair-ws3000](corsair-ws3000.md) | 1 | selected | node | provisional | node PSU: board, CPU, GPUs and riser boards |
 | [cpayne-cp0120-mcio-host-adapter](cpayne-cp0120-mcio-host-adapter.md) | 4 | candidate | node | BLOCKED | host adapter: one H12D x16 slot to two MCIO 8i ports (x8x8) |
 | [cpayne-cp0231-mcio-device-adapter](cpayne-cp0231-mcio-device-adapter.md) | 7 | candidate | node | provisional | GPU riser: MCIO 8i in, x16 slot (x8 electrical) for one GPU |
 | [cpayne-mcio-8i-cable-0p75m](cpayne-mcio-8i-cable-0p75m.md) | 7 | candidate | node | provisional | x8 link from a host adapter port to a riser board |
@@ -21,14 +22,13 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [intel-arc-pro-b70](intel-arc-pro-b70.md) | 1 | candidate | node | provisional | GPU under test (blower cooler), 3 baseboard positions |
 | [keystone-1451b](keystone-1451b.md) | 8 | selected | node | provisional | H12D-8D motherboard standoffs on the printed mount, screwed from below through its sections |
 | [m3-ff-standoff-10mm](m3-ff-standoff-10mm.md) | 28 | candidate | node | provisional | riser board standoffs on the baseboard nut channels |
-| [mains-power](mains-power.md) | 1 | unspecified | rack | BLOCKED | AC supply for the 2800 W PSU |
+| [mains-power](mains-power.md) | 1 | unspecified | rack | BLOCKED | AC supply for the 3000 W PSU |
 | [nvidia-rtx-3090-fe](nvidia-rtx-3090-fe.md) | 1 | candidate | node | provisional | GPU under test (flow-through cooler), 4 baseboard positions |
 | [nvidia-rtx-4090-fe](nvidia-rtx-4090-fe.md) | 1 | candidate | node | provisional | GPU under test (flow-through cooler), 4 baseboard positions |
 | [obt-pcie-support](obt-pcie-support.md) | 14 | selected | node | pass | GPU bracket posts (two per card) |
-| [pcie-8pin-splitter](pcie-8pin-splitter.md) | 5 | candidate | node | provisional | feeds two riser boards (75 W each) from one PSU 6+2 lead |
+| [pcie-8pin-splitter](pcie-8pin-splitter.md) | 3 | candidate | node | provisional | feeds two riser boards (75 W each) from one PSU 6+2 lead |
 | [psu-modular-cables](psu-modular-cables.md) | 1 | candidate | node | - | power leads from the PSU to the GPUs, riser boards and board |
 | [rack-cabinet](rack-cabinet.md) | 1 | unspecified | rack | BLOCKED | cabinet that receives the GPU lab shelf |
-| [super-flower-leadex-2800w](super-flower-leadex-2800w.md) | 1 | selected | node | provisional | node PSU: board, CPU, GPUs and riser boards |
 | [wurth-970140324](wurth-970140324.md) | 14 | selected | node | pass | GPU post bases, bearing directly on the steel shelf |
 | [zotac-rtx-5090-solid](zotac-rtx-5090-solid.md) | 1 | candidate | node | provisional | GPU under test (open-air cooler), 5 baseboard positions |
 

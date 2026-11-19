@@ -2,7 +2,7 @@
 
 A test node for mixed GPUs. One HUANANZHI H12D-8D feeds seven cards over MCIO cables: each x16 slot is split x8x8 and drives two cabled riser boards. The cards stand upright on two printed 13-position baseboards that run along the shelf depth, with their brackets on metal posts. Each GPU is meant to be passed through to its own VM with CloudRift, so every card can run its own driver.
 
-**Status: design.** Nothing is bought, printed or fitted. The CAD and checks pass on the numbers given, but the riser board outline, the host adapter envelope, the bracket post offsets and the PSU depth are not measured. The power budget passes only with the GPU power caps below.
+**Status: design.** Nothing is bought, printed or fitted. The CAD and checks pass on the numbers given, but the riser board outline, the host adapter envelope and the bracket post offsets are not measured. The power budget passes only with the GPU power caps below.
 
 ![Assembly renders](models/renders/assembly.png)
 
@@ -11,7 +11,7 @@ A test node for mixed GPUs. One HUANANZHI H12D-8D feeds seven cards over MCIO ca
 | Item | Where |
 | --- | --- |
 | [Hammond RSUS1931BK1](parts/hammond-rsus1931bk1.md) | 422.7 × 787.4 mm sliding shelf, 39 kg rating |
-| [Super Flower Leadex 2800W](parts/super-flower-leadex-2800w.md) | Front left, on its side, modular face toward the rear so the leads run straight back past the card tails. Held at its AC face by AIPC's [PSU bracket](parts/psu_bracket.md), turned 180 degrees, with two M4 bolts through the deck |
+| [Corsair WS3000](parts/corsair-ws3000.md) | Front left, on its side, modular face toward the rear so the leads run straight back past the card tails. Held at its AC face by AIPC's [PSU bracket](parts/psu_bracket.md), turned 180 degrees, with two M4 bolts through the deck |
 | [H12D-8D](parts/huananzhi-h12d-8d.md) | Front right, I/O edge facing the rack front, on the same printed mount as AIPC's Berserk: the [rail section](parts/h12d_mobo_adapter_rail.md) and the [far section](parts/atx_mobo_adapter_front.md), turned 180 degrees, with 3/8 in standoffs on top and five M3 bolts through the deck. The rail is flush with the deck front |
 | [C-Payne CP-0120](parts/cpayne-cp0120-mcio-host-adapter.md) × 4 | In the four x16 slots, two MCIO 8i ports each (x8x8) |
 | [Baseboards](parts/gpulab_baseboard.md) × 2 | 172.8 × 257.8 × 6 mm PETG, end to end along the deck from Y 264.9 to 786.9 mm: 26 positions on one 20.32 mm pitch |
@@ -19,43 +19,46 @@ A test node for mixed GPUs. One HUANANZHI H12D-8D feeds seven cards over MCIO ca
 | [Power leads](parts/psu-modular-cables.md) | Back along the left edge of the deck past the card tails; GPU leads to each card's tail end or over its top edge, riser leads low through the gap in front of each card, board leads across to the 24-pin and EPS |
 | Posts × 14 | Wurth 970140324 hex bases through the baseboard onto the steel, Open Benchtable rods on top: two per card under the bracket tabs, as in AIPC |
 
-Cards stand across the shelf width with the bracket on the right and the tail to the left, cooler side toward the rear. Each card takes enough positions for its thickness plus an air gap (18 mm for open-air and flow-through coolers, 3 mm for blowers). The rearmost card's fans face the open rack space past the deck end.
+Cards stand across the shelf width with the bracket on the right and the tail to the left, cooler side toward the rear. Each card takes enough positions for its thickness plus an air gap (18 mm for open-air and flow-through coolers, 3 mm for blowers). Cards run from the most to the least powerful (capped) away from the board, so the heaviest leads stay shortest. The exception is the RTX 3090 FE, which goes last: a two-slot blower there would put its rear post's 12 mm backing washer on the shelf's rear fold. The 3090 is a fair rear card anyway: at its 250 W cap it draws less than the R9700, and its flow-through cooler vents into the open rack space past the deck end.
 
 | Positions | Card | Cooler | Air gap |
 | --- | --- | --- | --- |
-| 1–3 | [AMD Radeon AI PRO R9700](parts/amd-radeon-ai-pro-r9700.md) | blower | 21.0 mm |
-| 4–6 | [ASRock Arc Pro B60 Creator](parts/asrock-arc-pro-b60-creator.md) | blower | 22.0 mm |
-| 7–9 | [Intel Arc Pro B70](parts/intel-arc-pro-b70.md) | blower | 22.0 mm |
+| 1–5 | [Zotac RTX 5090 Solid](parts/zotac-rtx-5090-solid.md) | open-air | 33.8 mm |
+| 6–9 | [RTX 4090 FE](parts/nvidia-rtx-4090-fe.md) | flow-through | 20.3 mm |
 | 10–13 | [AMD RX 7900 XTX](parts/amd-rx-7900-xtx-reference.md) | open-air | 29.8 mm |
-| 14–17 | [RTX 3090 FE](parts/nvidia-rtx-3090-fe.md) | flow-through | 27.3 mm |
-| 18–21 | [RTX 4090 FE](parts/nvidia-rtx-4090-fe.md) | flow-through | 20.3 mm |
-| 22–25 | [Zotac RTX 5090 Solid](parts/zotac-rtx-5090-solid.md) | open-air | 13.5 mm to the deck end |
+| 14–16 | [AMD Radeon AI PRO R9700](parts/amd-radeon-ai-pro-r9700.md) | blower | 21.0 mm |
+| 17–19 | [Intel Arc Pro B70](parts/intel-arc-pro-b70.md) | blower | 22.0 mm |
+| 20–22 | [ASRock Arc Pro B60 Creator](parts/asrock-arc-pro-b60-creator.md) | blower | 22.0 mm |
+| 23–25 | [RTX 3090 FE](parts/nvidia-rtx-3090-fe.md) | flow-through | 7.0 mm to the deck end |
 
 Position 0 stays empty: a riser there would reach over the board's far edge.
 
-The reused AIPC mount is what makes the depth tight. Its rail runs 16.5 mm in front of the I/O edge (it keeps Berserk's eight V100 post holes, unused here), and the board sits 6 mm higher than on bare standoffs, level with the riser boards. With the rail flush at the deck front and baseboard B 0.5 mm from the deck rear, riser 1 clears the board's far edge by 1.7 mm and the mount clears baseboard A by 1.4 mm. The layout generator asserts on collisions, air gaps, riser screws landing in the baseboard slots, cards staying on the deck, and MCIO cable reach. All seven routes fit a 0.75 m cable; the 5090's is tightest, with 64 mm spare. The three blower cards would also fit 0.45 m cables. The cards top out at 160 mm above the deck, and the leads over the top-edge connectors at 205 mm. The parts with a known mass put 18.7 kg on the shelf (the R9700's mass is unknown). Coordinates, routes and the deck drill plan are in [models/gpulab-fit-report.json](models/gpulab-fit-report.json).
+The reused AIPC mount is what makes the depth tight. Its rail runs 16.5 mm in front of the I/O edge (it keeps Berserk's eight V100 post holes, unused here), and the board sits 6 mm higher than on bare standoffs, level with the riser boards. With the rail flush at the deck front and baseboard B 0.5 mm from the deck rear, riser 1 clears the board's far edge by 1.7 mm and the mount clears baseboard A by 1.4 mm. The layout generator asserts on collisions, air gaps, riser screws landing in the baseboard slots, cards staying on the deck, and MCIO cable reach. All seven routes fit a 0.75 m cable; the rear 3090's is tightest, with 44 mm spare. The cards top out at 160 mm above the deck, and the leads over the top-edge connectors at 205 mm. The parts with a known mass put 20.1 kg on the shelf (the R9700's mass is unknown). Coordinates, routes and the deck drill plan are in [models/gpulab-fit-report.json](models/gpulab-fit-report.json).
 
 ### Power leads
 
 The leads are modeled approximately: round bundles (8–15 mm) on orthogonal routes, with 40 mm of straight lead above each top-edge connector before the bend. They are checked against every rigid part but not against each other. Where each card's power connector sits (tail end or a distance along the top edge) and where the board's 24-pin and EPS sit are allowances from product photos and ATX convention, recorded in the library specs (`part.toml`).
 
-| Lead | Modeled route | Buy at least (+10%) |
-| --- | ---: | ---: |
-| R9700 12V-2x6 | 264 mm | 290 mm |
-| B60 8-pin | 316 mm | 348 mm |
-| B70 8-pin | 376 mm | 414 mm |
-| 7900 XTX 8-pin × 2 | 568 mm | 625 mm |
-| 3090 FE 12V-2x6 | 701 mm | 771 mm |
-| 4090 FE 12V-2x6 | 760 mm | 836 mm |
-| 5090 12V-2x6 | 829 mm | 912 mm |
-| Riser 6-pin leads 1–7 | 322–736 mm | 354–810 mm |
-| Board 24-pin / EPS × 2 | 176 / 325–337 mm | 194 / 358–371 mm |
+Stock lengths are Corsair's published WS3000 cable lengths. A GPU's 8-pin input takes the first connector of a dual PCIe cable (600 mm); a riser may take the second (750 mm).
 
-The PSU's stock lead lengths are not published. The rear GPUs and risers likely need longer leads or extensions; measure the stock set against this table.
+| Lead | Modeled route | Buy at least (+10%) | Stock | Extension |
+| --- | ---: | ---: | ---: | --- |
+| 5090 12V-2x6 | 526 mm | 579 mm | 675 mm | no |
+| 4090 FE 12V-2x6 | 630 mm | 693 mm | 675 mm | yes, marginal: the route fits with 7% slack |
+| 7900 XTX 8-pin × 2 | 615 / 650 mm | 677 / 715 mm | 600 mm | yes |
+| R9700 12V-2x6 | 519 mm | 571 mm | 675 mm | no |
+| B70 8-pin | 567 mm | 624 mm | 600 mm | yes |
+| B60 8-pin | 619 mm | 681 mm | 600 mm | yes |
+| 3090 FE 12V-2x6 | 915 mm | 1,006 mm | 675 mm | yes |
+| Riser 6-pin leads 1–4 | 367–620 mm | 403–682 mm | 750 mm | no |
+| Riser 6-pin leads 5–7 | 696–801 mm | 765–882 mm | 750 mm | yes |
+| Board 24-pin / EPS × 2 | 202 / 351–363 mm | 222 / 386–399 mm | 610 / 650 mm | no |
+
+The modeled routes are deliberately roundabout (they follow lanes along the left edge and climb over each card), so a dry run with the real cables may avoid some of these extensions. Use 16 AWG extensions rated for the connector, and never extend a 12V-2x6 lead through an adapter.
 
 ## Power
 
-The seven cards draw 2,460 W at stock limits; with the CPU, board and risers (295 W) the node would need about 2,755 W DC. The repo's rule loads a PSU to 80% at most, 2,240 W for the 2800 W unit, so every card runs with a power cap, set at boot. With the caps the node needs 2,205 W (79% of the PSU rating). The caps are recorded as `load_limited` in each card's `parts/<id>.toml`, so `make check` reports the budget as provisional.
+The seven cards draw 2,460 W at stock limits; with the CPU, board and risers (295 W) the node would need about 2,755 W DC. The repo's rule loads a PSU to 80% at most, 2,400 W for the 3000 W Corsair WS3000, so every card runs with a power cap, set at boot. With the caps the node needs 2,205 W (74% of the PSU rating, 195 W under the budget). The caps are recorded as `load_limited` in each card's `parts/<id>.toml`, so `make check` reports the budget as provisional.
 
 | Card | Stock | Cap | Set with |
 | --- | ---: | ---: | --- |
@@ -69,13 +72,13 @@ The seven cards draw 2,460 W at stock limits; with the CPU, board and risers (29
 
 Total: 1,910 W for the cards. Notes:
 
-- Benchmarks run at these caps, not at stock power. To test one card at stock, lower the others so the total stays under 1,945 W.
+- Benchmarks run at these caps, not at stock power. To test one card at stock, lower the others so the total stays under 2,105 W.
 - The minimum cap each driver accepts is not checked. AMD often allows only about 10% below stock, which is why the AMD caps are the mildest. Read the limit back after setting it (`nvidia-smi -q -d POWER`, `rocm-smi --showmaxpower`, `xpu-smi stats`). If a driver refuses a cap, lower another card's.
 - Set the caps in each VM or on the host before any load, and again after every reboot or driver reload. A card at stock power can overload the PSU.
 
-The 2800 W PSU accepts 200–240 V only and draws about 3 kW from the wall at full load, so the node needs a 240 V circuit (20 A or more).
+The WS3000 accepts 220–240 V only (16 A, C19 inlet) and draws about 3.3 kW from the wall at full load, so the node needs a 240 V circuit (20 A or more) and a C19 outlet.
 
-The PSU's six 6+2 leads are not enough for three GPUs' 8-pin inputs plus seven riser boards; five [8-pin splitters](parts/pcie-8pin-splitter.md) feed the risers in pairs (75 W each). Never put a splitter on a GPU's own connector.
+The WS3000 has eight 6+2 connectors on four dual cables. The GPUs take four (B60, B70 and the 7900 XTX's two), each on the first connector of its own cable; the other four feed the seven risers, one directly and three through [8-pin splitters](parts/pcie-8pin-splitter.md) that feed risers in pairs (75 W each). Never put a splitter on a GPU's own connector.
 
 ## Open questions
 
@@ -86,9 +89,9 @@ The full list is in [docs/system-check.md](docs/system-check.md). The ones that 
 3. **CP-0120 per-port REFCLK/PERST**: ask C-Payne.
 4. **Power caps** are enforced only by software (above). Also open: the **240 V circuit**, the **rack cabinet** and the **CPU cooler**, which is not chosen yet (100 mm envelope reserved).
 5. **Bracket seating.** The riser PCB sits 0.475 mm higher than the H12D PCB the AIPC posts were surveyed for. Check that brackets seat on the posts with each card fully inserted.
-6. **Lead lengths and connector positions**: measure the stock leads and each card's connector position (table above).
+6. **Lead lengths and connector positions**: check the extensions in the table above with the real cables, and measure each card's connector position.
 7. **Card support and airflow.** Cards hang from bracket and slot only, with no tail rest yet. There is no forced airflow; the open-air cards dump heat around themselves.
-8. **Reused AIPC mounts.** The PSU bracket assumes the 2800 W unit's rear face carries the standard ATX screw holes and that it lies on the same side as AIPC's PSUs; check both. The tight depth above rests on the photo-estimated riser width and the listed 245 mm board depth: dry-fit the board on its mount with riser 1 in place before printing the baseboards.
+8. **Reused AIPC mounts.** The PSU bracket assumes the WS3000's rear face carries the standard ATX screw holes and that it lies on the same side as AIPC's PSUs; check both. The tight depth above rests on the photo-estimated riser width and the listed 245 mm board depth: dry-fit the board on its mount with riser 1 in place before printing the baseboards.
 
 ## What's here
 

@@ -4,9 +4,8 @@ category = "purchased"
 evidence = "allowance"
 no_datasheet_reason = "Generic cable; choose 16 AWG and check the PSU lead is rated for both loads (2 x 75 W)."
 notes = """
-The PSU has six 6+2 leads, but the GPUs (7900 XTX 2, B60 1, B70 1) and the seven
-risers need eleven. Use splitters only on riser leads, never on a GPU's own
-connector: 2 x 75 W stays within one 150 W 8-pin rating.
+Turns one PSU 6+2 connector into two riser feeds. Use splitters only on riser
+leads, never on a GPU's own connector: 2 x 75 W stays within one 150 W 8-pin rating.
 """
 
 [model]

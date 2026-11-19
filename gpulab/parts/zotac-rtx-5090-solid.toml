@@ -21,7 +21,7 @@ evidence = "allowance"
 [[requires]]
 type = "dc-power"
 load_limited = 400.0
-note = "stock board power, including the 75 W slot power drawn through the riser; capped to 400 W for the 2800 W PSU budget: nvidia-smi -i <gpu> -pl 400, set at boot and confirm the driver accepts it"
+note = "stock board power, including the 75 W slot power drawn through the riser; capped to 400 W for the PSU budget: nvidia-smi -i <gpu> -pl 400, set at boot and confirm the driver accepts it"
 
 [assembly]
 match = ["^GPU_zotac_rtx_5090_solid$"]

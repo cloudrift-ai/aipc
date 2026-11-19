@@ -23,7 +23,7 @@ The PSU lies on the same side as AIPC's, so the two upper rear-face #6-32 holes 
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 18.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (48% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
-| provisional | value | `psu-restraint` | super-flower-leadex-2800w needs ATX 150 x 86 face; provided by psu_bracket |
+| BLOCKED | budget | `shelf-load` | load 20.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (52% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| provisional | value | `psu-restraint` | corsair-ws3000 needs ATX 150 x 86 face; provided by psu_bracket |
 | provisional | count | `psu-restraint` | need 1 x psu-restraint=atx 150 x 86 face, have 1 |
 

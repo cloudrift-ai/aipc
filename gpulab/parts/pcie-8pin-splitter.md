@@ -8,8 +8,10 @@ Library spec: [parts/purchased/pcie-8pin-splitter](../../parts/purchased/pcie-8p
 | --- | --- |
 | Role | feeds two riser boards (75 W each) from one PSU 6+2 lead |
 | Status | candidate |
-| Quantity | 5 |
+| Quantity | 3 |
 | Systems | node |
+
+The WS3000's eight 6+2 connectors cover the four GPU 8-pin inputs and four riser feeds; three splitters turn three of those into riser pairs.
 
 ## Assembly
 
@@ -19,6 +21,6 @@ Library spec: [parts/purchased/pcie-8pin-splitter](../../parts/purchased/pcie-8p
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 18.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (48% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
-| provisional | count | `pcie-8pin` | need 16 x pcie-8pin, have 16 |
+| BLOCKED | budget | `shelf-load` | load 20.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (52% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| provisional | count | `pcie-8pin` | need 14 x pcie-8pin, have 14 |
 

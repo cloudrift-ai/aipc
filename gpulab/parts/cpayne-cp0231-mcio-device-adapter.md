@@ -21,10 +21,10 @@ Library spec: [parts/purchased/cpayne-cp0231-mcio-device-adapter](../../parts/pu
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 18.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (48% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
-| provisional | budget | `dc-power` | load 2205.0 W of 2800.0 W x derate 0.8 = 2240.0 W (79% of rating); relies on configured limits of ['amd-radeon-ai-pro-r9700', 'amd-rx-7900-xtx-reference', 'asrock-arc-pro-b60-creator', 'intel-arc-pro-b70', 'nvidia-rtx-3090-fe', 'nvidia-rtx-4090-fe', 'zotac-rtx-5090-solid']; unlimited peak 2755.0 W |
+| BLOCKED | budget | `shelf-load` | load 20.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (52% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| provisional | budget | `dc-power` | load 2205.0 W of 3000.0 W x derate 0.8 = 2400.0 W (74% of rating); relies on configured limits of ['amd-radeon-ai-pro-r9700', 'amd-rx-7900-xtx-reference', 'asrock-arc-pro-b60-creator', 'intel-arc-pro-b70', 'nvidia-rtx-3090-fe', 'nvidia-rtx-4090-fe', 'zotac-rtx-5090-solid']; unlimited peak 2755.0 W |
 | provisional | count | `mcio-8i-cable` | need 7 x mcio-8i-cable, have 7 |
-| provisional | count | `pcie-8pin` | need 16 x pcie-8pin, have 16 |
+| provisional | count | `pcie-8pin` | need 14 x pcie-8pin, have 14 |
 | provisional | value | `riser-standoff` | cpayne-cp0231-mcio-device-adapter needs M3 F/F 10 mm; provided by m3-ff-standoff-10mm |
 | provisional | count | `riser-standoff` | need 28 x riser-standoff=m3 f/f 10 mm, have 28 |
 | pass | value | `riser-x16-slot` | amd-radeon-ai-pro-r9700 needs PCIe x16; provided by cpayne-cp0231-mcio-device-adapter |

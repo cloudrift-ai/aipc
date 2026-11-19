@@ -81,9 +81,13 @@ FLANGE_BELOW_ROD_TOP = 4.0  # AIPC: flange Z141, rod top Z145
 ATX_SITES = {"A": (0.65, 0.4), "C": (5.55, 0.4), "F": (11.75, 1.3), "G": (0.65, 6.5), "H": (5.55, 6.5),
              "K": (0.65, 9.35), "L": (5.55, 9.35), "M": (11.75, 9.35)}  # ATX 2.2 datums (inches), H12D populated sites
 
-# Cards in order from the board toward the rear; every value comes from its part.toml.
-CARDS = ["amd-radeon-ai-pro-r9700", "asrock-arc-pro-b60-creator", "intel-arc-pro-b70",
-         "amd-rx-7900-xtx-reference", "nvidia-rtx-3090-fe", "nvidia-rtx-4090-fe", "zotac-rtx-5090-solid"]
+# Cards in order from the board toward the rear, by capped power, so the heaviest leads stay shortest:
+# 5090 400 W, 4090 320, 7900 XTX 320, R9700 270, B70 190, B60 160. The 3090 FE (250 W cap) goes last:
+# a two-position blower there would put its rear post's 12 mm backing washer on the shelf's rear fold,
+# and the flow-through 3090 vents into the open rack space past the deck end.
+# Every value comes from its part.toml.
+CARDS = ["zotac-rtx-5090-solid", "nvidia-rtx-4090-fe", "amd-rx-7900-xtx-reference", "amd-radeon-ai-pro-r9700",
+         "intel-arc-pro-b70", "asrock-arc-pro-b60-creator", "nvidia-rtx-3090-fe"]
 
 
 def box(x0, y0, z0, dx, dy, dz):
@@ -170,11 +174,11 @@ cpu_x, cpu_y = board_xy(BOARD.dim("cpu_center_x"), BOARD.dim("cpu_center_from_io
 cw, cd, ch = CPU_COOLER_ENVELOPE
 add("H12D_SP3_CPU_and_cooler_envelope", box(cpu_x - cw / 2, cpu_y - cd / 2, BOARD_TOP, cw, cd, ch), cq.Color(0.55, 0.55, 0.6))
 
-PSU = spec.get("super-flower-leadex-2800w")
-PSU_X = EDGE  # front left, on its side: the 85 mm face is the footprint width; modular face toward the rear
+PSU = spec.get("corsair-ws3000")
+PSU_X = EDGE  # front left, on its side: the 86 mm face is the footprint width; modular face toward the rear
 PSU_Y = PSU_BRACKET_MARGIN + psu_bracket.FOOT_REACH  # AC face; the bracket and its foot sit in front of it
 PSU_FACE_Y = PSU_Y + PSU.dim("depth")
-add("PSU_Super_Flower_2800W", box(PSU_X, PSU_Y, 0.0, PSU.dim("height"), PSU.dim("depth"), PSU.dim("width")), cq.Color(0.15, 0.15, 0.17))
+add("PSU_Corsair_WS3000", box(PSU_X, PSU_Y, 0.0, PSU.dim("height"), PSU.dim("depth"), PSU.dim("width")), cq.Color(0.15, 0.15, 0.17))
 # AIPC's bracket, turned 180 degrees: its 86 mm frame spans the PSU face from PSU_X; the LED bypass overhangs the low-X side.
 BRACKET_FACE_W = 86.0
 bracket_print = psu_bracket.bracket(berserk=True)
@@ -358,14 +362,20 @@ def tube(points, d):
 
 face_slots = [(PSU_X + 12 + 18 * c, z) for z in (25.0, 55.0, 85.0, 115.0, 140.0) for c in range(4)]
 cables, cable_targets = [], {}
+# Stock reach per lead kind: GPU 8-pin inputs take the first connector of a dual cable, risers may take the second.
+STOCK_REACH = {"12v-2x6": PSU.dim("cable_12v_2x6_length"), "pcie-8pin": PSU.dim("cable_pcie_first_connector"),
+               "riser": PSU.dim("cable_pcie_length"), "atx-24pin": PSU.dim("cable_atx24_length"),
+               "eps-8pin-cpu": PSU.dim("cable_eps_length")}
 
 
 def add_cable(name, points, kind, target):
     d = CABLE_D[kind]
     length = sum((cq.Vector(*b) - cq.Vector(*a)).Length for a, b in zip(points, points[1:], strict=False))
     add(name, tube(points, d), cq.Color(0.9, 0.75, 0.1) if kind == "riser" else cq.Color(0.95, 0.55, 0.1))
-    cable_targets[name] = {target, "PSU_Super_Flower_2800W"}
-    cables.append({"cable": name, "kind": kind, "to": target, "route_mm": round(length), "buy_at_least_mm": round(length * CABLE_SLACK_FACTOR)})
+    cable_targets[name] = {target, "PSU_Corsair_WS3000"}
+    need = length * CABLE_SLACK_FACTOR
+    cables.append({"cable": name, "kind": kind, "to": target, "route_mm": round(length), "buy_at_least_mm": round(need),
+                   "stock_mm": STOCK_REACH[kind], "extension_needed": need > STOCK_REACH[kind]})
 
 
 def from_psu(k):
@@ -496,7 +506,7 @@ masses = {pid: (p.dims["mass"].value or 0) * p.quantity for pid, p in spec.load_
           if "mass" in p.dims and p.data.get("on_shelf", True)}
 top = max(s.val().BoundingBox().zmax for s in solids.values())
 report = {
-    "status": "design; nothing bought or fitted. Riser outline, host adapter envelope, card post offsets and PSU depth are not measured.",
+    "status": "design; nothing bought or fitted. Riser outline, host adapter envelope and card post offsets are not measured.",
     "deck_mm": [W, D], "positions": N, "pitch_mm": PITCH,
     "board_mount": {"parts": list(SECTION_PART.values()), "source": "AIPC library models, hwkit.components.atx_mobo_mount",
                     "io_edge_y_mm": round(BY, 2), "pcb_bottom_z_mm": BZ, "rail_beyond_io_edge_mm": round(io_reach, 2),
@@ -517,7 +527,8 @@ report = {
                      "basis": "AIPC survey: flange 123.875 mm above an H12D PCB on 6 mm rail + 3/8 in standoffs (the riser PCB stands in for it); OBT rod length is an allowance"},
     "cards": placements, "first_position_used": first_free, "rear_card_free_to_deck_end_mm": round(rear_free, 1), "positions_used": next_free - first_free, "mcio_routes": routes,
     "max_component_z_mm": round(top, 1),
-    "power_cables": cables, "power_cable_basis": "approximate orthogonal routes; connector positions and bundle diameters are allowances",
+    "power_cables": cables, "power_cable_basis": "approximate orthogonal routes; connector positions and bundle diameters are allowances; "
+    "stock_mm is the PSU's published cable length (8-pin GPU inputs to the first connector of a dual cable, 600 mm)",
     "shelf_mass_kg": round(sum(masses.values()), 2), "shelf_rating_kg": SHELF.dim("load_rating"),
     "drill_plan": drill, "collision_pairs_checked": collision_pairs,
     "hammond": {k: shelf_report[k] for k in ("static_boolean_pairs_checked", "continuous_travel_envelope_pairs_checked")},

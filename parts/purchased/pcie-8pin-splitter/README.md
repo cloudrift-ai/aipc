@@ -7,15 +7,14 @@
 | ID | `pcie-8pin-splitter` |
 | Category | purchased |
 
-The PSU has six 6+2 leads, but the GPUs (7900 XTX 2, B60 1, B70 1) and the seven
-risers need eleven. Use splitters only on riser leads, never on a GPU's own
-connector: 2 x 75 W stays within one 150 W 8-pin rating.
+Turns one PSU 6+2 connector into two riser feeds. Use splitters only on riser
+leads, never on a GPU's own connector: 2 x 75 W stays within one 150 W 8-pin rating.
 
 ## Used in
 
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
-| [gpulab](../../../gpulab/parts/pcie-8pin-splitter.md) | 5 | candidate | feeds two riser boards (75 W each) from one PSU 6+2 lead |
+| [gpulab](../../../gpulab/parts/pcie-8pin-splitter.md) | 3 | candidate | feeds two riser boards (75 W each) from one PSU 6+2 lead |
 
 ## Model
 

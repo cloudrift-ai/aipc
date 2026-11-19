@@ -2,8 +2,8 @@
   "date": "2026-11-15",
   "summary": {
     "BLOCKED": 10,
-    "PROVISIONAL": 19,
-    "PASS": 12
+    "PROVISIONAL": 16,
+    "PASS": 15
   },
   "lint": [],
   "assembly_errors": [],
@@ -19,13 +19,13 @@
       ],
       "rule": "budget",
       "status": "BLOCKED",
-      "detail": "load 3060.0 W; capacity unknown",
+      "detail": "load 3260.0 W; capacity unknown",
       "contributors": [
-        "super-flower-leadex-2800w"
+        "corsair-ws3000"
       ],
       "weak_evidence": [
-        "mains-power:ac-power(unknown)",
-        "super-flower-leadex-2800w:ac-power(allowance)"
+        "corsair-ws3000:ac-power(allowance)",
+        "mains-power:ac-power(unknown)"
       ]
     },
     {
@@ -111,13 +111,14 @@
       ],
       "rule": "budget",
       "status": "BLOCKED",
-      "detail": "load 18.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (48% of rating); unknown load for ['amd-radeon-ai-pro-r9700']",
+      "detail": "load 20.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (52% of rating); unknown load for ['amd-radeon-ai-pro-r9700']",
       "contributors": [
         "amd-epyc-7702p",
         "amd-radeon-ai-pro-r9700",
         "amd-rx-7900-xtx-reference",
         "asrock-arc-pro-b60-creator",
         "atx_mobo_adapter_front",
+        "corsair-ws3000",
         "cpayne-cp0120-mcio-host-adapter",
         "cpayne-cp0231-mcio-device-adapter",
         "cpayne-mcio-8i-cable-0p75m",
@@ -134,7 +135,6 @@
         "pcie-8pin-splitter",
         "psu-modular-cables",
         "psu_bracket",
-        "super-flower-leadex-2800w",
         "wurth-970140324",
         "zotac-rtx-5090-solid"
       ],
@@ -144,6 +144,7 @@
         "amd-rx-7900-xtx-reference:shelf-load(review)",
         "asrock-arc-pro-b60-creator:shelf-load(listing)",
         "atx_mobo_adapter_front:shelf-load(allowance)",
+        "corsair-ws3000:shelf-load(listing)",
         "cpayne-cp0120-mcio-host-adapter:shelf-load(assumed)",
         "cpayne-cp0231-mcio-device-adapter:shelf-load(assumed)",
         "cpayne-mcio-8i-cable-0p75m:shelf-load(assumed)",
@@ -160,48 +161,8 @@
         "pcie-8pin-splitter:shelf-load(assumed)",
         "psu-modular-cables:shelf-load(assumed)",
         "psu_bracket:shelf-load(allowance)",
-        "super-flower-leadex-2800w:shelf-load(review)",
         "wurth-970140324:shelf-load(assumed)",
         "zotac-rtx-5090-solid:shelf-load(review)"
-      ]
-    },
-    {
-      "type": "12v-2x6",
-      "systems": [
-        "node"
-      ],
-      "requirers": [
-        "amd-radeon-ai-pro-r9700",
-        "nvidia-rtx-3090-fe",
-        "nvidia-rtx-4090-fe",
-        "zotac-rtx-5090-solid"
-      ],
-      "providers": [
-        "super-flower-leadex-2800w"
-      ],
-      "rule": "count",
-      "status": "PROVISIONAL",
-      "detail": "need 4 x 12v-2x6, have 4",
-      "weak_evidence": [
-        "super-flower-leadex-2800w:12v-2x6(review)"
-      ]
-    },
-    {
-      "type": "atx-24pin",
-      "systems": [
-        "node"
-      ],
-      "requirers": [
-        "huananzhi-h12d-8d"
-      ],
-      "providers": [
-        "super-flower-leadex-2800w"
-      ],
-      "rule": "count",
-      "status": "PROVISIONAL",
-      "detail": "need 1 x atx-24pin, have 1",
-      "weak_evidence": [
-        "super-flower-leadex-2800w:atx-24pin(review)"
       ]
     },
     {
@@ -250,11 +211,11 @@
       ],
       "requirers": [],
       "providers": [
-        "super-flower-leadex-2800w"
+        "corsair-ws3000"
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 2205.0 W of 2800.0 W x derate 0.8 = 2240.0 W (79% of rating); relies on configured limits of ['amd-radeon-ai-pro-r9700', 'amd-rx-7900-xtx-reference', 'asrock-arc-pro-b60-creator', 'intel-arc-pro-b70', 'nvidia-rtx-3090-fe', 'nvidia-rtx-4090-fe', 'zotac-rtx-5090-solid']; unlimited peak 2755.0 W",
+      "detail": "load 2205.0 W of 3000.0 W x derate 0.8 = 2400.0 W (74% of rating); relies on configured limits of ['amd-radeon-ai-pro-r9700', 'amd-rx-7900-xtx-reference', 'asrock-arc-pro-b60-creator', 'intel-arc-pro-b70', 'nvidia-rtx-3090-fe', 'nvidia-rtx-4090-fe', 'zotac-rtx-5090-solid']; unlimited peak 2755.0 W",
       "contributors": [
         "amd-epyc-7702p",
         "amd-radeon-ai-pro-r9700",
@@ -269,26 +230,7 @@
       ],
       "weak_evidence": [
         "cpayne-cp0231-mcio-device-adapter:dc-power(allowance)",
-        "huananzhi-h12d-8d:dc-power(assumed)",
-        "super-flower-leadex-2800w:dc-power(review)"
-      ]
-    },
-    {
-      "type": "eps-8pin-cpu",
-      "systems": [
-        "node"
-      ],
-      "requirers": [
-        "huananzhi-h12d-8d"
-      ],
-      "providers": [
-        "super-flower-leadex-2800w"
-      ],
-      "rule": "count",
-      "status": "PROVISIONAL",
-      "detail": "need 2 x eps-8pin-cpu, have 2",
-      "weak_evidence": [
-        "super-flower-leadex-2800w:eps-8pin-cpu(review)"
+        "huananzhi-h12d-8d:dc-power(assumed)"
       ]
     },
     {
@@ -431,16 +373,15 @@
         "pcie-8pin-splitter"
       ],
       "providers": [
-        "pcie-8pin-splitter",
-        "super-flower-leadex-2800w"
+        "corsair-ws3000",
+        "pcie-8pin-splitter"
       ],
       "rule": "count",
       "status": "PROVISIONAL",
-      "detail": "need 16 x pcie-8pin, have 16",
+      "detail": "need 14 x pcie-8pin, have 14",
       "weak_evidence": [
         "cpayne-cp0231-mcio-device-adapter:pcie-8pin(photo-estimate)",
-        "pcie-8pin-splitter:pcie-8pin(allowance)",
-        "super-flower-leadex-2800w:pcie-8pin(review)"
+        "pcie-8pin-splitter:pcie-8pin(allowance)"
       ]
     },
     {
@@ -486,18 +427,17 @@
         "node"
       ],
       "requirers": [
-        "super-flower-leadex-2800w"
+        "corsair-ws3000"
       ],
       "providers": [
         "psu_bracket"
       ],
       "rule": "value",
       "status": "PROVISIONAL",
-      "detail": "super-flower-leadex-2800w needs ATX 150 x 86 face; provided by psu_bracket",
-      "note": "150 x 85 mm face (HWBusters; Puget lists 86); the rear-face screw pattern is assumed ATX",
+      "detail": "corsair-ws3000 needs ATX 150 x 86 face; provided by psu_bracket",
+      "note": "150 x 86 mm face per Corsair; the rear-face screw pattern is assumed ATX",
       "weak_evidence": [
-        "psu_bracket:psu-restraint(allowance)",
-        "super-flower-leadex-2800w:psu-restraint(review)"
+        "psu_bracket:psu-restraint(allowance)"
       ]
     },
     {
@@ -506,7 +446,7 @@
         "node"
       ],
       "requirers": [
-        "super-flower-leadex-2800w"
+        "corsair-ws3000"
       ],
       "providers": [
         "psu_bracket"
@@ -515,8 +455,7 @@
       "status": "PROVISIONAL",
       "detail": "need 1 x psu-restraint=atx 150 x 86 face, have 1",
       "weak_evidence": [
-        "psu_bracket:psu-restraint(allowance)",
-        "super-flower-leadex-2800w:psu-restraint(review)"
+        "psu_bracket:psu-restraint(allowance)"
       ]
     },
     {
@@ -559,6 +498,41 @@
       ]
     },
     {
+      "type": "12v-2x6",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "amd-radeon-ai-pro-r9700",
+        "nvidia-rtx-3090-fe",
+        "nvidia-rtx-4090-fe",
+        "zotac-rtx-5090-solid"
+      ],
+      "providers": [
+        "corsair-ws3000"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 4 x 12v-2x6, have 4",
+      "weak_evidence": []
+    },
+    {
+      "type": "atx-24pin",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "corsair-ws3000"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 1 x atx-24pin, have 1",
+      "weak_evidence": []
+    },
+    {
       "type": "cpu-socket",
       "systems": [
         "node"
@@ -573,6 +547,22 @@
       "status": "PASS",
       "detail": "amd-epyc-7702p needs SP3; provided by huananzhi-h12d-8d",
       "note": "",
+      "weak_evidence": []
+    },
+    {
+      "type": "eps-8pin-cpu",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "huananzhi-h12d-8d"
+      ],
+      "providers": [
+        "corsair-ws3000"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 2 x eps-8pin-cpu, have 2",
       "weak_evidence": []
     },
     {
@@ -801,6 +791,16 @@
       "detail": "not fetched locally: https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html (run make datasheets)"
     },
     {
+      "part": "corsair-ws3000",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.corsair.com/explorer/diy-builder/power-supply-units/corsair-ws3000-everything-you-need-to-know/ (run make datasheets)"
+    },
+    {
+      "part": "corsair-ws3000",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.corsair.com/us/en/p/psu/cp-9020312-na/ws3000-3000w-atx-3-1-fully-modular-workstation-power-supply-cp-9020312-na (run make datasheets)"
+    },
+    {
       "part": "fasteners",
       "status": "BLOCKED",
       "detail": "Generic ISO metric and UNC hardware; each build chooses lengths from its own stacks."
@@ -863,6 +863,10 @@
     },
     "atx_mobo_adapter_front": {
       "allowance": 1
+    },
+    "corsair-ws3000": {
+      "datasheet": 8,
+      "listing": 1
     },
     "cpayne-cp0120-mcio-host-adapter": {
       "allowance": 3,
@@ -938,10 +942,6 @@
     },
     "rack-cabinet": {
       "unknown": 3
-    },
-    "super-flower-leadex-2800w": {
-      "review": 3,
-      "listing": 1
     },
     "wurth-970140324": {
       "datasheet": 3,

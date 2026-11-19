@@ -18,15 +18,12 @@ disagree on depth (200 mm review and PCPartPicker, 220 mm Puget): the model uses
 
 ## Used in
 
-| Build | Qty | Status | Role |
-| --- | ---: | --- | --- |
-| [gpulab](../../../gpulab/parts/super-flower-leadex-2800w.md) | 1 | selected | node PSU: board, CPU, GPUs and riser boards |
+- No build references this part.
 
 ## Model
 
 - [super-flower-leadex-2800w.step](super-flower-leadex-2800w.step)
 - Source: constructed
-- Written by the `gpulab` build's generator
 
 ## Datasheets
 

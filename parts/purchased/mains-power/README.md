@@ -15,7 +15,7 @@ and PDU ratings and outlet types it needs in its own parts/mains-power.toml.
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
 | [aipc](../../../aipc/parts/mains-power.md) | 1 | unspecified | AC supply for both PSUs |
-| [gpulab](../../../gpulab/parts/mains-power.md) | 1 | unspecified | AC supply for the 2800 W PSU |
+| [gpulab](../../../gpulab/parts/mains-power.md) | 1 | unspecified | AC supply for the 3000 W PSU |
 
 ## Model
 

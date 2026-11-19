@@ -1,8 +1,9 @@
 part = "purchased/pcie-8pin-splitter"
 role = "feeds two riser boards (75 W each) from one PSU 6+2 lead"
 status = "candidate"
-quantity = 5
+quantity = 3
 systems = ["node"]
+notes = "The WS3000's eight 6+2 connectors cover the four GPU 8-pin inputs and four riser feeds; three splitters turn three of those into riser pairs."
 
 [assembly]
 not_modeled = "flexible cable"

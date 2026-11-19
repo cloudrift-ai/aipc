@@ -1,0 +1,22 @@
+part = "purchased/corsair-ws3000"
+role = "node PSU: board, CPU, GPUs and riser boards"
+status = "selected"
+quantity = 1
+systems = ["node"]
+notes = """
+Chosen over the Super Flower Leadex 2800W (160 W more budget, eight PCIe 6+2
+connectors, 45 mm shorter) and the ASUS Pro WS 3000W (only four 6+2).
+Stock 12V-2x6 leads are 675 mm: the 3090, 4090 and 5090 routes need
+extensions (see the fit report). Give each GPU's 8-pin input the first
+connector of its own dual cable; the second connectors feed riser pairs.
+"""
+
+[[requires]]
+type = "psu-restraint"
+value = "ATX 150 x 86 face"
+count = 1
+evidence = "datasheet"
+note = "150 x 86 mm face per Corsair; the rear-face screw pattern is assumed ATX"
+
+[assembly]
+match = ["^PSU_Corsair_WS3000$"]

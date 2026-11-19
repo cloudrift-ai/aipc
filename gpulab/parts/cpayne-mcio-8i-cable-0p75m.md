@@ -19,7 +19,7 @@ Library spec: [parts/purchased/cpayne-mcio-8i-cable-0p75m](../../parts/purchased
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `shelf-load` | load 18.7 kg of 39.0 kg x derate 1.0 = 39.0 kg (48% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| BLOCKED | budget | `shelf-load` | load 20.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (52% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 | provisional | count | `mcio-8i-cable` | need 7 x mcio-8i-cable, have 7 |
 | pass | count | `mcio-8i-port` | need 7 x mcio-8i-port, have 8 |
 
