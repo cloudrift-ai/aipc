@@ -47,7 +47,7 @@ headers and inlet/outlet temperatures.
 | pcb_width | 305 mm | datasheet | product page: Dimension 305*245MM ATX |
 | pcb_depth | 245 mm | datasheet | product page: Dimension 305*245MM ATX |
 | pcb_thickness | 1.6 mm | assumed |  |
-| slot1_plane_x | 142.5 mm | photo-estimate | AIPC berserk_platform: first slot plane from the PCB low-X edge, I/O edge toward +Y |
+| slot1_plane_x | 142.54 mm | standard | PCIe CEM 2.0 Fig. 6-14: 47.29 mm from ATX hole B (3.75 in from the PCB low-X edge); the earlier photo estimate was 142.5 |
 | slot_pitch | 40.64 mm | standard | PCIe CEM two-slot pitch; positions after slot 1 assumed on it |
 | cpu_center_x | 225.9 mm | photo-estimate | AIPC berserk_platform photo_xy(833,397) |
 | cpu_center_from_io_edge | 131.4 mm | photo-estimate | AIPC berserk_platform photo_xy(833,397) |

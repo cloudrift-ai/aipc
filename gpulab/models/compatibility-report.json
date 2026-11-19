@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-15",
+  "date": "2026-11-18",
   "summary": {
     "BLOCKED": 10,
     "PROVISIONAL": 16,
@@ -899,8 +899,8 @@
     "huananzhi-h12d-8d": {
       "datasheet": 2,
       "assumed": 2,
-      "photo-estimate": 3,
-      "standard": 1,
+      "standard": 2,
+      "photo-estimate": 2,
       "allowance": 2
     },
     "intel-arc-pro-b70": {

@@ -34,7 +34,7 @@ notes = "PCB plate plus BMC envelope; component positions photo-estimated."
 pcb_width = { value = 305.0, evidence = "datasheet", source = "product page: Dimension 305*245MM ATX" }
 pcb_depth = { value = 245.0, evidence = "datasheet", source = "product page: Dimension 305*245MM ATX" }
 pcb_thickness = { value = 1.6, evidence = "assumed" }
-slot1_plane_x = { value = 142.5, evidence = "photo-estimate", source = "AIPC berserk_platform: first slot plane from the PCB low-X edge, I/O edge toward +Y" }
+slot1_plane_x = { value = 142.54, evidence = "standard", source = "PCIe CEM 2.0 Fig. 6-14: 47.29 mm from ATX hole B (3.75 in from the PCB low-X edge); the earlier photo estimate was 142.5" }
 slot_pitch = { value = 40.64, evidence = "standard", source = "PCIe CEM two-slot pitch; positions after slot 1 assumed on it" }
 cpu_center_x = { value = 225.9, evidence = "photo-estimate", source = "AIPC berserk_platform photo_xy(833,397)" }
 cpu_center_from_io_edge = { value = 131.4, evidence = "photo-estimate", source = "AIPC berserk_platform photo_xy(833,397)" }

@@ -92,7 +92,7 @@ Dimensions not backed by a datasheet, standard or measurement, by part:
 - gpulab_baseboard: 1 allowance
 - h12d_mobo_adapter_rail: 1 allowance
 - hammond-rsus1931bk1: 1 allowance, 10 datasheet, 3 photo-estimate, 1 unknown
-- huananzhi-h12d-8d: 2 allowance, 2 assumed, 2 datasheet, 3 photo-estimate, 1 standard
+- huananzhi-h12d-8d: 2 allowance, 2 assumed, 2 datasheet, 2 photo-estimate, 2 standard
 - intel-arc-pro-b70: 1 allowance, 2 datasheet, 3 review
 - keystone-1451b: 1 assumed, 1 listing
 - m3-ff-standoff-10mm: 2 allowance, 1 assumed

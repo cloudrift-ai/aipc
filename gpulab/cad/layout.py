@@ -49,9 +49,9 @@ FRONT_MARGIN = 0.0  # the H12D rail section's I/O-side edge is flush with the de
 REAR_MARGIN = 0.5  # baseboard B end before the deck rear edge
 PSU_BRACKET_MARGIN = 1.0  # PSU bracket foot behind the deck front edge
 MOUNT_GAP = 0.5  # least free space between the H12D mount sections and baseboard A (both printed, on the deck)
-# AIPC's H12D rail keeps the post holes of Berserk's four dual-slot V100s: tabs 7 and 27 mm from each
-# cooler body, which starts 36 mm on the component side of its slot plane (aipc/cad/berserk_platform.py).
-RAIL_POST_BODY_OFFSET, RAIL_POST_TABS, RAIL_POST_Y = 36.0, (7.0, 27.0), 6.0
+# AIPC's H12D rail keeps the post holes of Berserk's four dual-slot V100s on their bracket
+# screw axes (aipc/cad/berserk_platform.py BRACKET_POST_X), 6 mm behind the I/O edge.
+RAIL_POST_Y = 6.0
 PLATE_T = 6.0  # baseboard thickness (same as the AIPC rails)
 POSITIONS_PER_BOARD = 13
 END_MARGIN = 7.0  # plate beyond the first and last post centre (AIPC EAR_WIDTH / 2)
@@ -116,7 +116,9 @@ STANDOFF_L = spec.dim("keystone-1451b", "length")
 RAIL_T = mobo_mount.THICKNESS
 # Board-local frame, as in AIPC: x from the PCB low-X edge, y from the edge opposite the I/O, I/O edge at y = BD.
 planes = [BOARD.dim("slot1_plane_x") - k * BOARD.dim("slot_pitch") for k in range(4)]
-rail_post_x = sorted(p - RAIL_POST_BODY_OFFSET + u for p in planes for u in RAIL_POST_TABS)
+# Same rule as AIPC's berserk_platform: each dual-slot card's rod holes sit on its
+# bracket screw notches, the PCB plane and one 20.32 mm slot pitch toward the cooler.
+rail_post_x = sorted(round(x, 2) for p in planes for x in (p, p - BOARD.dim("slot_pitch") / 2))
 sections, _joints = mobo_mount.build("gpulab", 0.0, 0.0, BW, BD, rail_post_x, RAIL_POST_Y)
 io_reach = max(f["shape"].val().BoundingBox().ymax for f in sections.values()) - BD  # rail beyond the I/O edge
 far_reach = -min(f["shape"].val().BoundingBox().ymin for f in sections.values())  # bars beyond the opposite edge

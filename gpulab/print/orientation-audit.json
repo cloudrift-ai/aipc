@@ -7,7 +7,7 @@
     },
     "h12d_mobo_adapter_rail": {
       "orientation": "flat, rotated 90 degrees; screw-head recesses up",
-      "downward_overhang_projected_mm2": 334.8,
+      "downward_overhang_projected_mm2": 317.36,
       "overhang_note": "the 2 mm GPU-tab groove roof only (audited in AIPC)"
     },
     "atx_mobo_adapter_front": {

@@ -41,9 +41,9 @@
       "highest_part_mm": 6.0,
       "occupied_bounds_mm": [
         3.255,
-        15.555,
+        19.915,
         266.745,
-        184.445
+        180.08499999999998
       ]
     },
     "03_atx_mobo_adapter_front": {
