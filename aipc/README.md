@@ -3,7 +3,7 @@
 Two PCs arranged front to back on a **Hammond RSUS1931BK1 sliding shelf**, using printed mounts instead of cases. The solid tray is **422.656 × 787.4 mm**, with factory-matched slides. The overhead GPU exhaust needs additional rack height.
 
 - **Berserk**: HUANANZHI H12D-8D with an AMD EPYC 7702P, **256 GB (8 × 32 GB) Micron DDR4-2933 ECC RDIMM**, and **four NVIDIA V100 PCIe** cards cooled by one 140 mm pressure fan through a printed hood and an overhead exhaust duct. Storage: **three 2 TB Micron NVMe drives (two 3400s, one 3500) in RAID 0** (6 TB nominal), holding the OS and model weights. Corsair H115i AIO at the front.
-- **Kenshin**: Gigabyte X870E AORUS PRO with a Ryzen 9 9950X3D and an **RTX 5090**. Lian Li GA II LITE 360 AIO at the rear.
+- **Kenshin**: Gigabyte X870E AORUS PRO with a Ryzen 9 9950X3D and an **RTX 5090**. Lian Li GA II LITE 360 AIO along the left edge. Kenshin is turned so its rear I/O and PCIe brackets face the right shelf edge, which keeps its ConnectX slot reachable.
 
 ![Shelf layout and side clearance](models/dual-pc-hammond-layout.png)
 
@@ -27,7 +27,7 @@ Everything is generated from Python ([CadQuery](https://cadquery.readthedocs.io/
 | [cad/](cad) | AIPC generators: [shelf_layout.py](cad/shelf_layout.py) builds the assembly and models; [print_jobs.py](cad/print_jobs.py) packs plates. Rendering, checks and slicing come from the shared [hwkit](../hwkit) package |
 | [build.toml](build.toml) | Build settings read by hwkit: assembly, printer, render sheets, generator scripts |
 
-The [assembly STEP](models/dual-pc-hammond-assembly.step) includes the solid deck, downward folds and illustrative factory slide envelopes. [Hammond dimensions and limitations](models/hammond-shelf-report.json): 711.2 mm travel, 457.2–711.2 mm mounting depth, 39 kg equipment limit; 2U mounting / 3U shelf clearance. The complete PC/duct assembly occupies more height. The deeper layout turns Kenshin 180°, clears its inward-facing ports, and places its GPU opposite the V100 hood. The rear radiator needs about 65 mm beyond the deck and longer printed feet on a 400 × 83 × 3 mm steel extension; verify cabinet depth and loaded deflection. Power down and disconnect rack cables and the roof duct before extending.
+The [assembly STEP](models/dual-pc-hammond-assembly.step) includes the solid deck, downward folds and illustrative factory slide envelopes. [Hammond dimensions and limitations](models/hammond-shelf-report.json): 711.2 mm travel, 457.2–711.2 mm mounting depth, 39 kg equipment limit; 2U mounting / 3U shelf clearance. The complete PC/duct assembly occupies more height. The 2026-11-16 layout (from the owner's mock-up) turns Kenshin 90° so its rear I/O, RTX 5090 and ConnectX brackets face the right shelf edge, puts its GA II radiator along the left edge behind the Hercules and its HX1200i along the rear. The Hercules and the radiator overhang the left edge up to 1 mm inside a 450 mm rack opening; the HX1200i and radiator overhang the rear by 24.5 and 18 mm. The rear steel extension is retired: every mount now bears on the deck. Kenshin's side-facing plugs project past the rack opening, so unplug them (or use right-angle plugs) before sliding the shelf. Power down and disconnect rack cables and the roof duct before extending.
 
 The previous StarTech/King Slide conversion and shim trials are retired. Buying the Hammond shelf has not been confirmed; its price remains blank in the parts sheet.
 

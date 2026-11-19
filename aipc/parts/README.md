@@ -68,5 +68,4 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | Part | Qty | Status | Systems | Worst check | Role |
 | --- | ---: | --- | --- | --- | --- |
 | [fan-power-harness](fan-power-harness.md) | 1 | design | berserk | provisional | feeds the San Ace motor from the PSU and passes PWM/tach to the QUADRO |
-| [rear-aio-steel-extension](rear-aio-steel-extension.md) | 1 | design | kenshin, shelf | - | carries the rear radiator feet beyond the deck |
 

@@ -14,10 +14,10 @@ note = "H115i fan screws reach Y-20, in front of the front rail plane at the dec
 
 [[requires]]
 type = "cabinet-rear-clearance"
-value = 176.3
+value = 135.7
 systems = ["rack"]
 evidence = "allowance"
-note = "rear AIO screw heads at Y852.5 behind the rear rail plane at Y711.2 (28 in rail distance) plus 35 mm driver reserve; more at shorter rail distances"
+note = "HX1200i rear face at Y811.9 (24.5 mm past the deck) behind the rear rail plane at Y711.2 (28 in rail distance) plus 35 mm reserve; the side radiator ends at Y805.4; more at shorter rail distances"
 
 [[requires]]
 type = "cabinet-height-above-shelf"
@@ -52,3 +52,8 @@ reason = "24-pin latch and cable projection"
 id = "berserk-ethernet"
 match = ["^Berserk_Ethernet_"]
 reason = "RJ45 boot and cable bend"
+
+[[keepouts]]
+id = "kenshin-connectx-slot"
+match = ["^Kenshin_ConnectX-4_Lx_PCIe_x4_card_envelope$"]
+reason = "ConnectX-4 Lx in Kenshin's chipset slot behind the RTX 5090 (owner mock-up 2026-11-16); the card part stays not_modeled until Berserk's riser position is chosen too"

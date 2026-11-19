@@ -1,4 +1,9 @@
-"""Rear 360 mm AIO: front-style bearing frames and a matching inward brace.
+"""Side 360 mm AIO: front-style bearing frames and a matching inward brace.
+
+Built in the radiator-local frame (length along +X, hose end at low X, inner
+face toward -Y, fans toward +Y). shelf_layout turns the group +90 degrees
+about Z onto the deck's left edge: hose end toward the rack front, fans
+exhausting past the left deck edge, feet bearing directly on the deck.
 
 Only the radiator/fan pitch and frame envelope adapt to the smaller fan size.
 Fastener diameters and structural thicknesses are retained, not scaled down.
@@ -13,9 +18,12 @@ FOOT_X, FOOT_W, REACH = 28.0, 80.0, 75.0
 ANCHORS = ((42.0, 60.0), (100.0, 60.0))
 LEDGE_W, LEDGE_D = 64.0, 27.5
 RADIATOR_Z = (27.5, 132.5)
-SUPPORT_T = 3.0  # steel extension under all rear radiator mounts
+SUPPORT_T = 0.0  # feet bear directly on the deck; the rear steel extension is retired
 BRACE_PART = "fan120_aio_hose_brace"
-BRACE_HEIGHT, BRACE_X0 = 142.0, 56.25
+# Brace on the unused inner threads of fan 2 (local X158.5), between the two
+# bearing frames. At the hose end it left only 11.9 mm between itself and the
+# V100 hood corner for the two 14 mm hoses, so the hose end is kept clear.
+BRACE_HEIGHT, BRACE_X0 = 142.0, 176.25
 BRACE_SCREW_X = BRACE_X0-front_brace.SCREW_X
 
 
@@ -73,12 +81,12 @@ def report(radiator_front_y):
         "shelf_slot_length_width_mm":[front_brace.SHELF_SLOT_L,front_brace.SHELF_SLOT_W],
         "shelf_slot_adjustment_mm":[-front_brace.SHELF_TRAVEL,front_brace.SHELF_TRAVEL],
         "web_face_foot_thickness_mm":[front_brace.WEB_T,front_brace.FACE_T,front_brace.FOOT_T],
-        "load_path":"two unused inward radiator factory threads -> continuous triangular web -> two shelf bolts with steel backing",
-        "assembly_order":"secure bearing-frame shelf bolts before fitting radiator; fit brace loosely to supported radiator, then steel extension and shelf, without hose preload",
+        "load_path":"two unused inward radiator factory threads at fan 2, between the bearing frames -> continuous triangular web -> two shelf bolts with steel backing",
+        "assembly_order":"secure bearing-frame shelf bolts before fitting radiator; fit brace loosely to the supported radiator, then tighten to the shelf without hose preload",
         "fasteners":"two matched radiator screws + OD10 washers; two M4 shelf bolts, two nuts, four OD12 washers; determine lengths from actual engagement/stack",
         "print_orientation":"broad high-X web flat on bed; supports off; same front-brace slot bridges",
         "physical_fit_verified":False,
-        "limitations":"left hose end assumed; actual tank ports, hose sweep, factory threads and warm PETG stiffness require dry fit",
+        "limitations":"front hose end from the owner mock-up photo; actual tank ports, hose sweep, factory threads and warm PETG stiffness require dry fit",
     }
 
 
@@ -104,13 +112,11 @@ def preview(path, radiator_front_y, frame_rear_y):
     for x in FRAME_X:
         draw(ax,frame().rotate((0,0,0),(1,0,0),90).translate((x,frame_rear_y,SUPPORT_T)),"#478f99")
     draw(ax,brace_installed(radiator_front_y),"#d99942")
-    plate=cq.Workplane("XY").box(400,83,SUPPORT_T,centered=(False,False,False)).translate((12.5,frame_rear_y-79.5,0))
-    draw(ax,plate,"#69737b",.4)
     rad=cq.Workplane("XY").box(397,27,120,centered=(False,False,False)).translate((12.5,radiator_front_y,20+SUPPORT_T))
     draw(ax,rad,"#bac4cd",.15)
     ax.set(xlim=(0,423),ylim=(radiator_front_y-55,frame_rear_y+10),zlim=(0,150))
     ax.set_box_aspect((420,100,150));ax.view_init(elev=28,azim=-70)
-    ax.set_title("Installed: brace points toward rack front")
+    ax.set_title("Radiator-local view: brace at the hose end (rack front when installed)")
     ax=fig.add_subplot(132,projection="3d")
     draw(ax,frame(),"#478f99")
     ax.set(xlim=(0,120),ylim=(0,FRAME_H),zlim=(0,REACH))
@@ -122,6 +128,6 @@ def preview(path, radiator_front_y, frame_rear_y):
     ax.set_box_aspect((142,44.5,28));ax.view_init(elev=30,azim=-55)
     ax.set_title("Job 09: 142 × 44.5 × 28 mm")
     for ax in fig.axes:ax.set_axis_off()
-    fig.suptitle("Kenshin rear AIO — front-style bearing frames and inward brace",fontsize=16)
+    fig.suptitle("Kenshin side AIO — bearing frames and inward brace, feet on the deck",fontsize=16)
     fig.text(.5,.08,"Same broad brace construction; 105 mm factory pitch is provisional. Tighten frame shelf bolts before fitting the radiator.",ha="center",fontsize=11)
     fig.tight_layout(rect=(0,.12,1,.91));fig.savefig(path,dpi=160);plt.close(fig)

@@ -19,6 +19,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [corsair-cmp64gx5m4b6400c32](purchased/corsair-cmp64gx5m4b6400c32/README.md) | Corsair CMP64GX5M4B6400C32 DDR5 kit, 4 x 16 GB | [aipc](../aipc/parts/corsair-cmp64gx5m4b6400c32.md) |
 | [corsair-h115i](purchased/corsair-h115i/README.md) | Corsair Hydro H115i 280 mm AIO (reused) | [aipc](../aipc/parts/corsair-h115i.md) |
 | [corsair-hx1200i](purchased/corsair-hx1200i/README.md) | Corsair HX1200i PSU | [aipc](../aipc/parts/corsair-hx1200i.md) |
+| [corsair-ws3000](purchased/corsair-ws3000/README.md) | Corsair WS3000 3000 W ATX 3.1 workstation PSU (CP-9020312) | [gpulab](../gpulab/parts/corsair-ws3000.md) |
 | [cpayne-cp0120-mcio-host-adapter](purchased/cpayne-cp0120-mcio-host-adapter/README.md) | C-Payne CP-0120 MCIO PCIe gen5 Host Adapter x16 (passive) | [gpulab](../gpulab/parts/cpayne-cp0120-mcio-host-adapter.md) |
 | [cpayne-cp0231-mcio-device-adapter](purchased/cpayne-cp0231-mcio-device-adapter/README.md) | C-Payne CP-0231 MCIO PCIe gen5 Device Adapter x8/x16 (BOTTOM) | [gpulab](../gpulab/parts/cpayne-cp0231-mcio-device-adapter.md) |
 | [cpayne-mcio-8i-cable-0p75m](purchased/cpayne-mcio-8i-cable-0p75m/README.md) | C-Payne MCIO 8i to MCIO 8i cable, 0.75 m, 85 ohm (305-CAB-MCIO/MCIO-8i-P0.75M-11-85) | [gpulab](../gpulab/parts/cpayne-mcio-8i-cable-0p75m.md) |
@@ -51,7 +52,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [sanyo-denki-9gv1412p1s001](purchased/sanyo-denki-9gv1412p1s001/README.md) | Sanyo Denki San Ace 9GV1412P1S001 140 x 38 mm fan | [aipc](../aipc/parts/sanyo-denki-9gv1412p1s001.md) |
 | [sff-8643-pcie-cable](purchased/sff-8643-pcie-cable/README.md) | 10Gtek CAB-8643/8643-P0.5M, SFF-8643 to SFF-8643 cable, 0.5 m, with sideband (2-pack) | [aipc](../aipc/parts/sff-8643-pcie-cable.md) |
 | [silicone-gasket-2mm](purchased/silicone-gasket-2mm/README.md) | 2 mm silicone foam gasket sheet, 200 x 200 mm | [aipc](../aipc/parts/silicone-gasket-2mm.md) |
-| [super-flower-leadex-2800w](purchased/super-flower-leadex-2800w/README.md) | Super Flower Leadex 2800W ATX 3.1 (SF-2800F14HP) | [gpulab](../gpulab/parts/super-flower-leadex-2800w.md) |
+| [super-flower-leadex-2800w](purchased/super-flower-leadex-2800w/README.md) | Super Flower Leadex 2800W ATX 3.1 (SF-2800F14HP) | none |
 | [v100-eps-power-adapter](purchased/v100-eps-power-adapter/README.md) | Dual PCIe 8-pin to CPU/EPS 8-pin GPU adapter (030-0571-000 compatible) | [aipc](../aipc/parts/v100-eps-power-adapter.md) |
 | [v100-tail-support](purchased/v100-tail-support/README.md) | M4 F/F 20 mm metal spacer with 4 mm silicone pad | [aipc](../aipc/parts/v100-tail-support.md) |
 | [wurth-970140324](purchased/wurth-970140324/README.md) | Wurth 970140324 M3 F/F standoff, 14 mm, SW5.5 | [aipc](../aipc/parts/wurth-970140324.md), [gpulab](../gpulab/parts/wurth-970140324.md) |
@@ -82,5 +83,5 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | Part | Name | Used in |
 | --- | --- | --- |
 | [fan-power-harness](fabricated/fan-power-harness/README.md) | Fused PWM pass-through harness for the pressure fan | [aipc](../aipc/parts/fan-power-harness.md) |
-| [rear-aio-steel-extension](fabricated/rear-aio-steel-extension/README.md) | Rear AIO steel extension plate, 400 x 83 x 3 mm | [aipc](../aipc/parts/rear-aio-steel-extension.md) |
+| [rear-aio-steel-extension](fabricated/rear-aio-steel-extension/README.md) | Rear AIO steel extension plate, 400 x 83 x 3 mm | none |
 

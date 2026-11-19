@@ -13,15 +13,12 @@ Mild steel, six 5 mm holes shared with the frame and brace anchors. Deburr and c
 
 ## Used in
 
-| Build | Qty | Status | Role |
-| --- | ---: | --- | --- |
-| [aipc](../../../aipc/parts/rear-aio-steel-extension.md) | 1 | design | carries the rear radiator feet beyond the deck |
+- No build references this part.
 
 ## Model
 
 - [rear-aio-steel-extension.step](rear-aio-steel-extension.step)
 - Source: constructed. Drill plan also exported as models/rear-aio-steel-extension-drill-plan.step.
-- Written by the `aipc` build's generator
 
 ## Datasheets
 

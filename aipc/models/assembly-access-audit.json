@@ -528,8 +528,8 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        371.656,
-        436.5
+        407.656,
+        680.78
       ],
       "base_part": "970140324",
       "base_height_mm": 14.0,
@@ -593,8 +593,8 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        351.656,
-        436.5
+        407.656,
+        660.78
       ],
       "base_part": "970140324",
       "base_height_mm": 14.0,
@@ -676,13 +676,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
       "nominal_rear_washer_margin_mm": 454.7,
-      "minimum_front_washer_margin_at_checked_travel_mm": 323.7,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 452.7,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 163.7,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk ATX board",
@@ -705,13 +705,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
       "nominal_rear_washer_margin_mm": 454.7,
-      "minimum_front_washer_margin_at_checked_travel_mm": 323.7,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 452.7,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 196.156,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk ATX board",
@@ -734,13 +734,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
       "nominal_rear_washer_margin_mm": 676.19,
-      "minimum_front_washer_margin_at_checked_travel_mm": 102.21,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 674.19,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 102.21,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk ATX board",
@@ -763,13 +763,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
       "nominal_rear_washer_margin_mm": 692.2,
-      "minimum_front_washer_margin_at_checked_travel_mm": 86.2,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 690.2,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 86.2,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -789,13 +789,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
       "nominal_rear_washer_margin_mm": 692.2,
-      "minimum_front_washer_margin_at_checked_travel_mm": 86.2,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 690.2,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 9.156,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -803,8 +803,8 @@
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "fastener": "M3 with steel backing",
       "center_xy_mm": [
-        362.456,
-        459.5
+        384.656,
+        671.58
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 7.0,
@@ -815,13 +815,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
-      "nominal_rear_washer_margin_mm": 324.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 454.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 322.4,
+      "nominal_rear_washer_margin_mm": 112.32,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 32.5,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Kenshin ATX board",
@@ -832,8 +832,8 @@
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "fastener": "M3 with steel backing",
       "center_xy_mm": [
-        306.656,
-        459.5
+        384.656,
+        615.78
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 7.0,
@@ -844,13 +844,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
-      "nominal_rear_washer_margin_mm": 324.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 454.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 322.4,
+      "nominal_rear_washer_margin_mm": 168.12,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 32.5,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Kenshin ATX board",
@@ -861,8 +861,8 @@
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "fastener": "M3 with steel backing",
       "center_xy_mm": [
-        306.656,
-        680.99
+        163.166,
+        615.78
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 7.0,
@@ -873,13 +873,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
-      "nominal_rear_washer_margin_mm": 102.91,
-      "minimum_front_washer_margin_at_checked_travel_mm": 675.49,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 100.91,
+      "nominal_rear_washer_margin_mm": 168.12,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 157.666,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Kenshin ATX board",
@@ -890,8 +890,8 @@
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "fastener": "M3 with steel backing",
       "center_xy_mm": [
-        198.656,
-        697.0
+        147.156,
+        507.78
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 7.0,
@@ -902,13 +902,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
-      "nominal_rear_washer_margin_mm": 86.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 691.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 84.9,
+      "nominal_rear_washer_margin_mm": 276.12,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 141.656,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -916,8 +916,8 @@
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "fastener": "M3 with steel backing",
       "center_xy_mm": [
-        119.656,
-        697.0
+        147.156,
+        428.78
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 7.0,
@@ -928,13 +928,13 @@
       "washer_thickness_mm": 0.5,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.0,
         2.0
       ],
-      "nominal_rear_washer_margin_mm": 86.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 691.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 84.9,
+      "nominal_rear_washer_margin_mm": 355.12,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 141.656,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -954,13 +954,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
       "nominal_rear_washer_margin_mm": 744.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 28.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 741.9,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 28.5,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk H115i radiator"
@@ -982,13 +982,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
       "nominal_rear_washer_margin_mm": 744.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 28.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 741.9,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 28.5,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk H115i radiator"
@@ -1010,13 +1010,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
       "nominal_rear_washer_margin_mm": 744.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 28.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 741.9,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 28.5,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk H115i radiator"
@@ -1038,13 +1038,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
       "nominal_rear_washer_margin_mm": 744.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 28.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 741.9,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 28.5,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk H115i radiator",
@@ -1067,13 +1067,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -1.5,
         1.5
       ],
       "nominal_rear_washer_margin_mm": 721.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 52.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 719.9,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 24.406,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1093,13 +1093,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -1.5,
         1.5
       ],
       "nominal_rear_washer_margin_mm": 705.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 68.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 704.4,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 24.406,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1107,10 +1107,10 @@
       "part": "fan120_aio_hose_brace",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        38.5,
-        767.5
+        72.328,
+        554.4
       ],
-      "washer_seat_z_mm": 11.0,
+      "washer_seat_z_mm": 8.0,
       "washer_max_od_mm": 12.0,
       "head_envelope_diameter_height_mm": [
         8,
@@ -1119,13 +1119,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -1.5,
         1.5
       ],
-      "nominal_rear_washer_margin_mm": 13.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 760.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 12.4,
+      "nominal_rear_washer_margin_mm": 227.0,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 64.828,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1133,10 +1133,10 @@
       "part": "fan120_aio_hose_brace",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        38.5,
-        752.0
+        87.828,
+        554.4
       ],
-      "washer_seat_z_mm": 11.0,
+      "washer_seat_z_mm": 8.0,
       "washer_max_od_mm": 12.0,
       "head_envelope_diameter_height_mm": [
         8,
@@ -1145,13 +1145,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -1.5,
         1.5
       ],
-      "nominal_rear_washer_margin_mm": 29.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 744.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 27.9,
+      "nominal_rear_washer_margin_mm": 227.0,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 80.328,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1159,7 +1159,7 @@
       "part": "psu_screw_frame_berserk_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        31.0,
+        21.0,
         264.0
       ],
       "washer_seat_z_mm": 6.0,
@@ -1171,13 +1171,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
       "nominal_rear_washer_margin_mm": 517.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 255.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 514.9,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 15.0,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1185,7 +1185,7 @@
       "part": "psu_screw_frame_berserk_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        55.0,
+        45.0,
         264.0
       ],
       "washer_seat_z_mm": 6.0,
@@ -1197,13 +1197,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
       "nominal_rear_washer_margin_mm": 517.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 255.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 514.9,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 39.0,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1211,8 +1211,8 @@
       "part": "psu_screw_frame_kenshin_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        62.656,
-        506.5
+        111.0,
+        756.88
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1223,24 +1223,22 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 274.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 498.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 272.4,
+      "nominal_rear_washer_margin_mm": 24.52,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 24.52,
       "bare_bracket_tool_access": true,
-      "install_before": [
-        "Kenshin low-profile C13 plug + bend"
-      ]
+      "install_before": []
     },
     {
       "part": "psu_screw_frame_kenshin_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        38.656,
-        506.5
+        111.0,
+        780.88
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1251,41 +1249,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 274.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 498.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 272.4,
-      "bare_bracket_tool_access": true,
-      "install_before": [
-        "Kenshin low-profile C13 plug + bend"
-      ]
-    },
-    {
-      "part": "kenshin_aio_screw_frame_drill_plan",
-      "fastener": "M4 with steel backing",
-      "center_xy_mm": [
-        73.0,
-        760.5
-      ],
-      "washer_seat_z_mm": 9.0,
-      "washer_max_od_mm": 12.0,
-      "head_envelope_diameter_height_mm": [
-        8,
-        4
-      ],
-      "washer_thickness_mm": 1,
-      "driver_diameter_mm": 6,
-      "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
-        -2.5,
-        2.5
-      ],
-      "nominal_rear_washer_margin_mm": 20.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 752.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 18.4,
+      "nominal_rear_washer_margin_mm": 0.52,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 0.52,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1293,10 +1263,10 @@
       "part": "kenshin_aio_screw_frame_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        131.0,
-        760.5
+        79.328,
+        468.9
       ],
-      "washer_seat_z_mm": 9.0,
+      "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
       "head_envelope_diameter_height_mm": [
         8,
@@ -1305,13 +1275,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 20.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 752.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 18.4,
+      "nominal_rear_washer_margin_mm": 312.5,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 70.828,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1319,10 +1289,10 @@
       "part": "kenshin_aio_screw_frame_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        313.0,
-        760.5
+        79.328,
+        526.9
       ],
-      "washer_seat_z_mm": 9.0,
+      "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
       "head_envelope_diameter_height_mm": [
         8,
@@ -1331,26 +1301,24 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 20.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 752.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 18.4,
+      "nominal_rear_washer_margin_mm": 254.5,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 70.828,
       "bare_bracket_tool_access": true,
-      "install_before": [
-        "Kenshin RTX 5090"
-      ]
+      "install_before": []
     },
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        371.0,
-        760.5
+        79.328,
+        708.9
       ],
-      "washer_seat_z_mm": 9.0,
+      "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
       "head_envelope_diameter_height_mm": [
         8,
@@ -1359,24 +1327,48 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 20.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 752.0,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 18.4,
+      "nominal_rear_washer_margin_mm": 72.5,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 70.828,
       "bare_bracket_tool_access": true,
-      "install_before": [
-        "Kenshin RTX 5090"
-      ]
+      "install_before": []
+    },
+    {
+      "part": "kenshin_aio_screw_frame_drill_plan",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        79.328,
+        766.9
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 14.5,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 14.5,
+      "bare_bracket_tool_access": true,
+      "install_before": []
     },
     {
       "part": "gpu_5090_rest_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        369.656,
-        724.5
+        119.656,
+        678.78
       ],
       "washer_seat_z_mm": 18.0,
       "washer_max_od_mm": 9.0,
@@ -1387,13 +1379,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 58.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 717.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 55.9,
+      "nominal_rear_washer_margin_mm": 104.12,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 104.12,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Kenshin RTX 5090"
@@ -1403,8 +1395,8 @@
       "part": "gpu_5090_rest_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        339.656,
-        724.5
+        119.656,
+        648.78
       ],
       "washer_seat_z_mm": 18.0,
       "washer_max_od_mm": 9.0,
@@ -1415,13 +1407,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf X (side-to-side)",
+      "checked_adjustment_mm": [
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 58.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 717.5,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 55.9,
+      "nominal_rear_washer_margin_mm": 134.12,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 112.656,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Kenshin RTX 5090"
@@ -1443,13 +1435,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -1.25,
         1.25
       ],
       "nominal_rear_washer_margin_mm": 406.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 367.75,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 405.15,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 117.58,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1469,13 +1461,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -1.25,
         1.25
       ],
       "nominal_rear_washer_margin_mm": 406.4,
-      "minimum_front_washer_margin_at_checked_travel_mm": 367.75,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 405.15,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 183.076,
       "bare_bracket_tool_access": true,
       "install_before": []
     },
@@ -1495,13 +1487,13 @@
       "washer_thickness_mm": 1,
       "driver_diameter_mm": 6,
       "driver_clear_height_mm": 35,
-      "checked_Y_adjustment_mm": [
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
         -1.25,
         1.25
       ],
       "nominal_rear_washer_margin_mm": 400.9,
-      "minimum_front_washer_margin_at_checked_travel_mm": 373.25,
-      "minimum_rear_washer_margin_at_checked_travel_mm": 399.65,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 172.58,
       "bare_bracket_tool_access": true,
       "install_before": []
     }
@@ -1583,18 +1575,6 @@
       "unresolved_conflicts": []
     },
     {
-      "route": "Kenshin AIO hose 1",
-      "segment": 3,
-      "nominal_component_collision": false,
-      "unresolved_conflicts": []
-    },
-    {
-      "route": "Kenshin AIO hose 1",
-      "segment": 4,
-      "nominal_component_collision": false,
-      "unresolved_conflicts": []
-    },
-    {
       "route": "Kenshin AIO hose 2",
       "segment": 1,
       "nominal_component_collision": false,
@@ -1603,18 +1583,6 @@
     {
       "route": "Kenshin AIO hose 2",
       "segment": 2,
-      "nominal_component_collision": false,
-      "unresolved_conflicts": []
-    },
-    {
-      "route": "Kenshin AIO hose 2",
-      "segment": 3,
-      "nominal_component_collision": false,
-      "unresolved_conflicts": []
-    },
-    {
-      "route": "Kenshin AIO hose 2",
-      "segment": 4,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
@@ -1637,12 +1605,6 @@
       "unresolved_conflicts": []
     },
     {
-      "route": "Kenshin AC",
-      "segment": 2,
-      "nominal_component_collision": false,
-      "unresolved_conflicts": []
-    },
-    {
       "route": "Berserk Ethernet",
       "segment": 1,
       "nominal_component_collision": false,
@@ -1651,6 +1613,12 @@
     {
       "route": "Berserk Ethernet",
       "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk Ethernet",
+      "segment": 3,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
@@ -1926,10 +1894,11 @@
   "V100_plenum_join_fasteners": [],
   "Kenshin_AIO_radiator_fasteners": [
     {
-      "axis_xz_mm": [
-        38.5,
-        30.5
+      "axis_yz_mm": [
+        434.4,
+        27.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -1938,17 +1907,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 5.25,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        38.5,
-        135.5
+      "axis_yz_mm": [
+        434.4,
+        132.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -1957,17 +1927,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 5.25,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        143.5,
-        30.5
+      "axis_yz_mm": [
+        539.4,
+        27.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -1976,17 +1947,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 5.25,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        143.5,
-        135.5
+      "axis_yz_mm": [
+        539.4,
+        132.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -1995,17 +1967,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 5.25,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        278.5,
-        30.5
+      "axis_yz_mm": [
+        674.4,
+        27.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -2014,17 +1987,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 5.25,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        278.5,
-        135.5
+      "axis_yz_mm": [
+        674.4,
+        132.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -2033,17 +2007,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 5.25,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        383.5,
-        30.5
+      "axis_yz_mm": [
+        779.4,
+        27.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -2052,17 +2027,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 5.25,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        383.5,
-        135.5
+      "axis_yz_mm": [
+        779.4,
+        132.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -2071,17 +2047,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 5.25,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        158.5,
-        30.5
+      "axis_yz_mm": [
+        554.4,
+        27.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -2090,17 +2067,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 4.75,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        158.5,
-        135.5
+      "axis_yz_mm": [
+        554.4,
+        132.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -2109,17 +2087,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 4.75,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        263.5,
-        30.5
+      "axis_yz_mm": [
+        659.4,
+        27.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -2128,17 +2107,18 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 4.75,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        263.5,
-        135.5
+      "axis_yz_mm": [
+        659.4,
+        132.5
       ],
+      "axis_direction": "X",
       "washer_OD_thickness_mm": [
         10,
         1
@@ -2147,7 +2127,7 @@
         8,
         3
       ],
-      "rear_driver_clear_length_mm": 35,
+      "outer_driver_clear_length_mm": 35,
       "fan_plus_frame_or_spacer_stack_mm": 34,
       "minimum_side_hole_edge_material_mm": 4.75,
       "length_rule": "original safe fan screw length +6mm insert +any added washer thickness; measure first",
@@ -2298,11 +2278,12 @@
   ],
   "Kenshin_AIO_brace_inward_fasteners": [
     {
-      "axis_xz_mm": [
-        38.5,
-        30.5
+      "axis_yz_mm": [
+        554.4,
+        27.5
       ],
-      "inward_face_y_mm": 787.5,
+      "axis_direction": "X",
+      "inward_face_x_mm": 52.327999999999975,
       "frame_thickness_mm": 6.0,
       "washer_od_thickness_mm": [
         10,
@@ -2323,11 +2304,12 @@
       "factory_thread_and_engagement_verified": false
     },
     {
-      "axis_xz_mm": [
-        38.5,
-        135.5
+      "axis_yz_mm": [
+        554.4,
+        132.5
       ],
-      "inward_face_y_mm": 787.5,
+      "axis_direction": "X",
+      "inward_face_x_mm": 52.327999999999975,
       "frame_thickness_mm": 6.0,
       "washer_od_thickness_mm": [
         10,

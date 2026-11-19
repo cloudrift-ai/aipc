@@ -27,7 +27,7 @@ from the repo root, or some plates only, for example `make gcode BUILD=aipc PLAT
 | [05_psu_brackets](05_psu_brackets.3mf) | Two identical rear PSU brackets | 1 | HT-PLA-GF | 13h 33m 26s, 94.67 g |
 | [06_fan140_aio_frame](06_fan140_aio_frame.3mf) | 140 mm fan-flush radiator frame with bearing ledge | 2 | PETG | 11h 30m 16s, 76.14 g |
 | [07_fan140_aio_hose_brace](07_fan140_aio_hose_brace.3mf) | 140 mm radiator hose-end brace | 1 | PETG | 6h 37m 23s, 41.69 g |
-| [08_fan120_aio_frame](08_fan120_aio_frame.3mf) | 120 mm radiator frame with 75 mm feet on steel extension | 2 | PETG | 12h 15m 29s, 79.69 g |
+| [08_fan120_aio_frame](08_fan120_aio_frame.3mf) | 120 mm radiator frame with 75 mm feet bearing on the deck (side AIO) | 2 | PETG | 12h 15m 29s, 79.69 g |
 | [09_fan120_aio_hose_brace](09_fan120_aio_hose_brace.3mf) | Mirrored left 120 mm radiator hose-end brace | 1 | PETG | 5h 52m 6s, 36.82 g |
 | [10_fan120_aio_center_spacer](10_fan120_aio_center_spacer.3mf) | Flat spacer that keeps the middle 120 mm fan coplanar | 1 | PETG | 3h 49m 53s, 24.91 g |
 | [11_tnut_fit_coupon](11_tnut_fit_coupon.3mf) | M4 hammer T-nut pocket test; print before plate 12 | 1 | HT-PLA-GF | 44m 12s, 4.80 g |

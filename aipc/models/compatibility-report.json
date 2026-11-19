@@ -101,8 +101,8 @@
       ],
       "rule": "value",
       "status": "BLOCKED",
-      "detail": "system needs 176.3; provider value unknown",
-      "note": "rear AIO screw heads at Y852.5 behind the rear rail plane at Y711.2 (28 in rail distance) plus 35 mm driver reserve; more at shorter rail distances",
+      "detail": "system needs 135.7; provider value unknown",
+      "note": "HX1200i rear face at Y811.9 (24.5 mm past the deck) behind the rear rail plane at Y711.2 (28 in rail distance) plus 35 mm reserve; the side radiator ends at Y805.4; more at shorter rail distances",
       "weak_evidence": [
         "rack-cabinet:cabinet-rear-clearance(unknown)",
         "system:cabinet-rear-clearance(allowance)"
@@ -1280,7 +1280,7 @@
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 23.8 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating)",
+      "detail": "load 23.0 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating)",
       "contributors": [
         "amd-epyc-7702p",
         "amd-ryzen-9-9950x3d",
@@ -1314,7 +1314,6 @@
         "nvidia-v100-pcie-16gb",
         "obt-pcie-support",
         "psu_bracket",
-        "rear-aio-steel-extension",
         "rosewill-hercules-1600",
         "samsung-990-pro-4tb",
         "sanyo-denki-9gv1412p1s001",
@@ -1356,7 +1355,6 @@
         "nvidia-mcx4131a-gcat:shelf-load(assumed)",
         "obt-pcie-support:shelf-load(assumed)",
         "psu_bracket:shelf-load(allowance)",
-        "rear-aio-steel-extension:shelf-load(allowance)",
         "rosewill-hercules-1600:shelf-load(assumed)",
         "samsung-990-pro-4tb:shelf-load(assumed)",
         "sff-8643-pcie-cable:shelf-load(assumed)",
@@ -1623,7 +1621,7 @@
     {
       "part": "nvidia-mcx4131a-gcat",
       "status": "BLOCKED",
-      "detail": "not in the assembly: card positions not chosen: Berserk's sits on a riser whose shelf location is open, and Kenshin's PCIEX4 slot clearance under the RTX 5090 is unchecked"
+      "detail": "not in the assembly: Berserk's card sits on a riser whose shelf position is open; Kenshin's card is reserved by the kenshin-connectx-slot keepout in the chipset slot behind the RTX 5090 (owner mock-up 2026-11-16), with its bracket on the right shelf edge"
     },
     {
       "part": "samsung-990-pro-4tb",
@@ -1707,6 +1705,11 @@
       "part": "keystone-1451b",
       "status": "BLOCKED",
       "detail": "Only the DigiKey listing is recorded; add Keystone's drawing."
+    },
+    {
+      "part": "micron-3400-2tb",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.mouser.com/datasheet/2/671/Micron_Technology_micron_3400_ssd_product_brief-2499062.pdf (run make datasheets)"
     },
     {
       "part": "micron-3500-2tb",
@@ -1840,8 +1843,8 @@
     "huananzhi-h12d-8d": {
       "datasheet": 2,
       "assumed": 2,
-      "photo-estimate": 3,
-      "standard": 1,
+      "standard": 2,
+      "photo-estimate": 2,
       "allowance": 2
     },
     "keystone-1451b": {
@@ -1887,9 +1890,6 @@
     },
     "rack-cabinet": {
       "unknown": 3
-    },
-    "rear-aio-steel-extension": {
-      "allowance": 4
     },
     "rosewill-hercules-1600": {
       "standard": 2,

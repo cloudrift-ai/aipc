@@ -21,7 +21,7 @@ These parts have not been chosen, so nothing that depends on them can be checked
 | BLOCKED | budget | `ac-power` | load 2531.0 W; capacity unknown |
 | BLOCKED | value | `cabinet-front-clearance` | system needs 20.0; provider value unknown (H115i fan screws reach Y-20, in front of the front rail plane at the deck front (Y0); door must clear) |
 | BLOCKED | value | `cabinet-height-above-shelf` | system needs 400.0; provider value unknown (where the roof flange was placed, not a derived need: the pressure fan top is Z233.4 and the 6 in duct bend adds to that. Replace with the real cabinet ceiling once known) |
-| BLOCKED | value | `cabinet-rear-clearance` | system needs 176.3; provider value unknown (rear AIO screw heads at Y852.5 behind the rear rail plane at Y711.2 (28 in rail distance) plus 35 mm driver reserve; more at shorter rail distances) |
+| BLOCKED | value | `cabinet-rear-clearance` | system needs 135.7; provider value unknown (HX1200i rear face at Y811.9 (24.5 mm past the deck) behind the rear rail plane at Y711.2 (28 in rail distance) plus 35 mm reserve; the side radiator ends at Y805.4; more at shorter rail distances) |
 | BLOCKED | presence | `pcie-card-airflow` | nothing in systems ['berserk', 'kenshin'] provides 'pcie-card-airflow' |
 | BLOCKED | presence | `qsfp28-dac` | nothing in systems ['berserk', 'kenshin'] provides 'qsfp28-dac' |
 | BLOCKED | value | `rack-post-depth` | hammond-rsus1931bk1 needs 457.2..711.2; provider value unknown (front-to-rear rack-post spacing range accepted by the slides) |
@@ -81,7 +81,7 @@ These parts have not been chosen, so nothing that depends on them can be checked
 | provisional | count | `radiator-mount` | need 2 x radiator-mount=360 mm, 105 mm pitch, have 2 |
 | provisional | value | `sff-8643-port` | sff-8643-pcie-cable needs PCIe x4 device; provided by linkreal-lrfc6911n (device end on the riser) |
 | provisional | count | `sff-8643-port` | need 1 x sff-8643-port=pcie x4 device, have 1 |
-| provisional | budget | `shelf-load` | load 23.8 kg of 39.0 kg x derate 1.0 = 39.0 kg (61% of rating) |
+| provisional | budget | `shelf-load` | load 23.0 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 | provisional | value | `v100-aux-power` | nvidia-v100-pcie-16gb needs CPU/EPS 8-pin; provided by v100-eps-power-adapter |
 | provisional | count | `v100-aux-power` | need 4 x v100-aux-power=cpu/eps 8-pin, have 4 |
 | pass | value | `cooler-mount` | amd-ryzen-9-9950x3d needs AM5; provided by lian-li-ga2-lite-360 |
@@ -105,7 +105,7 @@ Every assembly instance belongs to a part or a declared keepout. Parts not in th
 - **fan-power-harness**: not in the assembly: flexible wiring; route along the hood clear of the fan rotor
 - **linkreal-lrfc6911n**: not in the assembly: shelf location and holder not designed yet; must clear the V100s and the BMC and leave airflow over the NIC
 - **mains-power**: not in the assembly: outside the shelf; supply not specified
-- **nvidia-mcx4131a-gcat**: not in the assembly: card positions not chosen: Berserk's sits on a riser whose shelf location is open, and Kenshin's PCIEX4 slot clearance under the RTX 5090 is unchecked
+- **nvidia-mcx4131a-gcat**: not in the assembly: Berserk's card sits on a riser whose shelf position is open; Kenshin's card is reserved by the kenshin-connectx-slot keepout in the chipset slot behind the RTX 5090 (owner mock-up 2026-11-16), with its bracket on the right shelf edge
 - **samsung-990-pro-4tb**: not in the assembly: X870E M.2 slot positions not surveyed; drives sit under the board heatsinks
 - **sff-8643-pcie-cable**: not in the assembly: cable route follows the riser location, which is not chosen yet
 - **tnut_fit_coupon**: not in the assembly: fit coupon, not installed
@@ -130,7 +130,7 @@ Every assembly instance belongs to a part or a declared keepout. Parts not in th
 - **v100-eps-power-adapter**: no datasheet recorded. Generic marketplace adapter; check its pinout against the NVIDIA brief before use.
 - **v100-tail-support**: no datasheet recorded. Generic hardware; choose after measuring the card frame height.
 
-Not fetched locally (run `make datasheets`): amd-epyc-7702p, amd-ryzen-9-9950x3d, gigabyte-x870e-aorus-pro, micron-3500-2tb, wurth-970140324, zotac-rtx-5090-solid.
+Not fetched locally (run `make datasheets`): amd-epyc-7702p, amd-ryzen-9-9950x3d, gigabyte-x870e-aorus-pro, micron-3400-2tb, micron-3500-2tb, wurth-970140324, zotac-rtx-5090-solid.
 
 ## Weak-evidence dimensions
 
@@ -158,7 +158,7 @@ Dimensions not backed by a datasheet, standard or measurement, by part:
 - gpu_rest: 1 allowance
 - h12d_mobo_adapter_rail: 1 allowance
 - hammond-rsus1931bk1: 1 allowance, 10 datasheet, 3 photo-estimate, 1 unknown
-- huananzhi-h12d-8d: 2 allowance, 2 assumed, 2 datasheet, 3 photo-estimate, 1 standard
+- huananzhi-h12d-8d: 2 allowance, 2 assumed, 2 datasheet, 2 photo-estimate, 2 standard
 - keystone-1451b: 1 assumed, 1 listing
 - lian-li-ga2-lite-360: 1 allowance, 1 assumed, 6 datasheet, 1 standard
 - micron-3400-2tb: 2 assumed, 5 datasheet
@@ -170,7 +170,6 @@ Dimensions not backed by a datasheet, standard or measurement, by part:
 - obt-pcie-support: 1 allowance, 1 assumed, 1 measured
 - psu_bracket: 1 allowance
 - rack-cabinet: 3 unknown
-- rear-aio-steel-extension: 4 allowance
 - rosewill-hercules-1600: 1 allowance, 1 assumed, 2 standard
 - samsung-990-pro-4tb: 1 assumed
 - sff-8643-pcie-cable: 1 assumed, 1 listing

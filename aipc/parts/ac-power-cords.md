@@ -15,5 +15,5 @@ Library spec: [parts/purchased/ac-power-cords](../../parts/purchased/ac-power-co
 
 ## Assembly
 
-- 6 instances in the assembly
+- 5 instances in the assembly
 

@@ -6,7 +6,7 @@
       "category": "purchased",
       "quantity": 2,
       "state": "modeled",
-      "instances": 6,
+      "instances": 5,
       "expected_instances": null,
       "covered_by": null,
       "not_modeled": null,
@@ -15,8 +15,7 @@
         "Kenshin_low-profile_C13_plug_+_bend",
         "Berserk_AC_survey_segment_1",
         "Berserk_AC_survey_segment_2",
-        "Kenshin_AC_survey_segment_1",
-        "Kenshin_AC_survey_segment_2"
+        "Kenshin_AC_survey_segment_1"
       ]
     },
     "amd-epyc-7702p": {
@@ -245,30 +244,30 @@
         "Kenshin_RTX5090_M3x8.0_and_washer_1_survey",
         "Kenshin_RTX5090_stock_backing_washer_2",
         "Kenshin_RTX5090_M3x8.0_and_washer_2_survey",
-        "Kenshin_AIO_shared_screw_shaft_38.5_30.5_nominal",
-        "Kenshin_AIO_screw_head_38.5_30.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_38.5_135.5_nominal",
-        "Kenshin_AIO_screw_head_38.5_135.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_143.5_30.5_nominal",
-        "Kenshin_AIO_screw_head_143.5_30.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_143.5_135.5_nominal",
-        "Kenshin_AIO_screw_head_143.5_135.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_278.5_30.5_nominal",
-        "Kenshin_AIO_screw_head_278.5_30.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_278.5_135.5_nominal",
-        "Kenshin_AIO_screw_head_278.5_135.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_383.5_30.5_nominal",
-        "Kenshin_AIO_screw_head_383.5_30.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_383.5_135.5_nominal",
-        "Kenshin_AIO_screw_head_383.5_135.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_158.5_30.5_nominal",
-        "Kenshin_AIO_screw_head_158.5_30.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_158.5_135.5_nominal",
-        "Kenshin_AIO_screw_head_158.5_135.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_263.5_30.5_nominal",
-        "Kenshin_AIO_screw_head_263.5_30.5_survey",
-        "Kenshin_AIO_shared_screw_shaft_263.5_135.5_nominal",
-        "Kenshin_AIO_screw_head_263.5_135.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_434.4_27.5_nominal",
+        "Kenshin_AIO_screw_head_434.4_27.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_434.4_132.5_nominal",
+        "Kenshin_AIO_screw_head_434.4_132.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_539.4_27.5_nominal",
+        "Kenshin_AIO_screw_head_539.4_27.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_539.4_132.5_nominal",
+        "Kenshin_AIO_screw_head_539.4_132.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_674.4_27.5_nominal",
+        "Kenshin_AIO_screw_head_674.4_27.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_674.4_132.5_nominal",
+        "Kenshin_AIO_screw_head_674.4_132.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_779.4_27.5_nominal",
+        "Kenshin_AIO_screw_head_779.4_27.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_779.4_132.5_nominal",
+        "Kenshin_AIO_screw_head_779.4_132.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_554.4_27.5_nominal",
+        "Kenshin_AIO_screw_head_554.4_27.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_554.4_132.5_nominal",
+        "Kenshin_AIO_screw_head_554.4_132.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_659.4_27.5_nominal",
+        "Kenshin_AIO_screw_head_659.4_27.5_survey",
+        "Kenshin_AIO_shared_screw_shaft_659.4_132.5_nominal",
+        "Kenshin_AIO_screw_head_659.4_132.5_survey",
         "H115i_shared_front_screw_127.75_27.75_survey",
         "H115i_shared_front_screw_127.75_152.25_survey",
         "H115i_shared_front_screw_252.25_27.75_survey",
@@ -279,18 +278,18 @@
         "H115i_shared_front_screw_392.25_152.25_survey",
         "H115i_brace_rear_screw_27.75_survey",
         "H115i_brace_rear_screw_152.25_survey",
-        "Kenshin_brace_inward_screw_30.5_survey",
-        "Kenshin_brace_inward_screw_135.5_survey",
+        "Kenshin_brace_inward_screw_27.5_survey",
+        "Kenshin_brace_inward_screw_132.5_survey",
         "berserk_mobo_adapter_right_drill_plan_shelf_bolt_167.2_329.2",
         "berserk_mobo_adapter_right_drill_plan_shelf_bolt_223.0_329.2",
         "berserk_mobo_adapter_right_drill_plan_shelf_bolt_223.0_107.71",
         "berserk_mobo_adapter_left_drill_plan_shelf_bolt_331.0_91.7",
         "berserk_mobo_adapter_left_drill_plan_shelf_bolt_410.0_91.7",
-        "kenshin_mobo_adapter_left_drill_plan_shelf_bolt_362.456_459.5",
-        "kenshin_mobo_adapter_left_drill_plan_shelf_bolt_306.656_459.5",
-        "kenshin_mobo_adapter_left_drill_plan_shelf_bolt_306.656_680.99",
-        "kenshin_mobo_adapter_right_drill_plan_shelf_bolt_198.656_697.0",
-        "kenshin_mobo_adapter_right_drill_plan_shelf_bolt_119.656_697.0",
+        "kenshin_mobo_adapter_left_drill_plan_shelf_bolt_384.656_671.58",
+        "kenshin_mobo_adapter_left_drill_plan_shelf_bolt_384.656_615.78",
+        "kenshin_mobo_adapter_left_drill_plan_shelf_bolt_163.166_615.78",
+        "kenshin_mobo_adapter_right_drill_plan_shelf_bolt_147.156_507.78",
+        "kenshin_mobo_adapter_right_drill_plan_shelf_bolt_147.156_428.78",
         "fan_outlet_M4_-62.25_-62.25",
         "fan_outlet_M4_-62.25_62.25",
         "fan_outlet_M4_62.25_-62.25",
@@ -299,12 +298,12 @@
         "roof_M4_-78.0_78.0",
         "roof_M4_78.0_-78.0",
         "roof_M4_78.0_78.0",
-        "Rear_extension_M4x20_38.5_767.5",
-        "Rear_extension_M4x20_38.5_752.0",
-        "Rear_extension_M4x20_73.0_760.5",
-        "Rear_extension_M4x20_131.0_760.5",
-        "Rear_extension_M4x20_313.0_760.5",
-        "Rear_extension_M4x20_371.0_760.5"
+        "Side_AIO_M4_shelf_screw_72.328_554.4",
+        "Side_AIO_M4_shelf_screw_87.828_554.4",
+        "Side_AIO_M4_shelf_screw_79.328_468.9",
+        "Side_AIO_M4_shelf_screw_79.328_526.9",
+        "Side_AIO_M4_shelf_screw_79.328_708.9",
+        "Side_AIO_M4_shelf_screw_79.328_766.9"
       ]
     },
     "flex-duct-6in": {
@@ -456,7 +455,7 @@
       "category": "purchased",
       "quantity": 1,
       "state": "modeled",
-      "instances": 13,
+      "instances": 9,
       "expected_instances": null,
       "covered_by": null,
       "not_modeled": null,
@@ -468,12 +467,8 @@
         "Kenshin_AIO_exhaust_fan_3",
         "Kenshin_AIO_hose_1_survey_segment_1",
         "Kenshin_AIO_hose_1_survey_segment_2",
-        "Kenshin_AIO_hose_1_survey_segment_3",
-        "Kenshin_AIO_hose_1_survey_segment_4",
         "Kenshin_AIO_hose_2_survey_segment_1",
-        "Kenshin_AIO_hose_2_survey_segment_2",
-        "Kenshin_AIO_hose_2_survey_segment_3",
-        "Kenshin_AIO_hose_2_survey_segment_4"
+        "Kenshin_AIO_hose_2_survey_segment_2"
       ]
     },
     "linkreal-lrfc6911n": {
@@ -583,7 +578,7 @@
       "instances": 0,
       "expected_instances": 2,
       "covered_by": null,
-      "not_modeled": "card positions not chosen: Berserk's sits on a riser whose shelf location is open, and Kenshin's PCIEX4 slot clearance under the RTX 5090 is unchecked",
+      "not_modeled": "Berserk's card sits on a riser whose shelf position is open; Kenshin's card is reserved by the kenshin-connectx-slot keepout in the chipset slot behind the RTX 5090 (owner mock-up 2026-11-16), with its bracket on the right shelf edge",
       "instance_names": []
     },
     "nvidia-v100-pcie-16gb": {
@@ -663,19 +658,6 @@
       "not_modeled": null,
       "instance_names": [
         "inner_ceiling_patch_PROVISIONAL"
-      ]
-    },
-    "rear-aio-steel-extension": {
-      "name": "Rear AIO steel extension plate, 400 x 83 x 3 mm",
-      "category": "fabricated",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "Rear_AIO_400x83x3_steel_extension_drill_plan"
       ]
     },
     "rosewill-hercules-1600": {
@@ -855,10 +837,14 @@
     "keepout:berserk-ethernet": [
       "Berserk_Ethernet_RJ45_boot_+_bend",
       "Berserk_Ethernet_survey_segment_1",
-      "Berserk_Ethernet_survey_segment_2"
+      "Berserk_Ethernet_survey_segment_2",
+      "Berserk_Ethernet_survey_segment_3"
     ],
     "keepout:kenshin-24pin-reserve": [
       "Kenshin_24-pin_survey"
+    ],
+    "keepout:kenshin-connectx-slot": [
+      "Kenshin_ConnectX-4_Lx_PCIe_x4_card_envelope"
     ],
     "keepout:rear-io-service-reserve": [
       "Berserk_rear_IO_no_ear_service_reserve",

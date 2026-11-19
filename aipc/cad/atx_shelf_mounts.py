@@ -1,7 +1,7 @@
 """AIPC placement of the shared two-section ATX mount (hwkit.components.atx_mobo_mount).
 
 Installed shelf coordinates. Berserk and Kenshin each sit on one pair of
-sections; Kenshin's pair is turned 180 degrees. The section geometry, joints
+sections; Kenshin's pair is turned -90 degrees (I/O toward +X). The section geometry, joints
 and post slots live in hwkit so other builds can place the same parts.
 """
 import berserk_platform as bp
@@ -59,6 +59,7 @@ def build(system):
                for px,py in shared_post_centers(system, installed=False)), (system,'post must be centered in hex hole')
     result = {}
     for group, frame in groups.items():
+        frame['local_origin'] = frame['origin']
         frame['through_post_centers'] = shared_post_centers(system, installed=False) if group == 'front' else []
         frame['interchangeable_with'] = ('Kenshin' if system == 'Berserk' else 'Berserk') if group == 'rear' else None
         result[f'{system.lower()}_mobo_adapter_{LABELS[system][group]}_drill_plan'] = frame
@@ -69,14 +70,17 @@ def build(system):
             bb = frame['shape'].val().BoundingBox()
             frame['origin'] = (bb.xmin, bb.ymin)
             frame['bounds'] = [bb.xmin, bb.ymin, bb.xmax, bb.ymax]
-            frame['rotation_about_Z_deg'] = 180
+            frame['rotation_about_Z_deg'] = -90
             frame['hole_centers'] = {site: k_xy(*p) for site,p in frame['hole_centers'].items()}
             for field in ('anchors', 'standalone_anchors', 'optional_anchors', 'through_post_centers', 'post_slots'):
                 frame[field] = [k_xy(*p) for p in frame[field]]
-            frame['anchor_end'] = 'front' if frame['anchor_end'] == 'rear' else 'rear'
+            # Board-local rear (I/O) now faces shelf +X, board front shelf -X.
+            frame['anchor_end'] = {'rear': 'shelf +X (board I/O side)', 'front': 'shelf -X (board front edge)'}[frame['anchor_end']]
             if frame['gpu_tab_relief']:
-                frame['gpu_tab_relief']['installed_y_range_mm'] = sorted(k_xy(0,y)[1] for y in frame['gpu_tab_relief']['installed_y_range_mm'])
-                frame['gpu_tab_relief']['rear_direction_in_shelf_Y'] = -1
+                relief = frame['gpu_tab_relief']
+                relief['installed_x_range_mm'] = sorted(k_xy(0, y)[0] for y in relief.pop('installed_y_range_mm'))
+                relief.pop('rear_direction_in_shelf_Y', None)
+                relief['rear_direction_in_shelf_X'] = 1
         for joint in joints:
             joint['center_xy_mm'] = k_xy(*joint['center_xy_mm'])
     return result, joints

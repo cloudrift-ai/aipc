@@ -5,11 +5,11 @@ Berserk and Kenshin use a **Hammond RSUS1931BK1 solid sliding shelf with its sup
 | System | Components |
 | --- | --- |
 | Berserk | HUANANZHI H12D-8D + BMC, AMD EPYC 7702P (64 cores / 128 threads, 200 W), 8 × 32 GB Micron DDR4-2933 ECC RDIMM, four NVIDIA V100 PCIe 16 GB, 2 × 2 TB Micron 3400 + 1 × 2 TB Micron 3500 NVMe (RAID 0), Corsair H115i (front, 140 mm fans), Rosewill Hercules 1600 W PSU |
-| Kenshin | Gigabyte X870E AORUS PRO, AMD Ryzen 9 9950X3D, Zotac RTX 5090, Lian Li GA II LITE Performance 360 (rear, 120 mm fans), Corsair HX1200i |
+| Kenshin | Gigabyte X870E AORUS PRO, AMD Ryzen 9 9950X3D, Zotac RTX 5090, Lian Li GA II LITE Performance 360 (left edge, 120 mm fans), Corsair HX1200i, ConnectX-4 Lx |
 
 Networking uses each board's onboard Ethernet (Berserk: two Intel I226-V 2.5GbE ports plus the dedicated BMC port; the I226-V has no BMC sideband, so the BMC needs its own cable).
 
-**Berserk–Kenshin link (provisional).** The owner has two ConnectX-4 Lx MCX4131A-GCAT cards ([nvidia-mcx4131a-gcat](../parts/nvidia-mcx4131a-gcat.md)): single-port 50GbE QSFP28, PCIe 3.0 x8. They are joined directly by a QSFP28 passive DAC cable, not chosen yet. All four of Berserk's x16 slots hold V100s, so its card goes on a [Linkreal LRFC6911N](../parts/linkreal-lrfc6911n.md) riser (Gen3 x4, SATA power). A 0.5 m [10Gtek SFF-8643 cable](../parts/sff-8643-pcie-cable.md) feeds the riser from one of the H12D-8D's three SFF-8643 ports, which must be set to PCIe mode. Kenshin's card goes in a chipset PCIEX4 slot. Both links train at PCIe 3.0 x4, about 25–28 Gb/s usable, which is below the 50GbE line rate. Riser and cable are selected for purchase from Newegg (2026-11-10) but not ordered. Still open: the riser's shelf position and holder, a free SATA power lead on the Hercules, whether the RTX 5090 covers Kenshin's PCIEX4 slots, the 300 LFM each card's heatsink needs, and how the H12D-8D switches a port to PCIe (neither the manual nor the product page says).
+**Berserk–Kenshin link (provisional).** The owner has two ConnectX-4 Lx MCX4131A-GCAT cards ([nvidia-mcx4131a-gcat](../parts/nvidia-mcx4131a-gcat.md)): single-port 50GbE QSFP28, PCIe 3.0 x8. They are joined directly by a QSFP28 passive DAC cable, not chosen yet. All four of Berserk's x16 slots hold V100s, so its card goes on a [Linkreal LRFC6911N](../parts/linkreal-lrfc6911n.md) riser (Gen3 x4, SATA power). A 0.5 m [10Gtek SFF-8643 cable](../parts/sff-8643-pcie-cable.md) feeds the riser from one of the H12D-8D's three SFF-8643 ports, which must be set to PCIe mode. Kenshin's card goes in a chipset PCIEX4 slot directly behind the RTX 5090; the owner's 2026-11-16 mock-up shows that slot free and its bracket reachable from the right shelf edge, and the CAD reserves a photo-estimated envelope there (`kenshin-connectx-slot` keepout; Kenshin X255–398, Y690–710). Both links train at PCIe 3.0 x4, about 25–28 Gb/s usable, which is below the 50GbE line rate. Riser and cable are selected for purchase from Newegg (2026-11-10) but not ordered. Still open: the riser's shelf position and holder, a free SATA power lead on the Hercules, the exact Kenshin slot position, the 300 LFM each card's heatsink needs, and how the H12D-8D switches a port to PCIe (neither the manual nor the product page says).
 
 The full parts list is in [parts.xlsx](../parts.xlsx); assembly steps are in [assembly.md](assembly.md); print settings and materials are in [printing.md](../../docs/printing.md) and [print/README.md](../print/README.md).
 
@@ -43,13 +43,16 @@ The [individual drawing](https://www.hammfg.com/files/parts/pdf/RSUS1931BK1.pdf)
 
 Coordinates are millimetres: X left to right viewed from rack front, Y front to rear, Z above the deck. The shelf is X0–422.656, Y0–787.4.
 
-- **Berserk:** board X113–418, Y97.2–342.2. Hercules PSU X0–86, Y0–245, fully on steel. Front H115i radiator Y14–40; fans Y−16–9. Its original mount geometry is reused with the new placement.
-- **Kenshin:** board X111.656–416.656, Y446.5–690.5, turned 180°. Rear I/O faces the center corridor; the GPU sits at high X opposite the hood. The PSU is X7.656–93.656, Y525.5–725.5, inlet facing front.
-- **Working clearance:** nominal V100 hood to RTX 5090 lateral gap is **43.656 mm**, previously 2.08 mm. GPU tail to rear board gap is **104.3 mm**. A full **40 mm approach reserve** for Kenshin’s inward-facing I/O is checked against the hood. Exact plugged connector shapes still require a dry fit.
-- **Rear AIO:** radiator Y787.5–814.5; fans Y820.5–848.5; nominal screw heads to Y852.5 (**65.1 mm beyond the deck**). The steel extension, extended feet and compact GPU rest are described below. Reserve another 35 mm behind screw heads for straight-driver access during installation.
+Layout revised 2026-11-16 from the owner's mock-up photo; positions are CAD placements, not measurements.
+
+- **Berserk:** board X113–418, Y97.2–342.2. Hercules PSU X−10–76, Y0–245: it overhangs the left edge by 10 mm, which widens its fan lane to the V100s from 11.58 to **21.58 mm**. Front H115i radiator Y14–40; fans Y−16–9.
+- **Kenshin:** board X153.7–397.7, Y420.8–725.8, turned −90°: rear I/O and the PCIe brackets face the right shelf edge, the PCIe end faces the rear and the CPU end faces Berserk. The rear motherboard rail is flush with the right deck edge. RTX 5090 X68–397.7, Y618–685.8, tail 15.6 mm from the radiator. ConnectX-4 Lx envelope in the next slot behind it. HX1200i on its side along the rear edge, X130–330, Y725.9–811.9, AC inlet facing −X, fan facing the rack rear; it overhangs the deck rear by **24.5 mm**.
+- **Side AIO:** radiator X25.3–52.3, Y408.4–805.4 along the left edge, hose end toward the front; fans X−8.7–19.3 exhaust past the left edge. Screw heads reach X−12.67, 1 mm inside a 450 mm EIA-310 rack opening; the radiator overhangs the rear by 18 mm. All feet bear on the deck; the rear steel extension is retired.
+- **Binding front-to-rear chain:** V100 hood (Y405.7 at 24-pin height) → Kenshin's 24-pin reserve, which overhangs the CPU-end PCB edge by 15 mm → 305 mm PCB → HX1200i → its bracket's rear M4 washer, 0.5 mm inside the deck rear. The CAD leaves **0.07 mm** at the hood and **0.1 mm** between the PCB and the PSU. Measure the real 24-pin plug and the hood before printing; a smaller 24-pin envelope or a different HX bracket foot is where any slack would come from.
+- **Working clearance:** V100 tails to Kenshin board **78.6 mm**; the V100 fan's bounding box overhangs the Kenshin board edge by 15.7 mm in Y, but well above it (the solid checks pass). Kenshin's 40 mm I/O approach now lies outside the right deck edge and reaches **1.3 mm past the 450 mm rack opening**: plugged Ethernet, display, USB and the QSFP28 DAC must be unplugged, or use right-angle plugs, before the shelf slides.
 - **Height:** the 222.25 mm component planning band is not a total rack-height claim. The pressure fan reaches Z233.439 and the fixed exhaust roof is provisionally Z400; lower shelf/slide geometry and rack alignment also consume space. Measure the actual cabinet before assigning U positions.
 
-The narrower deck leaves 4.656 mm at Berserk’s right board edge and 6 mm at Kenshin’s. The Hercules fan faces the V100s across an **11.58 mm nominal lane**, down from 35.58 mm; this is an unresolved airflow constraint. Kenshin’s PSU fan faces the cabinet side; its 7.656 mm deck margin does not establish cabinet-wall intake clearance. The solid shelf has no deck ventilation. Qualify both systems under concurrent load.
+The narrower deck leaves 4.656 mm at Berserk’s right board edge. The Hercules fan faces the V100s across a **21.58 mm nominal lane**. The HX1200i fan faces the rack rear and the GA II fans exhaust against the left cabinet side; neither intake nor exhaust clearance to the cabinet is established. The solid shelf has no deck ventilation. Qualify both systems under concurrent load.
 
 ## Sliding service and load
 
@@ -66,7 +69,6 @@ The generator checks all explicit underside hardware against the fold/slide enve
 | [dual-pc-hammond-assembly.step](../models/dual-pc-hammond-assembly.step) | Complete assembly with illustrative factory slides |
 | [rsus1931bk1-drill-plan-deck.step](../models/rsus1931bk1-drill-plan-deck.step) | Solid deck with 45 proposed component mounting holes |
 | [rsus1931bk1-solid-deck.step](../models/rsus1931bk1-solid-deck.step) | Undrilled dimensional deck envelope |
-| [rear-aio-steel-extension-drill-plan.step](../models/rear-aio-steel-extension-drill-plan.step) | Fabricated 400 × 83 × 3 mm steel extension, six Ø5 holes |
 | [hammond-shelf-report.json](../models/hammond-shelf-report.json) | Sources, specification disagreement and model limits |
 | [fit-report.json](../models/fit-report.json) | Installed coordinates, components, cables and clearance checks |
 | [mount-hole-manifest.json](../models/mount-hole-manifest.json) | Proposed drill positions and factory-interface references |
@@ -140,7 +142,7 @@ The rod seat remains Z14. The fixed lower OBT nut must meet the GPU flange with 
 
 **V100s:** four nominal 40 mm cards on 40.64 mm pitch leave only 0.64 mm between cards. NVIDIA’s [dimensioned brief](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-V100-PCIe-Product-Brief.pdf) establishes 266.7 × 111.15 mm bodies; thickness, slots, flange holes and installed underside are provisional. Remove shipping extenders. Each tail uses an M4 female/female 20 mm metal spacer and a 4 mm silicone pad, fastened from below. Pads must touch rigid card frames clear of PCB components and airflow.
 
-**RTX 5090 rest:** a revised **50 × 42 × 24 mm** block at X329.656–379.656, Y695–737 fits between the board and longer rear AIO feet. Two M4 anchors have 17 × 12 × 6 mm head recesses. Use Ø9 mm washers and ≤4 mm heads, total ≤5 mm above the recessed seat. A 32 × 13 × 1.5 mm contact relief retains at least 4 mm of material to the screw recesses; test the actual shroud contact and fan clearance.
+**RTX 5090 rest:** a revised **50 × 42 × 24 mm** block at X107.2–149.2, Y638.8–688.8 sits under the card tail, turned with Kenshin (its slots run along X). Two M4 anchors have 17 × 12 × 6 mm head recesses. Use Ø9 mm washers and ≤4 mm heads, total ≤5 mm above the recessed seat. A 32 × 13 × 1.5 mm contact relief retains at least 4 mm of material to the screw recesses; test the actual shroud contact and fan clearance.
 
 **BMC underside remains unresolved:** the provisional H12D BMC envelope overlaps two simplified V100 bodies by 0.125 mm. This is neither a verified fit nor a confirmed real collision. Inspect the actual BMC, headers, NVMe cooling and card undersides before assembly.
 
@@ -156,7 +158,7 @@ Both PSUs use the same printed bracket, `psu_bracket`, two copies on plate `05_p
 - The two upper factory screws pass through 5 × 4 mm vertical slots with at least 4 mm side and 3.5 mm top material. Use washers and verify safe factory thread engagement.
 - **Feet:** 50 × 30 × 6 mm with two tapered side gussets. There are two 10 × 5.5 mm shelf slots side by side, 19 mm behind the rear face, with 6 mm of plastic beyond each slot end.
 
-Both PSUs rest fully on steel. Kenshin’s PSU and bracket turn 180° in the deck plane, so its AC inlet faces the central service area and its fan faces the cabinet’s left side. Installed hole coordinates are in the generated manifest.
+The Hercules rests on steel over 76 of its 86 mm width (10 mm left overhang). The HX1200i overhangs the rear by 24.5 mm; its bracket is turned +90° so the foot faces −X and its slots run along X, and its rear washer sits 0.5 mm inside the deck edge. Installed hole coordinates are in the generated manifest.
 
 Use M4 through-bolts, OD12 washers and nuts. The brackets are printed in HT-PLA-GF and annealed (see [printing.md](../../docs/printing.md)). Check AC plug insertion, LED clearance and cord routing during the dry fit.
 
@@ -168,9 +170,11 @@ The existing H115i mount shapes are reused: fans → 5 mm frames → radiator, w
 
 The 162 mm hose brace retains its 8 mm web, 6 mm face and 8 mm foot. It attaches to two unused rear radiator threads and two shelf bolts; fit it without hose preload. The brace ends Y84.5, 12.7 mm ahead of Berserk’s board. Actual factory screw threads/engagement and hose tank clearance are unmeasured. On the EPYC the H115i mounts with an Asetek TR4/SP3 bracket ([asetek-tr4-bracket](../parts/asetek-tr4-bracket.md)); SP3 and TR4 share the four-post cooler mount. The round cold plate covers only part of the 58 × 75 mm SP3 heat spreader, which the owner accepted on 2026-11-06: watch all-core CPU temperatures and move to a full-coverage TR4/SP3 cooler if it throttles. Confirm the bracket lists this pump revision, the mounting pressure and relaxed hose reach.
 
-## Rear 120 mm AIO
+## Side 120 mm AIO
 
-![Rear AIO frames and brace](../models/fan120-aio-frames-and-brace.png)
+![Side AIO frames and brace (radiator-local view)](../models/fan120-aio-frames-and-brace.png)
+
+**2026-11-16 revision.** The radiator group is built in its radiator-local frame and turned +90° onto the left deck edge. The printed frames, spacer and brace keep their geometry; the rear steel extension is retired, so the feet and brace bear directly on the deck (`SUPPORT_T = 0`). The frame anchors are now X79.3, Y468.9/526.9/708.9/766.9, with slots along X. The rear frame's footprint ends 0.5 mm inside the deck rear. The brace moved from the hose end to the unused inner threads at fan 2 (anchors X72.3/87.8, Y554.4), because at the hose end it left only 11.9 mm for the two 14 mm hoses beside the V100 hood corner. The hoses leave the front tank and reach the pump in about 230 mm. The text below describes the retired rear arrangement, except where it says otherwise.
 
 The [Lian Li GA II LITE Performance 360](https://lian-li.com/product/ga-ii-lite/) uses a 397 × 120 × 27 mm radiator, 400 mm tubes and three 124 × 120 × 28 mm fans. The low-X hose end faces the left brace; rear fans pull outward. The pump and radiator ports are still survey assumptions.
 
@@ -231,7 +235,7 @@ Survey the actual folds, factory slide attachments and underside access before l
 
 ## Physical release checks
 
-1. Verify rack-post spacing, full shelf travel, doors, rear AIO clearance, rack stability and actual equipment mass against the stricter Hammond table.
+1. Verify rack-post spacing, the 450 mm rail opening against the left-side overhangs and Kenshin's side-facing plugs, full shelf travel, doors, rear PSU/radiator clearance, rack stability and actual equipment mass against the stricter Hammond table.
 2. Measure flat deck width, folds, sheet thickness, underside access and screw stacks. Dry-place all components, plugs and hoses before drilling.
 3. Test-print changed mounts; inspect fit, slot travel, bare-bracket tool access, screw engagement and rear AIO deflection (printed snug hex fit passed on 2026-11-14).
 4. Resolve BMC/GPU underside clearance, Berserk hood/I/O approach, H115i SP3 compatibility, V100 EPS pinout/bends, PSU intake restriction and actual port access.

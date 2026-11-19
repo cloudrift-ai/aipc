@@ -164,8 +164,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        400.146,
-        456.66,
+        387.496,
+        709.27,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -175,8 +175,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        321.406,
-        456.66,
+        387.496,
+        630.53,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -186,8 +186,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        275.686,
-        456.66,
+        387.496,
+        584.81,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -197,8 +197,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        118.206,
-        479.52,
+        364.636,
+        427.33,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -208,8 +208,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        400.146,
-        611.6,
+        232.556,
+        709.27,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -219,8 +219,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        275.686,
-        611.6,
+        232.556,
+        584.81,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -230,8 +230,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        118.206,
-        611.6,
+        232.556,
+        427.33,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -241,8 +241,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        400.146,
-        683.99,
+        160.166,
+        709.27,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -252,8 +252,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        275.686,
-        683.99,
+        160.166,
+        584.81,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -263,8 +263,8 @@
       "component": "Kenshin ATX board",
       "interface": "board-to-standoff",
       "center_mm": [
-        118.206,
-        683.99,
+        160.166,
+        427.33,
         15.525
       ],
       "diameter_mm": 3.7,
@@ -554,7 +554,7 @@
       "component": "Berserk owned Hercules 1600W PSU",
       "interface": "PSU rear factory thread-to-frame",
       "center_mm": [
-        80.0,
+        70.0,
         245.0,
         144
       ],
@@ -566,7 +566,7 @@
       "component": "Berserk owned Hercules 1600W PSU",
       "interface": "PSU rear factory thread-to-frame",
       "center_mm": [
-        6.0,
+        -4.0,
         245.0,
         120
       ],
@@ -578,8 +578,8 @@
       "component": "Kenshin owned HX1200i PSU",
       "interface": "PSU rear factory thread-to-frame",
       "center_mm": [
-        13.656000000000006,
-        525.5,
+        130.0,
+        805.88,
         144
       ],
       "diameter_mm": 5,
@@ -590,8 +590,8 @@
       "component": "Kenshin owned HX1200i PSU",
       "interface": "PSU rear factory thread-to-frame",
       "center_mm": [
-        87.656,
-        525.5,
+        130.0,
+        731.88,
         120
       ],
       "diameter_mm": 5,
@@ -600,11 +600,107 @@
     },
     {
       "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        52.327999999999975,
+        434.4,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        25.327999999999975,
+        434.4,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        52.327999999999975,
+        434.4,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        25.327999999999975,
+        434.4,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        52.327999999999975,
+        539.4,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        25.327999999999975,
+        539.4,
+        27.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO unused inward factory thread",
+      "center_mm": [
+        52.327999999999975,
+        539.4,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
+      "interface": "Kenshin AIO rear factory thread",
+      "center_mm": [
+        25.327999999999975,
+        539.4,
+        132.5
+      ],
+      "diameter_mm": 4.5,
+      "blind_depth_mm": 3,
+      "verified": false
+    },
+    {
+      "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO brace inward factory thread",
       "center_mm": [
-        38.5,
-        787.5,
-        30.5
+        52.327999999999975,
+        554.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -614,9 +710,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO rear factory thread",
       "center_mm": [
-        38.5,
-        814.5,
-        30.5
+        25.327999999999975,
+        554.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -626,9 +722,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO brace inward factory thread",
       "center_mm": [
-        38.5,
-        787.5,
-        135.5
+        52.327999999999975,
+        554.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -638,9 +734,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO rear factory thread",
       "center_mm": [
-        38.5,
-        814.5,
-        135.5
+        25.327999999999975,
+        554.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -650,9 +746,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO unused inward factory thread",
       "center_mm": [
-        143.5,
-        787.5,
-        30.5
+        52.327999999999975,
+        659.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -662,9 +758,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO rear factory thread",
       "center_mm": [
-        143.5,
-        814.5,
-        30.5
+        25.327999999999975,
+        659.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -674,9 +770,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO unused inward factory thread",
       "center_mm": [
-        143.5,
-        787.5,
-        135.5
+        52.327999999999975,
+        659.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -686,9 +782,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO rear factory thread",
       "center_mm": [
-        143.5,
-        814.5,
-        135.5
+        25.327999999999975,
+        659.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -698,9 +794,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO unused inward factory thread",
       "center_mm": [
-        158.5,
-        787.5,
-        30.5
+        52.327999999999975,
+        674.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -710,9 +806,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO rear factory thread",
       "center_mm": [
-        158.5,
-        814.5,
-        30.5
+        25.327999999999975,
+        674.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -722,9 +818,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO unused inward factory thread",
       "center_mm": [
-        158.5,
-        787.5,
-        135.5
+        52.327999999999975,
+        674.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -734,9 +830,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO rear factory thread",
       "center_mm": [
-        158.5,
-        814.5,
-        135.5
+        25.327999999999975,
+        674.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -746,9 +842,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO unused inward factory thread",
       "center_mm": [
-        263.5,
-        787.5,
-        30.5
+        52.327999999999975,
+        779.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -758,9 +854,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO rear factory thread",
       "center_mm": [
-        263.5,
-        814.5,
-        30.5
+        25.327999999999975,
+        779.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -770,9 +866,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO unused inward factory thread",
       "center_mm": [
-        263.5,
-        787.5,
-        135.5
+        52.327999999999975,
+        779.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -782,105 +878,9 @@
       "component": "Kenshin GA II Lite radiator",
       "interface": "Kenshin AIO rear factory thread",
       "center_mm": [
-        263.5,
-        814.5,
-        135.5
-      ],
-      "diameter_mm": 4.5,
-      "blind_depth_mm": 3,
-      "verified": false
-    },
-    {
-      "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO unused inward factory thread",
-      "center_mm": [
-        278.5,
-        787.5,
-        30.5
-      ],
-      "diameter_mm": 4.5,
-      "blind_depth_mm": 3,
-      "verified": false
-    },
-    {
-      "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO rear factory thread",
-      "center_mm": [
-        278.5,
-        814.5,
-        30.5
-      ],
-      "diameter_mm": 4.5,
-      "blind_depth_mm": 3,
-      "verified": false
-    },
-    {
-      "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO unused inward factory thread",
-      "center_mm": [
-        278.5,
-        787.5,
-        135.5
-      ],
-      "diameter_mm": 4.5,
-      "blind_depth_mm": 3,
-      "verified": false
-    },
-    {
-      "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO rear factory thread",
-      "center_mm": [
-        278.5,
-        814.5,
-        135.5
-      ],
-      "diameter_mm": 4.5,
-      "blind_depth_mm": 3,
-      "verified": false
-    },
-    {
-      "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO unused inward factory thread",
-      "center_mm": [
-        383.5,
-        787.5,
-        30.5
-      ],
-      "diameter_mm": 4.5,
-      "blind_depth_mm": 3,
-      "verified": false
-    },
-    {
-      "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO rear factory thread",
-      "center_mm": [
-        383.5,
-        814.5,
-        30.5
-      ],
-      "diameter_mm": 4.5,
-      "blind_depth_mm": 3,
-      "verified": false
-    },
-    {
-      "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO unused inward factory thread",
-      "center_mm": [
-        383.5,
-        787.5,
-        135.5
-      ],
-      "diameter_mm": 4.5,
-      "blind_depth_mm": 3,
-      "verified": false
-    },
-    {
-      "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO rear factory thread",
-      "center_mm": [
-        383.5,
-        814.5,
-        135.5
+        25.327999999999975,
+        779.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "blind_depth_mm": 3,
@@ -890,9 +890,9 @@
       "component": "Kenshin AIO exhaust fan 1",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        38.5,
-        820.5,
-        30.5
+        19.327999999999975,
+        434.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -901,9 +901,9 @@
       "component": "Kenshin AIO exhaust fan 1",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        38.5,
-        820.5,
-        135.5
+        19.327999999999975,
+        434.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -912,9 +912,9 @@
       "component": "Kenshin AIO exhaust fan 1",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        143.5,
-        820.5,
-        30.5
+        19.327999999999975,
+        539.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -923,9 +923,9 @@
       "component": "Kenshin AIO exhaust fan 1",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        143.5,
-        820.5,
-        135.5
+        19.327999999999975,
+        539.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -934,9 +934,9 @@
       "component": "Kenshin AIO exhaust fan 2",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        158.5,
-        820.5,
-        30.5
+        19.327999999999975,
+        554.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -945,9 +945,9 @@
       "component": "Kenshin AIO exhaust fan 2",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        158.5,
-        820.5,
-        135.5
+        19.327999999999975,
+        554.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -956,9 +956,9 @@
       "component": "Kenshin AIO exhaust fan 2",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        263.5,
-        820.5,
-        30.5
+        19.327999999999975,
+        659.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -967,9 +967,9 @@
       "component": "Kenshin AIO exhaust fan 2",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        263.5,
-        820.5,
-        135.5
+        19.327999999999975,
+        659.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -978,9 +978,9 @@
       "component": "Kenshin AIO exhaust fan 3",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        278.5,
-        820.5,
-        30.5
+        19.327999999999975,
+        674.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -989,9 +989,9 @@
       "component": "Kenshin AIO exhaust fan 3",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        278.5,
-        820.5,
-        135.5
+        19.327999999999975,
+        674.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -1000,9 +1000,9 @@
       "component": "Kenshin AIO exhaust fan 3",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        383.5,
-        820.5,
-        30.5
+        19.327999999999975,
+        779.4,
+        27.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -1011,9 +1011,9 @@
       "component": "Kenshin AIO exhaust fan 3",
       "interface": "Kenshin AIO fan factory clearance",
       "center_mm": [
-        383.5,
-        820.5,
-        135.5
+        19.327999999999975,
+        779.4,
+        132.5
       ],
       "diameter_mm": 4.5,
       "verified": false
@@ -1214,8 +1214,8 @@
       "component": "Kenshin RTX5090 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        371.656,
-        436.5,
+        407.656,
+        680.78,
         141.0
       ],
       "diameter_mm": 6.5,
@@ -1225,8 +1225,8 @@
       "component": "Kenshin RTX5090 flange survey",
       "interface": "card flange-to-metal post",
       "center_mm": [
-        351.656,
-        436.5,
+        407.656,
+        660.78,
         141.0
       ],
       "diameter_mm": 6.5,
@@ -1417,8 +1417,8 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        362.456,
-        459.5
+        384.656,
+        671.58
       ],
       "diameter_mm": 3.5,
       "fastener": "M3 with steel backing",
@@ -1426,7 +1426,7 @@
         8,
         4.0
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "install_before_PCB": true,
       "intersects_approximate_vent": false,
@@ -1435,8 +1435,8 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        306.656,
-        459.5
+        384.656,
+        615.78
       ],
       "diameter_mm": 3.5,
       "fastener": "M3 with steel backing",
@@ -1444,7 +1444,7 @@
         8,
         4.0
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "install_before_PCB": true,
       "intersects_approximate_vent": false,
@@ -1453,8 +1453,8 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        306.656,
-        680.99
+        163.166,
+        615.78
       ],
       "diameter_mm": 3.5,
       "fastener": "M3 with steel backing",
@@ -1462,7 +1462,7 @@
         8,
         4.0
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "install_before_PCB": true,
       "intersects_approximate_vent": false,
@@ -1471,8 +1471,8 @@
     {
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        198.656,
-        697.0
+        147.156,
+        507.78
       ],
       "diameter_mm": 3.5,
       "fastener": "M3 with steel backing",
@@ -1480,7 +1480,7 @@
         8,
         4.0
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "install_before_PCB": false,
       "intersects_approximate_vent": false,
@@ -1489,8 +1489,8 @@
     {
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        119.656,
-        697.0
+        147.156,
+        428.78
       ],
       "diameter_mm": 3.5,
       "fastener": "M3 with steel backing",
@@ -1498,7 +1498,7 @@
         8,
         4.0
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "install_before_PCB": false,
       "intersects_approximate_vent": false,
@@ -1609,8 +1609,8 @@
     {
       "part": "fan120_aio_hose_brace",
       "center_xy_mm": [
-        38.5,
-        767.5
+        72.328,
+        554.4
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1618,7 +1618,7 @@
         8.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -1626,8 +1626,8 @@
     {
       "part": "fan120_aio_hose_brace",
       "center_xy_mm": [
-        38.5,
-        752.0
+        87.828,
+        554.4
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1635,7 +1635,7 @@
         8.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -1643,7 +1643,7 @@
     {
       "part": "psu_screw_frame_berserk_drill_plan",
       "center_xy_mm": [
-        31.0,
+        21.0,
         264.0
       ],
       "diameter_mm": 5.0,
@@ -1660,7 +1660,7 @@
     {
       "part": "psu_screw_frame_berserk_drill_plan",
       "center_xy_mm": [
-        55.0,
+        45.0,
         264.0
       ],
       "diameter_mm": 5.0,
@@ -1677,8 +1677,8 @@
     {
       "part": "psu_screw_frame_kenshin_drill_plan",
       "center_xy_mm": [
-        62.656,
-        506.5
+        111.0,
+        756.88
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1686,7 +1686,7 @@
         10.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -1694,8 +1694,8 @@
     {
       "part": "psu_screw_frame_kenshin_drill_plan",
       "center_xy_mm": [
-        38.656,
-        506.5
+        111.0,
+        780.88
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1703,7 +1703,7 @@
         10.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -1711,8 +1711,8 @@
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "center_xy_mm": [
-        73.0,
-        760.5
+        79.328,
+        468.9
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1720,7 +1720,7 @@
         10.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -1728,8 +1728,8 @@
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "center_xy_mm": [
-        131.0,
-        760.5
+        79.328,
+        526.9
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1737,7 +1737,7 @@
         10.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -1745,8 +1745,8 @@
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "center_xy_mm": [
-        313.0,
-        760.5
+        79.328,
+        708.9
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1754,7 +1754,7 @@
         10.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -1762,8 +1762,8 @@
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "center_xy_mm": [
-        371.0,
-        760.5
+        79.328,
+        766.9
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1771,7 +1771,7 @@
         10.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -1779,8 +1779,8 @@
     {
       "part": "gpu_5090_rest_drill_plan",
       "center_xy_mm": [
-        369.656,
-        724.5
+        119.656,
+        678.78
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1788,7 +1788,7 @@
         10.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -1796,8 +1796,8 @@
     {
       "part": "gpu_5090_rest_drill_plan",
       "center_xy_mm": [
-        339.656,
-        724.5
+        119.656,
+        648.78
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1805,7 +1805,7 @@
         10.0,
         5.5
       ],
-      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "printed_bracket_slot_axis": "shelf X (side-to-side)",
       "verified": false,
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first"
@@ -2228,8 +2228,8 @@
     {
       "part": "Kenshin_RTX5090_metal_post_1",
       "center_xy_mm": [
-        371.656,
-        436.5
+        407.656,
+        680.78
       ],
       "diameter_mm": 3.5,
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
@@ -2259,16 +2259,16 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        371.656,
-        436.5
+        407.656,
+        680.78
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     },
     {
       "part": "Kenshin_RTX5090_metal_post_2",
       "center_xy_mm": [
-        351.656,
-        436.5
+        407.656,
+        660.78
       ],
       "diameter_mm": 3.5,
       "fastener": "M3x8 from below through two OD7x0.5 and two OD12x1 washers and steel into Wurth970140324 14mm M3 female/female base; base passes freely through plastic",
@@ -2298,8 +2298,8 @@
       "intersects_approximate_vent": false,
       "fabrication": "candidate new drill through sound steel; survey first",
       "fixed_hex_center_xy_mm": [
-        351.656,
-        436.5
+        407.656,
+        660.78
       ],
       "fit_note": "Regular hex with 0.25 mm face clearance (snug fit on the real SW5.5 base confirmed by test print 2026-11-14) and no elongated adjustment. Point one corner toward PCB. Verify post axis against seated cards and full foot on real steel before drilling."
     }
@@ -2393,8 +2393,8 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        362.456,
-        680.99
+        163.166,
+        671.5799999999999
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2410,8 +2410,8 @@
     {
       "part": "kenshin_mobo_adapter_left_drill_plan",
       "center_xy_mm": [
-        396.646,
-        534.13
+        310.026,
+        705.77
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2427,8 +2427,8 @@
     {
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        198.656,
-        482.52
+        361.636,
+        507.78
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2444,8 +2444,8 @@
     {
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        156.656,
-        482.52
+        361.636,
+        465.78
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2461,8 +2461,8 @@
     {
       "part": "kenshin_mobo_adapter_right_drill_plan",
       "center_xy_mm": [
-        121.70600000000002,
-        545.56
+        298.59600000000006,
+        430.83
       ],
       "printed_bracket_slot_mm": [
         8,
@@ -2514,36 +2514,36 @@
     ],
     "kenshin_mobo_adapter_left_drill_plan": [
       [
-        392.776,
-        436.5
+        407.656,
+        701.9
       ],
       [
-        371.656,
-        436.5
+        407.656,
+        680.78
       ],
       [
-        351.656,
-        436.5
+        407.656,
+        660.78
       ],
       [
-        332.136,
-        436.5
+        407.656,
+        641.26
       ],
       [
-        311.496,
-        436.5
+        407.656,
+        620.62
       ],
       [
-        291.496,
-        436.5
+        407.656,
+        600.62
       ],
       [
-        270.856,
-        436.5
+        407.656,
+        579.98
       ],
       [
-        250.856,
-        436.5
+        407.656,
+        559.98
       ]
     ]
   },
@@ -2608,7 +2608,7 @@
       8.0,
       5.5
     ],
-    "printed_shelf_slot_axis": "Y (front-to-rear)",
+    "printed_shelf_slot_axis": "Y (front-to-rear) for Berserk and H115i mounts; X for Kenshin's turned adapters, 5090 rest, HX1200i bracket and the side-AIO frames and brace",
     "printed_shelf_slot_clearance_checked_in_CAD": true,
     "physical_shelf_verified": false
   },
