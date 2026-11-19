@@ -1019,6 +1019,50 @@
       "verified": false
     },
     {
+      "component": "Berserk LRFC6911N riser board",
+      "interface": "riser-to-holder (photo-estimated)",
+      "center_mm": [
+        69.3,
+        462.5,
+        9.0
+      ],
+      "diameter_mm": 3.2,
+      "verified": false
+    },
+    {
+      "component": "Berserk LRFC6911N riser board",
+      "interface": "riser-to-holder (photo-estimated)",
+      "center_mm": [
+        104.8,
+        462.5,
+        9.0
+      ],
+      "diameter_mm": 3.2,
+      "verified": false
+    },
+    {
+      "component": "Berserk LRFC6911N riser board",
+      "interface": "riser-to-holder (photo-estimated)",
+      "center_mm": [
+        69.3,
+        573.5,
+        9.0
+      ],
+      "diameter_mm": 3.2,
+      "verified": false
+    },
+    {
+      "component": "Berserk LRFC6911N riser board",
+      "interface": "riser-to-holder (photo-estimated)",
+      "center_mm": [
+        104.8,
+        573.5,
+        9.0
+      ],
+      "diameter_mm": 3.2,
+      "verified": false
+    },
+    {
       "component": "V100 PCIE1 tail support",
       "interface": "surveyed bearing contact, no GPU drilling",
       "center_mm": [
@@ -1831,7 +1875,7 @@
       "part": "berserk_nic_holder",
       "center_xy_mm": [
         95.0,
-        445.0
+        438.0
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",

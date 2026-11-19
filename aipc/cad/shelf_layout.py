@@ -551,7 +551,13 @@ assert 10 - 12 / 2 >= 4  # counterbore to side edge
 # Berserk NIC holder: printed as installed, in shelf coordinates.
 nic_holder = nic.holder()
 for box in parts + connectors + outboard_connectors:
-    assert nic_holder.val().intersect(box.shape().val()).Volume() < .01, ("NIC holder", box.name)
+    body = box.shape().cut(nic.riser_holes()) if box.name == "Berserk LRFC6911N riser board" else box.shape()
+    assert nic_holder.val().intersect(body.val()).Volume() < .01, ("NIC holder", box.name)
+# Straight driver path to the card's bracket-tab screw, from the bridge top.
+nic_tab_driver = (cq.Workplane("XY").center(*nic.TAB_SCREW).circle(3).extrude(35)
+                  .translate((0, 0, nic.BRIDGE_TOP + 1)))
+for box in parts + connectors + outboard_connectors:
+    assert nic_tab_driver.val().intersect(box.shape().val()).Volume() < .01, ("NIC tab driver", box.name)
 
 
 def nominal_board_mounts():
@@ -624,6 +630,12 @@ def _mounted_component_shape(box: Box):
                     mount_holes.append({"component": box.name, "interface": face,
                                         "center_mm": [x, y, z], "diameter_mm": 5,
                                         "blind_depth_mm": 3, "verified": False})
+    elif box.name == "Berserk LRFC6911N riser board":
+        shape = shape.cut(nic.riser_holes())
+        for u, v in nic.HOLES_UV:
+            mount_holes.append({"component": box.name, "interface": "riser-to-holder (photo-estimated)",
+                                "center_mm": [*nic.riser_xy(u, v), nic.RISER_Z], "diameter_mm": spec.dim(nic.RISER, "hole_diameter"),
+                                "verified": False})
     elif box.name == "Kenshin GA II Lite radiator":
         for cx in (91,211,331):
             for x in (cx-52.5,cx+52.5):
@@ -1134,6 +1146,7 @@ for label, route in cable_routes.items():
             # The NIC cables also clear the printed holder, the GPU support
             # rods, the outboard Kenshin plug and the other cable routes.
             assert segment.intersect(nic_holder.val()).Volume() < .01, (label, i, "NIC holder")
+            assert segment.intersect(nic_tab_driver.val()).Volume() < .01, (label, i, "NIC tab driver")
             for post in post_locations:
                 rod = cq.Workplane("XY").center(post["x_mm"],post["y_mm"]).circle(3).extrude(post["top_z_survey_mm"])
                 assert segment.intersect(rod.val()).Volume() < .01, (label, i, post["card"], post["post"])

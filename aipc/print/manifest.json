@@ -168,9 +168,9 @@
       "highest_part_mm": 76.6,
       "occupied_bounds_mm": [
         101.25,
-        17.0,
+        13.0,
         168.75,
-        183.0
+        187.0
       ]
     },
     "10_fan120_aio_center_spacer": {

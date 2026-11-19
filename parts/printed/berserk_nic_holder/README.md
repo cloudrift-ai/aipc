@@ -36,5 +36,5 @@ bracket-to-slot offset and tab height are photo estimates or assumptions.
 
 | Key | Value | Evidence | Source / note |
 | --- | --- | --- | --- |
-| mass | 0.0613 kg | allowance | OrcaSlicer filament estimate |
+| mass | 0.0671 kg | allowance | OrcaSlicer filament estimate |
 

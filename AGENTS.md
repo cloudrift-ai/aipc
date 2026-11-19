@@ -31,6 +31,18 @@ make lint test              # ruff and pytest for hwkit
 
 Inside a build folder, `../venv/bin/hwkit <cad|plates|render|check|datasheets|slice>` runs one step.
 
+## 3D printed parts: required steps
+
+Do every step, in order, for every new or changed printed part in any build. A part is not done, and must not be committed as released, until step 6 is complete. [docs/printing.md](docs/printing.md) holds the design and printability guidelines the audit in step 5 checks against.
+
+1. **Change the source, not the output.** Edit the generator in the build's `cad/` or the spec (`parts/printed/<id>/part.toml`, `<build>/parts/<id>.toml`). New printed parts get a library spec, a build reference and a plate in the build's print jobs.
+2. **Rebuild and slice:** `make all gcode BUILD=<build>` (or `PLATES="<plate>"` for the changed plates). Every CAD assertion, the compatibility check and the slicer must pass.
+3. **Check the overhang screen** in `<build>/print/orientation-audit.json` for the part. Explain every downward-facing area: it must be a short anchored bridge, a 45-degree-or-steeper face, or removed. No flat ceilings over air and no cantilevered ledges.
+4. **Inspect it yourself in print orientation:** the part's `render.png` from every side and from below, a probe of where each feature starts, bridges or closes layer by layer, wall and edge distances (4 mm from any hole to a free edge), slivers and isolated pads, and driver access to every fastener in assembly order.
+5. **Independent print audit.** Give a separate fresh-context agent the generator, the exported STL/STEP, the renders, the orientation audit, the G-code and [docs/printing.md](docs/printing.md), but not your own conclusions. It reports must-fix, should-fix and notes with measured evidence.
+6. **Fix and recheck.** Fix every must-fix, decide each should-fix with a reason, rerun steps 2-4 for the affected areas, and record the slicer estimate and mass (`dims.mass` from the OrcaSlicer filament estimate) in the build's `print/README.md` and the part spec.
+7. **Fit-test before batch printing.** Print one of each changed part and dry-fit it against the real hardware. A clean CAD, slicer or audit result is a prototype review, not a fit approval. Mark unmeasured interfaces as provisional until then.
+
 ## Rules
 
 - Shared code goes in `hwkit/`; a build's `cad/` holds only that build's geometry and plate layout. Do not copy helpers between builds. Read part dimensions with `spec.dim(id, key)`, never as literals.

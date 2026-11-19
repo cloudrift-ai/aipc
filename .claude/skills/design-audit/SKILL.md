@@ -17,7 +17,7 @@ The audit has to find what the generators cannot: wrong inputs. The CAD only pro
 4. **Hunt for missing interfaces.** For each pair of parts that touch, plug in, bolt together, share power or share air, ask whether an interface is declared on both sides. Add one where it is missing, and rerun `make check`.
 5. **Visual review:** follow the design-review skill for the whole assembly and every part.
 6. **Independent review:** start a fresh-context subagent (general-purpose, read-only) with pointers to the build's `parts/*.toml` and the library specs they reference, the build's `system.toml`, `docs/system-check.md`, `models/assembly-bom.json`, the renders and local datasheets. Ask it for ranked findings with concrete evidence and a list of what it could not verify. Do not give it your findings or hypothesis.
-7. **Reconcile:** verify each subagent finding yourself before reporting it. Fix spec errors (wrong value or evidence) directly. Geometry changes follow [docs/printing.md](../../../docs/printing.md); hardware changes follow the part-intake skill. Ask the owner before changing selected hardware.
+7. **Reconcile:** verify each subagent finding yourself before reporting it. Fix spec errors (wrong value or evidence) directly. Geometry changes follow the printed-part steps in the root [AGENTS.md](../../../AGENTS.md#3d-printed-parts-required-steps); hardware changes follow the part-intake skill. Ask the owner before changing selected hardware.
 8. **Record the audit** as a dated section in the build's design notes (for AIPC, [docs/design.md](../../../aipc/docs/design.md)): what was checked, the blockers, open questions and what remains physical-only (fit, load, thermal). Keep `parts.xlsx` in step with the build's `parts/`.
 
 ## Reporting

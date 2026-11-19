@@ -1,6 +1,6 @@
 # 3D printing guidelines
 
-These are the rules every printed part in this repo follows, in every build. Use them when you change a part or add a new one, and when you adapt a build to different hardware. Build-specific print notes (which plates use which profile, part orientations, fit test results) are in each build's `print/README.md`, for example [aipc/print/README.md](../aipc/print/README.md).
+These are the design and printability guidelines for printed parts in every build, and the reference the independent print auditor checks against. The required steps for any new or changed printed part are in the root [AGENTS.md](../AGENTS.md#3d-printed-parts-required-steps); this file does not repeat them. Build-specific print notes (which plates use which profile, part orientations, fit test results) are in each build's `print/README.md`, for example [aipc/print/README.md](../aipc/print/README.md).
 
 ## Printer, slicer and profiles
 
@@ -36,11 +36,17 @@ These are the rules every printed part in this repo follows, in every build. Use
 - Permanent internal ribs are acceptable inside an airflow chamber: a few broad tapered ribs that grow from existing walls and stay in the finished part. Keep fastener and driver paths clear and mark the ribs so nobody removes them.
 - Pack parts near the **bed center**, not at the cooler edges. The AIPC plate generator keeps 12 mm edge margin and 8 mm between parts before the 3 mm brims (3.25 mm edge margin for the long motherboard sections).
 
-## Checking a change
+## Audit checklist
 
-1. Change the generator in the build's `cad/` or the part's `part.toml` (or the build's `parts/<name>.toml`), not the exported files. Then regenerate everything that depends on it: `make all gcode BUILD=<build>`.
-2. Look at the part's `render.png` in the library's `parts/printed/<name>/` and its assembly view in the build's `models/renders/parts/<name>.png` (`make render`; see the design-review skill), then review every changed part in its actual print orientation from above, below, both sides and oblique angles, including joints and underside transitions. Step through the sliced layers where features begin, bridge or close. A clean render, a valid solid or a low overhang score is not enough.
-3. Have someone (or a separate agent) audit the change independently, fix what they find, and recheck the affected areas.
-4. Print one of each changed part and dry-fit it against the real hardware before printing the rest. A successful CAD or slicer check is a prototype review, not a fit approval.
+The independent print auditor (step 5 of the required steps) checks each new or changed part against everything above and reports must-fix, should-fix and notes with measured evidence. At minimum:
+
+1. **Every overhang and span, layer by layer.** Slice the solid into thin slabs and compare each layer with the one below: where does each feature start, bridge or close? Accept short anchored bridges and 45-degree-or-steeper faces; flag flat ceilings over air and cantilevered ledges. Reconcile the part's figure in `<build>/print/orientation-audit.json` and the sliced G-code (`;TYPE:Bridge` regions) with what you find.
+2. **Load path and stiffness.** Name the real loads (plug forces, cable pull, component weight) and check that they run along layers and through broad sections; flag thin or tall slender features and claims in the code or docs about what bears where that the geometry does not support.
+3. **Edges, walls and small features.** At least 4 mm from any hole or slot to a free edge, ribs and gussets per the starting dimensions, and every lip, sliver, isolated pad or tiny peg justified by a fit, load or tool-access need.
+4. **Fasteners.** Pilot and clearance sizes, engagement and screw length, washer and head envelopes across slot travel, and a straight driver path to each fastener in the documented assembly order.
+5. **Dimensions the part depends on.** Mark every interface that rests on a photo estimate, allowance or assumption, and check that the part either tolerates the error (slot, drill-at-assembly, shim) or is flagged to measure before printing.
+6. **First layer and warping.** Bed footprint, long thin features, brim and plate position.
+
+The auditor reads the generator, exported STL/STEP, renders, orientation audit and G-code, not the author's conclusions, and changes no files.
 
 Background reading: [Prusa's guide to modeling for 3D printing](https://help.prusa3d.com/article/modeling-with-3d-printing-in-mind_164135), [Prusa's PETG guide](https://help.prusa3d.com/article/petg_2059) and [Stratasys Direct's FDM design guide](https://www.stratasys.com/en/stratasysdirect/resources/resource-guides/fused-deposition-modeling).

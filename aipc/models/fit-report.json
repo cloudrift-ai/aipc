@@ -442,7 +442,7 @@
       ],
       "holder_x_from_radiator_face_mm": 68.67,
       "holder_y_range_mm": [
-        434.0,
+        426.0,
         600.0
       ],
       "gate_top_z_mm": 76.6,
@@ -455,12 +455,12 @@
       "card_plane_x_mm": 70.6,
       "bracket_face_y_mm": 466.0,
       "card_heatsink_to_radiator_face_mm": 3.02,
-      "riser_fasteners": "three M3 self-tapping screws into 2.5 mm pilots; front slot-edge hole on a plain pad (under the gate bridge)",
-      "bracket": "bracket face bears on the gate columns; tab rests on the bridge over a 3.4 x 9.4 mm slot (M3 screw, washer and nut under the bridge); shim between bridge and tab",
+      "riser_fasteners": "three M3 self-tapping screws into 2.5 mm pilots in 8 mm bosses; the front slot-edge hole sits on a 2.8 mm locating peg under the gate bridge (no driver access): hold the riser down when pulling the card",
+      "bracket": "plug loads go through the radiator-side post and the bridge's rear face; the riser-side column stands clear of the bracket. The bridge is printed solid: shim up to the tab, drill 2.5 mm through the tab hole, fit an M3 self-tapping screw no longer than 8 mm",
       "shelf_anchor_xy_mm": [
         [
           95.0,
-          445.0
+          438.0
         ],
         [
           90.0,
@@ -472,7 +472,7 @@
         ]
       ],
       "shelf_fastener": "3 x M4 with OD12 washers and steel backing",
-      "print": "PETG, base on the bed as installed; the gate bridge spans 15 mm; no supports",
+      "print": "PETG, base on the bed as installed; 45-degree chamfers cut the gate bridge to an 8 mm span, a 45-degree wedge carries the bridge behind the riser-side column, 20 mm forward webs and an inward post gusset; no supports. Independent print audit 2026-11-19",
       "assembly_order": "bolt the bare holder to the shelf, screw the riser on, seat the card, fit the tab screw, then plug SATA, SFF-8643 and the DAC",
       "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
       "to_measure": [
@@ -480,7 +480,8 @@
         "bracket face to x16 slot start on the card",
         "bracket tab height above the riser",
         "QSFP28 cage height on the card",
-        "actual radiator-to-mount gap"
+        "actual radiator-to-mount gap",
+        "whether the bracket's lower tongue clears the riser board, which runs 9 mm in front of the bracket plane"
       ],
       "physical_fit_verified": false
     },
@@ -2052,7 +2053,7 @@
       "quantity": 1,
       "bounding_box_mm": [
         67.5,
-        166.0,
+        174.0,
         76.6
       ],
       "purpose": "Berserk NIC riser holder: 6mm base, three slotted M4 anchors, four riser bosses and a gate whose columns take the card bracket and whose bridge carries the tab; QSFP28 plug through the gate; base on bed"

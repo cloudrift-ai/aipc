@@ -18,5 +18,5 @@ source = "generated"
 notes = "Exported by cad/shelf_layout.py in shelf coordinates; prints as installed, base on the bed."
 
 [dims]
-mass = { value = 0.0613, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+mass = { value = 0.0671, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
 

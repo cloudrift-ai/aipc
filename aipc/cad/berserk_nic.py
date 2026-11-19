@@ -11,10 +11,13 @@ board); that follows from the photographed layout (slot on one long edge,
 sockets on the other, slot key at the power-circuit end).
 
 The printed holder is one piece: a 6 mm base with three M4 shelf slots,
-four riser bosses (three M3 self-tapping screws, one bearing pad under the
+four riser bosses (three M3 self-tapping screws, one locating peg under the
 gate) and a gate in front of the card bracket. The bracket face bears on the
-gate's two columns, the bracket tab rests on the gate's bridge (shim up to
-the tab), and the QSFP28 plug passes through the gate opening.
+radiator-side post and the bridge's rear face (the riser-side column stands
+clear of the bracket); the bracket tab rests on the bridge, which is printed
+solid and drilled through the tab's own hole at assembly, so the unmeasured
+bracket-to-slot offset cannot misplace it. The QSFP28 plug passes through the
+gate opening.
 
 Riser and card interfaces are photo estimates or assumptions: measure the
 riser holes, the bracket-to-slot offset and the tab height before printing.
@@ -29,7 +32,8 @@ PART = "berserk_nic_holder"
 d = spec.dim
 RADIATOR_FACE_X = 52.328          # Kenshin GA II radiator inner face (shelf_layout)
 OWNER_GAP = 75.0                  # owner: radiator to Kenshin motherboard mount, about 75 mm
-BASE_T, BOSS_H, BOSS_D, PILOT_D = 6.0, 3.0, 7.0, 2.5
+BASE_T, BOSS_H, BOSS_D, PILOT_D = 6.0, 3.0, 8.0, 2.5
+PEG_D, PEG_H = 2.8, 1.5   # locates the riser's front hole (hole 3.2 mm, assumed)
 
 # Riser placement: local u along the board from the power/bracket end, v across
 # it from the slot edge (v=0) to the socket edge.
@@ -70,12 +74,17 @@ BRIDGE_T = 6.0
 # Tab underside estimated about 72 mm above the slot board (79.2 mm LP bracket);
 # the bridge sits 6 mm lower so the card always seats, then shim up to the tab.
 BRIDGE_TOP = RISER_TOP + 66.0
-TAB_SCREW = (CARD_PLANE_X, BRACKET_Y - 7.0)
-TAB_SLOT = (3.4, 6.0)                    # M3 clearance, +/-3 mm along Y for the bracket offset
+TAB_SCREW = (CARD_PLANE_X, BRACKET_Y - 7.0)   # nominal; drilled 2.5 mm at assembly through the tab
+TAB_SCREW_MAX = 8.0                      # M3 self-tapping: tab + shim + at most 6 mm into the bridge
+WEB_REACH = 20.0                         # forward web reach (guideline 15-30 mm)
+POST_GUSSET = (10.0, 34.0)               # X reach, height of the post's inward gusset
+# 45-degree corner chamfers under the bridge shorten the bridged span; the
+# riser-side one is wider. Both stay clear of the QSFP28 plug below.
+POST_CHAMFER, COL_CHAMFER = 3.0, 4.0
 
-BASE = (53.5, 121.0, GATE_Y[0] - 12.0, 600.0)  # x0, x1, y0, y1
+BASE = (53.5, 121.0, GATE_Y[0] - WEB_REACH, 600.0)  # x0, x1, y0, y1
 WINDOW = (76.0, 98.0, 480.0, 556.0)
-ANCHORS = ((95.0, BASE[2] + 11.0), (90.0, 590.0), (114.0, 545.0))
+ANCHORS = ((95.0, BASE[2] + 12.0), (90.0, 590.0), (114.0, 545.0))
 SLOT_L, SLOT_W = 10.0, 5.5
 
 
@@ -88,6 +97,8 @@ def holder():
     for u, v in HOLES_UV:
         x, y = riser_xy(u, v)
         body = body.union(cq.Workplane("XY").center(x, y).circle(BOSS_D/2).extrude(BOSS_H).translate((0, 0, BASE_T)))
+    px, py = riser_xy(*PAD_UV)
+    body = body.union(cq.Workplane("XY").center(px, py).circle(PEG_D/2).extrude(PEG_H).translate((0, 0, BASE_T+BOSS_H)))
     for u, v in SCREW_UV:
         x, y = riser_xy(u, v)
         body = body.cut(cq.Workplane("XY").center(x, y).circle(PILOT_D/2).extrude(BOSS_H+BASE_T-1).translate((0, 0, 1)))
@@ -102,8 +113,25 @@ def holder():
         web = (cq.Workplane("YZ").polyline(((y0, BASE_T), (GATE_Y[0], BASE_T), (GATE_Y[0], 40.0)))
                .close().extrude(xb-xa).translate((xa, 0, 0)))
         body = body.union(web)
-    body = body.cut(cq.Workplane("XY").center(*TAB_SCREW).slot2D(TAB_SLOT[0]+TAB_SLOT[1], TAB_SLOT[0], 90)
-                    .extrude(BRIDGE_T).translate((0, 0, BRIDGE_TOP-BRIDGE_T)))
+    under = BRIDGE_TOP - BRIDGE_T
+    gate_d = GATE_Y[1] - GATE_Y[0]
+    # Corner chamfers in the gate opening, full gate depth (XZ profile along +Y).
+    for pts in (((POST_X[1], under-POST_CHAMFER), (POST_X[1]+POST_CHAMFER, under), (POST_X[1], under)),
+                ((COL_X[0], under-COL_CHAMFER), (COL_X[0]-COL_CHAMFER, under), (COL_X[0], under))):
+        body = body.union(cq.Workplane("XZ").polyline(pts).close().extrude(-gate_d).translate((0, GATE_Y[0], 0)))
+    # Behind the riser-side column the bridge would hang 10 mm over air (the
+    # column stops in front of the riser). A 45-degree wedge carries it, and
+    # reaches low enough to sit under the column-side chamfer at the rear.
+    behind = GATE_Y[1] - COL_Y[1]
+    wedge_low = under - COL_CHAMFER - behind
+    body = body.union(cq.Workplane("YZ").polyline(((COL_Y[1], wedge_low), (GATE_Y[1], wedge_low+behind),
+                                                    (GATE_Y[1], under), (COL_Y[1], under)))
+                      .close().extrude(COL_X[1]-COL_X[0]).translate((COL_X[0], 0, 0)))
+    # Inward gusset on the post (X stiffness), in front of the bracket and
+    # below the QSFP28 plug.
+    gx, gz = POST_GUSSET
+    body = body.union(cq.Workplane("XZ").polyline(((POST_X[1], BASE_T), (POST_X[1]+gx, BASE_T), (POST_X[1], BASE_T+gz)))
+                      .close().extrude(-(COL_Y[1]-GATE_Y[0])).translate((0, GATE_Y[0], 0)))
     for x, y in ANCHORS:
         body = body.cut(cq.Workplane("XY").center(x, y).slot2D(SLOT_L, SLOT_W, 90).extrude(BASE_T))
     assert body.val().isValid() and len(body.solids().vals()) == 1
@@ -115,8 +143,27 @@ def holder():
         assert x-SLOT_W/2-BASE[0] >= 4 and BASE[1]-(x+SLOT_W/2) >= 4, (x, "slot side wall")
         assert y-SLOT_L/2-BASE[2] >= 4 and BASE[3]-(y+SLOT_L/2) >= 4, (y, "slot end wall")
     assert COL_Y[1] <= RISER_Y0 and GATE_Y[1] <= BRACKET_Y
-    assert TAB_SCREW[1]+(TAB_SLOT[0]+TAB_SLOT[1])/2 <= GATE_Y[1]-2
+    assert BASE_T + POST_GUSSET[1] <= CAGE_Z - d(DAC, "plug_width")/2 - 5, "post gusset below the plug"
+    assert PEG_D <= d(RISER, "hole_diameter") - .3
+    # The QSFP28 plug clears both chamfers and the bridge.
+    plug_x0 = CAGE_X - d(DAC, "plug_height")/2
+    plug_x1 = CAGE_X + d(DAC, "plug_height")/2
+    plug_top = CAGE_Z + d(DAC, "plug_width")/2
+    assert plug_x0 - POST_X[1] >= 1 and COL_X[0] - plug_x1 >= 1
+    assert under - POST_CHAMFER + (plug_x0 - POST_X[1]) - plug_top >= 1.5, "post chamfer over plug"
+    assert COL_X[0] - COL_CHAMFER >= plug_x1 or under - (plug_x1 - (COL_X[0]-COL_CHAMFER)) - plug_top >= 1.5
+    assert under - plug_top >= 3
     return body
+
+
+def riser_holes():
+    """The riser board's four mounting holes, as cutters through the PCB."""
+    cut = None
+    for u, v in HOLES_UV:
+        x, y = riser_xy(u, v)
+        c = cq.Workplane("XY").center(x, y).circle(d(RISER, "hole_diameter")/2).extrude(d(RISER, "pcb_thickness")+.4).translate((0, 0, RISER_Z-.2))
+        cut = c if cut is None else cut.union(c)
+    return cut
 
 
 def boxes():
@@ -190,13 +237,14 @@ def report():
         "riser_origin_xyz_mm": [RISER_X0, RISER_Y0, RISER_Z], "riser_orientation": "slot along +Y at the radiator side, sockets facing +X",
         "card_plane_x_mm": round(CARD_PLANE_X, 2), "bracket_face_y_mm": round(BRACKET_Y, 2),
         "card_heatsink_to_radiator_face_mm": round(CARD_X[0]-RADIATOR_FACE_X, 2),
-        "riser_fasteners": "three M3 self-tapping screws into 2.5 mm pilots; front slot-edge hole on a plain pad (under the gate bridge)",
-        "bracket": "bracket face bears on the gate columns; tab rests on the bridge over a 3.4 x 9.4 mm slot (M3 screw, washer and nut under the bridge); shim between bridge and tab",
+        "riser_fasteners": "three M3 self-tapping screws into 2.5 mm pilots in 8 mm bosses; the front slot-edge hole sits on a 2.8 mm locating peg under the gate bridge (no driver access): hold the riser down when pulling the card",
+        "bracket": "plug loads go through the radiator-side post and the bridge's rear face; the riser-side column stands clear of the bracket. The bridge is printed solid: shim up to the tab, drill 2.5 mm through the tab hole, fit an M3 self-tapping screw no longer than 8 mm",
         "shelf_anchor_xy_mm": list(ANCHORS), "shelf_fastener": "3 x M4 with OD12 washers and steel backing",
-        "print": "PETG, base on the bed as installed; the gate bridge spans 15 mm; no supports",
+        "print": "PETG, base on the bed as installed; 45-degree chamfers cut the gate bridge to an 8 mm span, a 45-degree wedge carries the bridge behind the riser-side column, 20 mm forward webs and an inward post gusset; no supports. Independent print audit 2026-11-19",
         "assembly_order": "bolt the bare holder to the shelf, screw the riser on, seat the card, fit the tab screw, then plug SATA, SFF-8643 and the DAC",
         "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
         "to_measure": ["riser board width, hole positions and socket positions", "bracket face to x16 slot start on the card",
-                       "bracket tab height above the riser", "QSFP28 cage height on the card", "actual radiator-to-mount gap"],
+                       "bracket tab height above the riser", "QSFP28 cage height on the card", "actual radiator-to-mount gap",
+                       "whether the bracket's lower tongue clears the riser board, which runs 9 mm in front of the bracket plane"],
         "physical_fit_verified": False,
     }

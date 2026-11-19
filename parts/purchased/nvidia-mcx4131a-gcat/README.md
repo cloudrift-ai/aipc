@@ -55,7 +55,7 @@ NVIDIA lists the ConnectX-4 Lx line as end of life.
 | pcb_thickness | 1.57 mm | standard | PCIe CEM nominal add-in card thickness |
 | primary_side_height | 14.47 mm | standard | PCIe CEM single-slot primary-side component height limit |
 | secondary_side_height | 2.67 mm | standard | PCIe CEM secondary-side component height limit |
-| bracket_to_slot_start | 15 mm | assumed | bracket outer face to the slot key end; the AIPC holder slots the tab screw +/-3 mm for it |
+| bracket_to_slot_start | 15 mm | assumed | bracket outer face to the slot key end; the AIPC holder bridge is drilled through the tab hole at assembly, so only the riser and card position depend on it |
 | qsfp_cage_height | 40 mm | assumed | QSFP28 cage centre above the card's lower edge; measure |
 | qsfp_cage_offset_from_pcb | 5.7 mm | assumed | cage centre from the PCB plane, component side |
 
