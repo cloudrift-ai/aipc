@@ -35,20 +35,7 @@ A check that compares a value with itself proves nothing. If the layout uses a n
 
 ## Workflow
 
-### Choosing or changing a part
-
-1. Find the part in the [library](../parts/README.md) or create `parts/<category>/<id>/part.toml`, then reference it from `<build>/parts/<id>.toml`. The [part-intake skill](../.claude/skills/part-intake/SKILL.md) has both schemas.
-2. Add its datasheets and run `make datasheets`. Transcribe the dimensions and interfaces you need, with evidence and source. A purchased part with no datasheet needs `no_datasheet_reason`.
-3. Declare every interface it needs and offers: socket, cooler mount, memory type, slots, power connectors and wattage, mounting patterns, fastener threads, rack and cabinet dimensions, mass.
-4. Run `make check`. Resolve every **FAIL** before buying. Every **BLOCKED** item is a question to answer, usually by finding a datasheet or measuring.
-5. Only then use the part in the CAD, reading its dimensions with `spec.dim(id, key)`.
-
-### Changing geometry
-
-1. Change the build's generators in `cad/`, never the generated files.
-2. `make cad render plates check BUILD=<build>`, or simply `make all BUILD=<build>`.
-3. Inspect `render.png` and `models/renders/parts/<id>.png` for each changed part and the assembly sheets, using the [design-review skill](../.claude/skills/design-review/SKILL.md).
-4. Follow [printing.md](printing.md) for printable parts, including the independent audit.
+The required steps for choosing or changing a part, changing geometry, printed parts, audits and commits are listed once, in the root [AGENTS.md](../AGENTS.md#required-steps). The [part-intake](../.claude/skills/part-intake/SKILL.md), [design-review](../.claude/skills/design-review/SKILL.md) and [design-audit](../.claude/skills/design-audit/SKILL.md) skills give the detailed procedures, and [printing.md](printing.md) the printing guidelines.
 
 ### Auditing the design
 
@@ -75,5 +62,5 @@ Commands (`hwkit <command>`, run inside a build folder; the root Makefile wraps 
 ## Adding a build
 
 1. Create `<build>/build.toml` with `name`, `title`, `assembly_step`, `printer` and `[scripts]` (copy [aipc/build.toml](../aipc/build.toml)).
-2. Add `<build>/parts/<id>.toml` for every part (reuse library parts; add new ones to the library), `<build>/cad/` with the assembly generator and plate script, `<build>/README.md` and `<build>/AGENTS.md` (with `CLAUDE.md` containing `@AGENTS.md`).
+2. Add `<build>/parts/<id>.toml` for every part (reuse library parts; add new ones to the library), `<build>/cad/` with the assembly generator and plate script, and `<build>/README.md`. Add the build's notes (generators, its own assertions, ownership of shared models) under Build notes in the root [AGENTS.md](../AGENTS.md#build-notes); builds have no agent files of their own.
 3. Run `make all BUILD=<build>`. The root Makefile picks up every folder with a `build.toml`.

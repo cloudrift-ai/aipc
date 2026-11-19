@@ -1,6 +1,6 @@
 # 3D printing guidelines
 
-These are the design and printability guidelines for printed parts in every build, and the reference the independent print auditor checks against. The required steps for any new or changed printed part are in the root [AGENTS.md](../AGENTS.md#3d-printed-parts-required-steps); this file does not repeat them. Build-specific print notes (which plates use which profile, part orientations, fit test results) are in each build's `print/README.md`, for example [aipc/print/README.md](../aipc/print/README.md).
+These are the design and printability guidelines for printed parts in every build, and the reference the independent print auditor checks against. The required steps for any new or changed printed part are in the root [AGENTS.md](../AGENTS.md#3d-printed-parts); this file does not repeat them. Build-specific print notes (which plates use which profile, part orientations, fit test results) are in each build's `print/README.md`, for example [aipc/print/README.md](../aipc/print/README.md).
 
 ## Printer, slicer and profiles
 

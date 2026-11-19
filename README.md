@@ -27,7 +27,7 @@ make gcode BUILD=aipc
 
 Run `make help` for every target. Without `BUILD=`, targets run for every build that has a `build.toml`.
 
-Agents: read [AGENTS.md](AGENTS.md) and the build's own `AGENTS.md`.
+Agents: read [AGENTS.md](AGENTS.md); it lists every required step and the per-build notes.
 
 ## License
 
