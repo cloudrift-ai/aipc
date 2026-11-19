@@ -40,4 +40,5 @@ Inside a build folder, `../venv/bin/hwkit <cad|plates|render|check|datasheets|sl
 - Changes to `hwkit/` affect every build: run `make lint test` and `make all` for every build, and confirm the generated outputs did not change unless intended.
 - Do not loosen a check, add keepouts or disable count checks to hide a mismatch. Fix the geometry or spec.
 - G-code, fetched datasheets and `venv/` are generated and gitignored.
+- Git: commit and push directly to `main`; do not create feature branches or pull requests for this repo unless asked.
 - Distinguish evidence everywhere: `measured`, `datasheet` and `standard` are verified; `listing`, `review`, `photo-estimate`, `allowance` and `assumed` are not. A CAD check against coordinates from the same code does not validate those coordinates.
