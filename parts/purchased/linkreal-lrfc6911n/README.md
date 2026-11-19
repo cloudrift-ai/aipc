@@ -21,15 +21,25 @@ quoting 120 x 42 mm did not match the page. Measure the board and its hole
 positions on arrival before designing the holder.
 The board has no bracket. It needs a printed holder and a place on the shelf,
 and the NIC on it needs 300 LFM.
+Layout from the LR-Link product photo (scaled to the 121 mm length): the x16
+slot runs along one long edge, starting about 24 mm from the end that carries
+the power circuitry (the slot key is at that end, so a card's bracket sits
+there); the SATA power and SFF-8643 sockets sit on the opposite long edge and
+mate in the board plane. The photographed board is about 43.5 mm wide, not
+the 114.10 mm the spec table gives; the photo-estimated dims below drive the
+AIPC holder and must be measured on arrival.
+
+![Part views](render.png)
 
 ## Used in
 
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
-| [aipc](../../../aipc/parts/linkreal-lrfc6911n.md) | 1 | selected | Berserk NIC slot: takes an H12D-8D SFF-8643 PCIe x4 port and provides an x16 slot for the ConnectX |
+| [aipc](../../../aipc/parts/linkreal-lrfc6911n.md) | 1 | selected | Berserk NIC slot: takes an H12D-8D SFF-8643 PCIe x4 port and provides an x16 slot for the ConnectX; lies flat in the printed berserk_nic_holder beside Kenshin's side AIO |
 
 ## Model
 
+- [linkreal-lrfc6911n.step](linkreal-lrfc6911n.step)
 - Source: constructed
 - Written by the `aipc` build's generator
 
@@ -45,6 +55,23 @@ and the NIC on it needs 300 LFM.
 | length | 121 mm | datasheet | LR-Link spec table: Dimensions 121mm*114.10mm |
 | width | 114.1 mm | datasheet | LR-Link spec table: Dimensions 121mm*114.10mm |
 | mass | 0.0455 kg | datasheet | LR-Link spec table: Weight 45.5g |
+| pcb_width | 43.5 mm | photo-estimate | LR-Link product photo scaled to the 121 mm length; conflicts with the spec table's 114.10 mm |
+| pcb_thickness | 1.6 mm | assumed |  |
+| hole_diameter | 3.2 mm | assumed |  |
+| hole_inset_end | 5.5 mm | photo-estimate | product photo; hole centre from the power-circuit end |
+| hole_pitch_length | 111 mm | photo-estimate | product photo; four corner holes |
+| hole_inset_slot_edge | 4 mm | photo-estimate | product photo; hole centre from the slot edge |
+| hole_pitch_width | 35.5 mm | photo-estimate | product photo |
+| slot_start | 24 mm | photo-estimate | product photo; x16 slot key end from the power-circuit end |
+| slot_length | 90 mm | photo-estimate | product photo |
+| slot_center_from_edge | 5.3 mm | photo-estimate | product photo; slot centreline from the board edge |
+| slot_width | 9.5 mm | photo-estimate | product photo |
+| slot_height | 11.25 mm | assumed | typical x16 connector height above the PCB |
+| sata_start | 25 mm | photo-estimate | product photo; SATA power socket span from the power-circuit end |
+| sata_end | 56.6 mm | photo-estimate | product photo |
+| sff_start | 57.2 mm | photo-estimate | product photo; SFF-8643 socket span from the power-circuit end |
+| sff_end | 73.9 mm | photo-estimate | product photo |
+| sata_plug_projection | 15 mm | allowance | right-angle SATA power plug past the board edge |
 
 ## Interfaces
 

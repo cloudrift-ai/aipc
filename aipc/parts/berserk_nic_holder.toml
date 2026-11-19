@@ -1,0 +1,8 @@
+part = "printed/berserk_nic_holder"
+role = "holds Berserk's LRFC6911N riser and ConnectX-4 Lx beside Kenshin's side AIO"
+status = "design"
+quantity = 1
+systems = ["berserk"]
+
+[assembly]
+match = ["^printed_Berserk_NIC_riser_holder$"]

@@ -91,6 +91,19 @@
         "kenshin_mobo_adapter_left_drill_plan"
       ]
     },
+    "berserk_nic_holder": {
+      "name": "berserk_nic_holder",
+      "category": "printed",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "printed_Berserk_NIC_riser_holder"
+      ]
+    },
     "corsair-cmp64gx5m4b6400c32": {
       "name": "Corsair CMP64GX5M4B6400C32 DDR5 kit, 4 x 16 GB",
       "category": "purchased",
@@ -167,19 +180,6 @@
         "printed_Kenshin_AIO_2_bearing_frame_drill_plan_survey"
       ]
     },
-    "fan120_aio_hose_brace": {
-      "name": "fan120_aio_hose_brace",
-      "category": "printed",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "Kenshin_AIO_inward_hose_brace"
-      ]
-    },
     "fan140_aio_frame": {
       "name": "fan140_aio_frame",
       "category": "printed",
@@ -212,7 +212,7 @@
       "category": "purchased",
       "quantity": 1,
       "state": "modeled",
-      "instances": 87,
+      "instances": 83,
       "expected_instances": null,
       "covered_by": null,
       "not_modeled": null,
@@ -278,8 +278,6 @@
         "H115i_shared_front_screw_392.25_152.25_survey",
         "H115i_brace_rear_screw_27.75_survey",
         "H115i_brace_rear_screw_152.25_survey",
-        "Kenshin_brace_inward_screw_27.5_survey",
-        "Kenshin_brace_inward_screw_132.5_survey",
         "berserk_mobo_adapter_right_drill_plan_shelf_bolt_167.2_329.2",
         "berserk_mobo_adapter_right_drill_plan_shelf_bolt_223.0_329.2",
         "berserk_mobo_adapter_right_drill_plan_shelf_bolt_223.0_107.71",
@@ -298,12 +296,10 @@
         "roof_M4_-78.0_78.0",
         "roof_M4_78.0_-78.0",
         "roof_M4_78.0_78.0",
-        "Side_AIO_M4_shelf_screw_72.328_554.4",
-        "Side_AIO_M4_shelf_screw_87.828_554.4",
-        "Side_AIO_M4_shelf_screw_79.328_468.9",
-        "Side_AIO_M4_shelf_screw_79.328_526.9",
-        "Side_AIO_M4_shelf_screw_79.328_708.9",
-        "Side_AIO_M4_shelf_screw_79.328_766.9"
+        "Side_AIO_M4_shelf_screw_39.328_447.9",
+        "Side_AIO_M4_shelf_screw_39.328_525.9",
+        "Side_AIO_M4_shelf_screw_39.328_687.9",
+        "Side_AIO_M4_shelf_screw_39.328_765.9"
       ]
     },
     "flex-duct-6in": {
@@ -475,12 +471,15 @@
       "name": "Linkreal (LR-Link) LRFC6911N, 1 x SFF-8643 to PCIe x16 slot (x4) adapter",
       "category": "purchased",
       "quantity": 1,
-      "state": "not_modeled",
-      "instances": 0,
-      "expected_instances": 1,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
       "covered_by": null,
-      "not_modeled": "shelf location and holder not designed yet; must clear the V100s and the BMC and leave airflow over the NIC",
-      "instance_names": []
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_LRFC6911N_riser_board",
+        "Berserk_LRFC6911N_riser_x16_slot"
+      ]
     },
     "mains-power": {
       "name": "Mains circuit, UPS and PDU (not specified)",
@@ -574,12 +573,15 @@
       "name": "NVIDIA (Mellanox) ConnectX-4 Lx EN MCX4131A-GCAT, 50GbE single-port QSFP28",
       "category": "purchased",
       "quantity": 2,
-      "state": "not_modeled",
-      "instances": 0,
+      "state": "modeled",
+      "instances": 2,
       "expected_instances": 2,
       "covered_by": null,
-      "not_modeled": "Berserk's card sits on a riser whose shelf position is open; Kenshin's card is reserved by the kenshin-connectx-slot keepout in the chipset slot behind the RTX 5090 (owner mock-up 2026-11-16), with its bracket on the right shelf edge",
-      "instance_names": []
+      "not_modeled": null,
+      "instance_names": [
+        "Kenshin_ConnectX-4_Lx_card",
+        "Berserk_ConnectX-4_Lx_card"
+      ]
     },
     "nvidia-v100-pcie-16gb": {
       "name": "NVIDIA Tesla V100 PCIe 16 GB",
@@ -647,6 +649,27 @@
         "printed_Kenshin_PSU_two_upper_screw_frame_survey"
       ]
     },
+    "qsfp28-passive-dac": {
+      "name": "QSFP28 passive copper direct-attach cable, 1 m (not chosen)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 9,
+      "expected_instances": null,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "QSFP28_DAC_Berserk_plug",
+        "QSFP28_DAC_Kenshin_plug",
+        "QSFP28_DAC_survey_segment_1",
+        "QSFP28_DAC_survey_segment_2",
+        "QSFP28_DAC_survey_segment_3",
+        "QSFP28_DAC_survey_segment_4",
+        "QSFP28_DAC_survey_segment_5",
+        "QSFP28_DAC_survey_segment_6",
+        "QSFP28_DAC_survey_segment_7"
+      ]
+    },
     "rack-cabinet": {
       "name": "Rack cabinet (not yet specified)",
       "category": "purchased",
@@ -701,12 +724,21 @@
       "name": "10Gtek CAB-8643/8643-P0.5M, SFF-8643 to SFF-8643 cable, 0.5 m, with sideband (2-pack)",
       "category": "purchased",
       "quantity": 1,
-      "state": "not_modeled",
-      "instances": 0,
-      "expected_instances": 1,
+      "state": "modeled",
+      "instances": 8,
+      "expected_instances": null,
       "covered_by": null,
-      "not_modeled": "cable route follows the riser location, which is not chosen yet",
-      "instance_names": []
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_SFF-8643_riser_plug",
+        "Berserk_SFF-8643_H12D_plug",
+        "Berserk_SFF-8643_cable_survey_segment_1",
+        "Berserk_SFF-8643_cable_survey_segment_2",
+        "Berserk_SFF-8643_cable_survey_segment_3",
+        "Berserk_SFF-8643_cable_survey_segment_4",
+        "Berserk_SFF-8643_cable_survey_segment_5",
+        "Berserk_SFF-8643_cable_survey_segment_6"
+      ]
     },
     "silicone-gasket-2mm": {
       "name": "2 mm silicone foam gasket sheet, 200 x 200 mm",
@@ -843,8 +875,8 @@
     "keepout:kenshin-24pin-reserve": [
       "Kenshin_24-pin_survey"
     ],
-    "keepout:kenshin-connectx-slot": [
-      "Kenshin_ConnectX-4_Lx_PCIe_x4_card_envelope"
+    "keepout:berserk-riser-sata-plug": [
+      "Berserk_riser_SATA_power_plug"
     ],
     "keepout:rear-io-service-reserve": [
       "Berserk_rear_IO_no_ear_service_reserve",

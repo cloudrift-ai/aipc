@@ -36,6 +36,12 @@ power_typical = { value = 9.6, unit = "W", evidence = "datasheet", source = "man
 power_max = { value = 11.6, unit = "W", evidence = "datasheet", source = "manual specifications: maximum power, passive cables" }
 airflow = { value = 300.0, unit = "LFM", evidence = "datasheet", source = "manual airflow table, 40/50Gb/s, passive cable, either direction" }
 mass = { value = 0.15, unit = "kg", evidence = "assumed" }
+pcb_thickness = { value = 1.57, unit = "mm", evidence = "standard", source = "PCIe CEM nominal add-in card thickness" }
+primary_side_height = { value = 14.47, unit = "mm", evidence = "standard", source = "PCIe CEM single-slot primary-side component height limit" }
+secondary_side_height = { value = 2.67, unit = "mm", evidence = "standard", source = "PCIe CEM secondary-side component height limit" }
+bracket_to_slot_start = { value = 15.0, unit = "mm", evidence = "assumed", note = "bracket outer face to the slot key end; the AIPC holder slots the tab screw +/-3 mm for it" }
+qsfp_cage_height = { value = 40.0, unit = "mm", evidence = "assumed", note = "QSFP28 cage centre above the card's lower edge; measure" }
+qsfp_cage_offset_from_pcb = { value = 5.7, unit = "mm", evidence = "assumed", note = "cage centre from the PCB plane, component side" }
 
 [[provides]]
 type = "qsfp28-port"

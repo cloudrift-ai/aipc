@@ -23,7 +23,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [huananzhi-h12d-8d](huananzhi-h12d-8d.md) | 1 | owned | berserk | BLOCKED | Berserk motherboard |
 | [keystone-1451b](keystone-1451b.md) | 17 | selected | berserk, kenshin | provisional | motherboard standoffs |
 | [lian-li-ga2-lite-360](lian-li-ga2-lite-360.md) | 1 | owned | kenshin | provisional | Kenshin CPU cooler, rear of shelf |
-| [linkreal-lrfc6911n](linkreal-lrfc6911n.md) | 1 | selected | berserk | BLOCKED | Berserk NIC slot: takes an H12D-8D SFF-8643 PCIe x4 port and provides an x16 slot for the ConnectX |
+| [linkreal-lrfc6911n](linkreal-lrfc6911n.md) | 1 | selected | berserk | BLOCKED | Berserk NIC slot: takes an H12D-8D SFF-8643 PCIe x4 port and provides an x16 slot for the ConnectX; lies flat in the printed berserk_nic_holder beside Kenshin's side AIO |
 | [mains-power](mains-power.md) | 1 | unspecified | rack | BLOCKED | AC supply for both PSUs |
 | [mcmaster-53185k52](mcmaster-53185k52.md) | 2 | selected | berserk | - | duct clamps |
 | [micron-3400-2tb](micron-3400-2tb.md) | 2 | owned | berserk | provisional | Berserk model storage, two of the three RAID 0 members |
@@ -33,6 +33,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [nvidia-mcx4131a-gcat](nvidia-mcx4131a-gcat.md) | 2 | owned | berserk, kenshin | BLOCKED | Direct Berserk-Kenshin link over a QSFP28 DAC (one card per system) |
 | [nvidia-v100-pcie-16gb](nvidia-v100-pcie-16gb.md) | 4 | selected | berserk | provisional | Berserk GPUs (passive, ducted) |
 | [obt-pcie-support](obt-pcie-support.md) | 10 | selected | berserk, kenshin | pass | GPU bracket posts (two per card) |
+| [qsfp28-passive-dac](qsfp28-passive-dac.md) | 1 | candidate | berserk, kenshin | provisional | Direct Berserk-Kenshin 50GbE link between the two ConnectX-4 Lx cards |
 | [rack-cabinet](rack-cabinet.md) | 1 | unspecified | rack | BLOCKED | cabinet that receives the shelf and the roof exhaust |
 | [rosewill-hercules-1600](rosewill-hercules-1600.md) | 1 | owned | berserk | BLOCKED | Berserk PSU |
 | [samsung-990-pro-4tb](samsung-990-pro-4tb.md) | 2 | owned | kenshin | provisional | Kenshin storage |
@@ -50,9 +51,9 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | --- | ---: | --- | --- | --- | --- |
 | [atx_mobo_adapter_front](atx_mobo_adapter_front.md) | 2 | design | berserk, kenshin | provisional | shelf-front motherboard section, common to both boards |
 | [atx_mobo_adapter_rail](atx_mobo_adapter_rail.md) | 1 | design | kenshin | provisional | Kenshin rear rail with GPU post holes at standard ATX positions |
+| [berserk_nic_holder](berserk_nic_holder.md) | 1 | design | berserk | - | holds Berserk's LRFC6911N riser and ConnectX-4 Lx beside Kenshin's side AIO |
 | [fan120_aio_center_spacer](fan120_aio_center_spacer.md) | 1 | design | kenshin | - | keeps the middle 120 mm fan coplanar |
-| [fan120_aio_frame](fan120_aio_frame.md) | 2 | design | kenshin | provisional | 120 mm fan/radiator frame with 75 mm feet on the steel extension |
-| [fan120_aio_hose_brace](fan120_aio_hose_brace.md) | 1 | design | kenshin | - | mirrored left hose-end brace for the 120 mm radiator |
+| [fan120_aio_frame](fan120_aio_frame.md) | 2 | design | kenshin | provisional | 120 mm fan/radiator frame with 33 mm feet inside the AIO footprint, bearing on the deck |
 | [fan140_aio_frame](fan140_aio_frame.md) | 2 | design | berserk | provisional | 140 mm fan/radiator frame with bearing ledge (H115i) |
 | [fan140_aio_hose_brace](fan140_aio_hose_brace.md) | 1 | design | berserk | - | hose-end brace for the 140 mm radiator |
 | [gpu_exhaust_fan_flange](gpu_exhaust_fan_flange.md) | 1 | design | berserk | provisional | fan outlet to 6 in duct |

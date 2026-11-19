@@ -11,18 +11,23 @@ Library spec: [parts/purchased/nvidia-mcx4131a-gcat](../../parts/purchased/nvidi
 | Quantity | 2 |
 | Systems | berserk, kenshin |
 
+![Part in the assembly](../models/renders/parts/nvidia-mcx4131a-gcat.png)
+
 ## Assembly
 
-- **not in the assembly**: Berserk's card sits on a riser whose shelf position is open; Kenshin's card is reserved by the kenshin-connectx-slot keepout in the chipset slot behind the RTX 5090 (owner mock-up 2026-11-16), with its bracket on the right shelf edge
+- 2 instances in the assembly
 
 ## Compatibility checks
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
 | BLOCKED | presence | `pcie-card-airflow` | nothing in systems ['berserk', 'kenshin'] provides 'pcie-card-airflow' |
-| BLOCKED | presence | `qsfp28-dac` | nothing in systems ['berserk', 'kenshin'] provides 'qsfp28-dac' |
 | provisional | budget | `dc-power` | load 23.2 W of 2800.0 W x derate 0.8 = 2240.0 W (1% of rating) |
 | provisional | value | `pcie-x4-slot` | nvidia-mcx4131a-gcat needs PCIe x8 card, x4 link; provided by gigabyte-x870e-aorus-pro, linkreal-lrfc6911n |
 | provisional | count | `pcie-x4-slot` | need 2 x pcie-x4-slot=pcie x8 card, x4 link, have 3 |
-| provisional | budget | `shelf-load` | load 23.0 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
+| provisional | value | `qsfp28-dac` | nvidia-mcx4131a-gcat needs QSFP28 passive DAC, 50GbE; provided by qsfp28-passive-dac |
+| provisional | count | `qsfp28-dac` | need 2 x qsfp28-dac=qsfp28 passive dac, 50gbe, have 2 |
+| provisional | value | `qsfp28-port` | qsfp28-passive-dac needs QSFP28 50GbE; provided by nvidia-mcx4131a-gcat |
+| provisional | count | `qsfp28-port` | need 2 x qsfp28-port=qsfp28 50gbe, have 2 |
+| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 

@@ -23,6 +23,8 @@ The card has a passive heatsink and needs 300 LFM across it (manual airflow
 table). Neither placement has forced airflow yet.
 NVIDIA lists the ConnectX-4 Lx line as end of life.
 
+![Part views](render.png)
+
 ## Used in
 
 | Build | Qty | Status | Role |
@@ -31,6 +33,7 @@ NVIDIA lists the ConnectX-4 Lx line as end of life.
 
 ## Model
 
+- [nvidia-mcx4131a-gcat.step](nvidia-mcx4131a-gcat.step)
 - Source: constructed
 - Written by the `aipc` build's generator
 
@@ -49,6 +52,12 @@ NVIDIA lists the ConnectX-4 Lx line as end of life.
 | power_max | 11.6 W | datasheet | manual specifications: maximum power, passive cables |
 | airflow | 300 LFM | datasheet | manual airflow table, 40/50Gb/s, passive cable, either direction |
 | mass | 0.15 kg | assumed |  |
+| pcb_thickness | 1.57 mm | standard | PCIe CEM nominal add-in card thickness |
+| primary_side_height | 14.47 mm | standard | PCIe CEM single-slot primary-side component height limit |
+| secondary_side_height | 2.67 mm | standard | PCIe CEM secondary-side component height limit |
+| bracket_to_slot_start | 15 mm | assumed | bracket outer face to the slot key end; the AIPC holder slots the tab screw +/-3 mm for it |
+| qsfp_cage_height | 40 mm | assumed | QSFP28 cage centre above the card's lower edge; measure |
+| qsfp_cage_offset_from_pcb | 5.7 mm | assumed | cage centre from the PCB plane, component side |
 
 ## Interfaces
 

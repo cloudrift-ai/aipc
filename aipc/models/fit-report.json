@@ -47,8 +47,8 @@
     ],
     "lower_support_height_mm": 20,
     "Kenshin_feet_bear_on": "deck (rear steel extension retired 2026-11-16)",
-    "hose_brace_top_projection_mm": 2,
-    "retained_local_interfaces": "factory fan pitch, sandwich thickness, ledges and center spacer; rear feet/anchors and brace handedness revised",
+    "H115i_hose_brace_top_projection_mm": 2,
+    "retained_local_interfaces": "factory fan pitch, sandwich thickness, ledges and center spacer; Kenshin feet shortened to the radiator footprint and Kenshin brace dropped (2026-11-19)",
     "standard_pitch_sources": [
       "https://cdn.noctua.at/media/noctua_nf_a14_pwm_infosheet_en_web-1.pdf",
       "https://noctua.at/en/products/fan/nf-a12x25-pwm/service"
@@ -221,71 +221,43 @@
     "assembly_order": "tighten original sandwich-frame shelf bolts first, since mirrored web covers their top access; keep AIO supported; loosely attach brace to rear factory threads, fit shelf bolts/backing, tighten without preloading radiator",
     "limitations": "prototype, no measured load rating; hose force, ports and warm PETG creep unmeasured; relieve hose preload rather than using brace to force tight bends"
   },
-  "Kenshin_AIO_hose_brace": {
-    "part": "fan120_aio_hose_brace",
-    "quantity": 1,
-    "basis": "same mirrored front brace, adapted to 105 mm vertical screw pitch; structural thickness and fastener sizes retained",
-    "installed_bounds_xyz_mm": [
+  "Kenshin_AIO_frame_feet": {
+    "foot_reach_mm": 33.0,
+    "foot_x_width_mm": [
+      12.0,
+      96.0
+    ],
+    "anchor_local_x_depth_mm": [
       [
-        52.32799999999992,
-        544.1500000000001,
-        0.0
+        21.0,
+        20.0
       ],
       [
-        96.82799999999997,
-        572.1500000000001,
-        142.0
+        99.0,
+        20.0
       ]
     ],
-    "web_x_range_mm": [
-      168.25,
-      176.25
-    ],
-    "print_dimensions_mm": [
-      142.0,
-      44.5,
-      28.0
-    ],
-    "factory_screw_axes_xz_mm": [
-      [
-        158.5,
-        27.5
-      ],
-      [
-        158.5,
-        132.5
-      ]
-    ],
+    "basis": "older fitted revision (owner 2026-11-19): foot ends at the radiator inner face; no inward hose brace",
+    "assembly_order": "bolt both bearing frames to the shelf before fitting the radiator; the anchors sit under the radiator",
     "shelf_anchor_xy_mm": [
       [
-        72.328,
-        554.4
+        39.328,
+        447.9
       ],
       [
-        87.828,
-        554.4
+        39.328,
+        525.9
+      ],
+      [
+        39.328,
+        687.9
+      ],
+      [
+        39.328,
+        765.9
       ]
     ],
-    "shelf_slot_length_width_mm": [
-      8.0,
-      5.5
-    ],
-    "shelf_slot_adjustment_mm": [
-      -1.5,
-      1.5
-    ],
-    "web_face_foot_thickness_mm": [
-      8.0,
-      6.0,
-      8.0
-    ],
-    "load_path": "two unused inward radiator factory threads at fan 2, between the bearing frames -> continuous triangular web -> two shelf bolts with steel backing",
-    "assembly_order": "secure bearing-frame shelf bolts before fitting radiator; fit brace loosely to the supported radiator, then tighten to the shelf without hose preload",
-    "fasteners": "two matched radiator screws + OD10 washers; two M4 shelf bolts, two nuts, four OD12 washers; determine lengths from actual engagement/stack",
-    "print_orientation": "broad high-X web flat on bed; supports off; same front-brace slot bridges",
-    "physical_fit_verified": false,
-    "limitations": "front hose end from the owner mock-up photo; actual tank ports, hose sweep, factory threads and warm PETG stiffness require dry fit",
-    "coordinates": "other fields are radiator-local; installed group is turned +90 degrees about Z onto the left deck edge"
+    "brace": "none; the inward hose brace was dropped as unnecessary (owner 2026-11-19)"
   },
   "planned_upgrade_clearance": {
     "passed": false,
@@ -300,11 +272,27 @@
       },
       {
         "components": [
+          "Berserk V100 16GB PCIE2",
+          "Berserk SFF-8643 H12D plug"
+        ],
+        "overlap_z_mm": 4.225,
+        "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
+      },
+      {
+        "components": [
           "Berserk V100 16GB PCIE3",
           "Berserk BMC module survey"
         ],
         "overlap_z_mm": 0.125,
         "status": "unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
+      },
+      {
+        "components": [
+          "Berserk V100 16GB PCIE3",
+          "Berserk SFF-8643 H12D plug"
+        ],
+        "overlap_z_mm": 4.225,
+        "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
       }
     ],
     "cable_conflicts": [],
@@ -414,8 +402,8 @@
     },
     "slot_positions_basis": "H12D-8D manufacturer photograph plus nominal 40.64 mm dual-slot pitch; physical survey required",
     "V100_body_dimension_source": "NVIDIA PB-08744-001_v03 figure 3: 266.70 x 111.15 mm; thickness is a 40 mm survey envelope",
-    "NICs": "Kenshin's ConnectX-4 Lx reserved in the chipset slot behind the RTX 5090 (photo-estimated envelope, bracket on the right shelf edge); Berserk's riser position remains open",
-    "link": "QSFP deferred; use onboard Ethernet",
+    "NICs": "Kenshin's ConnectX-4 Lx in the chipset slot behind the RTX 5090 (bracket on the right shelf edge); Berserk's on the LRFC6911N riser in the printed holder beside Kenshin's side AIO",
+    "link": "QSFP28 passive DAC between the two cards; see the network section",
     "software": "Qwen3.8-27B Volta decoder and hybrid KV/state handoff require validation before purchase"
   },
   "Hammond_layout_revision": {
@@ -441,7 +429,87 @@
     "physical_fit_verified": false
   },
   "shelf": "Hammond RSUS1931BK1 solid 422.656 x 787.4 mm deck with supplied slides; downward folds are dimensioned envelopes, slide cross-sections and bracket positions illustrative",
-  "NIC_lane": "Kenshin's ConnectX-4 Lx sits behind the RTX 5090 with its QSFP28 cage on the right shelf edge; Berserk's riser is not placed yet.",
+  "NIC_lane": "Kenshin's ConnectX-4 Lx sits behind the RTX 5090 with its QSFP28 cage on the right shelf edge; Berserk's sits on its riser in the strip between Kenshin's side radiator and motherboard mount, cage facing the rack front.",
+  "network": {
+    "link": "Berserk ConnectX-4 Lx (LRFC6911N riser, H12D SFF-8643 x4) to Kenshin ConnectX-4 Lx (chipset slot behind the 5090) over one QSFP28 passive DAC",
+    "Berserk_NIC_holder": {
+      "part": "berserk_nic_holder",
+      "quantity": 1,
+      "placement": "Kenshin side-AIO strip: radiator inner face X52.3 to Kenshin's motherboard mount, owner-measured about 75 mm",
+      "holder_x_range_mm": [
+        53.5,
+        121.0
+      ],
+      "holder_x_from_radiator_face_mm": 68.67,
+      "holder_y_range_mm": [
+        434.0,
+        600.0
+      ],
+      "gate_top_z_mm": 76.6,
+      "riser_origin_xyz_mm": [
+        65.3,
+        457.0,
+        9.0
+      ],
+      "riser_orientation": "slot along +Y at the radiator side, sockets facing +X",
+      "card_plane_x_mm": 70.6,
+      "bracket_face_y_mm": 466.0,
+      "card_heatsink_to_radiator_face_mm": 3.02,
+      "riser_fasteners": "three M3 self-tapping screws into 2.5 mm pilots; front slot-edge hole on a plain pad (under the gate bridge)",
+      "bracket": "bracket face bears on the gate columns; tab rests on the bridge over a 3.4 x 9.4 mm slot (M3 screw, washer and nut under the bridge); shim between bridge and tab",
+      "shelf_anchor_xy_mm": [
+        [
+          95.0,
+          445.0
+        ],
+        [
+          90.0,
+          590.0
+        ],
+        [
+          114.0,
+          545.0
+        ]
+      ],
+      "shelf_fastener": "3 x M4 with OD12 washers and steel backing",
+      "print": "PETG, base on the bed as installed; the gate bridge spans 15 mm; no supports",
+      "assembly_order": "bolt the bare holder to the shelf, screw the riser on, seat the card, fit the tab screw, then plug SATA, SFF-8643 and the DAC",
+      "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
+      "to_measure": [
+        "riser board width, hole positions and socket positions",
+        "bracket face to x16 slot start on the card",
+        "bracket tab height above the riser",
+        "QSFP28 cage height on the card",
+        "actual radiator-to-mount gap"
+      ],
+      "physical_fit_verified": false
+    },
+    "QSFP28_DAC": {
+      "route_polyline_mm": 722.36,
+      "plugs_outside_cages_mm": 96.0,
+      "minimum_length_mm": 818,
+      "planned_length_mm": 1000.0,
+      "Kenshin_plug_past_deck_edge_mm": 23.0,
+      "Kenshin_plug_past_rack_opening_mm": 9.33,
+      "Kenshin_cable_loop_past_rack_opening_mm": 47.58,
+      "service": "unplug the DAC at Kenshin before sliding the shelf; with the shelf in, the plug and loop sit beside the rack rail",
+      "status": "cable not chosen; plug and bend sizes are allowances"
+    },
+    "SFF_8643_cable": {
+      "route_polyline_mm": 610.91,
+      "minimum_length_mm": 687,
+      "selected_length_mm": 500.0,
+      "selected_length_sufficient": false,
+      "H12D_port_xy_mm": [
+        181.9,
+        97.2
+      ],
+      "H12D_port_basis": "photo-estimated from the H12D-8D manual's layout figure: middle of three SFF-8643 ports on the front PCB edge",
+      "riser_plug_end_to_Kenshin_PCB_edge_mm": 6.86,
+      "riser_plug_end_from_radiator_face_mm": 94.47,
+      "fit_note": "with the owner's 75 mm radiator-to-mount gap the straight plug ends about where the mount ends, so its bend sits over Kenshin's PCB edge; a right-angle SFF-8643 plug would avoid that"
+    }
+  },
   "direct_shelf_mount": {
     "body_width_mm": 422.656,
     "depth_mm": 787.4,
@@ -451,7 +519,7 @@
     "solid_deck_step": "rsus1931bk1-solid-deck.step",
     "drill_plan_deck_step": "rsus1931bk1-drill-plan-deck.step",
     "estimated_slot_count": 0,
-    "proposed_attachment_count": 45,
+    "proposed_attachment_count": 46,
     "candidate_vent_intersections": 0,
     "local_backing_plate_locations_survey": true
   },
@@ -462,7 +530,7 @@
     "Berserk_H115i": "trimmed fan-flush replacements preserve the owner-fitted sandwich's ledges,40mm feet and factory axes; ledges bear radiator, 40mm feet fully supported on shelf; revised slots and loaded fit require checking",
     "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x8 lower screws through two OD12x1 and two OD7x0.5 washers leave1.52mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
     "V100_cooling": "single Sanyo140mm fan on integral45-degree panel; broad3.2mm HT-PLA-GF rear-array hood with6mm base and three internalM4 shelf slots;no fitted collar or individual post cuts;flexible nonconductive inlet seal required;M4 T-nut pockets;physical and thermal qualification pending",
-    "Kenshin_AIO": "three coplanar owned fans pull outward past the left deck edge through the 360 radiator at20mm bottom height; two120mm frames with75mm feet bear the radiator weight directly on the deck, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; an inward triangular brace at the front hose end adds two factory screws/two shelf bolts; loaded PETG fit unverified",
+    "Kenshin_AIO": "three coplanar owned fans pull outward past the left deck edge through the 360 radiator at20mm bottom height; two120mm frames with33mm feet inside the AIO footprint bear the radiator weight directly on the deck, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; no inward brace; loaded PETG fit unverified",
     "overall": "balanced drilled-hole concept is plausible, but physical holes, PETG stiffness, cooling and GPU post load paths are unverified"
   },
   "GPU_post_thread_stack": {
@@ -1168,7 +1236,7 @@
       27.5,
       6
     ],
-    "frame_print_orientation": "rear face down;75mm feet, tapered webs and ledge rise from that face; installed feet fully bear on the deck",
+    "frame_print_orientation": "rear face down;33mm feet, webs and ledge rise from that face; installed feet fully bear on the deck inside the AIO footprint",
     "radiator_screw_rule": "twelve matching factory-thread fan screws: preserve original safe engagement and add 6mm for frame/spacer plus any added washer thickness to original under-head length; thread and length unverified; never drill radiator",
     "airflow": "radiator inward, all fans outward pulling toward the left cabinet side",
     "center_spacer_mm": [
@@ -1181,14 +1249,14 @@
     "fan_bank_coplanar": true,
     "shared_fan_radiator_screw_count": 12,
     "frame_count": 2,
-    "foot_inner_x_mm": 94.32799999999997,
+    "foot_inner_x_mm": 52.327999999999975,
     "foot_count": 2,
     "shelf_anchors_per_frame": 2,
     "shelf_anchor_X_adjustment_mm": [
       -2.5,
       2.5
     ],
-    "minimum_rear_washer_edge_margin_mm": 14.5,
+    "minimum_rear_washer_edge_margin_mm": 15.5,
     "radiator_screws_per_frame": 4,
     "projection_beyond_left_edge_with_heads_mm": 12.672,
     "projection_beyond_rear_edge_mm": 18.0,
@@ -1358,7 +1426,7 @@
     "ten selected GPU posts need ten14mm Wurth970140324 M3 female bases and M3x8 lower screws (3.48mm nominal engagement,1.52mm nominal gap to owner-reported9mm stud); plastic does not carry their clamp load. Eight selectable slots per board do not require populating all16. Verify fixed OBT nut height with seated card; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Ten replacement14mm bases are required; ten rods total (six previously ordered, four additional). Both add-in NICs and risers are deferred",
     "ground each motherboard with a metal lead from a standoff to the steel shelf; printed adapters are insulating",
     "Kenshin's AC plug survey volume assumes a side/upward exit inside the bracket window at the HX1200i's -X face; verify the actual inlet and bend",
-    "Berserk AC rises over the side-AIO brace and runs rearward at Z205 beside the radiator; Kenshin AC leaves straight out the rear; Ethernet routes outside the right edge (about 12 mm); verify cabinet lanes and smooth cable bends",
+    "Berserk AC rises over the side-AIO hose end and runs rearward at Z205 beside the radiator; Kenshin AC leaves straight out the rear; Ethernet routes outside the right edge (about 12 mm); verify cabinet lanes and smooth cable bends",
     "PETG parts, drilled nominal1.52mm shelf joints, cooling and power have not had a sustained loaded test; generated G-code remains a fit prototype"
   ],
   "clearances_mm": {
@@ -1396,9 +1464,9 @@
     "Kenshin_AIO_foot_to_shelf_left_mm": 19.328,
     "Kenshin_AIO_foot_to_shelf_rear_mm": 12.5,
     "Kenshin_AIO_radiator_to_GPU_tail_x_gap_mm": 15.628,
-    "Kenshin_AIO_frames_to_PSU_bracket_x_gap_mm": 5.672,
-    "Kenshin_AIO_brace_to_Berserk_AC_plug_y_gap_mm": 239.15,
-    "planning_band_to_Kenshin_AIO_top_mm": 80.25,
+    "Kenshin_AIO_frames_to_PSU_bracket_x_gap_mm": 47.672,
+    "Kenshin_AIO_radiator_to_Berserk_AC_plug_y_gap_mm": 103.4,
+    "planning_band_to_Kenshin_AIO_top_mm": 82.25,
     "planning_band_to_Kenshin_AIO_frame_top_mm": 82.25,
     "Berserk_Ethernet_right_cabinet_lane_reach_mm": 12,
     "V100_fan_top_above_shelf_mm": 233.439,
@@ -1562,7 +1630,7 @@
       "z": 107.57359312880715,
       "w": 140.0,
       "d": 125.86500705120545,
-      "h": 125.86500705120548,
+      "h": 125.86500705120545,
       "note": "Sanyo 9GV1412P1S001, 45-degree upward exhaust; bounding box only, shape is rotated; occupies reserved upper duct volume"
     },
     {
@@ -1714,6 +1782,46 @@
       "d": 124.0,
       "h": 124.0,
       "note": "Owned Performance fan; pull through radiator toward rear. All fans coplanar on 6mm frames/spacer for factory side bridges. 2mm side connector allowance is provisional."
+    },
+    {
+      "name": "Kenshin ConnectX-4 Lx card",
+      "x": 255.416,
+      "y": 689.78,
+      "z": 24,
+      "w": 142.24,
+      "d": 20.0,
+      "h": 68.9,
+      "note": "MCX4131A-GCAT low-profile card in a chipset slot behind the RTX 5090 (owner photo); slot centre and installed thickness are photo estimates; QSFP28 cage and DAC face the shelf's right side"
+    },
+    {
+      "name": "Berserk LRFC6911N riser board",
+      "x": 65.3,
+      "y": 457.0,
+      "z": 9.0,
+      "w": 43.5,
+      "d": 121.0,
+      "h": 1.6,
+      "note": "flat on the printed holder; board width, holes, slot and socket positions are photo estimates"
+    },
+    {
+      "name": "Berserk LRFC6911N riser x16 slot",
+      "x": 65.85,
+      "y": 481.0,
+      "z": 10.6,
+      "w": 9.5,
+      "d": 90.0,
+      "h": 11.25,
+      "note": "x16 connector (x4 electrical); photo-estimated position, assumed height"
+    },
+    {
+      "name": "Berserk ConnectX-4 Lx card",
+      "x": 55.345,
+      "y": 466.0,
+      "z": 17.475,
+      "w": 18.709999999999994,
+      "d": 142.24,
+      "h": 68.9,
+      "note": "MCX4131A-GCAT low-profile card standing in the riser slot, bracket face at the front; heatsink side toward the radiator (CEM component limits)"
     }
   ],
   "large_connector_keepouts_mm": [
@@ -1798,14 +1906,44 @@
       "note": "conservative reserve starts at PCB front edge; official board diagram shows header close to edge; survey latch and cable projection"
     },
     {
-      "name": "Kenshin ConnectX-4 Lx PCIe x4 card envelope",
-      "x": 255.416,
-      "y": 689.78,
-      "z": 24,
-      "w": 142.24,
-      "d": 20.0,
-      "h": 68.9,
-      "note": "MCX4131A-GCAT low-profile card in a chipset slot behind the RTX 5090 (owner photo); slot centre and installed thickness are photo estimates; QSFP28 cage and DAC face the shelf's right side"
+      "name": "QSFP28 DAC Berserk plug",
+      "x": 60.64999999999999,
+      "y": 418.0,
+      "z": 48.3,
+      "w": 8.5,
+      "d": 48.0,
+      "h": 18.35,
+      "note": "DAC plug through the holder gate; cage height on the card assumed"
+    },
+    {
+      "name": "Berserk riser SATA power plug",
+      "x": 108.8,
+      "y": 482.0,
+      "z": 10.6,
+      "w": 15.0,
+      "d": 31.600000000000023,
+      "h": 9.0,
+      "note": "right-angle SATA power plug from the Hercules; projection is an allowance"
+    },
+    {
+      "name": "Berserk SFF-8643 riser plug",
+      "x": 108.8,
+      "y": 513.8,
+      "z": 10.600000000000001,
+      "w": 38.0,
+      "d": 17.5,
+      "h": 11.0,
+      "note": "straight SFF-8643 plug; passes over Kenshin's 6 mm motherboard mount, short of the PCB edge in CAD"
+    },
+    {
+      "name": "Berserk SFF-8643 H12D plug",
+      "x": 173.15060240963857,
+      "y": 59.19999999999999,
+      "z": 17.225,
+      "w": 17.5,
+      "d": 38.0,
+      "h": 11.0,
+      "note": "H12D-8D SFF-8643 port photo-estimated from the manual layout figure (middle of three, front edge, mating toward the front); under the V100 tails"
     }
   ],
   "printed_parts": [
@@ -1905,19 +2043,19 @@
       "bounding_box_mm": [
         120.0,
         140.0,
-        75.01
+        33.01
       ],
-      "purpose": "120mm fan-flush radiator frame; 105mm pitch, 7x4.5mm slots, 75mm foot, bearing ledge and two slotted anchors; rear face down"
+      "purpose": "120mm fan-flush radiator frame; 105mm pitch, 7x4.5mm slots, 33mm foot inside the radiator footprint, bearing ledge and two slotted anchors; rear face down"
     },
     {
-      "part": "fan120_aio_hose_brace",
+      "part": "berserk_nic_holder",
       "quantity": 1,
       "bounding_box_mm": [
-        142.0,
-        44.5,
-        28.0
+        67.5,
+        166.0,
+        76.6
       ],
-      "purpose": "120mm radiator hose-end brace adapted to 105mm pitch; inward web on bed; two radiator screws and two shelf anchors"
+      "purpose": "Berserk NIC riser holder: 6mm base, three slotted M4 anchors, four riser bosses and a gate whose columns take the card bracket and whose bridge carries the tab; QSFP28 plug through the gate; base on bed"
     },
     {
       "part": "fan120_aio_center_spacer",
@@ -2896,7 +3034,6 @@
     "H115i_front_fan_holes": 8,
     "H115i_shared_fan_frame_radiator_screw_axes": 8,
     "H115i_hose_brace_rear_screw_axes": 2,
-    "Kenshin_AIO_brace_inward_screw_axes": 2,
     "Kenshin_AIO_frame_holes": 8,
     "motherboard_holes": 18,
     "GPU_flange_survey_holes": 10,
@@ -2951,7 +3088,7 @@
           80
         ]
       ],
-      "note": "Provisional 400 mm hose route from the front radiator tank, in front of the hose brace, to the pump; dry-fit ports, broad arcs and minimum bend radius. Polyline length is a lower bound.",
+      "note": "Provisional 400 mm hose route from the front radiator tank, past the radiator's inner face in front of Berserk's NIC holder, to the pump; dry-fit ports, broad arcs and minimum bend radius. Polyline length is a lower bound.",
       "polyline_length_mm": 227.18
     },
     "Kenshin AIO hose 2": {
@@ -2974,7 +3111,7 @@
           80
         ]
       ],
-      "note": "Provisional 400 mm hose route from the front radiator tank, in front of the hose brace, to the pump; dry-fit ports, broad arcs and minimum bend radius. Polyline length is a lower bound.",
+      "note": "Provisional 400 mm hose route from the front radiator tank, past the radiator's inner face in front of Berserk's NIC holder, to the pump; dry-fit ports, broad arcs and minimum bend radius. Polyline length is a lower bound.",
       "polyline_length_mm": 243.18
     },
     "Berserk AC": {
@@ -2996,7 +3133,7 @@
           205
         ]
       ],
-      "note": "Rises over the side-AIO hose brace and runs rearward above the radiator's inner side and the 5090 tail; provisional lane. Disconnect external cord before sliding shelf.",
+      "note": "Rises over the side-AIO hose end and runs rearward above the radiator's inner side and the 5090 tail; provisional lane. Disconnect external cord before sliding shelf.",
       "polyline_length_mm": 640.3
     },
     "Kenshin AC": {
@@ -3170,6 +3307,95 @@
       ],
       "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
       "polyline_length_mm": 331.06
+    },
+    "QSFP28 DAC": {
+      "od_mm": 6.5,
+      "points_mm": [
+        [
+          64.89999999999999,
+          418.0,
+          57.474999999999994
+        ],
+        [
+          72.89999999999999,
+          412.0,
+          57.474999999999994
+        ],
+        [
+          84.89999999999999,
+          415.0,
+          80.0
+        ],
+        [
+          418.0,
+          415.0,
+          80.0
+        ],
+        [
+          418.0,
+          619.78,
+          80.0
+        ],
+        [
+          480.656,
+          664.78,
+          64.0
+        ],
+        [
+          480.656,
+          699.78,
+          64.0
+        ],
+        [
+          445.656,
+          699.78,
+          64.0
+        ]
+      ],
+      "note": "Berserk plug end, under the AIO hose, up behind the V100 hood and over Kenshin's 24-pin, rearward in the right-edge lane above the I/O reserve, then out past the deck edge and back into Kenshin's cage. Corners stand for bends of at least the allowance radius; the loop at Kenshin's end is outside the rack opening.",
+      "polyline_length_mm": 722.36
+    },
+    "Berserk SFF-8643 cable": {
+      "od_mm": 6.5,
+      "points_mm": [
+        [
+          146.8,
+          522.55,
+          16.1
+        ],
+        [
+          149.8,
+          522.55,
+          30.0
+        ],
+        [
+          149.8,
+          472.54999999999995,
+          30.0
+        ],
+        [
+          86.0,
+          405.0,
+          30.0
+        ],
+        [
+          86.0,
+          53.19999999999999,
+          22.725
+        ],
+        [
+          181.90060240963857,
+          53.19999999999999,
+          22.725
+        ],
+        [
+          181.90060240963857,
+          59.19999999999999,
+          22.725
+        ]
+      ],
+      "note": "Riser plug end, up over Kenshin's motherboard mount beside the PCB edge, forward to the left of the V100 hood, across the deck front under the V100 tails' front ends to the H12D port. Provisional; the port position is photo-estimated.",
+      "polyline_length_mm": 610.91
     }
   },
   "Berserk_orientation": {

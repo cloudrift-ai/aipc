@@ -11,9 +11,11 @@ Library spec: [parts/purchased/sff-8643-pcie-cable](../../parts/purchased/sff-86
 | Quantity | 1 |
 | Systems | berserk |
 
+![Part in the assembly](../models/renders/parts/sff-8643-pcie-cable.png)
+
 ## Assembly
 
-- **not in the assembly**: cable route follows the riser location, which is not chosen yet
+- 8 instances in the assembly
 
 ## Compatibility checks
 
@@ -21,7 +23,7 @@ Library spec: [parts/purchased/sff-8643-pcie-cable](../../parts/purchased/sff-86
 | --- | --- | --- | --- |
 | provisional | value | `sff-8643-port` | sff-8643-pcie-cable needs PCIe x4 device; provided by linkreal-lrfc6911n |
 | provisional | count | `sff-8643-port` | need 1 x sff-8643-port=pcie x4 device, have 1 |
-| provisional | budget | `shelf-load` | load 23.0 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
+| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 | pass | value | `sff-8643-port` | sff-8643-pcie-cable needs PCIe 4.0 x4 U.2; provided by huananzhi-h12d-8d |
 | pass | count | `sff-8643-port` | need 1 x sff-8643-port=pcie 4.0 x4 u.2, have 3 |
 

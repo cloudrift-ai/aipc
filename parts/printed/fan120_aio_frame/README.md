@@ -14,7 +14,7 @@
 
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
-| [aipc](../../../aipc/parts/fan120_aio_frame.md) | 2 | design | 120 mm fan/radiator frame with 75 mm feet on the steel extension |
+| [aipc](../../../aipc/parts/fan120_aio_frame.md) | 2 | design | 120 mm fan/radiator frame with 33 mm feet inside the AIO footprint, bearing on the deck |
 
 ## Model
 
@@ -30,7 +30,7 @@
 
 | Key | Value | Evidence | Source / note |
 | --- | --- | --- | --- |
-| mass | 0.0796 kg | allowance | OrcaSlicer filament estimate |
+| mass | 0.0617 kg | allowance | OrcaSlicer filament estimate |
 
 ## Interfaces
 

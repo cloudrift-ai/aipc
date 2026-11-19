@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "summary": {
-    "BLOCKED": 23,
-    "PROVISIONAL": 55,
+    "BLOCKED": 21,
+    "PROVISIONAL": 59,
     "PASS": 11
   },
   "lint": [],
@@ -121,20 +121,6 @@
       "rule": "presence",
       "status": "BLOCKED",
       "detail": "nothing in systems ['berserk', 'kenshin'] provides 'pcie-card-airflow'"
-    },
-    {
-      "type": "qsfp28-dac",
-      "systems": [
-        "berserk",
-        "kenshin"
-      ],
-      "requirers": [
-        "nvidia-mcx4131a-gcat"
-      ],
-      "providers": [],
-      "rule": "presence",
-      "status": "BLOCKED",
-      "detail": "nothing in systems ['berserk', 'kenshin'] provides 'qsfp28-dac'"
     },
     {
       "type": "rack-post-depth",
@@ -1153,6 +1139,86 @@
       ]
     },
     {
+      "type": "qsfp28-dac",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "nvidia-mcx4131a-gcat"
+      ],
+      "providers": [
+        "qsfp28-passive-dac"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "nvidia-mcx4131a-gcat needs QSFP28 passive DAC, 50GbE; provided by qsfp28-passive-dac",
+      "note": "one cable end per card; a passive DAC keeps power at the 11.6 W figure. Cable not chosen; length depends on where the two cards end up",
+      "weak_evidence": [
+        "nvidia-mcx4131a-gcat:qsfp28-dac(allowance)",
+        "qsfp28-passive-dac:qsfp28-dac(allowance)"
+      ]
+    },
+    {
+      "type": "qsfp28-dac",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "nvidia-mcx4131a-gcat"
+      ],
+      "providers": [
+        "qsfp28-passive-dac"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x qsfp28-dac=qsfp28 passive dac, 50gbe, have 2",
+      "weak_evidence": [
+        "nvidia-mcx4131a-gcat:qsfp28-dac(allowance)",
+        "qsfp28-passive-dac:qsfp28-dac(allowance)"
+      ]
+    },
+    {
+      "type": "qsfp28-port",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "qsfp28-passive-dac"
+      ],
+      "providers": [
+        "nvidia-mcx4131a-gcat"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "qsfp28-passive-dac needs QSFP28 50GbE; provided by nvidia-mcx4131a-gcat",
+      "note": "one plug in each ConnectX-4 Lx cage",
+      "weak_evidence": [
+        "qsfp28-passive-dac:qsfp28-port(allowance)"
+      ]
+    },
+    {
+      "type": "qsfp28-port",
+      "systems": [
+        "berserk",
+        "kenshin"
+      ],
+      "requirers": [
+        "qsfp28-passive-dac"
+      ],
+      "providers": [
+        "nvidia-mcx4131a-gcat"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x qsfp28-port=qsfp28 50gbe, have 2",
+      "weak_evidence": [
+        "qsfp28-passive-dac:qsfp28-port(allowance)"
+      ]
+    },
+    {
       "type": "radiator-mount",
       "systems": [
         "berserk"
@@ -1280,7 +1346,7 @@
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 23.0 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating)",
+      "detail": "load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating)",
       "contributors": [
         "amd-epyc-7702p",
         "amd-ryzen-9-9950x3d",
@@ -1288,13 +1354,13 @@
         "asetek-tr4-bracket",
         "atx_mobo_adapter_front",
         "atx_mobo_adapter_rail",
+        "berserk_nic_holder",
         "corsair-cmp64gx5m4b6400c32",
         "corsair-h115i",
         "corsair-hx1200i",
         "fan-power-harness",
         "fan120_aio_center_spacer",
         "fan120_aio_frame",
-        "fan120_aio_hose_brace",
         "fan140_aio_frame",
         "fan140_aio_hose_brace",
         "fasteners",
@@ -1314,6 +1380,7 @@
         "nvidia-v100-pcie-16gb",
         "obt-pcie-support",
         "psu_bracket",
+        "qsfp28-passive-dac",
         "rosewill-hercules-1600",
         "samsung-990-pro-4tb",
         "sanyo-denki-9gv1412p1s001",
@@ -1331,13 +1398,13 @@
         "asetek-tr4-bracket:shelf-load(assumed)",
         "atx_mobo_adapter_front:shelf-load(allowance)",
         "atx_mobo_adapter_rail:shelf-load(allowance)",
+        "berserk_nic_holder:shelf-load(allowance)",
         "corsair-cmp64gx5m4b6400c32:shelf-load(assumed)",
         "corsair-h115i:shelf-load(assumed)",
         "corsair-hx1200i:shelf-load(assumed)",
         "fan-power-harness:shelf-load(assumed)",
         "fan120_aio_center_spacer:shelf-load(allowance)",
         "fan120_aio_frame:shelf-load(allowance)",
-        "fan120_aio_hose_brace:shelf-load(allowance)",
         "fan140_aio_frame:shelf-load(allowance)",
         "fan140_aio_hose_brace:shelf-load(allowance)",
         "fasteners:shelf-load(assumed)",
@@ -1355,6 +1422,7 @@
         "nvidia-mcx4131a-gcat:shelf-load(assumed)",
         "obt-pcie-support:shelf-load(assumed)",
         "psu_bracket:shelf-load(allowance)",
+        "qsfp28-passive-dac:shelf-load(assumed)",
         "rosewill-hercules-1600:shelf-load(assumed)",
         "samsung-990-pro-4tb:shelf-load(assumed)",
         "sff-8643-pcie-cable:shelf-load(assumed)",
@@ -1609,29 +1677,14 @@
       "detail": "not in the assembly: flexible wiring; route along the hood clear of the fan rotor"
     },
     {
-      "part": "linkreal-lrfc6911n",
-      "status": "BLOCKED",
-      "detail": "not in the assembly: shelf location and holder not designed yet; must clear the V100s and the BMC and leave airflow over the NIC"
-    },
-    {
       "part": "mains-power",
       "status": "BLOCKED",
       "detail": "not in the assembly: outside the shelf; supply not specified"
     },
     {
-      "part": "nvidia-mcx4131a-gcat",
-      "status": "BLOCKED",
-      "detail": "not in the assembly: Berserk's card sits on a riser whose shelf position is open; Kenshin's card is reserved by the kenshin-connectx-slot keepout in the chipset slot behind the RTX 5090 (owner mock-up 2026-11-16), with its bracket on the right shelf edge"
-    },
-    {
       "part": "samsung-990-pro-4tb",
       "status": "BLOCKED",
       "detail": "not in the assembly: X870E M.2 slot positions not surveyed; drives sit under the board heatsinks"
-    },
-    {
-      "part": "sff-8643-pcie-cable",
-      "status": "BLOCKED",
-      "detail": "not in the assembly: cable route follows the riser location, which is not chosen yet"
     },
     {
       "part": "tnut_fit_coupon",
@@ -1644,9 +1697,19 @@
       "detail": "geometry conflict in the layout: unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
     },
     {
+      "part": "Berserk V100 16GB PCIE2 / Berserk SFF-8643 H12D plug",
+      "status": "BLOCKED",
+      "detail": "geometry conflict in the layout: unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
+    },
+    {
       "part": "Berserk V100 16GB PCIE3 / Berserk BMC module survey",
       "status": "BLOCKED",
       "detail": "geometry conflict in the layout: unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
+    },
+    {
+      "part": "Berserk V100 16GB PCIE3 / Berserk SFF-8643 H12D plug",
+      "status": "BLOCKED",
+      "detail": "geometry conflict in the layout: unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
     }
   ],
   "renders": [],
@@ -1707,11 +1770,6 @@
       "detail": "Only the DigiKey listing is recorded; add Keystone's drawing."
     },
     {
-      "part": "micron-3400-2tb",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.mouser.com/datasheet/2/671/Micron_Technology_micron_3400_ssd_product_brief-2499062.pdf (run make datasheets)"
-    },
-    {
       "part": "micron-3500-2tb",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://static6.arrow.com/aropdfconversion/2547cff09287eb6bd4dacd83d5c50d725f96917/3500-nvme-ssd-product-brief.pdf (run make datasheets)"
@@ -1725,6 +1783,11 @@
       "part": "obt-pcie-support",
       "status": "BLOCKED",
       "detail": "Open Benchtable publishes no drawing; the stud length is an owner measurement."
+    },
+    {
+      "part": "qsfp28-passive-dac",
+      "status": "BLOCKED",
+      "detail": "No cable chosen yet. The plug and cable dimensions are generic QSFP28 allowances; replace them with the chosen cable's drawing (for example an NVIDIA MCP1600 100GbE passive DAC, which the ConnectX-4 Lx runs at 50GbE)."
     },
     {
       "part": "rosewill-hercules-1600",
@@ -1785,6 +1848,9 @@
     "atx_mobo_adapter_rail": {
       "allowance": 1
     },
+    "berserk_nic_holder": {
+      "allowance": 1
+    },
     "corsair-cmp64gx5m4b6400c32": {
       "assumed": 1
     },
@@ -1804,9 +1870,6 @@
       "allowance": 1
     },
     "fan120_aio_frame": {
-      "allowance": 1
-    },
-    "fan120_aio_hose_brace": {
       "allowance": 1
     },
     "fan140_aio_frame": {
@@ -1857,6 +1920,12 @@
       "standard": 1,
       "assumed": 1
     },
+    "linkreal-lrfc6911n": {
+      "datasheet": 3,
+      "photo-estimate": 13,
+      "assumed": 3,
+      "allowance": 1
+    },
     "micron-3400-2tb": {
       "datasheet": 5,
       "assumed": 2
@@ -1874,7 +1943,8 @@
     },
     "nvidia-mcx4131a-gcat": {
       "datasheet": 5,
-      "assumed": 1
+      "assumed": 4,
+      "standard": 3
     },
     "nvidia-v100-pcie-16gb": {
       "datasheet": 4,
@@ -1887,6 +1957,10 @@
     },
     "psu_bracket": {
       "allowance": 1
+    },
+    "qsfp28-passive-dac": {
+      "allowance": 4,
+      "assumed": 3
     },
     "rack-cabinet": {
       "unknown": 3
@@ -1901,7 +1975,8 @@
     },
     "sff-8643-pcie-cable": {
       "listing": 1,
-      "assumed": 1
+      "assumed": 1,
+      "allowance": 4
     },
     "tnut_fit_coupon": {
       "allowance": 1

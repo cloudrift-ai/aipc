@@ -24,5 +24,5 @@ Library spec: [parts/purchased/micron-mta36asf4g72pz-2g9](../../parts/purchased/
 | provisional | budget | `dc-power` | load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1376.0 W |
 | provisional | value | `memory-slot` | micron-mta36asf4g72pz-2g9 needs DDR4 RDIMM; provided by huananzhi-h12d-8d |
 | provisional | count | `memory-slot` | need 8 x memory-slot=ddr4 rdimm, have 8 |
-| provisional | budget | `shelf-load` | load 23.0 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
+| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 

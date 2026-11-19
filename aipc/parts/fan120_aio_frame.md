@@ -6,7 +6,7 @@ Library spec: [parts/printed/fan120_aio_frame](../../parts/printed/fan120_aio_fr
 
 | | |
 | --- | --- |
-| Role | 120 mm fan/radiator frame with 75 mm feet on the steel extension |
+| Role | 120 mm fan/radiator frame with 33 mm feet inside the AIO footprint, bearing on the deck |
 | Status | design |
 | Quantity | 2 |
 | Systems | kenshin |
@@ -23,5 +23,5 @@ Library spec: [parts/printed/fan120_aio_frame](../../parts/printed/fan120_aio_fr
 | --- | --- | --- | --- |
 | provisional | value | `radiator-mount` | lian-li-ga2-lite-360 needs 360 mm, 105 mm pitch; provided by fan120_aio_frame |
 | provisional | count | `radiator-mount` | need 2 x radiator-mount=360 mm, 105 mm pitch, have 2 |
-| provisional | budget | `shelf-load` | load 23.0 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
+| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 

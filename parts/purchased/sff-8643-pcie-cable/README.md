@@ -17,6 +17,8 @@ link is PCIe 3.0, which a short 12G SAS-grade cable with sideband normally
 carries. If the link shows errors, set the port to Gen3 in the BIOS. No
 straight SFF-8643 cable rated for PCIe 4.0 was found.
 
+![Part views](render.png)
+
 ## Used in
 
 | Build | Qty | Status | Role |
@@ -25,6 +27,7 @@ straight SFF-8643 cable rated for PCIe 4.0 was found.
 
 ## Model
 
+- [sff-8643-pcie-cable.step](sff-8643-pcie-cable.step)
 - Source: constructed
 - Written by the `aipc` build's generator
 
@@ -38,6 +41,10 @@ straight SFF-8643 cable rated for PCIe 4.0 was found.
 | --- | --- | --- | --- |
 | length | 500 mm | listing | eBay listing: CAB-8643/8643-P0.5M, 0.5 m |
 | mass | 0.05 kg | assumed |  |
+| plug_width | 17.5 mm | allowance | straight plug overmold across the latch |
+| plug_height | 11 mm | allowance |  |
+| plug_length | 38 mm | allowance | mating face to the end of the strain relief, before the first bend |
+| cable_od | 6.5 mm | allowance |  |
 
 ## Interfaces
 

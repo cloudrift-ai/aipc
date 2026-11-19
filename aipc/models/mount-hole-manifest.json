@@ -696,7 +696,7 @@
     },
     {
       "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO brace inward factory thread",
+      "interface": "Kenshin AIO unused inward factory thread",
       "center_mm": [
         52.327999999999975,
         554.4,
@@ -720,7 +720,7 @@
     },
     {
       "component": "Kenshin GA II Lite radiator",
-      "interface": "Kenshin AIO brace inward factory thread",
+      "interface": "Kenshin AIO unused inward factory thread",
       "center_mm": [
         52.327999999999975,
         554.4,
@@ -1607,40 +1607,6 @@
       "fabrication": "candidate new drill through sound steel; survey first"
     },
     {
-      "part": "fan120_aio_hose_brace",
-      "center_xy_mm": [
-        72.328,
-        554.4
-      ],
-      "diameter_mm": 5.0,
-      "fastener": "M4 with steel backing",
-      "printed_bracket_slot_mm": [
-        8.0,
-        5.5
-      ],
-      "printed_bracket_slot_axis": "shelf X (side-to-side)",
-      "verified": false,
-      "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
-    },
-    {
-      "part": "fan120_aio_hose_brace",
-      "center_xy_mm": [
-        87.828,
-        554.4
-      ],
-      "diameter_mm": 5.0,
-      "fastener": "M4 with steel backing",
-      "printed_bracket_slot_mm": [
-        8.0,
-        5.5
-      ],
-      "printed_bracket_slot_axis": "shelf X (side-to-side)",
-      "verified": false,
-      "intersects_approximate_vent": false,
-      "fabrication": "candidate new drill through sound steel; survey first"
-    },
-    {
       "part": "psu_screw_frame_berserk_drill_plan",
       "center_xy_mm": [
         21.0,
@@ -1711,8 +1677,8 @@
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "center_xy_mm": [
-        79.328,
-        468.9
+        39.328,
+        447.9
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1728,8 +1694,8 @@
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "center_xy_mm": [
-        79.328,
-        526.9
+        39.328,
+        525.9
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1745,8 +1711,8 @@
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "center_xy_mm": [
-        79.328,
-        708.9
+        39.328,
+        687.9
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1762,8 +1728,8 @@
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "center_xy_mm": [
-        79.328,
-        766.9
+        39.328,
+        765.9
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1854,6 +1820,57 @@
       "fastener": "M4 with steel backing",
       "printed_bracket_slot_mm": [
         8.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "berserk_nic_holder",
+      "center_xy_mm": [
+        95.0,
+        445.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "berserk_nic_holder",
+      "center_xy_mm": [
+        90.0,
+        590.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "berserk_nic_holder",
+      "center_xy_mm": [
+        114.0,
+        545.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
         5.5
       ],
       "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
@@ -2549,8 +2566,8 @@
   },
   "GPU_post_slot_note": "Eight options per board; only the selected card posts appear in the required steel pattern. Locate real seated-card posts; high-X positions need port clearance checks.",
   "optional_motherboard_shelf_hole_note": "10 optional sites excluded from required drill/count plan; use only as needed, before PCB installation",
-  "hole_count": 45,
-  "M4_printed_mount_hole_count": 21,
+  "hole_count": 46,
+  "M4_printed_mount_hole_count": 22,
   "M3_motherboard_mount_hole_count": 10,
   "M3_direct_metal_post_hole_count": 10,
   "M3_shared_post_adapter_hole_count": 0,
@@ -2579,7 +2596,6 @@
     "H115i_front_fan_holes": 8,
     "H115i_shared_fan_frame_radiator_screw_axes": 8,
     "H115i_hose_brace_rear_screw_axes": 2,
-    "Kenshin_AIO_brace_inward_screw_axes": 2,
     "Kenshin_AIO_frame_holes": 8,
     "motherboard_holes": 18,
     "GPU_flange_survey_holes": 10,

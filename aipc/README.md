@@ -44,7 +44,7 @@ One model per unique part, in its library folder (see [parts/](parts/README.md#p
 | `fan140_aio_frame` | 2 | 140 mm fan/radiator frame with bearing ledge (H115i) |
 | `fan140_aio_hose_brace` | 1 | Hose-end brace for the 140 mm radiator |
 | `fan120_aio_frame` | 2 | 120 mm fan/radiator frame with bearing ledge (360 mm AIO) |
-| `fan120_aio_hose_brace` | 1 | Hose-end brace for the 120 mm radiator |
+| `berserk_nic_holder` | 1 | Holder for Berserk's NIC riser and ConnectX card, beside the side AIO |
 | `fan120_aio_center_spacer` | 1 | Keeps the middle 120 mm fan coplanar |
 | `gpu_rest` | 1 | Front-end rest for the RTX 5090 |
 | `v100_gpu_shroud` | 1 | Hood over the four V100s with integral 45° fan panel |

@@ -5,4 +5,4 @@ quantity = 2
 systems = ["berserk", "kenshin"]
 
 [assembly]
-not_modeled = "Berserk's card sits on a riser whose shelf position is open; Kenshin's card is reserved by the kenshin-connectx-slot keepout in the chipset slot behind the RTX 5090 (owner mock-up 2026-11-16), with its bracket on the right shelf edge"
+match = ["^Berserk_ConnectX-4_Lx_card$", "^Kenshin_ConnectX-4_Lx_card$"]

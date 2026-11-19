@@ -21,7 +21,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "ruff"]
+# openpyxl keeps each build's parts.xlsx in step with its parts/ folder.
+dev = ["pytest", "ruff", "openpyxl"]
 
 [project.scripts]
 hwkit = "hwkit.cli:main"

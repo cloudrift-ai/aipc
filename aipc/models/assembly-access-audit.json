@@ -1,6 +1,6 @@
 {
   "status": "nominal CAD clearance check; hardware dimensions and physical fit unverified",
-  "M4_mount_count": 21,
+  "M4_mount_count": 22,
   "M3_motherboard_mount_count": 10,
   "M3_direct_metal_post_count": 10,
   "M3_shared_post_adapter_count": 0,
@@ -1104,58 +1104,6 @@
       "install_before": []
     },
     {
-      "part": "fan120_aio_hose_brace",
-      "fastener": "M4 with steel backing",
-      "center_xy_mm": [
-        72.328,
-        554.4
-      ],
-      "washer_seat_z_mm": 8.0,
-      "washer_max_od_mm": 12.0,
-      "head_envelope_diameter_height_mm": [
-        8,
-        4
-      ],
-      "washer_thickness_mm": 1,
-      "driver_diameter_mm": 6,
-      "driver_clear_height_mm": 35,
-      "slot_axis": "shelf X (side-to-side)",
-      "checked_adjustment_mm": [
-        -1.5,
-        1.5
-      ],
-      "nominal_rear_washer_margin_mm": 227.0,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 64.828,
-      "bare_bracket_tool_access": true,
-      "install_before": []
-    },
-    {
-      "part": "fan120_aio_hose_brace",
-      "fastener": "M4 with steel backing",
-      "center_xy_mm": [
-        87.828,
-        554.4
-      ],
-      "washer_seat_z_mm": 8.0,
-      "washer_max_od_mm": 12.0,
-      "head_envelope_diameter_height_mm": [
-        8,
-        4
-      ],
-      "washer_thickness_mm": 1,
-      "driver_diameter_mm": 6,
-      "driver_clear_height_mm": 35,
-      "slot_axis": "shelf X (side-to-side)",
-      "checked_adjustment_mm": [
-        -1.5,
-        1.5
-      ],
-      "nominal_rear_washer_margin_mm": 227.0,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 80.328,
-      "bare_bracket_tool_access": true,
-      "install_before": []
-    },
-    {
       "part": "psu_screw_frame_berserk_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
@@ -1263,8 +1211,8 @@
       "part": "kenshin_aio_screw_frame_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        79.328,
-        468.9
+        39.328,
+        447.9
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1280,17 +1228,19 @@
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 312.5,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 70.828,
+      "nominal_rear_washer_margin_mm": 333.5,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 30.828,
       "bare_bracket_tool_access": true,
-      "install_before": []
+      "install_before": [
+        "Kenshin GA II Lite radiator"
+      ]
     },
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        79.328,
-        526.9
+        39.328,
+        525.9
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1306,17 +1256,19 @@
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 254.5,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 70.828,
+      "nominal_rear_washer_margin_mm": 255.5,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 30.828,
       "bare_bracket_tool_access": true,
-      "install_before": []
+      "install_before": [
+        "Kenshin GA II Lite radiator"
+      ]
     },
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        79.328,
-        708.9
+        39.328,
+        687.9
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1332,17 +1284,19 @@
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 72.5,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 70.828,
+      "nominal_rear_washer_margin_mm": 93.5,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 30.828,
       "bare_bracket_tool_access": true,
-      "install_before": []
+      "install_before": [
+        "Kenshin GA II Lite radiator"
+      ]
     },
     {
       "part": "kenshin_aio_screw_frame_drill_plan",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        79.328,
-        766.9
+        39.328,
+        765.9
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1358,10 +1312,12 @@
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 14.5,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 14.5,
+      "nominal_rear_washer_margin_mm": 15.5,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 15.5,
       "bare_bracket_tool_access": true,
-      "install_before": []
+      "install_before": [
+        "Kenshin GA II Lite radiator"
+      ]
     },
     {
       "part": "gpu_5090_rest_drill_plan",
@@ -1494,6 +1450,84 @@
       ],
       "nominal_rear_washer_margin_mm": 400.9,
       "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 172.58,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "berserk_nic_holder",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        95.0,
+        445.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 336.4,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 89.0,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "berserk_nic_holder",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        90.0,
+        590.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 191.4,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 84.0,
+      "bare_bracket_tool_access": true,
+      "install_before": []
+    },
+    {
+      "part": "berserk_nic_holder",
+      "fastener": "M4 with steel backing",
+      "center_xy_mm": [
+        114.0,
+        545.0
+      ],
+      "washer_seat_z_mm": 6.0,
+      "washer_max_od_mm": 12.0,
+      "head_envelope_diameter_height_mm": [
+        8,
+        4
+      ],
+      "washer_thickness_mm": 1,
+      "driver_diameter_mm": 6,
+      "driver_clear_height_mm": 35,
+      "slot_axis": "shelf Y (front-to-rear)",
+      "checked_adjustment_mm": [
+        -2.5,
+        2.5
+      ],
+      "nominal_rear_washer_margin_mm": 236.4,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 108.0,
       "bare_bracket_tool_access": true,
       "install_before": []
     }
@@ -1715,6 +1749,84 @@
     {
       "route": "V100 PCIE4 power",
       "segment": 4,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "QSFP28 DAC",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "QSFP28 DAC",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "QSFP28 DAC",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "QSFP28 DAC",
+      "segment": 4,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "QSFP28 DAC",
+      "segment": 5,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "QSFP28 DAC",
+      "segment": 6,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "QSFP28 DAC",
+      "segment": 7,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk SFF-8643 cable",
+      "segment": 1,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk SFF-8643 cable",
+      "segment": 2,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk SFF-8643 cable",
+      "segment": 3,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk SFF-8643 cable",
+      "segment": 4,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk SFF-8643 cable",
+      "segment": 5,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk SFF-8643 cable",
+      "segment": 6,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     }
@@ -2276,63 +2388,85 @@
       "factory_thread_and_engagement_verified": false
     }
   ],
-  "Kenshin_AIO_brace_inward_fasteners": [
-    {
-      "axis_yz_mm": [
-        554.4,
-        27.5
-      ],
-      "axis_direction": "X",
-      "inward_face_x_mm": 52.327999999999975,
-      "frame_thickness_mm": 6.0,
-      "washer_od_thickness_mm": [
-        10,
-        1
-      ],
-      "head_diameter_height_mm": [
-        8,
-        4
-      ],
-      "driver_diameter_length_mm": [
-        6,
-        35
-      ],
-      "checked_Z_adjustment_mm": [
-        -2,
-        2
-      ],
-      "factory_thread_and_engagement_verified": false
-    },
-    {
-      "axis_yz_mm": [
-        554.4,
-        132.5
-      ],
-      "axis_direction": "X",
-      "inward_face_x_mm": 52.327999999999975,
-      "frame_thickness_mm": 6.0,
-      "washer_od_thickness_mm": [
-        10,
-        1
-      ],
-      "head_diameter_height_mm": [
-        8,
-        4
-      ],
-      "driver_diameter_length_mm": [
-        6,
-        35
-      ],
-      "checked_Z_adjustment_mm": [
-        -2,
-        2
-      ],
-      "factory_thread_and_engagement_verified": false
-    }
-  ],
   "network": {
-    "QSFP": "deferred; both NICs, risers, DAC and printed supports removed",
-    "Berserk": "onboard 2.5GbE + BMC"
+    "link": "Berserk ConnectX-4 Lx (LRFC6911N riser, H12D SFF-8643 x4) to Kenshin ConnectX-4 Lx (chipset slot behind the 5090) over one QSFP28 passive DAC",
+    "Berserk_NIC_holder": {
+      "part": "berserk_nic_holder",
+      "quantity": 1,
+      "placement": "Kenshin side-AIO strip: radiator inner face X52.3 to Kenshin's motherboard mount, owner-measured about 75 mm",
+      "holder_x_range_mm": [
+        53.5,
+        121.0
+      ],
+      "holder_x_from_radiator_face_mm": 68.67,
+      "holder_y_range_mm": [
+        434.0,
+        600.0
+      ],
+      "gate_top_z_mm": 76.6,
+      "riser_origin_xyz_mm": [
+        65.3,
+        457.0,
+        9.0
+      ],
+      "riser_orientation": "slot along +Y at the radiator side, sockets facing +X",
+      "card_plane_x_mm": 70.6,
+      "bracket_face_y_mm": 466.0,
+      "card_heatsink_to_radiator_face_mm": 3.02,
+      "riser_fasteners": "three M3 self-tapping screws into 2.5 mm pilots; front slot-edge hole on a plain pad (under the gate bridge)",
+      "bracket": "bracket face bears on the gate columns; tab rests on the bridge over a 3.4 x 9.4 mm slot (M3 screw, washer and nut under the bridge); shim between bridge and tab",
+      "shelf_anchor_xy_mm": [
+        [
+          95.0,
+          445.0
+        ],
+        [
+          90.0,
+          590.0
+        ],
+        [
+          114.0,
+          545.0
+        ]
+      ],
+      "shelf_fastener": "3 x M4 with OD12 washers and steel backing",
+      "print": "PETG, base on the bed as installed; the gate bridge spans 15 mm; no supports",
+      "assembly_order": "bolt the bare holder to the shelf, screw the riser on, seat the card, fit the tab screw, then plug SATA, SFF-8643 and the DAC",
+      "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
+      "to_measure": [
+        "riser board width, hole positions and socket positions",
+        "bracket face to x16 slot start on the card",
+        "bracket tab height above the riser",
+        "QSFP28 cage height on the card",
+        "actual radiator-to-mount gap"
+      ],
+      "physical_fit_verified": false
+    },
+    "QSFP28_DAC": {
+      "route_polyline_mm": 722.36,
+      "plugs_outside_cages_mm": 96.0,
+      "minimum_length_mm": 818,
+      "planned_length_mm": 1000.0,
+      "Kenshin_plug_past_deck_edge_mm": 23.0,
+      "Kenshin_plug_past_rack_opening_mm": 9.33,
+      "Kenshin_cable_loop_past_rack_opening_mm": 47.58,
+      "service": "unplug the DAC at Kenshin before sliding the shelf; with the shelf in, the plug and loop sit beside the rack rail",
+      "status": "cable not chosen; plug and bend sizes are allowances"
+    },
+    "SFF_8643_cable": {
+      "route_polyline_mm": 610.91,
+      "minimum_length_mm": 687,
+      "selected_length_mm": 500.0,
+      "selected_length_sufficient": false,
+      "H12D_port_xy_mm": [
+        181.9,
+        97.2
+      ],
+      "H12D_port_basis": "photo-estimated from the H12D-8D manual's layout figure: middle of three SFF-8643 ports on the front PCB edge",
+      "riser_plug_end_to_Kenshin_PCB_edge_mm": 6.86,
+      "riser_plug_end_from_radiator_face_mm": 94.47,
+      "fit_note": "with the owner's 75 mm radiator-to-mount gap the straight plug ends about where the mount ends, so its bend sits over Kenshin's PCB edge; a right-angle SFF-8643 plug would avoid that"
+    }
   },
   "planned_upgrade_clearance_passed": false,
   "planned_upgrade_component_conflicts": [
@@ -2346,11 +2480,27 @@
     },
     {
       "components": [
+        "Berserk V100 16GB PCIE2",
+        "Berserk SFF-8643 H12D plug"
+      ],
+      "overlap_z_mm": 4.225,
+      "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
+    },
+    {
+      "components": [
         "Berserk V100 16GB PCIE3",
         "Berserk BMC module survey"
       ],
       "overlap_z_mm": 0.125,
       "status": "unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
+    },
+    {
+      "components": [
+        "Berserk V100 16GB PCIE3",
+        "Berserk SFF-8643 H12D plug"
+      ],
+      "overlap_z_mm": 4.225,
+      "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
     }
   ],
   "planned_upgrade_cable_conflicts": [],

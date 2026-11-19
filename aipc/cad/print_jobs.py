@@ -26,7 +26,7 @@ EDGE_MARGIN = 12.0
 MOBO_EDGE_MARGIN = mobo_mount.PRINT_EDGE_MARGIN
 MIN_GAP = 8.0  # leaves 2 mm between neighboring 3 mm brims
 PALETTE = {"gpu_exhaust": "#268a99", "v100": "#37a0a5", "mobo_adapter": "#3b82f6", "psu": "#f59e0b",
-           "fan120": "#f97316", "fan140": "#a855f7", "gpu_rest": "#22c55e", "tnut": "#37a0a5"}
+           "fan120": "#f97316", "fan140": "#a855f7", "gpu_rest": "#22c55e", "tnut": "#37a0a5", "nic": "#db2777"}
 LABELS = {"atx_mobo_adapter_front": "ATX front section",
           "atx_mobo_adapter_rail": "ATX rail section",
           "h12d_mobo_adapter_rail": "H12D rail section",
@@ -34,7 +34,7 @@ LABELS = {"atx_mobo_adapter_front": "ATX front section",
           "fan140_aio_frame": "140 mm AIO frame",
           "fan140_aio_hose_brace": "140 mm hose brace",
           "fan120_aio_frame": "120 mm AIO frame",
-          "fan120_aio_hose_brace": "120 mm hose brace",
+          "berserk_nic_holder": "Berserk NIC holder",
           "fan120_aio_center_spacer": "120 mm fan spacer",
           "gpu_rest": "GPU rest",
           "v100_gpu_shroud": "V100 GPU shroud",
@@ -84,7 +84,7 @@ def pack_jobs(meshes):
         "06_fan140_aio_frame": single("fan140_aio_frame", 2),
         "07_fan140_aio_hose_brace": single("fan140_aio_hose_brace"),
         "08_fan120_aio_frame": single("fan120_aio_frame", 2),
-        "09_fan120_aio_hose_brace": single("fan120_aio_hose_brace"),
+        "09_berserk_nic_holder": single("berserk_nic_holder"),
         "10_fan120_aio_center_spacer": single("fan120_aio_center_spacer"),
         "11_tnut_fit_coupon": single("tnut_fit_coupon"),
         "12_v100_gpu_shroud": single("v100_gpu_shroud"),

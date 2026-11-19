@@ -147,7 +147,7 @@
         "fan120_aio_frame": 1
       },
       "count": 1,
-      "highest_part_mm": 75.0,
+      "highest_part_mm": 33.0,
       "occupied_bounds_mm": [
         65.0,
         40.0,
@@ -155,22 +155,22 @@
         160.0
       ]
     },
-    "09_fan120_aio_hose_brace": {
+    "09_berserk_nic_holder": {
       "process_profile": "printer:process.json",
       "filament_profile": "printer:duramic-petg-240c.json",
       "required_nozzle": "0.4mm; original PETG setup",
       "supports_required": false,
       "copies": 1,
       "items": {
-        "fan120_aio_hose_brace": 1
+        "berserk_nic_holder": 1
       },
       "count": 1,
-      "highest_part_mm": 28.0,
+      "highest_part_mm": 76.6,
       "occupied_bounds_mm": [
-        64.0,
-        77.75,
-        206.0,
-        122.25
+        101.25,
+        17.0,
+        168.75,
+        183.0
       ]
     },
     "10_fan120_aio_center_spacer": {

@@ -46,6 +46,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [obt-pcie-support](purchased/obt-pcie-support/README.md) | Open Benchtable PCI-E support rod with nut | [aipc](../aipc/parts/obt-pcie-support.md), [gpulab](../gpulab/parts/obt-pcie-support.md) |
 | [pcie-8pin-splitter](purchased/pcie-8pin-splitter/README.md) | PCIe 8-pin (female) to 2 x 6+2-pin splitter cable | [gpulab](../gpulab/parts/pcie-8pin-splitter.md) |
 | [psu-modular-cables](purchased/psu-modular-cables/README.md) | Super Flower Leadex 2800W modular cable set (approximate routes) | [gpulab](../gpulab/parts/psu-modular-cables.md) |
+| [qsfp28-passive-dac](purchased/qsfp28-passive-dac/README.md) | QSFP28 passive copper direct-attach cable, 1 m (not chosen) | [aipc](../aipc/parts/qsfp28-passive-dac.md) |
 | [rack-cabinet](purchased/rack-cabinet/README.md) | Rack cabinet (not yet specified) | [aipc](../aipc/parts/rack-cabinet.md), [gpulab](../gpulab/parts/rack-cabinet.md) |
 | [rosewill-hercules-1600](purchased/rosewill-hercules-1600/README.md) | Rosewill Hercules 1600 W PSU (reused) | [aipc](../aipc/parts/rosewill-hercules-1600.md) |
 | [samsung-990-pro-4tb](purchased/samsung-990-pro-4tb/README.md) | Samsung 990 PRO 4 TB NVMe | [aipc](../aipc/parts/samsung-990-pro-4tb.md) |
@@ -64,9 +65,9 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | --- | --- | --- |
 | [atx_mobo_adapter_front](printed/atx_mobo_adapter_front/README.md) | atx_mobo_adapter_front | [aipc](../aipc/parts/atx_mobo_adapter_front.md), [gpulab](../gpulab/parts/atx_mobo_adapter_front.md) |
 | [atx_mobo_adapter_rail](printed/atx_mobo_adapter_rail/README.md) | atx_mobo_adapter_rail | [aipc](../aipc/parts/atx_mobo_adapter_rail.md) |
+| [berserk_nic_holder](printed/berserk_nic_holder/README.md) | berserk_nic_holder | [aipc](../aipc/parts/berserk_nic_holder.md) |
 | [fan120_aio_center_spacer](printed/fan120_aio_center_spacer/README.md) | fan120_aio_center_spacer | [aipc](../aipc/parts/fan120_aio_center_spacer.md) |
 | [fan120_aio_frame](printed/fan120_aio_frame/README.md) | fan120_aio_frame | [aipc](../aipc/parts/fan120_aio_frame.md) |
-| [fan120_aio_hose_brace](printed/fan120_aio_hose_brace/README.md) | fan120_aio_hose_brace | [aipc](../aipc/parts/fan120_aio_hose_brace.md) |
 | [fan140_aio_frame](printed/fan140_aio_frame/README.md) | fan140_aio_frame | [aipc](../aipc/parts/fan140_aio_frame.md) |
 | [fan140_aio_hose_brace](printed/fan140_aio_hose_brace/README.md) | fan140_aio_hose_brace | [aipc](../aipc/parts/fan140_aio_hose_brace.md) |
 | [gpu_exhaust_fan_flange](printed/gpu_exhaust_fan_flange/README.md) | gpu_exhaust_fan_flange | [aipc](../aipc/parts/gpu_exhaust_fan_flange.md) |

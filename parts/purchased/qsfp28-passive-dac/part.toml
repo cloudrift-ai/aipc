@@ -1,0 +1,37 @@
+id = "qsfp28-passive-dac"
+name = "QSFP28 passive copper direct-attach cable, 1 m (not chosen)"
+category = "purchased"
+evidence = "allowance"
+no_datasheet_reason = "No cable chosen yet. The plug and cable dimensions are generic QSFP28 allowances; replace them with the chosen cable's drawing (for example an NVIDIA MCP1600 100GbE passive DAC, which the ConnectX-4 Lx runs at 50GbE)."
+notes = """
+Direct Berserk-Kenshin link between the two ConnectX-4 Lx cards, no switch.
+The 1 m length comes from the AIPC cable route (models/fit-report.json,
+network section) plus both plugs and slack; check it again once the plugs
+and route are measured. Confirm the chosen cable is on NVIDIA's ConnectX-4 Lx
+firmware compatibility list and links at 50GbE.
+"""
+
+[model]
+source = "constructed"
+notes = "Plug envelopes and a route polyline in the AIPC assembly."
+
+[dims]
+length = { value = 1000.0, unit = "mm", evidence = "allowance", note = "from the AIPC route; not a chosen product" }
+plug_width = { value = 18.35, unit = "mm", evidence = "assumed", note = "nominal QSFP plug body width; not checked against SFF-8661" }
+plug_height = { value = 8.5, unit = "mm", evidence = "assumed", note = "nominal QSFP plug body height; not checked against SFF-8661" }
+plug_length_outside = { value = 48.0, unit = "mm", evidence = "allowance", note = "plug body and pull tab past the card bracket, before the cable bends" }
+cable_od = { value = 6.5, unit = "mm", evidence = "allowance" }
+bend_radius = { value = 35.0, unit = "mm", evidence = "allowance" }
+mass = { value = 0.1, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "qsfp28-dac"
+value = "QSFP28 passive DAC, 50GbE"
+count = 2
+note = "one cable serves both cards"
+
+[[requires]]
+type = "qsfp28-port"
+value = "QSFP28 50GbE"
+count = 2
+note = "one plug in each ConnectX-4 Lx cage"

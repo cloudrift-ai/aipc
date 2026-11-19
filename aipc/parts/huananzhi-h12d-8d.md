@@ -44,7 +44,7 @@ Library spec: [parts/purchased/huananzhi-h12d-8d](../../parts/purchased/huananzh
 | provisional | value | `pcie-card-envelope` | nvidia-v100-pcie-16gb needs 40.0; provided by huananzhi-h12d-8d |
 | provisional | value | `sff-8643-port` | sff-8643-pcie-cable needs PCIe x4 device; provided by linkreal-lrfc6911n |
 | provisional | count | `sff-8643-port` | need 1 x sff-8643-port=pcie x4 device, have 1 |
-| provisional | budget | `shelf-load` | load 23.0 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
+| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 | pass | value | `cpu-socket` | amd-epyc-7702p needs SP3; provided by huananzhi-h12d-8d |
 | pass | value | `pcie-x16-slot` | nvidia-v100-pcie-16gb needs PCIe x16; provided by huananzhi-h12d-8d |
 | pass | count | `pcie-x16-slot` | need 4 x pcie-x16-slot=pcie x16, have 4 |

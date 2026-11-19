@@ -1,0 +1,22 @@
+id = "berserk_nic_holder"
+name = "berserk_nic_holder"
+category = "printed"
+evidence = "allowance"
+notes = """
+One-piece PETG holder for the LRFC6911N riser and its ConnectX-4 Lx card:
+6 mm base with three slotted M4 shelf anchors, four riser bosses and a gate
+whose columns take the card bracket face and whose bridge carries the
+bracket tab. The QSFP28 plug passes through the gate opening. Riser holes,
+bracket-to-slot offset and tab height are photo estimates or assumptions.
+"""
+
+[print]
+material = "PETG"
+
+[model]
+source = "generated"
+notes = "Exported by cad/shelf_layout.py in shelf coordinates; prints as installed, base on the bed."
+
+[dims]
+mass = { value = 0.0613, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+

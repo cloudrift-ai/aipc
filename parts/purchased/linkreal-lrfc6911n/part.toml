@@ -15,6 +15,13 @@ quoting 120 x 42 mm did not match the page. Measure the board and its hole
 positions on arrival before designing the holder.
 The board has no bracket. It needs a printed holder and a place on the shelf,
 and the NIC on it needs 300 LFM.
+Layout from the LR-Link product photo (scaled to the 121 mm length): the x16
+slot runs along one long edge, starting about 24 mm from the end that carries
+the power circuitry (the slot key is at that end, so a card's bracket sits
+there); the SATA power and SFF-8643 sockets sit on the opposite long edge and
+mate in the board plane. The photographed board is about 43.5 mm wide, not
+the 114.10 mm the spec table gives; the photo-estimated dims below drive the
+AIPC holder and must be measured on arrival.
 """
 
 [links]
@@ -32,6 +39,23 @@ source = "constructed"
 length = { value = 121.0, unit = "mm", evidence = "datasheet", source = "LR-Link spec table: Dimensions 121mm*114.10mm" }
 width = { value = 114.1, unit = "mm", evidence = "datasheet", source = "LR-Link spec table: Dimensions 121mm*114.10mm" }
 mass = { value = 0.0455, unit = "kg", evidence = "datasheet", source = "LR-Link spec table: Weight 45.5g" }
+pcb_width = { value = 43.5, unit = "mm", evidence = "photo-estimate", source = "LR-Link product photo scaled to the 121 mm length; conflicts with the spec table's 114.10 mm" }
+pcb_thickness = { value = 1.6, unit = "mm", evidence = "assumed" }
+hole_diameter = { value = 3.2, unit = "mm", evidence = "assumed" }
+hole_inset_end = { value = 5.5, unit = "mm", evidence = "photo-estimate", source = "product photo; hole centre from the power-circuit end" }
+hole_pitch_length = { value = 111.0, unit = "mm", evidence = "photo-estimate", source = "product photo; four corner holes" }
+hole_inset_slot_edge = { value = 4.0, unit = "mm", evidence = "photo-estimate", source = "product photo; hole centre from the slot edge" }
+hole_pitch_width = { value = 35.5, unit = "mm", evidence = "photo-estimate", source = "product photo" }
+slot_start = { value = 24.0, unit = "mm", evidence = "photo-estimate", source = "product photo; x16 slot key end from the power-circuit end" }
+slot_length = { value = 90.0, unit = "mm", evidence = "photo-estimate", source = "product photo" }
+slot_center_from_edge = { value = 5.3, unit = "mm", evidence = "photo-estimate", source = "product photo; slot centreline from the board edge" }
+slot_width = { value = 9.5, unit = "mm", evidence = "photo-estimate", source = "product photo" }
+slot_height = { value = 11.25, unit = "mm", evidence = "assumed", note = "typical x16 connector height above the PCB" }
+sata_start = { value = 25.0, unit = "mm", evidence = "photo-estimate", source = "product photo; SATA power socket span from the power-circuit end" }
+sata_end = { value = 56.6, unit = "mm", evidence = "photo-estimate", source = "product photo" }
+sff_start = { value = 57.2, unit = "mm", evidence = "photo-estimate", source = "product photo; SFF-8643 socket span from the power-circuit end" }
+sff_end = { value = 73.9, unit = "mm", evidence = "photo-estimate", source = "product photo" }
+sata_plug_projection = { value = 15.0, unit = "mm", evidence = "allowance", note = "right-angle SATA power plug past the board edge" }
 
 [[provides]]
 type = "sff-8643-port"

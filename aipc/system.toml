@@ -54,6 +54,6 @@ match = ["^Berserk_Ethernet_"]
 reason = "RJ45 boot and cable bend"
 
 [[keepouts]]
-id = "kenshin-connectx-slot"
-match = ["^Kenshin_ConnectX-4_Lx_PCIe_x4_card_envelope$"]
-reason = "ConnectX-4 Lx in Kenshin's chipset slot behind the RTX 5090 (owner mock-up 2026-11-16); the card part stays not_modeled until Berserk's riser position is chosen too"
+id = "berserk-riser-sata-plug"
+match = ["^Berserk_riser_SATA_power_plug$"]
+reason = "right-angle SATA power plug on Berserk's NIC riser; the Hercules cable itself is not routed"

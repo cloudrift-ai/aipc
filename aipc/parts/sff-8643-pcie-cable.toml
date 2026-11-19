@@ -5,4 +5,5 @@ quantity = 1
 systems = ["berserk"]
 
 [assembly]
-not_modeled = "cable route follows the riser location, which is not chosen yet"
+match = ["^Berserk_SFF-8643_"]
+count_check = false

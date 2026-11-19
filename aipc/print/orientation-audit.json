@@ -54,10 +54,10 @@
       "original_downward_overhang_projected_mm2": 46.2,
       "print_downward_overhang_projected_mm2": 46.2
     },
-    "fan120_aio_hose_brace": {
-      "orientation": "mirrored inward web on bed; hose-load plane within layers; broad original-foot clearance; no supports",
-      "original_downward_overhang_projected_mm2": 189.4,
-      "print_downward_overhang_projected_mm2": 189.4
+    "berserk_nic_holder": {
+      "orientation": "shelf orientation",
+      "original_downward_overhang_projected_mm2": 330.52,
+      "print_downward_overhang_projected_mm2": 330.52
     },
     "fan120_aio_center_spacer": {
       "orientation": "shelf orientation",

@@ -1,0 +1,16 @@
+part = "purchased/qsfp28-passive-dac"
+role = "Direct Berserk-Kenshin 50GbE link between the two ConnectX-4 Lx cards"
+status = "candidate"
+quantity = 1
+systems = ["berserk", "kenshin"]
+notes = """
+Routed from Berserk's card (bracket facing the rack front, beside the side
+AIO) behind the V100 hood and above Kenshin's 24-pin, then rearward in the
+right-edge lane to Kenshin's card. Kenshin's plug and the cable's turn sit
+outside the deck edge and the 450 mm rack opening: unplug Kenshin's end
+before sliding the shelf.
+"""
+
+[assembly]
+match = ["^QSFP28_DAC_"]
+count_check = false

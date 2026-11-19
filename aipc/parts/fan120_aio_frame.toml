@@ -1,5 +1,5 @@
 part = "printed/fan120_aio_frame"
-role = "120 mm fan/radiator frame with 75 mm feet on the steel extension"
+role = "120 mm fan/radiator frame with 33 mm feet inside the AIO footprint, bearing on the deck"
 status = "design"
 quantity = 2
 systems = ["kenshin"]

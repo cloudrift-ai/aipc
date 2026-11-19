@@ -24,6 +24,7 @@ from aio_fan_mount_preview import render as render_aio_fan_mount_preview
 import berserk_platform as bp
 import berserk_aio_brace as aio_brace
 import kenshin_aio_mount as k_aio
+import berserk_nic as nic
 import rack_gpu_exhaust as gpu_exhaust
 import tilted_gpu_cooling as t_cool
 import atx_shelf_mounts as atx_mount
@@ -77,7 +78,7 @@ PSU_BERSERK_X = -10.0
 GPU_REST_X, GPU_REST_Y, GPU_REST_ANCHOR_Y = 45.0 - K_LEFT_SHIFT, 334.0, 12.5
 GPU_REST_D = 42.0
 REAR_ASSEMBLY_LIMIT_Y = K_AIO_FAN_Y + 28 + 4  # washer and head survey envelope (radiator-local)
-# The whole GA II group (radiator, frames, fans, spacer, brace, screws) is
+# The whole GA II group (radiator, frames, fans, spacer, screws) is
 # built in its radiator-local frame above (length along +X, hose end at low X,
 # fans toward +Y) and turned +90 degrees about Z onto the deck's left edge:
 # radiator length along +Y with the hose end toward the front, fans
@@ -264,7 +265,7 @@ connectors = [
     # Owner's 2026-11-16 mock-up: the ConnectX card sits in the next slot behind
     # the 5090 and stays reachable from the side. Slot position is a photo
     # estimate; the card body uses the datasheet low-profile size.
-    Box("Kenshin ConnectX-4 Lx PCIe x4 card envelope", 22.0, REAR_Y + spec.dim('gigabyte-x870e-aorus-pro', 'pcb_depth') - _NIC.dim('card_length'), 24,
+    Box("Kenshin ConnectX-4 Lx card", 22.0, REAR_Y + spec.dim('gigabyte-x870e-aorus-pro', 'pcb_depth') - _NIC.dim('card_length'), 24,
         20.0, _NIC.dim('card_length'), _NIC.dim('card_height'),
         "MCX4131A-GCAT low-profile card in a chipset slot behind the RTX 5090 (owner photo); slot centre and installed thickness are photo estimates; QSFP28 cage and DAC face the shelf's right side"),
 ]
@@ -283,13 +284,26 @@ def k_aio_box(box):
 
 K_TURNED_PARTS = {'Kenshin ATX board', 'Kenshin RTX 5090',
                  '5090 straight power-cable keepout', 'Kenshin GA II Lite pump',
-                 'Kenshin 24-pin survey', 'Kenshin ConnectX-4 Lx PCIe x4 card envelope'}
+                 'Kenshin 24-pin survey', 'Kenshin ConnectX-4 Lx card'}
 K_AIO_PARTS = {'Kenshin GA II Lite radiator', *(f'Kenshin AIO exhaust fan {i+1}' for i in range(3))}
 # Radiator-local boxes keep their factory-hole construction below.
 k_aio_local_boxes = {p.name: p for p in parts if p.name in K_AIO_PARTS}
 parts = [turn_k_box(p) if p.name in K_TURNED_PARTS else k_aio_box(p) if p.name in K_AIO_PARTS else p
          for p in parts]
 connectors = [turn_k_box(p) if p.name in K_TURNED_PARTS else p for p in connectors]
+# Kenshin's card is a real part (the owned ConnectX), placed by the mock-up.
+parts.append(connectors.pop(next(i for i,b in enumerate(connectors) if b.name == "Kenshin ConnectX-4 Lx card")))
+# Berserk's ConnectX on the LRFC6911N riser in the strip beside Kenshin's
+# side AIO, its plugs, and the H12D end of the SFF-8643 cable. The H12D
+# ports are photo-estimated from the manual's layout figure: three ports on
+# the board's front edge, the middle one at 22.6% of the PCB width from the
+# shelf-left (V100 PCIE4) side.
+H12D_SFF_PORT_X = BERSERK_X + (440-365)/(440-108)*bp.WIDTH
+outboard_connectors = []
+for kind, *fields in [*nic.boxes(), nic.h12d_sff_plug(H12D_SFF_PORT_X, BERSERK_BOARD_Y, BOARD_Z+BOARD_T)]:
+    {"parts": parts, "connectors": connectors}[kind].append(Box(*fields))
+_k_nic = next(b for b in parts if b.name == "Kenshin ConnectX-4 Lx card")
+outboard_connectors.append(Box(*nic.kenshin_qsfp_plug(_k_nic)[1:]))
 # Items allowed past the deck side edges, up to the rack opening.
 SIDE_OVERHANG_PARTS = {'Berserk owned Hercules 1600W PSU', *K_AIO_PARTS}
 
@@ -320,6 +334,7 @@ allowed = {
     frozenset(("Kenshin ATX board", "Kenshin GA II Lite pump")),
     frozenset(("Kenshin RTX 5090", "5090 straight power-cable keepout")),
     frozenset(("Kenshin ATX board", "Kenshin 24-pin survey")),
+    frozenset(("Berserk LRFC6911N riser x16 slot", "Berserk ConnectX-4 Lx card")),
 }
 for box in parts + connectors:
     side = SIDE_OVERHANG_LIMIT - SIDE_MARGIN if box.name in SIDE_OVERHANG_PARTS else 0
@@ -339,6 +354,10 @@ for i, a in enumerate(parts + connectors):
             planned_upgrade_conflicts.append({"components":[a.name,b.name],
                 "overlap_y_mm":round(min(a.y1,b.y1)-max(a.y,b.y),3),
                 "status":"unresolved planned GPU power clearance; measure/reroute or revise spacing before upgrade"})
+        elif b.name == "Berserk SFF-8643 H12D plug" and a.name.startswith("Berserk V100"):
+            planned_upgrade_conflicts.append({"components":[a.name,b.name],
+                "overlap_z_mm":round(min(a.z1,b.z1)-max(a.z,b.z),3),
+                "status":"unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"})
         elif b.name == "Berserk BMC module survey" and a.name.startswith("Berserk V100"):
             planned_upgrade_conflicts.append({"components":[a.name,b.name],
                 "overlap_z_mm":round(min(a.z1,b.z1)-max(a.z,b.z),3),
@@ -397,8 +416,6 @@ def kenshin_aio_frame_on_shelf(print_shape: cq.Workplane, x0: float):
 
 
 k_aio_frame = kenshin_aio_end_frame()
-k_aio_brace_installed = k_aio_shape(k_aio.brace_installed(K_AIO_Y))
-k_aio_brace_print = k_aio.brace_printable()
 
 
 def k_aio_frame_installed(x0: float):
@@ -531,6 +548,11 @@ assert 25 - (GPU_REST_ANCHOR_Y + 17 / 2) >= 4  # land to contact recess
 assert GPU_REST_ANCHOR_Y-17/2 >=4  # screw recess to block end
 assert 10 - 12 / 2 >= 4  # counterbore to side edge
 
+# Berserk NIC holder: printed as installed, in shelf coordinates.
+nic_holder = nic.holder()
+for box in parts + connectors + outboard_connectors:
+    assert nic_holder.val().intersect(box.shape().val()).Volume() < .01, ("NIC holder", box.name)
+
 
 def nominal_board_mounts():
     """ATX 2.01 datums; H12D photo has A/C/F/G/H/K/L/M only."""
@@ -609,8 +631,6 @@ def _mounted_component_shape(box: Box):
                     for face,y,direction in (("Kenshin AIO unused inward factory thread",K_AIO_Y,-3),
                                               ("Kenshin AIO rear factory thread",K_AIO_Y + 27,3)):
                         shape = shape.cut(cq.Workplane("XZ").center(x,z).circle(2.25).extrude(direction).translate((0,y,0)))
-                        if face == "Kenshin AIO unused inward factory thread" and x == k_aio.BRACE_SCREW_X:
-                            face = "Kenshin AIO brace inward factory thread"
                         mount_holes.append({"component":box.name,"interface":face,"center_mm":[x,y,z],
                                             "diameter_mm":4.5,"blind_depth_mm":3,"verified":False})
     elif box.name.startswith("Kenshin AIO exhaust fan"):
@@ -967,9 +987,9 @@ print_manifest = [
     export_print("gpu_rest", gpu_rest, 1,
                  "secondary GPU rest; recessed M4 heads and 9 mm washers; shim after card measurement"),
     export_print("fan120_aio_frame", k_aio_frame, 2,
-                 "120mm fan-flush radiator frame; 105mm pitch, 7x4.5mm slots, 75mm foot, bearing ledge and two slotted anchors; rear face down"),
-    export_print("fan120_aio_hose_brace", k_aio_brace_print, 1,
-                 "120mm radiator hose-end brace adapted to 105mm pitch; inward web on bed; two radiator screws and two shelf anchors"),
+                 f"120mm fan-flush radiator frame; 105mm pitch, 7x4.5mm slots, {k_aio.REACH:g}mm foot inside the radiator footprint, bearing ledge and two slotted anchors; rear face down"),
+    export_print(nic.PART, nic_holder.translate((-nic.BASE[0], -nic.BASE[2], 0)), 1,
+                 "Berserk NIC riser holder: 6mm base, three slotted M4 anchors, four riser bosses and a gate whose columns take the card bracket and whose bridge carries the tab; QSFP28 plug through the gate; base on bed"),
     export_print("fan120_aio_center_spacer", k_aio_spacer, 1,
                  "plain 119x119x6 middle fan spacer for a 360mm radiator; keeps three fans coplanar; four clearance holes, no captive nuts"),
     export_print("v100_gpu_shroud", well_print, 1,
@@ -987,6 +1007,9 @@ for label, frame in PSU_FRAMES.items():
 for label, x, y in (("Kenshin", GPU_REST_X, GPU_REST_Y),):  # local, turned with the board
     assembly.add(k_shape(gpu_rest.translate((x, y, 0))), name=f"printed_{label}_GPU_rest_survey",
                  color=cq.Color(.23, .78, .77))
+assembly.add(nic_holder, name="printed_Berserk_NIC_riser_holder", color=cq.Color(.86,.36,.62))
+for box in outboard_connectors:
+    assembly.add(box.shape(), name=box.name.replace(" ", "_"), color=cq.Color(.96, .55, .1))
 for x, side in zip(H115I_FRAME_X, ("left", "right")):
     assembly.add(radiator_frame_on_shelf(rad_frame, x),
                  name=f"printed_H115i_{side}_screw_frame_drill_plan_survey",
@@ -995,7 +1018,6 @@ k_aio_foot_boxes = []
 assembly.add(aio_brace_installed, name="Berserk_H115i_hose_end_shelf_brace",
              color=cq.Color(.20,.62,.67))
 assembly.add(k_aio_spacer_installed, name="Kenshin_AIO_middle_fan_6mm_spacer",color=cq.Color(.44,.72,.73))
-assembly.add(k_aio_brace_installed, name="Kenshin_AIO_inward_hose_brace", color=cq.Color(.22,.62,.65))
 for index, fan_x in enumerate(K_AIO_FRAME_X, 1):
     assembly.add(k_aio_frame_installed(fan_x),
                  name=f"printed_Kenshin_AIO_{index}_bearing_frame_drill_plan_survey",
@@ -1016,8 +1038,8 @@ placed_prints += [
     ("H115i left screw frame", radiator_frame_on_shelf(rad_frame, H115I_FRAME_X[0])),
     ("H115i right screw frame", radiator_frame_on_shelf(rad_frame, H115I_FRAME_X[1])),
     ("H115i hose brace", aio_brace_installed),
-    ("Kenshin AIO hose brace", k_aio_brace_installed),
     ("5090 rest", k_shape(gpu_rest.translate((GPU_REST_X, GPU_REST_Y, 0)))),
+    ("Berserk NIC holder", nic_holder),
     ("front Kenshin AIO frame", k_aio_frame_installed(K_AIO_FRAME_X[0])),
     ("rear Kenshin AIO frame", k_aio_frame_installed(K_AIO_FRAME_X[1])),
     ("Kenshin AIO center spacer", k_aio_spacer_installed),
@@ -1041,11 +1063,11 @@ cable_routes = {
         "available_length_mm": 400,
         "points_mm": [(*k_aio_xy(20, K_AIO_Y), 80+i*15), (80, k_aio_xy(20, 0)[1]+12, 80+i*15),
                       (270+i*16, 480, 80)],
-        "note": "Provisional 400 mm hose route from the front radiator tank, in front of the hose brace, to the pump; dry-fit ports, broad arcs and minimum bend radius. Polyline length is a lower bound."}
+        "note": "Provisional 400 mm hose route from the front radiator tank, past the radiator's inner face in front of Berserk's NIC holder, to the pump; dry-fit ports, broad arcs and minimum bend radius. Polyline length is a lower bound."}
        for i in range(2)},
     "Berserk AC": {"od_mm": 9.14, "points_mm": [(PSU_BERSERK_X+43,B_PSU_REAR_Y+60,123.5),(75,320,205),
                                                    (75,SHELF_D+80,205)],
-        "note":"Rises over the side-AIO hose brace and runs rearward above the radiator's inner side and the 5090 tail; provisional lane. Disconnect external cord before sliding shelf."},
+        "note":"Rises over the side-AIO hose end and runs rearward above the radiator's inner side and the 5090 tail; provisional lane. Disconnect external cord before sliding shelf."},
     "Kenshin AC": {"od_mm": 9.14, "points_mm": [(K_PSU_FACE_X-30,K_PSU_Y+39.5,118),(K_PSU_FACE_X-30,SHELF_D+80,118)],
         "note":"Left-facing PSU inlet beside the radiator's rear frame; the cord leaves straight out of the rack rear. Disconnect external cord before sliding shelf."},
     "Berserk Ethernet": {"od_mm": 6, "points_mm": [(295,V100_TAIL_Y+27,50),(295,V100_TAIL_Y+27,160),
@@ -1056,6 +1078,13 @@ cable_routes = {
                       (111-index*12,V100_FRONT_Y-12,210),(70-index*12,5,210),(70-index*12,5,110)],
         "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius."}
        for index,(slot,x) in enumerate(V100_SLOTS.items())},
+    "QSFP28 DAC": {"od_mm": spec.dim(nic.DAC, "cable_od"),
+        "points_mm": nic.dac_route(next(b for b in connectors if b.name == "QSFP28 DAC Berserk plug"), outboard_connectors[0]),
+        "note": "Berserk plug end, under the AIO hose, up behind the V100 hood and over Kenshin's 24-pin, rearward in the right-edge lane above the I/O reserve, then out past the deck edge and back into Kenshin's cage. Corners stand for bends of at least the allowance radius; the loop at Kenshin's end is outside the rack opening."},
+    "Berserk SFF-8643 cable": {"od_mm": spec.dim(nic.SFF, "cable_od"),
+        "points_mm": nic.sff_route(next(b for b in connectors if b.name == "Berserk SFF-8643 riser plug"),
+                                   next(b for b in connectors if b.name == "Berserk SFF-8643 H12D plug")),
+        "note": "Riser plug end, up over Kenshin's motherboard mount beside the PCB edge, forward to the left of the V100 hood, across the deck front under the V100 tails' front ends to the H12D port. Provisional; the port position is photo-estimated."},
 }
 cable_clearance_checks = []
 planned_upgrade_cable_conflicts = []
@@ -1074,6 +1103,8 @@ for label, route in cable_routes.items():
             "Berserk AC": {"Berserk AC plug + tail", "Berserk owned Hercules 1600W PSU"},
             "Kenshin AC": {"Kenshin low-profile C13 plug + bend", "Kenshin owned HX1200i PSU"},
             "Berserk Ethernet": {"Berserk Ethernet RJ45 boot + bend"},
+            "QSFP28 DAC": {"QSFP28 DAC Berserk plug"},
+            "Berserk SFF-8643 cable": {"Berserk SFF-8643 riser plug", "Berserk SFF-8643 H12D plug"},
         }.get(label, set())
         if label.startswith("V100 "):
             slot = label.split()[1]
@@ -1097,12 +1128,59 @@ for label, route in cable_routes.items():
         for metal_label, metal in cooling_solids:
             assert segment.intersect(metal.val()).Volume() < .01, (label, i, metal_label)
         assert segment.intersect(aio_brace_installed.val()).Volume() < .01, (label, i, "H115i hose brace")
-        assert segment.intersect(k_aio_brace_installed.val()).Volume() < .01, (label, i, "Kenshin AIO hose brace")
         for x0 in K_AIO_FRAME_X:
             assert segment.intersect(k_aio_frame_installed(x0).val()).Volume() < .01, (label,i,"side AIO frame")
+        if label in ("QSFP28 DAC", "Berserk SFF-8643 cable"):
+            # The NIC cables also clear the printed holder, the GPU support
+            # rods, the outboard Kenshin plug and the other cable routes.
+            assert segment.intersect(nic_holder.val()).Volume() < .01, (label, i, "NIC holder")
+            for post in post_locations:
+                rod = cq.Workplane("XY").center(post["x_mm"],post["y_mm"]).circle(3).extrude(post["top_z_survey_mm"])
+                assert segment.intersect(rod.val()).Volume() < .01, (label, i, post["card"], post["post"])
+            if label == "Berserk SFF-8643 cable":
+                assert segment.intersect(outboard_connectors[0].shape().val()).Volume() < .01, (label, i)
+            for other, other_route in cable_routes.items():
+                if other == label:
+                    continue
+                pts = other_route["points_mm"]
+                for a, b in zip(pts, pts[1:]):
+                    dv = cq.Vector(*b) - cq.Vector(*a)
+                    tube = cq.Solid.makeCylinder(other_route["od_mm"]/2, dv.Length, cq.Vector(*a), dv.normalized())
+                    assert segment.intersect(tube).Volume() < .01, (label, i, other)
         cable_clearance_checks.append({"route": label, "segment": i, "nominal_component_collision": bool(segment_conflicts), "unresolved_conflicts": segment_conflicts})
         assembly.add(segment, name=f"{label.replace(' ', '_')}_survey_segment_{i}",
                      color=cq.Color(.95, .55, .18))
+# Network: plug and cable lengths for the direct Berserk-Kenshin link.
+for box in outboard_connectors:
+    for other in parts + connectors:
+        assert not overlap(box, other), (box.name, other.name)
+_kplug = outboard_connectors[0]
+_dac = cable_routes["QSFP28 DAC"]
+_dac_plugs = 2 * spec.dim(nic.DAC, "plug_length_outside")
+_dac_needed = _dac["polyline_length_mm"] + _dac_plugs
+_dac_reach = max(p[0] for p in _dac["points_mm"]) + _dac["od_mm"]/2
+_sff = cable_routes["Berserk SFF-8643 cable"]
+_sff_needed = _sff["polyline_length_mm"] + 2*spec.dim(nic.SFF, "plug_length")
+assert _dac_needed * 1.1 <= spec.dim(nic.DAC, "length"), ("DAC length", _dac_needed)
+network_report = {
+    "link": "Berserk ConnectX-4 Lx (LRFC6911N riser, H12D SFF-8643 x4) to Kenshin ConnectX-4 Lx (chipset slot behind the 5090) over one QSFP28 passive DAC",
+    "Berserk_NIC_holder": nic.report(),
+    "QSFP28_DAC": {"route_polyline_mm": _dac["polyline_length_mm"], "plugs_outside_cages_mm": _dac_plugs,
+        "minimum_length_mm": round(_dac_needed), "planned_length_mm": spec.dim(nic.DAC, "length"),
+        "Kenshin_plug_past_deck_edge_mm": round(_kplug.x1 - SHELF_W, 2),
+        "Kenshin_plug_past_rack_opening_mm": round(_kplug.x1 - (SHELF_W + SIDE_OVERHANG_LIMIT), 2),
+        "Kenshin_cable_loop_past_rack_opening_mm": round(_dac_reach - (SHELF_W + SIDE_OVERHANG_LIMIT), 2),
+        "service": "unplug the DAC at Kenshin before sliding the shelf; with the shelf in, the plug and loop sit beside the rack rail",
+        "status": "cable not chosen; plug and bend sizes are allowances"},
+    "SFF_8643_cable": {"route_polyline_mm": _sff["polyline_length_mm"], "minimum_length_mm": round(_sff_needed),
+        "selected_length_mm": spec.dim(nic.SFF, "length"),
+        "selected_length_sufficient": _sff_needed <= spec.dim(nic.SFF, "length"),
+        "H12D_port_xy_mm": [round(H12D_SFF_PORT_X, 2), round(BERSERK_BOARD_Y, 2)],
+        "H12D_port_basis": "photo-estimated from the H12D-8D manual's layout figure: middle of three SFF-8643 ports on the front PCB edge",
+        "riser_plug_end_to_Kenshin_PCB_edge_mm": round(next(b.x for b in parts if b.name == "Kenshin ATX board") - max(b.x1 for b in connectors if b.name == "Berserk SFF-8643 riser plug"), 2),
+        "riser_plug_end_from_radiator_face_mm": round(max(b.x1 for b in connectors if b.name == "Berserk SFF-8643 riser plug") - nic.RADIATOR_FACE_X, 2),
+        "fit_note": "with the owner's 75 mm radiator-to-mount gap the straight plug ends about where the mount ends, so its bend sits over Kenshin's PCB edge; a right-angle SFF-8643 plug would avoid that"},
+}
 k_aio_foot_keepout_conflicts = []
 for foot in k_aio_foot_boxes:
     for box in parts + connectors:
@@ -1186,31 +1264,6 @@ for z in aio_brace.RADIATOR_Z:
         "head_diameter_height_mm":[8,4],"driver_diameter_length_mm":[6,35],
         "checked_Z_adjustment_mm":[-2,2],"factory_thread_and_engagement_verified":False})
 
-# Rear brace uses unused inward factory threads; no motherboard attachment.
-for component in parts + connectors:
-    assert k_aio_brace_installed.val().intersect(component.shape().val()).Volume() < .01, (k_aio.BRACE_PART, component.name)
-k_aio_brace_fasteners = []
-for local_z in k_aio.RADIATOR_Z:
-    z=local_z+k_aio.SUPPORT_T
-    x = k_aio.BRACE_SCREW_X
-    rear_y = K_AIO_Y
-    shaft = k_aio_shape(cq.Workplane("XZ").center(x,z).circle(1.75).extrude(aio_brace.FACE_T).translate((0,rear_y,0)))
-    washer = k_aio_shape(cq.Workplane("XZ").center(x,z).circle(5).extrude(1).translate((0,rear_y-aio_brace.FACE_T,0)))
-    head = k_aio_shape(cq.Workplane("XZ").center(x,z).circle(4).extrude(4).translate((0,rear_y-aio_brace.FACE_T-1,0)))
-    driver = k_aio_shape(cq.Workplane("XZ").center(x,z).circle(3).extrude(35).translate((0,rear_y-aio_brace.FACE_T-5,0)))
-    for offset in (-2,0,2):
-        for name,other in placed_prints:
-            for envelope in (shaft,washer,head,driver):
-                assert other.val().intersect(envelope.translate((0,0,offset)).val()).Volume() < .01, (k_aio.BRACE_PART,name,z,offset)
-        for component in parts+connectors:
-            for envelope in (washer,head,driver):
-                assert component.shape().val().intersect(envelope.translate((0,0,offset)).val()).Volume() < .01, (k_aio.BRACE_PART,component.name,z,offset)
-    assembly.add(shaft.union(washer).union(head),name=f"Kenshin_brace_inward_screw_{z}_survey",color=cq.Color(.8,.5,.2))
-    k_aio_brace_fasteners.append({"axis_yz_mm":[k_aio_xy(x,0)[1],z],"axis_direction":"X","inward_face_x_mm":k_aio_xy(0,rear_y)[0],
-        "frame_thickness_mm":aio_brace.FACE_T,"washer_od_thickness_mm":[10,1],
-        "head_diameter_height_mm":[8,4],"driver_diameter_length_mm":[6,35],
-        "checked_Z_adjustment_mm":[-2,2],"factory_thread_and_engagement_verified":False})
-
 # Derive the drill plan from bracket geometry. Transfer through dry-fitted
 # mounts only after checking the real deck and factory slide attachments.
 for x0 in H115I_FRAME_X:
@@ -1219,8 +1272,6 @@ for x0 in H115I_FRAME_X:
                        RAD_FRAME_FRONT_Y + depth)
 for x,y in aio_brace.ANCHORS:
     add_shelf_hole(aio_brace.PART,aio_brace.X0+x,RAD_Y+RAD_D+y,aio_brace.SHELF_SLOT_L)
-for x,y in k_aio.brace_anchors(K_AIO_Y):
-    add_shelf_hole(k_aio.BRACE_PART,*k_aio_xy(x,y),aio_brace.SHELF_SLOT_L,axis="X")
 for system in PSU_FRAMES:
     for x,depth in PSU_SHELF_ANCHORS:
         add_shelf_hole(f"psu_screw_frame_{system.lower()}_drill_plan",*psu_anchor_xy(system,x,depth),
@@ -1232,6 +1283,7 @@ for fan_x in K_AIO_FRAME_X:
 for local_x in (10, 40):
     add_shelf_hole("gpu_5090_rest_drill_plan", GPU_REST_X + local_x, GPU_REST_Y + GPU_REST_ANCHOR_Y)
 for x,y in t_cool.ANCHORS:add_shelf_hole("v100_gpu_shroud",x,y,t_cool.SLOT_LENGTH)
+for x,y in nic.ANCHORS:add_shelf_hole(nic.PART,x,y,nic.SLOT_L)
 
 
 # Check the actual assembled printed solids, not only a list of intended
@@ -1240,7 +1292,6 @@ for x,y in t_cool.ANCHORS:add_shelf_hole("v100_gpu_shroud",x,y,t_cool.SLOT_LENGT
 mounted_brackets = {
     "v100_gpu_shroud":[v100_plenum],
     aio_brace.PART: [aio_brace_installed],
-    k_aio.BRACE_PART: [k_aio_brace_installed],
     **{label: [shape] for label, shape in installed_adapter_shapes.items()},
     "h115i_screw_frame_drill_plan": [radiator_frame_on_shelf(rad_frame, x)
                                       for x in H115I_FRAME_X],
@@ -1248,6 +1299,7 @@ mounted_brackets = {
     "psu_screw_frame_kenshin_drill_plan": [psu_frame_on_shelf(psu_frame_kenshin, "Kenshin")],
     "kenshin_aio_screw_frame_drill_plan": [k_aio_frame_installed(x) for x in K_AIO_FRAME_X],
     "gpu_5090_rest_drill_plan": [k_shape(gpu_rest.translate((GPU_REST_X, GPU_REST_Y, 0)))],
+    nic.PART: [nic_holder],
 }
 fastener_access = []
 for site in shelf_attachment_holes:
@@ -1257,9 +1309,8 @@ for site in shelf_attachment_holes:
                       and shape.val().BoundingBox().ymin <= y <= shape.val().BoundingBox().ymax)]
     assert len(candidates) == 1, site
     # Keep each OD12 backing washer on steel across full slot adjustment.
-    rear_aio = site["part"] == "kenshin_aio_screw_frame_drill_plan"
     offsets = (-2.5, 0, 2.5)
-    if site["part"] in (aio_brace.PART,k_aio.BRACE_PART):
+    if site["part"] == aio_brace.PART:
         offsets = (-aio_brace.SHELF_TRAVEL, 0, aio_brace.SHELF_TRAVEL)
     if "_mobo_adapter_" in site["part"]:
         offsets = (-2.0,0,2.0)
@@ -1278,7 +1329,7 @@ for site in shelf_attachment_holes:
     riser = False  # both add-in NICs and receivers deferred
     small_mobo = site["fastener"].startswith("M3")
     seat, washer_radius = (18.0, 4.5) if rest else (6.0, 6.0)
-    if site["part"] in (aio_brace.PART,k_aio.BRACE_PART):
+    if site["part"] == aio_brace.PART:
         seat = aio_brace.FOOT_T
     if riser or "_mobo_adapter_" in site["part"]: washer_radius=4.5
     if small_mobo: washer_radius=3.5
@@ -1325,9 +1376,6 @@ for site in shelf_attachment_holes:
             elif site["part"] == "h115i_screw_frame_drill_plan" and name == "H115i hose brace":
                 if shape.val().intersect(tool).Volume() > .01:
                     covered_by.add("H115i hose brace (fit after original frame shelf bolts)")
-            elif rear_aio and name == "Kenshin AIO hose brace":
-                if shape.val().intersect(tool).Volume() > .01:
-                    covered_by.add("Kenshin AIO hose brace (fit after bearing-frame shelf bolts)")
             else:
                 assert shape.val().intersect(tool).Volume() < .01, (site, offset, "driver", name)
         for box in parts + connectors:
@@ -1411,8 +1459,7 @@ exhaust_report, exhaust_shapes = gpu_exhaust.integrate(assembly, parts, connecto
     "Kenshin_AIO_radiator_fasteners": k_aio_mount_checks,
     "H115i_shared_fan_radiator_fasteners": h115i_mount_checks,
     "H115i_hose_brace_rear_fasteners": aio_brace_fasteners,
-    "Kenshin_AIO_brace_inward_fasteners": k_aio_brace_fasteners,
-    "network": {"QSFP":"deferred; both NICs, risers, DAC and printed supports removed", "Berserk":"onboard 2.5GbE + BMC"},
+    "network": network_report,
     "planned_upgrade_clearance_passed": not (planned_upgrade_conflicts or planned_upgrade_cable_conflicts),
     "planned_upgrade_component_conflicts": planned_upgrade_conflicts,
     "planned_upgrade_cable_conflicts": planned_upgrade_cable_conflicts,
@@ -1462,11 +1509,11 @@ for site in gpu_post_holes:
 cq.exporters.export(shelf_deck, str(OUT / "rsus1931bk1-drill-plan-deck.step"))
 assembly.add(shelf_deck, name="RSUS1931BK1_drill_plan_deck_not_manufacturer_CAD",
              color=cq.Color(.38, .42, .47))
-# Side AIO: frame feet and brace bear directly on the deck (no steel extension).
-side_aio_holes=[h for h in shelf_attachment_holes if h["part"] in ("kenshin_aio_screw_frame_drill_plan",k_aio.BRACE_PART)]
-assert len(side_aio_holes)==6
+# Side AIO: frame feet bear directly on the deck (no steel extension).
+side_aio_holes=[h for h in shelf_attachment_holes if h["part"]=="kenshin_aio_screw_frame_drill_plan"]
+assert len(side_aio_holes)==4
 deck_top=cq.Workplane("XY").box(SHELF_W,SHELF_D,.1,centered=(False,False,False)).translate((0,0,.1)).val()
-side_supports=[(k_aio_frame_installed(x),2.5) for x in K_AIO_FRAME_X]+[(k_aio_brace_installed,aio_brace.SHELF_TRAVEL)]
+side_supports=[(k_aio_frame_installed(x),2.5) for x in K_AIO_FRAME_X]
 for frame,travel in side_supports:
     for dx in (-travel,0,travel):
         moved=frame.translate((dx,0,0)).val()
@@ -1476,7 +1523,7 @@ for frame,travel in side_supports:
         assert bearing.cut(deck_top).Volume()<.01,(dx,"side AIO mount footprint must stay on steel through slot travel")
 for h in side_aio_holes:
     x,y=h["center_xy_mm"]
-    seat=aio_brace.FOOT_T if h["part"]==k_aio.BRACE_PART else 6
+    seat=6
     screw=(cq.Workplane("XY").center(x,y).circle(2).extrude(20).translate((0,0,seat+1-20))
            .union(cq.Workplane("XY").center(x,y).circle(6).circle(2.25).extrude(1).translate((0,0,seat)))
            .union(cq.Workplane("XY").center(x,y).circle(4).extrude(4).translate((0,0,seat+1)))
@@ -1503,10 +1550,7 @@ ax.add_patch(Rectangle((-SIDE_OVERHANG_LIMIT, -45), RACK_OPENING_W, SHELF_D+140,
                        edgecolor="#a83232", linestyle=":", lw=1.1, label="450 mm rack opening (EIA-310)"))
 ax.add_patch(Rectangle((aio_brace.X0,RAD_Y+RAD_D),aio_brace.WIDTH,aio_brace.DEPTH,
                        facecolor="#399fa5",alpha=.5,label="H115i hose-end brace"))
-k_brace_bounds = k_aio_brace_installed.val().BoundingBox()
-ax.add_patch(Rectangle((k_brace_bounds.xmin,k_brace_bounds.ymin),k_brace_bounds.xlen,k_brace_bounds.ylen,
-                       facecolor="#399fa5",alpha=.5,label="Kenshin AIO hose brace"))
-palette = {"V100": "#3456a9", "NIC": "#c3488d", "5090": "#56a843", "H115i": "#b9574e",
+palette = {"V100": "#3456a9", "ConnectX": "#c3488d", "LRFC6911N": "#c3488d", "5090": "#56a843", "H115i": "#b9574e",
            "PSU": "#d49a2e", "fan": "#8d77ad", "Berserk": "#2878b8",
            "Kenshin": "#33a4ac"}
 for box in parts:
@@ -1615,8 +1659,6 @@ side.add_patch(Rectangle((RAD_FRAME_FRONT_Y + 4.5, 14), 26.5, 6,
 side.add_patch(Polygon([(RAD_Y+RAD_D,0),(RAD_Y+RAD_D+aio_brace.DEPTH,0),
                        (RAD_Y+RAD_D,aio_brace.HEIGHT)],facecolor="#399fa5",alpha=.25,
                        label="H115i hose-end brace"))
-side.add_patch(Rectangle((k_brace_bounds.ymin,0),k_brace_bounds.ylen,k_brace_bounds.zlen,
-                         facecolor="#399fa5",alpha=.25,label="Kenshin AIO hose brace (side)"))
 for route in cable_routes.values():
     points = route["points_mm"]
     side.plot([p[1] for p in points], [p[2] for p in points],
@@ -1736,7 +1778,6 @@ kb,kg,kp = (installed[n] for n in ("Kenshin ATX board","Kenshin RTX 5090","Kensh
 k_aio_installed_boxes = [b for b in parts if b.name in K_AIO_PARTS]
 k_psu_frame_bounds = psu_frame_on_shelf(psu_frame_kenshin, "Kenshin").val().BoundingBox()
 k_aio_frame_bounds = [k_aio_frame_installed(x).val().BoundingBox() for x in K_AIO_FRAME_X]
-k_brace_bounds = k_aio_brace_installed.val().BoundingBox()
 clearances = {
     "H115i_brace_to_board_front_mm": round(BERSERK_BOARD_Y-(RAD_Y+RAD_D+aio_brace.DEPTH),3),
     "component_height_planning_band_mm": round(COMPONENT_Z_LIMIT, 3),
@@ -1773,8 +1814,8 @@ clearances = {
     "Kenshin_AIO_foot_to_shelf_rear_mm": round(SHELF_D-max(foot.y1 for foot in k_aio_foot_boxes), 3),
     "Kenshin_AIO_radiator_to_GPU_tail_x_gap_mm": round(kg.x-installed["Kenshin GA II Lite radiator"].x1,3),
     "Kenshin_AIO_frames_to_PSU_bracket_x_gap_mm": round(k_psu_frame_bounds.xmin-max(b.xmax for b in k_aio_frame_bounds),3),
-    "Kenshin_AIO_brace_to_Berserk_AC_plug_y_gap_mm": round(k_brace_bounds.ymin-installed["Berserk AC plug + tail"].y1,3),
-    "planning_band_to_Kenshin_AIO_top_mm": round(COMPONENT_Z_LIMIT - (max(K_AIO_FRAME_H,k_aio.BRACE_HEIGHT)+k_aio.SUPPORT_T),3),
+    "Kenshin_AIO_radiator_to_Berserk_AC_plug_y_gap_mm": round(installed["Kenshin GA II Lite radiator"].y-installed["Berserk AC plug + tail"].y1,3),
+    "planning_band_to_Kenshin_AIO_top_mm": round(COMPONENT_Z_LIMIT - (K_AIO_FRAME_H+k_aio.SUPPORT_T),3),
     "planning_band_to_Kenshin_AIO_frame_top_mm": round(COMPONENT_Z_LIMIT-K_AIO_FRAME_H-k_aio.SUPPORT_T,3),
     "Berserk_Ethernet_right_cabinet_lane_reach_mm": 12,
 }
@@ -1811,7 +1852,6 @@ hole_alignment = {
     "H115i_front_fan_holes": 8,
     "H115i_shared_fan_frame_radiator_screw_axes": len(h115i_mount_checks),
     "H115i_hose_brace_rear_screw_axes": len(aio_brace_fasteners),
-    "Kenshin_AIO_brace_inward_screw_axes": len(k_aio_brace_fasteners),
     "Kenshin_AIO_frame_holes": 8,
     "motherboard_holes": len(mounts),
     "GPU_flange_survey_holes": len(gpu_flange_holes),
@@ -1831,7 +1871,8 @@ assert not any("NIC" in h["component"] for h in mount_holes)
 pressure_holes = [h["center_mm"] for h in mount_holes if h["interface"] == "pressure fan factory clearance"]
 assert len(pressure_holes) == len(fan_holes) == 4
 assert all(min(sum((a - b) ** 2 for a, b in zip(center, factory)) for factory in pressure_holes) < 1e-8 for center in fan_holes)
-assert len(shelf_attachment_holes) == 28 + len(t_cool.ANCHORS) and len(gpu_post_holes) == 10
+# 28 before 2026-11-19, minus the two Kenshin AIO brace bolts, plus three NIC holder bolts.
+assert len(shelf_attachment_holes) == 29 + len(t_cool.ANCHORS) and len(gpu_post_holes) == 10
 assert sum(h["part"] == "v100_gpu_shroud" for h in shelf_attachment_holes) == 3
 assert len(metal_shelf_holes) == 4
 assert all(sum(site["part"].startswith(f"{system}_mobo_adapter_")
@@ -1842,18 +1883,19 @@ assert {part: sum(site["part"] == part for site in shelf_attachment_holes)
                      "psu_screw_frame_berserk_drill_plan",
                      "psu_screw_frame_kenshin_drill_plan",
                      "kenshin_aio_screw_frame_drill_plan",
-                     "gpu_5090_rest_drill_plan")} == {
+                     "gpu_5090_rest_drill_plan", nic.PART)} == {
     "h115i_screw_frame_drill_plan": 4,
     "psu_screw_frame_berserk_drill_plan": 2,
     "psu_screw_frame_kenshin_drill_plan": 2,
     "kenshin_aio_screw_frame_drill_plan": 4,
     "gpu_5090_rest_drill_plan": 2,
+    nic.PART: 3,
 }
 assert len([h for h in mount_holes if h["interface"] == "H115i sandwich factory thread"]) == 8
 assert len([h for h in mount_holes if h["interface"] == "H115i unused rear factory thread"]) == 6
 assert len([h for h in mount_holes if h["interface"] == "H115i hose brace rear factory thread"]) == 2
 assert len([h for h in mount_holes if h["interface"] == "Kenshin AIO rear factory thread"]) == 12
-assert len([h for h in mount_holes if h["interface"] == "Kenshin AIO brace inward factory thread"]) == 2
+assert len([h for h in mount_holes if h["interface"] == "Kenshin AIO unused inward factory thread"]) == 12
 assert len([h for h in mount_holes if h["interface"] == "Kenshin AIO fan factory clearance"]) == 12
 assert len([h for h in mount_holes if h["interface"] == "fan-to-radiator"]) == 8
 assert hole_alignment["PSU_rear_thread_marks"] == 4
@@ -1904,17 +1946,16 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
                    "top_side_projection_beyond_nominal_fan_mm":0,
                    "top_slot_edge_material_mm":4.0,"side_slot_edge_material_mm":5.25},
         "both_frame_slots_length_width_mm":[7,4.5],
-        "lower_support_height_mm":20,"Kenshin_feet_bear_on":"deck (rear steel extension retired 2026-11-16)","hose_brace_top_projection_mm":2,
-        "retained_local_interfaces":"factory fan pitch, sandwich thickness, ledges and center spacer; rear feet/anchors and brace handedness revised",
+        "lower_support_height_mm":20,"Kenshin_feet_bear_on":"deck (rear steel extension retired 2026-11-16)","H115i_hose_brace_top_projection_mm":2,
+        "retained_local_interfaces":"factory fan pitch, sandwich thickness, ledges and center spacer; Kenshin feet shortened to the radiator footprint and Kenshin brace dropped (2026-11-19)",
         "standard_pitch_sources":["https://cdn.noctua.at/media/noctua_nf_a14_pwm_infosheet_en_web-1.pdf",
                                   "https://noctua.at/en/products/fan/nf-a12x25-pwm/service"],
         "physical_fit_verified":False},
     "GPU_exhaust": exhaust_report,
     "H115i_hose_brace": aio_brace.report(RAD_Y+RAD_D,BERSERK_BOARD_Y),
-    "Kenshin_AIO_hose_brace": {**k_aio.report(K_AIO_Y),
-        "installed_bounds_xyz_mm":[[k_brace_bounds.xmin,k_brace_bounds.ymin,k_brace_bounds.zmin],[k_brace_bounds.xmax,k_brace_bounds.ymax,k_brace_bounds.zmax]],
-        "shelf_anchor_xy_mm":[h["center_xy_mm"] for h in shelf_attachment_holes if h["part"]==k_aio.BRACE_PART],
-        "coordinates":"other fields are radiator-local; installed group is turned +90 degrees about Z onto the left deck edge"},
+    "Kenshin_AIO_frame_feet": {**k_aio.report(),
+        "shelf_anchor_xy_mm":[h["center_xy_mm"] for h in shelf_attachment_holes if h["part"]=="kenshin_aio_screw_frame_drill_plan"],
+        "brace":"none; the inward hose brace was dropped as unnecessary (owner 2026-11-19)"},
     "planned_upgrade_clearance": {"passed":not (planned_upgrade_conflicts or planned_upgrade_cable_conflicts),
         "component_conflicts":planned_upgrade_conflicts,"cable_conflicts":planned_upgrade_cable_conflicts,
         "action":"measure BMC components/headers and GPU underside; verify angled EPS projection, SP3 cooler and cables before installation; do not use intersecting parts"},
@@ -1931,8 +1972,8 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
                          "slot_lane_widths": {k:16 for k in V100_SLOTS},
                          "slot_positions_basis": "H12D-8D manufacturer photograph plus nominal 40.64 mm dual-slot pitch; physical survey required",
                          "V100_body_dimension_source": "NVIDIA PB-08744-001_v03 figure 3: 266.70 x 111.15 mm; thickness is a 40 mm survey envelope",
-                         "NICs": "Kenshin's ConnectX-4 Lx reserved in the chipset slot behind the RTX 5090 (photo-estimated envelope, bracket on the right shelf edge); Berserk's riser position remains open",
-                         "link": "QSFP deferred; use onboard Ethernet",
+                         "NICs": "Kenshin's ConnectX-4 Lx in the chipset slot behind the RTX 5090 (bracket on the right shelf edge); Berserk's on the LRFC6911N riser in the printed holder beside Kenshin's side AIO",
+                         "link": "QSFP28 passive DAC between the two cards; see the network section",
                          "software": "Qwen3.8-27B Volta decoder and hybrid KV/state handoff require validation before purchase"},
     "Hammond_layout_revision": {
         "date":"2026-11-05", "deck_change_width_depth_mm":[round(SHELF_W-446,3),round(SHELF_D-700,3)],
@@ -1949,7 +1990,8 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
         "rack_space":"Shelf alone: 2U mounting, 3U required clearance per Hammond. Component band222.25mm is not total rack height. Fixed exhaust roof is provisionally Z400; overall allocation needs rack measurements.",
         "physical_fit_verified":False},
     "shelf": "Hammond RSUS1931BK1 solid 422.656 x 787.4 mm deck with supplied slides; downward folds are dimensioned envelopes, slide cross-sections and bracket positions illustrative",
-    "NIC_lane":"Kenshin's ConnectX-4 Lx sits behind the RTX 5090 with its QSFP28 cage on the right shelf edge; Berserk's riser is not placed yet.",
+    "NIC_lane":"Kenshin's ConnectX-4 Lx sits behind the RTX 5090 with its QSFP28 cage on the right shelf edge; Berserk's sits on its riser in the strip between Kenshin's side radiator and motherboard mount, cage facing the rack front.",
+    "network": network_report,
     "direct_shelf_mount": {"body_width_mm": SHELF_W, "depth_mm": SHELF_D,
                            "steel_thickness_mm": SHELF_T,
                            "shelf_drilling_allowed": True,
@@ -1967,7 +2009,7 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
         "Berserk_H115i": "trimmed fan-flush replacements preserve the owner-fitted sandwich's ledges,40mm feet and factory axes; ledges bear radiator, 40mm feet fully supported on shelf; revised slots and loaded fit require checking",
         "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x8 lower screws through two OD12x1 and two OD7x0.5 washers leave1.52mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
     "V100_cooling": "single Sanyo140mm fan on integral45-degree panel; broad3.2mm HT-PLA-GF rear-array hood with6mm base and three internalM4 shelf slots;no fitted collar or individual post cuts;flexible nonconductive inlet seal required;M4 T-nut pockets;physical and thermal qualification pending",
-        "Kenshin_AIO": f"three coplanar owned fans pull outward past the left deck edge through the 360 radiator at{K_AIO_Z:g}mm bottom height; two120mm frames with75mm feet bear the radiator weight directly on the deck, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; an inward triangular brace at the front hose end adds two factory screws/two shelf bolts; loaded PETG fit unverified",
+        "Kenshin_AIO": f"three coplanar owned fans pull outward past the left deck edge through the 360 radiator at{K_AIO_Z:g}mm bottom height; two120mm frames with{k_aio.REACH:g}mm feet inside the AIO footprint bear the radiator weight directly on the deck, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; no inward brace; loaded PETG fit unverified",
         "overall": "balanced drilled-hole concept is plausible, but physical holes, PETG stiffness, cooling and GPU post load paths are unverified"
     },
     "GPU_post_thread_stack": post_thread_stack,
@@ -2002,7 +2044,7 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
                         "tube_length_mm":400,"fan_count":3,"fan_dimensions_mm":[124,120,28],
                         "radiator_installed_xy_range_mm":[[installed["Kenshin GA II Lite radiator"].x,installed["Kenshin GA II Lite radiator"].x1],[installed["Kenshin GA II Lite radiator"].y,installed["Kenshin GA II Lite radiator"].y1]],"radiator_bottom_z_mm":K_AIO_Z,
                         "bearing_ledge_per_frame_mm":[k_aio.LEDGE_W,k_aio.LEDGE_D,6],
-                        "frame_print_orientation":"rear face down;75mm feet, tapered webs and ledge rise from that face; installed feet fully bear on the deck",
+                        "frame_print_orientation":f"rear face down;{k_aio.REACH:g}mm feet, webs and ledge rise from that face; installed feet fully bear on the deck inside the AIO footprint",
                         "radiator_screw_rule":"twelve matching factory-thread fan screws: preserve original safe engagement and add 6mm for frame/spacer plus any added washer thickness to original under-head length; thread and length unverified; never drill radiator",
                         "airflow":"radiator inward, all fans outward pulling toward the left cabinet side",
                         "center_spacer_mm":[119,119,6],"center_spacer_side_clearance_mm":0.5,"center_spacer_count":1,
@@ -2113,7 +2155,7 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
         "ten selected GPU posts need ten14mm Wurth970140324 M3 female bases and M3x8 lower screws (3.48mm nominal engagement,1.52mm nominal gap to owner-reported9mm stud); plastic does not carry their clamp load. Eight selectable slots per board do not require populating all16. Verify fixed OBT nut height with seated card; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Ten replacement14mm bases are required; ten rods total (six previously ordered, four additional). Both add-in NICs and risers are deferred",
         "ground each motherboard with a metal lead from a standoff to the steel shelf; printed adapters are insulating",
         "Kenshin's AC plug survey volume assumes a side/upward exit inside the bracket window at the HX1200i's -X face; verify the actual inlet and bend",
-        "Berserk AC rises over the side-AIO brace and runs rearward at Z205 beside the radiator; Kenshin AC leaves straight out the rear; Ethernet routes outside the right edge (about 12 mm); verify cabinet lanes and smooth cable bends",
+        "Berserk AC rises over the side-AIO hose end and runs rearward at Z205 beside the radiator; Kenshin AC leaves straight out the rear; Ethernet routes outside the right edge (about 12 mm); verify cabinet lanes and smooth cable bends",
         "PETG parts, drilled nominal1.52mm shelf joints, cooling and power have not had a sustained loaded test; generated G-code remains a fit prototype",
     ],
     "clearances_mm": clearances,
@@ -2141,7 +2183,8 @@ render_psu_preview(OUT)
 render_motherboard_mounts_preview(OUT)
 render_pcie_post_preview(OUT)
 aio_brace.preview(OUT / "fan140-aio-hose-brace.png", RAD_Y + RAD_D)
-k_aio.preview(OUT / "fan120-aio-frames-and-brace.png", K_AIO_Y, K_AIO_FRAME_REAR_Y)  # radiator-local view
+k_aio.preview(OUT / "fan120-aio-frames.png", K_AIO_Y, K_AIO_FRAME_REAR_Y)  # radiator-local view
+(OUT / "fan120-aio-frames-and-brace.png").unlink(missing_ok=True)
 gpu_exhaust.preview(OUT / "gpu-exhaust-preview.png", exhaust_shapes, parts)
 print(f"Generated {OUT}")
 

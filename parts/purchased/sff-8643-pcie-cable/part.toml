@@ -23,6 +23,10 @@ source = "constructed"
 [dims]
 length = { value = 500.0, unit = "mm", evidence = "listing", source = "eBay listing: CAB-8643/8643-P0.5M, 0.5 m" }
 mass = { value = 0.05, unit = "kg", evidence = "assumed" }
+plug_width = { value = 17.5, unit = "mm", evidence = "allowance", note = "straight plug overmold across the latch" }
+plug_height = { value = 11.0, unit = "mm", evidence = "allowance" }
+plug_length = { value = 38.0, unit = "mm", evidence = "allowance", note = "mating face to the end of the strain relief, before the first bend" }
+cable_od = { value = 6.5, unit = "mm", evidence = "allowance" }
 
 [[requires]]
 type = "sff-8643-port"
