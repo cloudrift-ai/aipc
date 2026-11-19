@@ -21,9 +21,9 @@ Library spec: [parts/purchased/linkreal-lrfc6911n](../../parts/purchased/linkrea
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | count | `sata-power` | need 1 x sata-power, have None |
 | provisional | value | `pcie-x4-slot` | nvidia-mcx4131a-gcat needs PCIe x8 card, x4 link; provided by gigabyte-x870e-aorus-pro, linkreal-lrfc6911n |
 | provisional | count | `pcie-x4-slot` | need 2 x pcie-x4-slot=pcie x8 card, x4 link, have 3 |
+| provisional | count | `sata-power` | need 1 x sata-power, have 16 |
 | provisional | value | `sff-8643-port` | sff-8643-pcie-cable needs PCIe x4 device; provided by linkreal-lrfc6911n |
 | provisional | count | `sff-8643-port` | need 1 x sff-8643-port=pcie x4 device, have 1 |
 | provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |

@@ -23,6 +23,6 @@ Library spec: [parts/fabricated/fan-power-harness](../../parts/fabricated/fan-po
 | provisional | count | `fan-power` | need 1 x fan-power=12 v pwm 4-wire, 3.1 a, have 1 |
 | provisional | value | `fan-pwm-control` | fan-power-harness needs 25 kHz PWM + tach, Linux hwmon; provided by aquacomputer-quadro |
 | provisional | count | `fan-pwm-control` | need 1 x fan-pwm-control=25 khz pwm + tach, linux hwmon, have 4 |
-| provisional | count | `peripheral-12v` | need 1 x peripheral-12v, have 2 |
+| provisional | count | `peripheral-12v` | need 1 x peripheral-12v, have 6 |
 | provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 

@@ -1,8 +1,8 @@
 {
   "date": "2026-11-19",
   "summary": {
-    "BLOCKED": 21,
-    "PROVISIONAL": 59,
+    "BLOCKED": 20,
+    "PROVISIONAL": 60,
     "PASS": 11
   },
   "lint": [],
@@ -180,25 +180,6 @@
       ]
     },
     {
-      "type": "sata-power",
-      "systems": [
-        "berserk"
-      ],
-      "requirers": [
-        "linkreal-lrfc6911n"
-      ],
-      "providers": [
-        "rosewill-hercules-1600"
-      ],
-      "rule": "count",
-      "status": "BLOCKED",
-      "detail": "need 1 x sata-power, have None",
-      "weak_evidence": [
-        "linkreal-lrfc6911n:sata-power(listing)",
-        "rosewill-hercules-1600:sata-power(unknown)"
-      ]
-    },
-    {
       "type": "usb2-header",
       "systems": [
         "berserk"
@@ -288,7 +269,7 @@
       "status": "PROVISIONAL",
       "detail": "need 1 x atx-24pin, have 1",
       "weak_evidence": [
-        "rosewill-hercules-1600:atx-24pin(assumed)"
+        "rosewill-hercules-1600:atx-24pin(review)"
       ]
     },
     {
@@ -402,7 +383,7 @@
         "corsair-h115i:dc-power(assumed)",
         "huananzhi-h12d-8d:dc-power(assumed)",
         "micron-mta36asf4g72pz-2g9:dc-power(assumed)",
-        "rosewill-hercules-1600:dc-power(listing)"
+        "rosewill-hercules-1600:dc-power(review)"
       ]
     },
     {
@@ -452,7 +433,7 @@
       ],
       "weak_evidence": [
         "corsair-hx1200i:dc-power(listing)",
-        "rosewill-hercules-1600:dc-power(listing)"
+        "rosewill-hercules-1600:dc-power(review)"
       ]
     },
     {
@@ -532,7 +513,7 @@
       "status": "PROVISIONAL",
       "detail": "need 2 x eps-8pin-cpu, have 2",
       "weak_evidence": [
-        "rosewill-hercules-1600:eps-8pin-cpu(assumed)"
+        "rosewill-hercules-1600:eps-8pin-cpu(review)"
       ]
     },
     {
@@ -988,9 +969,9 @@
       ],
       "rule": "count",
       "status": "PROVISIONAL",
-      "detail": "need 8 x pcie-8pin, have 8",
+      "detail": "need 8 x pcie-8pin, have 16",
       "weak_evidence": [
-        "rosewill-hercules-1600:pcie-8pin(assumed)",
+        "rosewill-hercules-1600:pcie-8pin(review)",
         "v100-eps-power-adapter:pcie-8pin(listing)"
       ]
     },
@@ -1068,10 +1049,10 @@
       ],
       "rule": "count",
       "status": "PROVISIONAL",
-      "detail": "need 1 x peripheral-12v, have 2",
+      "detail": "need 1 x peripheral-12v, have 6",
       "weak_evidence": [
         "fan-power-harness:peripheral-12v(allowance)",
-        "rosewill-hercules-1600:peripheral-12v(assumed)"
+        "rosewill-hercules-1600:peripheral-12v(review)"
       ]
     },
     {
@@ -1113,7 +1094,7 @@
       "note": "",
       "weak_evidence": [
         "psu_bracket:psu-restraint(allowance)",
-        "rosewill-hercules-1600:psu-restraint(assumed)"
+        "rosewill-hercules-1600:psu-restraint(review)"
       ]
     },
     {
@@ -1135,7 +1116,7 @@
       "weak_evidence": [
         "corsair-hx1200i:psu-restraint(assumed)",
         "psu_bracket:psu-restraint(allowance)",
-        "rosewill-hercules-1600:psu-restraint(assumed)"
+        "rosewill-hercules-1600:psu-restraint(review)"
       ]
     },
     {
@@ -1295,6 +1276,25 @@
       ]
     },
     {
+      "type": "sata-power",
+      "systems": [
+        "berserk"
+      ],
+      "requirers": [
+        "linkreal-lrfc6911n"
+      ],
+      "providers": [
+        "rosewill-hercules-1600"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x sata-power, have 16",
+      "weak_evidence": [
+        "linkreal-lrfc6911n:sata-power(listing)",
+        "rosewill-hercules-1600:sata-power(review)"
+      ]
+    },
+    {
       "type": "sff-8643-port",
       "systems": [
         "berserk"
@@ -1423,7 +1423,7 @@
         "obt-pcie-support:shelf-load(assumed)",
         "psu_bracket:shelf-load(allowance)",
         "qsfp28-passive-dac:shelf-load(assumed)",
-        "rosewill-hercules-1600:shelf-load(assumed)",
+        "rosewill-hercules-1600:shelf-load(review)",
         "samsung-990-pro-4tb:shelf-load(assumed)",
         "sff-8643-pcie-cable:shelf-load(assumed)",
         "v100-eps-power-adapter:shelf-load(assumed)",
@@ -1790,11 +1790,6 @@
       "detail": "No cable chosen yet. The plug and cable dimensions are generic QSFP28 allowances; replace them with the chosen cable's drawing (for example an NVIDIA MCP1600 100GbE passive DAC, which the ConnectX-4 Lx runs at 50GbE)."
     },
     {
-      "part": "rosewill-hercules-1600",
-      "status": "BLOCKED",
-      "detail": "Owned unit; record its model number and add Rosewill's spec sheet. Connector counts below are assumptions."
-    },
-    {
       "part": "sff-8643-pcie-cable",
       "status": "BLOCKED",
       "detail": "Marketplace cable; 10Gtek publishes no drawing or PCIe rating for it. Listings give 12G SAS, 100 ohm, 30 AWG, sideband."
@@ -1966,9 +1961,8 @@
       "unknown": 3
     },
     "rosewill-hercules-1600": {
-      "standard": 2,
-      "allowance": 1,
-      "assumed": 1
+      "review": 3,
+      "allowance": 1
     },
     "samsung-990-pro-4tb": {
       "assumed": 1

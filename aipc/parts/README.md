@@ -23,7 +23,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [huananzhi-h12d-8d](huananzhi-h12d-8d.md) | 1 | owned | berserk | BLOCKED | Berserk motherboard |
 | [keystone-1451b](keystone-1451b.md) | 17 | selected | berserk, kenshin | provisional | motherboard standoffs |
 | [lian-li-ga2-lite-360](lian-li-ga2-lite-360.md) | 1 | owned | kenshin | provisional | Kenshin CPU cooler, rear of shelf |
-| [linkreal-lrfc6911n](linkreal-lrfc6911n.md) | 1 | selected | berserk | BLOCKED | Berserk NIC slot: takes an H12D-8D SFF-8643 PCIe x4 port and provides an x16 slot for the ConnectX; lies flat in the printed berserk_nic_holder beside Kenshin's side AIO |
+| [linkreal-lrfc6911n](linkreal-lrfc6911n.md) | 1 | selected | berserk | provisional | Berserk NIC slot: takes an H12D-8D SFF-8643 PCIe x4 port and provides an x16 slot for the ConnectX; lies flat in the printed berserk_nic_holder beside Kenshin's side AIO |
 | [mains-power](mains-power.md) | 1 | unspecified | rack | BLOCKED | AC supply for both PSUs |
 | [mcmaster-53185k52](mcmaster-53185k52.md) | 2 | selected | berserk | - | duct clamps |
 | [micron-3400-2tb](micron-3400-2tb.md) | 2 | owned | berserk | provisional | Berserk model storage, two of the three RAID 0 members |
@@ -35,7 +35,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [obt-pcie-support](obt-pcie-support.md) | 10 | selected | berserk, kenshin | pass | GPU bracket posts (two per card) |
 | [qsfp28-passive-dac](qsfp28-passive-dac.md) | 1 | candidate | berserk, kenshin | provisional | Direct Berserk-Kenshin 50GbE link between the two ConnectX-4 Lx cards |
 | [rack-cabinet](rack-cabinet.md) | 1 | unspecified | rack | BLOCKED | cabinet that receives the shelf and the roof exhaust |
-| [rosewill-hercules-1600](rosewill-hercules-1600.md) | 1 | owned | berserk | BLOCKED | Berserk PSU |
+| [rosewill-hercules-1600](rosewill-hercules-1600.md) | 1 | owned | berserk | provisional | Berserk PSU |
 | [samsung-990-pro-4tb](samsung-990-pro-4tb.md) | 2 | owned | kenshin | provisional | Kenshin storage |
 | [sanyo-denki-9gv1412p1s001](sanyo-denki-9gv1412p1s001.md) | 1 | selected | berserk | provisional | pressure fan pulling air through the four V100s |
 | [sff-8643-pcie-cable](sff-8643-pcie-cable.md) | 1 | selected | berserk | provisional | PCIe x4 link from an H12D-8D SFF-8643 port to the Linkreal LRFC6911N riser |
