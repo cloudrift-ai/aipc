@@ -1022,8 +1022,8 @@
       "component": "Berserk LRFC6911N riser board",
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
-        69.55,
-        460.5,
+        69.3,
+        460.2,
         14.0
       ],
       "diameter_mm": 3.2,
@@ -1033,8 +1033,8 @@
       "component": "Berserk LRFC6911N riser board",
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
-        104.55,
-        460.5,
+        104.3,
+        460.2,
         14.0
       ],
       "diameter_mm": 3.2,
@@ -1044,8 +1044,8 @@
       "component": "Berserk LRFC6911N riser board",
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
-        69.55,
-        574.5,
+        69.3,
+        574.2,
         14.0
       ],
       "diameter_mm": 3.2,
@@ -1055,8 +1055,8 @@
       "component": "Berserk LRFC6911N riser board",
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
-        104.55,
-        574.5,
+        104.3,
+        574.2,
         14.0
       ],
       "diameter_mm": 3.2,
@@ -1908,7 +1908,7 @@
     {
       "part": "berserk_nic_holder",
       "center_xy_mm": [
-        115.05,
+        114.55,
         477.0
       ],
       "diameter_mm": 5.0,
@@ -1925,7 +1925,7 @@
     {
       "part": "berserk_nic_holder",
       "center_xy_mm": [
-        115.05,
+        114.55,
         552.0
       ],
       "diameter_mm": 5.0,

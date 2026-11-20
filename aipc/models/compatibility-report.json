@@ -1917,9 +1917,9 @@
     },
     "linkreal-lrfc6911n": {
       "datasheet": 3,
-      "photo-estimate": 12,
+      "measured": 7,
       "assumed": 3,
-      "measured": 3,
+      "photo-estimate": 9,
       "allowance": 1
     },
     "micron-3400-2tb": {

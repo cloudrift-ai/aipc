@@ -38,5 +38,5 @@ bracket.
 
 | Key | Value | Evidence | Source / note |
 | --- | --- | --- | --- |
-| mass | 0.0368 kg | allowance | OrcaSlicer filament estimate |
+| mass | 0.041 kg | allowance | OrcaSlicer filament estimate |
 

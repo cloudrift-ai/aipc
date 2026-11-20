@@ -438,12 +438,12 @@
       "placement": "Kenshin side-AIO strip: radiator inner face X52.3 to Kenshin's motherboard mount, owner-measured about 75 mm",
       "holder_x_range_mm": [
         53.8,
-        121.8
+        121.3
       ],
-      "holder_x_from_radiator_face_mm": 69.47,
+      "holder_x_from_radiator_face_mm": 68.97,
       "holder_y_range_mm": [
         456.0,
-        579.0
+        593.0
       ],
       "plate_past_board_mm": {
         "radiator_side": 11.5,
@@ -477,11 +477,11 @@
           552.0
         ],
         [
-          115.05,
+          114.55,
           477.0
         ],
         [
-          115.05,
+          114.55,
           552.0
         ]
       ],
@@ -490,8 +490,8 @@
       "assembly_order": "bolt the bare holder to the shelf (the radiator-side anchor is under the card), screw the riser on, seat the card, then plug SATA from behind, SFF-8643 and the DAC",
       "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
       "to_measure": [
-        "riser board length and width, and the hole insets from its edges",
-        "SATA socket span on the underside",
+        "riser board length and width, and the hole insets from its edges (photo-scaled)",
+        "SATA-end hole centre to the socket's inner face",
         "bracket face to x16 slot start on the card",
         "QSFP28 cage height on the card",
         "actual radiator-to-mount gap"
@@ -510,7 +510,7 @@
       "status": "cable not chosen; plug and bend sizes are allowances"
     },
     "SFF_8643_cable": {
-      "route_polyline_mm": 606.08,
+      "route_polyline_mm": 605.74,
       "minimum_length_mm": 682,
       "selected_length_mm": 500.0,
       "selected_length_sufficient": false,
@@ -519,8 +519,8 @@
         97.2
       ],
       "H12D_port_basis": "photo-estimated from the H12D-8D manual's layout figure: middle of three SFF-8643 ports on the front PCB edge",
-      "riser_plug_end_to_Kenshin_PCB_edge_mm": 6.86,
-      "riser_plug_end_from_radiator_face_mm": 94.47,
+      "riser_plug_end_to_Kenshin_PCB_edge_mm": 7.36,
+      "riser_plug_end_from_radiator_face_mm": 93.97,
       "fit_note": "with the owner's 75 mm radiator-to-mount gap the straight plug ends about where the mount ends, so its bend sits over Kenshin's PCB edge; a right-angle SFF-8643 plug would avoid that"
     }
   },
@@ -1812,8 +1812,8 @@
       "x": 65.3,
       "y": 457.0,
       "z": 14.0,
-      "w": 43.5,
-      "d": 121.0,
+      "w": 43.0,
+      "d": 135.0,
       "h": 1.6,
       "note": "flat on the printed holder; board width, holes, slot and socket positions are photo estimates"
     },
@@ -1931,17 +1931,17 @@
     },
     {
       "name": "Berserk riser SATA power plug",
-      "x": 74.3,
-      "y": 562.0,
+      "x": 70.8,
+      "y": 579.5,
       "z": 9.0,
-      "w": 26.0,
-      "d": 36.0,
+      "w": 32.0,
+      "d": 32.5,
       "h": 5.0,
       "note": "SATA power socket under the riser's rear end (owner: about 5 mm deep) and the Hercules plug mating from behind; span is a photo estimate, projection an allowance"
     },
     {
       "name": "Berserk SFF-8643 riser plug",
-      "x": 108.8,
+      "x": 108.3,
       "y": 513.8,
       "z": 15.600000000000001,
       "w": 38.0,
@@ -2065,8 +2065,8 @@
       "part": "berserk_nic_holder",
       "quantity": 1,
       "bounding_box_mm": [
-        68.0,
-        123.0,
+        67.5,
+        137.0,
         14.0
       ],
       "purpose": "Berserk NIC riser holder: flat 6mm base plate, four slotted M4 anchors, four 8mm riser bosses and a slot deflection stop clearing the SATA socket; within 15mm of the board; base on bed"
@@ -3373,17 +3373,17 @@
       "od_mm": 6.5,
       "points_mm": [
         [
-          146.8,
+          146.3,
           522.55,
           21.1
         ],
         [
-          149.8,
+          149.3,
           522.55,
           30.0
         ],
         [
-          149.8,
+          149.3,
           472.54999999999995,
           30.0
         ],
@@ -3409,7 +3409,7 @@
         ]
       ],
       "note": "Riser plug end, up over Kenshin's motherboard mount beside the PCB edge, forward to the left of the V100 hood, across the deck front under the V100 tails' front ends to the H12D port. Provisional; the port position is photo-estimated.",
-      "polyline_length_mm": 606.08
+      "polyline_length_mm": 605.74
     }
   },
   "Berserk_orientation": {

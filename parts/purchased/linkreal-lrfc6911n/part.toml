@@ -26,7 +26,10 @@ Owner, 2026-11-19, with the board in hand: the mounting holes are about
 35 x 114 mm centre to centre, and the SATA power socket is not on the long
 edge as the vendor photo suggested. It sits on the underside at the end
 opposite the power circuitry, about 5 mm deep, and mates along the board
-length from that end.
+length from that end. The socket is 32 mm wide and 12.5 mm deep along the
+board, and the board is 135 x 43 mm (owner). Scaled to the measured hole
+pitch, the owner's underside photo puts the SATA-end holes about 18 mm in
+from that end, past the socket.
 """
 
 [links]
@@ -44,22 +47,23 @@ source = "constructed"
 length = { value = 121.0, unit = "mm", evidence = "datasheet", source = "LR-Link spec table: Dimensions 121mm*114.10mm" }
 width = { value = 114.1, unit = "mm", evidence = "datasheet", source = "LR-Link spec table: Dimensions 121mm*114.10mm" }
 mass = { value = 0.0455, unit = "kg", evidence = "datasheet", source = "LR-Link spec table: Weight 45.5g" }
-pcb_width = { value = 43.5, unit = "mm", evidence = "photo-estimate", source = "LR-Link product photo scaled to the 121 mm length; conflicts with the spec table's 114.10 mm" }
+pcb_length = { value = 135.0, unit = "mm", evidence = "measured", source = "owner, 2026-11-19; the LR-Link spec table's 121 mm does not match the board" }
+pcb_width = { value = 43.0, unit = "mm", evidence = "measured", source = "owner, 2026-11-19; the spec table's 114.10 mm does not match the board" }
 pcb_thickness = { value = 1.6, unit = "mm", evidence = "assumed" }
 hole_diameter = { value = 3.2, unit = "mm", evidence = "assumed" }
-hole_inset_end = { value = 3.5, unit = "mm", evidence = "photo-estimate", source = "holes assumed centred on the 121 mm length: (121 - 114) / 2" }
+hole_inset_end = { value = 3.2, unit = "mm", evidence = "photo-estimate", source = "owner underside photo 2026-11-19, scaled to the 114 mm pitch; hole centre from the power-circuit end (the SATA-end holes sit about 18 mm in, past the socket)" }
 hole_pitch_length = { value = 114.0, unit = "mm", evidence = "measured", source = "owner, 2026-11-19: about 114 mm centre to centre along the board" }
-hole_inset_slot_edge = { value = 4.25, unit = "mm", evidence = "photo-estimate", source = "holes assumed centred on the 43.5 mm photo width: (43.5 - 35) / 2" }
+hole_inset_slot_edge = { value = 4.0, unit = "mm", evidence = "photo-estimate", source = "holes assumed centred on the measured 43 mm width: (43 - 35) / 2" }
 hole_pitch_width = { value = 35.0, unit = "mm", evidence = "measured", source = "owner, 2026-11-19: about 35 mm centre to centre across the board" }
 slot_start = { value = 24.0, unit = "mm", evidence = "photo-estimate", source = "product photo; x16 slot key end from the power-circuit end" }
 slot_length = { value = 90.0, unit = "mm", evidence = "photo-estimate", source = "product photo" }
 slot_center_from_edge = { value = 5.3, unit = "mm", evidence = "photo-estimate", source = "product photo; slot centreline from the board edge" }
 slot_width = { value = 9.5, unit = "mm", evidence = "photo-estimate", source = "product photo" }
 slot_height = { value = 11.25, unit = "mm", evidence = "assumed", note = "typical x16 connector height above the PCB" }
+sata_length_along_board = { value = 12.5, unit = "mm", evidence = "measured", source = "owner, 2026-11-19: socket depth from the SATA end of the board" }
+sata_width = { value = 32.0, unit = "mm", evidence = "measured", source = "owner, 2026-11-19" }
+sata_center_from_slot_edge = { value = 21.5, unit = "mm", evidence = "photo-estimate", source = "owner underside photo 2026-11-19: centred on the board width" }
 sata_underside_depth = { value = 5.0, unit = "mm", evidence = "measured", source = "owner, 2026-11-19: SATA power socket stands about 5 mm below the board" }
-sata_start = { value = 105.0, unit = "mm", evidence = "photo-estimate", source = "owner photos 2026-11-19; SATA socket on the underside at the end opposite the power circuitry, from the power-circuit end" }
-sata_v_start = { value = 9.0, unit = "mm", evidence = "photo-estimate", source = "owner photos 2026-11-19; socket span across the board, from the slot edge" }
-sata_v_end = { value = 35.0, unit = "mm", evidence = "photo-estimate", source = "owner photos 2026-11-19" }
 sff_start = { value = 57.2, unit = "mm", evidence = "photo-estimate", source = "product photo; SFF-8643 socket span from the power-circuit end" }
 sff_end = { value = 73.9, unit = "mm", evidence = "photo-estimate", source = "product photo" }
 sata_plug_projection = { value = 20.0, unit = "mm", evidence = "allowance", note = "straight SATA power plug and cable bend past the board end; the socket mates along the board length" }

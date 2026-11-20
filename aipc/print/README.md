@@ -28,7 +28,7 @@ from the repo root, or some plates only, for example `make gcode BUILD=aipc PLAT
 | [06_fan140_aio_frame](06_fan140_aio_frame.3mf) | 140 mm fan-flush radiator frame with bearing ledge | 2 | PETG | 11h 30m 16s, 76.14 g |
 | [07_fan140_aio_hose_brace](07_fan140_aio_hose_brace.3mf) | 140 mm radiator hose-end brace | 1 | PETG | 6h 37m 23s, 41.69 g |
 | [08_fan120_aio_frame](08_fan120_aio_frame.3mf) | 120 mm radiator frame with 33 mm feet inside the AIO footprint (side AIO) | 2 | PETG | 9h 34m 41s, 61.72 g |
-| [09_berserk_nic_holder](09_berserk_nic_holder.3mf) | Berserk NIC riser plate | 1 | PETG | 5h 49m 6s, 36.83 g |
+| [09_berserk_nic_holder](09_berserk_nic_holder.3mf) | Berserk NIC riser plate | 1 | PETG | 6h 28m 33s, 40.96 g |
 | [10_fan120_aio_center_spacer](10_fan120_aio_center_spacer.3mf) | Flat spacer that keeps the middle 120 mm fan coplanar | 1 | PETG | 3h 49m 53s, 24.91 g |
 | [11_tnut_fit_coupon](11_tnut_fit_coupon.3mf) | M4 hammer T-nut pocket test; print before plate 12 | 1 | HT-PLA-GF | 44m 12s, 4.80 g |
 | [12_v100_gpu_shroud](12_v100_gpu_shroud.3mf) | One-piece V100 hood with integral 45° fan panel | 1 | HT-PLA-GF | 1d 21h 59m 49s, 407.40 g |

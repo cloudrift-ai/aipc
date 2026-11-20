@@ -42,7 +42,7 @@ BOSS_H = d(RISER, "sata_underside_depth") + SATA_CLEARANCE
 RISER_X0, RISER_Y0 = 65.3, 457.0
 RISER_Z = BASE_T + BOSS_H
 RISER_TOP = RISER_Z + d(RISER, "pcb_thickness")
-L, W = d(RISER, "length"), d(RISER, "pcb_width")
+L, W = d(RISER, "pcb_length"), d(RISER, "pcb_width")
 
 
 def riser_xy(u, v):
@@ -51,6 +51,11 @@ def riser_xy(u, v):
 
 HOLES_UV = [(u, v) for u in (d(RISER, "hole_inset_end"), d(RISER, "hole_inset_end") + d(RISER, "hole_pitch_length"))
             for v in (d(RISER, "hole_inset_slot_edge"), d(RISER, "hole_inset_slot_edge") + d(RISER, "hole_pitch_width"))]
+
+# SATA power socket under the rear (SATA) end, mating along the board.
+SATA_U0 = L - d(RISER, "sata_length_along_board")
+SATA_V = (d(RISER, "sata_center_from_slot_edge") - d(RISER, "sata_width")/2,
+          d(RISER, "sata_center_from_slot_edge") + d(RISER, "sata_width")/2)
 
 CARD_PLANE_X = RISER_X0 + d(RISER, "slot_center_from_edge")
 BRACKET_Y = RISER_Y0 + d(RISER, "slot_start") - d(NIC, "bracket_to_slot_start")
@@ -128,7 +133,7 @@ def holder():
     assert RISER_Z - d(RISER, "sata_underside_depth") - BASE_T >= SATA_CLEARANCE - .01
     for u, v in HOLES_UV:
         if u > L/2:
-            assert v + BOSS_D/2 <= d(RISER, "sata_v_start") or v - BOSS_D/2 >= d(RISER, "sata_v_end"), "rear boss under the SATA plug"
+            assert (u + BOSS_D/2 <= SATA_U0 - 1.0 or v + BOSS_D/2 <= SATA_V[0] or v - BOSS_D/2 >= SATA_V[1]), "rear boss under the SATA socket"
     # The full-height bracket's tongue drops in front of the riser: keep the plate behind it.
     assert y0 - BRACKET_Y >= 10.0, "plate front edge to the card bracket"
     return body
@@ -157,8 +162,8 @@ def boxes():
     slot_v = d(RISER, "slot_center_from_edge")
     sx, sy = riser_xy(d(RISER, "slot_start"), slot_v - d(RISER, "slot_width")/2)
     plug_w, plug_h = d(DAC, "plug_width"), d(DAC, "plug_height")
-    sata_x0, sata_x1 = (RISER_X0 + d(RISER, k) for k in ("sata_v_start", "sata_v_end"))
-    sata_y0 = RISER_Y0 + d(RISER, "sata_start")
+    sata_x0, sata_x1 = (RISER_X0 + v for v in SATA_V)
+    sata_y0 = RISER_Y0 + SATA_U0
     sata_d = d(RISER, "sata_underside_depth")
     sff_c = RISER_Y0 + (d(RISER, "sff_start") + d(RISER, "sff_end"))/2
     sff_z = RISER_TOP + d(SFF, "plug_height")/2
@@ -238,7 +243,7 @@ def report():
         "print": "PETG, base on the bed as installed; vertical bosses and a through window, no overhangs or supports",
         "assembly_order": "bolt the bare holder to the shelf (the radiator-side anchor is under the card), screw the riser on, seat the card, then plug SATA from behind, SFF-8643 and the DAC",
         "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
-        "to_measure": ["riser board length and width, and the hole insets from its edges", "SATA socket span on the underside",
+        "to_measure": ["riser board length and width, and the hole insets from its edges (photo-scaled)", "SATA-end hole centre to the socket's inner face",
                        "bracket face to x16 slot start on the card", "QSFP28 cage height on the card", "actual radiator-to-mount gap"],
         "physical_fit_verified": False,
     }
