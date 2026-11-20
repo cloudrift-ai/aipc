@@ -8,8 +8,9 @@
 | Category | purchased |
 | Manual | <https://networking-docs.nvidia.com/connectx4lxhw/> |
 
-Owned, two cards (owner, 2026-11-10); serial numbers, firmware and bracket
-height not yet recorded. One goes in each PC, cabled directly with no switch.
+Owned, two cards (owner, 2026-11-10); serial numbers and firmware not yet
+recorded. Berserk's card carries a standard full-height bracket (owner,
+2026-11-19). One goes in each PC, cabled directly with no switch.
 PCIe 3.0 x8 card. Berserk has no free x16 slot (four V100s), so its card sits
 in a Linkreal LRFC6911N riser fed from an H12D-8D SFF-8643 port (x4). Kenshin's
 card goes in a chipset PCIEX4 slot (x4). Both links therefore train at
@@ -55,7 +56,8 @@ NVIDIA lists the ConnectX-4 Lx line as end of life.
 | pcb_thickness | 1.57 mm | standard | PCIe CEM nominal add-in card thickness |
 | primary_side_height | 14.47 mm | standard | PCIe CEM single-slot primary-side component height limit |
 | secondary_side_height | 2.67 mm | standard | PCIe CEM secondary-side component height limit |
-| bracket_to_slot_start | 15 mm | assumed | bracket outer face to the slot key end; the AIPC holder bridge is drilled through the tab hole at assembly, so only the riser and card position depend on it |
+| bracket_to_slot_start | 45 mm | allowance | PCIe CEM 2.0 Fig. 6-2: bracket outside face 59.05 mm from the connector key, less about 14 mm from the key to the slot housing end (assumed); bracket outer face to the slot key end; measure |
+| bracket_height | 120.02 mm | standard | PCIe CEM full-height bracket; owner 2026-11-19: the card carries a standard full-height bracket |
 | qsfp_cage_height | 40 mm | assumed | QSFP28 cage centre above the card's lower edge; measure |
 | qsfp_cage_offset_from_pcb | 5.7 mm | assumed | cage centre from the PCB plane, component side |
 

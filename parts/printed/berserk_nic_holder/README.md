@@ -8,11 +8,13 @@
 | Category | printed |
 | Print | PETG; plates are in each build's print/ |
 
-One-piece PETG holder for the LRFC6911N riser and its ConnectX-4 Lx card:
-6 mm base with three slotted M4 shelf anchors, four riser bosses and a gate
-whose columns take the card bracket face and whose bridge carries the
-bracket tab. The QSFP28 plug passes through the gate opening. Riser holes,
-bracket-to-slot offset and tab height are photo estimates or assumptions.
+PETG plate for the LRFC6911N riser: 6 mm base with four slotted M4 shelf
+anchors, a deflection stop beside the slot and four 8 mm bosses on the owner-measured 35 x 114 mm hole pattern,
+which lift the board clear of its 5 mm-deep SATA socket. No bracket support
+(owner, 2026-11-19: the slot holds the card). The plate stays within 15 mm
+of the board outline. The first print (with a bracket gate) did not fit:
+the riser's SATA socket sits under the board and the card has a full-height
+bracket.
 
 ![Part views](render.png)
 
@@ -36,5 +38,5 @@ bracket-to-slot offset and tab height are photo estimates or assumptions.
 
 | Key | Value | Evidence | Source / note |
 | --- | --- | --- | --- |
-| mass | 0.0671 kg | allowance | OrcaSlicer filament estimate |
+| mass | 0.0368 kg | allowance | OrcaSlicer filament estimate |
 

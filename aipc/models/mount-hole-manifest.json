@@ -1022,9 +1022,9 @@
       "component": "Berserk LRFC6911N riser board",
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
-        69.3,
-        462.5,
-        9.0
+        69.55,
+        460.5,
+        14.0
       ],
       "diameter_mm": 3.2,
       "verified": false
@@ -1033,9 +1033,9 @@
       "component": "Berserk LRFC6911N riser board",
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
-        104.8,
-        462.5,
-        9.0
+        104.55,
+        460.5,
+        14.0
       ],
       "diameter_mm": 3.2,
       "verified": false
@@ -1044,9 +1044,9 @@
       "component": "Berserk LRFC6911N riser board",
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
-        69.3,
-        573.5,
-        9.0
+        69.55,
+        574.5,
+        14.0
       ],
       "diameter_mm": 3.2,
       "verified": false
@@ -1055,9 +1055,9 @@
       "component": "Berserk LRFC6911N riser board",
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
-        104.8,
-        573.5,
-        9.0
+        104.55,
+        574.5,
+        14.0
       ],
       "diameter_mm": 3.2,
       "verified": false
@@ -1874,8 +1874,8 @@
     {
       "part": "berserk_nic_holder",
       "center_xy_mm": [
-        95.0,
-        438.0
+        60.55,
+        477.0
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1891,8 +1891,8 @@
     {
       "part": "berserk_nic_holder",
       "center_xy_mm": [
-        90.0,
-        590.0
+        60.55,
+        552.0
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1908,8 +1908,25 @@
     {
       "part": "berserk_nic_holder",
       "center_xy_mm": [
-        114.0,
-        545.0
+        115.05,
+        477.0
+      ],
+      "diameter_mm": 5.0,
+      "fastener": "M4 with steel backing",
+      "printed_bracket_slot_mm": [
+        10.0,
+        5.5
+      ],
+      "printed_bracket_slot_axis": "shelf Y (front-to-rear)",
+      "verified": false,
+      "intersects_approximate_vent": false,
+      "fabrication": "candidate new drill through sound steel; survey first"
+    },
+    {
+      "part": "berserk_nic_holder",
+      "center_xy_mm": [
+        115.05,
+        552.0
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -2610,8 +2627,8 @@
   },
   "GPU_post_slot_note": "Eight options per board; only the selected card posts appear in the required steel pattern. Locate real seated-card posts; high-X positions need port clearance checks.",
   "optional_motherboard_shelf_hole_note": "10 optional sites excluded from required drill/count plan; use only as needed, before PCB installation",
-  "hole_count": 46,
-  "M4_printed_mount_hole_count": 22,
+  "hole_count": 47,
+  "M4_printed_mount_hole_count": 23,
   "M3_motherboard_mount_hole_count": 10,
   "M3_direct_metal_post_hole_count": 10,
   "M3_shared_post_adapter_hole_count": 0,

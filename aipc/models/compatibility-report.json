@@ -1917,8 +1917,9 @@
     },
     "linkreal-lrfc6911n": {
       "datasheet": 3,
-      "photo-estimate": 13,
+      "photo-estimate": 12,
       "assumed": 3,
+      "measured": 3,
       "allowance": 1
     },
     "micron-3400-2tb": {
@@ -1938,8 +1939,9 @@
     },
     "nvidia-mcx4131a-gcat": {
       "datasheet": 5,
-      "assumed": 4,
-      "standard": 3
+      "assumed": 3,
+      "standard": 4,
+      "allowance": 1
     },
     "nvidia-v100-pcie-16gb": {
       "datasheet": 4,

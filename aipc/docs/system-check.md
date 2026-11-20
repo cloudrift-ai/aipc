@@ -163,12 +163,12 @@ Dimensions not backed by a datasheet, standard or measurement, by part:
 - huananzhi-h12d-8d: 2 allowance, 2 assumed, 2 datasheet, 2 photo-estimate, 2 standard
 - keystone-1451b: 1 assumed, 1 listing
 - lian-li-ga2-lite-360: 1 allowance, 1 assumed, 6 datasheet, 1 standard
-- linkreal-lrfc6911n: 1 allowance, 3 assumed, 3 datasheet, 13 photo-estimate
+- linkreal-lrfc6911n: 1 allowance, 3 assumed, 3 datasheet, 3 measured, 12 photo-estimate
 - micron-3400-2tb: 2 assumed, 5 datasheet
 - micron-3500-2tb: 2 assumed, 2 standard
 - micron-mta36asf4g72pz-2g9: 2 assumed
 - moddiy-eps-90-extension: 1 allowance, 1 assumed
-- nvidia-mcx4131a-gcat: 4 assumed, 5 datasheet, 3 standard
+- nvidia-mcx4131a-gcat: 1 allowance, 3 assumed, 5 datasheet, 4 standard
 - nvidia-v100-pcie-16gb: 1 allowance, 4 datasheet
 - obt-pcie-support: 1 allowance, 1 assumed, 1 measured
 - psu_bracket: 1 allowance

@@ -553,11 +553,12 @@ nic_holder = nic.holder()
 for box in parts + connectors + outboard_connectors:
     body = box.shape().cut(nic.riser_holes()) if box.name == "Berserk LRFC6911N riser board" else box.shape()
     assert nic_holder.val().intersect(body.val()).Volume() < .01, ("NIC holder", box.name)
-# Straight driver path to the card's bracket-tab screw, from the bridge top.
-nic_tab_driver = (cq.Workplane("XY").center(*nic.TAB_SCREW).circle(3).extrude(35)
-                  .translate((0, 0, nic.BRIDGE_TOP + 1)))
+# The card's full-height bracket stands free in front of the holder.
+nic_bracket = nic.bracket_envelope()
+assert nic_holder.val().intersect(nic_bracket.val()).Volume() < .01, "NIC holder / card bracket"
 for box in parts + connectors + outboard_connectors:
-    assert nic_tab_driver.val().intersect(box.shape().val()).Volume() < .01, ("NIC tab driver", box.name)
+    if box.name not in ("Berserk ConnectX-4 Lx card", "QSFP28 DAC Berserk plug"):
+        assert nic_bracket.val().intersect(box.shape().val()).Volume() < .01, ("NIC bracket", box.name)
 
 
 def nominal_board_mounts():
@@ -1001,7 +1002,7 @@ print_manifest = [
     export_print("fan120_aio_frame", k_aio_frame, 2,
                  f"120mm fan-flush radiator frame; 105mm pitch, 7x4.5mm slots, {k_aio.REACH:g}mm foot inside the radiator footprint, bearing ledge and two slotted anchors; rear face down"),
     export_print(nic.PART, nic_holder.translate((-nic.BASE[0], -nic.BASE[2], 0)), 1,
-                 "Berserk NIC riser holder: 6mm base, three slotted M4 anchors, four riser bosses and a gate whose columns take the card bracket and whose bridge carries the tab; QSFP28 plug through the gate; base on bed"),
+                 "Berserk NIC riser holder: flat 6mm base plate, four slotted M4 anchors, four 8mm riser bosses and a slot deflection stop clearing the SATA socket; within 15mm of the board; base on bed"),
     export_print("fan120_aio_center_spacer", k_aio_spacer, 1,
                  "plain 119x119x6 middle fan spacer for a 360mm radiator; keeps three fans coplanar; four clearance holes, no captive nuts"),
     export_print("v100_gpu_shroud", well_print, 1,
@@ -1146,7 +1147,7 @@ for label, route in cable_routes.items():
             # The NIC cables also clear the printed holder, the GPU support
             # rods, the outboard Kenshin plug and the other cable routes.
             assert segment.intersect(nic_holder.val()).Volume() < .01, (label, i, "NIC holder")
-            assert segment.intersect(nic_tab_driver.val()).Volume() < .01, (label, i, "NIC tab driver")
+            assert segment.intersect(nic_bracket.val()).Volume() < .01, (label, i, "NIC card bracket")
             for post in post_locations:
                 rod = cq.Workplane("XY").center(post["x_mm"],post["y_mm"]).circle(3).extrude(post["top_z_survey_mm"])
                 assert segment.intersect(rod.val()).Volume() < .01, (label, i, post["card"], post["post"])
@@ -1884,8 +1885,9 @@ assert not any("NIC" in h["component"] for h in mount_holes)
 pressure_holes = [h["center_mm"] for h in mount_holes if h["interface"] == "pressure fan factory clearance"]
 assert len(pressure_holes) == len(fan_holes) == 4
 assert all(min(sum((a - b) ** 2 for a, b in zip(center, factory)) for factory in pressure_holes) < 1e-8 for center in fan_holes)
-# 28 before 2026-11-19, minus the two Kenshin AIO brace bolts, plus three NIC holder bolts.
-assert len(shelf_attachment_holes) == 29 + len(t_cool.ANCHORS) and len(gpu_post_holes) == 10
+# 28 before 2026-11-19, minus the two Kenshin AIO brace bolts, plus the NIC holder bolts.
+assert len(nic.ANCHORS) == 4
+assert len(shelf_attachment_holes) == 26 + len(nic.ANCHORS) + len(t_cool.ANCHORS) and len(gpu_post_holes) == 10
 assert sum(h["part"] == "v100_gpu_shroud" for h in shelf_attachment_holes) == 3
 assert len(metal_shelf_holes) == 4
 assert all(sum(site["part"].startswith(f"{system}_mobo_adapter_")
@@ -1902,7 +1904,7 @@ assert {part: sum(site["part"] == part for site in shelf_attachment_holes)
     "psu_screw_frame_kenshin_drill_plan": 2,
     "kenshin_aio_screw_frame_drill_plan": 4,
     "gpu_5090_rest_drill_plan": 2,
-    nic.PART: 3,
+    nic.PART: 4,
 }
 assert len([h for h in mount_holes if h["interface"] == "H115i sandwich factory thread"]) == 8
 assert len([h for h in mount_holes if h["interface"] == "H115i unused rear factory thread"]) == 6

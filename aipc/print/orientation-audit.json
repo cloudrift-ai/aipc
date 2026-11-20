@@ -56,8 +56,8 @@
     },
     "berserk_nic_holder": {
       "orientation": "shelf orientation",
-      "original_downward_overhang_projected_mm2": 220.0,
-      "print_downward_overhang_projected_mm2": 220.0
+      "original_downward_overhang_projected_mm2": 0.0,
+      "print_downward_overhang_projected_mm2": 0.0
     },
     "fan120_aio_center_spacer": {
       "orientation": "shelf orientation",

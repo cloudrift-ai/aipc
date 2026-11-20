@@ -28,6 +28,11 @@ there); the SATA power and SFF-8643 sockets sit on the opposite long edge and
 mate in the board plane. The photographed board is about 43.5 mm wide, not
 the 114.10 mm the spec table gives; the photo-estimated dims below drive the
 AIPC holder and must be measured on arrival.
+Owner, 2026-11-19, with the board in hand: the mounting holes are about
+35 x 114 mm centre to centre, and the SATA power socket is not on the long
+edge as the vendor photo suggested. It sits on the underside at the end
+opposite the power circuitry, about 5 mm deep, and mates along the board
+length from that end.
 
 ![Part views](render.png)
 
@@ -58,20 +63,22 @@ AIPC holder and must be measured on arrival.
 | pcb_width | 43.5 mm | photo-estimate | LR-Link product photo scaled to the 121 mm length; conflicts with the spec table's 114.10 mm |
 | pcb_thickness | 1.6 mm | assumed |  |
 | hole_diameter | 3.2 mm | assumed |  |
-| hole_inset_end | 5.5 mm | photo-estimate | product photo; hole centre from the power-circuit end |
-| hole_pitch_length | 111 mm | photo-estimate | product photo; four corner holes |
-| hole_inset_slot_edge | 4 mm | photo-estimate | product photo; hole centre from the slot edge |
-| hole_pitch_width | 35.5 mm | photo-estimate | product photo |
+| hole_inset_end | 3.5 mm | photo-estimate | holes assumed centred on the 121 mm length: (121 - 114) / 2 |
+| hole_pitch_length | 114 mm | measured | owner, 2026-11-19: about 114 mm centre to centre along the board |
+| hole_inset_slot_edge | 4.25 mm | photo-estimate | holes assumed centred on the 43.5 mm photo width: (43.5 - 35) / 2 |
+| hole_pitch_width | 35 mm | measured | owner, 2026-11-19: about 35 mm centre to centre across the board |
 | slot_start | 24 mm | photo-estimate | product photo; x16 slot key end from the power-circuit end |
 | slot_length | 90 mm | photo-estimate | product photo |
 | slot_center_from_edge | 5.3 mm | photo-estimate | product photo; slot centreline from the board edge |
 | slot_width | 9.5 mm | photo-estimate | product photo |
 | slot_height | 11.25 mm | assumed | typical x16 connector height above the PCB |
-| sata_start | 25 mm | photo-estimate | product photo; SATA power socket span from the power-circuit end |
-| sata_end | 56.6 mm | photo-estimate | product photo |
+| sata_underside_depth | 5 mm | measured | owner, 2026-11-19: SATA power socket stands about 5 mm below the board |
+| sata_start | 105 mm | photo-estimate | owner photos 2026-11-19; SATA socket on the underside at the end opposite the power circuitry, from the power-circuit end |
+| sata_v_start | 9 mm | photo-estimate | owner photos 2026-11-19; socket span across the board, from the slot edge |
+| sata_v_end | 35 mm | photo-estimate | owner photos 2026-11-19 |
 | sff_start | 57.2 mm | photo-estimate | product photo; SFF-8643 socket span from the power-circuit end |
 | sff_end | 73.9 mm | photo-estimate | product photo |
-| sata_plug_projection | 15 mm | allowance | right-angle SATA power plug past the board edge |
+| sata_plug_projection | 20 mm | allowance | straight SATA power plug and cable bend past the board end; the socket mates along the board length |
 
 ## Interfaces
 

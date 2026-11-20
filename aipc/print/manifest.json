@@ -165,12 +165,12 @@
         "berserk_nic_holder": 1
       },
       "count": 1,
-      "highest_part_mm": 76.6,
+      "highest_part_mm": 14.0,
       "occupied_bounds_mm": [
-        101.25,
-        13.0,
-        168.75,
-        187.0
+        101.0,
+        38.5,
+        169.0,
+        161.5
       ]
     },
     "10_fan120_aio_center_spacer": {
