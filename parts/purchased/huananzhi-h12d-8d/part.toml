@@ -17,6 +17,7 @@ headers and inlet/outlet temperatures.
 [links]
 product = "https://www.huananzhi.com/en/list_6/177.html"
 listing = "https://www.ebay.com/itm/396800856844"
+bios = "https://www.huananzhi.com/attach/Drive/H12D-8DDriver/H12D-8D%202026-01-26.zip"
 
 [[datasheets]]
 title = "HUANANZHI H12D-8D product page"
@@ -69,8 +70,9 @@ note = "two-slot pitch 2 x 20.32 mm per PCIe CEM, but the slot positions are pho
 
 [[provides]]
 type = "pcie-bifurcation-x8x8"
-count = ""
-note = "x8x8 per x16 slot: not in the manual; EPYC supports it, the BIOS menu is unconfirmed. Check AMD CBS -> NBIO"
+count = 4
+evidence = "listing"
+note = "x8x8 per x16 slot: not in the manual, but Huananzhi's BIOS 2.2 image (links.bios, EPYCATX_32MB_R22_M23.bin, the version Berserk runs) has a visible PCIeX16_1..4 Lane Configuration setting (x16, x8x8, x8x4x4, x4x4x8, x4x4x4x4) under Advanced -> Board Configuration -> PCIE Configuration, read from the Setup module's IFR 2026-11-20. Not yet seen in Berserk's menu or tested with a split card; PCIeX16_n to physical slot mapping unconfirmed"
 
 [[provides]]
 type = "m2-slot"

@@ -84,7 +84,7 @@ The WS3000 has eight 6+2 connectors on four dual cables. The GPUs take four (B60
 
 The full list is in [docs/system-check.md](docs/system-check.md). The ones that block buying:
 
-1. **x8x8 bifurcation on the H12D-8D** is not in the manual. Check AMD CBS → NBIO in the BIOS (Berserk runs the same board).
+1. **x8x8 bifurcation on the H12D-8D** is not in the manual, but the vendor's BIOS 2.2 image (the version Berserk runs) offers x16 / x8x8 / x8x4x4 / x4x4x8 / x4x4x4x4 for each of the four slots under Advanced → Board Configuration → PCIE Configuration (read from the firmware 2026-11-20). Still to do: see it in Berserk's menu, check which PCIeX16_n is which slot, and test one slot split with a card before buying adapters.
 2. **Riser board geometry.** C-Payne publishes a 3D model but no drawing: the outline, hole positions and slot position are scaled from a photo. Take them from the model or a measured board before printing.
 3. **CP-0120 per-port REFCLK/PERST**: ask C-Payne.
 4. **Power caps** are enforced only by software (above). Also open: the **240 V circuit**, the **rack cabinet** and the **CPU cooler**, which is not chosen yet (100 mm envelope reserved).

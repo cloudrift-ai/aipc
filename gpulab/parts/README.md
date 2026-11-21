@@ -13,12 +13,12 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [amd-rx-7900-xtx-reference](amd-rx-7900-xtx-reference.md) | 1 | candidate | node | provisional | GPU under test (open-air cooler), 4 baseboard positions |
 | [asrock-arc-pro-b60-creator](asrock-arc-pro-b60-creator.md) | 1 | candidate | node | provisional | GPU under test (blower cooler), 3 baseboard positions |
 | [corsair-ws3000](corsair-ws3000.md) | 1 | selected | node | provisional | node PSU: board, CPU, GPUs and riser boards |
-| [cpayne-cp0120-mcio-host-adapter](cpayne-cp0120-mcio-host-adapter.md) | 4 | candidate | node | BLOCKED | host adapter: one H12D x16 slot to two MCIO 8i ports (x8x8) |
+| [cpayne-cp0120-mcio-host-adapter](cpayne-cp0120-mcio-host-adapter.md) | 4 | candidate | node | provisional | host adapter: one H12D x16 slot to two MCIO 8i ports (x8x8) |
 | [cpayne-cp0231-mcio-device-adapter](cpayne-cp0231-mcio-device-adapter.md) | 7 | candidate | node | provisional | GPU riser: MCIO 8i in, x16 slot (x8 electrical) for one GPU |
 | [cpayne-mcio-8i-cable-0p75m](cpayne-mcio-8i-cable-0p75m.md) | 7 | candidate | node | provisional | x8 link from a host adapter port to a riser board |
 | [fasteners](fasteners.md) | 1 | candidate | node, shelf | - | post, board, baseboard and riser fasteners |
 | [hammond-rsus1931bk1](hammond-rsus1931bk1.md) | 1 | selected | shelf, rack | BLOCKED | sliding shelf carrying the GPU lab node |
-| [huananzhi-h12d-8d](huananzhi-h12d-8d.md) | 1 | selected | node | BLOCKED | GPU lab host board: four x16 slots, each split x8x8 for two cabled GPUs |
+| [huananzhi-h12d-8d](huananzhi-h12d-8d.md) | 1 | selected | node | provisional | GPU lab host board: four x16 slots, each split x8x8 for two cabled GPUs |
 | [intel-arc-pro-b70](intel-arc-pro-b70.md) | 1 | candidate | node | provisional | GPU under test (blower cooler), 3 baseboard positions |
 | [keystone-1451b](keystone-1451b.md) | 8 | selected | node | provisional | H12D-8D motherboard standoffs on the printed mount, screwed from below through its sections |
 | [m3-ff-standoff-10mm](m3-ff-standoff-10mm.md) | 28 | candidate | node | provisional | riser board standoffs on the baseboard nut channels |

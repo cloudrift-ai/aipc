@@ -21,8 +21,8 @@ Library spec: [parts/purchased/cpayne-cp0120-mcio-host-adapter](../../parts/purc
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | count | `pcie-bifurcation-x8x8` | need 4 x pcie-bifurcation-x8x8, have None |
 | BLOCKED | budget | `shelf-load` | load 20.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (52% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
+| provisional | count | `pcie-bifurcation-x8x8` | need 4 x pcie-bifurcation-x8x8, have 4 |
 | provisional | value | `pcie-x16-slot` | cpayne-cp0120-mcio-host-adapter needs PCIe x16; provided by huananzhi-h12d-8d |
 | provisional | count | `pcie-x16-slot` | need 4 x pcie-x16-slot=pcie x16, have 4 |
 | pass | count | `mcio-8i-port` | need 7 x mcio-8i-port, have 8 |

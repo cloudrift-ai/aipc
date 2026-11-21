@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-20",
   "summary": {
-    "BLOCKED": 10,
-    "PROVISIONAL": 16,
+    "BLOCKED": 9,
+    "PROVISIONAL": 17,
     "PASS": 15
   },
   "lint": [],
@@ -40,25 +40,6 @@
       "rule": "presence",
       "status": "BLOCKED",
       "detail": "nothing in systems ['node'] provides 'cooler-mount'"
-    },
-    {
-      "type": "pcie-bifurcation-x8x8",
-      "systems": [
-        "node"
-      ],
-      "requirers": [
-        "cpayne-cp0120-mcio-host-adapter"
-      ],
-      "providers": [
-        "huananzhi-h12d-8d"
-      ],
-      "rule": "count",
-      "status": "BLOCKED",
-      "detail": "need 4 x pcie-bifurcation-x8x8, have None",
-      "weak_evidence": [
-        "cpayne-cp0120-mcio-host-adapter:pcie-bifurcation-x8x8(photo-estimate)",
-        "huananzhi-h12d-8d:pcie-bifurcation-x8x8(listing)"
-      ]
     },
     {
       "type": "rack-post-depth",
@@ -382,6 +363,25 @@
       "weak_evidence": [
         "cpayne-cp0231-mcio-device-adapter:pcie-8pin(photo-estimate)",
         "pcie-8pin-splitter:pcie-8pin(allowance)"
+      ]
+    },
+    {
+      "type": "pcie-bifurcation-x8x8",
+      "systems": [
+        "node"
+      ],
+      "requirers": [
+        "cpayne-cp0120-mcio-host-adapter"
+      ],
+      "providers": [
+        "huananzhi-h12d-8d"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 4 x pcie-bifurcation-x8x8, have 4",
+      "weak_evidence": [
+        "cpayne-cp0120-mcio-host-adapter:pcie-bifurcation-x8x8(photo-estimate)",
+        "huananzhi-h12d-8d:pcie-bifurcation-x8x8(listing)"
       ]
     },
     {
@@ -789,16 +789,6 @@
       "part": "amd-rx-7900-xtx-reference",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html (run make datasheets)"
-    },
-    {
-      "part": "corsair-ws3000",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.corsair.com/explorer/diy-builder/power-supply-units/corsair-ws3000-everything-you-need-to-know/ (run make datasheets)"
-    },
-    {
-      "part": "corsair-ws3000",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.corsair.com/us/en/p/psu/cp-9020312-na/ws3000-3000w-atx-3-1-fully-modular-workstation-power-supply-cp-9020312-na (run make datasheets)"
     },
     {
       "part": "fasteners",

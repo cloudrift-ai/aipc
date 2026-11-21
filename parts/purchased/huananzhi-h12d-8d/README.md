@@ -8,6 +8,7 @@
 | Category | purchased |
 | Product | <https://www.huananzhi.com/en/list_6/177.html> |
 | Listing | <https://www.ebay.com/itm/396800856844> |
+| Bios | <https://www.huananzhi.com/attach/Drive/H12D-8DDriver/H12D-8D%202026-01-26.zip> |
 
 Placement of the CPU, DIMMs, M.2 standoffs, BMC and slot planes comes from the
 manufacturer photograph (cad/berserk_platform.py), not manufacturer CAD.
@@ -61,7 +62,7 @@ headers and inlet/outlet temperatures.
 - provides `memory-slot` value DDR4 RDIMM count 8 (datasheet) — product page: 8 x DDR4 slots, octa-channel
 - provides `pcie-x16-slot` value PCIe x16 count 4 (datasheet) — product page: 4 x PCIe 4.0 x16; slot plane positions photo-estimated
 - provides `pcie-card-envelope` max 40.64 (photo-estimate) — two-slot pitch 2 x 20.32 mm per PCIe CEM, but the slot positions are photo-estimated; confirm in the user manual
-- provides `pcie-bifurcation-x8x8` count **unknown** (listing) — x8x8 per x16 slot: not in the manual; EPYC supports it, the BIOS menu is unconfirmed. Check AMD CBS -> NBIO
+- provides `pcie-bifurcation-x8x8` count 4 (listing) — x8x8 per x16 slot: not in the manual, but Huananzhi's BIOS 2.2 image (links.bios, EPYCATX_32MB_R22_M23.bin, the version Berserk runs) has a visible PCIeX16_1..4 Lane Configuration setting (x16, x8x8, x8x4x4, x4x4x8, x4x4x4x4) under Advanced -> Board Configuration -> PCIE Configuration, read from the Setup module's IFR 2026-11-20. Not yet seen in Berserk's menu or tested with a split card; PCIeX16_n to physical slot mapping unconfirmed
 - provides `m2-slot` value M.2 2280 NVMe count 3 (datasheet) — three PCIe 4.0 x4 slots per manufacturer page
 - provides `sff-8643-port` accepts ['PCIe 4.0 x4 U.2', '4 x SATA 6Gb/s'] count 3 (datasheet) — product page: 3 x SFF-8643 supports expand 12 x SATA3.0 6Gbps or 3 x PCIE4.0 x4 U.2; manual spec list: 3xMINISAS(SATA*4&PCIE3.0/4.0X4). Neither document says how a port is switched between SATA and PCIe (BIOS, jumper or auto-detect) or whether two ports can be grouped as x8; connector positions are photo-estimated from the manual layout figure only. Candidate host for a cabled PCIe riser and NIC, since all four x16 slots carry V100s
 - provides `sata-port` value SATA 6Gb/s count 4 (datasheet) — product page: 4xSATA3.0 6Gbps; separate from the SFF-8643 SATA mode

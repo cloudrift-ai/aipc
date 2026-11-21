@@ -5,8 +5,9 @@ quantity = 1
 systems = ["node"]
 notes = """
 A second board is needed unless Berserk's is moved here. x8x8 bifurcation is
-NOT documented in the manual or any found source: check AMD CBS -> NBIO in the
-BIOS before buying adapters.
+not in the manual, but the vendor's BIOS 2.2 image has a per-slot x8x8 setting
+(Advanced -> Board Configuration -> PCIE Configuration; see the library spec).
+Confirm it in Berserk's menu and test one slot split before buying adapters.
 It sits on the same two printed sections as Berserk (AIPC), turned 180 degrees
 so the I/O edge faces the rack front.
 """

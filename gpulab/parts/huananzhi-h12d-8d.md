@@ -12,8 +12,9 @@ Library spec: [parts/purchased/huananzhi-h12d-8d](../../parts/purchased/huananzh
 | Systems | node |
 
 A second board is needed unless Berserk's is moved here. x8x8 bifurcation is
-NOT documented in the manual or any found source: check AMD CBS -> NBIO in the
-BIOS before buying adapters.
+not in the manual, but the vendor's BIOS 2.2 image has a per-slot x8x8 setting
+(Advanced -> Board Configuration -> PCIE Configuration; see the library spec).
+Confirm it in Berserk's menu and test one slot split before buying adapters.
 It sits on the same two printed sections as Berserk (AIPC), turned 180 degrees
 so the I/O edge faces the rack front.
 
@@ -32,7 +33,6 @@ so the I/O edge faces the rack front.
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | count | `pcie-bifurcation-x8x8` | need 4 x pcie-bifurcation-x8x8, have None |
 | BLOCKED | budget | `shelf-load` | load 20.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (52% of rating); unknown load for ['amd-radeon-ai-pro-r9700'] |
 | provisional | value | `board-standoff` | huananzhi-h12d-8d needs #6-32 F/F; provided by keystone-1451b |
 | provisional | count | `board-standoff` | need 8 x board-standoff=#6-32 f/f, have 8 |
@@ -41,6 +41,7 @@ so the I/O edge faces the rack front.
 | provisional | count | `mobo-front-section` | need 1 x mobo-front-section=atx, have 1 |
 | provisional | value | `mobo-rear-rail` | huananzhi-h12d-8d needs H12D-8D slot positions; provided by h12d_mobo_adapter_rail |
 | provisional | count | `mobo-rear-rail` | need 1 x mobo-rear-rail=h12d-8d slot positions, have 1 |
+| provisional | count | `pcie-bifurcation-x8x8` | need 4 x pcie-bifurcation-x8x8, have 4 |
 | provisional | value | `pcie-x16-slot` | cpayne-cp0120-mcio-host-adapter needs PCIe x16; provided by huananzhi-h12d-8d |
 | provisional | count | `pcie-x16-slot` | need 4 x pcie-x16-slot=pcie x16, have 4 |
 | pass | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
