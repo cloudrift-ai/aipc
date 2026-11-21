@@ -348,18 +348,24 @@ for n, card_id in enumerate(CARDS, 1):
 
 # --- Power cables (approximate) --------------------------------------------------------------------
 def tube(points, d):
-    """Round bundle along a polyline: cylinders between points, spheres at the joints."""
-    shape = None
+    """Round bundle along a polyline: cylinders between points, spheres at the joints.
+
+    All pieces are fused in one fuzzy boolean. Fusing them one at a time with an exact boolean
+    dropped whole segments where a short leg runs between two overlapping joint spheres (the B70
+    and 3090 leads), sometimes with a shape that still passed isValid().
+    """
+    pieces = []
     for (a, b) in zip(points, points[1:], strict=False):
         va, vb = cq.Vector(*a), cq.Vector(*b)
         length = (vb - va).Length
         if length < 1e-6:
             continue
-        seg = cq.Solid.makeCylinder(d / 2, length, va, (vb - va).normalized())
-        shape = seg if shape is None else shape.fuse(seg)
+        pieces.append(cq.Solid.makeCylinder(d / 2, length, va, (vb - va).normalized()))
     for pt in points[1:-1]:
-        shape = shape.fuse(cq.Solid.makeSphere(d / 2, cq.Vector(*pt), angleDegrees1=-90, angleDegrees2=90))
-    return cq.Workplane("XY").add(shape.clean())
+        pieces.append(cq.Solid.makeSphere(d / 2, cq.Vector(*pt), angleDegrees1=-90, angleDegrees2=90))
+    shape = (pieces[0].fuse(*pieces[1:], tol=1e-4) if len(pieces) > 1 else pieces[0]).clean()
+    assert shape.isValid() and len(shape.Solids()) == 1, ("cable bundle is not one valid solid", points[0])
+    return cq.Workplane("XY").add(shape)
 
 
 face_slots = [(PSU_X + 12 + 18 * c, z) for z in (25.0, 55.0, 85.0, 115.0, 140.0) for c in range(4)]
