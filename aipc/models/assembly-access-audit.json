@@ -1458,7 +1458,7 @@
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
         60.55,
-        477.0
+        511.5
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1474,7 +1474,7 @@
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 304.4,
+      "nominal_rear_washer_margin_mm": 269.9,
       "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 54.55,
       "bare_bracket_tool_access": true,
       "install_before": [
@@ -1486,7 +1486,7 @@
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
         60.55,
-        552.0
+        586.5
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1502,7 +1502,7 @@
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 229.4,
+      "nominal_rear_washer_margin_mm": 194.9,
       "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 54.55,
       "bare_bracket_tool_access": true,
       "install_before": [
@@ -1514,7 +1514,7 @@
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
         114.55,
-        477.0
+        511.5
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1530,7 +1530,7 @@
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 304.4,
+      "nominal_rear_washer_margin_mm": 269.9,
       "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 108.55,
       "bare_bracket_tool_access": true,
       "install_before": []
@@ -1540,7 +1540,7 @@
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
         114.55,
-        552.0
+        586.5
       ],
       "washer_seat_z_mm": 6.0,
       "washer_max_od_mm": 12.0,
@@ -1556,7 +1556,7 @@
         -2.5,
         2.5
       ],
-      "nominal_rear_washer_margin_mm": 229.4,
+      "nominal_rear_washer_margin_mm": 194.9,
       "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 108.55,
       "bare_bracket_tool_access": true,
       "install_before": []
@@ -2423,15 +2423,16 @@
     "Berserk_NIC_holder": {
       "part": "berserk_nic_holder",
       "quantity": 1,
-      "placement": "Kenshin side-AIO strip: radiator inner face X52.3 to Kenshin's motherboard mount, owner-measured about 75 mm",
+      "placement": "Kenshin side-AIO strip: radiator inner face X52.3 to Kenshin's motherboard mount, owner-measured about 75 mm; as far rearward (toward Kenshin) as the RTX 5090 allows",
+      "card_rear_to_kenshin_5090_target_mm": 5.0,
       "holder_x_range_mm": [
         53.8,
         121.3
       ],
       "holder_x_from_radiator_face_mm": 68.97,
       "holder_y_range_mm": [
-        456.0,
-        593.0
+        490.5,
+        627.5
       ],
       "plate_past_board_mm": {
         "radiator_side": 11.5,
@@ -2442,14 +2443,14 @@
       },
       "riser_origin_xyz_mm": [
         65.3,
-        457.0,
+        491.5,
         14.0
       ],
       "riser_orientation": "slot along +Y at the radiator side, SFF-8643 socket facing +X, SATA socket under the rear end",
       "riser_underside_above_plate_mm": 8.0,
       "sata_socket_clearance_mm": 3.0,
       "card_plane_x_mm": 70.6,
-      "bracket_face_y_mm": 436.0,
+      "bracket_face_y_mm": 470.5,
       "plate_front_to_bracket_mm": 20.0,
       "card_heatsink_to_radiator_face_mm": 3.02,
       "riser_fasteners": "four M3 self-tapping screws (board + 8-10 mm) into 2.5 mm pilots in 8 mm bosses, 8 mm tall",
@@ -2458,24 +2459,24 @@
       "shelf_anchor_xy_mm": [
         [
           60.55,
-          477.0
+          511.5
         ],
         [
           60.55,
-          552.0
+          586.5
         ],
         [
           114.55,
-          477.0
+          511.5
         ],
         [
           114.55,
-          552.0
+          586.5
         ]
       ],
       "shelf_fastener": "4 x M4 with OD12 washers and steel backing",
       "print": "PETG, base on the bed as installed; vertical bosses and a through window, no overhangs or supports",
-      "assembly_order": "bolt the bare holder to the shelf (the radiator-side anchor is under the card), screw the riser on, seat the card, then plug SATA from behind, SFF-8643 and the DAC",
+      "assembly_order": "bolt the bare holder to the shelf (the radiator-side anchor is under the card), screw the riser on, seat the card, then plug SFF-8643 and the DAC; the SATA socket is under the RTX 5090, so plug SATA before the 5090 goes in or before the riser is screwed down",
       "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
       "to_measure": [
         "riser board length and width, and the hole insets from its edges (photo-scaled)",
@@ -2487,9 +2488,9 @@
       "physical_fit_verified": false
     },
     "QSFP28_DAC": {
-      "route_polyline_mm": 735.91,
+      "route_polyline_mm": 717.96,
       "plugs_outside_cages_mm": 96.0,
-      "minimum_length_mm": 832,
+      "minimum_length_mm": 814,
       "planned_length_mm": 1000.0,
       "Kenshin_plug_past_deck_edge_mm": 23.0,
       "Kenshin_plug_past_rack_opening_mm": 9.33,
@@ -2498,8 +2499,8 @@
       "status": "cable not chosen; plug and bend sizes are allowances"
     },
     "SFF_8643_cable": {
-      "route_polyline_mm": 605.74,
-      "minimum_length_mm": 682,
+      "route_polyline_mm": 633.26,
+      "minimum_length_mm": 709,
       "selected_length_mm": 500.0,
       "selected_length_sufficient": false,
       "H12D_port_xy_mm": [

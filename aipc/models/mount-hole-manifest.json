@@ -1023,7 +1023,7 @@
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
         69.3,
-        460.2,
+        494.7,
         14.0
       ],
       "diameter_mm": 3.2,
@@ -1034,7 +1034,7 @@
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
         104.3,
-        460.2,
+        494.7,
         14.0
       ],
       "diameter_mm": 3.2,
@@ -1045,7 +1045,7 @@
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
         69.3,
-        574.2,
+        608.7,
         14.0
       ],
       "diameter_mm": 3.2,
@@ -1056,7 +1056,7 @@
       "interface": "riser-to-holder (photo-estimated)",
       "center_mm": [
         104.3,
-        574.2,
+        608.7,
         14.0
       ],
       "diameter_mm": 3.2,
@@ -1875,7 +1875,7 @@
       "part": "berserk_nic_holder",
       "center_xy_mm": [
         60.55,
-        477.0
+        511.5
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1892,7 +1892,7 @@
       "part": "berserk_nic_holder",
       "center_xy_mm": [
         60.55,
-        552.0
+        586.5
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1909,7 +1909,7 @@
       "part": "berserk_nic_holder",
       "center_xy_mm": [
         114.55,
-        477.0
+        511.5
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",
@@ -1926,7 +1926,7 @@
       "part": "berserk_nic_holder",
       "center_xy_mm": [
         114.55,
-        552.0
+        586.5
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 with steel backing",

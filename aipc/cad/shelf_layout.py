@@ -559,6 +559,11 @@ assert nic_holder.val().intersect(nic_bracket.val()).Volume() < .01, "NIC holder
 for box in parts + connectors + outboard_connectors:
     if box.name not in ("Berserk ConnectX-4 Lx card", "QSFP28 DAC Berserk plug"):
         assert nic_bracket.val().intersect(box.shape().val()).Volume() < .01, ("NIC bracket", box.name)
+# The holder sits as far toward Kenshin as the RTX 5090 allows (owner, 2026-11-26).
+_rtx = next(b for b in parts if b.name == "Kenshin RTX 5090")
+_bnic = next(b for b in parts if b.name == "Berserk ConnectX-4 Lx card")
+NIC_TO_RTX_GAP = _rtx.y - _bnic.y1
+assert nic.CARD_TO_KENSHIN_GPU <= NIC_TO_RTX_GAP <= nic.CARD_TO_KENSHIN_GPU + 1.0, ("NIC card to 5090", NIC_TO_RTX_GAP)
 
 
 def nominal_board_mounts():

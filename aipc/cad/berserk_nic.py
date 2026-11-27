@@ -2,7 +2,9 @@
 
 Placed in the strip between the side radiator's inner face (X52.3) and
 Kenshin's motherboard mount; the owner measured about 75 mm across it
-(2026-11-19). Shelf coordinates throughout (X right, Y rear, Z up).
+(2026-11-19). Along the strip it sits as far rearward, toward Kenshin, as
+the RTX 5090 allows, keeping the QSFP28 cage clear of Berserk (owner,
+2026-11-26). Shelf coordinates throughout (X right, Y rear, Z up).
 
 The riser lies flat with its x16 slot along +Y, so the card stands upright
 with its full-height bracket and QSFP28 cage facing the rack front. With the
@@ -39,7 +41,13 @@ BOSS_H = d(RISER, "sata_underside_depth") + SATA_CLEARANCE
 
 # Riser placement: local u along the board from the power/bracket end, v across
 # it from the slot edge (v=0) to the socket edge.
-RISER_X0, RISER_Y0 = 65.3, 457.0
+# Owner, 2026-11-26: the QSFP cage sat against Berserk's PCIe post rail, so
+# the holder slides rearward along the strip, toward Kenshin, until the card's
+# rear end is CARD_TO_KENSHIN_GPU in front of the RTX 5090's front face
+# (Y617.98 in shelf_layout, which asserts the gap). The riser board, its SATA
+# socket and the plate pass under the 5090, which starts at Z24.
+CARD_TO_KENSHIN_GPU = 5.0
+RISER_X0, RISER_Y0 = 65.3, 491.5
 RISER_Z = BASE_T + BOSS_H
 RISER_TOP = RISER_Z + d(RISER, "pcb_thickness")
 L, W = d(RISER, "pcb_length"), d(RISER, "pcb_width")
@@ -226,7 +234,8 @@ def report():
     x0, x1, y0, y1 = BASE
     return {
         "part": PART, "quantity": 1,
-        "placement": "Kenshin side-AIO strip: radiator inner face X52.3 to Kenshin's motherboard mount, owner-measured about 75 mm",
+        "placement": "Kenshin side-AIO strip: radiator inner face X52.3 to Kenshin's motherboard mount, owner-measured about 75 mm; as far rearward (toward Kenshin) as the RTX 5090 allows",
+        "card_rear_to_kenshin_5090_target_mm": CARD_TO_KENSHIN_GPU,
         "holder_x_range_mm": [round(x0, 2), round(x1, 2)], "holder_x_from_radiator_face_mm": round(x1-RADIATOR_FACE_X, 2),
         "holder_y_range_mm": [y0, y1],
         "plate_past_board_mm": {"radiator_side": MARGIN_RADIATOR, "socket_side": MARGIN_SOCKET, "front": MARGIN_END, "rear": MARGIN_END,
@@ -241,7 +250,7 @@ def report():
         "bracket": "no bracket support (owner: the slot holds the card); the full-height bracket stands free in front of the plate",
         "shelf_anchor_xy_mm": [[round(x, 2), round(y, 2)] for x, y in ANCHORS], "shelf_fastener": "4 x M4 with OD12 washers and steel backing",
         "print": "PETG, base on the bed as installed; vertical bosses and a through window, no overhangs or supports",
-        "assembly_order": "bolt the bare holder to the shelf (the radiator-side anchor is under the card), screw the riser on, seat the card, then plug SATA from behind, SFF-8643 and the DAC",
+        "assembly_order": "bolt the bare holder to the shelf (the radiator-side anchor is under the card), screw the riser on, seat the card, then plug SFF-8643 and the DAC; the SATA socket is under the RTX 5090, so plug SATA before the 5090 goes in or before the riser is screwed down",
         "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
         "to_measure": ["riser board length and width, and the hole insets from its edges (photo-scaled)", "SATA-end hole centre to the socket's inner face",
                        "bracket face to x16 slot start on the card", "QSFP28 cage height on the card", "actual radiator-to-mount gap"],
