@@ -1063,41 +1063,41 @@
       "verified": false
     },
     {
-      "component": "V100 PCIE1 tail support",
+      "component": "MI50 PCIE1 tail support",
       "interface": "surveyed bearing contact, no GPU drilling",
       "center_mm": [
         239.54,
-        85.5,
+        85.19999999999999,
         24
       ],
       "verified": false
     },
     {
-      "component": "V100 PCIE2 tail support",
+      "component": "MI50 PCIE2 tail support",
       "interface": "surveyed bearing contact, no GPU drilling",
       "center_mm": [
         198.9,
-        85.5,
+        85.19999999999999,
         24
       ],
       "verified": false
     },
     {
-      "component": "V100 PCIE3 tail support",
+      "component": "MI50 PCIE3 tail support",
       "interface": "surveyed bearing contact, no GPU drilling",
       "center_mm": [
         158.26,
-        85.5,
+        85.19999999999999,
         24
       ],
       "verified": false
     },
     {
-      "component": "V100 PCIE4 tail support",
+      "component": "MI50 PCIE4 tail support",
       "interface": "surveyed bearing contact, no GPU drilling",
       "center_mm": [
         117.62,
-        85.5,
+        85.19999999999999,
         24
       ],
       "verified": false
@@ -1943,7 +1943,7 @@
       "part": "PCIE1-metal-tail-support",
       "center_xy_mm": [
         239.54,
-        85.5
+        85.19999999999999
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -1956,7 +1956,7 @@
       "part": "PCIE2-metal-tail-support",
       "center_xy_mm": [
         198.9,
-        85.5
+        85.19999999999999
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -1969,7 +1969,7 @@
       "part": "PCIE3-metal-tail-support",
       "center_xy_mm": [
         158.26,
-        85.5
+        85.19999999999999
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -1982,7 +1982,7 @@
       "part": "PCIE4-metal-tail-support",
       "center_xy_mm": [
         117.62,
-        85.5
+        85.19999999999999
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",

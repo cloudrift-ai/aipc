@@ -10,6 +10,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | --- | ---: | --- | --- | --- | --- |
 | [ac-power-cords](ac-power-cords.md) | 2 | candidate | berserk, kenshin | - | PSU mains cords |
 | [amd-epyc-7702p](amd-epyc-7702p.md) | 1 | owned | berserk | provisional | Berserk CPU |
+| [amd-instinct-mi50-32gb](amd-instinct-mi50-32gb.md) | 4 | selected | berserk | BLOCKED | Berserk GPUs (passive, ducted) |
 | [amd-ryzen-9-9950x3d](amd-ryzen-9-9950x3d.md) | 1 | owned | kenshin | pass | Kenshin CPU |
 | [aquacomputer-quadro](aquacomputer-quadro.md) | 1 | selected | berserk | BLOCKED | PWM and tach for the V100 pressure fan, driven from GPU temperature by the host |
 | [asetek-tr4-bracket](asetek-tr4-bracket.md) | 1 | selected | berserk | provisional | mounts the H115i pump on the EPYC SP3 socket |
@@ -29,10 +30,9 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [micron-3400-2tb](micron-3400-2tb.md) | 2 | owned | berserk | provisional | Berserk model storage, two of the three RAID 0 members |
 | [micron-3500-2tb](micron-3500-2tb.md) | 1 | owned | berserk | provisional | Berserk model storage, one of the three RAID 0 members |
 | [micron-mta36asf4g72pz-2g9](micron-mta36asf4g72pz-2g9.md) | 8 | owned | berserk | provisional | Berserk memory, 8 x 32 GB |
-| [moddiy-eps-90-extension](moddiy-eps-90-extension.md) | 4 | selected | berserk | - | keeps V100 power plugs low and clear of the front radiator |
 | [nvidia-mcx4131a-gcat](nvidia-mcx4131a-gcat.md) | 2 | owned | berserk, kenshin | BLOCKED | Direct Berserk-Kenshin link over a QSFP28 DAC (one card per system) |
-| [nvidia-v100-pcie-16gb](nvidia-v100-pcie-16gb.md) | 4 | selected | berserk | provisional | Berserk GPUs (passive, ducted) |
 | [obt-pcie-support](obt-pcie-support.md) | 10 | selected | berserk, kenshin | pass | GPU bracket posts (two per card) |
+| [pcie-8pin-90-adapter](pcie-8pin-90-adapter.md) | 8 | candidate | berserk | - | keeps the MI50 power plugs low and clear of the front radiator |
 | [qsfp28-passive-dac](qsfp28-passive-dac.md) | 1 | candidate | berserk, kenshin | provisional | Direct Berserk-Kenshin 50GbE link between the two ConnectX-4 Lx cards |
 | [rack-cabinet](rack-cabinet.md) | 1 | selected | rack | BLOCKED | cabinet that receives the shelf and the roof exhaust |
 | [rosewill-hercules-1600](rosewill-hercules-1600.md) | 1 | owned | berserk | provisional | Berserk PSU |
@@ -40,8 +40,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [sanyo-denki-9gv1412p1s001](sanyo-denki-9gv1412p1s001.md) | 1 | selected | berserk | provisional | pressure fan pulling air through the four V100s |
 | [sff-8643-pcie-cable](sff-8643-pcie-cable.md) | 1 | selected | berserk | provisional | PCIe x4 link from an H12D-8D SFF-8643 port to the Linkreal LRFC6911N riser |
 | [silicone-gasket-2mm](silicone-gasket-2mm.md) | 1 | candidate | berserk | - | roof flange seal |
-| [v100-eps-power-adapter](v100-eps-power-adapter.md) | 4 | selected | berserk | provisional | V100 auxiliary power adapter |
-| [v100-tail-support](v100-tail-support.md) | 4 | candidate | berserk | - | V100 tail support |
+| [v100-tail-support](v100-tail-support.md) | 4 | candidate | berserk | - | MI50 tail support |
 | [wurth-970140324](wurth-970140324.md) | 10 | selected | berserk, kenshin | pass | GPU post bases, bearing directly on the steel shelf |
 | [zotac-rtx-5090-solid](zotac-rtx-5090-solid.md) | 1 | owned | kenshin | BLOCKED | Kenshin GPU |
 
@@ -62,7 +61,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [h12d_mobo_adapter_rail](h12d_mobo_adapter_rail.md) | 1 | design | berserk | provisional | Berserk rear rail with GPU post holes for four dual-slot V100s |
 | [psu_bracket](psu_bracket.md) | 2 | design | berserk, kenshin | provisional | rear restraint for an 86 x 150 mm ATX PSU face |
 | [tnut_fit_coupon](tnut_fit_coupon.md) | 1 | design | berserk | - | test print for the M4 hammer T-nut pocket |
-| [v100_gpu_shroud](v100_gpu_shroud.md) | 1 | design | berserk | provisional | hood over the four V100s with integral 45 degree fan panel |
+| [v100_gpu_shroud](v100_gpu_shroud.md) | 1 | design | berserk | provisional | hood over the four MI50s with integral 45 degree fan panel |
 
 ## Fabricated
 

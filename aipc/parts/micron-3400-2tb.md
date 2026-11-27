@@ -21,8 +21,8 @@ Library spec: [parts/purchased/micron-3400-2tb](../../parts/purchased/micron-340
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| provisional | budget | `dc-power` | load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1376.0 W |
+| BLOCKED | budget | `shelf-load` | load 18.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-instinct-mi50-32gb'] |
+| provisional | budget | `dc-power` | load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['amd-instinct-mi50-32gb']; unlimited peak 1576.0 W |
 | provisional | value | `m2-slot` | micron-3400-2tb needs M.2 2280 NVMe; provided by huananzhi-h12d-8d |
 | provisional | count | `m2-slot` | need 3 x m2-slot=m.2 2280 nvme, have 3 |
-| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 

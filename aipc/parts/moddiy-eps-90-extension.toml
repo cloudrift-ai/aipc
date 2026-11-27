@@ -1,8 +1,0 @@
-part = "purchased/moddiy-eps-90-extension"
-role = "keeps V100 power plugs low and clear of the front radiator"
-status = "selected"
-quantity = 4
-systems = ["berserk"]
-
-[assembly]
-match = ["^V100_PCIE\\d_angled_EPS_plug_target$"]

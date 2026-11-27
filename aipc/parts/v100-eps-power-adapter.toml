@@ -1,9 +1,0 @@
-part = "purchased/v100-eps-power-adapter"
-role = "V100 auxiliary power adapter"
-status = "selected"
-quantity = 4
-systems = ["berserk"]
-
-[assembly]
-match = ["^V100_PCIE\\d_power_survey_segment_\\d+$"]
-instances_per_unit = 4

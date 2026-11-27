@@ -21,8 +21,8 @@ Library spec: [parts/printed/psu_bracket](../../parts/printed/psu_bracket/README
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
+| BLOCKED | budget | `shelf-load` | load 18.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-instinct-mi50-32gb'] |
 | provisional | value | `psu-restraint` | corsair-hx1200i needs ATX 150 x 86 face; provided by psu_bracket |
 | provisional | value | `psu-restraint` | rosewill-hercules-1600 needs ATX 150 x 86 face; provided by psu_bracket |
 | provisional | count | `psu-restraint` | need 2 x psu-restraint=atx 150 x 86 face, have 2 |
-| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 

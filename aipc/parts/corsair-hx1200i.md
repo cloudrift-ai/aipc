@@ -23,11 +23,11 @@ Library spec: [parts/purchased/corsair-hx1200i](../../parts/purchased/corsair-hx
 | --- | --- | --- | --- |
 | BLOCKED | count | `12v-2x6` | need 1 x 12v-2x6, have None |
 | BLOCKED | budget | `ac-power` | load 2531.0 W; capacity unknown |
+| BLOCKED | budget | `shelf-load` | load 18.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-instinct-mi50-32gb'] |
 | provisional | count | `atx-24pin` | need 1 x atx-24pin, have 1 |
 | provisional | budget | `dc-power` | load 908.0 W of 1200.0 W x derate 0.8 = 960.0 W (76% of rating) |
 | provisional | budget | `dc-power` | load 23.2 W of 2800.0 W x derate 0.8 = 2240.0 W (1% of rating) |
 | provisional | count | `eps-8pin-cpu` | need 2 x eps-8pin-cpu, have 2 |
 | provisional | value | `psu-restraint` | corsair-hx1200i needs ATX 150 x 86 face; provided by psu_bracket |
 | provisional | count | `psu-restraint` | need 2 x psu-restraint=atx 150 x 86 face, have 2 |
-| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 

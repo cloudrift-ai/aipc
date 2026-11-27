@@ -61,7 +61,7 @@ Every assembly instance belongs to a part or a declared keepout. Parts not in th
 - **cpayne-mcio-8i-cable-0p75m**: not in the assembly: flexible cable; route length checked in models/gpulab-fit-report.json
 - **mains-power**: not in the assembly: outside the shelf; supply not specified
 - **pcie-8pin-splitter**: not in the assembly: flexible cable
-- **rack-cabinet**: not in the assembly: cabinet not identified; nothing to model
+- **rack-cabinet**: not in the assembly: SysRacks SP 12.900; the GPU lab layout models the shelf only
 
 ## Datasheets
 
@@ -72,7 +72,7 @@ Every assembly instance belongs to a part or a declared keepout. Parts not in th
 - **pcie-8pin-splitter**: no datasheet recorded. Generic cable; choose 16 AWG and check the PSU lead is rated for both loads (2 x 75 W).
 - **psu-modular-cables**: no datasheet recorded. Ships with the PSU; lead lengths are not published. Measure them against models/gpulab-fit-report.json.
 
-Not fetched locally (run `make datasheets`): amd-epyc-7702p, amd-rx-7900-xtx-reference, corsair-ws3000, rack-cabinet, wurth-970140324, zotac-rtx-5090-solid.
+Not fetched locally (run `make datasheets`): amd-epyc-7702p, amd-rx-7900-xtx-reference, corsair-ws3000, wurth-970140324, zotac-rtx-5090-solid.
 
 ## Weak-evidence dimensions
 

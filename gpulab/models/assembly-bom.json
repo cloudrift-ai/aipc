@@ -510,14 +510,14 @@
       ]
     },
     "rack-cabinet": {
-      "name": "Rack cabinet (not yet specified)",
+      "name": "SysRacks SP 12.900 12U soundproof cabinet (600 x 900)",
       "category": "purchased",
       "quantity": 1,
       "state": "not_modeled",
       "instances": 0,
       "expected_instances": 1,
       "covered_by": null,
-      "not_modeled": "cabinet not identified; nothing to model",
+      "not_modeled": "SysRacks SP 12.900; the GPU lab layout models the shelf only",
       "instance_names": []
     },
     "wurth-970140324": {

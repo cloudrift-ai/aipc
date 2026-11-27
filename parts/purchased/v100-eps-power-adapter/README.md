@@ -11,15 +11,12 @@
 
 ## Used in
 
-| Build | Qty | Status | Role |
-| --- | ---: | --- | --- |
-| [aipc](../../../aipc/parts/v100-eps-power-adapter.md) | 4 | selected | V100 auxiliary power adapter |
+- No build references this part.
 
 ## Model
 
 - [v100-eps-power-adapter.step](v100-eps-power-adapter.step)
 - Source: constructed. Cable route survey segments only.
-- Written by the `aipc` build's generator
 
 ## Datasheets
 

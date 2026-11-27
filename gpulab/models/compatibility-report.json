@@ -771,7 +771,7 @@
     {
       "part": "rack-cabinet",
       "status": "BLOCKED",
-      "detail": "not in the assembly: cabinet not identified; nothing to model"
+      "detail": "not in the assembly: SysRacks SP 12.900; the GPU lab layout models the shelf only"
     }
   ],
   "renders": [],
@@ -825,21 +825,6 @@
       "part": "psu-modular-cables",
       "status": "BLOCKED",
       "detail": "Ships with the PSU; lead lengths are not published. Measure them against models/gpulab-fit-report.json."
-    },
-    {
-      "part": "rack-cabinet",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://sysracks.com/product/12u-35-depth-foor-standing-sound-proof-server-cabinet-sp-12-900/ (run make datasheets)"
-    },
-    {
-      "part": "rack-cabinet",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2234/sysracks-soundproof-servrer-cabinet-manual.pdf (run make datasheets)"
-    },
-    {
-      "part": "rack-cabinet",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2918/12u600x900-soundproof-1-1024x726.png (run make datasheets)"
     },
     {
       "part": "wurth-970140324",

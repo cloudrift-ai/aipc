@@ -14,7 +14,7 @@
 
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
-| [aipc](../../../aipc/parts/v100_gpu_shroud.md) | 1 | design | hood over the four V100s with integral 45 degree fan panel |
+| [aipc](../../../aipc/parts/v100_gpu_shroud.md) | 1 | design | hood over the four MI50s with integral 45 degree fan panel |
 
 ## Model
 

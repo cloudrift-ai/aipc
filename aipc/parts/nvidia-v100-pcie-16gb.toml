@@ -1,9 +1,0 @@
-part = "purchased/nvidia-v100-pcie-16gb"
-role = "Berserk GPUs (passive, ducted)"
-status = "selected"
-quantity = 4
-systems = ["berserk"]
-
-[assembly]
-match = ["^Berserk_V100_16GB_PCIE\\d$", "^Berserk_PCIE\\d_GPU_flange_hole_pattern_survey$"]
-instances_per_unit = 2

@@ -27,9 +27,9 @@ before sliding the shelf.
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
+| BLOCKED | budget | `shelf-load` | load 18.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-instinct-mi50-32gb'] |
 | provisional | value | `qsfp28-dac` | nvidia-mcx4131a-gcat needs QSFP28 passive DAC, 50GbE; provided by qsfp28-passive-dac |
 | provisional | count | `qsfp28-dac` | need 2 x qsfp28-dac=qsfp28 passive dac, 50gbe, have 2 |
 | provisional | value | `qsfp28-port` | qsfp28-passive-dac needs QSFP28 50GbE; provided by nvidia-mcx4131a-gcat |
 | provisional | count | `qsfp28-port` | need 2 x qsfp28-port=qsfp28 50gbe, have 2 |
-| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 

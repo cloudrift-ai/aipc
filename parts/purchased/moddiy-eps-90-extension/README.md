@@ -11,15 +11,12 @@
 
 ## Used in
 
-| Build | Qty | Status | Role |
-| --- | ---: | --- | --- |
-| [aipc](../../../aipc/parts/moddiy-eps-90-extension.md) | 4 | selected | keeps V100 power plugs low and clear of the front radiator |
+- No build references this part.
 
 ## Model
 
 - [moddiy-eps-90-extension.step](moddiy-eps-90-extension.step)
 - Source: constructed. 15 x 18 x 22 mm plug target per card.
-- Written by the `aipc` build's generator
 
 ## Datasheets
 

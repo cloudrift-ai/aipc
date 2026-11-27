@@ -31,7 +31,7 @@ from the repo root, or some plates only, for example `make gcode BUILD=aipc PLAT
 | [09_berserk_nic_holder](09_berserk_nic_holder.3mf) | Berserk NIC riser plate | 1 | PETG | 4h 57m 18s, 31.12 g |
 | [10_fan120_aio_center_spacer](10_fan120_aio_center_spacer.3mf) | Flat spacer that keeps the middle 120 mm fan coplanar | 1 | PETG | 3h 49m 53s, 24.91 g |
 | [11_tnut_fit_coupon](11_tnut_fit_coupon.3mf) | M4 hammer T-nut pocket test; print before plate 12 | 1 | HT-PLA-GF | 44m 12s, 4.80 g |
-| [12_v100_gpu_shroud](12_v100_gpu_shroud.3mf) | One-piece V100 hood with integral 45° fan panel | 1 | HT-PLA-GF | 1d 21h 59m 49s, 407.40 g |
+| [12_v100_gpu_shroud](12_v100_gpu_shroud.3mf) | One-piece GPU hood (MI50s) with integral 45° fan panel | 1 | HT-PLA-GF | 1d 21h 59m 49s, 407.40 g |
 | [13_gpu_exhaust_fan_flange](13_gpu_exhaust_fan_flange.3mf) | Fan outlet to 6-inch duct | 1 | HT-PLA-GF | 16h 13m 18s, 129.75 g |
 | [14_gpu_exhaust_roof_flange](14_gpu_exhaust_roof_flange.3mf) | Cabinet inner-ceiling duct flange | 1 | HT-PLA-GF | 17h 1m 6s, 149.81 g |
 

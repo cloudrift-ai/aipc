@@ -21,5 +21,5 @@ Library spec: [parts/printed/fan140_aio_hose_brace](../../parts/printed/fan140_a
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
+| BLOCKED | budget | `shelf-load` | load 18.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-instinct-mi50-32gb'] |
 

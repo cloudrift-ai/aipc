@@ -13,7 +13,7 @@
 
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
-| [aipc](../../../aipc/parts/v100-tail-support.md) | 4 | candidate | V100 tail support |
+| [aipc](../../../aipc/parts/v100-tail-support.md) | 4 | candidate | MI50 tail support |
 
 ## Model
 

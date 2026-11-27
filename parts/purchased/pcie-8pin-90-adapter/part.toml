@@ -1,0 +1,21 @@
+id = "pcie-8pin-90-adapter"
+name = "90 degree PCIe 8-pin power adapter (low profile)"
+category = "purchased"
+evidence = "allowance"
+no_datasheet_reason = "No product chosen yet; the 18 mm projection is a design target, not a product dimension."
+notes = """
+Turns a PCIe 8-pin plug through 90 degrees at the card socket so the cable
+leaves low and clear of whatever sits in front of the card. Choose a product
+whose exit direction matches the card's socket orientation and whose rating
+covers the card's 8-pin load. It passes the PSU's 8-pin through, so it
+declares no interfaces of its own: the card's pcie-8pin need is counted once.
+"""
+
+[model]
+source = "constructed"
+notes = "15 x 18 x 22 mm plug target per adapter."
+
+[dims]
+projection = { value = 18.0, evidence = "allowance" }
+mass = { value = 0.015, unit = "kg", evidence = "assumed" }
+

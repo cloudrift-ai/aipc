@@ -73,7 +73,7 @@ PSU_FOOT_REACH = psu_bracket.FOOT_REACH
 RACK_OPENING_W = 450.0
 SIDE_OVERHANG_LIMIT = (RACK_OPENING_W - SHELF_W) / 2
 SIDE_MARGIN = 1.0
-# Hercules sticks out past the left deck edge: wider fan lane to the V100s.
+# Hercules sticks out past the left deck edge: wider fan lane to the GPUs.
 PSU_BERSERK_X = -10.0
 GPU_REST_X, GPU_REST_Y, GPU_REST_ANCHOR_Y = 45.0 - K_LEFT_SHIFT, 334.0, 12.5
 GPU_REST_D = 42.0
@@ -131,8 +131,8 @@ RAD_FRAME_FRONT_Y = 9.0
 RAD_FRAME_T, RAD_D, RAD_FAN_D = 5.0, spec.dim('corsair-h115i', 'radiator_thickness'), spec.dim('corsair-h115i', 'fan_depth')
 RAD_Y = RAD_FRAME_FRONT_Y + RAD_FRAME_T
 RAD_FAN_Y = RAD_FRAME_FRONT_Y - RAD_FAN_D
-_V100 = spec.get('nvidia-v100-pcie-16gb')
-V100_W, V100_D, V100_H = _V100.dim('thickness'), _V100.dim('length'), _V100.dim('height')
+_GPU = spec.get('amd-instinct-mi50-32gb')
+GPU_W, GPU_D, GPU_H = _GPU.dim('thickness'), _GPU.dim('length'), _GPU.dim('height')
 _RTX = spec.get('zotac-rtx-5090-solid')
 _GA2 = spec.get('lian-li-ga2-lite-360')
 _H115I = spec.get('corsair-h115i')
@@ -142,9 +142,11 @@ _NIC = spec.get('nvidia-mcx4131a-gcat')
 # Installed drive per M.2 slot, in bp.M2_STANDOFFS order. Which slot holds the
 # 3500 is not recorded; both are 2280 drives with the same envelope.
 _M2_SLOTS = [spec.get(i) for i in ('micron-3400-2tb', 'micron-3400-2tb', 'micron-3500-2tb')]
-V100_SLOTS = bp.GPU_BODY_X
-V100_FRONT_Y = shelf_y(100.0)+BERSERK_DY
-V100_TAIL_Y = V100_FRONT_Y + V100_D
+GPU_SLOTS = bp.GPU_BODY_X
+# Card bracket plane: fixed by the slots and the printed rail posts, so the
+# cards' tail ends (toward the front radiator) move with the card length.
+GPU_BRACKET_Y = shelf_y(366.7)+BERSERK_DY
+GPU_FRONT_Y = GPU_BRACKET_Y - GPU_D
 BERSERK_BOARD_Y = bp.FRONT_Y
 COOL_X, COOL_Y, COOL_Z = t_cool.X0, t_cool.CY, t_cool.CZ
 COOL_W, COOL_H, COOL_FAN_D = t_cool.WIDTH, t_cool.HEIGHT, t_cool.FAN_DEPTH
@@ -202,14 +204,14 @@ class PostBaseEnvelope(Box):
 
 
 # Selected upgrade, not installed inventory. NVIDIA's dimensioned product
-# brief establishes V100 body length/height; 40 mm thickness and slot/flange
-# positions remain provisional. Existing 1080 Ti ownership stays in inventory.
+# AMD specifications give the MI50 length; full height is the PCIe CEM value;
+# 40 mm thickness and slot/flange positions remain provisional. Existing 1080 Ti ownership stays in inventory.
 parts = [
     Box("Berserk ATX board", BERSERK_X, BERSERK_BOARD_Y, BOARD_Z, bp.WIDTH, bp.DEPTH, BOARD_T,
         "H12D-8D + BMC; manufacturer photograph and ATX datums, delivered revision and interfaces unmeasured"),
-    *(Box(f"Berserk V100 16GB {slot}", x, V100_FRONT_Y, 24, V100_W, V100_D, V100_H,
-          "NVIDIA PCIe 16GB passive card; factory drawing body, provisional slot and 40 mm thickness; remove shipping extenders")
-      for slot, x in V100_SLOTS.items()),
+    *(Box(f"Berserk MI50 32GB {slot}", x, GPU_FRONT_Y, 24, GPU_W, GPU_D, GPU_H,
+          "AMD Instinct MI50 32GB passive card; AMD length, CEM full height, provisional slot and 40 mm thickness")
+      for slot, x in GPU_SLOTS.items()),
     Box("Berserk SP3 CPU and pump survey", bp.CPU_CENTER[0]-37.5, bp.CPU_CENTER[1]-37.5, BOARD_Z + BOARD_T, 75, 75, 50,
         "EPYC 7702P; photo-estimated socket center. H115i retained conditionally: verify SP3 mount, cold-plate coverage and hose reach"),
     *(Box(f"Berserk RDIMM {i+1} survey", bp.photo_xy(830,py)[0]-2.5,
@@ -224,7 +226,7 @@ parts = [
         "Sanyo 9GV1412P1S001, 45-degree upward exhaust; bounding box only, shape is rotated; occupies reserved upper duct volume"),
     *(Box(f"Berserk M2 SSD {i+1}", x - m2.dim('width')/2, y - m2.dim('length'), BOARD_Z + BOARD_T,
           m2.dim('width'), m2.dim('length'), m2.dim('thickness'),
-          f"{m2.name} at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified")
+          f"{m2.name} at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the MI50s unverified")
       for i, ((x, y), m2) in enumerate(zip(bp.M2_STANDOFFS, _M2_SLOTS, strict=True))),
     Box("Kenshin ATX board", KENSHIN_X, REAR_Y, BOARD_Z, spec.dim('gigabyte-x870e-aorus-pro', 'pcb_width'), spec.dim('gigabyte-x870e-aorus-pro', 'pcb_depth'), BOARD_T,
         "Gigabyte X870E footprint; PCIe slot position approximate"),
@@ -250,15 +252,15 @@ parts = [
       for i in range(3)),
 ]
 connectors = [
-    *(Box(f"V100 {slot} angled EPS plug target", x + 25, V100_FRONT_Y - bp.EPS_PROJECTION,
-          94, 15, bp.EPS_PROJECTION, 22,
-          "18mm target projection only, not a measured product; use CPU/EPS pinout after V100 dual-PCIe-to-EPS adapter, verify exit direction, current rating and bends")
-      for slot, x in V100_SLOTS.items()),
+    *(Box(f"MI50 {slot} angled PCIe plug target {n}", x + 25, GPU_FRONT_Y - bp.PLUG_PROJECTION,
+          z, 15, bp.PLUG_PROJECTION, 22,
+          "18mm target projection only, not a measured product; two 90 degree PCIe 8-pin adapters per card; the MI50 socket position is unpublished: measure it, the exit direction and the bends")
+      for slot, x in GPU_SLOTS.items() for n, z in ((1, 94), (2, 70))),
     Box("Berserk AC plug + tail", PSU_BERSERK_X + 16, B_PSU_REAR_Y, 99, 54, 60, 41,
         "Owner reports PSU top-to-connector gap >10mm on 2026-10-18; model uses10mm minimum at inlet-side upper boundary. Remaining plug dimensions and straight-tail sweep are provisional; verify molded plug body after seating."),
     Box("Kenshin low-profile C13 plug + bend", K_PSU_FACE_X - 60, K_PSU_Y + 12.5, 97, 60, 54, 41,
         "side/upward-exit cord survey inside the bracket window, behind the -X rear face; verify inlet and bend radius"),
-    Box("Berserk Ethernet RJ45 boot + bend", 305+BERSERK_DX, V100_TAIL_Y, 25, 28, 27, 50,
+    Box("Berserk Ethernet RJ45 boot + bend", 305+BERSERK_DX, GPU_BRACKET_Y, 25, 28, 27, 50,
         "H12D dual2.5GbE position estimated from manufacturer photo; BMC management port/cable within I/O service reserve still needs survey"),
     Box("Kenshin 24-pin survey", 278 - K_LEFT_SHIFT, REAR_Y, 14, 50, 74, 58,
         "conservative reserve starts at PCB front edge; official board diagram shows header close to edge; survey latch and cable projection"),
@@ -297,7 +299,7 @@ parts.append(connectors.pop(next(i for i,b in enumerate(connectors) if b.name ==
 # side AIO, its plugs, and the H12D end of the SFF-8643 cable. The H12D
 # ports are photo-estimated from the manual's layout figure: three ports on
 # the board's front edge, the middle one at 22.6% of the PCB width from the
-# shelf-left (V100 PCIE4) side.
+# shelf-left (GPU PCIE4) side.
 H12D_SFF_PORT_X = BERSERK_X + (440-365)/(440-108)*bp.WIDTH
 outboard_connectors = []
 for kind, *fields in [*nic.boxes(), nic.h12d_sff_plug(H12D_SFF_PORT_X, BERSERK_BOARD_Y, BOARD_Z+BOARD_T)]:
@@ -329,7 +331,7 @@ cq.exporters.export(base_shelf_deck, str(OUT / "rsus1931bk1-solid-deck.step"))
 allowed = {
     frozenset(("Kenshin AIO exhaust fan 1", "Kenshin AIO exhaust fan 2")),
     frozenset(("Kenshin AIO exhaust fan 2", "Kenshin AIO exhaust fan 3")),
-    *(frozenset(("Berserk ATX board", f"Berserk V100 16GB {slot}")) for slot in V100_SLOTS),
+    *(frozenset(("Berserk ATX board", f"Berserk MI50 32GB {slot}")) for slot in GPU_SLOTS),
     frozenset(("Kenshin ATX board", "Kenshin RTX 5090")),
     frozenset(("Kenshin ATX board", "Kenshin GA II Lite pump")),
     frozenset(("Kenshin RTX 5090", "5090 straight power-cable keepout")),
@@ -350,15 +352,15 @@ for i, a in enumerate(parts + connectors):
     for b in (parts + connectors)[i + 1:]:
         if not overlap(a,b) or frozenset((a.name,b.name)) in allowed:
             continue
-        if a.name == "Berserk H115i radiator" and b.name.startswith("V100 ") and b.name.endswith("angled EPS plug target"):
+        if a.name == "Berserk H115i radiator" and b.name.startswith("MI50 ") and " angled PCIe plug target " in b.name:
             planned_upgrade_conflicts.append({"components":[a.name,b.name],
                 "overlap_y_mm":round(min(a.y1,b.y1)-max(a.y,b.y),3),
                 "status":"unresolved planned GPU power clearance; measure/reroute or revise spacing before upgrade"})
-        elif b.name == "Berserk SFF-8643 H12D plug" and a.name.startswith("Berserk V100"):
+        elif b.name == "Berserk SFF-8643 H12D plug" and a.name.startswith("Berserk MI50"):
             planned_upgrade_conflicts.append({"components":[a.name,b.name],
                 "overlap_z_mm":round(min(a.z1,b.z1)-max(a.z,b.z),3),
-                "status":"unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"})
-        elif b.name == "Berserk BMC module survey" and a.name.startswith("Berserk V100"):
+                "status":"unresolved: the photo-estimated H12D SFF-8643 ports sit under the GPU tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the GPU upgrade"})
+        elif b.name == "Berserk BMC module survey" and a.name.startswith("Berserk MI50"):
             planned_upgrade_conflicts.append({"components":[a.name,b.name],
                 "overlap_z_mm":round(min(a.z1,b.z1)-max(a.z,b.z),3),
                 "status":"unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"})
@@ -754,8 +756,8 @@ for x,y in t_cool.ANCHORS:
         driver=cq.Workplane('XY').center(x,y+dy).circle(3).extrude(210).translate((0,0,11))
         assert driver.val().intersect(v100_plenum.val()).Volume()<.01,(x,y,dy,'long driver through bare fan opening')
 metal_shelf_holes = []  # only purchased GPU tail spacers use these anchors
-for slot, x in V100_SLOTS.items():
-    px, py = x + 20, V100_FRONT_Y + 10
+for slot, x in GPU_SLOTS.items():
+    px, py = x + 20, GPU_FRONT_Y + 10
     pedestal = (cq.Workplane("XY").center(px, py).polygon(6, 7 / (3 ** .5) * 2).circle(2).extrude(20))
     pad = cq.Workplane("XY").box(18, 18, 4, centered=(False, False, False)).translate((px - 9, py - 9, 20))
     assembly.add(pedestal, name=f"{slot}_metal_tail_support_survey", color=cq.Color(.6, .6, .63))
@@ -763,7 +765,7 @@ for slot, x in V100_SLOTS.items():
     metal_shelf_holes.append({"part": f"{slot}-metal-tail-support", "center_xy_mm": [px, py],
         "diameter_mm": 5.0, "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
         "contact_surface_z_mm": 24, "verified": False})
-    mount_holes.append({"component": f"V100 {slot} tail support", "interface": "surveyed bearing contact, no GPU drilling",
+    mount_holes.append({"component": f"MI50 {slot} tail support", "interface": "surveyed bearing contact, no GPU drilling",
         "center_mm": [px, py, 24], "verified": False})
 for center in fan_holes:
     mount_holes.append({"component": "V100 integral fan panel", "interface": "fan inlet-flange through-bolt clearance",
@@ -785,7 +787,7 @@ cq.exporters.export(gpu_backer, str(OUT / "pcie-post-backing-washer-reference.st
 post_locations = []
 gpu_flange_holes = []
 for system, label, points in (
-    *(("Berserk", slot, tuple((x, V100_TAIL_Y + 6) for x in bp.BRACKET_POST_X[slot])) for slot in V100_SLOTS),
+    *(("Berserk", slot, tuple((x, GPU_BRACKET_Y + 6) for x in bp.BRACKET_POST_X[slot])) for slot in GPU_SLOTS),
     # Kenshin's pair is turned with the board: same X, two Y positions.
     ("Kenshin", "RTX5090", tuple(k_xy(x, shelf_y(679+K_REAR_SHIFT)) for x in (53-K_LEFT_SHIFT, 73-K_LEFT_SHIFT))),
 ):
@@ -1089,14 +1091,14 @@ cable_routes = {
         "note":"Rises over the side-AIO hose end and runs rearward above the radiator's inner side and the 5090 tail; provisional lane. Disconnect external cord before sliding shelf."},
     "Kenshin AC": {"od_mm": 9.14, "points_mm": [(K_PSU_FACE_X-30,K_PSU_Y+39.5,118),(K_PSU_FACE_X-30,SHELF_D+80,118)],
         "note":"Left-facing PSU inlet beside the radiator's rear frame; the cord leaves straight out of the rack rear. Disconnect external cord before sliding shelf."},
-    "Berserk Ethernet": {"od_mm": 6, "points_mm": [(295,V100_TAIL_Y+27,50),(295,V100_TAIL_Y+27,160),
-                                                     (SHELF_W+12,V100_TAIL_Y+27,160),(SHELF_W+12,SHELF_D+80,160)],
+    "Berserk Ethernet": {"od_mm": 6, "points_mm": [(295,GPU_BRACKET_Y+27,50),(295,GPU_BRACKET_Y+27,160),
+                                                     (SHELF_W+12,GPU_BRACKET_Y+27,160),(SHELF_W+12,SHELF_D+80,160)],
         "note":"Rises at the RJ45 boot above Kenshin's side-facing I/O and card brackets, then runs rearward in the right-edge lane."},
-    **{f"V100 {slot} power": {"od_mm": 10,
-        "points_mm": [(x+32,V100_FRONT_Y-12,105),(x+32,V100_FRONT_Y-12,210),
-                      (111-index*12,V100_FRONT_Y-12,210),(70-index*12,5,210),(70-index*12,5,110)],
-        "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius."}
-       for index,(slot,x) in enumerate(V100_SLOTS.items())},
+    **{f"MI50 {slot} power": {"od_mm": 10,
+        "points_mm": [(x+32,GPU_FRONT_Y-12,105),(x+32,GPU_FRONT_Y-12,210),
+                      (111-index*12,GPU_FRONT_Y-12,210),(70-index*12,5,210),(70-index*12,5,110)],
+        "note": "One Hercules dual-head PCIe 8-pin cable per card, from the 90 degree adapters above the front radiator to the PSU; measure connector bulk and bend radius."}
+       for index,(slot,x) in enumerate(GPU_SLOTS.items())},
     "QSFP28 DAC": {"od_mm": spec.dim(nic.DAC, "cable_od"),
         "points_mm": nic.dac_route(next(b for b in connectors if b.name == "QSFP28 DAC Berserk plug"), outboard_connectors[0]),
         "note": "Berserk plug end, under the AIO hose, up behind the V100 hood and over Kenshin's 24-pin, rearward in the right-edge lane above the I/O reserve, then out past the deck edge and back into Kenshin's cage. Corners stand for bends of at least the allowance radius; the loop at Kenshin's end is outside the rack opening."},
@@ -1125,9 +1127,9 @@ for label, route in cable_routes.items():
             "QSFP28 DAC": {"QSFP28 DAC Berserk plug"},
             "Berserk SFF-8643 cable": {"Berserk SFF-8643 riser plug", "Berserk SFF-8643 H12D plug"},
         }.get(label, set())
-        if label.startswith("V100 "):
+        if label.startswith("MI50 "):
             slot = label.split()[1]
-            terminal_names = {f"V100 {slot} angled EPS plug target", "Berserk owned Hercules 1600W PSU"}
+            terminal_names = {f"MI50 {slot} angled PCIe plug target {n}" for n in (1, 2)} | {"Berserk owned Hercules 1600W PSU"}
         if label.startswith("Kenshin AIO hose"):
             terminal_names = {"Kenshin GA II Lite pump", "Kenshin GA II Lite radiator"}
         segment_conflicts = []
@@ -1136,7 +1138,7 @@ for label, route in cable_routes.items():
                 continue
             intersection_volume = segment.intersect(box.shape().val()).Volume()
             if intersection_volume >= .01:
-                if label.startswith("V100 ") and box.name == "Berserk H115i radiator":
+                if label.startswith("MI50 ") and box.name == "Berserk H115i radiator":
                     conflict = {"route":label,"segment":i,"component":box.name,
                                 "intersection_volume_mm3":round(intersection_volume,3),
                                 "status":"unresolved planned power route; not physically fitted"}
@@ -1568,7 +1570,7 @@ ax.add_patch(Rectangle((-SIDE_OVERHANG_LIMIT, -45), RACK_OPENING_W, SHELF_D+140,
                        edgecolor="#a83232", linestyle=":", lw=1.1, label="450 mm rack opening (EIA-310)"))
 ax.add_patch(Rectangle((aio_brace.X0,RAD_Y+RAD_D),aio_brace.WIDTH,aio_brace.DEPTH,
                        facecolor="#399fa5",alpha=.5,label="H115i hose-end brace"))
-palette = {"V100": "#3456a9", "ConnectX": "#c3488d", "LRFC6911N": "#c3488d", "5090": "#56a843", "H115i": "#b9574e",
+palette = {"MI50": "#3456a9", "V100": "#3456a9", "ConnectX": "#c3488d", "LRFC6911N": "#c3488d", "5090": "#56a843", "H115i": "#b9574e",
            "PSU": "#d49a2e", "fan": "#8d77ad", "Berserk": "#2878b8",
            "Kenshin": "#33a4ac"}
 for box in parts:
@@ -1582,7 +1584,7 @@ for box in parts:
             tx, ty, angle = box.x+35, box.y+210, 0
         else:
             tx, ty, angle = box.x + 3, box.y + box.d / 2, 90 if box.d > box.w else 0
-        label = box.name.replace("Berserk V100 16GB ", "V100 ").replace("V100 pressure fan", "1 × 140mm Sanyo")
+        label = box.name.replace("Berserk MI50 32GB ", "MI50 ").replace("V100 pressure fan", "1 × 140mm Sanyo")
         label = label.replace(" ATX board", " board").replace("Berserk SP3 CPU and pump survey", "SP3 CPU /\npump survey").replace("Berserk BMC module survey", "BMC survey")
         if box.name == "Kenshin GA II Lite pump":
             label = "GA II Lite\npump"
@@ -1803,15 +1805,15 @@ clearances = {
     "planning_band_to_PSU_top_mm": round(COMPONENT_Z_LIMIT - 150, 3),
     "planning_band_to_radiator_mm": round(COMPONENT_Z_LIMIT - RAD_TOP, 3),
     "H115i_bottom_to_shelf_deck_mm": RAD_Z,
-    "planning_band_to_V100_power_route_mm": round(COMPONENT_Z_LIMIT - 215, 3),
+    "planning_band_to_GPU_power_route_mm": round(COMPONENT_Z_LIMIT - 215, 3),
     "planning_band_to_5090_cable_keepout_mm": round(COMPONENT_Z_LIMIT - 196.8, 3),
-    "lower_reference_V100_power_route_deficit_mm": round(215 - LOWER_Z_REFERENCE, 3),
+    "lower_reference_GPU_power_route_deficit_mm": round(215 - LOWER_Z_REFERENCE, 3),
     "radiator_to_Berserk_board_depth_gap_mm": round(BERSERK_BOARD_Y - (RAD_Y+RAD_D), 3),
-    "radiator_to_planned_V100_power_plug_gap_mm": round(V100_FRONT_Y - bp.EPS_PROJECTION - (RAD_Y+RAD_D),3),
-    "Berserk_GPU_tail_to_Kenshin_board_gap_mm": round(kb.y-V100_TAIL_Y,3),
-    "Berserk_GPU_tail_to_Kenshin_GPU_y_gap_mm": round(kg.y-V100_TAIL_Y,3),
-    "Berserk_GPU_to_GPU_x_gap_mm": round(40.64 - V100_W, 3),
-    "Berserk_PSU_to_nearest_V100_x_gap_mm": round(min(V100_SLOTS.values()) - (PSU_BERSERK_X+86), 3),
+    "radiator_to_planned_GPU_power_plug_gap_mm": round(GPU_FRONT_Y - bp.PLUG_PROJECTION - (RAD_Y+RAD_D),3),
+    "Berserk_GPU_tail_to_Kenshin_board_gap_mm": round(kb.y-GPU_BRACKET_Y,3),
+    "Berserk_GPU_tail_to_Kenshin_GPU_y_gap_mm": round(kg.y-GPU_BRACKET_Y,3),
+    "Berserk_GPU_to_GPU_x_gap_mm": round(40.64 - GPU_W, 3),
+    "Berserk_PSU_to_nearest_GPU_x_gap_mm": round(min(GPU_SLOTS.values()) - (PSU_BERSERK_X+86), 3),
     "Berserk_PSU_left_overhang_mm": round(-PSU_BERSERK_X, 3),
     "V100_fan_bbox_to_Kenshin_board_signed_y_gap_mm": round(kb.y-max(box.y1 for box in parts if box.name.startswith("V100 pressure fan")),3),
     "Kenshin_board_rear_to_PSU_y_gap_mm": round(kp.y-kb.y1,3),
@@ -1954,7 +1956,7 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
     ],
 }, indent=2) + "\n")
 (OUT / "fit-report.json").write_text(json.dumps({
-    "status": "Hammond sliding-shelf fit prototype; factory dimensions sourced, physical interfaces unmeasured. BMC/GPU underside clearance unresolved; planned angled-EPS routes clear nominal geometry",
+    "status": "Hammond sliding-shelf fit prototype; factory dimensions sourced, physical interfaces unmeasured. BMC/GPU underside clearance unresolved; planned angled PCIe 8-pin routes clear nominal geometry",
     "AIO_fan_outline_revision": {
         "date":"2026-10-18",
         "Berserk":{"fan_face_mm":[140,140],"factory_hole_pitch_mm":[124.5,124.5],
@@ -1977,23 +1979,23 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
         "brace":"none; the inward hose brace was dropped as unnecessary (owner 2026-11-19)"},
     "planned_upgrade_clearance": {"passed":not (planned_upgrade_conflicts or planned_upgrade_cable_conflicts),
         "component_conflicts":planned_upgrade_conflicts,"cable_conflicts":planned_upgrade_cable_conflicts,
-        "action":"measure BMC components/headers and GPU underside; verify angled EPS projection, SP3 cooler and cables before installation; do not use intersecting parts"},
+        "action":"measure BMC components/headers and GPU underside; verify angled PCIe plug projection, SP3 cooler and cables before installation; do not use intersecting parts"},
     "historical_observation_2026_10_10": {"Berserk_GPU_count": 2, "GPU_model": "NVIDIA GeForce GTX 1080 Ti",
                                "MSI_subsystem_id": "1462:360a", "per_GPU_power_limit_W": 280},
     "Berserk_platform": bp.report(),
     "Kenshin_clearance_revision":{"date":"2026-11-16","rotation_z_deg":-90,
         "basis":"owner mock-up photo: Kenshin I/O and PCIe brackets face the right shelf edge so the ConnectX card can be plugged in; GA II radiator on the left edge behind the Hercules; HX1200i at the rear",
         "Berserk_GPU_tail_to_Kenshin_board_gap_mm":clearances["Berserk_GPU_tail_to_Kenshin_board_gap_mm"],"physical_fit_verified":False},
-    "selected_upgrade": {"Berserk_GPU_count": 4, "GPU_model": "NVIDIA Tesla V100 PCIe 16GB",
-                         "installed": False, "aggregate_separate_VRAM_GB": 64,
-                         "GPU_board_power_max_W": 1000,
+    "selected_upgrade": {"Berserk_GPU_count": 4, "GPU_model": "AMD Instinct MI50 32GB",
+                         "installed": False, "aggregate_separate_VRAM_GB": 128,
+                         "GPU_board_power_max_W": 1200,
                          "commissioning_start_power_limit_W_each": 180,
-                         "slot_lane_widths": {k:16 for k in V100_SLOTS},
+                         "slot_lane_widths": {k:16 for k in GPU_SLOTS},
                          "slot_positions_basis": "H12D-8D manufacturer photograph plus nominal 40.64 mm dual-slot pitch; physical survey required",
-                         "V100_body_dimension_source": "NVIDIA PB-08744-001_v03 figure 3: 266.70 x 111.15 mm; thickness is a 40 mm survey envelope",
+                         "GPU_body_dimension_source": "AMD MI50 (32GB) specifications: 267 mm length, full height (CEM 111.15 mm); thickness is a 40 mm survey envelope",
                          "NICs": "Kenshin's ConnectX-4 Lx in the chipset slot behind the RTX 5090 (bracket on the right shelf edge); Berserk's on the LRFC6911N riser in the printed holder beside Kenshin's side AIO",
                          "link": "QSFP28 passive DAC between the two cards; see the network section",
-                         "software": "Qwen3.8-27B Volta decoder and hybrid KV/state handoff require validation before purchase"},
+                         "software": "gfx906 is out of official support in current ROCm releases; validate the planned ROCm, llama.cpp or vLLM build on one card before buying four"},
     "Hammond_layout_revision": {
         "date":"2026-11-05", "deck_change_width_depth_mm":[round(SHELF_W-446,3),round(SHELF_D-700,3)],
         "Berserk_translation_from_previous_mm":[BERSERK_DX,BERSERK_DY],
@@ -2026,7 +2028,7 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
         "Berserk_and_Kenshin_motherboards": "two interlocking flat sections per board, each with at least four non-collinear motherboard screws; five independent shelf anchors (two front ears, three under-PCB); eight choices per common rail; eight Berserk and nine Kenshin metal standoffs (Kenshin B optional)",
         "Berserk_and_Kenshin_PSUs": "each PSU rests on steel and uses two upper factory screws for lateral restraint; each open rear frame has a continuous lower rail and a symmetric two-slot shelf foot; PSU patterns and plug clearances remain unmeasured",
         "Berserk_H115i": "trimmed fan-flush replacements preserve the owner-fitted sandwich's ledges,40mm feet and factory axes; ledges bear radiator, 40mm feet fully supported on shelf; revised slots and loaded fit require checking",
-        "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x8 lower screws through two OD12x1 and two OD7x0.5 washers leave1.52mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
+        "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x8 lower screws through two OD12x1 and two OD7x0.5 washers leave1.52mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each MI50 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
     "V100_cooling": "single Sanyo140mm fan on integral45-degree panel; broad3.2mm HT-PLA-GF rear-array hood with6mm base and three internalM4 shelf slots;no fitted collar or individual post cuts;flexible nonconductive inlet seal required;M4 T-nut pockets;physical and thermal qualification pending",
         "Kenshin_AIO": f"three coplanar owned fans pull outward past the left deck edge through the 360 radiator at{K_AIO_Z:g}mm bottom height; two120mm frames with{k_aio.REACH:g}mm feet inside the AIO footprint bear the radiator weight directly on the deck, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; no inward brace; loaded PETG fit unverified",
         "overall": "balanced drilled-hole concept is plausible, but physical holes, PETG stiffness, cooling and GPU post load paths are unverified"
@@ -2162,14 +2164,13 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
         "use wide steel washers or backing strips beneath concentrated brackets, especially GPU post joints; deburr and protect drilled steel edges",
         "Berserk board has only4.656mm nominal clearance to the right shelf edge; Kenshin's I/O edge sits 25mm inside it with its rear rail flush to the edge; actual board and shelf fit must be checked",
         f"Kenshin's rear I/O, 5090 and ConnectX brackets face the right shelf edge: plugged cables (I/O approach reaches {clearances['Kenshin_IO_service_reserve_past_rack_opening_mm']:g}mm past the 450mm rack opening) must be unplugged or use right-angle plugs before the shelf slides",
-        "V100 factory length/height are documented, but thickness, four PCIe slot centers, flange holes, tail bearing points and EPS connector sweeps must be surveyed on the selected PCIe cards",
-        "remove shipping/retention extenders; the model uses the 266.7 mm bare-card length, not 312 or 339 mm with extenders",
+        "MI50 length is from AMD and height is the CEM full-height value, but thickness, four PCIe slot centers, flange holes, tail bearing points, the PCIe 8-pin socket position and plug sweeps must be surveyed on the selected cards",
         "four adjacent dual-slot cards have only 0.64 mm nominal lateral margin at a 40 mm survey thickness; verify screws, shrouds and motherboard components",
         "Hood high-X sidewall must be dry-fitted against actual Berserk rear ports and any I/O shield; unmeasured connector bodies are not established clear by the simplified assembly",
-        "HT-PLA-GF V100 plenum must seal all four heatsinks and rear-post clearance; free-air ratings do not establish operating airflow; inspect actual loaded temperatures and stiffness",
-        "keep Qwen decoder and RDMA readiness separate from mechanical fit; current standard vLLM excludes Volta and direct GPU memory transfer is topology-dependent",
+        "HT-PLA-GF GPU plenum must seal all four heatsinks and rear-post clearance; free-air ratings do not establish operating airflow; inspect actual loaded temperatures and stiffness",
+        "keep Qwen decoder and RDMA readiness separate from mechanical fit; MI50 (gfx906) needs a ROCm build that still supports it, and direct GPU memory transfer is topology-dependent",
         "PSU rear hole patterns, inlet and modular cable bends require physical measurement; keep each PSU's original modular cables",
-        "H115i original brackets are owner-fitted in a fan/frame/radiator sandwich; approximate13mm overhang from owner, ledges touch at Z20; angled EPS plugs are modeled with an unverified 18mm projection target; actual product dimensions, electrical pinout and cable bends must be checked",
+        "H115i original brackets are owner-fitted in a fan/frame/radiator sandwich; approximate13mm overhang from owner, ledges touch at Z20; angled PCIe 8-pin plugs are modeled with an unverified 18mm projection target; actual product dimensions, the MI50 socket position and cable bends must be checked",
         f"Side AIO screw heads reach X{-clearances['Kenshin_AIO_left_overhang_with_heads_mm']:g} (1mm inside the 450mm opening) and the radiator reaches Y{SHELF_D+clearances['Kenshin_AIO_rear_overhang_mm']:g}; front fans start Y{RAD_FAN_Y:g}. Measure rack rails, doors and cabinet side intake space. Disconnect fixed-rack cables and exhaust duct before sliding",
         "ten selected GPU posts need ten14mm Wurth970140324 M3 female bases and M3x8 lower screws (3.48mm nominal engagement,1.52mm nominal gap to owner-reported9mm stud); plastic does not carry their clamp load. Eight selectable slots per board do not require populating all16. Verify fixed OBT nut height with seated card; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Ten replacement14mm bases are required; ten rods total (six previously ordered, four additional). Both add-in NICs and risers are deferred",
         "ground each motherboard with a metal lead from a standoff to the steel shelf; printed adapters are insulating",
@@ -2194,7 +2195,7 @@ assert hole_alignment["PSU_rear_thread_marks"] == 4
     "mount_hole_alignment": hole_alignment,
     "mount_hole_manifest": "mount-hole-manifest.json",
     "cable_routes": cable_routes,
-    "Berserk_orientation": {"rear_IO":"rack rear", "PSU":"right viewed from rack rear (low X)", "AIO":"rack front", "board_front_y_mm":BERSERK_BOARD_Y, "board_rear_y_mm":V100_TAIL_Y, "printed_board_frames":"new interlocking sections authored in installed shelf coordinates; rear I/O orientation preserved"},
+    "Berserk_orientation": {"rear_IO":"rack rear", "PSU":"right viewed from rack rear (low X)", "AIO":"rack front", "board_front_y_mm":BERSERK_BOARD_Y, "board_rear_y_mm":GPU_BRACKET_Y, "printed_board_frames":"new interlocking sections authored in installed shelf coordinates; rear I/O orientation preserved"},
     "stock_tail_spacer_mounts": metal_shelf_holes,
     "V100_cooling_module": t_cool.report(),
 }, indent=2) + "\n")

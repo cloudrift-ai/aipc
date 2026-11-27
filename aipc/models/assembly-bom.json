@@ -31,6 +31,42 @@
         "Berserk_SP3_CPU_and_pump_survey"
       ]
     },
+    "amd-instinct-mi50-32gb": {
+      "name": "AMD Radeon Instinct MI50 32 GB",
+      "category": "purchased",
+      "quantity": 4,
+      "state": "modeled",
+      "instances": 24,
+      "expected_instances": 24,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "Berserk_MI50_32GB_PCIE1",
+        "Berserk_MI50_32GB_PCIE2",
+        "Berserk_MI50_32GB_PCIE3",
+        "Berserk_MI50_32GB_PCIE4",
+        "Berserk_PCIE1_GPU_flange_hole_pattern_survey",
+        "Berserk_PCIE2_GPU_flange_hole_pattern_survey",
+        "Berserk_PCIE3_GPU_flange_hole_pattern_survey",
+        "Berserk_PCIE4_GPU_flange_hole_pattern_survey",
+        "MI50_PCIE1_power_survey_segment_1",
+        "MI50_PCIE1_power_survey_segment_2",
+        "MI50_PCIE1_power_survey_segment_3",
+        "MI50_PCIE1_power_survey_segment_4",
+        "MI50_PCIE2_power_survey_segment_1",
+        "MI50_PCIE2_power_survey_segment_2",
+        "MI50_PCIE2_power_survey_segment_3",
+        "MI50_PCIE2_power_survey_segment_4",
+        "MI50_PCIE3_power_survey_segment_1",
+        "MI50_PCIE3_power_survey_segment_2",
+        "MI50_PCIE3_power_survey_segment_3",
+        "MI50_PCIE3_power_survey_segment_4",
+        "MI50_PCIE4_power_survey_segment_1",
+        "MI50_PCIE4_power_survey_segment_2",
+        "MI50_PCIE4_power_survey_segment_3",
+        "MI50_PCIE4_power_survey_segment_4"
+      ]
+    },
     "amd-ryzen-9-9950x3d": {
       "name": "AMD Ryzen 9 9950X3D",
       "category": "purchased",
@@ -553,22 +589,6 @@
         "Berserk_RDIMM_8_survey"
       ]
     },
-    "moddiy-eps-90-extension": {
-      "name": "Low-profile 90 degree CPU/EPS 8-pin extension",
-      "category": "purchased",
-      "quantity": 4,
-      "state": "modeled",
-      "instances": 4,
-      "expected_instances": 4,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "V100_PCIE1_angled_EPS_plug_target",
-        "V100_PCIE2_angled_EPS_plug_target",
-        "V100_PCIE3_angled_EPS_plug_target",
-        "V100_PCIE4_angled_EPS_plug_target"
-      ]
-    },
     "nvidia-mcx4131a-gcat": {
       "name": "NVIDIA (Mellanox) ConnectX-4 Lx EN MCX4131A-GCAT, 50GbE single-port QSFP28",
       "category": "purchased",
@@ -581,26 +601,6 @@
       "instance_names": [
         "Kenshin_ConnectX-4_Lx_card",
         "Berserk_ConnectX-4_Lx_card"
-      ]
-    },
-    "nvidia-v100-pcie-16gb": {
-      "name": "NVIDIA Tesla V100 PCIe 16 GB",
-      "category": "purchased",
-      "quantity": 4,
-      "state": "modeled",
-      "instances": 8,
-      "expected_instances": 8,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "Berserk_V100_16GB_PCIE1",
-        "Berserk_V100_16GB_PCIE2",
-        "Berserk_V100_16GB_PCIE3",
-        "Berserk_V100_16GB_PCIE4",
-        "Berserk_PCIE1_GPU_flange_hole_pattern_survey",
-        "Berserk_PCIE2_GPU_flange_hole_pattern_survey",
-        "Berserk_PCIE3_GPU_flange_hole_pattern_survey",
-        "Berserk_PCIE4_GPU_flange_hole_pattern_survey"
       ]
     },
     "obt-pcie-support": {
@@ -633,6 +633,26 @@
         "Kenshin_RTX5090_OBT_9mm_stud_1",
         "Kenshin_RTX5090_metal_OBT_PCIe_post_2_survey",
         "Kenshin_RTX5090_OBT_9mm_stud_2"
+      ]
+    },
+    "pcie-8pin-90-adapter": {
+      "name": "90 degree PCIe 8-pin power adapter (low profile)",
+      "category": "purchased",
+      "quantity": 8,
+      "state": "modeled",
+      "instances": 8,
+      "expected_instances": 8,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "MI50_PCIE1_angled_PCIe_plug_target_1",
+        "MI50_PCIE1_angled_PCIe_plug_target_2",
+        "MI50_PCIE2_angled_PCIe_plug_target_1",
+        "MI50_PCIE2_angled_PCIe_plug_target_2",
+        "MI50_PCIE3_angled_PCIe_plug_target_1",
+        "MI50_PCIE3_angled_PCIe_plug_target_2",
+        "MI50_PCIE4_angled_PCIe_plug_target_1",
+        "MI50_PCIE4_angled_PCIe_plug_target_2"
       ]
     },
     "psu_bracket": {
@@ -671,7 +691,7 @@
       ]
     },
     "rack-cabinet": {
-      "name": "Rack cabinet (not yet specified)",
+      "name": "SysRacks SP 12.900 12U soundproof cabinet (600 x 900)",
       "category": "purchased",
       "quantity": 1,
       "state": "modeled",
@@ -764,34 +784,6 @@
       "covered_by": null,
       "not_modeled": "fit coupon, not installed",
       "instance_names": []
-    },
-    "v100-eps-power-adapter": {
-      "name": "Dual PCIe 8-pin to CPU/EPS 8-pin GPU adapter (030-0571-000 compatible)",
-      "category": "purchased",
-      "quantity": 4,
-      "state": "modeled",
-      "instances": 16,
-      "expected_instances": 16,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "V100_PCIE1_power_survey_segment_1",
-        "V100_PCIE1_power_survey_segment_2",
-        "V100_PCIE1_power_survey_segment_3",
-        "V100_PCIE1_power_survey_segment_4",
-        "V100_PCIE2_power_survey_segment_1",
-        "V100_PCIE2_power_survey_segment_2",
-        "V100_PCIE2_power_survey_segment_3",
-        "V100_PCIE2_power_survey_segment_4",
-        "V100_PCIE3_power_survey_segment_1",
-        "V100_PCIE3_power_survey_segment_2",
-        "V100_PCIE3_power_survey_segment_3",
-        "V100_PCIE3_power_survey_segment_4",
-        "V100_PCIE4_power_survey_segment_1",
-        "V100_PCIE4_power_survey_segment_2",
-        "V100_PCIE4_power_survey_segment_3",
-        "V100_PCIE4_power_survey_segment_4"
-      ]
     },
     "v100-tail-support": {
       "name": "M4 F/F 20 mm metal spacer with 4 mm silicone pad",

@@ -1,0 +1,8 @@
+part = "purchased/pcie-8pin-90-adapter"
+role = "keeps the MI50 power plugs low and clear of the front radiator"
+status = "candidate"
+quantity = 8
+systems = ["berserk"]
+
+[assembly]
+match = ["^MI50_PCIE\\d_angled_PCIe_plug_target_\\d$"]

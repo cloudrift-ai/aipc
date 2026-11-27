@@ -1,9 +1,9 @@
 {
   "date": "2026-11-27",
   "summary": {
-    "BLOCKED": 18,
-    "PROVISIONAL": 61,
-    "PASS": 12
+    "BLOCKED": 19,
+    "PROVISIONAL": 57,
+    "PASS": 13
   },
   "lint": [],
   "assembly_errors": [],
@@ -135,6 +135,105 @@
       "detail": "hammond-rsus1931bk1 needs 457.2..711.2; provider value unknown",
       "note": "front-to-rear rack-post spacing range accepted by the slides",
       "weak_evidence": []
+    },
+    {
+      "type": "shelf-load",
+      "systems": [
+        "shelf"
+      ],
+      "requirers": [
+        "amd-instinct-mi50-32gb"
+      ],
+      "providers": [
+        "hammond-rsus1931bk1"
+      ],
+      "rule": "budget",
+      "status": "BLOCKED",
+      "detail": "load 18.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-instinct-mi50-32gb']",
+      "contributors": [
+        "amd-epyc-7702p",
+        "amd-instinct-mi50-32gb",
+        "amd-ryzen-9-9950x3d",
+        "aquacomputer-quadro",
+        "asetek-tr4-bracket",
+        "atx_mobo_adapter_front",
+        "atx_mobo_adapter_rail",
+        "berserk_nic_holder",
+        "corsair-cmp64gx5m4b6400c32",
+        "corsair-h115i",
+        "corsair-hx1200i",
+        "fan-power-harness",
+        "fan120_aio_center_spacer",
+        "fan120_aio_frame",
+        "fan140_aio_frame",
+        "fan140_aio_hose_brace",
+        "fasteners",
+        "gigabyte-x870e-aorus-pro",
+        "gpu_exhaust_fan_flange",
+        "gpu_rest",
+        "h12d_mobo_adapter_rail",
+        "huananzhi-h12d-8d",
+        "keystone-1451b",
+        "lian-li-ga2-lite-360",
+        "linkreal-lrfc6911n",
+        "micron-3400-2tb",
+        "micron-3500-2tb",
+        "micron-mta36asf4g72pz-2g9",
+        "nvidia-mcx4131a-gcat",
+        "obt-pcie-support",
+        "pcie-8pin-90-adapter",
+        "psu_bracket",
+        "qsfp28-passive-dac",
+        "rosewill-hercules-1600",
+        "samsung-990-pro-4tb",
+        "sanyo-denki-9gv1412p1s001",
+        "sff-8643-pcie-cable",
+        "v100-tail-support",
+        "v100_gpu_shroud",
+        "wurth-970140324",
+        "zotac-rtx-5090-solid"
+      ],
+      "weak_evidence": [
+        "amd-epyc-7702p:shelf-load(assumed)",
+        "amd-instinct-mi50-32gb:shelf-load(unknown)",
+        "amd-ryzen-9-9950x3d:shelf-load(assumed)",
+        "aquacomputer-quadro:shelf-load(assumed)",
+        "asetek-tr4-bracket:shelf-load(assumed)",
+        "atx_mobo_adapter_front:shelf-load(allowance)",
+        "atx_mobo_adapter_rail:shelf-load(allowance)",
+        "berserk_nic_holder:shelf-load(allowance)",
+        "corsair-cmp64gx5m4b6400c32:shelf-load(assumed)",
+        "corsair-h115i:shelf-load(assumed)",
+        "corsair-hx1200i:shelf-load(assumed)",
+        "fan-power-harness:shelf-load(assumed)",
+        "fan120_aio_center_spacer:shelf-load(allowance)",
+        "fan120_aio_frame:shelf-load(allowance)",
+        "fan140_aio_frame:shelf-load(allowance)",
+        "fan140_aio_hose_brace:shelf-load(allowance)",
+        "fasteners:shelf-load(assumed)",
+        "gigabyte-x870e-aorus-pro:shelf-load(assumed)",
+        "gpu_exhaust_fan_flange:shelf-load(allowance)",
+        "gpu_rest:shelf-load(allowance)",
+        "h12d_mobo_adapter_rail:shelf-load(allowance)",
+        "huananzhi-h12d-8d:shelf-load(assumed)",
+        "keystone-1451b:shelf-load(assumed)",
+        "lian-li-ga2-lite-360:shelf-load(assumed)",
+        "micron-3400-2tb:shelf-load(assumed)",
+        "micron-3500-2tb:shelf-load(assumed)",
+        "micron-mta36asf4g72pz-2g9:shelf-load(assumed)",
+        "nvidia-mcx4131a-gcat:shelf-load(assumed)",
+        "obt-pcie-support:shelf-load(assumed)",
+        "pcie-8pin-90-adapter:shelf-load(assumed)",
+        "psu_bracket:shelf-load(allowance)",
+        "qsfp28-passive-dac:shelf-load(assumed)",
+        "rosewill-hercules-1600:shelf-load(review)",
+        "samsung-990-pro-4tb:shelf-load(assumed)",
+        "sff-8643-pcie-cable:shelf-load(assumed)",
+        "v100-tail-support:shelf-load(assumed)",
+        "v100_gpu_shroud:shelf-load(allowance)",
+        "wurth-970140324:shelf-load(assumed)",
+        "zotac-rtx-5090-solid:shelf-load(review)"
+      ]
     },
     {
       "type": "usb2-header",
@@ -323,16 +422,16 @@
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['nvidia-v100-pcie-16gb']; unlimited peak 1376.0 W",
+      "detail": "load 1096.0 W of 1600.0 W x derate 0.8 = 1280.0 W (68% of rating); relies on configured limits of ['amd-instinct-mi50-32gb']; unlimited peak 1576.0 W",
       "contributors": [
         "amd-epyc-7702p",
+        "amd-instinct-mi50-32gb",
         "aquacomputer-quadro",
         "corsair-h115i",
         "huananzhi-h12d-8d",
         "micron-3400-2tb",
         "micron-3500-2tb",
         "micron-mta36asf4g72pz-2g9",
-        "nvidia-v100-pcie-16gb",
         "sanyo-denki-9gv1412p1s001"
       ],
       "weak_evidence": [
@@ -594,7 +693,7 @@
         "berserk"
       ],
       "requirers": [
-        "nvidia-v100-pcie-16gb"
+        "amd-instinct-mi50-32gb"
       ],
       "providers": [
         "sanyo-denki-9gv1412p1s001"
@@ -919,7 +1018,7 @@
         "berserk"
       ],
       "requirers": [
-        "v100-eps-power-adapter"
+        "amd-instinct-mi50-32gb"
       ],
       "providers": [
         "rosewill-hercules-1600"
@@ -928,8 +1027,7 @@
       "status": "PROVISIONAL",
       "detail": "need 8 x pcie-8pin, have 16",
       "weak_evidence": [
-        "rosewill-hercules-1600:pcie-8pin(review)",
-        "v100-eps-power-adapter:pcie-8pin(listing)"
+        "rosewill-hercules-1600:pcie-8pin(review)"
       ]
     },
     {
@@ -938,18 +1036,18 @@
         "berserk"
       ],
       "requirers": [
-        "nvidia-v100-pcie-16gb"
+        "amd-instinct-mi50-32gb"
       ],
       "providers": [
         "huananzhi-h12d-8d"
       ],
       "rule": "value",
       "status": "PROVISIONAL",
-      "detail": "nvidia-v100-pcie-16gb needs 40.0; provided by huananzhi-h12d-8d",
+      "detail": "amd-instinct-mi50-32gb needs 40.0; provided by huananzhi-h12d-8d",
       "note": "",
       "weak_evidence": [
-        "huananzhi-h12d-8d:pcie-card-envelope(photo-estimate)",
-        "nvidia-v100-pcie-16gb:pcie-card-envelope(allowance)"
+        "amd-instinct-mi50-32gb:pcie-card-envelope(allowance)",
+        "huananzhi-h12d-8d:pcie-card-envelope(photo-estimate)"
       ]
     },
     {
@@ -1157,24 +1255,6 @@
       ]
     },
     {
-      "type": "rack-units",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [
-        "system"
-      ],
-      "providers": [
-        "rack-cabinet"
-      ],
-      "rule": "count",
-      "status": "PROVISIONAL",
-      "detail": "need 11 x rack-units, have 11",
-      "weak_evidence": [
-        "system:rack-units(allowance)"
-      ]
-    },
-    {
       "type": "radiator-mount",
       "systems": [
         "berserk"
@@ -1311,141 +1391,6 @@
       ]
     },
     {
-      "type": "shelf-load",
-      "systems": [
-        "shelf"
-      ],
-      "requirers": [],
-      "providers": [
-        "hammond-rsus1931bk1"
-      ],
-      "rule": "budget",
-      "status": "PROVISIONAL",
-      "detail": "load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating)",
-      "contributors": [
-        "amd-epyc-7702p",
-        "amd-ryzen-9-9950x3d",
-        "aquacomputer-quadro",
-        "asetek-tr4-bracket",
-        "atx_mobo_adapter_front",
-        "atx_mobo_adapter_rail",
-        "berserk_nic_holder",
-        "corsair-cmp64gx5m4b6400c32",
-        "corsair-h115i",
-        "corsair-hx1200i",
-        "fan-power-harness",
-        "fan120_aio_center_spacer",
-        "fan120_aio_frame",
-        "fan140_aio_frame",
-        "fan140_aio_hose_brace",
-        "fasteners",
-        "gigabyte-x870e-aorus-pro",
-        "gpu_exhaust_fan_flange",
-        "gpu_rest",
-        "h12d_mobo_adapter_rail",
-        "huananzhi-h12d-8d",
-        "keystone-1451b",
-        "lian-li-ga2-lite-360",
-        "linkreal-lrfc6911n",
-        "micron-3400-2tb",
-        "micron-3500-2tb",
-        "micron-mta36asf4g72pz-2g9",
-        "moddiy-eps-90-extension",
-        "nvidia-mcx4131a-gcat",
-        "nvidia-v100-pcie-16gb",
-        "obt-pcie-support",
-        "psu_bracket",
-        "qsfp28-passive-dac",
-        "rosewill-hercules-1600",
-        "samsung-990-pro-4tb",
-        "sanyo-denki-9gv1412p1s001",
-        "sff-8643-pcie-cable",
-        "v100-eps-power-adapter",
-        "v100-tail-support",
-        "v100_gpu_shroud",
-        "wurth-970140324",
-        "zotac-rtx-5090-solid"
-      ],
-      "weak_evidence": [
-        "amd-epyc-7702p:shelf-load(assumed)",
-        "amd-ryzen-9-9950x3d:shelf-load(assumed)",
-        "aquacomputer-quadro:shelf-load(assumed)",
-        "asetek-tr4-bracket:shelf-load(assumed)",
-        "atx_mobo_adapter_front:shelf-load(allowance)",
-        "atx_mobo_adapter_rail:shelf-load(allowance)",
-        "berserk_nic_holder:shelf-load(allowance)",
-        "corsair-cmp64gx5m4b6400c32:shelf-load(assumed)",
-        "corsair-h115i:shelf-load(assumed)",
-        "corsair-hx1200i:shelf-load(assumed)",
-        "fan-power-harness:shelf-load(assumed)",
-        "fan120_aio_center_spacer:shelf-load(allowance)",
-        "fan120_aio_frame:shelf-load(allowance)",
-        "fan140_aio_frame:shelf-load(allowance)",
-        "fan140_aio_hose_brace:shelf-load(allowance)",
-        "fasteners:shelf-load(assumed)",
-        "gigabyte-x870e-aorus-pro:shelf-load(assumed)",
-        "gpu_exhaust_fan_flange:shelf-load(allowance)",
-        "gpu_rest:shelf-load(allowance)",
-        "h12d_mobo_adapter_rail:shelf-load(allowance)",
-        "huananzhi-h12d-8d:shelf-load(assumed)",
-        "keystone-1451b:shelf-load(assumed)",
-        "lian-li-ga2-lite-360:shelf-load(assumed)",
-        "micron-3400-2tb:shelf-load(assumed)",
-        "micron-3500-2tb:shelf-load(assumed)",
-        "micron-mta36asf4g72pz-2g9:shelf-load(assumed)",
-        "moddiy-eps-90-extension:shelf-load(assumed)",
-        "nvidia-mcx4131a-gcat:shelf-load(assumed)",
-        "obt-pcie-support:shelf-load(assumed)",
-        "psu_bracket:shelf-load(allowance)",
-        "qsfp28-passive-dac:shelf-load(assumed)",
-        "rosewill-hercules-1600:shelf-load(review)",
-        "samsung-990-pro-4tb:shelf-load(assumed)",
-        "sff-8643-pcie-cable:shelf-load(assumed)",
-        "v100-eps-power-adapter:shelf-load(assumed)",
-        "v100-tail-support:shelf-load(assumed)",
-        "v100_gpu_shroud:shelf-load(allowance)",
-        "wurth-970140324:shelf-load(assumed)",
-        "zotac-rtx-5090-solid:shelf-load(review)"
-      ]
-    },
-    {
-      "type": "v100-aux-power",
-      "systems": [
-        "berserk"
-      ],
-      "requirers": [
-        "nvidia-v100-pcie-16gb"
-      ],
-      "providers": [
-        "v100-eps-power-adapter"
-      ],
-      "rule": "value",
-      "status": "PROVISIONAL",
-      "detail": "nvidia-v100-pcie-16gb needs CPU/EPS 8-pin; provided by v100-eps-power-adapter",
-      "note": "",
-      "weak_evidence": [
-        "v100-eps-power-adapter:v100-aux-power(listing)"
-      ]
-    },
-    {
-      "type": "v100-aux-power",
-      "systems": [
-        "berserk"
-      ],
-      "requirers": [
-        "nvidia-v100-pcie-16gb"
-      ],
-      "providers": [
-        "v100-eps-power-adapter"
-      ],
-      "rule": "count",
-      "status": "PROVISIONAL",
-      "detail": "need 4 x v100-aux-power=cpu/eps 8-pin, have 4",
-      "weak_evidence": [
-        "v100-eps-power-adapter:v100-aux-power(listing)"
-      ]
-    },
-    {
       "type": "cooler-mount",
       "systems": [
         "kenshin"
@@ -1502,15 +1447,15 @@
         "berserk"
       ],
       "requirers": [
-        "nvidia-v100-pcie-16gb"
+        "amd-instinct-mi50-32gb"
       ],
       "providers": [
         "huananzhi-h12d-8d"
       ],
       "rule": "value",
       "status": "PASS",
-      "detail": "nvidia-v100-pcie-16gb needs PCIe x16; provided by huananzhi-h12d-8d",
-      "note": "PCIe 3.0 card in a PCIe 4.0 slot",
+      "detail": "amd-instinct-mi50-32gb needs PCIe x16; provided by huananzhi-h12d-8d",
+      "note": "PCIe 4.0 x16 card (3.0 x16 fallback)",
       "weak_evidence": []
     },
     {
@@ -1519,7 +1464,7 @@
         "berserk"
       ],
       "requirers": [
-        "nvidia-v100-pcie-16gb"
+        "amd-instinct-mi50-32gb"
       ],
       "providers": [
         "huananzhi-h12d-8d"
@@ -1615,6 +1560,22 @@
       "weak_evidence": []
     },
     {
+      "type": "rack-units",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "system"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 6 x rack-units, have 11",
+      "weak_evidence": []
+    },
+    {
       "type": "sff-8643-port",
       "systems": [
         "berserk"
@@ -1684,24 +1645,24 @@
       "detail": "not in the assembly: fit coupon, not installed"
     },
     {
-      "part": "Berserk V100 16GB PCIE2 / Berserk BMC module survey",
+      "part": "Berserk MI50 32GB PCIE2 / Berserk BMC module survey",
       "status": "BLOCKED",
       "detail": "geometry conflict in the layout: unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
     },
     {
-      "part": "Berserk V100 16GB PCIE2 / Berserk SFF-8643 H12D plug",
+      "part": "Berserk MI50 32GB PCIE2 / Berserk SFF-8643 H12D plug",
       "status": "BLOCKED",
-      "detail": "geometry conflict in the layout: unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
+      "detail": "geometry conflict in the layout: unresolved: the photo-estimated H12D SFF-8643 ports sit under the GPU tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the GPU upgrade"
     },
     {
-      "part": "Berserk V100 16GB PCIE3 / Berserk BMC module survey",
+      "part": "Berserk MI50 32GB PCIE3 / Berserk BMC module survey",
       "status": "BLOCKED",
       "detail": "geometry conflict in the layout: unresolved conservative envelopes: BMC height and GPU underside are unmeasured; inspect actual clearance before assembly"
     },
     {
-      "part": "Berserk V100 16GB PCIE3 / Berserk SFF-8643 H12D plug",
+      "part": "Berserk MI50 32GB PCIE3 / Berserk SFF-8643 H12D plug",
       "status": "BLOCKED",
-      "detail": "geometry conflict in the layout: unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
+      "detail": "geometry conflict in the layout: unresolved: the photo-estimated H12D SFF-8643 ports sit under the GPU tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the GPU upgrade"
     }
   ],
   "renders": [],
@@ -1715,6 +1676,11 @@
       "part": "amd-epyc-7702p",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://www.amd.com/en/products/processors/server/epyc/7002-series/amd-epyc-7702p.html (run make datasheets)"
+    },
+    {
+      "part": "amd-instinct-mi50-32gb",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.amd.com/en/support/downloads/drivers.html/accelerators/instinct/instinct-mi-series/instinct-mi50-32gb.html (run make datasheets)"
     },
     {
       "part": "amd-ryzen-9-9950x3d",
@@ -1772,34 +1738,19 @@
       "detail": "not fetched locally: https://static6.arrow.com/aropdfconversion/2547cff09287eb6bd4dacd83d5c50d725f96917/3500-nvme-ssd-product-brief.pdf (run make datasheets)"
     },
     {
-      "part": "moddiy-eps-90-extension",
-      "status": "BLOCKED",
-      "detail": "MODDIY product page not recorded; the 18 mm projection is a design target, not a product dimension."
-    },
-    {
       "part": "obt-pcie-support",
       "status": "BLOCKED",
       "detail": "Open Benchtable publishes no drawing; the stud length is an owner measurement."
     },
     {
+      "part": "pcie-8pin-90-adapter",
+      "status": "BLOCKED",
+      "detail": "No product chosen yet; the 18 mm projection is a design target, not a product dimension."
+    },
+    {
       "part": "qsfp28-passive-dac",
       "status": "BLOCKED",
       "detail": "No cable chosen yet. The plug and cable dimensions are generic QSFP28 allowances; replace them with the chosen cable's drawing (for example an NVIDIA MCP1600 100GbE passive DAC, which the ConnectX-4 Lx runs at 50GbE)."
-    },
-    {
-      "part": "rack-cabinet",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://sysracks.com/product/12u-35-depth-foor-standing-sound-proof-server-cabinet-sp-12-900/ (run make datasheets)"
-    },
-    {
-      "part": "rack-cabinet",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2234/sysracks-soundproof-servrer-cabinet-manual.pdf (run make datasheets)"
-    },
-    {
-      "part": "rack-cabinet",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2918/12u600x900-soundproof-1-1024x726.png (run make datasheets)"
     },
     {
       "part": "rosewill-hercules-1600",
@@ -1815,11 +1766,6 @@
       "part": "silicone-gasket-2mm",
       "status": "BLOCKED",
       "detail": "Generic sheet."
-    },
-    {
-      "part": "v100-eps-power-adapter",
-      "status": "BLOCKED",
-      "detail": "Generic marketplace adapter; check its pinout against the NVIDIA brief before use."
     },
     {
       "part": "v100-tail-support",
@@ -1841,6 +1787,12 @@
     "amd-epyc-7702p": {
       "datasheet": 1,
       "assumed": 1
+    },
+    "amd-instinct-mi50-32gb": {
+      "datasheet": 3,
+      "standard": 1,
+      "allowance": 1,
+      "unknown": 2
     },
     "amd-ryzen-9-9950x3d": {
       "datasheet": 1,
@@ -1950,22 +1902,18 @@
     "micron-mta36asf4g72pz-2g9": {
       "assumed": 2
     },
-    "moddiy-eps-90-extension": {
-      "allowance": 1,
-      "assumed": 1
-    },
     "nvidia-mcx4131a-gcat": {
       "datasheet": 5,
       "assumed": 3,
       "standard": 4,
       "allowance": 1
     },
-    "nvidia-v100-pcie-16gb": {
-      "datasheet": 4,
-      "allowance": 1
-    },
     "obt-pcie-support": {
       "measured": 1,
+      "allowance": 1,
+      "assumed": 1
+    },
+    "pcie-8pin-90-adapter": {
       "allowance": 1,
       "assumed": 1
     },
@@ -1997,9 +1945,6 @@
     },
     "tnut_fit_coupon": {
       "allowance": 1
-    },
-    "v100-eps-power-adapter": {
-      "assumed": 1
     },
     "v100-tail-support": {
       "allowance": 2,

@@ -13,7 +13,7 @@ Library spec: [parts/purchased/rack-cabinet](../../parts/purchased/rack-cabinet/
 
 ## Assembly
 
-- **not in the assembly**: cabinet not identified; nothing to model
+- **not in the assembly**: SysRacks SP 12.900; the GPU lab layout models the shelf only
 
 ## Compatibility checks
 

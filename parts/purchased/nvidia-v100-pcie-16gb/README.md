@@ -16,15 +16,12 @@ card. Thickness, slot offset and flange holes are provisional.
 
 ## Used in
 
-| Build | Qty | Status | Role |
-| --- | ---: | --- | --- |
-| [aipc](../../../aipc/parts/nvidia-v100-pcie-16gb.md) | 4 | selected | Berserk GPUs (passive, ducted) |
+- No build references this part.
 
 ## Model
 
 - [nvidia-v100-pcie-16gb.step](nvidia-v100-pcie-16gb.step)
 - Source: constructed. Body envelope plus bracket-flange hole survey.
-- Written by the `aipc` build's generator
 
 ## Datasheets
 

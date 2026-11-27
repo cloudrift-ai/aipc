@@ -1,5 +1,5 @@
 {
-  "status": "Hammond sliding-shelf fit prototype; factory dimensions sourced, physical interfaces unmeasured. BMC/GPU underside clearance unresolved; planned angled-EPS routes clear nominal geometry",
+  "status": "Hammond sliding-shelf fit prototype; factory dimensions sourced, physical interfaces unmeasured. BMC/GPU underside clearance unresolved; planned angled PCIe 8-pin routes clear nominal geometry",
   "AIO_fan_outline_revision": {
     "date": "2026-10-18",
     "Berserk": {
@@ -264,7 +264,7 @@
     "component_conflicts": [
       {
         "components": [
-          "Berserk V100 16GB PCIE2",
+          "Berserk MI50 32GB PCIE2",
           "Berserk BMC module survey"
         ],
         "overlap_z_mm": 0.125,
@@ -272,15 +272,15 @@
       },
       {
         "components": [
-          "Berserk V100 16GB PCIE2",
+          "Berserk MI50 32GB PCIE2",
           "Berserk SFF-8643 H12D plug"
         ],
         "overlap_z_mm": 4.225,
-        "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
+        "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the GPU tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the GPU upgrade"
       },
       {
         "components": [
-          "Berserk V100 16GB PCIE3",
+          "Berserk MI50 32GB PCIE3",
           "Berserk BMC module survey"
         ],
         "overlap_z_mm": 0.125,
@@ -288,15 +288,15 @@
       },
       {
         "components": [
-          "Berserk V100 16GB PCIE3",
+          "Berserk MI50 32GB PCIE3",
           "Berserk SFF-8643 H12D plug"
         ],
         "overlap_z_mm": 4.225,
-        "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
+        "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the GPU tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the GPU upgrade"
       }
     ],
     "cable_conflicts": [],
-    "action": "measure BMC components/headers and GPU underside; verify angled EPS projection, SP3 cooler and cables before installation; do not use intersecting parts"
+    "action": "measure BMC components/headers and GPU underside; verify angled PCIe plug projection, SP3 cooler and cables before installation; do not use intersecting parts"
   },
   "historical_observation_2026_10_10": {
     "Berserk_GPU_count": 2,
@@ -341,7 +341,7 @@
       "PCIE3": 16,
       "PCIE4": 16
     },
-    "V100_link": "PCIe 3.0 x16 each",
+    "GPU_link": "PCIe 4.0 x16 each (MI50)",
     "populated_ATX_sites": [
       "A",
       "C",
@@ -376,8 +376,8 @@
         295.64368013757525
       ]
     ],
-    "angled_EPS_projection_target_mm": 18.0,
-    "angled_EPS_status": "candidate only; verify pinout, current rating, exit direction and installed projection",
+    "angled_PCIe_plug_projection_target_mm": 18.0,
+    "angled_PCIe_plug_status": "candidate only; verify socket position, current rating, exit direction and installed projection",
     "physical_fit_verified": false
   },
   "Kenshin_clearance_revision": {
@@ -389,10 +389,10 @@
   },
   "selected_upgrade": {
     "Berserk_GPU_count": 4,
-    "GPU_model": "NVIDIA Tesla V100 PCIe 16GB",
+    "GPU_model": "AMD Instinct MI50 32GB",
     "installed": false,
-    "aggregate_separate_VRAM_GB": 64,
-    "GPU_board_power_max_W": 1000,
+    "aggregate_separate_VRAM_GB": 128,
+    "GPU_board_power_max_W": 1200,
     "commissioning_start_power_limit_W_each": 180,
     "slot_lane_widths": {
       "PCIE1": 16,
@@ -401,10 +401,10 @@
       "PCIE4": 16
     },
     "slot_positions_basis": "H12D-8D manufacturer photograph plus nominal 40.64 mm dual-slot pitch; physical survey required",
-    "V100_body_dimension_source": "NVIDIA PB-08744-001_v03 figure 3: 266.70 x 111.15 mm; thickness is a 40 mm survey envelope",
+    "GPU_body_dimension_source": "AMD MI50 (32GB) specifications: 267 mm length, full height (CEM 111.15 mm); thickness is a 40 mm survey envelope",
     "NICs": "Kenshin's ConnectX-4 Lx in the chipset slot behind the RTX 5090 (bracket on the right shelf edge); Berserk's on the LRFC6911N riser in the printed holder beside Kenshin's side AIO",
     "link": "QSFP28 passive DAC between the two cards; see the network section",
-    "software": "Qwen3.8-27B Volta decoder and hybrid KV/state handoff require validation before purchase"
+    "software": "gfx906 is out of official support in current ROCm releases; validate the planned ROCm, llama.cpp or vLLM build on one card before buying four"
   },
   "Hammond_layout_revision": {
     "date": "2026-11-05",
@@ -546,7 +546,7 @@
     "Berserk_and_Kenshin_motherboards": "two interlocking flat sections per board, each with at least four non-collinear motherboard screws; five independent shelf anchors (two front ears, three under-PCB); eight choices per common rail; eight Berserk and nine Kenshin metal standoffs (Kenshin B optional)",
     "Berserk_and_Kenshin_PSUs": "each PSU rests on steel and uses two upper factory screws for lateral restraint; each open rear frame has a continuous lower rail and a symmetric two-slot shelf foot; PSU patterns and plug clearances remain unmeasured",
     "Berserk_H115i": "trimmed fan-flush replacements preserve the owner-fitted sandwich's ledges,40mm feet and factory axes; ledges bear radiator, 40mm feet fully supported on shelf; revised slots and loaded fit require checking",
-    "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x8 lower screws through two OD12x1 and two OD7x0.5 washers leave1.52mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each V100 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
+    "five_GPUs": "Ten OBT posts use14mm M3 through-thread SW5.5 bases passing freely through plastic and seating directly on sound steel. M3x8 lower screws through two OD12x1 and two OD7x0.5 washers leave1.52mm nominal gap to owner-reported9mm OBT studs. Five separate shelf bolts retain each adapter pair. Fixed OBT nut height must be checked with fully seated cards. Each MI50 also has a purchased M4 female/female 20 mm tail spacer with a 4 mm silicone bearing pad; avoid bare PCB components",
     "V100_cooling": "single Sanyo140mm fan on integral45-degree panel; broad3.2mm HT-PLA-GF rear-array hood with6mm base and three internalM4 shelf slots;no fitted collar or individual post cuts;flexible nonconductive inlet seal required;M4 T-nut pockets;physical and thermal qualification pending",
     "Kenshin_AIO": "three coplanar owned fans pull outward past the left deck edge through the 360 radiator at20mm bottom height; two120mm frames with33mm feet inside the AIO footprint bear the radiator weight directly on the deck, plus one plain6mm middle spacer; twelve shared fan/radiator screws clamp the stack; no inward brace; loaded PETG fit unverified",
     "overall": "balanced drilled-hole concept is plausible, but physical holes, PETG stiffness, cooling and GPU post load paths are unverified"
@@ -1432,14 +1432,13 @@
     "use wide steel washers or backing strips beneath concentrated brackets, especially GPU post joints; deburr and protect drilled steel edges",
     "Berserk board has only4.656mm nominal clearance to the right shelf edge; Kenshin's I/O edge sits 25mm inside it with its rear rail flush to the edge; actual board and shelf fit must be checked",
     "Kenshin's rear I/O, 5090 and ConnectX brackets face the right shelf edge: plugged cables (I/O approach reaches 1.328mm past the 450mm rack opening) must be unplugged or use right-angle plugs before the shelf slides",
-    "V100 factory length/height are documented, but thickness, four PCIe slot centers, flange holes, tail bearing points and EPS connector sweeps must be surveyed on the selected PCIe cards",
-    "remove shipping/retention extenders; the model uses the 266.7 mm bare-card length, not 312 or 339 mm with extenders",
+    "MI50 length is from AMD and height is the CEM full-height value, but thickness, four PCIe slot centers, flange holes, tail bearing points, the PCIe 8-pin socket position and plug sweeps must be surveyed on the selected cards",
     "four adjacent dual-slot cards have only 0.64 mm nominal lateral margin at a 40 mm survey thickness; verify screws, shrouds and motherboard components",
     "Hood high-X sidewall must be dry-fitted against actual Berserk rear ports and any I/O shield; unmeasured connector bodies are not established clear by the simplified assembly",
-    "HT-PLA-GF V100 plenum must seal all four heatsinks and rear-post clearance; free-air ratings do not establish operating airflow; inspect actual loaded temperatures and stiffness",
-    "keep Qwen decoder and RDMA readiness separate from mechanical fit; current standard vLLM excludes Volta and direct GPU memory transfer is topology-dependent",
+    "HT-PLA-GF GPU plenum must seal all four heatsinks and rear-post clearance; free-air ratings do not establish operating airflow; inspect actual loaded temperatures and stiffness",
+    "keep Qwen decoder and RDMA readiness separate from mechanical fit; MI50 (gfx906) needs a ROCm build that still supports it, and direct GPU memory transfer is topology-dependent",
     "PSU rear hole patterns, inlet and modular cable bends require physical measurement; keep each PSU's original modular cables",
-    "H115i original brackets are owner-fitted in a fan/frame/radiator sandwich; approximate13mm overhang from owner, ledges touch at Z20; angled EPS plugs are modeled with an unverified 18mm projection target; actual product dimensions, electrical pinout and cable bends must be checked",
+    "H115i original brackets are owner-fitted in a fan/frame/radiator sandwich; approximate13mm overhang from owner, ledges touch at Z20; angled PCIe 8-pin plugs are modeled with an unverified 18mm projection target; actual product dimensions, the MI50 socket position and cable bends must be checked",
     "Side AIO screw heads reach X-12.672 (1mm inside the 450mm opening) and the radiator reaches Y805.4; front fans start Y-16. Measure rack rails, doors and cabinet side intake space. Disconnect fixed-rack cables and exhaust duct before sliding",
     "ten selected GPU posts need ten14mm Wurth970140324 M3 female bases and M3x8 lower screws (3.48mm nominal engagement,1.52mm nominal gap to owner-reported9mm stud); plastic does not carry their clamp load. Eight selectable slots per board do not require populating all16. Verify fixed OBT nut height with seated card; PCIE1 high-X positions are unverified envelope-derived points near I/O, not manufacturer holes. Ten replacement14mm bases are required; ten rods total (six previously ordered, four additional). Both add-in NICs and risers are deferred",
     "ground each motherboard with a metal lead from a standoff to the steel shelf; printed adapters are insulating",
@@ -1454,15 +1453,15 @@
     "planning_band_to_PSU_top_mm": 72.25,
     "planning_band_to_radiator_mm": 62.25,
     "H115i_bottom_to_shelf_deck_mm": 20.0,
-    "planning_band_to_V100_power_route_mm": 7.25,
+    "planning_band_to_GPU_power_route_mm": 7.25,
     "planning_band_to_5090_cable_keepout_mm": 25.45,
-    "lower_reference_V100_power_route_deficit_mm": 37.2,
+    "lower_reference_GPU_power_route_deficit_mm": 37.2,
     "radiator_to_Berserk_board_depth_gap_mm": 57.2,
-    "radiator_to_planned_V100_power_plug_gap_mm": 17.5,
+    "radiator_to_planned_GPU_power_plug_gap_mm": 17.2,
     "Berserk_GPU_tail_to_Kenshin_board_gap_mm": 78.58,
     "Berserk_GPU_tail_to_Kenshin_GPU_y_gap_mm": 275.78,
     "Berserk_GPU_to_GPU_x_gap_mm": 0.64,
-    "Berserk_PSU_to_nearest_V100_x_gap_mm": 21.62,
+    "Berserk_PSU_to_nearest_GPU_x_gap_mm": 21.62,
     "Berserk_PSU_left_overhang_mm": 10.0,
     "V100_fan_bbox_to_Kenshin_board_signed_y_gap_mm": -15.659,
     "Kenshin_board_rear_to_PSU_y_gap_mm": 0.1,
@@ -1502,44 +1501,44 @@
       "note": "H12D-8D + BMC; manufacturer photograph and ATX datums, delivered revision and interfaces unmeasured"
     },
     {
-      "name": "Berserk V100 16GB PCIE1",
+      "name": "Berserk MI50 32GB PCIE1",
       "x": 219.54,
-      "y": 75.5,
+      "y": 75.19999999999999,
       "z": 24,
       "w": 40.0,
-      "d": 266.7,
+      "d": 267.0,
       "h": 111.15,
-      "note": "NVIDIA PCIe 16GB passive card; factory drawing body, provisional slot and 40 mm thickness; remove shipping extenders"
+      "note": "AMD Instinct MI50 32GB passive card; AMD length, CEM full height, provisional slot and 40 mm thickness"
     },
     {
-      "name": "Berserk V100 16GB PCIE2",
+      "name": "Berserk MI50 32GB PCIE2",
       "x": 178.9,
-      "y": 75.5,
+      "y": 75.19999999999999,
       "z": 24,
       "w": 40.0,
-      "d": 266.7,
+      "d": 267.0,
       "h": 111.15,
-      "note": "NVIDIA PCIe 16GB passive card; factory drawing body, provisional slot and 40 mm thickness; remove shipping extenders"
+      "note": "AMD Instinct MI50 32GB passive card; AMD length, CEM full height, provisional slot and 40 mm thickness"
     },
     {
-      "name": "Berserk V100 16GB PCIE3",
+      "name": "Berserk MI50 32GB PCIE3",
       "x": 138.26,
-      "y": 75.5,
+      "y": 75.19999999999999,
       "z": 24,
       "w": 40.0,
-      "d": 266.7,
+      "d": 267.0,
       "h": 111.15,
-      "note": "NVIDIA PCIe 16GB passive card; factory drawing body, provisional slot and 40 mm thickness; remove shipping extenders"
+      "note": "AMD Instinct MI50 32GB passive card; AMD length, CEM full height, provisional slot and 40 mm thickness"
     },
     {
-      "name": "Berserk V100 16GB PCIE4",
+      "name": "Berserk MI50 32GB PCIE4",
       "x": 97.62,
-      "y": 75.5,
+      "y": 75.19999999999999,
       "z": 24,
       "w": 40.0,
-      "d": 266.7,
+      "d": 267.0,
       "h": 111.15,
-      "note": "NVIDIA PCIe 16GB passive card; factory drawing body, provisional slot and 40 mm thickness; remove shipping extenders"
+      "note": "AMD Instinct MI50 32GB passive card; AMD length, CEM full height, provisional slot and 40 mm thickness"
     },
     {
       "name": "Berserk SP3 CPU and pump survey",
@@ -1659,7 +1658,7 @@
       "w": 22.0,
       "d": 80.0,
       "h": 2.4,
-      "note": "Micron 3400 2 TB NVMe (MTFDKBA2T0TFH) at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
+      "note": "Micron 3400 2 TB NVMe (MTFDKBA2T0TFH) at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the MI50s unverified"
     },
     {
       "name": "Berserk M2 SSD 2",
@@ -1669,7 +1668,7 @@
       "w": 22.0,
       "d": 80.0,
       "h": 2.4,
-      "note": "Micron 3400 2 TB NVMe (MTFDKBA2T0TFH) at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
+      "note": "Micron 3400 2 TB NVMe (MTFDKBA2T0TFH) at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the MI50s unverified"
     },
     {
       "name": "Berserk M2 SSD 3",
@@ -1679,7 +1678,7 @@
       "w": 22.0,
       "d": 80.0,
       "h": 2.4,
-      "note": "Micron 3500 2 TB NVMe (MTFDKBA2T0TGD) at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the V100s unverified"
+      "note": "Micron 3500 2 TB NVMe (MTFDKBA2T0TGD) at photo-estimated M.2 standoffs; connector end assumed toward the front; clearance beneath the MI50s unverified"
     },
     {
       "name": "Kenshin ATX board",
@@ -1844,44 +1843,84 @@
   ],
   "large_connector_keepouts_mm": [
     {
-      "name": "V100 PCIE1 angled EPS plug target",
+      "name": "MI50 PCIE1 angled PCIe plug target 1",
       "x": 244.54,
-      "y": 57.5,
+      "y": 57.19999999999999,
       "z": 94,
       "w": 15,
       "d": 18.0,
       "h": 22,
-      "note": "18mm target projection only, not a measured product; use CPU/EPS pinout after V100 dual-PCIe-to-EPS adapter, verify exit direction, current rating and bends"
+      "note": "18mm target projection only, not a measured product; two 90 degree PCIe 8-pin adapters per card; the MI50 socket position is unpublished: measure it, the exit direction and the bends"
     },
     {
-      "name": "V100 PCIE2 angled EPS plug target",
+      "name": "MI50 PCIE1 angled PCIe plug target 2",
+      "x": 244.54,
+      "y": 57.19999999999999,
+      "z": 70,
+      "w": 15,
+      "d": 18.0,
+      "h": 22,
+      "note": "18mm target projection only, not a measured product; two 90 degree PCIe 8-pin adapters per card; the MI50 socket position is unpublished: measure it, the exit direction and the bends"
+    },
+    {
+      "name": "MI50 PCIE2 angled PCIe plug target 1",
       "x": 203.9,
-      "y": 57.5,
+      "y": 57.19999999999999,
       "z": 94,
       "w": 15,
       "d": 18.0,
       "h": 22,
-      "note": "18mm target projection only, not a measured product; use CPU/EPS pinout after V100 dual-PCIe-to-EPS adapter, verify exit direction, current rating and bends"
+      "note": "18mm target projection only, not a measured product; two 90 degree PCIe 8-pin adapters per card; the MI50 socket position is unpublished: measure it, the exit direction and the bends"
     },
     {
-      "name": "V100 PCIE3 angled EPS plug target",
+      "name": "MI50 PCIE2 angled PCIe plug target 2",
+      "x": 203.9,
+      "y": 57.19999999999999,
+      "z": 70,
+      "w": 15,
+      "d": 18.0,
+      "h": 22,
+      "note": "18mm target projection only, not a measured product; two 90 degree PCIe 8-pin adapters per card; the MI50 socket position is unpublished: measure it, the exit direction and the bends"
+    },
+    {
+      "name": "MI50 PCIE3 angled PCIe plug target 1",
       "x": 163.26,
-      "y": 57.5,
+      "y": 57.19999999999999,
       "z": 94,
       "w": 15,
       "d": 18.0,
       "h": 22,
-      "note": "18mm target projection only, not a measured product; use CPU/EPS pinout after V100 dual-PCIe-to-EPS adapter, verify exit direction, current rating and bends"
+      "note": "18mm target projection only, not a measured product; two 90 degree PCIe 8-pin adapters per card; the MI50 socket position is unpublished: measure it, the exit direction and the bends"
     },
     {
-      "name": "V100 PCIE4 angled EPS plug target",
+      "name": "MI50 PCIE3 angled PCIe plug target 2",
+      "x": 163.26,
+      "y": 57.19999999999999,
+      "z": 70,
+      "w": 15,
+      "d": 18.0,
+      "h": 22,
+      "note": "18mm target projection only, not a measured product; two 90 degree PCIe 8-pin adapters per card; the MI50 socket position is unpublished: measure it, the exit direction and the bends"
+    },
+    {
+      "name": "MI50 PCIE4 angled PCIe plug target 1",
       "x": 122.62,
-      "y": 57.5,
+      "y": 57.19999999999999,
       "z": 94,
       "w": 15,
       "d": 18.0,
       "h": 22,
-      "note": "18mm target projection only, not a measured product; use CPU/EPS pinout after V100 dual-PCIe-to-EPS adapter, verify exit direction, current rating and bends"
+      "note": "18mm target projection only, not a measured product; two 90 degree PCIe 8-pin adapters per card; the MI50 socket position is unpublished: measure it, the exit direction and the bends"
+    },
+    {
+      "name": "MI50 PCIE4 angled PCIe plug target 2",
+      "x": 122.62,
+      "y": 57.19999999999999,
+      "z": 70,
+      "w": 15,
+      "d": 18.0,
+      "h": 22,
+      "note": "18mm target projection only, not a measured product; two 90 degree PCIe 8-pin adapters per card; the MI50 socket position is unpublished: measure it, the exit direction and the bends"
     },
     {
       "name": "Berserk AC plug + tail",
@@ -3198,22 +3237,22 @@
       "note": "Rises at the RJ45 boot above Kenshin's side-facing I/O and card brackets, then runs rearward in the right-edge lane.",
       "polyline_length_mm": 747.86
     },
-    "V100 PCIE1 power": {
+    "MI50 PCIE1 power": {
       "od_mm": 10,
       "points_mm": [
         [
           251.54,
-          63.5,
+          63.19999999999999,
           105
         ],
         [
           251.54,
-          63.5,
+          63.19999999999999,
           210
         ],
         [
           111,
-          63.5,
+          63.19999999999999,
           210
         ],
         [
@@ -3227,25 +3266,25 @@
           110
         ]
       ],
-      "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
-      "polyline_length_mm": 416.98
+      "note": "One Hercules dual-head PCIe 8-pin cable per card, from the 90 degree adapters above the front radiator to the PSU; measure connector bulk and bend radius.",
+      "polyline_length_mm": 416.73
     },
-    "V100 PCIE2 power": {
+    "MI50 PCIE2 power": {
       "od_mm": 10,
       "points_mm": [
         [
           210.9,
-          63.5,
+          63.19999999999999,
           105
         ],
         [
           210.9,
-          63.5,
+          63.19999999999999,
           210
         ],
         [
           99,
-          63.5,
+          63.19999999999999,
           210
         ],
         [
@@ -3259,25 +3298,25 @@
           110
         ]
       ],
-      "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
-      "polyline_length_mm": 388.34
+      "note": "One Hercules dual-head PCIe 8-pin cable per card, from the 90 degree adapters above the front radiator to the PSU; measure connector bulk and bend radius.",
+      "polyline_length_mm": 388.09
     },
-    "V100 PCIE3 power": {
+    "MI50 PCIE3 power": {
       "od_mm": 10,
       "points_mm": [
         [
           170.26,
-          63.5,
+          63.19999999999999,
           105
         ],
         [
           170.26,
-          63.5,
+          63.19999999999999,
           210
         ],
         [
           87,
-          63.5,
+          63.19999999999999,
           210
         ],
         [
@@ -3291,25 +3330,25 @@
           110
         ]
       ],
-      "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
-      "polyline_length_mm": 359.7
+      "note": "One Hercules dual-head PCIe 8-pin cable per card, from the 90 degree adapters above the front radiator to the PSU; measure connector bulk and bend radius.",
+      "polyline_length_mm": 359.45
     },
-    "V100 PCIE4 power": {
+    "MI50 PCIE4 power": {
       "od_mm": 10,
       "points_mm": [
         [
           129.62,
-          63.5,
+          63.19999999999999,
           105
         ],
         [
           129.62,
-          63.5,
+          63.19999999999999,
           210
         ],
         [
           75,
-          63.5,
+          63.19999999999999,
           210
         ],
         [
@@ -3323,8 +3362,8 @@
           110
         ]
       ],
-      "note": "Candidate low-profile CPU/EPS tails above the front radiator to the PSU; measure connector bulk, pinout and bend radius.",
-      "polyline_length_mm": 331.06
+      "note": "One Hercules dual-head PCIe 8-pin cable per card, from the 90 degree adapters above the front radiator to the PSU; measure connector bulk and bend radius.",
+      "polyline_length_mm": 330.81
     },
     "QSFP28 DAC": {
       "od_mm": 6.5,
@@ -3434,7 +3473,7 @@
       "part": "PCIE1-metal-tail-support",
       "center_xy_mm": [
         239.54,
-        85.5
+        85.19999999999999
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -3447,7 +3486,7 @@
       "part": "PCIE2-metal-tail-support",
       "center_xy_mm": [
         198.9,
-        85.5
+        85.19999999999999
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -3460,7 +3499,7 @@
       "part": "PCIE3-metal-tail-support",
       "center_xy_mm": [
         158.26,
-        85.5
+        85.19999999999999
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
@@ -3473,7 +3512,7 @@
       "part": "PCIE4-metal-tail-support",
       "center_xy_mm": [
         117.62,
-        85.5
+        85.19999999999999
       ],
       "diameter_mm": 5.0,
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",

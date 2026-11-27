@@ -2,7 +2,7 @@
 
 Two PCs arranged front to back on a **Hammond RSUS1931BK1 sliding shelf**, using printed mounts instead of cases. The solid tray is **422.656 × 787.4 mm**, with factory-matched slides. The overhead GPU exhaust needs additional rack height.
 
-- **Berserk**: HUANANZHI H12D-8D with an AMD EPYC 7702P, **256 GB (8 × 32 GB) Micron DDR4-2933 ECC RDIMM**, and **four NVIDIA V100 PCIe** cards cooled by one 140 mm pressure fan through a printed hood and an overhead exhaust duct. Storage: **three 2 TB Micron NVMe drives (two 3400s, one 3500) in RAID 0** (6 TB nominal), holding the OS and model weights. Corsair H115i AIO at the front.
+- **Berserk**: HUANANZHI H12D-8D with an AMD EPYC 7702P, **256 GB (8 × 32 GB) Micron DDR4-2933 ECC RDIMM**, and **four AMD Instinct MI50 32 GB** cards cooled by one 140 mm pressure fan through a printed hood and an overhead exhaust duct. Storage: **three 2 TB Micron NVMe drives (two 3400s, one 3500) in RAID 0** (6 TB nominal), holding the OS and model weights. Corsair H115i AIO at the front.
 - **Kenshin**: Gigabyte X870E AORUS PRO with a Ryzen 9 9950X3D and an **RTX 5090**. Lian Li GA II LITE 360 AIO along the left edge. Kenshin is turned so its rear I/O and PCIe brackets face the right shelf edge, which keeps its ConnectX slot reachable.
 
 ![Shelf layout and side clearance](models/dual-pc-hammond-layout.png)
@@ -39,7 +39,7 @@ One model per unique part, in its library folder (see [parts/](parts/README.md#p
 | --- | ---: | --- |
 | `atx_mobo_adapter_front` | 2 | Shelf-front half of each motherboard adapter (common to both boards) |
 | `atx_mobo_adapter_rail` | 1 | Rear half with GPU-post rail at standard ATX positions (Kenshin) |
-| `h12d_mobo_adapter_rail` | 1 | Rear half with the rail shifted for four dual-slot V100s (Berserk) |
+| `h12d_mobo_adapter_rail` | 1 | Rear half with the rail shifted for four dual-slot GPUs (Berserk) |
 | `psu_bracket` | 2 | Rear restraint for an 86 × 150 mm ATX PSU face (both PSUs) |
 | `fan140_aio_frame` | 2 | 140 mm fan/radiator frame with bearing ledge (H115i) |
 | `fan140_aio_hose_brace` | 1 | Hose-end brace for the 140 mm radiator |
@@ -47,7 +47,7 @@ One model per unique part, in its library folder (see [parts/](parts/README.md#p
 | `berserk_nic_holder` | 1 | Holder for Berserk's NIC riser and ConnectX card, beside the side AIO |
 | `fan120_aio_center_spacer` | 1 | Keeps the middle 120 mm fan coplanar |
 | `gpu_rest` | 1 | Front-end rest for the RTX 5090 |
-| `v100_gpu_shroud` | 1 | Hood over the four V100s with integral 45° fan panel |
+| `v100_gpu_shroud` | 1 | Hood over the four MI50s with integral 45° fan panel (part name kept from the V100 design) |
 | `gpu_exhaust_fan_flange` | 1 | Fan outlet to 6-inch duct |
 | `gpu_exhaust_roof_flange` | 1 | Duct to cabinet inner ceiling |
 | `tnut_fit_coupon` | 1 | Test print for the M4 T-nut pocket |

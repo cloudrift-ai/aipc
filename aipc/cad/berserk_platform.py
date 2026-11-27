@@ -42,7 +42,7 @@ GPU_WIDTH = 40.0  # provisional 36 mm component side / 4 mm back side
 GPU_CENTER = (min(GPU_BODY_X.values())+max(GPU_BODY_X.values())+GPU_WIDTH)/2
 CPU_CENTER = photo_xy(833,397)
 M2_STANDOFFS = [photo_xy(430,y) for y in (892,1088,1284)]
-EPS_PROJECTION = 18.0  # target allowance for angled EPS, NOT a product dimension
+PLUG_PROJECTION = 18.0  # target allowance for 90 degree PCIe 8-pin adapters, NOT a product dimension
 
 def report():
     return {'date':'2026-10-20','motherboard':MODEL,'cpu':CPU,
@@ -53,11 +53,11 @@ def report():
         'installed':False,'BMC':'included per listing; remote console/media not tested',
         'slot_PCB_planes_x_mm':SLOT_PLANES,'GPU_body_low_x_mm':GPU_BODY_X,
         'GPU_body_offset_basis':'provisional 36 mm toward low X, 4 mm toward high X; measure real PCIe card',
-        'slot_lane_widths':{k:16 for k in SLOT_PLANES},'V100_link':'PCIe 3.0 x16 each',
+        'slot_lane_widths':{k:16 for k in SLOT_PLANES},'GPU_link':'PCIe 4.0 x16 each (MI50)',
         'populated_ATX_sites':POPULATED_SITES,'absent_ATX_sites':['B','J'],
         'hole_basis':'ATX 2.01 datums; eight sites visible in manufacturer photograph; delivered PCB unmeasured',
         'placement_basis':PHOTO+'; photo estimates, not manufacturer CAD',
         'CPU_center_xy_mm':CPU_CENTER,'M2_2280_standoffs_xy_mm':M2_STANDOFFS,
-        'angled_EPS_projection_target_mm':EPS_PROJECTION,
-        'angled_EPS_status':'candidate only; verify pinout, current rating, exit direction and installed projection',
+        'angled_PCIe_plug_projection_target_mm':PLUG_PROJECTION,
+        'angled_PCIe_plug_status':'candidate only; verify socket position, current rating, exit direction and installed projection',
         'physical_fit_verified':False}

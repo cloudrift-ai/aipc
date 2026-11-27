@@ -1,0 +1,20 @@
+part = "purchased/amd-instinct-mi50-32gb"
+role = "Berserk GPUs (passive, ducted)"
+status = "selected"
+quantity = 4
+systems = ["berserk"]
+notes = """
+Replaces the four V100s (owner, 2026-11-27). Same bracket plane as the V100s, so
+the printed rail posts and the hood are unchanged; the 0.3 mm longer body moves
+the tail ends toward the front radiator. The card body and its power cable
+route are one unit here: one Hercules dual-head PCIe 8-pin cable per card.
+"""
+
+[[requires]]
+type = "dc-power"
+load_limited = 180.0
+note = "rocm-smi power cap 180 W per card for first runs, set at boot; four uncapped cards (1,200 W) overload the Hercules budget"
+
+[assembly]
+match = ["^Berserk_MI50_32GB_PCIE\\d$", "^Berserk_PCIE\\d_GPU_flange_hole_pattern_survey$", "^MI50_PCIE\\d_power_survey_segment_\\d+$"]
+instances_per_unit = 6

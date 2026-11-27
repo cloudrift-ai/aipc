@@ -25,6 +25,6 @@ Library spec: [parts/purchased/rack-cabinet](../../parts/purchased/rack-cabinet/
 | BLOCKED | value | `cabinet-height-above-shelf` | system needs 400.0; provider value unknown |
 | BLOCKED | value | `cabinet-rear-clearance` | system needs 135.7; provider value unknown |
 | BLOCKED | value | `rack-post-depth` | hammond-rsus1931bk1 needs 457.2..711.2; provider value unknown |
-| provisional | count | `rack-units` | need 11 x rack-units, have 11 |
 | pass | value | `rack-standard` | hammond-rsus1931bk1 needs EIA-310 19 in; provided by rack-cabinet |
+| pass | count | `rack-units` | need 6 x rack-units, have 11 |
 

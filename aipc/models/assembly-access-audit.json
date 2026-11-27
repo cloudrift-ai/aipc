@@ -686,7 +686,7 @@
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk ATX board",
-        "Berserk V100 16GB PCIE3"
+        "Berserk MI50 32GB PCIE3"
       ]
     },
     {
@@ -715,7 +715,7 @@
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk ATX board",
-        "Berserk V100 16GB PCIE1"
+        "Berserk MI50 32GB PCIE1"
       ]
     },
     {
@@ -744,7 +744,7 @@
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk ATX board",
-        "Berserk V100 16GB PCIE1"
+        "Berserk MI50 32GB PCIE1"
       ]
     },
     {
@@ -1574,7 +1574,7 @@
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
       "center_xy_mm": [
         239.54,
-        85.5
+        85.19999999999999
       ],
       "driver_side": "below shelf",
       "washer_max_od_mm": 12,
@@ -1589,7 +1589,7 @@
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
       "center_xy_mm": [
         198.9,
-        85.5
+        85.19999999999999
       ],
       "driver_side": "below shelf",
       "washer_max_od_mm": 12,
@@ -1604,7 +1604,7 @@
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
       "center_xy_mm": [
         158.26,
-        85.5
+        85.19999999999999
       ],
       "driver_side": "below shelf",
       "washer_max_od_mm": 12,
@@ -1619,7 +1619,7 @@
       "fastener": "M4 from below with steel washer into stock M4 female/female 20 mm spacer; 4 mm silicone contact pad",
       "center_xy_mm": [
         117.62,
-        85.5
+        85.19999999999999
       ],
       "driver_side": "below shelf",
       "washer_max_od_mm": 12,
@@ -1692,97 +1692,97 @@
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE1 power",
+      "route": "MI50 PCIE1 power",
       "segment": 1,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE1 power",
+      "route": "MI50 PCIE1 power",
       "segment": 2,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE1 power",
+      "route": "MI50 PCIE1 power",
       "segment": 3,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE1 power",
+      "route": "MI50 PCIE1 power",
       "segment": 4,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE2 power",
+      "route": "MI50 PCIE2 power",
       "segment": 1,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE2 power",
+      "route": "MI50 PCIE2 power",
       "segment": 2,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE2 power",
+      "route": "MI50 PCIE2 power",
       "segment": 3,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE2 power",
+      "route": "MI50 PCIE2 power",
       "segment": 4,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE3 power",
+      "route": "MI50 PCIE3 power",
       "segment": 1,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE3 power",
+      "route": "MI50 PCIE3 power",
       "segment": 2,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE3 power",
+      "route": "MI50 PCIE3 power",
       "segment": 3,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE3 power",
+      "route": "MI50 PCIE3 power",
       "segment": 4,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE4 power",
+      "route": "MI50 PCIE4 power",
       "segment": 1,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE4 power",
+      "route": "MI50 PCIE4 power",
       "segment": 2,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE4 power",
+      "route": "MI50 PCIE4 power",
       "segment": 3,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     },
     {
-      "route": "V100 PCIE4 power",
+      "route": "MI50 PCIE4 power",
       "segment": 4,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
@@ -2531,7 +2531,7 @@
   "planned_upgrade_component_conflicts": [
     {
       "components": [
-        "Berserk V100 16GB PCIE2",
+        "Berserk MI50 32GB PCIE2",
         "Berserk BMC module survey"
       ],
       "overlap_z_mm": 0.125,
@@ -2539,15 +2539,15 @@
     },
     {
       "components": [
-        "Berserk V100 16GB PCIE2",
+        "Berserk MI50 32GB PCIE2",
         "Berserk SFF-8643 H12D plug"
       ],
       "overlap_z_mm": 4.225,
-      "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
+      "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the GPU tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the GPU upgrade"
     },
     {
       "components": [
-        "Berserk V100 16GB PCIE3",
+        "Berserk MI50 32GB PCIE3",
         "Berserk BMC module survey"
       ],
       "overlap_z_mm": 0.125,
@@ -2555,11 +2555,11 @@
     },
     {
       "components": [
-        "Berserk V100 16GB PCIE3",
+        "Berserk MI50 32GB PCIE3",
         "Berserk SFF-8643 H12D plug"
       ],
       "overlap_z_mm": 4.225,
-      "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the V100 tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the V100 upgrade"
+      "status": "unresolved: the photo-estimated H12D SFF-8643 ports sit under the GPU tails; locate the ports and measure the tail underside, or use a low-profile/right-angle plug, before the GPU upgrade"
     }
   ],
   "planned_upgrade_cable_conflicts": [],

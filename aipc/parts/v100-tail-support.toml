@@ -1,5 +1,5 @@
 part = "purchased/v100-tail-support"
-role = "V100 tail support"
+role = "MI50 tail support"
 status = "candidate"
 quantity = 4
 systems = ["berserk"]

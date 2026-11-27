@@ -19,8 +19,8 @@ Library spec: [parts/purchased/amd-ryzen-9-9950x3d](../../parts/purchased/amd-ry
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
+| BLOCKED | budget | `shelf-load` | load 18.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-instinct-mi50-32gb'] |
 | provisional | budget | `dc-power` | load 908.0 W of 1200.0 W x derate 0.8 = 960.0 W (76% of rating) |
-| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 | pass | value | `cooler-mount` | amd-ryzen-9-9950x3d needs AM5; provided by lian-li-ga2-lite-360 |
 | pass | value | `cpu-socket` | amd-ryzen-9-9950x3d needs AM5; provided by gigabyte-x870e-aorus-pro |
 

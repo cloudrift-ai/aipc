@@ -15,15 +15,15 @@ Library spec: [parts/purchased/sff-8643-pcie-cable](../../parts/purchased/sff-86
 
 ## Assembly
 
-- 8 instances in the assembly
+- 9 instances in the assembly
 
 ## Compatibility checks
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
+| BLOCKED | budget | `shelf-load` | load 18.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-instinct-mi50-32gb'] |
 | provisional | value | `sff-8643-port` | sff-8643-pcie-cable needs PCIe x4 device; provided by linkreal-lrfc6911n |
 | provisional | count | `sff-8643-port` | need 1 x sff-8643-port=pcie x4 device, have 1 |
-| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 | pass | value | `sff-8643-port` | sff-8643-pcie-cable needs PCIe 4.0 x4 U.2; provided by huananzhi-h12d-8d |
 | pass | count | `sff-8643-port` | need 1 x sff-8643-port=pcie 4.0 x4 u.2, have 3 |
 

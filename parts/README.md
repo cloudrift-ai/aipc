@@ -10,6 +10,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | --- | --- | --- |
 | [ac-power-cords](purchased/ac-power-cords/README.md) | AC power cords | [aipc](../aipc/parts/ac-power-cords.md) |
 | [amd-epyc-7702p](purchased/amd-epyc-7702p/README.md) | AMD EPYC 7702P | [aipc](../aipc/parts/amd-epyc-7702p.md), [gpulab](../gpulab/parts/amd-epyc-7702p.md) |
+| [amd-instinct-mi50-32gb](purchased/amd-instinct-mi50-32gb/README.md) | AMD Radeon Instinct MI50 32 GB | [aipc](../aipc/parts/amd-instinct-mi50-32gb.md) |
 | [amd-radeon-ai-pro-r9700](purchased/amd-radeon-ai-pro-r9700/README.md) | AMD Radeon AI PRO R9700 32 GB (reference blower) | [gpulab](../gpulab/parts/amd-radeon-ai-pro-r9700.md) |
 | [amd-rx-7900-xtx-reference](purchased/amd-rx-7900-xtx-reference/README.md) | AMD Radeon RX 7900 XTX (AMD reference) | [gpulab](../gpulab/parts/amd-rx-7900-xtx-reference.md) |
 | [amd-ryzen-9-9950x3d](purchased/amd-ryzen-9-9950x3d/README.md) | AMD Ryzen 9 9950X3D | [aipc](../aipc/parts/amd-ryzen-9-9950x3d.md) |
@@ -41,13 +42,14 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [micron-3400-2tb](purchased/micron-3400-2tb/README.md) | Micron 3400 2 TB NVMe (MTFDKBA2T0TFH) | [aipc](../aipc/parts/micron-3400-2tb.md) |
 | [micron-3500-2tb](purchased/micron-3500-2tb/README.md) | Micron 3500 2 TB NVMe (MTFDKBA2T0TGD) | [aipc](../aipc/parts/micron-3500-2tb.md) |
 | [micron-mta36asf4g72pz-2g9](purchased/micron-mta36asf4g72pz-2g9/README.md) | Micron 32 GB DDR4-2933 ECC RDIMM (MTA36ASF4G72PZ-2G9E2UI) | [aipc](../aipc/parts/micron-mta36asf4g72pz-2g9.md) |
-| [moddiy-eps-90-extension](purchased/moddiy-eps-90-extension/README.md) | Low-profile 90 degree CPU/EPS 8-pin extension | [aipc](../aipc/parts/moddiy-eps-90-extension.md) |
+| [moddiy-eps-90-extension](purchased/moddiy-eps-90-extension/README.md) | Low-profile 90 degree CPU/EPS 8-pin extension | none |
 | [noctua-nf-a20-pwm](purchased/noctua-nf-a20-pwm/README.md) | Noctua NF-A20 PWM 200 x 30 mm fan | [rack](../rack/parts/noctua-nf-a20-pwm.md) |
 | [nvidia-mcx4131a-gcat](purchased/nvidia-mcx4131a-gcat/README.md) | NVIDIA (Mellanox) ConnectX-4 Lx EN MCX4131A-GCAT, 50GbE single-port QSFP28 | [aipc](../aipc/parts/nvidia-mcx4131a-gcat.md) |
 | [nvidia-rtx-3090-fe](purchased/nvidia-rtx-3090-fe/README.md) | NVIDIA GeForce RTX 3090 Founders Edition | [gpulab](../gpulab/parts/nvidia-rtx-3090-fe.md) |
 | [nvidia-rtx-4090-fe](purchased/nvidia-rtx-4090-fe/README.md) | NVIDIA GeForce RTX 4090 Founders Edition | [gpulab](../gpulab/parts/nvidia-rtx-4090-fe.md) |
-| [nvidia-v100-pcie-16gb](purchased/nvidia-v100-pcie-16gb/README.md) | NVIDIA Tesla V100 PCIe 16 GB | [aipc](../aipc/parts/nvidia-v100-pcie-16gb.md) |
+| [nvidia-v100-pcie-16gb](purchased/nvidia-v100-pcie-16gb/README.md) | NVIDIA Tesla V100 PCIe 16 GB | none |
 | [obt-pcie-support](purchased/obt-pcie-support/README.md) | Open Benchtable PCI-E support rod with nut | [aipc](../aipc/parts/obt-pcie-support.md), [gpulab](../gpulab/parts/obt-pcie-support.md) |
+| [pcie-8pin-90-adapter](purchased/pcie-8pin-90-adapter/README.md) | 90 degree PCIe 8-pin power adapter (low profile) | [aipc](../aipc/parts/pcie-8pin-90-adapter.md) |
 | [pcie-8pin-splitter](purchased/pcie-8pin-splitter/README.md) | PCIe 8-pin (female) to 2 x 6+2-pin splitter cable | [gpulab](../gpulab/parts/pcie-8pin-splitter.md) |
 | [psu-modular-cables](purchased/psu-modular-cables/README.md) | Super Flower Leadex 2800W modular cable set (approximate routes) | [gpulab](../gpulab/parts/psu-modular-cables.md) |
 | [qsfp28-passive-dac](purchased/qsfp28-passive-dac/README.md) | QSFP28 passive copper direct-attach cable, 1 m (not chosen) | [aipc](../aipc/parts/qsfp28-passive-dac.md) |
@@ -60,7 +62,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [super-flower-leadex-2800w](purchased/super-flower-leadex-2800w/README.md) | Super Flower Leadex 2800W ATX 3.1 (SF-2800F14HP) | none |
 | [ubiquiti-uacc-pro-max-16-rm](purchased/ubiquiti-uacc-pro-max-16-rm/README.md) | Ubiquiti UACC-Pro-Max-16-RM 1U rack mount kit | [rack](../rack/parts/ubiquiti-uacc-pro-max-16-rm.md) |
 | [ubiquiti-usw-pro-max-16](purchased/ubiquiti-usw-pro-max-16/README.md) | Ubiquiti UniFi Pro Max 16 (USW-Pro-Max-16), 16-port managed switch | [rack](../rack/parts/ubiquiti-usw-pro-max-16.md) |
-| [v100-eps-power-adapter](purchased/v100-eps-power-adapter/README.md) | Dual PCIe 8-pin to CPU/EPS 8-pin GPU adapter (030-0571-000 compatible) | [aipc](../aipc/parts/v100-eps-power-adapter.md) |
+| [v100-eps-power-adapter](purchased/v100-eps-power-adapter/README.md) | Dual PCIe 8-pin to CPU/EPS 8-pin GPU adapter (030-0571-000 compatible) | none |
 | [v100-tail-support](purchased/v100-tail-support/README.md) | M4 F/F 20 mm metal spacer with 4 mm silicone pad | [aipc](../aipc/parts/v100-tail-support.md) |
 | [wurth-970140324](purchased/wurth-970140324/README.md) | Wurth 970140324 M3 F/F standoff, 14 mm, SW5.5 | [aipc](../aipc/parts/wurth-970140324.md), [gpulab](../gpulab/parts/wurth-970140324.md) |
 | [zotac-rtx-5090-solid](purchased/zotac-rtx-5090-solid/README.md) | Zotac Gaming GeForce RTX 5090 Solid 32 GB | [aipc](../aipc/parts/zotac-rtx-5090-solid.md), [gpulab](../gpulab/parts/zotac-rtx-5090-solid.md) |

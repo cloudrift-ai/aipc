@@ -21,8 +21,8 @@ Library spec: [parts/printed/atx_mobo_adapter_front](../../parts/printed/atx_mob
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
+| BLOCKED | budget | `shelf-load` | load 18.2 kg of 39.0 kg x derate 1.0 = 39.0 kg (47% of rating); unknown load for ['amd-instinct-mi50-32gb'] |
 | provisional | value | `mobo-front-section` | gigabyte-x870e-aorus-pro needs ATX; provided by atx_mobo_adapter_front |
 | provisional | value | `mobo-front-section` | huananzhi-h12d-8d needs ATX; provided by atx_mobo_adapter_front |
 | provisional | count | `mobo-front-section` | need 2 x mobo-front-section=atx, have 2 |
-| provisional | budget | `shelf-load` | load 23.1 kg of 39.0 kg x derate 1.0 = 39.0 kg (59% of rating) |
 

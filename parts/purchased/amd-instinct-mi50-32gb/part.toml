@@ -1,0 +1,61 @@
+id = "amd-instinct-mi50-32gb"
+name = "AMD Radeon Instinct MI50 32 GB"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+Passive 300 W Vega20 (gfx906) accelerator: it needs forced ducted airflow, like
+the V100. AMD lists the 16 GB and 32 GB boards with the same length, height,
+width, power and connectors; only the HBM2 size differs. Auxiliary power is
+two standard PCIe 8-pin sockets (no EPS adapter). AMD gives the height only
+as "full height", the width only as "double slot" and no mass; the power
+socket position, bracket and flange holes are not published. gfx906 is out of
+official support in current ROCm releases; check the ROCm version you plan to
+run before buying. Many used boards are resold with reflashed VBIOS; check the
+one you buy.
+"""
+
+[links]
+product = "https://www.amd.com/en/support/downloads/drivers.html/accelerators/instinct/instinct-mi-series/instinct-mi50-32gb.html"
+
+[[datasheets]]
+title = "AMD Instinct MI50 (32GB) specifications"
+url = "https://www.amd.com/en/support/downloads/drivers.html/accelerators/instinct/instinct-mi-series/instinct-mi50-32gb.html"
+
+[model]
+source = "constructed"
+notes = "Body envelope only: length x height x thickness."
+
+[dims]
+length = { value = 267.0, evidence = "datasheet", source = "AMD specifications: board length 10.5 in (267 mm)" }
+height = { value = 111.15, evidence = "standard", source = "AMD: full height; PCIe CEM full-height card 111.15 mm" }
+thickness = { value = 40.0, evidence = "allowance", note = "AMD: double slot; 40 mm nominal assumed, as for the V100" }
+tgp = { value = 300.0, unit = "W", evidence = "datasheet", source = "AMD specifications: TDP 300 W peak" }
+memory = { value = 32.0, unit = "GB", evidence = "datasheet", source = "AMD specifications: 32 GB HBM2, 1 TB/s" }
+mass = { value = "", unit = "kg", evidence = "unknown", source = "not published" }
+power_connector_from_tail = { value = "", evidence = "unknown", note = "socket position not published; measure on the card" }
+
+[[requires]]
+type = "pcie-x16-slot"
+value = "PCIe x16"
+count = 1
+note = "PCIe 4.0 x16 card (3.0 x16 fallback)"
+
+[[requires]]
+type = "pcie-card-envelope"
+value = 40.0
+evidence = "allowance"
+
+[[requires]]
+type = "pcie-8pin"
+count = 2
+note = "AMD: 2 x 8-pin external power"
+
+[[requires]]
+type = "gpu-forced-airflow"
+count = 1
+
+[[requires]]
+type = "dc-power"
+load = 300.0
+evidence = "datasheet"
+note = "AMD peak TDP; a build caps it with rocm-smi --setpoweroverdrive"
