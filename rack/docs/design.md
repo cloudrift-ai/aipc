@@ -93,6 +93,16 @@ From the SysRacks drawing, with assumed wall and lid values; see [models/cooling
 | Free air above the exhaust bank, under the lid | 47 mm (50 mm lid assumed, minus a 3 mm sheet) | 50 mm | Short on the assumed lid. Measure it; spacers under the lid add room and keep the edge baffle |
 | Stock thermostat and fans | Removed | — | The ESP32 controller replaces them. Keep the stock panel's probe as a spare, or leave the panel as a display only |
 
+## Network switch
+
+A [UniFi Pro Max 16](../parts/ubiquiti-usw-pro-max-16.md) in its 1U [UACC-Pro-Max-16-RM](../parts/ubiquiti-uacc-pro-max-16-rm.md) kit joins the rack to the owner's home UniFi network (chosen 2026-11-27 from Ubiquiti's store). AIPC takes 6U of the 11U of rail (owner), which leaves room for it.
+
+- **Ports:** 4 x 2.5GbE for Berserk's two I226-V ports and Kenshin's onboard port (one spare), 12 x 1GbE for Berserk's BMC and anything slower, 2 x 10G SFP+ for the uplink. The 50GbE Berserk-Kenshin link stays a direct QSFP28 DAC.
+- **Noise and heat:** 25 W at most (85.3 BTU/hr). Ubiquiti's tech specs don't state the cooling; retailers list it as fanless. Its ambient limit is 40 C, so it belongs near the intake, not in the exhaust air.
+- **Power:** an external AC/DC adapter into USB-C (5 V, 5 A). The kit has room for the adapter. It needs one more PDU outlet; the plug type isn't published.
+- **Mounting:** on the fixed rails, not the sliding shelf. Leave enough patch-lead slack to unplug the shelf end before sliding it out.
+- **Not modeled:** the U position isn't chosen. It must clear the AIPC duct to the inner top.
+
 ## Open items
 
 - **Interior unmeasured.** The SysRacks drawing gives the outside only. Measure:
@@ -103,6 +113,7 @@ From the SysRacks drawing, with assumed wall and lid values; see [models/cooling
   - the stock fan size and hole pattern
 
   Record them in the library [rack-cabinet spec](../../parts/purchased/rack-cabinet/part.toml).
+- **Switch position:** choose its U so the switch clears the AIPC duct and sits in intake air; confirm on the unit that it has no fan.
 - **AIPC may not fit at all.** AIPC needs about 867 mm of clear depth: 20 mm in front of the shelf, plus 711.2 mm of rail spacing, plus 135.7 mm behind the rear rail. The cabinet is 900 mm deep outside, including two foam-lined doors. AIPC's own check shows this as BLOCKED until the depth is measured.
 - **The shelf blocks the floor intake.** The Hammond deck (422.7 mm wide) covers most of the 450 mm rail opening, so air from the floor fans has to rise around its edges and its front. Check how the shelf sits over the floor bank before cutting.
 - **Wi-Fi inside a closed metal cabinet** may be weak with the DevKitC's PCB antenna. Mount the controller near a fan opening or a plastic panel. If the signal is poor, switch to the ESP32-DevKitC-32UE (same board, external antenna connector) and run an antenna outside the cabinet.
@@ -111,6 +122,6 @@ From the SysRacks drawing, with assumed wall and lid values; see [models/cooling
   - Exhaust probe: about 60 mm before the exhaust bank, in the airstream, not touching metal.
 
   Confirm these locations read the real intake and exhaust air once installed.
-- **Mains supply:** the GST60A12 needs a C13 outlet on the PDU. `ac-power` is BLOCKED because the rack's mains is not specified.
+- **Mains supply:** the GST60A12 needs a C13 outlet on the PDU, and the switch adapter one more outlet. `ac-power` is BLOCKED because the rack's mains is not specified.
 - **Not built:** the perfboard layout, the controller enclosure (a printed part later, after the cabinet is measured) and the cable lengths.
 - **Firmware:** validated with `esphome config` and compiled, but not run on hardware.

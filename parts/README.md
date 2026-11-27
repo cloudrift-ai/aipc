@@ -58,6 +58,8 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [sff-8643-pcie-cable](purchased/sff-8643-pcie-cable/README.md) | 10Gtek CAB-8643/8643-P0.5M, SFF-8643 to SFF-8643 cable, 0.5 m, with sideband (2-pack) | [aipc](../aipc/parts/sff-8643-pcie-cable.md) |
 | [silicone-gasket-2mm](purchased/silicone-gasket-2mm/README.md) | 2 mm silicone foam gasket sheet, 200 x 200 mm | [aipc](../aipc/parts/silicone-gasket-2mm.md) |
 | [super-flower-leadex-2800w](purchased/super-flower-leadex-2800w/README.md) | Super Flower Leadex 2800W ATX 3.1 (SF-2800F14HP) | none |
+| [ubiquiti-uacc-pro-max-16-rm](purchased/ubiquiti-uacc-pro-max-16-rm/README.md) | Ubiquiti UACC-Pro-Max-16-RM 1U rack mount kit | [rack](../rack/parts/ubiquiti-uacc-pro-max-16-rm.md) |
+| [ubiquiti-usw-pro-max-16](purchased/ubiquiti-usw-pro-max-16/README.md) | Ubiquiti UniFi Pro Max 16 (USW-Pro-Max-16), 16-port managed switch | [rack](../rack/parts/ubiquiti-usw-pro-max-16.md) |
 | [v100-eps-power-adapter](purchased/v100-eps-power-adapter/README.md) | Dual PCIe 8-pin to CPU/EPS 8-pin GPU adapter (030-0571-000 compatible) | [aipc](../aipc/parts/v100-eps-power-adapter.md) |
 | [v100-tail-support](purchased/v100-tail-support/README.md) | M4 F/F 20 mm metal spacer with 4 mm silicone pad | [aipc](../aipc/parts/v100-tail-support.md) |
 | [wurth-970140324](purchased/wurth-970140324/README.md) | Wurth 970140324 M3 F/F standoff, 14 mm, SW5.5 | [aipc](../aipc/parts/wurth-970140324.md), [gpulab](../gpulab/parts/wurth-970140324.md) |

@@ -14,6 +14,8 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [meanwell-gst60a12-p1j](meanwell-gst60a12-p1j.md) | 1 | selected | rack | provisional | 12 V supply for the fans and the controller, plugged into the rack PDU |
 | [noctua-nf-a20-pwm](noctua-nf-a20-pwm.md) | 8 | selected | rack | BLOCKED | cabinet fans: four intake low at the front, four exhaust at the top rear or roof |
 | [rack-cabinet](rack-cabinet.md) | 1 | selected | rack | provisional | acoustic cabinet: exhaust fans replace the stock roof fans, intake fans under the floor, controller and supply under the lid |
+| [ubiquiti-uacc-pro-max-16-rm](ubiquiti-uacc-pro-max-16-rm.md) | 1 | selected | rack | provisional | 1U rack kit for the Pro Max 16 switch |
+| [ubiquiti-usw-pro-max-16](ubiquiti-usw-pro-max-16.md) | 1 | selected | rack | provisional | rack network switch: AIPC onboard Ethernet and BMC, 10G SFP+ uplink to the home UniFi network |
 
 ## Fabricated
 

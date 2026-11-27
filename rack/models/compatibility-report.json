@@ -1,8 +1,8 @@
 {
   "date": "2026-11-27",
   "summary": {
-    "BLOCKED": 4,
-    "PROVISIONAL": 10,
+    "BLOCKED": 5,
+    "PROVISIONAL": 14,
     "PASS": 1
   },
   "lint": [],
@@ -19,9 +19,10 @@
       ],
       "rule": "budget",
       "status": "BLOCKED",
-      "detail": "load 67.0 W; capacity unknown",
+      "detail": "load 92.0 W; capacity unknown",
       "contributors": [
-        "meanwell-gst60a12-p1j"
+        "meanwell-gst60a12-p1j",
+        "ubiquiti-usw-pro-max-16"
       ],
       "weak_evidence": [
         "mains-power:ac-power(unknown)"
@@ -236,6 +237,80 @@
       ]
     },
     {
+      "type": "rack-standard",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "ubiquiti-uacc-pro-max-16-rm"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "ubiquiti-uacc-pro-max-16-rm needs EIA-310 19 in; provided by rack-cabinet",
+      "note": "",
+      "weak_evidence": [
+        "ubiquiti-uacc-pro-max-16-rm:rack-standard(listing)"
+      ]
+    },
+    {
+      "type": "rack-units",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "ubiquiti-uacc-pro-max-16-rm"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x rack-units, have 11",
+      "weak_evidence": [
+        "ubiquiti-uacc-pro-max-16-rm:rack-units(listing)"
+      ]
+    },
+    {
+      "type": "switch-rack-kit",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "ubiquiti-usw-pro-max-16"
+      ],
+      "providers": [
+        "ubiquiti-uacc-pro-max-16-rm"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "ubiquiti-usw-pro-max-16 needs UACC-Pro-Max-16-RM; provided by ubiquiti-uacc-pro-max-16-rm",
+      "note": "only when rack mounted; desktop and wall mounting need no kit",
+      "weak_evidence": [
+        "ubiquiti-uacc-pro-max-16-rm:switch-rack-kit(listing)"
+      ]
+    },
+    {
+      "type": "switch-rack-kit",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "ubiquiti-usw-pro-max-16"
+      ],
+      "providers": [
+        "ubiquiti-uacc-pro-max-16-rm"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x switch-rack-kit=uacc-pro-max-16-rm, have 1",
+      "weak_evidence": [
+        "ubiquiti-uacc-pro-max-16-rm:switch-rack-kit(listing)"
+      ]
+    },
+    {
       "type": "dc-5v",
       "systems": [
         "rack"
@@ -263,6 +338,11 @@
       "part": "rack-fan-harness",
       "status": "BLOCKED",
       "detail": "not in the assembly: flexible cabling; lengths depend on the cabinet, which is not identified"
+    },
+    {
+      "part": "ubiquiti-usw-pro-max-16",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: U position in the cabinet not chosen yet; 1U, half-width case 325.1 x 160 x 43.7 mm in the UACC-Pro-Max-16-RM kit"
     }
   ],
   "renders": [],
@@ -271,26 +351,6 @@
       "part": "ds18b20-waterproof-probe",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf (run make datasheets)"
-    },
-    {
-      "part": "espressif-esp32-devkitc-32e",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/user_guide.html (run make datasheets)"
-    },
-    {
-      "part": "espressif-esp32-devkitc-32e",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://dl.espressif.com/dl/schematics/esp32_devkitc_v4_dimensions.pdf (run make datasheets)"
-    },
-    {
-      "part": "espressif-esp32-devkitc-32e",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_en.pdf (run make datasheets)"
-    },
-    {
-      "part": "meanwell-gst60a12-p1j",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.meanwell.com/Upload/PDF/GST60A/GST60A-SPEC.PDF (run make datasheets)"
     },
     {
       "part": "noctua-nf-a20-pwm",
@@ -303,19 +363,9 @@
       "detail": "not fetched locally: https://noctua.at/pub/media/blfa_files/infosheet/noctua_nf_a_20_pwm_datasheet_en_web.pdf (run make datasheets)"
     },
     {
-      "part": "rack-cabinet",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://sysracks.com/product/12u-35-depth-foor-standing-sound-proof-server-cabinet-sp-12-900/ (run make datasheets)"
-    },
-    {
-      "part": "rack-cabinet",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2234/sysracks-soundproof-servrer-cabinet-manual.pdf (run make datasheets)"
-    },
-    {
-      "part": "rack-cabinet",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2918/12u600x900-soundproof-1-1024x726.png (run make datasheets)"
+      "part": "ubiquiti-uacc-pro-max-16-rm",
+      "status": "BLOCKED",
+      "detail": "Ubiquiti publishes only a store listing for the kit; no drawing or tech specs page was found (2026-11-27)."
     }
   ],
   "weak_evidence_dims": {
@@ -339,6 +389,9 @@
     "rack-fan-harness": {
       "unknown": 1,
       "assumed": 1
+    },
+    "ubiquiti-uacc-pro-max-16-rm": {
+      "unknown": 1
     }
   },
   "unspecified_parts": [

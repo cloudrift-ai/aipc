@@ -1,0 +1,8 @@
+part = "purchased/ubiquiti-uacc-pro-max-16-rm"
+role = "1U rack kit for the Pro Max 16 switch"
+status = "selected"
+quantity = 1
+systems = ["rack"]
+
+[assembly]
+covered_by = "ubiquiti-usw-pro-max-16"

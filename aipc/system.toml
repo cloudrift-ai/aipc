@@ -28,10 +28,11 @@ note = "where the roof flange was placed, not a derived need: the pressure fan t
 
 [[requires]]
 type = "rack-units"
-count = 11
+count = 6
 systems = ["rack"]
-evidence = "allowance"
-note = "slide brackets from Z-58 to the provisional roof flange at Z400 plus the flange = 469 mm = 10.6U, rounded up"
+evidence = "measured"
+source = "owner, 2026-11-27: the AIPC shelf takes 6U"
+note = "replaces the 11U allowance (slide brackets Z-58 to the provisional roof flange at Z400). The CAD stack from the bracket envelopes (Z-58) to the V100 pressure fan top (Z233.4) is 291 mm = 6.6U, so check which U the shelf ears sit in and what the duct to the inner top crosses above them"
 
 [[keepouts]]
 id = "rear-io-service-reserve"

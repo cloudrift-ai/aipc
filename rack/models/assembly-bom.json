@@ -109,6 +109,28 @@
       "covered_by": null,
       "not_modeled": "flexible cabling; lengths depend on the cabinet, which is not identified",
       "instance_names": []
+    },
+    "ubiquiti-uacc-pro-max-16-rm": {
+      "name": "Ubiquiti UACC-Pro-Max-16-RM 1U rack mount kit",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "covered",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": "ubiquiti-usw-pro-max-16",
+      "not_modeled": null,
+      "instance_names": []
+    },
+    "ubiquiti-usw-pro-max-16": {
+      "name": "Ubiquiti UniFi Pro Max 16 (USW-Pro-Max-16), 16-port managed switch",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "U position in the cabinet not chosen yet; 1U, half-width case 325.1 x 160 x 43.7 mm in the UACC-Pro-Max-16-RM kit",
+      "instance_names": []
     }
   },
   "keepouts": {},

@@ -1,0 +1,36 @@
+id = "ubiquiti-uacc-pro-max-16-rm"
+name = "Ubiquiti UACC-Pro-Max-16-RM 1U rack mount kit"
+category = "purchased"
+evidence = "listing"
+no_datasheet_reason = "Ubiquiti publishes only a store listing for the kit; no drawing or tech specs page was found (2026-11-27)."
+notes = """
+1U rack kit for the half-width Pro Max 16 and Pro Max 16 PoE (Ubiquiti store,
+Adorama). The store says it also holds the power adapter and cables. Depth,
+mass and mounting hardware are not published; measure on arrival.
+"""
+
+[links]
+product = "https://store.ui.com/us/en/category/accessories-rack-mount/products/uacc-pro-max-16-rm"
+
+[model]
+source = "constructed"
+
+[dims]
+mass = { value = "", unit = "kg", evidence = "unknown" }
+
+[[provides]]
+type = "switch-rack-kit"
+value = "UACC-Pro-Max-16-RM"
+count = 1
+evidence = "listing"
+note = "store: 1U rack-mount accessory for Pro Max 16 switches"
+
+[[requires]]
+type = "rack-standard"
+value = "EIA-310 19 in"
+evidence = "listing"
+
+[[requires]]
+type = "rack-units"
+count = 1
+evidence = "listing"

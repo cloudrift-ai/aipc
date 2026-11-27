@@ -19,5 +19,5 @@ Library spec: [parts/purchased/mains-power](../../parts/purchased/mains-power/RE
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `ac-power` | load 67.0 W; capacity unknown |
+| BLOCKED | budget | `ac-power` | load 92.0 W; capacity unknown |
 

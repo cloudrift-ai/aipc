@@ -16,6 +16,8 @@ Eight 200 mm Noctua NF-A20 PWM fans move air through the SysRacks SP 12.900 acou
 | [Mean Well GST60A12-P1J](parts/meanwell-gst60a12-p1j.md) | 1 | 12 V 5 A supply, plugged into the PDU (load about 10.4 W) |
 | [Controller board](parts/rack-fan-controller-board.md) | 1 | Perfboard: fuse, 5 V converter, PWM drivers, tach pull-ups, 8 fan headers |
 | [Fan and probe cabling](parts/rack-fan-harness.md) | 1 | Extensions sized once the cabinet is known |
+| [UniFi Pro Max 16](parts/ubiquiti-usw-pro-max-16.md) | 1 | Rack switch: AIPC onboard 2.5GbE and BMC, 10G SFP+ uplink to the home network |
+| [UACC-Pro-Max-16-RM](parts/ubiquiti-uacc-pro-max-16-rm.md) | 1 | 1U rack kit for the half-width switch |
 | [SysRacks SP 12.900](parts/rack-cabinet.md) | 1 | 11U acoustic cabinet, 600 × 900 mm; takes eight cutouts (four in the inner top, four in the floor) |
 
 ## Docs

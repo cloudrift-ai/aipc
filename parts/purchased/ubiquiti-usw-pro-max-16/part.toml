@@ -1,0 +1,67 @@
+id = "ubiquiti-usw-pro-max-16"
+name = "Ubiquiti UniFi Pro Max 16 (USW-Pro-Max-16), 16-port managed switch"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+Non-PoE model: 4 x 2.5GbE, 12 x 1GbE, 2 x 10G SFP+, Layer 3, UniFi Network 8.1.127
+or later. Half-width steel case; rack mounting needs the separate
+UACC-Pro-Max-16-RM 1U kit (Ubiquiti store: "Requires add-on Rack Mount accessory").
+Powered by the included external AC/DC adapter through USB-C (5 V, 5 A); the
+adapter's mains plug type is not on the tech specs page.
+Cooling is not stated on Ubiquiti's tech specs; retailers (Adorama) list it as
+fanless. Confirm on the unit: the cabinet is an acoustic one.
+Max 25 W, 85.3 BTU/hr; ambient -5 to 40 C, which the cabinet air must stay under.
+"""
+
+[links]
+product = "https://store.ui.com/us/en/products/usw-pro-max-16"
+installation_guide = "https://dl.ui.com/qig/usw-pro-max-16"
+
+[[datasheets]]
+title = "UniFi Pro Max 16 tech specs"
+url = "https://techspecs.ui.com/unifi/switching/usw-pro-max-16"
+
+[model]
+source = "constructed"
+notes = "Case envelope only."
+
+[dims]
+length = { value = 325.1, unit = "mm", evidence = "datasheet", source = "tech specs: 325.1 x 160 x 43.7 mm", note = "the page does not label the axes; taken as width x depth x height is not confirmed" }
+width = { value = 160.0, unit = "mm", evidence = "datasheet", source = "tech specs: 325.1 x 160 x 43.7 mm", note = "axis order not labelled on the page" }
+height = { value = 43.7, unit = "mm", evidence = "datasheet", source = "tech specs: 325.1 x 160 x 43.7 mm" }
+power_max = { value = 25.0, unit = "W", evidence = "datasheet", source = "tech specs: max power consumption 25 W" }
+heat_dissipation = { value = 85.3, unit = "BTU/h", evidence = "datasheet", source = "tech specs: 85.3 BTU/hr" }
+ambient_max = { value = 40.0, unit = "C", evidence = "datasheet", source = "tech specs: ambient operating temperature -5 to 40 C" }
+mass = { value = 1.95, unit = "kg", evidence = "datasheet", source = "tech specs: 1.95 kg (4.3 lb)" }
+
+[[provides]]
+type = "ethernet-2.5gbe-rj45"
+value = "2.5GbE RJ45"
+count = 4
+note = "tech specs: 4 x 2.5 GbE RJ45 (2.5G/1G/100M/10M)"
+
+[[provides]]
+type = "ethernet-1gbe-rj45"
+value = "1GbE RJ45"
+count = 12
+note = "tech specs: 12 x 1 GbE RJ45"
+
+[[provides]]
+type = "sfp-plus-port"
+value = "10G SFP+"
+count = 2
+note = "tech specs: 2 x 10G SFP+ (10G/1G)"
+
+[[requires]]
+type = "ac-power"
+load = 25.0
+unit = "W"
+evidence = "datasheet"
+note = "tech specs max power; the included adapter's efficiency is not stated, so the wall draw is somewhat higher"
+
+[[requires]]
+type = "switch-rack-kit"
+value = "UACC-Pro-Max-16-RM"
+count = 1
+optional = true
+note = "only when rack mounted; desktop and wall mounting need no kit"
