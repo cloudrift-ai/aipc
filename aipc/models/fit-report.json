@@ -438,59 +438,64 @@
       "placement": "Kenshin side-AIO strip: radiator inner face X52.3 to Kenshin's motherboard mount, owner-measured about 75 mm; as far rearward (toward Kenshin) as the RTX 5090 allows",
       "card_rear_to_kenshin_5090_target_mm": 5.0,
       "holder_x_range_mm": [
-        53.8,
-        121.3
+        82.29,
+        125.33
       ],
-      "holder_x_from_radiator_face_mm": 68.97,
+      "holder_x_from_radiator_face_mm": 73.0,
+      "plate_edge_to_Kenshin_mount_mm": 2.0,
+      "riser_past_plate_over_Kenshin_rail_mm": 13.46,
+      "riser_edge_to_Kenshin_PCB_edge_mm": 3.0,
+      "Kenshin_PCB_edge_basis": "owner-measured mount at X127.3 plus the CAD rail-to-PCB offset 14.46 mm (not measured)",
       "holder_y_range_mm": [
-        490.5,
+        486.5,
         627.5
       ],
       "plate_past_board_mm": {
-        "radiator_side": 11.5,
-        "socket_side": 13.0,
-        "front": 1.0,
+        "radiator_side": 13.5,
+        "socket_side": -13.46,
+        "front": 5.0,
         "rear": 1.0,
         "limit": 15.0
       },
       "riser_origin_xyz_mm": [
-        65.3,
+        95.78800000000001,
         491.5,
         14.0
       ],
-      "riser_orientation": "slot along +Y at the radiator side, SFF-8643 socket facing +X, SATA socket under the rear end",
+      "riser_orientation": "slot along +Y at the radiator side, SFF-8643 plug lying along the socket edge with its cable toward the rear, SATA socket under the rear end",
       "riser_underside_above_plate_mm": 8.0,
       "sata_socket_clearance_mm": 3.0,
-      "card_plane_x_mm": 70.6,
+      "card_plane_x_mm": 101.09,
       "bracket_face_y_mm": 470.5,
-      "plate_front_to_bracket_mm": 20.0,
-      "card_heatsink_to_radiator_face_mm": 3.02,
-      "riser_fasteners": "four M3 self-tapping screws (board + 8-10 mm) into 2.5 mm pilots in 8 mm bosses, 8 mm tall",
-      "slot_deflection_stop": "6 x 10 mm land beside the slot at mid-length, 0.5 mm below the board",
+      "plate_front_to_bracket_mm": 16.0,
+      "card_heatsink_to_radiator_face_mm": 33.51,
+      "riser_fasteners": "two M3 self-tapping screws (board + 8-10 mm) into 2.6 mm pilots in 8 mm bosses, 8 mm tall, under the slot-side holes; the socket-side holes sit over Kenshin's rail and stay empty",
+      "deflection_stops": "four 6 x 10 mm lands 0.5 mm below the board: beside the slot at mid-length, and front, mid (beside the SFF-8643 socket) and rear at the plate's Kenshin edge under the overhanging socket side",
       "bracket": "no bracket support (owner: the slot holds the card); the full-height bracket stands free in front of the plate",
       "shelf_anchor_xy_mm": [
         [
-          60.55,
+          89.04,
           511.5
         ],
         [
-          60.55,
+          89.04,
           586.5
         ],
         [
-          114.55,
+          118.58,
           511.5
         ],
         [
-          114.55,
+          118.58,
           586.5
         ]
       ],
       "shelf_fastener": "4 x M4 with OD12 washers and steel backing",
-      "print": "PETG, base on the bed as installed; vertical bosses and a through window, no overhangs or supports",
-      "assembly_order": "bolt the bare holder to the shelf (the radiator-side anchor is under the card), screw the riser on, seat the card, then plug SFF-8643 and the DAC; the SATA socket is under the RTX 5090, so plug SATA before the 5090 goes in or before the riser is screwed down",
+      "print": "PETG, base on the bed as installed; vertical bosses and stops on a solid plate, no overhangs or supports",
+      "assembly_order": "bolt the bare holder to the shelf (the Kenshin-side anchors are under the riser, the radiator-side ones under the card), screw the riser on, seat the card, then plug SFF-8643 and the DAC; the SATA socket is under the RTX 5090, so plug SATA before the 5090 goes in or before the riser is screwed down",
       "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
       "to_measure": [
+        "gap from the riser's Kenshin-side edge to Kenshin's PCB edge (3 mm planned from the CAD rail-to-PCB offset)",
         "riser board length and width, and the hole insets from its edges (photo-scaled)",
         "SATA-end hole centre to the socket's inner face",
         "bracket face to x16 slot start on the card",
@@ -500,9 +505,9 @@
       "physical_fit_verified": false
     },
     "QSFP28_DAC": {
-      "route_polyline_mm": 717.96,
+      "route_polyline_mm": 687.47,
       "plugs_outside_cages_mm": 96.0,
-      "minimum_length_mm": 814,
+      "minimum_length_mm": 783,
       "planned_length_mm": 1000.0,
       "Kenshin_plug_past_deck_edge_mm": 23.0,
       "Kenshin_plug_past_rack_opening_mm": 9.33,
@@ -511,8 +516,8 @@
       "status": "cable not chosen; plug and bend sizes are allowances"
     },
     "SFF_8643_cable": {
-      "route_polyline_mm": 633.26,
-      "minimum_length_mm": 709,
+      "route_polyline_mm": 689.19,
+      "minimum_length_mm": 765,
       "selected_length_mm": 500.0,
       "selected_length_sufficient": false,
       "H12D_port_xy_mm": [
@@ -520,9 +525,7 @@
         97.2
       ],
       "H12D_port_basis": "photo-estimated from the H12D-8D manual's layout figure: middle of three SFF-8643 ports on the front PCB edge",
-      "riser_plug_end_to_Kenshin_PCB_edge_mm": 7.36,
-      "riser_plug_end_from_radiator_face_mm": 93.97,
-      "fit_note": "with the owner's 75 mm radiator-to-mount gap the straight plug ends about where the mount ends, so its bend sits over Kenshin's PCB edge; a right-angle SFF-8643 plug would avoid that"
+      "riser_plug": "lies along the riser's socket edge with its cable leaving toward the SATA end (owner, 2026-11-27); the cable turns up and forward over the plug, so nothing projects toward Kenshin's board"
     }
   },
   "direct_shelf_mount": {
@@ -1810,7 +1813,7 @@
     },
     {
       "name": "Berserk LRFC6911N riser board",
-      "x": 65.3,
+      "x": 95.78800000000001,
       "y": 491.5,
       "z": 14.0,
       "w": 43.0,
@@ -1820,7 +1823,7 @@
     },
     {
       "name": "Berserk LRFC6911N riser x16 slot",
-      "x": 65.85,
+      "x": 96.33800000000001,
       "y": 515.5,
       "z": 15.6,
       "w": 9.5,
@@ -1830,7 +1833,7 @@
     },
     {
       "name": "Berserk ConnectX-4 Lx card",
-      "x": 55.345,
+      "x": 85.83300000000001,
       "y": 470.5,
       "z": 22.475,
       "w": 18.709999999999994,
@@ -1922,7 +1925,7 @@
     },
     {
       "name": "QSFP28 DAC Berserk plug",
-      "x": 60.64999999999999,
+      "x": 91.138,
       "y": 422.5,
       "z": 53.3,
       "w": 8.5,
@@ -1932,7 +1935,7 @@
     },
     {
       "name": "Berserk riser SATA power plug",
-      "x": 70.8,
+      "x": 101.28800000000001,
       "y": 614.0,
       "z": 9.0,
       "w": 32.0,
@@ -1942,13 +1945,13 @@
     },
     {
       "name": "Berserk SFF-8643 riser plug",
-      "x": 108.3,
-      "y": 548.3,
-      "z": 15.600000000000001,
-      "w": 38.0,
-      "d": 17.5,
+      "x": 121.28800000000001,
+      "y": 565.4,
+      "z": 15.6,
+      "w": 17.5,
+      "d": 38.0,
       "h": 11.0,
-      "note": "straight SFF-8643 plug; passes over Kenshin's 6 mm motherboard mount, short of the PCB edge in CAD"
+      "note": "SFF-8643 plug lying along the top of the riser at its socket edge, cable leaving toward the SATA end (owner, 2026-11-27); socket position is a photo estimate"
     },
     {
       "name": "Berserk SFF-8643 H12D plug",
@@ -2066,8 +2069,8 @@
       "part": "berserk_nic_holder",
       "quantity": 1,
       "bounding_box_mm": [
-        67.5,
-        137.0,
+        43.04,
+        141.0,
         14.0
       ],
       "purpose": "Berserk NIC riser holder: flat 6mm base plate, four slotted M4 anchors, four 8mm riser bosses and a slot deflection stop clearing the SATA socket; within 15mm of the board; base on bed"
@@ -3327,17 +3330,17 @@
       "od_mm": 6.5,
       "points_mm": [
         [
-          64.89999999999999,
+          95.388,
           422.5,
           62.474999999999994
         ],
         [
-          72.89999999999999,
+          103.388,
           416.5,
           62.474999999999994
         ],
         [
-          84.89999999999999,
+          115.388,
           415.0,
           80.0
         ],
@@ -3368,25 +3371,30 @@
         ]
       ],
       "note": "Berserk plug end, under the AIO hose, up behind the V100 hood and over Kenshin's 24-pin, rearward in the right-edge lane above the I/O reserve, then out past the deck edge and back into Kenshin's cage. Corners stand for bends of at least the allowance radius; the loop at Kenshin's end is outside the rack opening.",
-      "polyline_length_mm": 717.96
+      "polyline_length_mm": 687.47
     },
     "Berserk SFF-8643 cable": {
       "od_mm": 6.5,
       "points_mm": [
         [
-          146.3,
-          557.05,
+          130.038,
+          603.4,
           21.1
         ],
         [
-          149.3,
-          557.05,
-          30.0
+          130.038,
+          611.4,
+          21.1
         ],
         [
-          149.3,
-          507.04999999999995,
-          30.0
+          130.038,
+          611.4,
+          34.0
+        ],
+        [
+          130.038,
+          521.5,
+          34.0
         ],
         [
           86.0,
@@ -3410,7 +3418,7 @@
         ]
       ],
       "note": "Riser plug end, up over Kenshin's motherboard mount beside the PCB edge, forward to the left of the V100 hood, across the deck front under the V100 tails' front ends to the H12D port. Provisional; the port position is photo-estimated.",
-      "polyline_length_mm": 633.26
+      "polyline_length_mm": 689.19
     }
   },
   "Berserk_orientation": {

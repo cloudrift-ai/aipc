@@ -1457,7 +1457,7 @@
       "part": "berserk_nic_holder",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        60.55,
+        89.038,
         511.5
       ],
       "washer_seat_z_mm": 6.0,
@@ -1475,7 +1475,7 @@
         2.5
       ],
       "nominal_rear_washer_margin_mm": 269.9,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 54.55,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 83.038,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk ConnectX-4 Lx card"
@@ -1485,7 +1485,7 @@
       "part": "berserk_nic_holder",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        60.55,
+        89.038,
         586.5
       ],
       "washer_seat_z_mm": 6.0,
@@ -1503,7 +1503,7 @@
         2.5
       ],
       "nominal_rear_washer_margin_mm": 194.9,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 54.55,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 83.038,
       "bare_bracket_tool_access": true,
       "install_before": [
         "Berserk ConnectX-4 Lx card"
@@ -1513,7 +1513,7 @@
       "part": "berserk_nic_holder",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        114.55,
+        118.578,
         511.5
       ],
       "washer_seat_z_mm": 6.0,
@@ -1531,15 +1531,17 @@
         2.5
       ],
       "nominal_rear_washer_margin_mm": 269.9,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 108.55,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 112.578,
       "bare_bracket_tool_access": true,
-      "install_before": []
+      "install_before": [
+        "Berserk LRFC6911N riser board"
+      ]
     },
     {
       "part": "berserk_nic_holder",
       "fastener": "M4 with steel backing",
       "center_xy_mm": [
-        114.55,
+        118.578,
         586.5
       ],
       "washer_seat_z_mm": 6.0,
@@ -1557,9 +1559,12 @@
         2.5
       ],
       "nominal_rear_washer_margin_mm": 194.9,
-      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 108.55,
+      "minimum_washer_margin_to_deck_edge_at_checked_travel_mm": 112.578,
       "bare_bracket_tool_access": true,
-      "install_before": []
+      "install_before": [
+        "Berserk LRFC6911N riser board",
+        "Berserk SFF-8643 riser plug"
+      ]
     }
   ],
   "additional_metal_M4_mount_count": 4,
@@ -1857,6 +1862,12 @@
     {
       "route": "Berserk SFF-8643 cable",
       "segment": 6,
+      "nominal_component_collision": false,
+      "unresolved_conflicts": []
+    },
+    {
+      "route": "Berserk SFF-8643 cable",
+      "segment": 7,
       "nominal_component_collision": false,
       "unresolved_conflicts": []
     }
@@ -2426,59 +2437,64 @@
       "placement": "Kenshin side-AIO strip: radiator inner face X52.3 to Kenshin's motherboard mount, owner-measured about 75 mm; as far rearward (toward Kenshin) as the RTX 5090 allows",
       "card_rear_to_kenshin_5090_target_mm": 5.0,
       "holder_x_range_mm": [
-        53.8,
-        121.3
+        82.29,
+        125.33
       ],
-      "holder_x_from_radiator_face_mm": 68.97,
+      "holder_x_from_radiator_face_mm": 73.0,
+      "plate_edge_to_Kenshin_mount_mm": 2.0,
+      "riser_past_plate_over_Kenshin_rail_mm": 13.46,
+      "riser_edge_to_Kenshin_PCB_edge_mm": 3.0,
+      "Kenshin_PCB_edge_basis": "owner-measured mount at X127.3 plus the CAD rail-to-PCB offset 14.46 mm (not measured)",
       "holder_y_range_mm": [
-        490.5,
+        486.5,
         627.5
       ],
       "plate_past_board_mm": {
-        "radiator_side": 11.5,
-        "socket_side": 13.0,
-        "front": 1.0,
+        "radiator_side": 13.5,
+        "socket_side": -13.46,
+        "front": 5.0,
         "rear": 1.0,
         "limit": 15.0
       },
       "riser_origin_xyz_mm": [
-        65.3,
+        95.78800000000001,
         491.5,
         14.0
       ],
-      "riser_orientation": "slot along +Y at the radiator side, SFF-8643 socket facing +X, SATA socket under the rear end",
+      "riser_orientation": "slot along +Y at the radiator side, SFF-8643 plug lying along the socket edge with its cable toward the rear, SATA socket under the rear end",
       "riser_underside_above_plate_mm": 8.0,
       "sata_socket_clearance_mm": 3.0,
-      "card_plane_x_mm": 70.6,
+      "card_plane_x_mm": 101.09,
       "bracket_face_y_mm": 470.5,
-      "plate_front_to_bracket_mm": 20.0,
-      "card_heatsink_to_radiator_face_mm": 3.02,
-      "riser_fasteners": "four M3 self-tapping screws (board + 8-10 mm) into 2.5 mm pilots in 8 mm bosses, 8 mm tall",
-      "slot_deflection_stop": "6 x 10 mm land beside the slot at mid-length, 0.5 mm below the board",
+      "plate_front_to_bracket_mm": 16.0,
+      "card_heatsink_to_radiator_face_mm": 33.51,
+      "riser_fasteners": "two M3 self-tapping screws (board + 8-10 mm) into 2.6 mm pilots in 8 mm bosses, 8 mm tall, under the slot-side holes; the socket-side holes sit over Kenshin's rail and stay empty",
+      "deflection_stops": "four 6 x 10 mm lands 0.5 mm below the board: beside the slot at mid-length, and front, mid (beside the SFF-8643 socket) and rear at the plate's Kenshin edge under the overhanging socket side",
       "bracket": "no bracket support (owner: the slot holds the card); the full-height bracket stands free in front of the plate",
       "shelf_anchor_xy_mm": [
         [
-          60.55,
+          89.04,
           511.5
         ],
         [
-          60.55,
+          89.04,
           586.5
         ],
         [
-          114.55,
+          118.58,
           511.5
         ],
         [
-          114.55,
+          118.58,
           586.5
         ]
       ],
       "shelf_fastener": "4 x M4 with OD12 washers and steel backing",
-      "print": "PETG, base on the bed as installed; vertical bosses and a through window, no overhangs or supports",
-      "assembly_order": "bolt the bare holder to the shelf (the radiator-side anchor is under the card), screw the riser on, seat the card, then plug SFF-8643 and the DAC; the SATA socket is under the RTX 5090, so plug SATA before the 5090 goes in or before the riser is screwed down",
+      "print": "PETG, base on the bed as installed; vertical bosses and stops on a solid plate, no overhangs or supports",
+      "assembly_order": "bolt the bare holder to the shelf (the Kenshin-side anchors are under the riser, the radiator-side ones under the card), screw the riser on, seat the card, then plug SFF-8643 and the DAC; the SATA socket is under the RTX 5090, so plug SATA before the 5090 goes in or before the riser is screwed down",
       "airflow": "the side AIO fans pull air from this strip through the radiator, across the card heatsink; the 300 LFM the card needs is not verified",
       "to_measure": [
+        "gap from the riser's Kenshin-side edge to Kenshin's PCB edge (3 mm planned from the CAD rail-to-PCB offset)",
         "riser board length and width, and the hole insets from its edges (photo-scaled)",
         "SATA-end hole centre to the socket's inner face",
         "bracket face to x16 slot start on the card",
@@ -2488,9 +2504,9 @@
       "physical_fit_verified": false
     },
     "QSFP28_DAC": {
-      "route_polyline_mm": 717.96,
+      "route_polyline_mm": 687.47,
       "plugs_outside_cages_mm": 96.0,
-      "minimum_length_mm": 814,
+      "minimum_length_mm": 783,
       "planned_length_mm": 1000.0,
       "Kenshin_plug_past_deck_edge_mm": 23.0,
       "Kenshin_plug_past_rack_opening_mm": 9.33,
@@ -2499,8 +2515,8 @@
       "status": "cable not chosen; plug and bend sizes are allowances"
     },
     "SFF_8643_cable": {
-      "route_polyline_mm": 633.26,
-      "minimum_length_mm": 709,
+      "route_polyline_mm": 689.19,
+      "minimum_length_mm": 765,
       "selected_length_mm": 500.0,
       "selected_length_sufficient": false,
       "H12D_port_xy_mm": [
@@ -2508,9 +2524,7 @@
         97.2
       ],
       "H12D_port_basis": "photo-estimated from the H12D-8D manual's layout figure: middle of three SFF-8643 ports on the front PCB edge",
-      "riser_plug_end_to_Kenshin_PCB_edge_mm": 7.36,
-      "riser_plug_end_from_radiator_face_mm": 93.97,
-      "fit_note": "with the owner's 75 mm radiator-to-mount gap the straight plug ends about where the mount ends, so its bend sits over Kenshin's PCB edge; a right-angle SFF-8643 plug would avoid that"
+      "riser_plug": "lies along the riser's socket edge with its cable leaving toward the SATA end (owner, 2026-11-27); the cable turns up and forward over the plug, so nothing projects toward Kenshin's board"
     }
   },
   "planned_upgrade_clearance_passed": false,

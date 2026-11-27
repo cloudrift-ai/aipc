@@ -725,7 +725,7 @@
       "category": "purchased",
       "quantity": 1,
       "state": "modeled",
-      "instances": 8,
+      "instances": 9,
       "expected_instances": null,
       "covered_by": null,
       "not_modeled": null,
@@ -737,7 +737,8 @@
         "Berserk_SFF-8643_cable_survey_segment_3",
         "Berserk_SFF-8643_cable_survey_segment_4",
         "Berserk_SFF-8643_cable_survey_segment_5",
-        "Berserk_SFF-8643_cable_survey_segment_6"
+        "Berserk_SFF-8643_cable_survey_segment_6",
+        "Berserk_SFF-8643_cable_survey_segment_7"
       ]
     },
     "silicone-gasket-2mm": {

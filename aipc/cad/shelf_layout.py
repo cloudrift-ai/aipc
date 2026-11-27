@@ -639,7 +639,8 @@ def _mounted_component_shape(box: Box):
     elif box.name == "Berserk LRFC6911N riser board":
         shape = shape.cut(nic.riser_holes())
         for u, v in nic.HOLES_UV:
-            mount_holes.append({"component": box.name, "interface": "riser-to-holder (photo-estimated)",
+            mount_holes.append({"component": box.name, "interface": "riser-to-holder (photo-estimated)" if (u, v) in nic.SCREW_HOLES_UV
+                                else "unused: over Kenshin's mount rail",
                                 "center_mm": [*nic.riser_xy(u, v), nic.RISER_Z], "diameter_mm": spec.dim(nic.RISER, "hole_diameter"),
                                 "verified": False})
     elif box.name == "Kenshin GA II Lite radiator":
@@ -1196,9 +1197,7 @@ network_report = {
         "selected_length_sufficient": _sff_needed <= spec.dim(nic.SFF, "length"),
         "H12D_port_xy_mm": [round(H12D_SFF_PORT_X, 2), round(BERSERK_BOARD_Y, 2)],
         "H12D_port_basis": "photo-estimated from the H12D-8D manual's layout figure: middle of three SFF-8643 ports on the front PCB edge",
-        "riser_plug_end_to_Kenshin_PCB_edge_mm": round(next(b.x for b in parts if b.name == "Kenshin ATX board") - max(b.x1 for b in connectors if b.name == "Berserk SFF-8643 riser plug"), 2),
-        "riser_plug_end_from_radiator_face_mm": round(max(b.x1 for b in connectors if b.name == "Berserk SFF-8643 riser plug") - nic.RADIATOR_FACE_X, 2),
-        "fit_note": "with the owner's 75 mm radiator-to-mount gap the straight plug ends about where the mount ends, so its bend sits over Kenshin's PCB edge; a right-angle SFF-8643 plug would avoid that"},
+        "riser_plug": "lies along the riser's socket edge with its cable leaving toward the SATA end (owner, 2026-11-27); the cable turns up and forward over the plug, so nothing projects toward Kenshin's board"},
 }
 k_aio_foot_keepout_conflicts = []
 for foot in k_aio_foot_boxes:

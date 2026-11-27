@@ -4,10 +4,15 @@ category = "printed"
 evidence = "allowance"
 notes = """
 PETG plate for the LRFC6911N riser: 6 mm base with four slotted M4 shelf
-anchors, a deflection stop beside the slot and four 8 mm bosses on the owner-measured 35 x 114 mm hole pattern,
-which lift the board clear of its 5 mm-deep SATA socket. No bracket support
-(owner, 2026-11-19: the slot holds the card). The plate stays within 15 mm
-of the board outline. The first print (with a bracket gate) did not fit:
+anchors and two 8 mm bosses under the slot-side holes of the owner-measured
+35 x 114 mm pattern, which lift the board clear of its 5 mm-deep SATA
+socket. The plate stops 2 mm short of Kenshin's mount rail and the riser
+hangs 13.5 mm past it over the rail (owner, 2026-11-27: the side AIO's hoses
+blocked the radiator-side position), so the socket-side holes stay empty;
+four lands 0.5 mm under the board (beside the slot, and front, mid and rear
+at the Kenshin edge) stop it flexing. Two anchors sit under the riser, so
+the plate is bolted first. No bracket support (owner, 2026-11-19: the slot
+holds the card). The first print (with a bracket gate) did not fit:
 the riser's SATA socket sits under the board and the card has a full-height
 bracket.
 """
@@ -20,5 +25,5 @@ source = "generated"
 notes = "Exported by cad/shelf_layout.py in shelf coordinates; prints as installed, base on the bed."
 
 [dims]
-mass = { value = 0.0410, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate" }
+mass = { value = 0.0311, unit = "kg", evidence = "allowance", note = "OrcaSlicer filament estimate, plate 09, 2026-11-27" }
 

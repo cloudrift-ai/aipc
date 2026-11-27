@@ -36,6 +36,9 @@ length from that end. The socket is 32 mm wide and 12.5 mm deep along the
 board, and the board is 135 x 43 mm (owner). Scaled to the measured hole
 pitch, the owner's underside photo puts the SATA-end holes about 18 mm in
 from that end, past the socket.
+Owner, 2026-11-27, with the riser fitted: the SFF-8643 plug lies along the
+top of the board at the socket edge, its pull tab and cable pointing toward
+the SATA end, so the plug does not project past the board edge.
 
 ![Part views](render.png)
 

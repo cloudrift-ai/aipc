@@ -167,10 +167,10 @@
       "count": 1,
       "highest_part_mm": 14.0,
       "occupied_bounds_mm": [
-        101.25,
-        31.5,
-        168.75,
-        168.5
+        113.48,
+        29.5,
+        156.52,
+        170.5
       ]
     },
     "10_fan120_aio_center_spacer": {
