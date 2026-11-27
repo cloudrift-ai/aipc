@@ -1,6 +1,6 @@
 part = "purchased/rack-cabinet"
 role = "cabinet that receives the shelf and the roof exhaust"
-status = "unspecified"
+status = "selected"
 quantity = 1
 systems = ["rack"]
 on_shelf = false

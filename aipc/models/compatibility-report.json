@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-19",
+  "date": "2026-11-27",
   "summary": {
-    "BLOCKED": 20,
-    "PROVISIONAL": 60,
-    "PASS": 11
+    "BLOCKED": 18,
+    "PROVISIONAL": 61,
+    "PASS": 12
   },
   "lint": [],
   "assembly_errors": [],
@@ -64,7 +64,6 @@
       "detail": "system needs 20.0; provider value unknown",
       "note": "H115i fan screws reach Y-20, in front of the front rail plane at the deck front (Y0); door must clear",
       "weak_evidence": [
-        "rack-cabinet:cabinet-front-clearance(unknown)",
         "system:cabinet-front-clearance(allowance)"
       ]
     },
@@ -84,7 +83,6 @@
       "detail": "system needs 400.0; provider value unknown",
       "note": "where the roof flange was placed, not a derived need: the pressure fan top is Z233.4 and the 6 in duct bend adds to that. Replace with the real cabinet ceiling once known",
       "weak_evidence": [
-        "rack-cabinet:cabinet-height-above-shelf(unknown)",
         "system:cabinet-height-above-shelf(allowance)"
       ]
     },
@@ -104,7 +102,6 @@
       "detail": "system needs 135.7; provider value unknown",
       "note": "HX1200i rear face at Y811.9 (24.5 mm past the deck) behind the rear rail plane at Y711.2 (28 in rail distance) plus 35 mm reserve; the side radiator ends at Y805.4; more at shorter rail distances",
       "weak_evidence": [
-        "rack-cabinet:cabinet-rear-clearance(unknown)",
         "system:cabinet-rear-clearance(allowance)"
       ]
     },
@@ -137,47 +134,7 @@
       "status": "BLOCKED",
       "detail": "hammond-rsus1931bk1 needs 457.2..711.2; provider value unknown",
       "note": "front-to-rear rack-post spacing range accepted by the slides",
-      "weak_evidence": [
-        "rack-cabinet:rack-post-depth(unknown)"
-      ]
-    },
-    {
-      "type": "rack-standard",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [
-        "hammond-rsus1931bk1"
-      ],
-      "providers": [
-        "rack-cabinet"
-      ],
-      "rule": "value",
-      "status": "BLOCKED",
-      "detail": "hammond-rsus1931bk1 needs EIA-310 19 in; provider value unknown",
-      "note": "",
-      "weak_evidence": [
-        "rack-cabinet:rack-standard(unknown)"
-      ]
-    },
-    {
-      "type": "rack-units",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [
-        "system"
-      ],
-      "providers": [
-        "rack-cabinet"
-      ],
-      "rule": "count",
-      "status": "BLOCKED",
-      "detail": "need 11 x rack-units, have None",
-      "weak_evidence": [
-        "rack-cabinet:rack-units(unknown)",
-        "system:rack-units(allowance)"
-      ]
+      "weak_evidence": []
     },
     {
       "type": "usb2-header",
@@ -1200,6 +1157,24 @@
       ]
     },
     {
+      "type": "rack-units",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "system"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 11 x rack-units, have 11",
+      "weak_evidence": [
+        "system:rack-units(allowance)"
+      ]
+    },
+    {
       "type": "radiator-mount",
       "systems": [
         "berserk"
@@ -1623,6 +1598,23 @@
       "weak_evidence": []
     },
     {
+      "type": "rack-standard",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "hammond-rsus1931bk1"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "hammond-rsus1931bk1 needs EIA-310 19 in; provided by rack-cabinet",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
       "type": "sff-8643-port",
       "systems": [
         "berserk"
@@ -1770,6 +1762,11 @@
       "detail": "Only the DigiKey listing is recorded; add Keystone's drawing."
     },
     {
+      "part": "micron-3400-2tb",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.mouser.com/datasheet/2/671/Micron_Technology_micron_3400_ssd_product_brief-2499062.pdf (run make datasheets)"
+    },
+    {
       "part": "micron-3500-2tb",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://static6.arrow.com/aropdfconversion/2547cff09287eb6bd4dacd83d5c50d725f96917/3500-nvme-ssd-product-brief.pdf (run make datasheets)"
@@ -1788,6 +1785,26 @@
       "part": "qsfp28-passive-dac",
       "status": "BLOCKED",
       "detail": "No cable chosen yet. The plug and cable dimensions are generic QSFP28 allowances; replace them with the chosen cable's drawing (for example an NVIDIA MCP1600 100GbE passive DAC, which the ConnectX-4 Lx runs at 50GbE)."
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://sysracks.com/product/12u-35-depth-foor-standing-sound-proof-server-cabinet-sp-12-900/ (run make datasheets)"
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2234/sysracks-soundproof-servrer-cabinet-manual.pdf (run make datasheets)"
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2918/12u600x900-soundproof-1-1024x726.png (run make datasheets)"
+    },
+    {
+      "part": "rosewill-hercules-1600",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.techpowerup.com/review/rosewill-hercules-1600/ (run make datasheets)"
     },
     {
       "part": "sff-8643-pcie-cable",
@@ -1960,7 +1977,11 @@
       "assumed": 3
     },
     "rack-cabinet": {
-      "unknown": 3
+      "datasheet": 10,
+      "listing": 3,
+      "photo-estimate": 1,
+      "assumed": 1,
+      "unknown": 4
     },
     "rosewill-hercules-1600": {
       "review": 3,
@@ -1998,7 +2019,6 @@
     }
   },
   "unspecified_parts": [
-    "mains-power",
-    "rack-cabinet"
+    "mains-power"
   ]
 }

@@ -51,7 +51,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [pcie-8pin-splitter](purchased/pcie-8pin-splitter/README.md) | PCIe 8-pin (female) to 2 x 6+2-pin splitter cable | [gpulab](../gpulab/parts/pcie-8pin-splitter.md) |
 | [psu-modular-cables](purchased/psu-modular-cables/README.md) | Super Flower Leadex 2800W modular cable set (approximate routes) | [gpulab](../gpulab/parts/psu-modular-cables.md) |
 | [qsfp28-passive-dac](purchased/qsfp28-passive-dac/README.md) | QSFP28 passive copper direct-attach cable, 1 m (not chosen) | [aipc](../aipc/parts/qsfp28-passive-dac.md) |
-| [rack-cabinet](purchased/rack-cabinet/README.md) | Rack cabinet (not yet specified) | [aipc](../aipc/parts/rack-cabinet.md), [gpulab](../gpulab/parts/rack-cabinet.md), [rack](../rack/parts/rack-cabinet.md) |
+| [rack-cabinet](purchased/rack-cabinet/README.md) | SysRacks SP 12.900 12U soundproof cabinet (600 x 900) | [aipc](../aipc/parts/rack-cabinet.md), [gpulab](../gpulab/parts/rack-cabinet.md), [rack](../rack/parts/rack-cabinet.md) |
 | [rosewill-hercules-1600](purchased/rosewill-hercules-1600/README.md) | Rosewill Hercules 1600 W PSU (reused) | [aipc](../aipc/parts/rosewill-hercules-1600.md) |
 | [samsung-990-pro-4tb](purchased/samsung-990-pro-4tb/README.md) | Samsung 990 PRO 4 TB NVMe | [aipc](../aipc/parts/samsung-990-pro-4tb.md) |
 | [sanyo-denki-9gv1412p1s001](purchased/sanyo-denki-9gv1412p1s001/README.md) | Sanyo Denki San Ace 9GV1412P1S001 140 x 38 mm fan | [aipc](../aipc/parts/sanyo-denki-9gv1412p1s001.md) |

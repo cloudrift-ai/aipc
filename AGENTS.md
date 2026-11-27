@@ -117,7 +117,7 @@ Seven mixed GPUs on cabled x8 risers from one H12D-8D, on two printed 13-positio
 Cabinet cooling shared by whatever runs in the rack: two 2 x 2 banks of Noctua NF-A20 PWM fans, an ESP32-DevKitC running ESPHome, two DS18B20 probes and a 12 V adapter.
 
 - [rack/cad/layout.py](rack/cad/layout.py) is the only geometry generator. It asserts on collisions, one controller header per fan and the bank count, and writes `models/cooling-report.json` (cutout pattern, airflow and heat estimate, 12 V load).
-- The cabinet is not identified: the fan banks sit on provisional planes (`INTAKE_*`, `ROOF_*`). Move them once the cabinet is measured, and record its dims in the library [rack-cabinet](parts/purchased/rack-cabinet/part.toml).
+- The cabinet is the SysRacks SP 12.900 ([rack-cabinet](parts/purchased/rack-cabinet/part.toml)): exhaust bank under the inner top at the rear, intake bank under the floor at the front, controller and supply under the lid. Outer dims are from the SysRacks drawing; wall, lid and floor values are assumptions. Replace them with measurements in the library spec, never in `layout.py`.
 - The heat load in [rack/system.toml](rack/system.toml) is blank on purpose (generic). The fan spec's `cabinet-heat-removal` derate (0.5) is an allowance; replace it with the airflow measured from the firmware's temperature rise.
 - Firmware: [rack/firmware/rack-fans.yaml](rack/firmware/rack-fans.yaml). Validate with `esphome config` after any change; keep the pin map in step with [rack/docs/wiring.md](rack/docs/wiring.md) and the board spec. `secrets.yaml` is gitignored; never commit it.
 - No printed parts yet; `cad/print_jobs.py` writes an empty job list.

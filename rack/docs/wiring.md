@@ -24,10 +24,10 @@ header pin 3 (tach) ──┬── 10 kΩ ── 3V3
 
 | Header | Fan | PWM GPIO | Tach GPIO |
 | --- | --- | --- | --- |
-| 1 | Intake 1 (top left, seen from the front) | 18 | 34 |
-| 2 | Intake 2 (top right) | 18 | 35 |
-| 3 | Intake 3 (bottom left) | 18 | 32 |
-| 4 | Intake 4 (bottom right) | 18 | 33 |
+| 1 | Intake 1 (rear left, seen from above) | 18 | 34 |
+| 2 | Intake 2 (rear right) | 18 | 35 |
+| 3 | Intake 3 (front left) | 18 | 32 |
+| 4 | Intake 4 (front right) | 18 | 33 |
 | 5 | Exhaust 1 (rear left, seen from above) | 19 | 25 |
 | 6 | Exhaust 2 (rear right) | 19 | 26 |
 | 7 | Exhaust 3 (front left) | 19 | 27 |

@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-20",
+  "date": "2026-11-27",
   "summary": {
-    "BLOCKED": 9,
+    "BLOCKED": 8,
     "PROVISIONAL": 17,
-    "PASS": 15
+    "PASS": 16
   },
   "lint": [],
   "assembly_errors": [],
@@ -56,28 +56,7 @@
       "status": "BLOCKED",
       "detail": "hammond-rsus1931bk1 needs 457.2..711.2; provider value unknown",
       "note": "front-to-rear rack-post spacing range accepted by the slides",
-      "weak_evidence": [
-        "rack-cabinet:rack-post-depth(unknown)"
-      ]
-    },
-    {
-      "type": "rack-standard",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [
-        "hammond-rsus1931bk1"
-      ],
-      "providers": [
-        "rack-cabinet"
-      ],
-      "rule": "value",
-      "status": "BLOCKED",
-      "detail": "hammond-rsus1931bk1 needs EIA-310 19 in; provider value unknown",
-      "note": "",
-      "weak_evidence": [
-        "rack-cabinet:rack-standard(unknown)"
-      ]
+      "weak_evidence": []
     },
     {
       "type": "shelf-load",
@@ -615,6 +594,23 @@
       "weak_evidence": []
     },
     {
+      "type": "rack-standard",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "hammond-rsus1931bk1"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "hammond-rsus1931bk1 needs EIA-310 19 in; provided by rack-cabinet",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
       "type": "riser-x16-slot",
       "systems": [
         "node"
@@ -791,6 +787,16 @@
       "detail": "not fetched locally: https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html (run make datasheets)"
     },
     {
+      "part": "corsair-ws3000",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.corsair.com/explorer/diy-builder/power-supply-units/corsair-ws3000-everything-you-need-to-know/ (run make datasheets)"
+    },
+    {
+      "part": "corsair-ws3000",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.corsair.com/us/en/p/psu/cp-9020312-na/ws3000-3000w-atx-3-1-fully-modular-workstation-power-supply-cp-9020312-na (run make datasheets)"
+    },
+    {
       "part": "fasteners",
       "status": "BLOCKED",
       "detail": "Generic ISO metric and UNC hardware; each build chooses lengths from its own stacks."
@@ -819,6 +825,21 @@
       "part": "psu-modular-cables",
       "status": "BLOCKED",
       "detail": "Ships with the PSU; lead lengths are not published. Measure them against models/gpulab-fit-report.json."
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://sysracks.com/product/12u-35-depth-foor-standing-sound-proof-server-cabinet-sp-12-900/ (run make datasheets)"
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2234/sysracks-soundproof-servrer-cabinet-manual.pdf (run make datasheets)"
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2918/12u600x900-soundproof-1-1024x726.png (run make datasheets)"
     },
     {
       "part": "wurth-970140324",
@@ -931,7 +952,11 @@
       "allowance": 1
     },
     "rack-cabinet": {
-      "unknown": 3
+      "datasheet": 10,
+      "listing": 3,
+      "photo-estimate": 1,
+      "assumed": 1,
+      "unknown": 4
     },
     "wurth-970140324": {
       "datasheet": 3,
@@ -944,7 +969,6 @@
     }
   },
   "unspecified_parts": [
-    "mains-power",
-    "rack-cabinet"
+    "mains-power"
   ]
 }

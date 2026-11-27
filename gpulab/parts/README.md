@@ -28,7 +28,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [obt-pcie-support](obt-pcie-support.md) | 14 | selected | node | pass | GPU bracket posts (two per card) |
 | [pcie-8pin-splitter](pcie-8pin-splitter.md) | 3 | candidate | node | provisional | feeds two riser boards (75 W each) from one PSU 6+2 lead |
 | [psu-modular-cables](psu-modular-cables.md) | 1 | candidate | node | - | power leads from the PSU to the GPUs, riser boards and board |
-| [rack-cabinet](rack-cabinet.md) | 1 | unspecified | rack | BLOCKED | cabinet that receives the GPU lab shelf |
+| [rack-cabinet](rack-cabinet.md) | 1 | selected | rack | BLOCKED | cabinet that receives the GPU lab shelf |
 | [wurth-970140324](wurth-970140324.md) | 14 | selected | node | pass | GPU post bases, bearing directly on the steel shelf |
 | [zotac-rtx-5090-solid](zotac-rtx-5090-solid.md) | 1 | candidate | node | provisional | GPU under test (open-air cooler), 5 baseboard positions |
 

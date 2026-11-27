@@ -62,26 +62,29 @@
       "covered_by": null,
       "not_modeled": null,
       "instance_names": [
-        "intake_fan_1",
-        "intake_fan_2",
-        "intake_fan_3",
-        "intake_fan_4",
         "exhaust_fan_1",
         "exhaust_fan_2",
         "exhaust_fan_3",
-        "exhaust_fan_4"
+        "exhaust_fan_4",
+        "intake_fan_1",
+        "intake_fan_2",
+        "intake_fan_3",
+        "intake_fan_4"
       ]
     },
     "rack-cabinet": {
-      "name": "Rack cabinet (not yet specified)",
+      "name": "SysRacks SP 12.900 12U soundproof cabinet (600 x 900)",
       "category": "purchased",
       "quantity": 1,
-      "state": "not_modeled",
-      "instances": 0,
-      "expected_instances": 1,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": null,
       "covered_by": null,
-      "not_modeled": "cabinet not identified; the fan banks are placed on provisional planes",
-      "instance_names": []
+      "not_modeled": null,
+      "instance_names": [
+        "cabinet_shell",
+        "cabinet_lid"
+      ]
     },
     "rack-fan-controller-board": {
       "name": "Rack fan controller board (ESP32, 8 fan headers, 1-Wire)",

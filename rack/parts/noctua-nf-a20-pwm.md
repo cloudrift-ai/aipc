@@ -23,9 +23,9 @@ Intake bank on controller headers 1-4 (PWM GPIO18), exhaust bank on headers 5-8 
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | count | `cabinet-fan-opening` | need 8 x cabinet-fan-opening=200 mm fan, 154 mm hole pitch, have None |
 | BLOCKED | budget | `cabinet-heat-removal` | load 0.0 W of 2947.2 W x derate 0.5 = 1473.6 W (0% of rating); unknown load for ['system'] |
 | provisional | value | `cabinet-fan-opening` | noctua-nf-a20-pwm needs 200 mm fan, 154 mm hole pitch; provided by rack-cabinet |
+| provisional | count | `cabinet-fan-opening` | need 8 x cabinet-fan-opening=200 mm fan, 154 mm hole pitch, have 8 |
 | provisional | budget | `dc-12v` | load 10.4 W of 60.0 W x derate 0.8 = 48.0 W (17% of rating) |
 | provisional | value | `fan-header-4pin` | noctua-nf-a20-pwm needs 12 V 4-pin PWM; provided by rack-fan-controller-board |
 | provisional | count | `fan-header-4pin` | need 8 x fan-header-4pin=12 v 4-pin pwm, have 8 |

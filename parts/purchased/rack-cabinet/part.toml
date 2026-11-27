@@ -1,39 +1,86 @@
 id = "rack-cabinet"
-name = "Rack cabinet (not yet specified)"
+name = "SysRacks SP 12.900 12U soundproof cabinet (600 x 900)"
 category = "purchased"
-evidence = "unknown"
+evidence = "datasheet"
 notes = """
-The cabinet has never been identified, so the shelf, slides, rear radiator
-projection, roof duct and other loads cannot be checked against it. Record make/model,
-post spacing, usable depth, door clearance and interior height here before
-buying the shelf or drilling anything.
+Free-standing acoustic cabinet on casters. Steel carcass lined inside with egg-crate
+foam on the sides, inner top, floor and both doors; glass front door; removable outer
+side panels; separate outer top lid. Two stock fans sit in the inner top under the
+lid and exhaust through the gap around the lid edge; fresh air enters at the sides and
+bottom (washable filter, foam cable entry in the floor). The stock air-control panel
+switches the fans on above a set temperature (10-50 C, one wired probe) and off below
+it. SysRacks claims "up to 36% noise reduction" (the catalog also says 36 dB(A)).
+
+Sources disagree: the drawing is titled 600*900 and shows 488.95 mm of rail height
+(11U), while the product page lists 12U, 26 in (66 cm) width, 35 in (88.9 cm) depth
+and a "height" of 21 in (53.4 cm), which is exactly 12U of rail, not the outside height.
+The drawing is low resolution. Everything inside (clear depth between the door
+foams, clear height, clear width, stock fan size) is unmeasured: measure before
+fitting a shelf or cutting a panel. The front and rear door clearances, the height
+above the shelf and the post depth stay unknown until then.
 """
+
+[[datasheets]]
+title = "SysRacks SP 12.900 product page"
+url = "https://sysracks.com/product/12u-35-depth-foor-standing-sound-proof-server-cabinet-sp-12-900/"
+
+[[datasheets]]
+title = "SysRacks soundproof server cabinet manual"
+url = "https://office.sysracks.com/storage/files/files/2234/sysracks-soundproof-servrer-cabinet-manual.pdf"
+
+[[datasheets]]
+title = "SysRacks 12U 600x900 soundproof cabinet drawing"
+url = "https://office.sysracks.com/storage/files/files/2918/12u600x900-soundproof-1-1024x726.png"
 
 [model]
 source = "constructed"
-notes = "AIPC models only a provisional inner-ceiling patch at Z400."
+notes = "AIPC models only a provisional inner-ceiling patch at Z400; the rack build models the outer shell from the drawing."
 
 [dims]
-post_depth = { value = "", evidence = "unknown" }
-interior_depth = { value = "", evidence = "unknown" }
+outer_width = { value = 600.0, evidence = "datasheet", source = "SysRacks drawing title 600*900", note = "product page says 26 in (660 mm); measure" }
+outer_depth = { value = 900.0, evidence = "datasheet", source = "SysRacks drawing (900), product page 35 in (889 mm)" }
+body_height = { value = 692.0, evidence = "datasheet", source = "SysRacks drawing: 692 floor to top of lid" }
+height_on_casters = { value = 771.5, evidence = "datasheet", source = "SysRacks drawing: 771.5 overall" }
+floor_clearance = { value = 79.5, evidence = "datasheet", source = "SysRacks drawing: 771.5 - 692, floor underside above the ground" }
+rail_height = { value = 488.95, evidence = "datasheet", source = "SysRacks drawing: 488.95 = 11U of rail" }
+rail_hole_spacing = { value = 465.0, evidence = "datasheet", source = "SysRacks drawing: 465 (EIA-310 19 in)" }
+rail_opening = { value = 450.0, evidence = "datasheet", source = "SysRacks drawing: 450 between rails" }
+rail_depth_max = { value = 787.4, evidence = "listing", source = "SysRacks product page: rail-to-rail max 31 in", note = "the feature list says 33 in; minimum not stated" }
+lid_thickness = { value = 50.0, evidence = "photo-estimate", source = "SysRacks drawing proportions", note = "measure" }
+wall_thickness = { value = 30.0, evidence = "assumed", note = "steel plus foam; measure each side, the doors and the floor" }
+interior_depth = { value = "", evidence = "unknown", note = "clear depth between the front and rear door foams" }
 interior_height_above_shelf = { value = "", evidence = "unknown" }
+post_depth = { value = "", evidence = "unknown", note = "rails adjustable up to 31 in (or 33 in)" }
+stock_fan_count = { value = 2, unit = "", evidence = "datasheet", source = "SysRacks manual step 1 and product page" }
+stock_fan_size = { value = "", evidence = "unknown", note = "photo suggests about 120 mm; measure" }
+thermostat_range_max = { value = 50.0, unit = "C", evidence = "datasheet", source = "SysRacks manual p.10: limit 10-50 C" }
+load_rating = { value = 199.6, unit = "kg", evidence = "listing", source = "Newegg and SysRacks listings: 440 lb" }
+mass = { value = 63.0, unit = "kg", evidence = "listing", source = "SysRacks product page: 138.9 lb" }
 
 [[provides]]
 type = "rack-standard"
-note = "unknown until the cabinet is identified"
+value = "EIA-310 19 in"
+evidence = "datasheet"
+note = "465 mm hole spacing on the SysRacks drawing"
 
 [[provides]]
 type = "rack-post-depth"
+note = "adjustable up to 31 in (787.4 mm); set it and measure once the cabinet is assembled"
 
 [[provides]]
 type = "rack-units"
-count = ""
+count = 11
+evidence = "datasheet"
+note = "488.95 mm of rail on the drawing; listed as 12U"
 
 [[provides]]
 type = "cabinet-front-clearance"
+note = "glass front door with a foam-lined frame; measure from the front rail plane to the door"
 
 [[provides]]
 type = "cabinet-rear-clearance"
+note = "foam-lined rear door; measure from the rear rail plane to the door foam"
 
 [[provides]]
 type = "cabinet-height-above-shelf"
+note = "inner top carries the two stock fans; measure once the shelf height is set"

@@ -1,8 +1,8 @@
 {
   "date": "2026-11-27",
   "summary": {
-    "BLOCKED": 6,
-    "PROVISIONAL": 9,
+    "BLOCKED": 4,
+    "PROVISIONAL": 10,
     "PASS": 1
   },
   "lint": [],
@@ -25,24 +25,6 @@
       ],
       "weak_evidence": [
         "mains-power:ac-power(unknown)"
-      ]
-    },
-    {
-      "type": "cabinet-fan-opening",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [
-        "noctua-nf-a20-pwm"
-      ],
-      "providers": [
-        "rack-cabinet"
-      ],
-      "rule": "count",
-      "status": "BLOCKED",
-      "detail": "need 8 x cabinet-fan-opening=200 mm fan, 154 mm hole pitch, have None",
-      "weak_evidence": [
-        "rack-cabinet:cabinet-fan-opening(unknown)"
       ]
     },
     {
@@ -83,7 +65,25 @@
       "detail": "noctua-nf-a20-pwm needs 200 mm fan, 154 mm hole pitch; provided by rack-cabinet",
       "note": "cutout plus four screw holes in a cabinet panel",
       "weak_evidence": [
-        "rack-cabinet:cabinet-fan-opening(unknown)"
+        "rack-cabinet:cabinet-fan-opening(allowance)"
+      ]
+    },
+    {
+      "type": "cabinet-fan-opening",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "noctua-nf-a20-pwm"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 8 x cabinet-fan-opening=200 mm fan, 154 mm hole pitch, have 8",
+      "weak_evidence": [
+        "rack-cabinet:cabinet-fan-opening(allowance)"
       ]
     },
     {
@@ -260,11 +260,6 @@
       "detail": "not in the assembly: outside the cooling kit; supply not specified"
     },
     {
-      "part": "rack-cabinet",
-      "status": "BLOCKED",
-      "detail": "not in the assembly: cabinet not identified; the fan banks are placed on provisional planes"
-    },
-    {
       "part": "rack-fan-harness",
       "status": "BLOCKED",
       "detail": "not in the assembly: flexible cabling; lengths depend on the cabinet, which is not identified"
@@ -306,6 +301,21 @@
       "part": "noctua-nf-a20-pwm",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://noctua.at/pub/media/blfa_files/infosheet/noctua_nf_a_20_pwm_datasheet_en_web.pdf (run make datasheets)"
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://sysracks.com/product/12u-35-depth-foor-standing-sound-proof-server-cabinet-sp-12-900/ (run make datasheets)"
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2234/sysracks-soundproof-servrer-cabinet-manual.pdf (run make datasheets)"
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://office.sysracks.com/storage/files/files/2918/12u600x900-soundproof-1-1024x726.png (run make datasheets)"
     }
   ],
   "weak_evidence_dims": {
@@ -315,7 +325,11 @@
       "unknown": 1
     },
     "rack-cabinet": {
-      "unknown": 3
+      "datasheet": 10,
+      "listing": 3,
+      "photo-estimate": 1,
+      "assumed": 1,
+      "unknown": 4
     },
     "rack-fan-controller-board": {
       "allowance": 4,
@@ -328,7 +342,6 @@
     }
   },
   "unspecified_parts": [
-    "mains-power",
-    "rack-cabinet"
+    "mains-power"
   ]
 }

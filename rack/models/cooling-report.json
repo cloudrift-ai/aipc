@@ -1,5 +1,5 @@
 {
-  "status": "design; nothing bought. Fan bank positions are provisional until the cabinet is identified.",
+  "status": "design; nothing bought. Positions follow the SysRacks SP 12.900 drawing; interior not measured.",
   "fan": {
     "part": "noctua-nf-a20-pwm",
     "size_mm": 200.0,
@@ -11,7 +11,7 @@
     "fans": 4,
     "span_mm": 405.0,
     "gap_mm": 5.0,
-    "cutout_pattern": "relative to the bank centre; u across, v up (intake) or toward the rear (exhaust)",
+    "cutout_pattern": "relative to the bank centre; u across (X), v toward the rear (Y); cutout diameter is illustrative",
     "fans_and_holes": [
       {
         "fan": 1,
@@ -114,16 +114,21 @@
         ]
       }
     ],
-    "intake_plane": {
-      "y_mm": 0.0,
-      "bottom_z_mm": 100.0,
-      "evidence": "allowance"
+    "intake": {
+      "where": "under the floor, blowing up",
+      "centre_y_mm": 252.5,
+      "free_air_below_mm": 49.5,
+      "wanted_mm": 50.0,
+      "ok": false
     },
-    "exhaust_plane": {
-      "z_mm": 1200.0,
-      "front_y_mm": 300.0,
-      "evidence": "allowance"
-    }
+    "exhaust": {
+      "where": "under the inner top, blowing into the lid plenum",
+      "centre_y_mm": 647.5,
+      "free_air_above_mm": 47.0,
+      "wanted_mm": 50.0,
+      "ok": false
+    },
+    "evidence": "cabinet outer dims from the SysRacks drawing; wall, lid and floor values assumed until measured"
   },
   "airflow": {
     "free_air_per_bank_cfm": 345.8,

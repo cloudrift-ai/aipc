@@ -34,7 +34,7 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | [nvidia-v100-pcie-16gb](nvidia-v100-pcie-16gb.md) | 4 | selected | berserk | provisional | Berserk GPUs (passive, ducted) |
 | [obt-pcie-support](obt-pcie-support.md) | 10 | selected | berserk, kenshin | pass | GPU bracket posts (two per card) |
 | [qsfp28-passive-dac](qsfp28-passive-dac.md) | 1 | candidate | berserk, kenshin | provisional | Direct Berserk-Kenshin 50GbE link between the two ConnectX-4 Lx cards |
-| [rack-cabinet](rack-cabinet.md) | 1 | unspecified | rack | BLOCKED | cabinet that receives the shelf and the roof exhaust |
+| [rack-cabinet](rack-cabinet.md) | 1 | selected | rack | BLOCKED | cabinet that receives the shelf and the roof exhaust |
 | [rosewill-hercules-1600](rosewill-hercules-1600.md) | 1 | owned | berserk | provisional | Berserk PSU |
 | [samsung-990-pro-4tb](samsung-990-pro-4tb.md) | 2 | owned | kenshin | provisional | Kenshin storage |
 | [sanyo-denki-9gv1412p1s001](sanyo-denki-9gv1412p1s001.md) | 1 | selected | berserk | provisional | pressure fan pulling air through the four V100s |
