@@ -1,0 +1,16 @@
+part = "purchased/rack-cabinet"
+role = "cabinet that takes the fan cutouts, the controller and the 12 V supply"
+status = "unspecified"
+quantity = 1
+systems = ["rack"]
+notes = "Fan cutouts are cut to suit once the cabinet is known: a 2 x 2 bank needs about 405 x 405 mm of flat panel plus clearance on both sides of the fans."
+
+[[provides]]
+type = "cabinet-fan-opening"
+value = "200 mm fan, 154 mm hole pitch"
+count = ""
+evidence = "unknown"
+note = "panel space for the two 2 x 2 banks is not known until the cabinet is identified and measured"
+
+[assembly]
+not_modeled = "cabinet not identified; the fan banks are placed on provisional planes"

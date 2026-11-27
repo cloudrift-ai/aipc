@@ -8,6 +8,7 @@ Notes for coding agents working in this repo. This file is the single list of re
 | --- | --- |
 | [aipc/](aipc/README.md) | AIPC build: two AI workstations (Berserk, Kenshin) on one rack shelf. Fit prototype |
 | [gpulab/](gpulab/README.md) | GPU lab build: seven mixed GPUs on cabled x8 risers from one H12D-8D, two printed 13-position baseboards. Design |
+| [rack/](rack/README.md) | Rack cooling build: eight 200 mm cabinet fans and the ESP32/ESPHome controller (`rack/firmware/`). Design |
 | [parts/](parts/README.md) | Shared parts library: one folder per part with its spec (`part.toml`), generated README, model, render and fetched datasheets. Builds only reference it |
 | [hwkit/](hwkit) | Shared Python package: part specs, compatibility, assembly registry, export, renders, plates, printers, slicing, shared component models (`hwkit/components`: Hammond shelf, PCIe posts, the AIPC motherboard mount and PSU bracket), and the `hwkit` CLI |
 | [hwkit/printers/](hwkit/printers) | Printer definitions (`printer.toml`), vendored OrcaSlicer base presets and shared slicer profiles |
@@ -110,3 +111,13 @@ Seven mixed GPUs on cabled x8 risers from one H12D-8D, on two printed 13-positio
 - Both baseboards are one model (`quantity = 2`); baseboard B is a translated copy of A, and the generator asserts it.
 - The riser board outline and holes are photo estimates. Replace them in the library's [part.toml](parts/purchased/cpayne-cp0231-mcio-device-adapter/part.toml) from C-Payne's 3D model or a measured board before printing.
 - The power budget passes only with each GPU's `load_limited` cap (in `gpulab/parts/<id>.toml`; see [gpulab/README.md](gpulab/README.md#power)). Changing a card or a cap means rechecking the 2,400 W budget; never drop a cap to make a card fit.
+
+### rack
+
+Cabinet cooling shared by whatever runs in the rack: two 2 x 2 banks of Noctua NF-A20 PWM fans, an ESP32-DevKitC running ESPHome, two DS18B20 probes and a 12 V adapter.
+
+- [rack/cad/layout.py](rack/cad/layout.py) is the only geometry generator. It asserts on collisions, one controller header per fan and the bank count, and writes `models/cooling-report.json` (cutout pattern, airflow and heat estimate, 12 V load).
+- The cabinet is not identified: the fan banks sit on provisional planes (`INTAKE_*`, `ROOF_*`). Move them once the cabinet is measured, and record its dims in the library [rack-cabinet](parts/purchased/rack-cabinet/part.toml).
+- The heat load in [rack/system.toml](rack/system.toml) is blank on purpose (generic). The fan spec's `cabinet-heat-removal` derate (0.5) is an allowance; replace it with the airflow measured from the firmware's temperature rise.
+- Firmware: [rack/firmware/rack-fans.yaml](rack/firmware/rack-fans.yaml). Validate with `esphome config` after any change; keep the pin map in step with [rack/docs/wiring.md](rack/docs/wiring.md) and the board spec. `secrets.yaml` is gitignored; never commit it.
+- No printed parts yet; `cad/print_jobs.py` writes an empty job list.

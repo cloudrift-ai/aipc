@@ -1,0 +1,77 @@
+id = "rack-fan-controller-board"
+name = "Rack fan controller board (ESP32, 8 fan headers, 1-Wire)"
+category = "fabricated"
+evidence = "allowance"
+notes = """
+Hand-wired perfboard carrying the ESP32-DevKitC on female headers. Wiring and parts
+list in rack/docs/wiring.md; firmware in rack/firmware/rack-fans.yaml.
+
+12 V in on a 5.5 x 2.1 mm jack -> 2 A fuse -> 12 V bus to pin 2 of all eight fan
+headers and the Recom R-78E5.0-1.0 (5 V out -> DevKitC 5V pin).
+PWM: two channels, intake (headers 1-4, GPIO18) and exhaust (headers 5-8, GPIO19).
+Each GPIO -> 1 kOhm -> 2N3904 base (10 kOhm base to emitter), emitter to ground,
+collector to pin 4 of its four headers. The transistor sinks the fans' own PWM
+pull-ups (open collector, as the 4-wire fan spec expects), so the output is inverted
+in firmware. If the ESP32 is unpowered, resetting or crashed, the base is pulled low,
+the transistor is off and the fans see an open PWM line: full speed.
+Tach: pin 3 of each header -> 10 kOhm pull-up to 3.3 V and 1 kOhm series to its GPIO
+(34, 35, 32, 33 intake; 25, 26, 27, 13 exhaust). GPIO36/39 are avoided because of
+the ESP32 erratum on spurious low pulses there.
+1-Wire: 3-way terminal 3V3 / DQ (GPIO4, 4.7 kOhm pull-up to 3V3) / GND for both probes.
+"""
+
+[[datasheets]]
+title = "Recom R-78E 1.0 A series datasheet"
+url = "https://www.farnell.com/datasheets/2787646.pdf"
+
+[[datasheets]]
+title = "onsemi 2N3903/2N3904 datasheet"
+url = "https://www.onsemi.com/pdf/datasheet/2n3903-d.pdf"
+
+[model]
+source = "constructed"
+notes = "Board envelope only; layout not drawn."
+
+[dims]
+board_width = { value = 100.0, evidence = "allowance", note = "perfboard size before layout" }
+board_depth = { value = 80.0, evidence = "allowance", note = "perfboard size before layout" }
+height = { value = 25.0, evidence = "allowance", note = "DevKitC on female headers" }
+fuse_rating = { value = 2.0, unit = "A", evidence = "allowance", note = "8 x 0.08 A fans + 0.25 A converter input, with start-up margin; protects the perfboard bus, not the fans" }
+converter_current = { value = 1.0, unit = "A", evidence = "datasheet", source = "Recom R-78E5.0-1.0: 5 V, 1.0 A, 8-28 V in" }
+converter_efficiency = { value = 0.91, unit = "", evidence = "datasheet", source = "Recom R-78E5.0-1.0: 91% at nominal input, full load" }
+mass = { value = 0.08, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "fan-header-4pin"
+value = "12 V 4-pin PWM"
+count = 8
+note = "headers 1-4 intake channel, 5-8 exhaust channel"
+
+[[provides]]
+type = "devkitc-socket"
+count = 1
+
+[[provides]]
+type = "dc-5v"
+capacity = 5.0
+unit = "W"
+derate = 0.8
+evidence = "datasheet"
+note = "Recom R-78E5.0-1.0, 5 V x 1.0 A"
+
+[[provides]]
+type = "onewire-port"
+value = "3.3 V, DQ, GND"
+count = 2
+note = "one terminal, both probes in parallel on one bus"
+
+[[requires]]
+type = "dc-barrel-5.5x2.1"
+value = "12 V, 5.5 x 2.1 mm, centre positive"
+count = 1
+
+[[requires]]
+type = "dc-12v"
+load = 2.75
+unit = "W"
+note = "the converter's input at the DevKitC's 2.5 W rating and 91% efficiency"

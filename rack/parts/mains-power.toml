@@ -1,0 +1,8 @@
+part = "purchased/mains-power"
+role = "PDU outlet for the fan supply"
+status = "unspecified"
+quantity = 1
+systems = ["rack"]
+
+[assembly]
+not_modeled = "outside the cooling kit; supply not specified"

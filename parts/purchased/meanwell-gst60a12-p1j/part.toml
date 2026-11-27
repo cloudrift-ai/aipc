@@ -1,0 +1,52 @@
+id = "meanwell-gst60a12-p1j"
+name = "Mean Well GST60A12-P1J 12 V 5 A desktop adapter"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+Fully enclosed adapter, so no exposed mains wiring in the rack. IEC320-C14 inlet
+(any C13 cord or PDU outlet), 1000 mm UL1185 16 AWG output cable with a P1J plug:
+5.5 mm outer, 2.1 mm inner, centre positive, -V not connected to AC earth.
+Protections: short circuit, overload, over-voltage and over-temperature.
+"""
+
+[[datasheets]]
+title = "Mean Well GST60A series specification (GST60A-SPEC 2026-04-03)"
+url = "https://www.meanwell.com/Upload/PDF/GST60A/GST60A-SPEC.PDF"
+
+[model]
+source = "constructed"
+notes = "Case envelope only."
+
+[dims]
+length = { value = 125.0, evidence = "datasheet", source = "GST60A-SPEC: 125 x 50 x 31.5 mm" }
+width = { value = 50.0, evidence = "datasheet", source = "GST60A-SPEC: 125 x 50 x 31.5 mm" }
+height = { value = 31.5, evidence = "datasheet", source = "GST60A-SPEC: 125 x 50 x 31.5 mm" }
+output_voltage = { value = 12.0, unit = "V", evidence = "datasheet", source = "GST60A-SPEC: 12 V +/-3%" }
+rated_current = { value = 5.0, unit = "A", evidence = "datasheet", source = "GST60A-SPEC" }
+rated_power = { value = 60.0, unit = "W", evidence = "datasheet", source = "GST60A-SPEC" }
+efficiency = { value = 0.895, unit = "", evidence = "datasheet", source = "GST60A-SPEC: 89.5% typ." }
+output_cable_length = { value = 1000.0, evidence = "datasheet", source = "GST60A-SPEC: UL1185 16 AWG 1000 +/-50 mm for 12-15 V" }
+mass = { value = 0.305, unit = "kg", evidence = "datasheet", source = "GST60A-SPEC packing: 0.305 kg per unit" }
+
+[[provides]]
+type = "dc-12v"
+capacity = 60.0
+unit = "W"
+derate = 0.8
+
+[[provides]]
+type = "dc-barrel-5.5x2.1"
+value = "12 V, 5.5 x 2.1 mm, centre positive"
+count = 1
+
+[[requires]]
+type = "ac-power"
+load = 67.0
+unit = "W"
+note = "60 W rated output / 89.5% efficiency; the fans and controller draw about 11 W"
+
+[[requires]]
+type = "ac-outlet-c13"
+count = 1
+optional = true
+note = "C13 outlet on the PDU, or a C13 cord to the wall"

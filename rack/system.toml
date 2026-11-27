@@ -1,0 +1,13 @@
+# System-level interfaces for the cabinet cooling.
+#
+# The heat load is generic for now: set it to whatever runs in the cabinet
+# (AIPC estimates about 1.3 kW in aipc/docs/design.md; gpulab's PSU budget is 2.4 kW).
+# Until then the heat-removal budget stays BLOCKED; rack/docs/design.md tabulates
+# what the fans support at different temperature rises.
+
+[[requires]]
+type = "cabinet-heat-removal"
+load = ""
+unit = "W"
+evidence = "unknown"
+note = "heat dissipated inside the cabinet at full load; generic until a build is assigned"

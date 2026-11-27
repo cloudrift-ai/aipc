@@ -20,6 +20,7 @@ buying the shelf or drilling anything.
 | --- | ---: | --- | --- |
 | [aipc](../../../aipc/parts/rack-cabinet.md) | 1 | unspecified | cabinet that receives the shelf and the roof exhaust |
 | [gpulab](../../../gpulab/parts/rack-cabinet.md) | 1 | unspecified | cabinet that receives the GPU lab shelf |
+| [rack](../../../rack/parts/rack-cabinet.md) | 1 | unspecified | cabinet that takes the fan cutouts, the controller and the 12 V supply |
 
 ## Model
 

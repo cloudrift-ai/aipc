@@ -299,7 +299,7 @@ def dim(part_id: str, key: str) -> float:
 
 def system_spec() -> dict:
     """System-level requirements and keepouts derived from the layout (<build>/system.toml)."""
-    return tomllib.loads(paths.SYSTEM.read_text()) if paths.SYSTEM.exists() else {}
+    return _read(paths.SYSTEM) if paths.SYSTEM.exists() else {}
 
 
 def lint(parts: dict[str, Part] | None = None) -> list[str]:

@@ -1,0 +1,20 @@
+id = "rack-fan-harness"
+name = "Rack fan and probe cabling"
+category = "fabricated"
+evidence = "allowance"
+notes = """
+Each fan reaches 500 mm with its own 200 mm lead and the included Noctua 30 cm
+extension. Runs longer than that get standard 4-pin fan extensions, one per fan
+(no splitters: every fan keeps its own tach line to the controller). The probes
+connect to the controller's 1-Wire terminal on their own cables. Lengths are set
+once the cabinet and the controller position are known. Route along the cabinet
+frame with ties, clear of every rotor, with slack for opening the door if the
+intake fans sit on it.
+"""
+
+[model]
+source = "constructed"
+
+[dims]
+extension_length = { value = "", evidence = "unknown", note = "measure from each fan position to the controller" }
+mass = { value = 0.15, unit = "kg", evidence = "assumed" }

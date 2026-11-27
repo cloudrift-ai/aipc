@@ -1,0 +1,8 @@
+part = "purchased/meanwell-gst60a12-p1j"
+role = "12 V supply for the fans and the controller, plugged into the rack PDU"
+status = "selected"
+quantity = 1
+systems = ["rack"]
+
+[assembly]
+match = ["^fan_psu_12v$"]

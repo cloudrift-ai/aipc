@@ -1,0 +1,146 @@
+{
+  "status": "design; nothing bought. Fan bank positions are provisional until the cabinet is identified.",
+  "fan": {
+    "part": "noctua-nf-a20-pwm",
+    "size_mm": 200.0,
+    "depth_mm": 30.0,
+    "hole_pitch_mm": 154.0,
+    "free_air_cfm": 86.46
+  },
+  "bank": {
+    "fans": 4,
+    "span_mm": 405.0,
+    "gap_mm": 5.0,
+    "cutout_pattern": "relative to the bank centre; u across, v up (intake) or toward the rear (exhaust)",
+    "fans_and_holes": [
+      {
+        "fan": 1,
+        "centre_mm": [
+          -102.5,
+          102.5
+        ],
+        "screw_holes_mm": [
+          [
+            -179.5,
+            179.5
+          ],
+          [
+            -25.5,
+            179.5
+          ],
+          [
+            -179.5,
+            25.5
+          ],
+          [
+            -25.5,
+            25.5
+          ]
+        ]
+      },
+      {
+        "fan": 2,
+        "centre_mm": [
+          102.5,
+          102.5
+        ],
+        "screw_holes_mm": [
+          [
+            25.5,
+            179.5
+          ],
+          [
+            179.5,
+            179.5
+          ],
+          [
+            25.5,
+            25.5
+          ],
+          [
+            179.5,
+            25.5
+          ]
+        ]
+      },
+      {
+        "fan": 3,
+        "centre_mm": [
+          -102.5,
+          -102.5
+        ],
+        "screw_holes_mm": [
+          [
+            -179.5,
+            -25.5
+          ],
+          [
+            -25.5,
+            -25.5
+          ],
+          [
+            -179.5,
+            -179.5
+          ],
+          [
+            -25.5,
+            -179.5
+          ]
+        ]
+      },
+      {
+        "fan": 4,
+        "centre_mm": [
+          102.5,
+          -102.5
+        ],
+        "screw_holes_mm": [
+          [
+            25.5,
+            -25.5
+          ],
+          [
+            179.5,
+            -25.5
+          ],
+          [
+            25.5,
+            -179.5
+          ],
+          [
+            179.5,
+            -179.5
+          ]
+        ]
+      }
+    ],
+    "intake_plane": {
+      "y_mm": 0.0,
+      "bottom_z_mm": 100.0,
+      "evidence": "allowance"
+    },
+    "exhaust_plane": {
+      "z_mm": 1200.0,
+      "front_y_mm": 300.0,
+      "evidence": "allowance"
+    }
+  },
+  "airflow": {
+    "free_air_per_bank_cfm": 345.8,
+    "derate": 0.5,
+    "estimated_cabinet_cfm": 172.9,
+    "evidence": "allowance: free-air rating, series banks count once, derated for grilles and equipment",
+    "heat_removal_w": {
+      "10C_rise": 982,
+      "15C_rise": 1474,
+      "20C_rise": 1965
+    }
+  },
+  "electrical": {
+    "fan_load_w": 7.68,
+    "controller_load_w": 2.75,
+    "total_12v_w": 10.43,
+    "supply_w": 60.0,
+    "fans_per_pwm_channel": 4
+  }
+}

@@ -1,0 +1,48 @@
+id = "espressif-esp32-devkitc-32e"
+name = "Espressif ESP32-DevKitC-32E (DevKitC V4, ESP32-WROOM-32E)"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+Classic ESP32, chosen because it has eight hardware pulse counters (PCNT): one per
+fan tach. The ESP32-S2/S3/C3 have four or none. Powered through the 5V pin (J2-19)
+only; never connect USB and the 5V pin at the same time (Espressif: use one and only
+one power source). Unplug the 5V feed before flashing over USB.
+GPIO6-11 drive the flash; GPIO0, 2, 5, 12 and 15 are strapping pins; GPIO34-39 are
+input-only without internal pull-ups. The PCB antenna sits 6.04 mm past the board end:
+inside a closed metal cabinet Wi-Fi may be weak, see rack/docs/design.md.
+"""
+
+[[datasheets]]
+title = "ESP32-DevKitC V4 user guide"
+url = "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/user_guide.html"
+
+[[datasheets]]
+title = "ESP32-DevKitC V4 dimensions"
+url = "https://dl.espressif.com/dl/schematics/esp32_devkitc_v4_dimensions.pdf"
+
+[[datasheets]]
+title = "ESP32-WROOM-32E datasheet"
+url = "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_en.pdf"
+
+[model]
+source = "constructed"
+notes = "Board envelope with the antenna overhang; headers not modeled."
+
+[dims]
+board_width = { value = 27.94, evidence = "datasheet", source = "DevKitC V4 dimensions drawing" }
+board_length = { value = 48.26, evidence = "datasheet", source = "DevKitC V4 dimensions drawing" }
+antenna_overhang = { value = 6.04, evidence = "datasheet", source = "DevKitC V4 dimensions drawing" }
+header_row_spacing = { value = 25.4, evidence = "datasheet", source = "DevKitC V4 dimensions drawing" }
+header_pitch = { value = 2.54, evidence = "datasheet", source = "DevKitC V4 dimensions drawing" }
+supply_current_3v3 = { value = 0.5, unit = "A", evidence = "datasheet", source = "WROOM-32E datasheet: current delivered by external supply, min 0.5 A" }
+wifi_tx_peak = { value = 379.0, unit = "mA", evidence = "datasheet", source = "WROOM-32E datasheet table 16: 802.11b 19.5 dBm peak" }
+
+[[requires]]
+type = "devkitc-socket"
+count = 1
+
+[[requires]]
+type = "dc-5v"
+load = 2.5
+unit = "W"
+note = "0.5 A supply rating at the 3.3 V regulator input, taken at 5 V because the board regulator is linear"

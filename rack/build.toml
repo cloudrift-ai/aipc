@@ -1,0 +1,18 @@
+# Build settings read by the shared hwkit library (../hwkit).
+
+name = "Rack cooling"
+title = "Cabinet fans and ESP32 fan controller"
+assembly_step = "models/rack-cooling-assembly.step"
+printer = "qidi-x-plus"
+
+[render]
+system_sheets = []
+
+[compat]
+# Items in system.toml without `systems` belong to this system.
+default_system = "rack"
+
+# Build-specific generators, run by `hwkit cad` and `hwkit plates`.
+[scripts]
+cad = "cad/layout.py"
+plates = "cad/print_jobs.py"

@@ -1,0 +1,8 @@
+part = "fabricated/rack-fan-harness"
+role = "fan extensions and probe cables from each fan and probe to the controller"
+status = "design"
+quantity = 1
+systems = ["rack"]
+
+[assembly]
+not_modeled = "flexible cabling; lengths depend on the cabinet, which is not identified"

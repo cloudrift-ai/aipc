@@ -23,6 +23,8 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [cpayne-cp0120-mcio-host-adapter](purchased/cpayne-cp0120-mcio-host-adapter/README.md) | C-Payne CP-0120 MCIO PCIe gen5 Host Adapter x16 (passive) | [gpulab](../gpulab/parts/cpayne-cp0120-mcio-host-adapter.md) |
 | [cpayne-cp0231-mcio-device-adapter](purchased/cpayne-cp0231-mcio-device-adapter/README.md) | C-Payne CP-0231 MCIO PCIe gen5 Device Adapter x8/x16 (BOTTOM) | [gpulab](../gpulab/parts/cpayne-cp0231-mcio-device-adapter.md) |
 | [cpayne-mcio-8i-cable-0p75m](purchased/cpayne-mcio-8i-cable-0p75m/README.md) | C-Payne MCIO 8i to MCIO 8i cable, 0.75 m, 85 ohm (305-CAB-MCIO/MCIO-8i-P0.75M-11-85) | [gpulab](../gpulab/parts/cpayne-mcio-8i-cable-0p75m.md) |
+| [ds18b20-waterproof-probe](purchased/ds18b20-waterproof-probe/README.md) | DS18B20 waterproof probe (stainless tube, 3-wire cable) | [rack](../rack/parts/ds18b20-waterproof-probe.md) |
+| [espressif-esp32-devkitc-32e](purchased/espressif-esp32-devkitc-32e/README.md) | Espressif ESP32-DevKitC-32E (DevKitC V4, ESP32-WROOM-32E) | [rack](../rack/parts/espressif-esp32-devkitc-32e.md) |
 | [fasteners](purchased/fasteners/README.md) | Shelf and component fasteners (metric and UNC screws, washers, nuts) | [aipc](../aipc/parts/fasteners.md), [gpulab](../gpulab/parts/fasteners.md) |
 | [flex-duct-6in](purchased/flex-duct-6in/README.md) | 6 in wire-supported flexible duct, uninsulated | [aipc](../aipc/parts/flex-duct-6in.md) |
 | [gigabyte-x870e-aorus-pro](purchased/gigabyte-x870e-aorus-pro/README.md) | Gigabyte X870E AORUS PRO (ATX) | [aipc](../aipc/parts/gigabyte-x870e-aorus-pro.md) |
@@ -33,12 +35,14 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [lian-li-ga2-lite-360](purchased/lian-li-ga2-lite-360/README.md) | Lian Li GA II LITE Performance 360 (GA2L36PB) | [aipc](../aipc/parts/lian-li-ga2-lite-360.md) |
 | [linkreal-lrfc6911n](purchased/linkreal-lrfc6911n/README.md) | Linkreal (LR-Link) LRFC6911N, 1 x SFF-8643 to PCIe x16 slot (x4) adapter | [aipc](../aipc/parts/linkreal-lrfc6911n.md) |
 | [m3-ff-standoff-10mm](purchased/m3-ff-standoff-10mm/README.md) | M3 x 10 mm female/female hex standoff, SW5.5 | [gpulab](../gpulab/parts/m3-ff-standoff-10mm.md) |
-| [mains-power](purchased/mains-power/README.md) | Mains circuit, UPS and PDU (not specified) | [aipc](../aipc/parts/mains-power.md), [gpulab](../gpulab/parts/mains-power.md) |
+| [mains-power](purchased/mains-power/README.md) | Mains circuit, UPS and PDU (not specified) | [aipc](../aipc/parts/mains-power.md), [gpulab](../gpulab/parts/mains-power.md), [rack](../rack/parts/mains-power.md) |
 | [mcmaster-53185k52](purchased/mcmaster-53185k52/README.md) | McMaster-Carr 53185K52 lever-release hose clamp | [aipc](../aipc/parts/mcmaster-53185k52.md) |
+| [meanwell-gst60a12-p1j](purchased/meanwell-gst60a12-p1j/README.md) | Mean Well GST60A12-P1J 12 V 5 A desktop adapter | [rack](../rack/parts/meanwell-gst60a12-p1j.md) |
 | [micron-3400-2tb](purchased/micron-3400-2tb/README.md) | Micron 3400 2 TB NVMe (MTFDKBA2T0TFH) | [aipc](../aipc/parts/micron-3400-2tb.md) |
 | [micron-3500-2tb](purchased/micron-3500-2tb/README.md) | Micron 3500 2 TB NVMe (MTFDKBA2T0TGD) | [aipc](../aipc/parts/micron-3500-2tb.md) |
 | [micron-mta36asf4g72pz-2g9](purchased/micron-mta36asf4g72pz-2g9/README.md) | Micron 32 GB DDR4-2933 ECC RDIMM (MTA36ASF4G72PZ-2G9E2UI) | [aipc](../aipc/parts/micron-mta36asf4g72pz-2g9.md) |
 | [moddiy-eps-90-extension](purchased/moddiy-eps-90-extension/README.md) | Low-profile 90 degree CPU/EPS 8-pin extension | [aipc](../aipc/parts/moddiy-eps-90-extension.md) |
+| [noctua-nf-a20-pwm](purchased/noctua-nf-a20-pwm/README.md) | Noctua NF-A20 PWM 200 x 30 mm fan | [rack](../rack/parts/noctua-nf-a20-pwm.md) |
 | [nvidia-mcx4131a-gcat](purchased/nvidia-mcx4131a-gcat/README.md) | NVIDIA (Mellanox) ConnectX-4 Lx EN MCX4131A-GCAT, 50GbE single-port QSFP28 | [aipc](../aipc/parts/nvidia-mcx4131a-gcat.md) |
 | [nvidia-rtx-3090-fe](purchased/nvidia-rtx-3090-fe/README.md) | NVIDIA GeForce RTX 3090 Founders Edition | [gpulab](../gpulab/parts/nvidia-rtx-3090-fe.md) |
 | [nvidia-rtx-4090-fe](purchased/nvidia-rtx-4090-fe/README.md) | NVIDIA GeForce RTX 4090 Founders Edition | [gpulab](../gpulab/parts/nvidia-rtx-4090-fe.md) |
@@ -47,7 +51,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [pcie-8pin-splitter](purchased/pcie-8pin-splitter/README.md) | PCIe 8-pin (female) to 2 x 6+2-pin splitter cable | [gpulab](../gpulab/parts/pcie-8pin-splitter.md) |
 | [psu-modular-cables](purchased/psu-modular-cables/README.md) | Super Flower Leadex 2800W modular cable set (approximate routes) | [gpulab](../gpulab/parts/psu-modular-cables.md) |
 | [qsfp28-passive-dac](purchased/qsfp28-passive-dac/README.md) | QSFP28 passive copper direct-attach cable, 1 m (not chosen) | [aipc](../aipc/parts/qsfp28-passive-dac.md) |
-| [rack-cabinet](purchased/rack-cabinet/README.md) | Rack cabinet (not yet specified) | [aipc](../aipc/parts/rack-cabinet.md), [gpulab](../gpulab/parts/rack-cabinet.md) |
+| [rack-cabinet](purchased/rack-cabinet/README.md) | Rack cabinet (not yet specified) | [aipc](../aipc/parts/rack-cabinet.md), [gpulab](../gpulab/parts/rack-cabinet.md), [rack](../rack/parts/rack-cabinet.md) |
 | [rosewill-hercules-1600](purchased/rosewill-hercules-1600/README.md) | Rosewill Hercules 1600 W PSU (reused) | [aipc](../aipc/parts/rosewill-hercules-1600.md) |
 | [samsung-990-pro-4tb](purchased/samsung-990-pro-4tb/README.md) | Samsung 990 PRO 4 TB NVMe | [aipc](../aipc/parts/samsung-990-pro-4tb.md) |
 | [sanyo-denki-9gv1412p1s001](purchased/sanyo-denki-9gv1412p1s001/README.md) | Sanyo Denki San Ace 9GV1412P1S001 140 x 38 mm fan | [aipc](../aipc/parts/sanyo-denki-9gv1412p1s001.md) |
@@ -84,5 +88,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | Part | Name | Used in |
 | --- | --- | --- |
 | [fan-power-harness](fabricated/fan-power-harness/README.md) | Fused PWM pass-through harness for the pressure fan | [aipc](../aipc/parts/fan-power-harness.md) |
+| [rack-fan-controller-board](fabricated/rack-fan-controller-board/README.md) | Rack fan controller board (ESP32, 8 fan headers, 1-Wire) | [rack](../rack/parts/rack-fan-controller-board.md) |
+| [rack-fan-harness](fabricated/rack-fan-harness/README.md) | Rack fan and probe cabling | [rack](../rack/parts/rack-fan-harness.md) |
 | [rear-aio-steel-extension](fabricated/rear-aio-steel-extension/README.md) | Rear AIO steel extension plate, 400 x 83 x 3 mm | none |
 

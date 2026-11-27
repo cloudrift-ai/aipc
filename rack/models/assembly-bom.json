@@ -1,0 +1,113 @@
+{
+  "rule": "every assembly instance belongs to a part folder or a declared keepout; every part is modeled, covered or explicitly not modeled",
+  "parts": {
+    "ds18b20-waterproof-probe": {
+      "name": "DS18B20 waterproof probe (stainless tube, 3-wire cable)",
+      "category": "purchased",
+      "quantity": 2,
+      "state": "modeled",
+      "instances": 2,
+      "expected_instances": 2,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "intake_probe",
+        "exhaust_probe"
+      ]
+    },
+    "espressif-esp32-devkitc-32e": {
+      "name": "Espressif ESP32-DevKitC-32E (DevKitC V4, ESP32-WROOM-32E)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "esp32_devkitc"
+      ]
+    },
+    "mains-power": {
+      "name": "Mains circuit, UPS and PDU (not specified)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "outside the cooling kit; supply not specified",
+      "instance_names": []
+    },
+    "meanwell-gst60a12-p1j": {
+      "name": "Mean Well GST60A12-P1J 12 V 5 A desktop adapter",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "fan_psu_12v"
+      ]
+    },
+    "noctua-nf-a20-pwm": {
+      "name": "Noctua NF-A20 PWM 200 x 30 mm fan",
+      "category": "purchased",
+      "quantity": 8,
+      "state": "modeled",
+      "instances": 8,
+      "expected_instances": 8,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "intake_fan_1",
+        "intake_fan_2",
+        "intake_fan_3",
+        "intake_fan_4",
+        "exhaust_fan_1",
+        "exhaust_fan_2",
+        "exhaust_fan_3",
+        "exhaust_fan_4"
+      ]
+    },
+    "rack-cabinet": {
+      "name": "Rack cabinet (not yet specified)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "cabinet not identified; the fan banks are placed on provisional planes",
+      "instance_names": []
+    },
+    "rack-fan-controller-board": {
+      "name": "Rack fan controller board (ESP32, 8 fan headers, 1-Wire)",
+      "category": "fabricated",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "controller_board"
+      ]
+    },
+    "rack-fan-harness": {
+      "name": "Rack fan and probe cabling",
+      "category": "fabricated",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "flexible cabling; lengths depend on the cabinet, which is not identified",
+      "instance_names": []
+    }
+  },
+  "keepouts": {},
+  "errors": []
+}

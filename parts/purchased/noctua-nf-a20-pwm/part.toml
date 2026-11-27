@@ -1,0 +1,70 @@
+id = "noctua-nf-a20-pwm"
+name = "Noctua NF-A20 PWM 200 x 30 mm fan"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+12 V 4-pin PWM, 350-800 rpm, 146.9 m3/h (86.46 CFM) and 1.08 mm H2O at full speed,
+18.1 dB(A). It never stops on PWM alone: 310 rpm at 20% PWM and 350 rpm at 0% PWM,
+so a reading below about 150 rpm always means a stalled or unplugged fan.
+Starting voltage 11 V; locked-rotor protection cuts power after 1 s and retries
+every 2-6 s. Pin 1 GND, 2 +12 V, 3 tach, 4 PWM (Noctua's wire colours differ from
+the usual black/yellow/green/blue order: check the pin, not the colour).
+Ships with a 30 cm extension (500 mm reach in total), a Y splitter, the L.N.A.
+(not used: the controller sets the speed), anti-vibration mounts and fan screws.
+Mounting holes on three patterns; this build uses 154 x 154 mm.
+"""
+
+[[datasheets]]
+title = "Noctua NF-A20 PWM specifications"
+url = "https://www.noctua.at/en/products/nf-a20-pwm/specifications"
+
+[[datasheets]]
+title = "Noctua NF-A20 PWM datasheet"
+url = "https://noctua.at/pub/media/blfa_files/infosheet/noctua_nf_a_20_pwm_datasheet_en_web.pdf"
+
+[model]
+source = "constructed"
+notes = "Square frame envelope with the rotor area cut out; the bore diameter is not published, so the cut is illustrative."
+
+[dims]
+size = { value = 200.0, evidence = "datasheet", source = "Noctua specifications: 200 x 200 x 30 mm" }
+depth = { value = 30.0, evidence = "datasheet", source = "Noctua specifications: 200 x 200 x 30 mm" }
+depth_with_pads = { value = 32.0, evidence = "datasheet", source = "Noctua specifications: with anti-vibration pads" }
+hole_pitch = { value = 154.0, evidence = "datasheet", source = "Noctua specifications: 170 x 170, 154 x 154, 110 x 180 mm" }
+airflow_max = { value = 86.46, unit = "CFM", evidence = "datasheet", source = "Noctua specifications: 146.9 m3/h" }
+static_pressure_max = { value = 1.08, unit = "mmH2O", evidence = "datasheet", source = "Noctua specifications" }
+speed_max = { value = 800.0, unit = "rpm", evidence = "datasheet", source = "Noctua specifications" }
+speed_at_20pct_pwm = { value = 310.0, unit = "rpm", evidence = "datasheet", source = "Noctua specifications" }
+speed_at_0pct_pwm = { value = 350.0, unit = "rpm", evidence = "datasheet", source = "Noctua specifications" }
+noise_max = { value = 18.1, unit = "dBA", evidence = "datasheet", source = "Noctua specifications" }
+current_max = { value = 0.08, unit = "A", evidence = "datasheet", source = "Noctua specifications: input current (max)" }
+power_max = { value = 0.96, unit = "W", evidence = "datasheet", source = "Noctua specifications: input power (max)" }
+starting_voltage = { value = 11.0, unit = "V", evidence = "datasheet", source = "Noctua specifications" }
+cable_length = { value = 200.0, evidence = "datasheet", source = "Noctua specifications; 500 mm with the included extension" }
+mass = { value = 0.37, unit = "kg", evidence = "datasheet", source = "Noctua specifications: 370 g" }
+
+[[requires]]
+type = "fan-header-4pin"
+value = "12 V 4-pin PWM"
+count = 1
+
+[[requires]]
+type = "dc-12v"
+load = 0.96
+unit = "W"
+note = "maximum input power"
+
+[[requires]]
+type = "cabinet-fan-opening"
+value = "200 mm fan, 154 mm hole pitch"
+count = 1
+note = "cutout plus four screw holes in a cabinet panel"
+
+[[provides]]
+type = "cabinet-heat-removal"
+capacity = 368.4
+unit = "W"
+derate = 0.5
+evidence = "allowance"
+note = """free-air 86.46 CFM x 15 C rise / 1.76, halved because intake and exhaust fans run in \
+series; derate 0.5 for grilles, guards and the equipment in the path. Not a measured cabinet airflow"""

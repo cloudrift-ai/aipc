@@ -1,0 +1,9 @@
+part = "purchased/noctua-nf-a20-pwm"
+role = "cabinet fans: four intake low at the front, four exhaust at the top rear or roof"
+status = "selected"
+quantity = 8
+systems = ["rack"]
+notes = "Intake bank on controller headers 1-4 (PWM GPIO18), exhaust bank on headers 5-8 (PWM GPIO19). Positions are provisional until the cabinet is identified."
+
+[assembly]
+match = ["^(intake|exhaust)_fan_[1-4]$"]

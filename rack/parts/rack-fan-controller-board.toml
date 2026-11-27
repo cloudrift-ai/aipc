@@ -1,0 +1,8 @@
+part = "fabricated/rack-fan-controller-board"
+role = "perfboard: 12 V distribution, 5 V converter, PWM drivers, tach pull-ups, 1-Wire terminal"
+status = "design"
+quantity = 1
+systems = ["rack"]
+
+[assembly]
+match = ["^controller_board$"]

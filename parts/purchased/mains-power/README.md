@@ -16,6 +16,7 @@ and PDU ratings and outlet types it needs in its own parts/mains-power.toml.
 | --- | ---: | --- | --- |
 | [aipc](../../../aipc/parts/mains-power.md) | 1 | unspecified | AC supply for both PSUs |
 | [gpulab](../../../gpulab/parts/mains-power.md) | 1 | unspecified | AC supply for the 3000 W PSU |
+| [rack](../../../rack/parts/mains-power.md) | 1 | unspecified | PDU outlet for the fan supply |
 
 ## Model
 

@@ -1,0 +1,334 @@
+{
+  "date": "2026-11-27",
+  "summary": {
+    "BLOCKED": 6,
+    "PROVISIONAL": 9,
+    "PASS": 1
+  },
+  "lint": [],
+  "assembly_errors": [],
+  "checks": [
+    {
+      "type": "ac-power",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [],
+      "providers": [
+        "mains-power"
+      ],
+      "rule": "budget",
+      "status": "BLOCKED",
+      "detail": "load 67.0 W; capacity unknown",
+      "contributors": [
+        "meanwell-gst60a12-p1j"
+      ],
+      "weak_evidence": [
+        "mains-power:ac-power(unknown)"
+      ]
+    },
+    {
+      "type": "cabinet-fan-opening",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "noctua-nf-a20-pwm"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "count",
+      "status": "BLOCKED",
+      "detail": "need 8 x cabinet-fan-opening=200 mm fan, 154 mm hole pitch, have None",
+      "weak_evidence": [
+        "rack-cabinet:cabinet-fan-opening(unknown)"
+      ]
+    },
+    {
+      "type": "cabinet-heat-removal",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "system"
+      ],
+      "providers": [
+        "noctua-nf-a20-pwm"
+      ],
+      "rule": "budget",
+      "status": "BLOCKED",
+      "detail": "load 0.0 W of 2947.2 W x derate 0.5 = 1473.6 W (0% of rating); unknown load for ['system']",
+      "contributors": [
+        "system"
+      ],
+      "weak_evidence": [
+        "noctua-nf-a20-pwm:cabinet-heat-removal(allowance)",
+        "system:cabinet-heat-removal(unknown)"
+      ]
+    },
+    {
+      "type": "cabinet-fan-opening",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "noctua-nf-a20-pwm"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "noctua-nf-a20-pwm needs 200 mm fan, 154 mm hole pitch; provided by rack-cabinet",
+      "note": "cutout plus four screw holes in a cabinet panel",
+      "weak_evidence": [
+        "rack-cabinet:cabinet-fan-opening(unknown)"
+      ]
+    },
+    {
+      "type": "dc-12v",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [],
+      "providers": [
+        "meanwell-gst60a12-p1j"
+      ],
+      "rule": "budget",
+      "status": "PROVISIONAL",
+      "detail": "load 10.4 W of 60.0 W x derate 0.8 = 48.0 W (17% of rating)",
+      "contributors": [
+        "noctua-nf-a20-pwm",
+        "rack-fan-controller-board"
+      ],
+      "weak_evidence": [
+        "rack-fan-controller-board:dc-12v(allowance)"
+      ]
+    },
+    {
+      "type": "dc-barrel-5.5x2.1",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "rack-fan-controller-board"
+      ],
+      "providers": [
+        "meanwell-gst60a12-p1j"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "rack-fan-controller-board needs 12 V, 5.5 x 2.1 mm, centre positive; provided by meanwell-gst60a12-p1j",
+      "note": "",
+      "weak_evidence": [
+        "rack-fan-controller-board:dc-barrel-5.5x2.1(allowance)"
+      ]
+    },
+    {
+      "type": "dc-barrel-5.5x2.1",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "rack-fan-controller-board"
+      ],
+      "providers": [
+        "meanwell-gst60a12-p1j"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x dc-barrel-5.5x2.1=12 v, 5.5 x 2.1 mm, centre positive, have 1",
+      "weak_evidence": [
+        "rack-fan-controller-board:dc-barrel-5.5x2.1(allowance)"
+      ]
+    },
+    {
+      "type": "devkitc-socket",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "espressif-esp32-devkitc-32e"
+      ],
+      "providers": [
+        "rack-fan-controller-board"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x devkitc-socket, have 1",
+      "weak_evidence": [
+        "rack-fan-controller-board:devkitc-socket(allowance)"
+      ]
+    },
+    {
+      "type": "fan-header-4pin",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "noctua-nf-a20-pwm"
+      ],
+      "providers": [
+        "rack-fan-controller-board"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "noctua-nf-a20-pwm needs 12 V 4-pin PWM; provided by rack-fan-controller-board",
+      "note": "",
+      "weak_evidence": [
+        "rack-fan-controller-board:fan-header-4pin(allowance)"
+      ]
+    },
+    {
+      "type": "fan-header-4pin",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "noctua-nf-a20-pwm"
+      ],
+      "providers": [
+        "rack-fan-controller-board"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 8 x fan-header-4pin=12 v 4-pin pwm, have 8",
+      "weak_evidence": [
+        "rack-fan-controller-board:fan-header-4pin(allowance)"
+      ]
+    },
+    {
+      "type": "onewire-port",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "ds18b20-waterproof-probe"
+      ],
+      "providers": [
+        "rack-fan-controller-board"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "ds18b20-waterproof-probe needs 3.3 V, DQ, GND; provided by rack-fan-controller-board",
+      "note": "",
+      "weak_evidence": [
+        "rack-fan-controller-board:onewire-port(allowance)"
+      ]
+    },
+    {
+      "type": "onewire-port",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "ds18b20-waterproof-probe"
+      ],
+      "providers": [
+        "rack-fan-controller-board"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 2 x onewire-port=3.3 v, dq, gnd, have 2",
+      "weak_evidence": [
+        "rack-fan-controller-board:onewire-port(allowance)"
+      ]
+    },
+    {
+      "type": "dc-5v",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [],
+      "providers": [
+        "rack-fan-controller-board"
+      ],
+      "rule": "budget",
+      "status": "PASS",
+      "detail": "load 2.5 W of 5.0 W x derate 0.8 = 4.0 W (50% of rating)",
+      "contributors": [
+        "espressif-esp32-devkitc-32e"
+      ],
+      "weak_evidence": []
+    }
+  ],
+  "coverage": [
+    {
+      "part": "mains-power",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: outside the cooling kit; supply not specified"
+    },
+    {
+      "part": "rack-cabinet",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: cabinet not identified; the fan banks are placed on provisional planes"
+    },
+    {
+      "part": "rack-fan-harness",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: flexible cabling; lengths depend on the cabinet, which is not identified"
+    }
+  ],
+  "renders": [],
+  "datasheets": [
+    {
+      "part": "ds18b20-waterproof-probe",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf (run make datasheets)"
+    },
+    {
+      "part": "espressif-esp32-devkitc-32e",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/user_guide.html (run make datasheets)"
+    },
+    {
+      "part": "espressif-esp32-devkitc-32e",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://dl.espressif.com/dl/schematics/esp32_devkitc_v4_dimensions.pdf (run make datasheets)"
+    },
+    {
+      "part": "espressif-esp32-devkitc-32e",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_en.pdf (run make datasheets)"
+    },
+    {
+      "part": "meanwell-gst60a12-p1j",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.meanwell.com/Upload/PDF/GST60A/GST60A-SPEC.PDF (run make datasheets)"
+    },
+    {
+      "part": "noctua-nf-a20-pwm",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.noctua.at/en/products/nf-a20-pwm/specifications (run make datasheets)"
+    },
+    {
+      "part": "noctua-nf-a20-pwm",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://noctua.at/pub/media/blfa_files/infosheet/noctua_nf_a_20_pwm_datasheet_en_web.pdf (run make datasheets)"
+    }
+  ],
+  "weak_evidence_dims": {
+    "ds18b20-waterproof-probe": {
+      "datasheet": 3,
+      "assumed": 2,
+      "unknown": 1
+    },
+    "rack-cabinet": {
+      "unknown": 3
+    },
+    "rack-fan-controller-board": {
+      "allowance": 4,
+      "datasheet": 2,
+      "assumed": 1
+    },
+    "rack-fan-harness": {
+      "unknown": 1,
+      "assumed": 1
+    }
+  },
+  "unspecified_parts": [
+    "mains-power",
+    "rack-cabinet"
+  ]
+}
