@@ -22,7 +22,7 @@ Library spec: [parts/purchased/meanwell-gst60a12-p1j](../../parts/purchased/mean
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
 | BLOCKED | budget | `ac-power` | load 92.0 W; capacity unknown |
-| provisional | budget | `dc-12v` | load 10.4 W of 60.0 W x derate 0.8 = 48.0 W (17% of rating) |
+| provisional | budget | `dc-12v` | load 8.8 W of 60.0 W x derate 0.8 = 48.0 W (15% of rating) |
 | provisional | value | `dc-barrel-5.5x2.1` | rack-fan-controller-board needs 12 V, 5.5 x 2.1 mm, centre positive; provided by meanwell-gst60a12-p1j |
 | provisional | count | `dc-barrel-5.5x2.1` | need 1 x dc-barrel-5.5x2.1=12 v, 5.5 x 2.1 mm, centre positive, have 1 |
 

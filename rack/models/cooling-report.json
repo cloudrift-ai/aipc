@@ -143,8 +143,8 @@
   },
   "electrical": {
     "fan_load_w": 7.68,
-    "controller_load_w": 2.75,
-    "total_12v_w": 10.43,
+    "controller_load_w": 1.1,
+    "total_12v_w": 8.78,
     "supply_w": 60.0,
     "fans_per_pwm_channel": 4
   }

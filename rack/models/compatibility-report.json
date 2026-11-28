@@ -2,8 +2,8 @@
   "date": "2026-11-27",
   "summary": {
     "BLOCKED": 10,
-    "PROVISIONAL": 16,
-    "PASS": 3
+    "PROVISIONAL": 17,
+    "PASS": 4
   },
   "lint": [],
   "assembly_errors": [],
@@ -118,7 +118,7 @@
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 10.4 W of 60.0 W x derate 0.8 = 48.0 W (17% of rating)",
+      "detail": "load 8.8 W of 60.0 W x derate 0.8 = 48.0 W (15% of rating)",
       "contributors": [
         "noctua-nf-a20-pwm",
         "rack-fan-controller-board"
@@ -165,24 +165,6 @@
       ]
     },
     {
-      "type": "devkitc-socket",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [
-        "espressif-esp32-devkitc-32e"
-      ],
-      "providers": [
-        "rack-fan-controller-board"
-      ],
-      "rule": "count",
-      "status": "PROVISIONAL",
-      "detail": "need 1 x devkitc-socket, have 1",
-      "weak_evidence": [
-        "rack-fan-controller-board:devkitc-socket(allowance)"
-      ]
-    },
-    {
       "type": "fan-header-4pin",
       "systems": [
         "rack"
@@ -217,6 +199,43 @@
       "detail": "need 8 x fan-header-4pin=12 v 4-pin pwm, have 8",
       "weak_evidence": [
         "rack-fan-controller-board:fan-header-4pin(allowance)"
+      ]
+    },
+    {
+      "type": "olimex-ext-socket",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "olimex-esp32-poe"
+      ],
+      "providers": [
+        "rack-fan-controller-board"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "olimex-esp32-poe needs 2 x 10, 2.54 mm, rows 25.4 mm apart; provided by rack-fan-controller-board",
+      "note": "",
+      "weak_evidence": [
+        "rack-fan-controller-board:olimex-ext-socket(allowance)"
+      ]
+    },
+    {
+      "type": "olimex-ext-socket",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "olimex-esp32-poe"
+      ],
+      "providers": [
+        "rack-fan-controller-board"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 1 x olimex-ext-socket=2 x 10, 2.54 mm, rows 25.4 mm apart, have 1",
+      "weak_evidence": [
+        "rack-fan-controller-board:olimex-ext-socket(allowance)"
       ]
     },
     {
@@ -378,10 +397,26 @@
       ],
       "rule": "budget",
       "status": "PASS",
-      "detail": "load 2.5 W of 5.0 W x derate 0.8 = 4.0 W (50% of rating)",
+      "detail": "load 1.0 W of 5.0 W x derate 0.8 = 4.0 W (20% of rating)",
       "contributors": [
-        "espressif-esp32-devkitc-32e"
+        "olimex-esp32-poe"
       ],
+      "weak_evidence": []
+    },
+    {
+      "type": "ethernet-1gbe-rj45",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "olimex-esp32-poe"
+      ],
+      "providers": [
+        "ubiquiti-usw-pro-max-16"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 1 x ethernet-1gbe-rj45, have 12",
       "weak_evidence": []
     },
     {
@@ -455,13 +490,7 @@
       "detail": "not in the assembly: U position in the cabinet not chosen yet; 1U, half-width case 325.1 x 160 x 43.7 mm in the UACC-Pro-Max-16-RM kit"
     }
   ],
-  "renders": [
-    "ds18b20-waterproof-probe: render.png missing or older than its model (run make render)",
-    "espressif-esp32-devkitc-32e: render.png missing or older than its model (run make render)",
-    "meanwell-gst60a12-p1j: render.png missing or older than its model (run make render)",
-    "noctua-nf-a20-pwm: render.png missing or older than its model (run make render)",
-    "rack-fan-controller-board: render.png missing or older than its model (run make render)"
-  ],
+  "renders": [],
   "datasheets": [
     {
       "part": "demciflex-200mm-round",
@@ -527,6 +556,11 @@
     "noctua-na-fg1-20": {
       "datasheet": 2,
       "unknown": 4
+    },
+    "olimex-esp32-poe": {
+      "datasheet": 7,
+      "allowance": 2,
+      "assumed": 1
     },
     "rack-cabinet": {
       "datasheet": 10,

@@ -3,10 +3,14 @@ name = "Rack fan and probe cabling"
 category = "fabricated"
 evidence = "allowance"
 notes = """
-Each fan reaches 500 mm with its own 200 mm lead and the included Noctua 30 cm
-extension. Runs longer than that get standard 4-pin fan extensions, one per fan
-(no splitters: every fan keeps its own tach line to the controller). The probes
-connect to the controller's 1-Wire terminal on their own cables. Lengths are set
+Off-the-shelf parts only, nothing crimped. Each fan reaches 500 mm with its own
+200 mm lead and the included Noctua 30 cm extension. Runs longer than that get
+standard 4-pin fan extensions, one or two chained per fan (no splitters: every fan
+keeps its own tach line to the controller). The exhaust bank, beside the controller,
+likely needs none; the floor bank, about the cabinet height away, likely needs
+0.6-1 m more per fan. The probes connect to the controller's 1-Wire screw terminal
+on their own leads. One Cat 5e or better patch lead runs from the ESP32-POE to a
+non-PoE port on the rack switch. Lengths are set
 once the cabinet and the controller position are known. Route along the cabinet
 frame with ties, clear of every rotor, with slack for opening the door if the
 intake fans sit on it.

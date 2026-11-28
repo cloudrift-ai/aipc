@@ -10,7 +10,7 @@ Eight [Noctua NF-A20 PWM](../parts/noctua-nf-a20-pwm.md) fans (200 × 30 mm, 350
 
 - **Exhaust:** under the inner top toward the rear, in place of the two stock fans. It blows up into the space under the outer lid, which vents around its edge as the stock fans do. That edge gap is the acoustic baffle, so no new opening to the outside is cut.
 - **Intake:** hung under the floor toward the front, blowing up through four floor cutouts. The cabinet already draws air in at the bottom, and the floor is out of sight and partly shielded by the casters' gap.
-- **Controller and 12 V supply:** on the inner top in front of the exhaust bank, under the lid. They stay out of the 11U of rack space, and the lid's edge gap helps Wi-Fi.
+- **Controller and 12 V supply:** on the inner top in front of the exhaust bank, under the lid. They stay out of the 11U of rack space. The controller reaches the network over a patch lead to the rack switch.
 
 Each bank is 405 × 405 mm (200 mm frames with 5 mm gaps). Both fit the 600 × 900 mm footprint with room to spare.
 
@@ -95,6 +95,9 @@ The guard's outer size, wire depth and hole pattern, and the filter's thickness,
 
 Firmware: [firmware/rack-fans.yaml](../firmware/rack-fans.yaml), ESPHome. Hardware: [wiring.md](wiring.md).
 
+- **Board:** an [Olimex ESP32-POE](../parts/olimex-esp32-poe.md) (classic ESP32 with 100 Mb Ethernet) on the perfboard, chosen 2026-11-27 over the ESP32-DevKitC. Wired Ethernet avoids weak Wi-Fi inside a steel cabinet, and the switch is in the same rack. PoE is not used: the Pro Max 16 has none, and powering the fans or the ESP32 from a switch would tie cooling to its reboots. The board runs from the controller's own 5 V converter, so a switch reboot or update only interrupts monitoring.
+- **Plug-in cabling:** fans plug into keyed 4-pin headers on their own leads plus standard 4-pin extensions; the probes go into a screw terminal; the network is a patch lead. Nothing is crimped or soldered off the board. One alternative, if the extensions to the floor bank prove awkward, is two ready-made 4-fan ESPHome boards, one beside each bank; it was set aside because none of the boards found documents a full-speed fail-safe when its ESP32 crashes.
+
 - **Two PWM channels** (intake and exhaust). The intake runs 5% faster (*Intake bias*) to keep slight positive pressure, so dust comes in only through the intake.
 - **Fan curve:** each bank's speed is the larger of two demands.
   - The exhaust temperature, ramping from 30 °C (minimum duty) to 42 °C (full).
@@ -139,7 +142,8 @@ A [UniFi Pro Max 16](../parts/ubiquiti-usw-pro-max-16.md) in its 1U [UACC-Pro-Ma
 - **Switch position:** choose its U so the switch clears the AIPC duct and sits in intake air; confirm on the unit that it has no fan.
 - **AIPC may not fit at all.** AIPC needs about 867 mm of clear depth: 20 mm in front of the shelf, plus 711.2 mm of rail spacing, plus 135.7 mm behind the rear rail. The cabinet is 900 mm deep outside, including two foam-lined doors. AIPC's own check shows this as BLOCKED until the depth is measured.
 - **The shelf blocks the floor intake.** The Hammond deck (422.7 mm wide) covers most of the 450 mm rail opening, so air from the floor fans has to rise around its edges and its front. Check how the shelf sits over the floor bank before cutting.
-- **Wi-Fi inside a closed metal cabinet** may be weak with the DevKitC's PCB antenna. Mount the controller near a fan opening or a plastic panel. If the signal is poor, switch to the ESP32-DevKitC-32UE (same board, external antenna connector) and run an antenna outside the cabinet.
+- **Patch lead:** route it from the controller under the lid down to the switch's U; length depends on that U. Use a non-PoE port: the ESP32-POE is not isolated.
+- **ESP32-POE pin map** is from Olimex's rev M2 schematic and PCB. Check the revision printed on the board when it arrives, and that the user button really is GPIO34.
 - **Probe placement:**
   - Intake probe: about 60 mm inside the intake bank.
   - Exhaust probe: about 60 mm before the exhaust bank, in the airstream, not touching metal.

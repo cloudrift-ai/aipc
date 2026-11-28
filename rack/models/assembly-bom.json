@@ -26,19 +26,6 @@
         "exhaust_probe"
       ]
     },
-    "espressif-esp32-devkitc-32e": {
-      "name": "Espressif ESP32-DevKitC-32E (DevKitC V4, ESP32-WROOM-32E)",
-      "category": "purchased",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "esp32_devkitc"
-      ]
-    },
     "fasteners": {
       "name": "Shelf and component fasteners (metric and UNC screws, washers, nuts)",
       "category": "purchased",
@@ -105,6 +92,19 @@
         "intake_fan_4"
       ]
     },
+    "olimex-esp32-poe": {
+      "name": "Olimex ESP32-POE (ESP32-WROOM-32E-N4, 100 Mb Ethernet, hardware revision M2)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "esp32_poe"
+      ]
+    },
     "rack-cabinet": {
       "name": "SysRacks SP 12.900 12U soundproof cabinet (600 x 900)",
       "category": "purchased",
@@ -120,7 +120,7 @@
       ]
     },
     "rack-fan-controller-board": {
-      "name": "Rack fan controller board (ESP32, 8 fan headers, 1-Wire)",
+      "name": "Rack fan controller board (Olimex ESP32-POE socket, 8 fan headers, 1-Wire)",
       "category": "fabricated",
       "quantity": 1,
       "state": "modeled",

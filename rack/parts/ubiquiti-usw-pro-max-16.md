@@ -29,4 +29,5 @@ load. U position not chosen yet.
 | BLOCKED | budget | `ac-power` | load 92.0 W; capacity unknown |
 | provisional | value | `switch-rack-kit` | ubiquiti-usw-pro-max-16 needs UACC-Pro-Max-16-RM; provided by ubiquiti-uacc-pro-max-16-rm |
 | provisional | count | `switch-rack-kit` | need 1 x switch-rack-kit=uacc-pro-max-16-rm, have 1 |
+| pass | count | `ethernet-1gbe-rj45` | need 1 x ethernet-1gbe-rj45, have 12 |
 

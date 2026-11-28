@@ -114,7 +114,7 @@ Seven mixed GPUs on cabled x8 risers from one H12D-8D, on two printed 13-positio
 
 ### rack
 
-Cabinet cooling shared by whatever runs in the rack: two 2 x 2 banks of Noctua NF-A20 PWM fans, an ESP32-DevKitC running ESPHome, two DS18B20 probes and a 12 V adapter.
+Cabinet cooling shared by whatever runs in the rack: two 2 x 2 banks of Noctua NF-A20 PWM fans, an Olimex ESP32-POE running ESPHome on wired Ethernet, two DS18B20 probes and a 12 V adapter.
 
 - [rack/cad/layout.py](rack/cad/layout.py) is the only geometry generator. It asserts on collisions, one controller header per fan and the bank count, and writes `models/cooling-report.json` (cutout pattern, airflow and heat estimate, 12 V load).
 - The cabinet is the SysRacks SP 12.900 ([rack-cabinet](parts/purchased/rack-cabinet/part.toml)): exhaust bank under the inner top at the rear, intake bank under the floor at the front, controller and supply under the lid. Outer dims are from the SysRacks drawing; wall, lid and floor values are assumptions. Replace them with measurements in the library spec, never in `layout.py`.

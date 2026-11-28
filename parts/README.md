@@ -26,7 +26,6 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [cpayne-mcio-8i-cable-0p75m](purchased/cpayne-mcio-8i-cable-0p75m/README.md) | C-Payne MCIO 8i to MCIO 8i cable, 0.75 m, 85 ohm (305-CAB-MCIO/MCIO-8i-P0.75M-11-85) | [gpulab](../gpulab/parts/cpayne-mcio-8i-cable-0p75m.md) |
 | [demciflex-200mm-round](purchased/demciflex-200mm-round/README.md) | DEMCiflex 200 mm round dust filter | [rack](../rack/parts/demciflex-200mm-round.md) |
 | [ds18b20-waterproof-probe](purchased/ds18b20-waterproof-probe/README.md) | DS18B20 waterproof probe (stainless tube, 3-wire cable) | [rack](../rack/parts/ds18b20-waterproof-probe.md) |
-| [espressif-esp32-devkitc-32e](purchased/espressif-esp32-devkitc-32e/README.md) | Espressif ESP32-DevKitC-32E (DevKitC V4, ESP32-WROOM-32E) | [rack](../rack/parts/espressif-esp32-devkitc-32e.md) |
 | [fasteners](purchased/fasteners/README.md) | Shelf and component fasteners (metric and UNC screws, washers, nuts) | [aipc](../aipc/parts/fasteners.md), [gpulab](../gpulab/parts/fasteners.md), [rack](../rack/parts/fasteners.md) |
 | [flex-duct-6in](purchased/flex-duct-6in/README.md) | 6 in wire-supported flexible duct, uninsulated | [aipc](../aipc/parts/flex-duct-6in.md) |
 | [gigabyte-x870e-aorus-pro](purchased/gigabyte-x870e-aorus-pro/README.md) | Gigabyte X870E AORUS PRO (ATX) | [aipc](../aipc/parts/gigabyte-x870e-aorus-pro.md) |
@@ -51,6 +50,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [nvidia-rtx-4090-fe](purchased/nvidia-rtx-4090-fe/README.md) | NVIDIA GeForce RTX 4090 Founders Edition | [gpulab](../gpulab/parts/nvidia-rtx-4090-fe.md) |
 | [nvidia-v100-pcie-16gb](purchased/nvidia-v100-pcie-16gb/README.md) | NVIDIA Tesla V100 PCIe 16 GB | none |
 | [obt-pcie-support](purchased/obt-pcie-support/README.md) | Open Benchtable PCI-E support rod with nut | [aipc](../aipc/parts/obt-pcie-support.md), [gpulab](../gpulab/parts/obt-pcie-support.md) |
+| [olimex-esp32-poe](purchased/olimex-esp32-poe/README.md) | Olimex ESP32-POE (ESP32-WROOM-32E-N4, 100 Mb Ethernet, hardware revision M2) | [rack](../rack/parts/olimex-esp32-poe.md) |
 | [pcie-8pin-90-adapter](purchased/pcie-8pin-90-adapter/README.md) | 90 degree PCIe 8-pin power adapter (low profile) | [aipc](../aipc/parts/pcie-8pin-90-adapter.md) |
 | [pcie-8pin-splitter](purchased/pcie-8pin-splitter/README.md) | PCIe 8-pin (female) to 2 x 6+2-pin splitter cable | [gpulab](../gpulab/parts/pcie-8pin-splitter.md) |
 | [psu-modular-cables](purchased/psu-modular-cables/README.md) | Super Flower Leadex 2800W modular cable set (approximate routes) | [gpulab](../gpulab/parts/psu-modular-cables.md) |
@@ -95,7 +95,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | Part | Name | Used in |
 | --- | --- | --- |
 | [fan-power-harness](fabricated/fan-power-harness/README.md) | Fused PWM pass-through harness for the pressure fan | [aipc](../aipc/parts/fan-power-harness.md) |
-| [rack-fan-controller-board](fabricated/rack-fan-controller-board/README.md) | Rack fan controller board (ESP32, 8 fan headers, 1-Wire) | [rack](../rack/parts/rack-fan-controller-board.md) |
+| [rack-fan-controller-board](fabricated/rack-fan-controller-board/README.md) | Rack fan controller board (Olimex ESP32-POE socket, 8 fan headers, 1-Wire) | [rack](../rack/parts/rack-fan-controller-board.md) |
 | [rack-fan-harness](fabricated/rack-fan-harness/README.md) | Rack fan and probe cabling | [rack](../rack/parts/rack-fan-harness.md) |
 | [rear-aio-steel-extension](fabricated/rear-aio-steel-extension/README.md) | Rear AIO steel extension plate, 400 x 83 x 3 mm | none |
 

@@ -10,12 +10,12 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 | --- | ---: | --- | --- | --- | --- |
 | [demciflex-200mm-round](demciflex-200mm-round.md) | 4 | candidate | rack | provisional | dust filter on each intake fan's grill, under the floor; pulls off from below for cleaning |
 | [ds18b20-waterproof-probe](ds18b20-waterproof-probe.md) | 2 | selected | rack | provisional | intake and exhaust air temperature probes |
-| [espressif-esp32-devkitc-32e](espressif-esp32-devkitc-32e.md) | 1 | selected | rack | provisional | fan controller: reads both probes and all eight tachs, drives the two PWM channels, runs ESPHome |
 | [fasteners](fasteners.md) | 1 | candidate | rack | - | fan-to-panel screws (four per fan, 32 in all) plus spares |
 | [mains-power](mains-power.md) | 1 | unspecified | rack | BLOCKED | PDU outlet for the fan supply |
 | [meanwell-gst60a12-p1j](meanwell-gst60a12-p1j.md) | 1 | selected | rack | provisional | 12 V supply for the fans and the controller, plugged into the rack PDU |
 | [noctua-na-fg1-20](noctua-na-fg1-20.md) | 8 | selected | rack | provisional | wire guard on the open side of every fan: below the intake bank, below the exhaust bank inside the cabinet |
 | [noctua-nf-a20-pwm](noctua-nf-a20-pwm.md) | 8 | selected | rack | BLOCKED | cabinet fans: four intake low at the front, four exhaust at the top rear or roof |
+| [olimex-esp32-poe](olimex-esp32-poe.md) | 1 | selected | rack | provisional | fan controller: reads both probes and all eight tachs, drives the two PWM channels, runs ESPHome on wired Ethernet |
 | [rack-cabinet](rack-cabinet.md) | 1 | selected | rack | BLOCKED | acoustic cabinet: exhaust fans replace the stock roof fans, intake fans under the floor, controller and supply under the lid |
 | [silicone-gasket-2mm](silicone-gasket-2mm.md) | 8 | candidate | rack | - | seal between each fan frame and its cabinet panel: a 200 x 200 mm sheet with the rotor opening cut out |
 | [u-channel-edge-trim](u-channel-edge-trim.md) | 1 | candidate | rack | BLOCKED | edge trim around the eight cut fan openings |

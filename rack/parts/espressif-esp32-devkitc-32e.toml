@@ -1,8 +1,0 @@
-part = "purchased/espressif-esp32-devkitc-32e"
-role = "fan controller: reads both probes and all eight tachs, drives the two PWM channels, runs ESPHome"
-status = "selected"
-quantity = 1
-systems = ["rack"]
-
-[assembly]
-match = ["^esp32_devkitc$"]

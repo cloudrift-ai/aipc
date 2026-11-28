@@ -32,7 +32,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 FAN = spec.get("noctua-nf-a20-pwm")
 SIZE, DEPTH, PITCH = FAN.dim("size"), FAN.dim("depth"), FAN.dim("hole_pitch")
-ESP = spec.get("espressif-esp32-devkitc-32e")
+ESP = spec.get("olimex-esp32-poe")
 PSU = spec.get("meanwell-gst60a12-p1j")
 BOARD = spec.get("rack-fan-controller-board")
 PROBE = spec.get("ds18b20-waterproof-probe")
@@ -138,26 +138,37 @@ solids["exhaust_probe"] = cq.Workplane("XY").circle(tube_d / 2).extrude(tube_l).
 for name in ("intake_probe", "exhaust_probe"):
     colors[name] = cq.Color(0.8, 0.8, 0.82)
 
-# Controller board, DevKitC and supply on the inner top, ahead of the exhaust bank, under the lid.
+# Controller board, ESP32-POE and supply on the inner top, ahead of the exhaust bank, under the lid.
 bx, by, bh = BOARD.dim("board_width"), BOARD.dim("board_depth"), BOARD.dim("height")
 pl, pw, ph = PSU.dim("length"), PSU.dim("width"), PSU.dim("height")
 board_x0, board_y0 = -bx - 10.0, WALL + 40.0
 solids["controller_board"] = cq.Workplane("XY").box(bx, by, 1.6, centered=False).translate((board_x0, board_y0, top_surface + 5.0))
 colors["controller_board"] = cq.Color(0.2, 0.55, 0.3)
+# The ESP32-POE sits on 8 mm female headers with its RJ45 end (which overhangs its own board)
+# toward the cabinet side, so the patch-lead plug has free air instead of the 12 V supply.
 ew = ESP.dim("board_width")
-el = ESP.dim("board_length") + ESP.dim("antenna_overhang")
-solids["esp32_devkitc"] = cq.Workplane("XY").box(el, ew, 12.0, centered=False).translate(
-    (board_x0 + 10.0, board_y0 + 10.0, top_surface + 5.0 + 1.6 + 8.0)
-)
-colors["esp32_devkitc"] = cq.Color(0.15, 0.15, 0.18)
+el = ESP.dim("board_length") + ESP.dim("rj45_overhang")
+eh = 1.6 + ESP.dim("component_height")
+esp_x0, esp_y0, esp_z0 = board_x0 + 2.0, board_y0 + 10.0, top_surface + 5.0 + 1.6 + 8.0
+solids["esp32_poe"] = cq.Workplane("XY").box(el, ew, eh, centered=False).translate((esp_x0, esp_y0, esp_z0))
+colors["esp32_poe"] = cq.Color(0.6, 0.12, 0.12)
+assert esp_x0 + el <= board_x0 + bx, "ESP32-POE runs past the controller board"
+PLUG_REACH = 45.0  # RJ45 plug, boot and the patch lead's bend radius (allowance)
+plug_zone = cq.Workplane("XY").box(PLUG_REACH, ew, eh, centered=False).translate((esp_x0 - PLUG_REACH, esp_y0, esp_z0))
 solids["fan_psu_12v"] = cq.Workplane("XY").box(pl, pw, ph, centered=False).translate((10.0, board_y0, top_surface))
 colors["fan_psu_12v"] = cq.Color(0.25, 0.25, 0.28)
 plenum_top = CH - LID_PLATE
-for name in ("esp32_devkitc", "fan_psu_12v", "controller_board"):
+for name in ("esp32_poe", "fan_psu_12v", "controller_board"):
     bb = solids[name].val().BoundingBox()
     assert bb.zmax <= plenum_top, (f"{name} does not fit under the lid", round(bb.zmax, 1), plenum_top)
     assert bb.ymax < exhaust_y - bank_span / 2, f"{name} must sit ahead of the exhaust bank"
     assert abs(bb.xmin) <= CW / 2 and abs(bb.xmax) <= CW / 2, f"{name} outside the cabinet width"
+
+for name, shape in solids.items():
+    if name != "esp32_poe":
+        blocked = sum(s.Volume() for s in plug_zone.intersect(shape).solids().vals())
+        assert blocked < 1e-6, ("Ethernet plug blocked by", name, round(blocked, 3))
+assert esp_x0 - PLUG_REACH >= -CW / 2 + WALL, "no room for the Ethernet plug inside the cabinet wall"
 
 # --- Checks ---------------------------------------------------------------------------------------
 for name, shape in solids.items():

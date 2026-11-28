@@ -1,8 +1,11 @@
 # ESPHome firmware for the rack fan controller (rack/docs/wiring.md).
 #
-#   Intake fans 1-4  -> PWM GPIO18, tach GPIO34, 35, 32, 33
-#   Exhaust fans 5-8 -> PWM GPIO19, tach GPIO25, 26, 27, 13
-#   DS18B20 probes   -> 1-Wire GPIO4 (4.7 kOhm pull-up to 3.3 V on the board)
+# Board: Olimex ESP32-POE (WROOM-32E-N4), wired Ethernet, powered from the
+# controller board's 5 V on EXT1 pin 1. PoE is not used; Wi-Fi is off.
+#   Intake fans 1-4  -> PWM GPIO32, tach GPIO35, 36, 34, 4
+#   Exhaust fans 5-8 -> PWM GPIO33, tach GPIO14, 5, 15, 16
+#   DS18B20 probes   -> 1-Wire GPIO13 (the ESP32-POE's 2.2 kOhm pull-up)
+# Ethernet (LAN8710A, fixed by the board): MDC 23, MDIO 18, clock out 17, PHY power 12.
 #
 # Control: both banks follow the hotter of two demands, the exhaust temperature
 # and the intake-to-exhaust rise; the intake bank runs a few percent faster for a
@@ -10,8 +13,10 @@
 # error and on any fan fault. The PWM outputs drive open-collector transistors, so
 # a dead, resetting or unflashed ESP32 leaves the fans at full speed as well.
 #
-# First flash: copy secrets.example.yaml to secrets.yaml and fill it in, then
+# First flash: copy secrets.example.yaml to secrets.yaml and fill it in. Pull the
+# ESP32-POE out of its socket (USB and the board's 5 V must never both feed it) and
 #   esphome run rack-fans.yaml
+# over USB. Later updates go over Ethernet.
 # The log lists the ROM code of each probe it finds on the bus; put them into
 # intake_probe / exhaust_probe below (warm one probe in your hand to tell them
 # apart) and flash again. Until then both read as unavailable and the fans run
@@ -34,7 +39,7 @@ esphome:
       - output.set_level: { id: pwm_exhaust, level: 100% }
 
 esp32:
-  board: esp32dev
+  board: esp32-poe
   framework:
     type: esp-idf
 
@@ -49,14 +54,15 @@ ota:
     encryption:
       key: !secret api_encryption_key
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  ap:
-    ssid: rack-fans setup
-    password: !secret fallback_ap_password
-
-captive_portal:
+ethernet:
+  type: LAN8720  # the board's LAN8710A uses the same driver
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk:
+    pin: GPIO17
+    mode: CLK_OUT
+  phy_addr: 0
+  power_pin: GPIO12
 
 web_server:
   port: 80
@@ -64,7 +70,7 @@ web_server:
 
 one_wire:
   - platform: gpio
-    pin: GPIO4
+    pin: GPIO13
 
 globals:
   - id: exhaust_level
@@ -75,12 +81,12 @@ output:
   # Inverted: the GPIO drives a 2N3904 that pulls the fans' PWM line low.
   - platform: ledc
     id: pwm_intake
-    pin: GPIO18
+    pin: GPIO32
     frequency: 25000 Hz
     inverted: true
   - platform: ledc
     id: pwm_exhaust
-    pin: GPIO19
+    pin: GPIO33
     frequency: 25000 Hz
     inverted: true
 
@@ -199,11 +205,13 @@ sensor:
     update_interval: 10s
     lambda: return 100.0f * id(exhaust_level);
 
-  # Tachs: open-collector, 10 kOhm pull-ups to 3.3 V on the board (GPIO34/35 have none inside).
+  # Tachs: open collector, pulled up to 3.3 V on the controller board (header 8: by the
+  # ESP32-POE's 2.2 kOhm on GPIO16). GPIO34-36 are input-only with no internal pull-up.
+  # GPIO36 can see ~80 ns low glitches (ESP32 erratum 3.11); the 13 us filter drops them.
   - platform: pulse_counter
     id: rpm_in1
     name: Intake fan 1
-    pin: { number: GPIO34, mode: { input: true } }
+    pin: { number: GPIO35, mode: { input: true } }
     unit_of_measurement: rpm
     internal_filter: 13us
     update_interval: 10s
@@ -211,7 +219,7 @@ sensor:
   - platform: pulse_counter
     id: rpm_in2
     name: Intake fan 2
-    pin: { number: GPIO35, mode: { input: true } }
+    pin: { number: GPIO36, mode: { input: true } }
     unit_of_measurement: rpm
     internal_filter: 13us
     update_interval: 10s
@@ -219,7 +227,7 @@ sensor:
   - platform: pulse_counter
     id: rpm_in3
     name: Intake fan 3
-    pin: { number: GPIO32, mode: { input: true } }
+    pin: { number: GPIO34, mode: { input: true } }
     unit_of_measurement: rpm
     internal_filter: 13us
     update_interval: 10s
@@ -227,7 +235,7 @@ sensor:
   - platform: pulse_counter
     id: rpm_in4
     name: Intake fan 4
-    pin: { number: GPIO33, mode: { input: true } }
+    pin: { number: GPIO4, mode: { input: true } }
     unit_of_measurement: rpm
     internal_filter: 13us
     update_interval: 10s
@@ -235,7 +243,7 @@ sensor:
   - platform: pulse_counter
     id: rpm_ex1
     name: Exhaust fan 1
-    pin: { number: GPIO25, mode: { input: true } }
+    pin: { number: GPIO14, mode: { input: true } }
     unit_of_measurement: rpm
     internal_filter: 13us
     update_interval: 10s
@@ -243,7 +251,7 @@ sensor:
   - platform: pulse_counter
     id: rpm_ex2
     name: Exhaust fan 2
-    pin: { number: GPIO26, mode: { input: true } }
+    pin: { number: GPIO5, mode: { input: true }, ignore_strapping_warning: true }  # harmless at boot: docs/wiring.md
     unit_of_measurement: rpm
     internal_filter: 13us
     update_interval: 10s
@@ -251,7 +259,7 @@ sensor:
   - platform: pulse_counter
     id: rpm_ex3
     name: Exhaust fan 3
-    pin: { number: GPIO27, mode: { input: true } }
+    pin: { number: GPIO15, mode: { input: true }, ignore_strapping_warning: true }  # harmless at boot: docs/wiring.md
     unit_of_measurement: rpm
     internal_filter: 13us
     update_interval: 10s
@@ -259,7 +267,7 @@ sensor:
   - platform: pulse_counter
     id: rpm_ex4
     name: Exhaust fan 4
-    pin: { number: GPIO13, mode: { input: true } }
+    pin: { number: GPIO16, mode: { input: true } }
     unit_of_measurement: rpm
     internal_filter: 13us
     update_interval: 10s
