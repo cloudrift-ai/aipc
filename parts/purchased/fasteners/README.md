@@ -15,6 +15,7 @@
 | --- | ---: | --- | --- |
 | [aipc](../../../aipc/parts/fasteners.md) | 1 | candidate | 45 shelf joints plus radiator, fan, flange and roof screws |
 | [gpulab](../../../gpulab/parts/fasteners.md) | 1 | candidate | post, board, baseboard and riser fasteners |
+| [rack](../../../rack/parts/fasteners.md) | 1 | candidate | fan-to-panel screws (four per fan, 32 in all) plus spares |
 
 ## Model
 

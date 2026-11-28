@@ -1,0 +1,9 @@
+part = "purchased/demciflex-200mm-round"
+role = "dust filter on each intake fan's grill, under the floor; pulls off from below for cleaning"
+status = "candidate"
+quantity = 4
+systems = ["rack"]
+notes = "Intake bank only. Confirm the magnetic rim holds to the NA-FG1-20 steel wires; otherwise clamp the mesh between the fan and the grill."
+
+[assembly]
+not_modeled = "thickness not published; adds to the grill stack under the floor"

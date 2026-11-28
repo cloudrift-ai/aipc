@@ -1,0 +1,9 @@
+part = "purchased/noctua-na-fg1-20"
+role = "wire guard on the open side of every fan: below the intake bank, below the exhaust bank inside the cabinet"
+status = "selected"
+quantity = 8
+systems = ["rack"]
+notes = "Two NA-FG1-20 Sx5 sets give ten grills (two spare), or four Sx2 sets give exactly eight."
+
+[assembly]
+not_modeled = "Noctua publishes no grill dimensions; model it once a grill is measured"

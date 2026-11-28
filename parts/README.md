@@ -24,9 +24,10 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [cpayne-cp0120-mcio-host-adapter](purchased/cpayne-cp0120-mcio-host-adapter/README.md) | C-Payne CP-0120 MCIO PCIe gen5 Host Adapter x16 (passive) | [gpulab](../gpulab/parts/cpayne-cp0120-mcio-host-adapter.md) |
 | [cpayne-cp0231-mcio-device-adapter](purchased/cpayne-cp0231-mcio-device-adapter/README.md) | C-Payne CP-0231 MCIO PCIe gen5 Device Adapter x8/x16 (BOTTOM) | [gpulab](../gpulab/parts/cpayne-cp0231-mcio-device-adapter.md) |
 | [cpayne-mcio-8i-cable-0p75m](purchased/cpayne-mcio-8i-cable-0p75m/README.md) | C-Payne MCIO 8i to MCIO 8i cable, 0.75 m, 85 ohm (305-CAB-MCIO/MCIO-8i-P0.75M-11-85) | [gpulab](../gpulab/parts/cpayne-mcio-8i-cable-0p75m.md) |
+| [demciflex-200mm-round](purchased/demciflex-200mm-round/README.md) | DEMCiflex 200 mm round dust filter | [rack](../rack/parts/demciflex-200mm-round.md) |
 | [ds18b20-waterproof-probe](purchased/ds18b20-waterproof-probe/README.md) | DS18B20 waterproof probe (stainless tube, 3-wire cable) | [rack](../rack/parts/ds18b20-waterproof-probe.md) |
 | [espressif-esp32-devkitc-32e](purchased/espressif-esp32-devkitc-32e/README.md) | Espressif ESP32-DevKitC-32E (DevKitC V4, ESP32-WROOM-32E) | [rack](../rack/parts/espressif-esp32-devkitc-32e.md) |
-| [fasteners](purchased/fasteners/README.md) | Shelf and component fasteners (metric and UNC screws, washers, nuts) | [aipc](../aipc/parts/fasteners.md), [gpulab](../gpulab/parts/fasteners.md) |
+| [fasteners](purchased/fasteners/README.md) | Shelf and component fasteners (metric and UNC screws, washers, nuts) | [aipc](../aipc/parts/fasteners.md), [gpulab](../gpulab/parts/fasteners.md), [rack](../rack/parts/fasteners.md) |
 | [flex-duct-6in](purchased/flex-duct-6in/README.md) | 6 in wire-supported flexible duct, uninsulated | [aipc](../aipc/parts/flex-duct-6in.md) |
 | [gigabyte-x870e-aorus-pro](purchased/gigabyte-x870e-aorus-pro/README.md) | Gigabyte X870E AORUS PRO (ATX) | [aipc](../aipc/parts/gigabyte-x870e-aorus-pro.md) |
 | [hammond-rsus1931bk1](purchased/hammond-rsus1931bk1/README.md) | Hammond RSUS1931BK1 solid sliding shelf with factory slides | [aipc](../aipc/parts/hammond-rsus1931bk1.md), [gpulab](../gpulab/parts/hammond-rsus1931bk1.md) |
@@ -43,6 +44,7 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [micron-3500-2tb](purchased/micron-3500-2tb/README.md) | Micron 3500 2 TB NVMe (MTFDKBA2T0TGD) | [aipc](../aipc/parts/micron-3500-2tb.md) |
 | [micron-mta36asf4g72pz-2g9](purchased/micron-mta36asf4g72pz-2g9/README.md) | Micron 32 GB DDR4-2933 ECC RDIMM (MTA36ASF4G72PZ-2G9E2UI) | [aipc](../aipc/parts/micron-mta36asf4g72pz-2g9.md) |
 | [moddiy-eps-90-extension](purchased/moddiy-eps-90-extension/README.md) | Low-profile 90 degree CPU/EPS 8-pin extension | none |
+| [noctua-na-fg1-20](purchased/noctua-na-fg1-20/README.md) | Noctua NA-FG1-20 200 mm fan grill | [rack](../rack/parts/noctua-na-fg1-20.md) |
 | [noctua-nf-a20-pwm](purchased/noctua-nf-a20-pwm/README.md) | Noctua NF-A20 PWM 200 x 30 mm fan | [rack](../rack/parts/noctua-nf-a20-pwm.md) |
 | [nvidia-mcx4131a-gcat](purchased/nvidia-mcx4131a-gcat/README.md) | NVIDIA (Mellanox) ConnectX-4 Lx EN MCX4131A-GCAT, 50GbE single-port QSFP28 | [aipc](../aipc/parts/nvidia-mcx4131a-gcat.md) |
 | [nvidia-rtx-3090-fe](purchased/nvidia-rtx-3090-fe/README.md) | NVIDIA GeForce RTX 3090 Founders Edition | [gpulab](../gpulab/parts/nvidia-rtx-3090-fe.md) |
@@ -58,8 +60,9 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [samsung-990-pro-4tb](purchased/samsung-990-pro-4tb/README.md) | Samsung 990 PRO 4 TB NVMe | [aipc](../aipc/parts/samsung-990-pro-4tb.md) |
 | [sanyo-denki-9gv1412p1s001](purchased/sanyo-denki-9gv1412p1s001/README.md) | Sanyo Denki San Ace 9GV1412P1S001 140 x 38 mm fan | [aipc](../aipc/parts/sanyo-denki-9gv1412p1s001.md) |
 | [sff-8643-pcie-cable](purchased/sff-8643-pcie-cable/README.md) | 10Gtek CAB-8643/8643-P0.5M, SFF-8643 to SFF-8643 cable, 0.5 m, with sideband (2-pack) | [aipc](../aipc/parts/sff-8643-pcie-cable.md) |
-| [silicone-gasket-2mm](purchased/silicone-gasket-2mm/README.md) | 2 mm silicone foam gasket sheet, 200 x 200 mm | [aipc](../aipc/parts/silicone-gasket-2mm.md) |
+| [silicone-gasket-2mm](purchased/silicone-gasket-2mm/README.md) | 2 mm silicone foam gasket sheet, 200 x 200 mm | [aipc](../aipc/parts/silicone-gasket-2mm.md), [rack](../rack/parts/silicone-gasket-2mm.md) |
 | [super-flower-leadex-2800w](purchased/super-flower-leadex-2800w/README.md) | Super Flower Leadex 2800W ATX 3.1 (SF-2800F14HP) | none |
+| [u-channel-edge-trim](purchased/u-channel-edge-trim/README.md) | U-channel push-on edge trim for sheet steel | [rack](../rack/parts/u-channel-edge-trim.md) |
 | [ubiquiti-uacc-pro-max-16-rm](purchased/ubiquiti-uacc-pro-max-16-rm/README.md) | Ubiquiti UACC-Pro-Max-16-RM 1U rack mount kit | [rack](../rack/parts/ubiquiti-uacc-pro-max-16-rm.md) |
 | [ubiquiti-usw-pro-max-16](purchased/ubiquiti-usw-pro-max-16/README.md) | Ubiquiti UniFi Pro Max 16 (USW-Pro-Max-16), 16-port managed switch | [rack](../rack/parts/ubiquiti-usw-pro-max-16.md) |
 | [v100-eps-power-adapter](purchased/v100-eps-power-adapter/README.md) | Dual PCIe 8-pin to CPU/EPS 8-pin GPU adapter (030-0571-000 compatible) | none |

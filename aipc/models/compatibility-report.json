@@ -1929,7 +1929,7 @@
       "listing": 3,
       "photo-estimate": 1,
       "assumed": 1,
-      "unknown": 4
+      "unknown": 5
     },
     "rosewill-hercules-1600": {
       "review": 3,
@@ -1942,6 +1942,9 @@
       "listing": 1,
       "assumed": 1,
       "allowance": 4
+    },
+    "silicone-gasket-2mm": {
+      "allowance": 2
     },
     "tnut_fit_coupon": {
       "allowance": 1

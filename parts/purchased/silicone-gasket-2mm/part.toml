@@ -6,3 +6,7 @@ no_datasheet_reason = "Generic sheet."
 
 [model]
 source = "constructed"
+
+[dims]
+thickness = { value = 2.0, evidence = "allowance", source = "nominal sheet thickness in the part name" }
+size = { value = 200.0, evidence = "allowance", source = "nominal 200 x 200 mm sheet" }

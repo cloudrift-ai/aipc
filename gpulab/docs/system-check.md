@@ -101,6 +101,6 @@ Dimensions not backed by a datasheet, standard or measurement, by part:
 - pcie-8pin-splitter: 1 assumed
 - psu-modular-cables: 1 assumed
 - psu_bracket: 1 allowance
-- rack-cabinet: 1 assumed, 10 datasheet, 3 listing, 1 photo-estimate, 4 unknown
+- rack-cabinet: 1 assumed, 10 datasheet, 3 listing, 1 photo-estimate, 5 unknown
 - wurth-970140324: 1 assumed, 3 datasheet
 - zotac-rtx-5090-solid: 1 allowance, 4 datasheet, 1 review

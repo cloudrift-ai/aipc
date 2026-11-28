@@ -1,0 +1,9 @@
+part = "purchased/silicone-gasket-2mm"
+role = "seal between each fan frame and its cabinet panel: a 200 x 200 mm sheet with the rotor opening cut out"
+status = "candidate"
+quantity = 8
+systems = ["rack"]
+notes = "Stops air leaking around the frame and frame buzz on the steel. Under the inner top, cut the foam lining back to the fan footprint so the gasket sits on bare steel."
+
+[assembly]
+match = ["^(intake|exhaust)_gasket_[1-4]$"]

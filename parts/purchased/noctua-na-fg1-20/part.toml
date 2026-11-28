@@ -1,0 +1,49 @@
+id = "noctua-na-fg1-20"
+name = "Noctua NA-FG1-20 200 mm fan grill"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+Steel wire grill with round struts and an offset centre for 200 mm fans. Sold as
+NA-FG1-20 Sx2 (2 grills, 8 fan screws, 8 push-pins) and NA-FG1-20 Sx5 (5 grills,
+20 fan screws, 20 push-pins). The push-pins hold the grill 5 mm off the fan, which
+Noctua says lowers the airflow and noise penalty; they can be cut shorter.
+The datasheet gives package sizes only: the grill's outer size, wire depth, hole
+pattern and mass are not published. Noctua lists it for 200 mm fans, which implies
+the NF-A20's 154 mm pattern; confirm on the grill before relying on it.
+"""
+
+[links]
+product = "https://www.noctua.at/en/products/na-fg1-20-sx5"
+
+[[datasheets]]
+title = "Noctua NA-FG1-20 datasheet (Sx2 and Sx5)"
+url = "https://noctua.at/pub/media/blfa_files/infosheet/noctua_na_fg1_20_datasheet_EN_.pdf"
+
+[[datasheets]]
+title = "Noctua NA-FG1-20 Sx5 specifications"
+url = "https://www.noctua.at/en/products/na-fg1-20-sx5/specifications"
+
+[model]
+source = "constructed"
+notes = "Not modeled: Noctua publishes no grill dimensions."
+
+[dims]
+fan_size = { value = 200.0, evidence = "datasheet", source = "NA-FG1-20 datasheet: fan compatibility 200 mm" }
+pushpin_offset = { value = 5.0, evidence = "datasheet", source = "NA-FG1-20 datasheet: 5 mm offset with the push-pins" }
+outer_size = { value = "", evidence = "unknown" }
+depth = { value = "", evidence = "unknown", note = "offset wire depth not published" }
+hole_pitch = { value = "", evidence = "unknown", note = "expected 154 mm for 200 mm fans; measure" }
+mass = { value = "", unit = "kg", evidence = "unknown", note = "Sx2 package 318 g including packaging" }
+
+[[requires]]
+type = "fan-guard-mount"
+value = "200 mm fan"
+count = 1
+note = "four corner holes on the fan's open face; screws or push-pins included"
+
+[[provides]]
+type = "steel-grill-face"
+value = "200 mm"
+count = 1
+evidence = "datasheet"
+note = "steel wire face a magnetic filter can sit on"

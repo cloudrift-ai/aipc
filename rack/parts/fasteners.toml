@@ -1,0 +1,12 @@
+part = "purchased/fasteners"
+role = "fan-to-panel screws (four per fan, 32 in all) plus spares"
+status = "candidate"
+quantity = 1
+systems = ["rack"]
+notes = """Screw length = panel steel + 2 mm gasket + engagement in the fan's corner hole; \
+size to the NF-A20's hole, which Noctua doesn't publish. Measure both before buying. \
+The grills use their own included screws or push-pins on the fan's open face."""
+
+[assembly]
+not_modeled = "screw size and length wait for the measured panel steel and fan hole"
+count_check = false

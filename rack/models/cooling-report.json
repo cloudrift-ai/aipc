@@ -117,7 +117,7 @@
     "intake": {
       "where": "under the floor, blowing up",
       "centre_y_mm": 252.5,
-      "free_air_below_mm": 49.5,
+      "free_air_below_mm": 47.5,
       "wanted_mm": 50.0,
       "ok": false
     },

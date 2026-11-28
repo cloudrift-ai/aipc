@@ -14,6 +14,7 @@
 | Build | Qty | Status | Role |
 | --- | ---: | --- | --- |
 | [aipc](../../../aipc/parts/silicone-gasket-2mm.md) | 1 | candidate | roof flange seal |
+| [rack](../../../rack/parts/silicone-gasket-2mm.md) | 8 | candidate | seal between each fan frame and its cabinet panel: a 200 x 200 mm sheet with the rotor opening cut out |
 
 ## Model
 
@@ -24,4 +25,11 @@
 ## Datasheets
 
 - None recorded. Generic sheet.
+
+## Dimensions
+
+| Key | Value | Evidence | Source / note |
+| --- | --- | --- | --- |
+| thickness | 2 mm | allowance | nominal sheet thickness in the part name |
+| size | 200 mm | allowance | nominal 200 x 200 mm sheet |
 

@@ -48,6 +48,7 @@ rail_opening = { value = 450.0, evidence = "datasheet", source = "SysRacks drawi
 rail_depth_max = { value = 787.4, evidence = "listing", source = "SysRacks product page: rail-to-rail max 31 in", note = "the feature list says 33 in; minimum not stated" }
 lid_thickness = { value = 50.0, evidence = "photo-estimate", source = "SysRacks drawing proportions", note = "measure" }
 wall_thickness = { value = 30.0, evidence = "assumed", note = "steel plus foam; measure each side, the doors and the floor" }
+panel_sheet_thickness = { value = "", evidence = "unknown", note = "bare steel of the inner top and the floor, where the fans mount; sets the nibbler, the edge trim and the screw length" }
 interior_depth = { value = "", evidence = "unknown", note = "clear depth between the front and rear door foams" }
 interior_height_above_shelf = { value = "", evidence = "unknown" }
 post_depth = { value = "", evidence = "unknown", note = "rails adjustable up to 31 in (or 33 in)" }
@@ -84,3 +85,8 @@ note = "foam-lined rear door; measure from the rear rail plane to the door foam"
 [[provides]]
 type = "cabinet-height-above-shelf"
 note = "inner top carries the two stock fans; measure once the shelf height is set"
+
+[[provides]]
+type = "panel-sheet-edge"
+evidence = "unknown"
+note = "cut edge of the fan openings in the inner top and floor steel; thickness not measured"

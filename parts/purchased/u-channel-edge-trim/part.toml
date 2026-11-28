@@ -1,0 +1,23 @@
+id = "u-channel-edge-trim"
+name = "U-channel push-on edge trim for sheet steel"
+category = "purchased"
+evidence = "allowance"
+no_datasheet_reason = "Generic push-on PVC or EPDM edge trim; the grip range is chosen once the panel steel is measured."
+notes = """
+Flexible push-on trim with a metal grip insert, sold by the metre. It covers the cut
+edge of a sheet-steel opening so it can't cut cables, fingers or the foam lining.
+Pick a profile whose grip range covers the measured panel steel thickness and that
+bends to the cutout radius.
+"""
+
+[model]
+source = "constructed"
+notes = "Not modeled: follows the cutout edge."
+
+[dims]
+grip_range = { value = "", evidence = "unknown", note = "choose after measuring the panel steel" }
+
+[[requires]]
+type = "panel-sheet-edge"
+value = "sheet steel cutout edge"
+note = "grip range must cover the panel steel thickness"

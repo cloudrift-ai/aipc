@@ -68,3 +68,9 @@ derate = 0.5
 evidence = "allowance"
 note = """free-air 86.46 CFM x 15 C rise / 1.76, halved because intake and exhaust fans run in \
 series; derate 0.5 for grilles, guards and the equipment in the path. Not a measured cabinet airflow"""
+
+[[provides]]
+type = "fan-guard-mount"
+value = "200 mm fan"
+count = 1
+note = "corner holes on the open face, the side away from the panel"

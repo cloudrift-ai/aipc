@@ -169,10 +169,11 @@ Dimensions not backed by a datasheet, standard or measurement, by part:
 - pcie-8pin-90-adapter: 1 allowance, 1 assumed
 - psu_bracket: 1 allowance
 - qsfp28-passive-dac: 4 allowance, 3 assumed
-- rack-cabinet: 1 assumed, 10 datasheet, 3 listing, 1 photo-estimate, 4 unknown
+- rack-cabinet: 1 assumed, 10 datasheet, 3 listing, 1 photo-estimate, 5 unknown
 - rosewill-hercules-1600: 1 allowance, 3 review
 - samsung-990-pro-4tb: 1 assumed
 - sff-8643-pcie-cable: 4 allowance, 1 assumed, 1 listing
+- silicone-gasket-2mm: 2 allowance
 - tnut_fit_coupon: 1 allowance
 - v100-tail-support: 2 allowance, 1 assumed
 - v100_gpu_shroud: 1 allowance

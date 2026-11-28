@@ -1,0 +1,9 @@
+part = "purchased/u-channel-edge-trim"
+role = "edge trim around the eight cut fan openings"
+status = "candidate"
+quantity = 1
+systems = ["rack"]
+notes = "About 5 m: eight openings of roughly 0.6 m circumference each, plus waste."
+
+[assembly]
+not_modeled = "follows the cutout edges"

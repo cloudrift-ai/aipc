@@ -11,6 +11,11 @@ Eight 200 mm Noctua NF-A20 PWM fans move air through the SysRacks SP 12.900 acou
 | Part | Qty | Role |
 | --- | --- | --- |
 | [Noctua NF-A20 PWM](parts/noctua-nf-a20-pwm.md) | 8 | Two 2 × 2 banks, intake and exhaust |
+| [Noctua NA-FG1-20](parts/noctua-na-fg1-20.md) | 8 | Steel wire guard on each fan's open side (two Sx5 sets or four Sx2 sets) |
+| [DEMCiflex 200 mm round filter](parts/demciflex-200mm-round.md) | 4 | Candidate: dust filter on each intake fan's guard, under the floor |
+| [2 mm silicone foam gasket sheet](parts/silicone-gasket-2mm.md) | 8 | Seal between each fan frame and its panel, rotor opening cut out |
+| [U-channel edge trim](parts/u-channel-edge-trim.md) | about 5 m | Covers the cut edge of the eight openings; grip range once the steel is measured |
+| [Fasteners](parts/fasteners.md) | 32 + spares | Fan-to-panel screws; size and length once the steel and fan hole are measured |
 | [ESP32-DevKitC-32E](parts/espressif-esp32-devkitc-32e.md) | 1 | Controller running ESPHome |
 | [DS18B20 waterproof probe](parts/ds18b20-waterproof-probe.md) | 2 | Intake and exhaust air temperature |
 | [Mean Well GST60A12-P1J](parts/meanwell-gst60a12-p1j.md) | 1 | 12 V 5 A supply, plugged into the PDU (load about 10.4 W) |

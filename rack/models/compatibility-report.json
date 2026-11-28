@@ -1,9 +1,9 @@
 {
   "date": "2026-11-27",
   "summary": {
-    "BLOCKED": 5,
-    "PROVISIONAL": 14,
-    "PASS": 1
+    "BLOCKED": 10,
+    "PROVISIONAL": 16,
+    "PASS": 3
   },
   "lint": [],
   "assembly_errors": [],
@@ -48,6 +48,26 @@
       "weak_evidence": [
         "noctua-nf-a20-pwm:cabinet-heat-removal(allowance)",
         "system:cabinet-heat-removal(unknown)"
+      ]
+    },
+    {
+      "type": "panel-sheet-edge",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "u-channel-edge-trim"
+      ],
+      "providers": [
+        "rack-cabinet"
+      ],
+      "rule": "value",
+      "status": "BLOCKED",
+      "detail": "u-channel-edge-trim needs sheet steel cutout edge; provider value unknown",
+      "note": "grip range must cover the panel steel thickness",
+      "weak_evidence": [
+        "rack-cabinet:panel-sheet-edge(unknown)",
+        "u-channel-edge-trim:panel-sheet-edge(allowance)"
       ]
     },
     {
@@ -274,6 +294,43 @@
       ]
     },
     {
+      "type": "steel-grill-face",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "demciflex-200mm-round"
+      ],
+      "providers": [
+        "noctua-na-fg1-20"
+      ],
+      "rule": "value",
+      "status": "PROVISIONAL",
+      "detail": "demciflex-200mm-round needs 200 mm; provided by noctua-na-fg1-20",
+      "note": "magnetic rim on the steel grill over the fan inlet",
+      "weak_evidence": [
+        "demciflex-200mm-round:steel-grill-face(listing)"
+      ]
+    },
+    {
+      "type": "steel-grill-face",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "demciflex-200mm-round"
+      ],
+      "providers": [
+        "noctua-na-fg1-20"
+      ],
+      "rule": "count",
+      "status": "PROVISIONAL",
+      "detail": "need 4 x steel-grill-face=200 mm, have 8",
+      "weak_evidence": [
+        "demciflex-200mm-round:steel-grill-face(listing)"
+      ]
+    },
+    {
       "type": "switch-rack-kit",
       "systems": [
         "rack"
@@ -326,13 +383,61 @@
         "espressif-esp32-devkitc-32e"
       ],
       "weak_evidence": []
+    },
+    {
+      "type": "fan-guard-mount",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "noctua-na-fg1-20"
+      ],
+      "providers": [
+        "noctua-nf-a20-pwm"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "noctua-na-fg1-20 needs 200 mm fan; provided by noctua-nf-a20-pwm",
+      "note": "four corner holes on the fan's open face; screws or push-pins included",
+      "weak_evidence": []
+    },
+    {
+      "type": "fan-guard-mount",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "noctua-na-fg1-20"
+      ],
+      "providers": [
+        "noctua-nf-a20-pwm"
+      ],
+      "rule": "count",
+      "status": "PASS",
+      "detail": "need 8 x fan-guard-mount=200 mm fan, have 8",
+      "weak_evidence": []
     }
   ],
   "coverage": [
     {
+      "part": "demciflex-200mm-round",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: thickness not published; adds to the grill stack under the floor"
+    },
+    {
+      "part": "fasteners",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: screw size and length wait for the measured panel steel and fan hole"
+    },
+    {
       "part": "mains-power",
       "status": "BLOCKED",
       "detail": "not in the assembly: outside the cooling kit; supply not specified"
+    },
+    {
+      "part": "noctua-na-fg1-20",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: Noctua publishes no grill dimensions; model it once a grill is measured"
     },
     {
       "part": "rack-fan-harness",
@@ -340,17 +445,48 @@
       "detail": "not in the assembly: flexible cabling; lengths depend on the cabinet, which is not identified"
     },
     {
+      "part": "u-channel-edge-trim",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: follows the cutout edges"
+    },
+    {
       "part": "ubiquiti-usw-pro-max-16",
       "status": "BLOCKED",
       "detail": "not in the assembly: U position in the cabinet not chosen yet; 1U, half-width case 325.1 x 160 x 43.7 mm in the UACC-Pro-Max-16-RM kit"
     }
   ],
-  "renders": [],
+  "renders": [
+    "ds18b20-waterproof-probe: render.png missing or older than its model (run make render)",
+    "espressif-esp32-devkitc-32e: render.png missing or older than its model (run make render)",
+    "meanwell-gst60a12-p1j: render.png missing or older than its model (run make render)",
+    "noctua-nf-a20-pwm: render.png missing or older than its model (run make render)",
+    "rack-fan-controller-board: render.png missing or older than its model (run make render)"
+  ],
   "datasheets": [
+    {
+      "part": "demciflex-200mm-round",
+      "status": "BLOCKED",
+      "detail": "DEMCiflex publishes no drawing or specification sheet; only retailer listings describe it."
+    },
     {
       "part": "ds18b20-waterproof-probe",
       "status": "PROVISIONAL",
       "detail": "not fetched locally: https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf (run make datasheets)"
+    },
+    {
+      "part": "fasteners",
+      "status": "BLOCKED",
+      "detail": "Generic ISO metric and UNC hardware; each build chooses lengths from its own stacks."
+    },
+    {
+      "part": "noctua-na-fg1-20",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://noctua.at/pub/media/blfa_files/infosheet/noctua_na_fg1_20_datasheet_EN_.pdf (run make datasheets)"
+    },
+    {
+      "part": "noctua-na-fg1-20",
+      "status": "PROVISIONAL",
+      "detail": "not fetched locally: https://www.noctua.at/en/products/na-fg1-20-sx5/specifications (run make datasheets)"
     },
     {
       "part": "noctua-nf-a20-pwm",
@@ -363,23 +499,41 @@
       "detail": "not fetched locally: https://noctua.at/pub/media/blfa_files/infosheet/noctua_nf_a_20_pwm_datasheet_en_web.pdf (run make datasheets)"
     },
     {
+      "part": "silicone-gasket-2mm",
+      "status": "BLOCKED",
+      "detail": "Generic sheet."
+    },
+    {
+      "part": "u-channel-edge-trim",
+      "status": "BLOCKED",
+      "detail": "Generic push-on PVC or EPDM edge trim; the grip range is chosen once the panel steel is measured."
+    },
+    {
       "part": "ubiquiti-uacc-pro-max-16-rm",
       "status": "BLOCKED",
       "detail": "Ubiquiti publishes only a store listing for the kit; no drawing or tech specs page was found (2026-11-27)."
     }
   ],
   "weak_evidence_dims": {
+    "demciflex-200mm-round": {
+      "listing": 1,
+      "unknown": 2
+    },
     "ds18b20-waterproof-probe": {
       "datasheet": 3,
       "assumed": 2,
       "unknown": 1
+    },
+    "noctua-na-fg1-20": {
+      "datasheet": 2,
+      "unknown": 4
     },
     "rack-cabinet": {
       "datasheet": 10,
       "listing": 3,
       "photo-estimate": 1,
       "assumed": 1,
-      "unknown": 4
+      "unknown": 5
     },
     "rack-fan-controller-board": {
       "allowance": 4,
@@ -389,6 +543,12 @@
     "rack-fan-harness": {
       "unknown": 1,
       "assumed": 1
+    },
+    "silicone-gasket-2mm": {
+      "allowance": 2
+    },
+    "u-channel-edge-trim": {
+      "unknown": 1
     },
     "ubiquiti-uacc-pro-max-16-rm": {
       "unknown": 1

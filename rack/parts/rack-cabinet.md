@@ -27,6 +27,7 @@ Cutouts: four in the inner top for the exhaust bank and four in the floor for th
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
+| BLOCKED | value | `panel-sheet-edge` | u-channel-edge-trim needs sheet steel cutout edge; provider value unknown |
 | provisional | value | `cabinet-fan-opening` | noctua-nf-a20-pwm needs 200 mm fan, 154 mm hole pitch; provided by rack-cabinet |
 | provisional | count | `cabinet-fan-opening` | need 8 x cabinet-fan-opening=200 mm fan, 154 mm hole pitch, have 8 |
 | provisional | value | `rack-standard` | ubiquiti-uacc-pro-max-16-rm needs EIA-310 19 in; provided by rack-cabinet |

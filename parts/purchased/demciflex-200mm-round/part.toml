@@ -1,0 +1,31 @@
+id = "demciflex-200mm-round"
+name = "DEMCiflex 200 mm round dust filter"
+category = "purchased"
+evidence = "listing"
+no_datasheet_reason = "DEMCiflex publishes no drawing or specification sheet; only retailer listings describe it."
+notes = """
+Fine mesh filter with a flexible rim, sold for 200 mm fans and vents (listed as
+DF0496, black or white). DEMCiflex filters attach magnetically; the round 200 mm
+listings don't say so explicitly, so confirm the magnet before relying on it to
+hold to a steel fan grill. The square 200 mm model (DF0008) is listed as
+discontinued at several retailers. Mesh adds pressure drop the 0.5 airflow derate
+does not separately account for: measure the airflow with the filters in place.
+"""
+
+[links]
+product = "https://www.pccasegear.com/products/32986/demciflex-200mm-round-dust-filter-black"
+
+[model]
+source = "constructed"
+notes = "Not modeled: thickness not published."
+
+[dims]
+diameter = { value = 200.0, evidence = "listing", source = "Overclockers UK listing: 200 mm width and height" }
+thickness = { value = "", evidence = "unknown" }
+mass = { value = "", unit = "kg", evidence = "unknown" }
+
+[[requires]]
+type = "steel-grill-face"
+value = "200 mm"
+count = 1
+note = "magnetic rim on the steel grill over the fan inlet"

@@ -1,6 +1,17 @@
 {
   "rule": "every assembly instance belongs to a part folder or a declared keepout; every part is modeled, covered or explicitly not modeled",
   "parts": {
+    "demciflex-200mm-round": {
+      "name": "DEMCiflex 200 mm round dust filter",
+      "category": "purchased",
+      "quantity": 4,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 4,
+      "covered_by": null,
+      "not_modeled": "thickness not published; adds to the grill stack under the floor",
+      "instance_names": []
+    },
     "ds18b20-waterproof-probe": {
       "name": "DS18B20 waterproof probe (stainless tube, 3-wire cable)",
       "category": "purchased",
@@ -28,6 +39,17 @@
         "esp32_devkitc"
       ]
     },
+    "fasteners": {
+      "name": "Shelf and component fasteners (metric and UNC screws, washers, nuts)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": null,
+      "covered_by": null,
+      "not_modeled": "screw size and length wait for the measured panel steel and fan hole",
+      "instance_names": []
+    },
     "mains-power": {
       "name": "Mains circuit, UPS and PDU (not specified)",
       "category": "purchased",
@@ -51,6 +73,17 @@
       "instance_names": [
         "fan_psu_12v"
       ]
+    },
+    "noctua-na-fg1-20": {
+      "name": "Noctua NA-FG1-20 200 mm fan grill",
+      "category": "purchased",
+      "quantity": 8,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 8,
+      "covered_by": null,
+      "not_modeled": "Noctua publishes no grill dimensions; model it once a grill is measured",
+      "instance_names": []
     },
     "noctua-nf-a20-pwm": {
       "name": "Noctua NF-A20 PWM 200 x 30 mm fan",
@@ -108,6 +141,37 @@
       "expected_instances": 1,
       "covered_by": null,
       "not_modeled": "flexible cabling; lengths depend on the cabinet, which is not identified",
+      "instance_names": []
+    },
+    "silicone-gasket-2mm": {
+      "name": "2 mm silicone foam gasket sheet, 200 x 200 mm",
+      "category": "purchased",
+      "quantity": 8,
+      "state": "modeled",
+      "instances": 8,
+      "expected_instances": 8,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "exhaust_gasket_1",
+        "exhaust_gasket_2",
+        "exhaust_gasket_3",
+        "exhaust_gasket_4",
+        "intake_gasket_1",
+        "intake_gasket_2",
+        "intake_gasket_3",
+        "intake_gasket_4"
+      ]
+    },
+    "u-channel-edge-trim": {
+      "name": "U-channel push-on edge trim for sheet steel",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": "follows the cutout edges",
       "instance_names": []
     },
     "ubiquiti-uacc-pro-max-16-rm": {

@@ -63,11 +63,33 @@ These depths assume 30 mm walls. Measure the walls and re-centre each bank befor
 
 Before cutting:
 
-- Noctua doesn't publish the bore diameter or the screw-hole size. Measure the fan you bought, cut the round opening to the bore (not larger than the frame), and drill the screw holes to the size of the included fan screws.
-- Use wire fan guards on the open side of each fan, not stamped grilles.
-- Cut the foam lining back to each cutout and seal its edge, so loose foam can't reach a rotor. Leave the rest of the lining in place: it is the soundproofing.
+- Noctua doesn't publish the bore diameter or the screw-hole size. Measure the fan you bought, cut the round opening to the bore (not larger than the frame), and drill the screw holes to suit the fan screws you choose.
+- Measure the bare steel of the inner top and the floor (`panel_sheet_thickness` in the [cabinet spec](../../parts/purchased/rack-cabinet/part.toml), unknown). It decides the cutting tool (a nibbler stops at about 1.6 mm), the edge trim's grip range and the screw length.
+- Cut the foam lining back to each cutout and seal its edge, so loose foam can't reach a rotor. Under the inner top, cut it back to the whole fan footprint, so the gasket and frame sit on bare steel instead of compressing foam. Leave the rest of the lining in place: it is the soundproofing.
 - Plan the floor cutouts around the foam cable entry and the casters' mounting plates.
 - Leave at least 50 mm of clear air on both sides of each bank (a quarter of the fan diameter). Fans pressed against the ceiling, a door or equipment lose most of their airflow.
+
+## Fan mounting stack
+
+Each fan mounts the same way in both banks, from the panel outward:
+
+1. **Panel steel** with the round opening, its edge covered with [U-channel edge trim](../parts/u-channel-edge-trim.md).
+2. **[Gasket](../parts/silicone-gasket-2mm.md):** a 200 × 200 mm, 2 mm silicone foam sheet with the rotor opening cut out. It seals the frame to the panel and stops frame buzz on the steel. The CAD models it, and both banks sit 2 mm further from their panels.
+3. **Fan,** held by four screws through the panel and gasket into the frame's corner holes on the panel side ([fasteners](../parts/fasteners.md)). Length = steel + 2 mm + engagement in the frame. Size to the fan's hole.
+4. **[Noctua NA-FG1-20](../parts/noctua-na-fg1-20.md) wire guard** on the open face, with its own screws, or with its push-pins for a 5 mm offset. On the intake bank that is the underside; on the exhaust bank it is the cabin side, where it keeps cables out of the rotors.
+5. **Intake only: [DEMCiflex 200 mm round filter](../parts/demciflex-200mm-round.md)** (candidate) on the steel guard, so it pulls off from below for cleaning. DEMCiflex filters are magnetic, but the round 200 mm listings don't say so. Check that it holds on the round wires before relying on it; otherwise clamp the mesh between the fan and the guard.
+
+The guard's outer size, wire depth and hole pattern, and the filter's thickness, aren't published, so neither is in the CAD yet. Both add to the intake stack under the floor (see [Fit in this cabinet](#fit-in-this-cabinet)). The filter also adds pressure drop on top of the 0.5 derate: measure the airflow with the filters fitted.
+
+### Where to buy
+
+| Part | Buy | Notes |
+| --- | --- | --- |
+| Noctua NA-FG1-20 | Noctua's store, Amazon, Newegg | Two Sx5 sets (10 guards, list EUR 29.90 each) or four Sx2 sets (exactly 8, list EUR 19.90 each) |
+| DEMCiflex 200 mm round | DEMCiflex's store, Amazon, PC retailers | 4 needed. The square 200 mm model is discontinued at several retailers |
+| 2 mm silicone foam sheet | McMaster-Carr, Amazon | 8 pieces of at least 200 × 200 mm, or one larger sheet cut to size |
+| U-channel edge trim | McMaster-Carr, Amazon, auto parts stores | About 5 m. Choose the grip range after measuring the steel |
+| Fan screws | McMaster-Carr, Bolt Depot, hardware store | 32 plus spares, after measuring the steel and the fan hole |
 
 ## Controller
 
@@ -89,7 +111,7 @@ From the SysRacks drawing, with assumed wall and lid values; see [models/cooling
 
 | Check | Value | Wanted | Status |
 | --- | --- | --- | --- |
-| Free air under the intake bank (79.5 mm floor clearance on casters, minus 30 mm fan) | 49.5 mm | 50 mm (a quarter of the fan diameter) | Short by 0.5 mm. Taller casters or a 20 mm plinth fixes it, and helps on carpet |
+| Free air under the intake bank (79.5 mm floor clearance on casters, minus 2 mm gasket and 30 mm fan) | 47.5 mm, before the guard and filter | 50 mm (a quarter of the fan diameter) | Short. The guard (5 mm offset plus its unpublished wire depth) and the filter take more, likely leaving under 35 mm. Taller casters or a 30-40 mm plinth fixes it, and helps on carpet |
 | Free air above the exhaust bank, under the lid | 47 mm (50 mm lid assumed, minus a 3 mm sheet) | 50 mm | Short on the assumed lid. Measure it; spacers under the lid add room and keep the edge baffle |
 | Stock thermostat and fans | Removed | — | The ESP32 controller replaces them. Keep the stock panel's probe as a spare, or leave the panel as a display only |
 
@@ -110,6 +132,7 @@ A [UniFi Pro Max 16](../parts/ubiquiti-usw-pro-max-16.md) in its 1U [UACC-Pro-Ma
   - the clear height from the floor foam to the inner top
   - the clear width
   - the wall, floor, inner-top and lid thicknesses
+  - the bare steel thickness of the inner top and the floor, where the fans mount
   - the stock fan size and hole pattern
 
   Record them in the library [rack-cabinet spec](../../parts/purchased/rack-cabinet/part.toml).

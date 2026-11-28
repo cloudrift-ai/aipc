@@ -37,6 +37,8 @@ PSU = spec.get("meanwell-gst60a12-p1j")
 BOARD = spec.get("rack-fan-controller-board")
 PROBE = spec.get("ds18b20-waterproof-probe")
 CAB = spec.get("rack-cabinet")
+GASKET_PART = spec.get("silicone-gasket-2mm")
+GASKET, GASKET_SHEET = GASKET_PART.dim("thickness"), GASKET_PART.dim("size")
 CW, CD, CH = CAB.dim("outer_width"), CAB.dim("outer_depth"), CAB.dim("body_height")
 WALL, LID, FLOOR_GAP = CAB.dim("wall_thickness"), CAB.dim("lid_thickness"), CAB.dim("floor_clearance")
 
@@ -54,6 +56,8 @@ FREE_AIR_MIN = SIZE / 4  # clear air wanted on the open side of a fan
 FANS_PER_CHANNEL = BANK * BANK
 assert FAN.quantity == 2 * FANS_PER_CHANNEL, ("fan quantity must fill both banks", FAN.quantity)
 assert PITCH < SIZE, "hole pitch must lie inside the frame"
+assert GASKET_SHEET >= SIZE, ("gasket sheet smaller than the fan frame", GASKET_SHEET, SIZE)
+assert GASKET_PART.quantity == FAN.quantity, ("one gasket per fan", GASKET_PART.quantity, FAN.quantity)
 assert PROBE.quantity == 2, "one intake and one exhaust probe"
 header_count = next(p["count"] for p in BOARD.provides if p["type"] == "fan-header-4pin")
 assert header_count == FAN.quantity, ("one controller header per fan, no splitters", header_count, FAN.quantity)
@@ -108,21 +112,28 @@ colors["cabinet_shell"] = cq.Color(0.35, 0.35, 0.38, 0.25)
 solids["cabinet_lid"] = cq.Workplane("XY").box(CW, CD, LID_PLATE, centered=(True, False, False)).translate((0, 0, CH - LID_PLATE))
 colors["cabinet_lid"] = cq.Color(0.35, 0.35, 0.38, 0.25)
 
+# Gasket: the frame-sized sheet with the rotor opening cut out, between each frame and its panel.
+GASKET_SHAPE = cq.Workplane("XY").rect(SIZE, SIZE).extrude(GASKET).cut(cq.Workplane("XY").circle(ROTOR_CUT / 2).extrude(GASKET))
+
 # Exhaust bank: under the inner top, blowing up into the lid plenum.
 for n, (u, v) in enumerate(bank_centres(), start=1):
-    solids[f"exhaust_fan_{n}"] = FAN_SHAPE.translate((u, exhaust_y + v, top_underside - DEPTH))
+    solids[f"exhaust_gasket_{n}"] = GASKET_SHAPE.translate((u, exhaust_y + v, top_underside - GASKET))
+    solids[f"exhaust_fan_{n}"] = FAN_SHAPE.translate((u, exhaust_y + v, top_underside - GASKET - DEPTH))
     colors[f"exhaust_fan_{n}"] = cq.Color(0.85, 0.45, 0.25)
 
 # Intake bank: under the floor, blowing up into the cabinet.
 for n, (u, v) in enumerate(bank_centres(), start=1):
-    solids[f"intake_fan_{n}"] = FAN_SHAPE.translate((u, intake_y + v, -DEPTH))
+    solids[f"intake_gasket_{n}"] = GASKET_SHAPE.translate((u, intake_y + v, -GASKET))
+    solids[f"intake_fan_{n}"] = FAN_SHAPE.translate((u, intake_y + v, -GASKET - DEPTH))
     colors[f"intake_fan_{n}"] = cq.Color(0.35, 0.55, 0.85)
+for name in [k for k in solids if "_gasket_" in k]:
+    colors[name] = cq.Color(0.75, 0.2, 0.2)
 
 # Probes: vertical tubes in each stream, inside the cabinet.
 tube_d, tube_l = PROBE.dim("tube_diameter"), PROBE.dim("tube_length")
 solids["intake_probe"] = cq.Workplane("XY").circle(tube_d / 2).extrude(tube_l).translate((0, intake_y, WALL + PROBE_OFFSET))
 solids["exhaust_probe"] = cq.Workplane("XY").circle(tube_d / 2).extrude(tube_l).translate(
-    (0, exhaust_y, top_underside - DEPTH - PROBE_OFFSET - tube_l)
+    (0, exhaust_y, top_underside - GASKET - DEPTH - PROBE_OFFSET - tube_l)
 )
 for name in ("intake_probe", "exhaust_probe"):
     colors[name] = cq.Color(0.8, 0.8, 0.82)
@@ -155,7 +166,7 @@ for (a, sa), (b, sb) in itertools.combinations(solids.items(), 2):
     common = sa.intersect(sb)
     vol = sum(s.Volume() for s in common.solids().vals())
     assert vol < 1e-6, ("collision", a, b, round(vol, 3))
-intake_gap = FLOOR_GAP - DEPTH  # free air under the intake bank, to the ground
+intake_gap = FLOOR_GAP - GASKET - DEPTH  # free air under the intake bank, to the ground (before grill and filter)
 plenum_gap = plenum_top - top_surface  # free air above the exhaust bank, under the lid
 
 assembly = cq.Assembly(name="rack_cooling")

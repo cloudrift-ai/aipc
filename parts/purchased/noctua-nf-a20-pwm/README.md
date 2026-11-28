@@ -60,6 +60,7 @@ Mounting holes on three patterns; this build uses 154 x 154 mm.
 ## Interfaces
 
 - provides `cabinet-heat-removal` capacity 368.4 W (allowance) — free-air 86.46 CFM x 15 C rise / 1.76, halved because intake and exhaust fans run in series; derate 0.5 for grilles, guards and the equipment in the path. Not a measured cabinet airflow
+- provides `fan-guard-mount` value 200 mm fan count 1 (datasheet) — corner holes on the open face, the side away from the panel
 - requires `fan-header-4pin` value 12 V 4-pin PWM count 1 (datasheet)
 - requires `dc-12v` load 0.96 W (datasheet) — maximum input power
 - requires `cabinet-fan-opening` value 200 mm fan, 154 mm hole pitch count 1 (datasheet) — cutout plus four screw holes in a cabinet panel
