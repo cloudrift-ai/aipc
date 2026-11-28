@@ -1,0 +1,9 @@
+part = "purchased/aquacomputer-temperature-sensor-70cm"
+role = "exhaust air temperature, the input to both fan curves"
+status = "selected"
+quantity = 1
+systems = ["rack"]
+notes = "The one included with the QUADRO; nothing extra to buy. In the exhaust airstream about 60 mm before the exhaust bank, not touching metal."
+
+[assembly]
+match = ["^exhaust_sensor$"]

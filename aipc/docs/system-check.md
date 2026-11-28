@@ -137,7 +137,7 @@ Dimensions not backed by a datasheet, standard or measurement, by part:
 - amd-epyc-7702p: 1 assumed, 1 datasheet
 - amd-instinct-mi50-32gb: 1 allowance, 3 datasheet, 1 standard, 2 unknown
 - amd-ryzen-9-9950x3d: 1 assumed, 1 datasheet, 1 standard
-- aquacomputer-quadro: 1 assumed, 1 datasheet
+- aquacomputer-quadro: 1 assumed, 6 datasheet
 - asetek-tr4-bracket: 1 assumed
 - atx_mobo_adapter_front: 1 allowance
 - atx_mobo_adapter_rail: 1 allowance

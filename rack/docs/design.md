@@ -2,7 +2,7 @@
 
 ## Goal
 
-Move more air through the [SysRacks SP 12.900](../parts/rack-cabinet.md) acoustic cabinet while keeping its noise reduction. The approach is large, slow fans on the cabinet's own air path: in through the floor, out through the roof under the lid. Two DS18B20 probes close the loop, and an ESP32 runs it independently of every computer in the rack.
+Move more air through the [SysRacks SP 12.900](../parts/rack-cabinet.md) acoustic cabinet while keeping its noise reduction. The approach is large, slow fans on the cabinet's own air path: in through the floor, out through the roof under the lid. An Aqua Computer QUADRO sets the fan speed from the exhaust temperature, independently of every computer in the rack.
 
 ## Fans
 
@@ -10,7 +10,7 @@ Eight [Noctua NF-A20 PWM](../parts/noctua-nf-a20-pwm.md) fans (200 × 30 mm, 350
 
 - **Exhaust:** under the inner top toward the rear, in place of the two stock fans. It blows up into the space under the outer lid, which vents around its edge as the stock fans do. That edge gap is the acoustic baffle, so no new opening to the outside is cut.
 - **Intake:** hung under the floor toward the front, blowing up through four floor cutouts. The cabinet already draws air in at the bottom, and the floor is out of sight and partly shielded by the casters' gap.
-- **Controller and 12 V supply:** on the inner top in front of the exhaust bank, under the lid. They stay out of the 11U of rack space. The controller reaches the network over a patch lead to the rack switch.
+- **Controller and supply:** on the inner top in front of the exhaust bank, under the lid. They stay out of the 11U of rack space.
 
 Each bank is 405 × 405 mm (200 mm frames with 5 mm gaps). Both fit the 600 × 900 mm footprint with room to spare.
 
@@ -41,7 +41,7 @@ Compared with the builds:
 
 The heat load is generic for now ([system.toml](../system.toml) leaves it blank), so `make check` reports the heat budget as BLOCKED until a load is set.
 
-**Measure it.** Once installed, the firmware's *Temperature rise* sensor at a known load gives the real airflow: CFM ≈ 1.76 × W ÷ rise. Replace the 0.5 derate in the fan spec with the measured value.
+**Measure it.** Once installed, read the intake and exhaust air temperatures at a known load and full fan speed (the QUADRO's sensor in aquasuite for the exhaust, any thermometer at the intake). The real airflow is CFM ≈ 1.76 × W ÷ rise. Replace the 0.5 derate in the fan spec with the measured value.
 
 ## Fan bank cutouts
 
@@ -93,20 +93,18 @@ The guard's outer size, wire depth and hole pattern, and the filter's thickness,
 
 ## Controller
 
-Firmware: [firmware/rack-fans.yaml](../firmware/rack-fans.yaml), ESPHome. Hardware: [wiring.md](wiring.md).
+Hardware and setup: [wiring.md](wiring.md).
 
-- **Board:** an [Olimex ESP32-POE](../parts/olimex-esp32-poe.md) (classic ESP32 with 100 Mb Ethernet) on the perfboard, chosen 2026-11-27 over the ESP32-DevKitC. Wired Ethernet avoids weak Wi-Fi inside a steel cabinet, and the switch is in the same rack. PoE is not used: the Pro Max 16 has none, and powering the fans or the ESP32 from a switch would tie cooling to its reboots. The board runs from the controller's own 5 V converter, so a switch reboot or update only interrupts monitoring.
-- **Plug-in cabling:** fans plug into keyed 4-pin headers on their own leads plus standard 4-pin extensions; the probes go into a screw terminal; the network is a patch lead. Nothing is crimped or soldered off the board. One alternative, if the extensions to the floor bank prove awkward, is two ready-made 4-fan ESPHome boards, one beside each bank; it was set aside because none of the boards found documents a full-speed fail-safe when its ESP32 crashes.
-
-- **Two PWM channels** (intake and exhaust). The intake runs 5% faster (*Intake bias*) to keep slight positive pressure, so dust comes in only through the intake.
-- **Fan curve:** each bank's speed is the larger of two demands.
-  - The exhaust temperature, ramping from 30 °C (minimum duty) to 42 °C (full).
-  - The intake-to-exhaust rise, ramping from 5 °C to 15 °C.
-
-  The minimum duty is 25%. All six values can be changed from the web page or Home Assistant and survive reboots.
-- **Smoothing:** speed rises at once and falls at most 2% every 5 s, so the fans don't hunt.
-- **Fail-safe:** full speed at boot, on a probe fault, on a fan fault and when *Force full speed* is on. Hardware also defaults to full speed when the ESP32 is not running. Details in [wiring.md](wiring.md#behaviour-if-something-fails).
-- **Monitoring:** both temperatures, the rise, both duties, all eight rpm readings, and fan and probe faults. These appear on the built-in web page (port 80) and in Home Assistant through the encrypted native API. Firmware updates go only through encrypted OTA; the web page's upload endpoint is disabled.
+- **Controller:** an [Aqua Computer QUADRO](../parts/aquacomputer-quadro.md), chosen 2026-11-27. It runs its fan curves on its own once configured, with no network, no firmware to maintain and no hand-built board. It replaced an ESP32 design (ESPHome, a hand-wired carrier board, per-fan stall alarms and Ethernet monitoring) because the owner wants simple temperature-based control and doesn't need alarms or monitoring.
+- **Two outputs, one per bank.** Output 1 drives the exhaust bank and output 2 the intake bank, four fans each through three chained Y-cables (the ones in the fan boxes). Four NF-A20s draw 0.32 A, against 2 A per output.
+- **One sensor.** Both curves follow the exhaust temperature from the sensor included with the QUADRO. A curve on the intake-to-exhaust rise would need aquasuite running on a PC, so it is dropped; the exhaust temperature alone tracks the load.
+- **Curves** (16 points each, set in aquasuite, stored in the QUADRO):
+  - Exhaust (output 1): 25% at 30 °C or below, rising to 100% at 38 °C.
+  - Intake (output 2): the same curve 5 points higher (30% to 100%), to keep slight positive pressure so dust comes in only through the filtered intake.
+  - "Minimum power" 25% with "Hold minimum power" on, so the fans never stop. The NF-A20 never drops below about 310 rpm anyway.
+  - Full speed at 38 °C, not 42 °C as before, because the QUADRO is rated to 40 °C ambient and sits in exhaust air under the lid.
+- **Supply:** a generic 12 V + 5 V adapter with a 4-pin Molex plug (the owner chose generic over a Mean Well GP50A13D). About 7.7 W of fans on 12 V and the QUADRO on 5 V; buy one rated at least 12 V 1.5 A and 5 V 1.5 A.
+- **Given up:** stall alarms (one fan per bank reports rpm through the Y-cables, and nothing watches it), monitoring and remote changes. Changing a curve means plugging in the setup laptop.
 
 ## Fit in this cabinet
 
@@ -116,7 +114,7 @@ From the SysRacks drawing, with assumed wall and lid values; see [models/cooling
 | --- | --- | --- | --- |
 | Free air under the intake bank (79.5 mm floor clearance on casters, minus 2 mm gasket and 30 mm fan) | 47.5 mm, before the guard and filter | 50 mm (a quarter of the fan diameter) | Short. The guard (5 mm offset plus its unpublished wire depth) and the filter take more, likely leaving under 35 mm. Taller casters or a 30-40 mm plinth fixes it, and helps on carpet |
 | Free air above the exhaust bank, under the lid | 47 mm (50 mm lid assumed, minus a 3 mm sheet) | 50 mm | Short on the assumed lid. Measure it; spacers under the lid add room and keep the edge baffle |
-| Stock thermostat and fans | Removed | — | The ESP32 controller replaces them. Keep the stock panel's probe as a spare, or leave the panel as a display only |
+| Stock thermostat and fans | Removed | — | The QUADRO replaces them. Keep the stock panel's probe as a spare, or leave the panel as a display only |
 
 ## Network switch
 
@@ -142,13 +140,9 @@ A [UniFi Pro Max 16](../parts/ubiquiti-usw-pro-max-16.md) in its 1U [UACC-Pro-Ma
 - **Switch position:** choose its U so the switch clears the AIPC duct and sits in intake air; confirm on the unit that it has no fan.
 - **AIPC may not fit at all.** AIPC needs about 867 mm of clear depth: 20 mm in front of the shelf, plus 711.2 mm of rail spacing, plus 135.7 mm behind the rear rail. The cabinet is 900 mm deep outside, including two foam-lined doors. AIPC's own check shows this as BLOCKED until the depth is measured.
 - **The shelf blocks the floor intake.** The Hammond deck (422.7 mm wide) covers most of the 450 mm rail opening, so air from the floor fans has to rise around its edges and its front. Check how the shelf sits over the floor bank before cutting.
-- **Patch lead:** route it from the controller under the lid down to the switch's U; length depends on that U. Use a non-PoE port: the ESP32-POE is not isolated.
-- **ESP32-POE pin map** is from Olimex's rev M2 schematic and PCB. Check the revision printed on the board when it arrives, and that the user button really is GPIO34.
-- **Probe placement:**
-  - Intake probe: about 60 mm inside the intake bank.
-  - Exhaust probe: about 60 mm before the exhaust bank, in the airstream, not touching metal.
-
-  Confirm these locations read the real intake and exhaust air once installed.
-- **Mains supply:** the GST60A12 needs a C13 outlet on the PDU, and the switch adapter one more outlet. `ac-power` is BLOCKED because the rack's mains is not specified.
-- **Not built:** the perfboard layout, the controller enclosure (a printed part later, after the cabinet is measured) and the cable lengths.
-- **Firmware:** validated with `esphome config` and compiled, but not run on hardware.
+- **QUADRO ambient:** it is rated 10–40 °C and sits in the lid plenum, which carries exhaust air. With full speed at 38 °C exhaust that should hold, but measure the plenum air at full load. If it passes about 38 °C, move the QUADRO and adapter into intake air (for example inside the front of the cabinet) and lengthen the exhaust run instead.
+- **Sensor failure:** the QUADRO manual doesn't say what the outputs do if the sensor is unplugged or fails. Test it during commissioning by unplugging the sensor with the curves active. If the fans slow down, the safer setting is a higher minimum power.
+- **Supply:** the generic adapter is not chosen. Check its Molex pin order with a meter before first connecting it (pin 1 +12 V, pins 2–3 GND, pin 4 +5 V).
+- **Sensor placement:** about 60 mm below the front edge of the exhaust bank, in the airstream, not touching metal; its lead runs up through a cable hole or the fan opening's edge to the QUADRO. Confirm it reads the real exhaust air once installed.
+- **Mains supply:** the fan adapter needs a PDU outlet (its plug depends on the unit bought), and the switch adapter one more outlet. `ac-power` is BLOCKED because the rack's mains is not specified.
+- **Not built:** the QUADRO and adapter mounting, and the cable lengths.

@@ -1,0 +1,31 @@
+id = "noctua-4pin-y-cable"
+name = "Noctua 4-pin PWM Y-cable (included with the NF-A20 PWM)"
+category = "purchased"
+evidence = "listing"
+notes = """
+One comes in every NF-A20 PWM box (see noctua-nf-a20-pwm). Splits one 4-pin PWM
+header to two fans: both get 12 V and the PWM signal, but only one branch carries its
+fan's speed signal back to the controller, as on Y-cables generally (unverified for
+this cable). Chain three to run four fans from one header.
+"""
+no_datasheet_reason = "accessory in the fan box; Noctua lists it in the NF-A20 PWM scope of delivery only"
+
+[links]
+product = "https://www.noctua.at/en/products/nf-a20-pwm"
+
+[model]
+source = "constructed"
+
+[dims]
+mass = { value = 0.01, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "fan-header-4pin"
+value = "12 V 4-pin PWM"
+count = 1
+
+[[provides]]
+type = "fan-header-4pin"
+value = "12 V 4-pin PWM"
+count = 2
+note = "only one branch returns a speed signal"

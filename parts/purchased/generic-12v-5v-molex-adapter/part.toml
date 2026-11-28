@@ -1,0 +1,52 @@
+id = "generic-12v-5v-molex-adapter"
+name = "Generic 12 V + 5 V desktop adapter with a 4-pin Molex plug (not chosen)"
+category = "purchased"
+evidence = "unknown"
+notes = """
+The kind sold to power external hard-drive docks and test benches: mains in, 12 V and
+5 V out on a 4-pin Molex (HDD) plug that fits the QUADRO's power connector directly.
+No model chosen. Buy one rated at least 12 V 1.5 A and 5 V 1.5 A, with a CE or UL mark
+and stated short-circuit and overload protection; check the Molex pin order
+(1 +12 V, 2-3 GND, 4 +5 V) with a meter before connecting. The capacities below are
+those minimums, not a datasheet.
+"""
+no_datasheet_reason = "generic part, no make or model chosen yet"
+
+[model]
+source = "constructed"
+notes = "Case envelope from the minimum allowance."
+
+[dims]
+length = { value = 110.0, evidence = "allowance", note = "typical brick size; replace with the bought unit" }
+width = { value = 55.0, evidence = "allowance", note = "typical brick size; replace with the bought unit" }
+height = { value = 35.0, evidence = "allowance", note = "typical brick size; replace with the bought unit" }
+output_cable_length = { value = 1000.0, evidence = "allowance", note = "typical; replace with the bought unit" }
+mass = { value = 0.25, unit = "kg", evidence = "assumed" }
+
+[[provides]]
+type = "dc-12v"
+capacity = 18.0
+unit = "W"
+derate = 0.8
+evidence = "allowance"
+note = "minimum to buy: 12 V 1.5 A"
+
+[[provides]]
+type = "dc-5v"
+capacity = 7.5
+unit = "W"
+derate = 0.8
+evidence = "allowance"
+note = "minimum to buy: 5 V 1.5 A"
+
+[[provides]]
+type = "molex-4pin-power"
+value = "12 V + 5 V, 4-pin Molex (HDD) plug"
+count = 1
+
+[[requires]]
+type = "ac-power"
+load = 17.0
+unit = "W"
+evidence = "allowance"
+note = "about 13.7 W out (8 fans at 0.96 W plus 5 W for the QUADRO) at an assumed 80% efficiency"

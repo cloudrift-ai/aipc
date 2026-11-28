@@ -1,7 +1,7 @@
 # Build settings read by the shared hwkit library (../hwkit).
 
 name = "Rack cooling"
-title = "Cabinet fans and ESP32 fan controller"
+title = "Cabinet fans and fan controller"
 assembly_step = "models/rack-cooling-assembly.step"
 printer = "qidi-x-plus"
 

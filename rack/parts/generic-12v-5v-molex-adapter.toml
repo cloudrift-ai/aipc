@@ -1,0 +1,8 @@
+part = "purchased/generic-12v-5v-molex-adapter"
+role = "12 V and 5 V for the QUADRO and, through it, the fans; plugged into the rack PDU"
+status = "candidate"
+quantity = 1
+systems = ["rack"]
+
+[assembly]
+match = ["^fan_psu$"]

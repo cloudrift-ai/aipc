@@ -1,4 +1,4 @@
-"""Cabinet cooling in the SysRacks SP 12.900: two 2 x 2 banks of 200 mm fans, the ESP32 controller and its 12 V supply.
+"""Cabinet cooling in the SysRacks SP 12.900: two 2 x 2 banks of 200 mm fans, the QUADRO controller and its supply.
 
 Run with ``hwkit cad`` (``make cad BUILD=rack``). Builds the assembly, exports the
 library models this build owns and writes models/cooling-report.json with the
@@ -32,10 +32,10 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 FAN = spec.get("noctua-nf-a20-pwm")
 SIZE, DEPTH, PITCH = FAN.dim("size"), FAN.dim("depth"), FAN.dim("hole_pitch")
-ESP = spec.get("olimex-esp32-poe")
-PSU = spec.get("meanwell-gst60a12-p1j")
-BOARD = spec.get("rack-fan-controller-board")
-PROBE = spec.get("ds18b20-waterproof-probe")
+CTRL = spec.get("aquacomputer-quadro")
+PSU = spec.get("generic-12v-5v-molex-adapter")
+SENSOR = spec.get("aquacomputer-temperature-sensor-70cm")
+YCABLE = spec.get("noctua-4pin-y-cable")
 CAB = spec.get("rack-cabinet")
 GASKET_PART = spec.get("silicone-gasket-2mm")
 GASKET, GASKET_SHEET = GASKET_PART.dim("thickness"), GASKET_PART.dim("size")
@@ -47,7 +47,7 @@ FAN_GAP = 5.0  # between adjacent frames in a bank, room for the anti-vibration 
 BANK = 2  # fans per row and per column
 BANK_MARGIN = 20.0  # bank edge from the inside of the front or rear wall
 LID_PLATE = 3.0  # outer lid sheet; the rest of the lid thickness is the exhaust plenum
-PROBE_OFFSET = 60.0  # probe tip distance from its bank, in the airstream
+SENSOR_OFFSET = 60.0  # sensor tip distance below the exhaust bank, in the airstream
 FAN_MOUNT_HOLE = 4.5  # illustrative; the frame hole diameter is not published
 ROTOR_CUT = SIZE - 10.0  # illustrative rotor area and panel cutout; the bore diameter is not published
 HUB = 80.0  # illustrative hub
@@ -58,9 +58,14 @@ assert FAN.quantity == 2 * FANS_PER_CHANNEL, ("fan quantity must fill both banks
 assert PITCH < SIZE, "hole pitch must lie inside the frame"
 assert GASKET_SHEET >= SIZE, ("gasket sheet smaller than the fan frame", GASKET_SHEET, SIZE)
 assert GASKET_PART.quantity == FAN.quantity, ("one gasket per fan", GASKET_PART.quantity, FAN.quantity)
-assert PROBE.quantity == 2, "one intake and one exhaust probe"
-header_count = next(p["count"] for p in BOARD.provides if p["type"] == "fan-header-4pin")
-assert header_count == FAN.quantity, ("one controller header per fan, no splitters", header_count, FAN.quantity)
+assert SENSOR.quantity == 1, "one exhaust sensor drives both curves"
+# One QUADRO output per bank, the bank's fans chained on Y-cables.
+CHANNELS = 2
+outputs = next(p["count"] for p in CTRL.provides if p["type"] == "fan-header-4pin")
+assert CHANNELS <= outputs, ("more banks than controller outputs", CHANNELS, outputs)
+assert YCABLE.quantity == CHANNELS * (FANS_PER_CHANNEL - 1), ("Y-cables needed to fan each output out to its bank", YCABLE.quantity)
+channel_amps = FANS_PER_CHANNEL * FAN.dim("current_max")
+assert channel_amps <= CTRL.dim("fan_output_current"), ("bank draws more than one QUADRO output", channel_amps)
 
 
 def fan_model() -> cq.Workplane:
@@ -129,46 +134,33 @@ for n, (u, v) in enumerate(bank_centres(), start=1):
 for name in [k for k in solids if "_gasket_" in k]:
     colors[name] = cq.Color(0.75, 0.2, 0.2)
 
-# Probes: vertical tubes in each stream, inside the cabinet.
-tube_d, tube_l = PROBE.dim("tube_diameter"), PROBE.dim("tube_length")
-solids["intake_probe"] = cq.Workplane("XY").circle(tube_d / 2).extrude(tube_l).translate((0, intake_y, WALL + PROBE_OFFSET))
-solids["exhaust_probe"] = cq.Workplane("XY").circle(tube_d / 2).extrude(tube_l).translate(
-    (0, exhaust_y, top_underside - GASKET - DEPTH - PROBE_OFFSET - tube_l)
-)
-for name in ("intake_probe", "exhaust_probe"):
-    colors[name] = cq.Color(0.8, 0.8, 0.82)
+# Exhaust sensor: hanging in the exhaust stream below the front edge of the exhaust bank.
+st_l, st_w, st_t = SENSOR.dim("tip_length"), SENSOR.dim("tip_width"), SENSOR.dim("tip_thickness")
+sensor_xyz = (0.0, exhaust_y - bank_span / 2 + 20.0, top_underside - GASKET - DEPTH - SENSOR_OFFSET - st_l)
+solids["exhaust_sensor"] = cq.Workplane("XY").box(st_w, st_t, st_l, centered=(True, True, False)).translate(sensor_xyz)
+colors["exhaust_sensor"] = cq.Color(0.8, 0.8, 0.82)
 
-# Controller board, ESP32-POE and supply on the inner top, ahead of the exhaust bank, under the lid.
-bx, by, bh = BOARD.dim("board_width"), BOARD.dim("board_depth"), BOARD.dim("height")
+# QUADRO and its adapter on the inner top, ahead of the exhaust bank, under the lid.
+cl, cw_, chh = CTRL.dim("length"), CTRL.dim("width"), CTRL.dim("height")
 pl, pw, ph = PSU.dim("length"), PSU.dim("width"), PSU.dim("height")
-board_x0, board_y0 = -bx - 10.0, WALL + 40.0
-solids["controller_board"] = cq.Workplane("XY").box(bx, by, 1.6, centered=False).translate((board_x0, board_y0, top_surface + 5.0))
-colors["controller_board"] = cq.Color(0.2, 0.55, 0.3)
-# The ESP32-POE sits on 8 mm female headers with its RJ45 end (which overhangs its own board)
-# toward the cabinet side, so the patch-lead plug has free air instead of the 12 V supply.
-ew = ESP.dim("board_width")
-el = ESP.dim("board_length") + ESP.dim("rj45_overhang")
-eh = 1.6 + ESP.dim("component_height")
-esp_x0, esp_y0, esp_z0 = board_x0 + 2.0, board_y0 + 10.0, top_surface + 5.0 + 1.6 + 8.0
-solids["esp32_poe"] = cq.Workplane("XY").box(el, ew, eh, centered=False).translate((esp_x0, esp_y0, esp_z0))
-colors["esp32_poe"] = cq.Color(0.6, 0.12, 0.12)
-assert esp_x0 + el <= board_x0 + bx, "ESP32-POE runs past the controller board"
-PLUG_REACH = 45.0  # RJ45 plug, boot and the patch lead's bend radius (allowance)
-plug_zone = cq.Workplane("XY").box(PLUG_REACH, ew, eh, centered=False).translate((esp_x0 - PLUG_REACH, esp_y0, esp_z0))
-solids["fan_psu_12v"] = cq.Workplane("XY").box(pl, pw, ph, centered=False).translate((10.0, board_y0, top_surface))
-colors["fan_psu_12v"] = cq.Color(0.25, 0.25, 0.28)
+ctrl_x0, ctrl_y0 = -cl - 10.0, WALL + 40.0
+solids["fan_controller"] = cq.Workplane("XY").box(cl, cw_, chh, centered=False).translate((ctrl_x0, ctrl_y0, top_surface))
+colors["fan_controller"] = cq.Color(0.15, 0.15, 0.18)
+solids["fan_psu"] = cq.Workplane("XY").box(pl, pw, ph, centered=False).translate((10.0, ctrl_y0, top_surface))
+colors["fan_psu"] = cq.Color(0.25, 0.25, 0.28)
 plenum_top = CH - LID_PLATE
-for name in ("esp32_poe", "fan_psu_12v", "controller_board"):
+for name in ("fan_controller", "fan_psu"):
     bb = solids[name].val().BoundingBox()
     assert bb.zmax <= plenum_top, (f"{name} does not fit under the lid", round(bb.zmax, 1), plenum_top)
     assert bb.ymax < exhaust_y - bank_span / 2, f"{name} must sit ahead of the exhaust bank"
     assert abs(bb.xmin) <= CW / 2 and abs(bb.xmax) <= CW / 2, f"{name} outside the cabinet width"
 
-for name, shape in solids.items():
-    if name != "esp32_poe":
-        blocked = sum(s.Volume() for s in plug_zone.intersect(shape).solids().vals())
-        assert blocked < 1e-6, ("Ethernet plug blocked by", name, round(blocked, 3))
-assert esp_x0 - PLUG_REACH >= -CW / 2 + WALL, "no room for the Ethernet plug inside the cabinet wall"
+# Cable reach, as straight runs plus 20% for routing (estimates for the harness, not checks of real routes).
+ctrl_port = (ctrl_x0 + cl / 2, ctrl_y0 + cw_, top_surface)
+sensor_run = 1.2 * (abs(ctrl_port[0] - sensor_xyz[0]) + abs(ctrl_port[1] - sensor_xyz[1]) + abs(ctrl_port[2] - sensor_xyz[2] - st_l))
+assert sensor_run <= SENSOR.dim("cable_length"), ("exhaust sensor lead too short", round(sensor_run), SENSOR.dim("cable_length"))
+intake_run = 1.2 * (abs(ctrl_port[0]) + abs(ctrl_port[1] - intake_y) + (top_surface + GASKET + DEPTH))
+fan_reach = FAN.dim("cable_length")
 
 # --- Checks ---------------------------------------------------------------------------------------
 for name, shape in solids.items():
@@ -194,7 +186,9 @@ derate = heat["derate"]
 bank_airflow = FANS_PER_CHANNEL * airflow  # intake and exhaust in series: one bank's worth
 real_airflow = bank_airflow * derate
 fan_w = FAN.quantity * FAN.dim("power_max")
-board_w = next(r["load"] for r in BOARD.requires if r["type"] == "dc-12v")
+ctrl_w = next(r["load"] for r in CTRL.requires if r["type"] == "dc-5v")
+psu_12v = next(p["capacity"] for p in PSU.provides if p["type"] == "dc-12v")
+psu_5v = next(p["capacity"] for p in PSU.provides if p["type"] == "dc-5v")
 holes = []
 for n, (u, v) in enumerate(bank_centres(), start=1):
     holes.append(
@@ -229,11 +223,20 @@ report = {
         "heat_removal_w": {f"{dt}C_rise": round(real_airflow * dt / 1.76) for dt in (10, 15, 20)},
     },
     "electrical": {
-        "fan_load_w": round(fan_w, 2),
-        "controller_load_w": board_w,
-        "total_12v_w": round(fan_w + board_w, 2),
-        "supply_w": PSU.dim("rated_power"),
-        "fans_per_pwm_channel": FANS_PER_CHANNEL,
+        "fan_load_12v_w": round(fan_w, 2),
+        "controller_load_5v_w": ctrl_w,
+        "supply_minimum_12v_w": psu_12v,
+        "supply_minimum_5v_w": psu_5v,
+        "fans_per_controller_output": FANS_PER_CHANNEL,
+        "output_current_a": round(channel_amps, 2),
+        "output_limit_a": CTRL.dim("fan_output_current"),
+    },
+    "cabling_estimate_mm": {
+        "evidence": "allowance: straight runs from the QUADRO plus 20%, before the cabinet is measured",
+        "exhaust_sensor_run": round(sensor_run),
+        "exhaust_sensor_lead": SENSOR.dim("cable_length"),
+        "intake_extension_run": round(intake_run),
+        "fan_lead": fan_reach,
     },
 }
 (OUT / "cooling-report.json").write_text(json.dumps(report, indent=2) + "\n")

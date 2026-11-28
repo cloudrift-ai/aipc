@@ -142,10 +142,19 @@
     }
   },
   "electrical": {
-    "fan_load_w": 7.68,
-    "controller_load_w": 1.1,
-    "total_12v_w": 8.78,
-    "supply_w": 60.0,
-    "fans_per_pwm_channel": 4
+    "fan_load_12v_w": 7.68,
+    "controller_load_5v_w": 5.0,
+    "supply_minimum_12v_w": 18.0,
+    "supply_minimum_5v_w": 7.5,
+    "fans_per_controller_output": 4,
+    "output_current_a": 0.32,
+    "output_limit_a": 2.0
+  },
+  "cabling_estimate_mm": {
+    "evidence": "allowance: straight runs from the QUADRO plus 20%, before the cabinet is measured",
+    "exhaust_sensor_run": 606,
+    "exhaust_sensor_lead": 700.0,
+    "intake_extension_run": 1013,
+    "fan_lead": 200.0
   }
 }

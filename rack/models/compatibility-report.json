@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "summary": {
-    "BLOCKED": 10,
-    "PROVISIONAL": 17,
+    "BLOCKED": 11,
+    "PROVISIONAL": 15,
     "PASS": 4
   },
   "lint": [],
@@ -19,12 +19,13 @@
       ],
       "rule": "budget",
       "status": "BLOCKED",
-      "detail": "load 92.0 W; capacity unknown",
+      "detail": "load 42.0 W; capacity unknown",
       "contributors": [
-        "meanwell-gst60a12-p1j",
+        "generic-12v-5v-molex-adapter",
         "ubiquiti-usw-pro-max-16"
       ],
       "weak_evidence": [
+        "generic-12v-5v-molex-adapter:ac-power(allowance)",
         "mains-power:ac-power(unknown)"
       ]
     },
@@ -114,54 +115,56 @@
       ],
       "requirers": [],
       "providers": [
-        "meanwell-gst60a12-p1j"
+        "generic-12v-5v-molex-adapter"
       ],
       "rule": "budget",
       "status": "PROVISIONAL",
-      "detail": "load 8.8 W of 60.0 W x derate 0.8 = 48.0 W (15% of rating)",
+      "detail": "load 7.7 W of 18.0 W x derate 0.8 = 14.4 W (43% of rating)",
       "contributors": [
-        "noctua-nf-a20-pwm",
-        "rack-fan-controller-board"
+        "noctua-nf-a20-pwm"
       ],
       "weak_evidence": [
-        "rack-fan-controller-board:dc-12v(allowance)"
+        "generic-12v-5v-molex-adapter:dc-12v(allowance)"
       ]
     },
     {
-      "type": "dc-barrel-5.5x2.1",
+      "type": "dc-5v",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [],
+      "providers": [
+        "generic-12v-5v-molex-adapter"
+      ],
+      "rule": "budget",
+      "status": "PROVISIONAL",
+      "detail": "load 5.0 W of 7.5 W x derate 0.8 = 6.0 W (67% of rating)",
+      "contributors": [
+        "aquacomputer-quadro"
+      ],
+      "weak_evidence": [
+        "aquacomputer-quadro:dc-5v(review)",
+        "generic-12v-5v-molex-adapter:dc-5v(allowance)"
+      ]
+    },
+    {
+      "type": "fan-header-4pin",
       "systems": [
         "rack"
       ],
       "requirers": [
-        "rack-fan-controller-board"
+        "noctua-4pin-y-cable"
       ],
       "providers": [
-        "meanwell-gst60a12-p1j"
+        "aquacomputer-quadro",
+        "noctua-4pin-y-cable"
       ],
       "rule": "value",
       "status": "PROVISIONAL",
-      "detail": "rack-fan-controller-board needs 12 V, 5.5 x 2.1 mm, centre positive; provided by meanwell-gst60a12-p1j",
+      "detail": "noctua-4pin-y-cable needs 12 V 4-pin PWM; provided by aquacomputer-quadro, noctua-4pin-y-cable",
       "note": "",
       "weak_evidence": [
-        "rack-fan-controller-board:dc-barrel-5.5x2.1(allowance)"
-      ]
-    },
-    {
-      "type": "dc-barrel-5.5x2.1",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [
-        "rack-fan-controller-board"
-      ],
-      "providers": [
-        "meanwell-gst60a12-p1j"
-      ],
-      "rule": "count",
-      "status": "PROVISIONAL",
-      "detail": "need 1 x dc-barrel-5.5x2.1=12 v, 5.5 x 2.1 mm, centre positive, have 1",
-      "weak_evidence": [
-        "rack-fan-controller-board:dc-barrel-5.5x2.1(allowance)"
+        "noctua-4pin-y-cable:fan-header-4pin(listing)"
       ]
     },
     {
@@ -173,14 +176,15 @@
         "noctua-nf-a20-pwm"
       ],
       "providers": [
-        "rack-fan-controller-board"
+        "aquacomputer-quadro",
+        "noctua-4pin-y-cable"
       ],
       "rule": "value",
       "status": "PROVISIONAL",
-      "detail": "noctua-nf-a20-pwm needs 12 V 4-pin PWM; provided by rack-fan-controller-board",
+      "detail": "noctua-nf-a20-pwm needs 12 V 4-pin PWM; provided by aquacomputer-quadro, noctua-4pin-y-cable",
       "note": "",
       "weak_evidence": [
-        "rack-fan-controller-board:fan-header-4pin(allowance)"
+        "noctua-4pin-y-cable:fan-header-4pin(listing)"
       ]
     },
     {
@@ -189,90 +193,55 @@
         "rack"
       ],
       "requirers": [
+        "noctua-4pin-y-cable",
         "noctua-nf-a20-pwm"
       ],
       "providers": [
-        "rack-fan-controller-board"
+        "aquacomputer-quadro",
+        "noctua-4pin-y-cable"
       ],
       "rule": "count",
       "status": "PROVISIONAL",
-      "detail": "need 8 x fan-header-4pin=12 v 4-pin pwm, have 8",
+      "detail": "need 14 x fan-header-4pin=12 v 4-pin pwm, have 16",
       "weak_evidence": [
-        "rack-fan-controller-board:fan-header-4pin(allowance)"
+        "noctua-4pin-y-cable:fan-header-4pin(listing)"
       ]
     },
     {
-      "type": "olimex-ext-socket",
+      "type": "molex-4pin-power",
       "systems": [
         "rack"
       ],
       "requirers": [
-        "olimex-esp32-poe"
+        "aquacomputer-quadro"
       ],
       "providers": [
-        "rack-fan-controller-board"
+        "generic-12v-5v-molex-adapter"
       ],
       "rule": "value",
       "status": "PROVISIONAL",
-      "detail": "olimex-esp32-poe needs 2 x 10, 2.54 mm, rows 25.4 mm apart; provided by rack-fan-controller-board",
-      "note": "",
+      "detail": "aquacomputer-quadro needs 12 V + 5 V, 4-pin Molex (HDD) plug; provided by generic-12v-5v-molex-adapter",
+      "note": "manual 5.2: pin 1 +12 V, pins 2-3 GND, pin 4 +5 V; the fans take their 12 V through the outputs",
       "weak_evidence": [
-        "rack-fan-controller-board:olimex-ext-socket(allowance)"
+        "generic-12v-5v-molex-adapter:molex-4pin-power(unknown)"
       ]
     },
     {
-      "type": "olimex-ext-socket",
+      "type": "molex-4pin-power",
       "systems": [
         "rack"
       ],
       "requirers": [
-        "olimex-esp32-poe"
+        "aquacomputer-quadro"
       ],
       "providers": [
-        "rack-fan-controller-board"
+        "generic-12v-5v-molex-adapter"
       ],
       "rule": "count",
       "status": "PROVISIONAL",
-      "detail": "need 1 x olimex-ext-socket=2 x 10, 2.54 mm, rows 25.4 mm apart, have 1",
+      "detail": "need 1 x molex-4pin-power=12 v + 5 v, 4-pin molex (hdd) plug, have 1",
       "weak_evidence": [
-        "rack-fan-controller-board:olimex-ext-socket(allowance)"
-      ]
-    },
-    {
-      "type": "onewire-port",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [
-        "ds18b20-waterproof-probe"
-      ],
-      "providers": [
-        "rack-fan-controller-board"
-      ],
-      "rule": "value",
-      "status": "PROVISIONAL",
-      "detail": "ds18b20-waterproof-probe needs 3.3 V, DQ, GND; provided by rack-fan-controller-board",
-      "note": "",
-      "weak_evidence": [
-        "rack-fan-controller-board:onewire-port(allowance)"
-      ]
-    },
-    {
-      "type": "onewire-port",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [
-        "ds18b20-waterproof-probe"
-      ],
-      "providers": [
-        "rack-fan-controller-board"
-      ],
-      "rule": "count",
-      "status": "PROVISIONAL",
-      "detail": "need 2 x onewire-port=3.3 v, dq, gnd, have 2",
-      "weak_evidence": [
-        "rack-fan-controller-board:onewire-port(allowance)"
+        "generic-12v-5v-molex-adapter:molex-4pin-power(unknown)"
       ]
     },
     {
@@ -387,36 +356,36 @@
       ]
     },
     {
-      "type": "dc-5v",
-      "systems": [
-        "rack"
-      ],
-      "requirers": [],
-      "providers": [
-        "rack-fan-controller-board"
-      ],
-      "rule": "budget",
-      "status": "PASS",
-      "detail": "load 1.0 W of 5.0 W x derate 0.8 = 4.0 W (20% of rating)",
-      "contributors": [
-        "olimex-esp32-poe"
-      ],
-      "weak_evidence": []
-    },
-    {
-      "type": "ethernet-1gbe-rj45",
+      "type": "aquacomputer-temp-input",
       "systems": [
         "rack"
       ],
       "requirers": [
-        "olimex-esp32-poe"
+        "aquacomputer-temperature-sensor-70cm"
       ],
       "providers": [
-        "ubiquiti-usw-pro-max-16"
+        "aquacomputer-quadro"
+      ],
+      "rule": "value",
+      "status": "PASS",
+      "detail": "aquacomputer-temperature-sensor-70cm needs Aqua Computer 2-pin temperature sensor; provided by aquacomputer-quadro",
+      "note": "",
+      "weak_evidence": []
+    },
+    {
+      "type": "aquacomputer-temp-input",
+      "systems": [
+        "rack"
+      ],
+      "requirers": [
+        "aquacomputer-temperature-sensor-70cm"
+      ],
+      "providers": [
+        "aquacomputer-quadro"
       ],
       "rule": "count",
       "status": "PASS",
-      "detail": "need 1 x ethernet-1gbe-rj45, have 12",
+      "detail": "need 1 x aquacomputer-temp-input=aqua computer 2-pin temperature sensor, have 4",
       "weak_evidence": []
     },
     {
@@ -470,6 +439,11 @@
       "detail": "not in the assembly: outside the cooling kit; supply not specified"
     },
     {
+      "part": "noctua-4pin-y-cable",
+      "status": "BLOCKED",
+      "detail": "not in the assembly: flexible cabling at each bank"
+    },
+    {
       "part": "noctua-na-fg1-20",
       "status": "BLOCKED",
       "detail": "not in the assembly: Noctua publishes no grill dimensions; model it once a grill is measured"
@@ -498,14 +472,19 @@
       "detail": "DEMCiflex publishes no drawing or specification sheet; only retailer listings describe it."
     },
     {
-      "part": "ds18b20-waterproof-probe",
-      "status": "PROVISIONAL",
-      "detail": "not fetched locally: https://www.analog.com/media/en/technical-documentation/data-sheets/DS18B20.pdf (run make datasheets)"
-    },
-    {
       "part": "fasteners",
       "status": "BLOCKED",
       "detail": "Generic ISO metric and UNC hardware; each build chooses lengths from its own stacks."
+    },
+    {
+      "part": "generic-12v-5v-molex-adapter",
+      "status": "BLOCKED",
+      "detail": "generic part, no make or model chosen yet"
+    },
+    {
+      "part": "noctua-4pin-y-cable",
+      "status": "BLOCKED",
+      "detail": "accessory in the fan box; Noctua lists it in the NF-A20 PWM scope of delivery only"
     },
     {
       "part": "noctua-na-fg1-20",
@@ -544,23 +523,29 @@
     }
   ],
   "weak_evidence_dims": {
+    "aquacomputer-quadro": {
+      "datasheet": 6,
+      "assumed": 1
+    },
+    "aquacomputer-temperature-sensor-70cm": {
+      "listing": 1,
+      "allowance": 3,
+      "assumed": 1
+    },
     "demciflex-200mm-round": {
       "listing": 1,
       "unknown": 2
     },
-    "ds18b20-waterproof-probe": {
-      "datasheet": 3,
-      "assumed": 2,
-      "unknown": 1
+    "generic-12v-5v-molex-adapter": {
+      "allowance": 4,
+      "assumed": 1
+    },
+    "noctua-4pin-y-cable": {
+      "assumed": 1
     },
     "noctua-na-fg1-20": {
       "datasheet": 2,
       "unknown": 4
-    },
-    "olimex-esp32-poe": {
-      "datasheet": 7,
-      "allowance": 2,
-      "assumed": 1
     },
     "rack-cabinet": {
       "datasheet": 10,
@@ -568,11 +553,6 @@
       "photo-estimate": 1,
       "assumed": 1,
       "unknown": 5
-    },
-    "rack-fan-controller-board": {
-      "allowance": 4,
-      "datasheet": 2,
-      "assumed": 1
     },
     "rack-fan-harness": {
       "unknown": 1,

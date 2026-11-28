@@ -1,5 +1,5 @@
 part = "purchased/mains-power"
-role = "PDU outlet for the fan supply"
+role = "PDU outlet for the fan controller's 12 V + 5 V adapter"
 status = "unspecified"
 quantity = 1
 systems = ["rack"]

@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "summary": {
     "BLOCKED": 19,
     "PROVISIONAL": 57,
@@ -1800,7 +1800,7 @@
       "assumed": 1
     },
     "aquacomputer-quadro": {
-      "datasheet": 1,
+      "datasheet": 6,
       "assumed": 1
     },
     "asetek-tr4-bracket": {

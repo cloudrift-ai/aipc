@@ -1,5 +1,5 @@
 part = "fabricated/rack-fan-harness"
-role = "fan extensions and probe cables from each fan and probe to the controller"
+role = "intake-bank extension, Y-cable runs and the setup USB adapter"
 status = "design"
 quantity = 1
 systems = ["rack"]

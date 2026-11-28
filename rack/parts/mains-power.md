@@ -6,7 +6,7 @@ Library spec: [parts/purchased/mains-power](../../parts/purchased/mains-power/RE
 
 | | |
 | --- | --- |
-| Role | PDU outlet for the fan supply |
+| Role | PDU outlet for the fan controller's 12 V + 5 V adapter |
 | Status | unspecified |
 | Quantity | 1 |
 | Systems | rack |
@@ -19,5 +19,5 @@ Library spec: [parts/purchased/mains-power](../../parts/purchased/mains-power/RE
 
 | Status | Rule | Interface | Detail |
 | --- | --- | --- | --- |
-| BLOCKED | budget | `ac-power` | load 92.0 W; capacity unknown |
+| BLOCKED | budget | `ac-power` | load 42.0 W; capacity unknown |
 

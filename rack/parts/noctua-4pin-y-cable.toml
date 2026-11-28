@@ -1,0 +1,9 @@
+part = "purchased/noctua-4pin-y-cable"
+role = "split each QUADRO channel to the four fans of its bank"
+status = "selected"
+quantity = 6
+systems = ["rack"]
+notes = "Three per bank, chained. The eight fan boxes include eight, so nothing extra to buy; two are spare."
+
+[assembly]
+not_modeled = "flexible cabling at each bank"

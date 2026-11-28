@@ -14,7 +14,8 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [amd-radeon-ai-pro-r9700](purchased/amd-radeon-ai-pro-r9700/README.md) | AMD Radeon AI PRO R9700 32 GB (reference blower) | [gpulab](../gpulab/parts/amd-radeon-ai-pro-r9700.md) |
 | [amd-rx-7900-xtx-reference](purchased/amd-rx-7900-xtx-reference/README.md) | AMD Radeon RX 7900 XTX (AMD reference) | [gpulab](../gpulab/parts/amd-rx-7900-xtx-reference.md) |
 | [amd-ryzen-9-9950x3d](purchased/amd-ryzen-9-9950x3d/README.md) | AMD Ryzen 9 9950X3D | [aipc](../aipc/parts/amd-ryzen-9-9950x3d.md) |
-| [aquacomputer-quadro](purchased/aquacomputer-quadro/README.md) | Aquacomputer QUADRO fan controller (53256) | [aipc](../aipc/parts/aquacomputer-quadro.md) |
+| [aquacomputer-quadro](purchased/aquacomputer-quadro/README.md) | Aquacomputer QUADRO fan controller (53256) | [aipc](../aipc/parts/aquacomputer-quadro.md), [rack](../rack/parts/aquacomputer-quadro.md) |
+| [aquacomputer-temperature-sensor-70cm](purchased/aquacomputer-temperature-sensor-70cm/README.md) | Aqua Computer temperature sensor 70 cm (art. 53026) | [rack](../rack/parts/aquacomputer-temperature-sensor-70cm.md) |
 | [asetek-tr4-bracket](purchased/asetek-tr4-bracket/README.md) | Asetek TR4/SP3 mounting bracket for round-pump AIOs | [aipc](../aipc/parts/asetek-tr4-bracket.md) |
 | [asrock-arc-pro-b60-creator](purchased/asrock-arc-pro-b60-creator/README.md) | ASRock Intel Arc Pro B60 Creator 24 GB (B60 CT 24G) | [gpulab](../gpulab/parts/asrock-arc-pro-b60-creator.md) |
 | [corsair-cmp64gx5m4b6400c32](purchased/corsair-cmp64gx5m4b6400c32/README.md) | Corsair CMP64GX5M4B6400C32 DDR5 kit, 4 x 16 GB | [aipc](../aipc/parts/corsair-cmp64gx5m4b6400c32.md) |
@@ -25,9 +26,9 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [cpayne-cp0231-mcio-device-adapter](purchased/cpayne-cp0231-mcio-device-adapter/README.md) | C-Payne CP-0231 MCIO PCIe gen5 Device Adapter x8/x16 (BOTTOM) | [gpulab](../gpulab/parts/cpayne-cp0231-mcio-device-adapter.md) |
 | [cpayne-mcio-8i-cable-0p75m](purchased/cpayne-mcio-8i-cable-0p75m/README.md) | C-Payne MCIO 8i to MCIO 8i cable, 0.75 m, 85 ohm (305-CAB-MCIO/MCIO-8i-P0.75M-11-85) | [gpulab](../gpulab/parts/cpayne-mcio-8i-cable-0p75m.md) |
 | [demciflex-200mm-round](purchased/demciflex-200mm-round/README.md) | DEMCiflex 200 mm round dust filter | [rack](../rack/parts/demciflex-200mm-round.md) |
-| [ds18b20-waterproof-probe](purchased/ds18b20-waterproof-probe/README.md) | DS18B20 waterproof probe (stainless tube, 3-wire cable) | [rack](../rack/parts/ds18b20-waterproof-probe.md) |
 | [fasteners](purchased/fasteners/README.md) | Shelf and component fasteners (metric and UNC screws, washers, nuts) | [aipc](../aipc/parts/fasteners.md), [gpulab](../gpulab/parts/fasteners.md), [rack](../rack/parts/fasteners.md) |
 | [flex-duct-6in](purchased/flex-duct-6in/README.md) | 6 in wire-supported flexible duct, uninsulated | [aipc](../aipc/parts/flex-duct-6in.md) |
+| [generic-12v-5v-molex-adapter](purchased/generic-12v-5v-molex-adapter/README.md) | Generic 12 V + 5 V desktop adapter with a 4-pin Molex plug (not chosen) | [rack](../rack/parts/generic-12v-5v-molex-adapter.md) |
 | [gigabyte-x870e-aorus-pro](purchased/gigabyte-x870e-aorus-pro/README.md) | Gigabyte X870E AORUS PRO (ATX) | [aipc](../aipc/parts/gigabyte-x870e-aorus-pro.md) |
 | [hammond-rsus1931bk1](purchased/hammond-rsus1931bk1/README.md) | Hammond RSUS1931BK1 solid sliding shelf with factory slides | [aipc](../aipc/parts/hammond-rsus1931bk1.md), [gpulab](../gpulab/parts/hammond-rsus1931bk1.md) |
 | [huananzhi-h12d-8d](purchased/huananzhi-h12d-8d/README.md) | HUANANZHI H12D-8D motherboard with BMC | [aipc](../aipc/parts/huananzhi-h12d-8d.md), [gpulab](../gpulab/parts/huananzhi-h12d-8d.md) |
@@ -38,11 +39,11 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [m3-ff-standoff-10mm](purchased/m3-ff-standoff-10mm/README.md) | M3 x 10 mm female/female hex standoff, SW5.5 | [gpulab](../gpulab/parts/m3-ff-standoff-10mm.md) |
 | [mains-power](purchased/mains-power/README.md) | Mains circuit, UPS and PDU (not specified) | [aipc](../aipc/parts/mains-power.md), [gpulab](../gpulab/parts/mains-power.md), [rack](../rack/parts/mains-power.md) |
 | [mcmaster-53185k52](purchased/mcmaster-53185k52/README.md) | McMaster-Carr 53185K52 lever-release hose clamp | [aipc](../aipc/parts/mcmaster-53185k52.md) |
-| [meanwell-gst60a12-p1j](purchased/meanwell-gst60a12-p1j/README.md) | Mean Well GST60A12-P1J 12 V 5 A desktop adapter | [rack](../rack/parts/meanwell-gst60a12-p1j.md) |
 | [micron-3400-2tb](purchased/micron-3400-2tb/README.md) | Micron 3400 2 TB NVMe (MTFDKBA2T0TFH) | [aipc](../aipc/parts/micron-3400-2tb.md) |
 | [micron-3500-2tb](purchased/micron-3500-2tb/README.md) | Micron 3500 2 TB NVMe (MTFDKBA2T0TGD) | [aipc](../aipc/parts/micron-3500-2tb.md) |
 | [micron-mta36asf4g72pz-2g9](purchased/micron-mta36asf4g72pz-2g9/README.md) | Micron 32 GB DDR4-2933 ECC RDIMM (MTA36ASF4G72PZ-2G9E2UI) | [aipc](../aipc/parts/micron-mta36asf4g72pz-2g9.md) |
 | [moddiy-eps-90-extension](purchased/moddiy-eps-90-extension/README.md) | Low-profile 90 degree CPU/EPS 8-pin extension | none |
+| [noctua-4pin-y-cable](purchased/noctua-4pin-y-cable/README.md) | Noctua 4-pin PWM Y-cable (included with the NF-A20 PWM) | [rack](../rack/parts/noctua-4pin-y-cable.md) |
 | [noctua-na-fg1-20](purchased/noctua-na-fg1-20/README.md) | Noctua NA-FG1-20 200 mm fan grill | [rack](../rack/parts/noctua-na-fg1-20.md) |
 | [noctua-nf-a20-pwm](purchased/noctua-nf-a20-pwm/README.md) | Noctua NF-A20 PWM 200 x 30 mm fan | [rack](../rack/parts/noctua-nf-a20-pwm.md) |
 | [nvidia-mcx4131a-gcat](purchased/nvidia-mcx4131a-gcat/README.md) | NVIDIA (Mellanox) ConnectX-4 Lx EN MCX4131A-GCAT, 50GbE single-port QSFP28 | [aipc](../aipc/parts/nvidia-mcx4131a-gcat.md) |
@@ -50,7 +51,6 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | [nvidia-rtx-4090-fe](purchased/nvidia-rtx-4090-fe/README.md) | NVIDIA GeForce RTX 4090 Founders Edition | [gpulab](../gpulab/parts/nvidia-rtx-4090-fe.md) |
 | [nvidia-v100-pcie-16gb](purchased/nvidia-v100-pcie-16gb/README.md) | NVIDIA Tesla V100 PCIe 16 GB | none |
 | [obt-pcie-support](purchased/obt-pcie-support/README.md) | Open Benchtable PCI-E support rod with nut | [aipc](../aipc/parts/obt-pcie-support.md), [gpulab](../gpulab/parts/obt-pcie-support.md) |
-| [olimex-esp32-poe](purchased/olimex-esp32-poe/README.md) | Olimex ESP32-POE (ESP32-WROOM-32E-N4, 100 Mb Ethernet, hardware revision M2) | [rack](../rack/parts/olimex-esp32-poe.md) |
 | [pcie-8pin-90-adapter](purchased/pcie-8pin-90-adapter/README.md) | 90 degree PCIe 8-pin power adapter (low profile) | [aipc](../aipc/parts/pcie-8pin-90-adapter.md) |
 | [pcie-8pin-splitter](purchased/pcie-8pin-splitter/README.md) | PCIe 8-pin (female) to 2 x 6+2-pin splitter cable | [gpulab](../gpulab/parts/pcie-8pin-splitter.md) |
 | [psu-modular-cables](purchased/psu-modular-cables/README.md) | Super Flower Leadex 2800W modular cable set (approximate routes) | [gpulab](../gpulab/parts/psu-modular-cables.md) |
@@ -95,7 +95,6 @@ One folder per part, shared by every build: `part.toml` (identity, dimensions, i
 | Part | Name | Used in |
 | --- | --- | --- |
 | [fan-power-harness](fabricated/fan-power-harness/README.md) | Fused PWM pass-through harness for the pressure fan | [aipc](../aipc/parts/fan-power-harness.md) |
-| [rack-fan-controller-board](fabricated/rack-fan-controller-board/README.md) | Rack fan controller board (Olimex ESP32-POE socket, 8 fan headers, 1-Wire) | [rack](../rack/parts/rack-fan-controller-board.md) |
-| [rack-fan-harness](fabricated/rack-fan-harness/README.md) | Rack fan and probe cabling | [rack](../rack/parts/rack-fan-harness.md) |
+| [rack-fan-harness](fabricated/rack-fan-harness/README.md) | Rack fan and sensor cabling | [rack](../rack/parts/rack-fan-harness.md) |
 | [rear-aio-steel-extension](fabricated/rear-aio-steel-extension/README.md) | Rear AIO steel extension plate, 400 x 83 x 3 mm | none |
 

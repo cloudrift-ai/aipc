@@ -1,0 +1,32 @@
+id = "aquacomputer-temperature-sensor-70cm"
+name = "Aqua Computer temperature sensor 70 cm (art. 53026)"
+category = "purchased"
+evidence = "datasheet"
+notes = """
+Flat air or surface sensor on a lead with a 2-pin plug; one comes with every QUADRO
+(manual: replacement part no. 53026). Total length about 70 cm including sensor and
+plug. A thicker third-party plug may not fit beside the QUADRO's other sensor inputs.
+"""
+
+[links]
+product = "https://shop.aquacomputer.de/Ueberwachung-und-Steuerung/Sensoren/Temperatursensor-70-cm::1621.html"
+
+[[datasheets]]
+title = "QUADRO manual: scope of delivery and compatible sensors"
+url = "https://aquacomputer.de/tl_files/aquacomputer/downloads/manuals/QUADRO_english.pdf"
+
+[model]
+source = "constructed"
+notes = "Sensor tip envelope only; the lead is not modeled."
+
+[dims]
+cable_length = { value = 700.0, evidence = "listing", source = "Aqua Computer shop: about 70 cm total, sensor and connector included" }
+tip_length = { value = 12.0, evidence = "allowance", note = "sensor head not dimensioned by Aqua Computer" }
+tip_width = { value = 5.0, evidence = "allowance", note = "sensor head not dimensioned by Aqua Computer" }
+tip_thickness = { value = 3.0, evidence = "allowance", note = "sensor head not dimensioned by Aqua Computer" }
+mass = { value = 0.01, unit = "kg", evidence = "assumed" }
+
+[[requires]]
+type = "aquacomputer-temp-input"
+value = "Aqua Computer 2-pin temperature sensor"
+count = 1

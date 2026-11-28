@@ -1,6 +1,32 @@
 {
   "rule": "every assembly instance belongs to a part folder or a declared keepout; every part is modeled, covered or explicitly not modeled",
   "parts": {
+    "aquacomputer-quadro": {
+      "name": "Aquacomputer QUADRO fan controller (53256)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "fan_controller"
+      ]
+    },
+    "aquacomputer-temperature-sensor-70cm": {
+      "name": "Aqua Computer temperature sensor 70 cm (art. 53026)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "exhaust_sensor"
+      ]
+    },
     "demciflex-200mm-round": {
       "name": "DEMCiflex 200 mm round dust filter",
       "category": "purchased",
@@ -11,20 +37,6 @@
       "covered_by": null,
       "not_modeled": "thickness not published; adds to the grill stack under the floor",
       "instance_names": []
-    },
-    "ds18b20-waterproof-probe": {
-      "name": "DS18B20 waterproof probe (stainless tube, 3-wire cable)",
-      "category": "purchased",
-      "quantity": 2,
-      "state": "modeled",
-      "instances": 2,
-      "expected_instances": 2,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "intake_probe",
-        "exhaust_probe"
-      ]
     },
     "fasteners": {
       "name": "Shelf and component fasteners (metric and UNC screws, washers, nuts)",
@@ -37,6 +49,19 @@
       "not_modeled": "screw size and length wait for the measured panel steel and fan hole",
       "instance_names": []
     },
+    "generic-12v-5v-molex-adapter": {
+      "name": "Generic 12 V + 5 V desktop adapter with a 4-pin Molex plug (not chosen)",
+      "category": "purchased",
+      "quantity": 1,
+      "state": "modeled",
+      "instances": 1,
+      "expected_instances": 1,
+      "covered_by": null,
+      "not_modeled": null,
+      "instance_names": [
+        "fan_psu"
+      ]
+    },
     "mains-power": {
       "name": "Mains circuit, UPS and PDU (not specified)",
       "category": "purchased",
@@ -48,18 +73,16 @@
       "not_modeled": "outside the cooling kit; supply not specified",
       "instance_names": []
     },
-    "meanwell-gst60a12-p1j": {
-      "name": "Mean Well GST60A12-P1J 12 V 5 A desktop adapter",
+    "noctua-4pin-y-cable": {
+      "name": "Noctua 4-pin PWM Y-cable (included with the NF-A20 PWM)",
       "category": "purchased",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
+      "quantity": 6,
+      "state": "not_modeled",
+      "instances": 0,
+      "expected_instances": 6,
       "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "fan_psu_12v"
-      ]
+      "not_modeled": "flexible cabling at each bank",
+      "instance_names": []
     },
     "noctua-na-fg1-20": {
       "name": "Noctua NA-FG1-20 200 mm fan grill",
@@ -92,19 +115,6 @@
         "intake_fan_4"
       ]
     },
-    "olimex-esp32-poe": {
-      "name": "Olimex ESP32-POE (ESP32-WROOM-32E-N4, 100 Mb Ethernet, hardware revision M2)",
-      "category": "purchased",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "esp32_poe"
-      ]
-    },
     "rack-cabinet": {
       "name": "SysRacks SP 12.900 12U soundproof cabinet (600 x 900)",
       "category": "purchased",
@@ -119,21 +129,8 @@
         "cabinet_lid"
       ]
     },
-    "rack-fan-controller-board": {
-      "name": "Rack fan controller board (Olimex ESP32-POE socket, 8 fan headers, 1-Wire)",
-      "category": "fabricated",
-      "quantity": 1,
-      "state": "modeled",
-      "instances": 1,
-      "expected_instances": 1,
-      "covered_by": null,
-      "not_modeled": null,
-      "instance_names": [
-        "controller_board"
-      ]
-    },
     "rack-fan-harness": {
-      "name": "Rack fan and probe cabling",
+      "name": "Rack fan and sensor cabling",
       "category": "fabricated",
       "quantity": 1,
       "state": "not_modeled",

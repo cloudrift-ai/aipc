@@ -3,7 +3,7 @@ role = "cabinet fans: four intake low at the front, four exhaust at the top rear
 status = "selected"
 quantity = 8
 systems = ["rack"]
-notes = "Intake bank on controller headers 1-4 (PWM GPIO18), exhaust bank on headers 5-8 (PWM GPIO19). Positions are provisional until the cabinet is identified."
+notes = "Exhaust bank on QUADRO fan output 1, intake bank on output 2, four fans per output through three Y-cables. Positions are provisional until the cabinet is measured."
 
 [assembly]
 match = ["^(intake|exhaust)_fan_[1-4]$"]

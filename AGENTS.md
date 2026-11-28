@@ -8,7 +8,7 @@ Notes for coding agents working in this repo. This file is the single list of re
 | --- | --- |
 | [aipc/](aipc/README.md) | AIPC build: two AI workstations (Berserk, Kenshin) on one rack shelf. Fit prototype |
 | [gpulab/](gpulab/README.md) | GPU lab build: seven mixed GPUs on cabled x8 risers from one H12D-8D, two printed 13-position baseboards. Design |
-| [rack/](rack/README.md) | Rack cooling build: eight 200 mm cabinet fans and the ESP32/ESPHome controller (`rack/firmware/`). Design |
+| [rack/](rack/README.md) | Rack cooling build: eight 200 mm cabinet fans and an Aqua Computer QUADRO controller. Design |
 | [parts/](parts/README.md) | Shared parts library: one folder per part with its spec (`part.toml`), generated README, model, render and fetched datasheets. Builds only reference it |
 | [hwkit/](hwkit) | Shared Python package: part specs, compatibility, assembly registry, export, renders, plates, printers, slicing, shared component models (`hwkit/components`: Hammond shelf, PCIe posts, the AIPC motherboard mount and PSU bracket), and the `hwkit` CLI |
 | [hwkit/printers/](hwkit/printers) | Printer definitions (`printer.toml`), vendored OrcaSlicer base presets and shared slicer profiles |
@@ -114,10 +114,10 @@ Seven mixed GPUs on cabled x8 risers from one H12D-8D, on two printed 13-positio
 
 ### rack
 
-Cabinet cooling shared by whatever runs in the rack: two 2 x 2 banks of Noctua NF-A20 PWM fans, an Olimex ESP32-POE running ESPHome on wired Ethernet, two DS18B20 probes and a 12 V adapter.
+Cabinet cooling shared by whatever runs in the rack: two 2 x 2 banks of Noctua NF-A20 PWM fans, an Aqua Computer QUADRO (one output per bank, curves on one exhaust sensor) and a 12 V + 5 V adapter.
 
-- [rack/cad/layout.py](rack/cad/layout.py) is the only geometry generator. It asserts on collisions, one controller header per fan and the bank count, and writes `models/cooling-report.json` (cutout pattern, airflow and heat estimate, 12 V load).
+- [rack/cad/layout.py](rack/cad/layout.py) is the only geometry generator. It asserts on collisions, the bank count, the Y-cables per bank, the current per controller output and the sensor lead reach, and writes `models/cooling-report.json` (cutout pattern, airflow and heat estimate, electrical load, cable runs).
 - The cabinet is the SysRacks SP 12.900 ([rack-cabinet](parts/purchased/rack-cabinet/part.toml)): exhaust bank under the inner top at the rear, intake bank under the floor at the front, controller and supply under the lid. Outer dims are from the SysRacks drawing; wall, lid and floor values are assumptions. Replace them with measurements in the library spec, never in `layout.py`.
-- The heat load in [rack/system.toml](rack/system.toml) is blank on purpose (generic). The fan spec's `cabinet-heat-removal` derate (0.5) is an allowance; replace it with the airflow measured from the firmware's temperature rise.
-- Firmware: [rack/firmware/rack-fans.yaml](rack/firmware/rack-fans.yaml). Validate with `esphome config` after any change; keep the pin map in step with [rack/docs/wiring.md](rack/docs/wiring.md) and the board spec. `secrets.yaml` is gitignored; never commit it.
+- The heat load in [rack/system.toml](rack/system.toml) is blank on purpose (generic). The fan spec's `cabinet-heat-removal` derate (0.5) is an allowance; replace it with the airflow measured from the intake-to-exhaust temperature rise.
+- The fan curves live in the QUADRO, set once in aquasuite; keep them in step with [rack/docs/wiring.md](rack/docs/wiring.md#setup-once) and the design notes.
 - No printed parts yet; `cad/print_jobs.py` writes an empty job list.

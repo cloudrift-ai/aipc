@@ -1,0 +1,35 @@
+part = "purchased/aquacomputer-quadro"
+role = "fan controller: two outputs, one per bank, both on curves of the exhaust temperature"
+status = "selected"
+quantity = 1
+systems = ["rack"]
+notes = """
+Output 1: exhaust bank (four fans through three Y-cables). Output 2: intake bank,
+over one extension to the floor and three Y-cables there. Outputs 3 and 4 spare.
+Sensor input 1: exhaust sensor. Set up once from a Windows laptop through a
+9-pin-header-to-USB-A adapter, then unplug USB: no USB header in this build.
+"""
+
+[[requires]]
+type = "usb2-header"
+remove = true
+
+[[requires]]
+type = "dc-power"
+remove = true
+
+[[requires]]
+type = "molex-4pin-power"
+value = "12 V + 5 V, 4-pin Molex (HDD) plug"
+count = 1
+note = "manual 5.2: pin 1 +12 V, pins 2-3 GND, pin 4 +5 V; the fans take their 12 V through the outputs"
+
+[[requires]]
+type = "dc-5v"
+load = 5.0
+unit = "W"
+evidence = "review"
+note = "5 V at 1 A, an Aqua Computer forum estimate for the controller without LEDs, not a manual figure"
+
+[assembly]
+match = ["^fan_controller$"]

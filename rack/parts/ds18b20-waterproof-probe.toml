@@ -1,9 +1,0 @@
-part = "purchased/ds18b20-waterproof-probe"
-role = "intake and exhaust air temperature probes"
-status = "selected"
-quantity = 2
-systems = ["rack"]
-notes = "Intake probe in the intake airstream just inside the intake fans; exhaust probe in the exhaust airstream just before the exhaust fans. Keep both out of direct contact with metal and equipment."
-
-[assembly]
-match = ["^(intake|exhaust)_probe$"]

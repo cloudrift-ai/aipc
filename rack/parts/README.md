@@ -8,14 +8,15 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 
 | Part | Qty | Status | Systems | Worst check | Role |
 | --- | ---: | --- | --- | --- | --- |
+| [aquacomputer-quadro](aquacomputer-quadro.md) | 1 | selected | rack | provisional | fan controller: two outputs, one per bank, both on curves of the exhaust temperature |
+| [aquacomputer-temperature-sensor-70cm](aquacomputer-temperature-sensor-70cm.md) | 1 | selected | rack | pass | exhaust air temperature, the input to both fan curves |
 | [demciflex-200mm-round](demciflex-200mm-round.md) | 4 | candidate | rack | provisional | dust filter on each intake fan's grill, under the floor; pulls off from below for cleaning |
-| [ds18b20-waterproof-probe](ds18b20-waterproof-probe.md) | 2 | selected | rack | provisional | intake and exhaust air temperature probes |
 | [fasteners](fasteners.md) | 1 | candidate | rack | - | fan-to-panel screws (four per fan, 32 in all) plus spares |
-| [mains-power](mains-power.md) | 1 | unspecified | rack | BLOCKED | PDU outlet for the fan supply |
-| [meanwell-gst60a12-p1j](meanwell-gst60a12-p1j.md) | 1 | selected | rack | provisional | 12 V supply for the fans and the controller, plugged into the rack PDU |
+| [generic-12v-5v-molex-adapter](generic-12v-5v-molex-adapter.md) | 1 | candidate | rack | provisional | 12 V and 5 V for the QUADRO and, through it, the fans; plugged into the rack PDU |
+| [mains-power](mains-power.md) | 1 | unspecified | rack | BLOCKED | PDU outlet for the fan controller's 12 V + 5 V adapter |
+| [noctua-4pin-y-cable](noctua-4pin-y-cable.md) | 6 | selected | rack | provisional | split each QUADRO channel to the four fans of its bank |
 | [noctua-na-fg1-20](noctua-na-fg1-20.md) | 8 | selected | rack | provisional | wire guard on the open side of every fan: below the intake bank, below the exhaust bank inside the cabinet |
 | [noctua-nf-a20-pwm](noctua-nf-a20-pwm.md) | 8 | selected | rack | BLOCKED | cabinet fans: four intake low at the front, four exhaust at the top rear or roof |
-| [olimex-esp32-poe](olimex-esp32-poe.md) | 1 | selected | rack | provisional | fan controller: reads both probes and all eight tachs, drives the two PWM channels, runs ESPHome on wired Ethernet |
 | [rack-cabinet](rack-cabinet.md) | 1 | selected | rack | BLOCKED | acoustic cabinet: exhaust fans replace the stock roof fans, intake fans under the floor, controller and supply under the lid |
 | [silicone-gasket-2mm](silicone-gasket-2mm.md) | 8 | candidate | rack | - | seal between each fan frame and its cabinet panel: a 200 x 200 mm sheet with the rotor opening cut out |
 | [u-channel-edge-trim](u-channel-edge-trim.md) | 1 | candidate | rack | BLOCKED | edge trim around the eight cut fan openings |
@@ -26,6 +27,5 @@ The parts this build uses. Each `<id>.toml` here references a spec in the shared
 
 | Part | Qty | Status | Systems | Worst check | Role |
 | --- | ---: | --- | --- | --- | --- |
-| [rack-fan-controller-board](rack-fan-controller-board.md) | 1 | design | rack | provisional | perfboard: 12 V distribution, 5 V converter, PWM drivers, tach pull-ups, 1-Wire terminal |
-| [rack-fan-harness](rack-fan-harness.md) | 1 | design | rack | - | fan extensions and probe cables from each fan and probe to the controller |
+| [rack-fan-harness](rack-fan-harness.md) | 1 | design | rack | - | intake-bank extension, Y-cable runs and the setup USB adapter |
 
